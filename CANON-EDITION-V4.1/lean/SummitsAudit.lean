@@ -18,6 +18,7 @@ import Snuffy.ReflectionCertificate
 import Snuffy.Trotter
 import Snuffy.Irreplaceability
 import Snuffy.DataProcessing
+import Snuffy.MeetHilbert
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -92,3 +93,7 @@ import Snuffy.DataProcessing
 #print axioms Snuffy.Information.snd_process
 #print axioms Snuffy.Information.data_processing
 #print axioms Snuffy.Information.data_processing_map
+#print axioms Snuffy.MeetHilbert.hilbert_anchor_preserved
+#print axioms Snuffy.MeetHilbert.hilbert_contradiction_collapse
+#print axioms Snuffy.MeetHilbert.contradiction_detected
+#print axioms Snuffy.MeetHilbert.deduction_never_rolls_back
