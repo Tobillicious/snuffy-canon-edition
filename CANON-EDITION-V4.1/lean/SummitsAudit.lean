@@ -16,6 +16,7 @@ import Snuffy.GaussianTail
 import Snuffy.DeductionBoundary
 import Snuffy.ReflectionCertificate
 import Snuffy.Trotter
+import Snuffy.Irreplaceability
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -83,3 +84,6 @@ import Snuffy.Trotter
 #print axioms Snuffy.Trotter.trotter_bound
 #print axioms Snuffy.Trotter.trotter_tendsto
 #print axioms Snuffy.Trotter.lloyd_simulation
+#print axioms Snuffy.Irreplaceability.destroy_loses_exactly
+#print axioms Snuffy.Irreplaceability.preserve_dominates
+#print axioms Snuffy.Irreplaceability.optimal_keeps_most_irreplaceable
