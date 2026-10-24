@@ -17,6 +17,7 @@ import Snuffy.DeductionBoundary
 import Snuffy.ReflectionCertificate
 import Snuffy.Trotter
 import Snuffy.Irreplaceability
+import Snuffy.DataProcessing
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -87,3 +88,7 @@ import Snuffy.Irreplaceability
 #print axioms Snuffy.Irreplaceability.destroy_loses_exactly
 #print axioms Snuffy.Irreplaceability.preserve_dominates
 #print axioms Snuffy.Irreplaceability.optimal_keeps_most_irreplaceable
+#print axioms Snuffy.Information.fst_process
+#print axioms Snuffy.Information.snd_process
+#print axioms Snuffy.Information.data_processing
+#print axioms Snuffy.Information.data_processing_map

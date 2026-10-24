@@ -1,4 +1,4 @@
-# v4.1 summit modules — build receipt (2026-10-24T12:11Z)
+# v4.1 summit modules — build receipt (2026-10-24T12:19Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -18,6 +18,7 @@
 ## ReflectionCertificate: exit=0 compiler-output-bytes=0
 ## Trotter: exit=0 compiler-output-bytes=0
 ## Irreplaceability: exit=0 compiler-output-bytes=0
+## DataProcessing: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -36,6 +37,7 @@
 ## leanchecker Snuffy.ReflectionCertificate: exit=0
 ## leanchecker Snuffy.Trotter: exit=0
 ## leanchecker Snuffy.Irreplaceability: exit=0
+## leanchecker Snuffy.DataProcessing: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -107,11 +109,16 @@
 ##   'Snuffy.Irreplaceability.destroy_loses_exactly' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.Irreplaceability.preserve_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.Irreplaceability.optimal_keeps_most_irreplaceable' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Information.fst_process' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Information.snd_process' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Information.data_processing' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Information.data_processing_map' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## source sha256:
 ##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
 ##   be9e9002bf8ddd9689fe533ad9751d7967e890b4208842ca8612b1f7c9eff7e9  Snuffy/CanonVonNeumannAudit.lean
 ##   2524e8c846408e622bb8a31e89a8888ab07cade9f99f56aa700be3970c870bd5  Snuffy/Composition.lean
 ##   aa67f92c0cd71d1d246576d47dda71e819e6bec52e3ec3633ce9de1b54d87414  Snuffy/CyclicProjections.lean
+##   c59d5eac1b24cca21a2581f64fbb37c74d6517c5a91d03b7866469d6c6c19172  Snuffy/DataProcessing.lean
 ##   7564d8e303e2832617e52d597c0affd33bf9dd96b96541f0c62257b885dd1e6e  Snuffy/DeductionBoundary.lean
 ##   a5e8804486c94667262516d164cebaac3a5063108864f261a3583547e2ad09f2  Snuffy/E9SelfHealing.lean
 ##   adb88719fc0a4d583b725b234e0e21ec4b500ed5166eedea1917f4d4e63b9c6e  Snuffy/GaussianTail.lean
@@ -127,5 +134,5 @@
 ##   87983d7ce3f9af2d1f3790e45e91fdb450eb346e75068542077eb755ba7ac7b0  Snuffy/ReflectionCertificate.lean
 ##   ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035  Snuffy/ThermoLedger.lean
 ##   e2eb62081f7753a5ee4cc594c6d45f6be93da2d54e654f5613a0761677bc920d  Snuffy/Trotter.lean
-##   f025329391305cc8db969f9ed4b5789833e8b2c2d2b74d215b333f68350482fa  SummitsAudit.lean
+##   81b2c5567cb286f5b208547d0a590172c30bd800e0673e3e77772103f65250a9  SummitsAudit.lean
 ## overall: PASS
