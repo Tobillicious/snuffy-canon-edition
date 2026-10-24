@@ -30,6 +30,7 @@ import Snuffy.GaussianChannel
 import Snuffy.KLAdditivity
 import Snuffy.GaussianChannelGen
 import Snuffy.GaussianVector
+import Snuffy.Whitening
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -149,3 +150,8 @@ import Snuffy.GaussianVector
 #print axioms Snuffy.GaussianVector.klDiv_vecChan
 #print axioms Snuffy.GaussianVector.vector_channel_bound
 #print axioms Snuffy.GaussianVector.vector_channel_trace_bound
+#print axioms Snuffy.Whitening.mutualInfo_kernel_map_equiv
+#print axioms Snuffy.Whitening.vecChan_apply
+#print axioms Snuffy.Whitening.multivariateGaussian_one_eq_pi
+#print axioms Snuffy.Whitening.whiten
+#print axioms Snuffy.Whitening.correlated_channel_bound
