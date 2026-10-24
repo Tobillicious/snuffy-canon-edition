@@ -1,4 +1,4 @@
-# v4.1 summit modules — build receipt (2026-10-24T13:40Z)
+# v4.1 summit modules — build receipt (2026-10-24T13:53Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -30,6 +30,8 @@
 ## GoldenFormula: exit=0 compiler-output-bytes=0
 ## GaussianChannel: exit=0 compiler-output-bytes=0
 ## KLAdditivity: exit=0 compiler-output-bytes=0
+## GaussianChannelGen: exit=0 compiler-output-bytes=0
+## GaussianVector: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -60,6 +62,8 @@
 ## leanchecker Snuffy.GoldenFormula: exit=0
 ## leanchecker Snuffy.GaussianChannel: exit=0
 ## leanchecker Snuffy.KLAdditivity: exit=0
+## leanchecker Snuffy.GaussianChannelGen: exit=0
+## leanchecker Snuffy.GaussianVector: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -174,6 +178,12 @@
 ##   'Snuffy.KLAdditivity.prod_eq_compProd' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.KLAdditivity.klDiv_map_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.KLAdditivity.klDiv_prod_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannelGen.llr_chanW' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianChannelGen.klDiv_chanW' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianVector.klDiv_compProd_map_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianVector.klDiv_vecChan' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianVector.vector_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianVector.vector_channel_trace_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## source sha256:
 ##   f69c4a382be9c0144463ccaacea960d01fb400b2ef1775e150c5edee429bcd38  Snuffy/AreaBridge.lean
 ##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
@@ -186,8 +196,10 @@
 ##   0a8889d629d81e4aa27b4d627b4fe009d3c1901d27a7b9b86e4a45e3ee560bc1  Snuffy/Fano.lean
 ##   2a7120678dfd22e9eaa9420621bab301099b9022ba59b20dbe5eeba4b7e70f87  Snuffy/FiniteInformation.lean
 ##   058dd64dd7f47621403bed64f2df232e9ac113e91d927293725c4d6709c9de9c  Snuffy/GaussianChannel.lean
+##   cb047325001c7872fb83df5b57ffe3bce192cd3c9c78b856a76f3a837b50fe74  Snuffy/GaussianChannelGen.lean
 ##   1e2848810f40ad0f1e8c0071ddccbc268960c8c49707bb00e4a32fa238150a32  Snuffy/GaussianKL.lean
 ##   adb88719fc0a4d583b725b234e0e21ec4b500ed5166eedea1917f4d4e63b9c6e  Snuffy/GaussianTail.lean
+##   1b88e2f9f079cef062bf749a96f4ff69ca749775e534b0fbc510250b048a06af  Snuffy/GaussianVector.lean
 ##   1dcb27d5a4fcc2da54355430b6f5d9cfda2ac1fa9680d21b4cf175db2f672525  Snuffy/GoldenFormula.lean
 ##   d21be5cb40a8a4d07e91bdaef149a7b61174ae7bc545c62562b3ce9c46f6613d  Snuffy/Greatestness.lean
 ##   d39dfc51423b0f9eb9aef9674eaa0abfd5426ee18845539004e1f91312dcc88d  Snuffy/H5Closure.lean
@@ -206,5 +218,5 @@
 ##   e2eb62081f7753a5ee4cc594c6d45f6be93da2d54e654f5613a0761677bc920d  Snuffy/Trotter.lean
 ##   ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1  Snuffy/UniversalProtection.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   89acd257360957b54865139e1c46be7505ae0364d26b4dbc1919d2e0180259fe  SummitsAudit.lean
+##   64cdf53e31fda0dbfcba2b653d920557d5ee0022607e077dcfd19f54cae5c5cf  SummitsAudit.lean
 ## overall: PASS
