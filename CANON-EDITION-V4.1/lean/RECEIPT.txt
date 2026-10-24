@@ -1,4 +1,4 @@
-# v4.1 summit modules — build receipt (2026-10-24T16:48Z)
+# v4.1 summit modules — build receipt (2026-10-24T17:14Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -39,6 +39,7 @@
 ## SpeedLimit: exit=0 compiler-output-bytes=0
 ## Landauer: exit=0 compiler-output-bytes=0
 ## QuantumLandauer: exit=0 compiler-output-bytes=0
+## Threshold: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -78,6 +79,7 @@
 ## leanchecker Snuffy.SpeedLimit: exit=0
 ## leanchecker Snuffy.Landauer: exit=0
 ## leanchecker Snuffy.QuantumLandauer: exit=0
+## leanchecker Snuffy.Threshold: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -246,6 +248,13 @@
 ##   'Snuffy.QuantumLandauer.quantum_landauer' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.QuantumLandauer.quantum_guard_one' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.QuantumLandauer.quantum_cycle_work_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.many_faults' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.fail_le_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.fail_le_geometric' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.repetition_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.repetition_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.poly_geom_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Threshold.family_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## source sha256:
 ##   f69c4a382be9c0144463ccaacea960d01fb400b2ef1775e150c5edee429bcd38  Snuffy/AreaBridge.lean
 ##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
@@ -283,9 +292,10 @@
 ##   4e6c32de3088efebd3bc32d69ea6a7770e231af6605fe0bd4fcf09d7c66d09e2  Snuffy/Rotation.lean
 ##   355c12f48ab339d34d57c02f9e3a9d556d27009aecb26335b9113c9e327d11b6  Snuffy/SpeedLimit.lean
 ##   ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035  Snuffy/ThermoLedger.lean
+##   2a32b8f01e8967eb10dcbb0435e507ad7daa4fb08081f6ba13faf92cf0542ddc  Snuffy/Threshold.lean
 ##   e2eb62081f7753a5ee4cc594c6d45f6be93da2d54e654f5613a0761677bc920d  Snuffy/Trotter.lean
 ##   ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1  Snuffy/UniversalProtection.lean
 ##   97796ec3be890378195fa42cfd4ae9e12494235f556e4d4679beea1dea75e7fc  Snuffy/Whitening.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   f38110cb0bebf707651e71abb4cf8fe49d77836e8d6b9eb5a2a6751c08fd0e2e  SummitsAudit.lean
+##   c2016138fd35711258984cebfc7567cf6fa9cf26173b34482f956ed88fd81c8c  SummitsAudit.lean
 ## overall: PASS
