@@ -28,6 +28,7 @@ import Snuffy.GaussianKL
 import Snuffy.GoldenFormula
 import Snuffy.GaussianChannel
 import Snuffy.KLAdditivity
+import Snuffy.GaussianChannelGen
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -141,3 +142,5 @@ import Snuffy.KLAdditivity
 #print axioms Snuffy.KLAdditivity.prod_eq_compProd
 #print axioms Snuffy.KLAdditivity.klDiv_map_equiv
 #print axioms Snuffy.KLAdditivity.klDiv_prod_kernel
+#print axioms Snuffy.GaussianChannelGen.llr_chanW
+#print axioms Snuffy.GaussianChannelGen.klDiv_chanW
