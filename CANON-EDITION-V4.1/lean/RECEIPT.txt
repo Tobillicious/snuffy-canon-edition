@@ -1,4 +1,4 @@
-# v4.1 summit modules — build receipt (2026-10-24T14:05Z)
+# v4.1 summit modules — build receipt (2026-10-24T14:20Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -33,6 +33,7 @@
 ## GaussianChannelGen: exit=0 compiler-output-bytes=0
 ## GaussianVector: exit=0 compiler-output-bytes=0
 ## Whitening: exit=0 compiler-output-bytes=0
+## Rotation: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -66,6 +67,7 @@
 ## leanchecker Snuffy.GaussianChannelGen: exit=0
 ## leanchecker Snuffy.GaussianVector: exit=0
 ## leanchecker Snuffy.Whitening: exit=0
+## leanchecker Snuffy.Rotation: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -191,6 +193,8 @@
 ##   'Snuffy.Whitening.multivariateGaussian_one_eq_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.Whitening.whiten' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.Whitening.correlated_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Rotation.multivariateGaussian_one_map_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Rotation.rotated_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## source sha256:
 ##   f69c4a382be9c0144463ccaacea960d01fb400b2ef1775e150c5edee429bcd38  Snuffy/AreaBridge.lean
 ##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
@@ -221,10 +225,11 @@
 ##   352b83df636a2e16165c4cd78c7a784ca689353a59a2e27eae58d6da4fc096f2  Snuffy/ReciprocityCeiling.lean
 ##   ae54c335b663b2e9167e972a2f70df8dcdedc1236a4b107b1ae11862b04018bc  Snuffy/RecoveryWork.lean
 ##   87983d7ce3f9af2d1f3790e45e91fdb450eb346e75068542077eb755ba7ac7b0  Snuffy/ReflectionCertificate.lean
+##   4e6c32de3088efebd3bc32d69ea6a7770e231af6605fe0bd4fcf09d7c66d09e2  Snuffy/Rotation.lean
 ##   ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035  Snuffy/ThermoLedger.lean
 ##   e2eb62081f7753a5ee4cc594c6d45f6be93da2d54e654f5613a0761677bc920d  Snuffy/Trotter.lean
 ##   ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1  Snuffy/UniversalProtection.lean
 ##   97796ec3be890378195fa42cfd4ae9e12494235f556e4d4679beea1dea75e7fc  Snuffy/Whitening.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   dbd4c9850874572465a88b6cc599f80cfa74dd99f7df1b44499a5a38ec686836  SummitsAudit.lean
+##   95622e9bf0cfe7e6f1e1bf7131fc15f02f221cf5bde6ab28bfa81a34da5be499  SummitsAudit.lean
 ## overall: PASS
