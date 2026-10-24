@@ -10,7 +10,7 @@ BUILD=${BUILD:-$(mktemp -d)}
 export PATH=$LEAN_BIN:$PATH
 mkdir -p $BUILD/Snuffy
 export LEAN_PATH="$(cd $MATHLIB_PROJECT && lake env printenv LEAN_PATH):$BUILD"
-MODULES=(MathlibAnalyticBridge HalperinDecay OpialBridge CanonVonNeumann RecoveryWork E9SelfHealing H5Closure Greatestness ThermoLedger Composition PremiseFloor ReciprocityCeiling CyclicProjections GaussianTail DeductionBoundary ReflectionCertificate Trotter Irreplaceability DataProcessing MeetAlgebra MeetHilbert FiniteInformation AreaBridge UniversalProtection Workload Fano GaussianKL GoldenFormula GaussianChannel KLAdditivity GaussianChannelGen GaussianVector Whitening Rotation LogDet Law SpeedLimit Landauer QuantumLandauer Threshold UnionClosure Bridge Instruments StrokeBookkeeping Bennett Concatenated)
+MODULES=(MathlibAnalyticBridge HalperinDecay OpialBridge CanonVonNeumann RecoveryWork E9SelfHealing H5Closure Greatestness ThermoLedger Composition PremiseFloor ReciprocityCeiling CyclicProjections GaussianTail DeductionBoundary ReflectionCertificate Trotter Irreplaceability DataProcessing MeetAlgebra MeetHilbert FiniteInformation AreaBridge UniversalProtection Workload Fano GaussianKL GoldenFormula GaussianChannel KLAdditivity GaussianChannelGen GaussianVector Whitening Rotation LogDet Law SpeedLimit Landauer QuantumLandauer Threshold UnionClosure Bridge Instruments StrokeBookkeeping Bennett Concatenated ReasonsCompiled TwoLevel)
 OUT=$HERE/RECEIPT.txt
 {
   echo "# v4.1 summit modules — build receipt ($(date -u +%Y-%m-%dT%H:%MZ))"
@@ -23,12 +23,23 @@ OUT=$HERE/RECEIPT.txt
     [[ $ec -ne 0 || $b -ne 0 ]] && { ok=0; sed 's/^/##   /' $BUILD/$m.out; }
   done
   for m in $MODULES; do
-    leanchecker Snuffy.$m > $BUILD/$m.check 2>&1; echo "## leanchecker Snuffy.$m: exit=$?"
+    leanchecker Snuffy.$m > $BUILD/$m.check 2>&1; cec=$?; echo "## leanchecker Snuffy.$m: exit=$cec"
+    [[ $cec -ne 0 ]] && { ok=0; sed 's/^/##   /' $BUILD/$m.check; }
   done
   hits=$(grep -n -E '(:=|by|^)[[:space:]]*(sorry|admit)([[:space:]]|$)|^axiom ' $HERE/Snuffy/*.lean)
   echo "## sorry/admit/axiom uses in sources: ${hits:-none}"
+  [[ -n $hits ]] && ok=0
   echo "## axiom audit (SummitsAudit.lean):"
-  lean $HERE/SummitsAudit.lean 2>&1 | sed 's/^/##   /'
+  lean $HERE/SummitsAudit.lean > $BUILD/axioms.out 2>&1; aec=$?
+  sed 's/^/##   /' $BUILD/axioms.out
+  echo "## axiom audit exit=$aec"
+  [[ $aec -ne 0 ]] && ok=0
+  # every printed theorem must depend on at most propext, Classical.choice, Quot.sound
+  bad=$(grep "depends on axioms" $BUILD/axioms.out | grep -v -E 'axioms: \[(propext|Classical\.choice|Quot\.sound)(, (propext|Classical\.choice|Quot\.sound))*\]')
+  printed=$(grep -c -E "depends on axioms|does not depend on any axioms" $BUILD/axioms.out)
+  echo "## theorems audited: $printed; non-standard axiom dependencies: ${bad:-none}"
+  [[ -n $bad ]] && ok=0
+  grep -q -E ":[0-9]+:[0-9]+: error" $BUILD/axioms.out && ok=0
   echo "## source sha256:"
   (cd $HERE && shasum -a 256 Snuffy/*.lean SummitsAudit.lean) | sed 's/^/##   /'
   echo "## overall: $([[ $ok -eq 1 ]] && echo PASS || echo FAIL)"

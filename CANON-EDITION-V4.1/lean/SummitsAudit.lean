@@ -44,6 +44,8 @@ import Snuffy.Instruments
 import Snuffy.StrokeBookkeeping
 import Snuffy.Bennett
 import Snuffy.Concatenated
+import Snuffy.ReasonsCompiled
+import Snuffy.TwoLevel
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -268,3 +270,19 @@ import Snuffy.Concatenated
 #print axioms Snuffy.Concatenated.card_witnesses
 #print axioms Snuffy.Concatenated.concatenated_threshold
 #print axioms Snuffy.Concatenated.concatenated_ceiling
+#print axioms Snuffy.ReasonsCompiled.reciprocity_expectation
+#print axioms Snuffy.ReasonsCompiled.reciprocity_canonical_floor
+#print axioms Snuffy.ReasonsCompiled.reciprocity_strict
+#print axioms Snuffy.ReasonsCompiled.reciprocity_from_solvency
+#print axioms Snuffy.ReasonsCompiled.controller_pays_floor
+#print axioms Snuffy.ReasonsCompiled.controller_floor_diverges
+#print axioms Snuffy.TwoLevel.mul_of_idOutside
+#print axioms Snuffy.TwoLevel.givens_unitary
+#print axioms Snuffy.TwoLevel.givens_idOutside
+#print axioms Snuffy.TwoLevel.elim_kills
+#print axioms Snuffy.TwoLevel.col_zero_above
+#print axioms Snuffy.TwoLevel.clear_below
+#print axioms Snuffy.TwoLevel.phase_unitary
+#print axioms Snuffy.TwoLevel.next_column
+#print axioms Snuffy.TwoLevel.star_twoLevel
+#print axioms Snuffy.TwoLevel.two_level_decomposition
