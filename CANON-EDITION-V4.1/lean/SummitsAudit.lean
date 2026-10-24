@@ -5,6 +5,7 @@ result depends on.
 import Snuffy.CanonVonNeumann
 import Snuffy.RecoveryWork
 import Snuffy.E9SelfHealing
+import Snuffy.H5Closure
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -20,3 +21,9 @@ import Snuffy.E9SelfHealing
 #print axioms Snuffy.E9.syndrome_detects
 #print axioms Snuffy.E9.code_headroom
 #print axioms Snuffy.E9.e9_timely_self_healing
+#print axioms Snuffy.H5.step_inv
+#print axioms Snuffy.H5.authority_attenuation
+#print axioms Snuffy.H5.reserve_before_activation
+#print axioms Snuffy.H5.no_unfunded_work
+#print axioms Snuffy.H5.no_harmful_effect
+#print axioms Snuffy.H5.consistency_detector
