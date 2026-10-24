@@ -24,11 +24,11 @@
 
 | Claim | Module | Theorems |
 | --- | --- | --- |
-| Stroke identity ΔD = βW_on − βQ_B + I₁ − I₂ | `ThermoLedger` | `stroke_identity` |
+| Stroke identity $\Delta D = \beta W_{\mathrm{on}} - \beta Q_B + I_1 - I_2$ | `ThermoLedger` | `stroke_identity` |
 | Cycle work floor from guard 1 | `ThermoLedger` | `cycle_work_floor` |
-| **Guard 1 derived (Landauer).** Reversible dynamics of a register and a Gibbs bath: the Reeb–Wolf identity β ΔQ_B − ΔS_R = I(R′:B′) + D(q_B ‖ γ); Landauer's bound β ΔQ_B ≥ ΔS_R; erasure costs Q_B ≥ k_BT H(p) | `Landauer` | `reeb_wolf_identity`, `landauer`, `landauer_erasure` |
-| **Guard 1 derived (quantum).** Von Neumann entropy: unitary invariance, pinching, the quantum Gibbs bound S(ρ) ≤ β Tr(ρH) + ln Z with equality at γ, S(ρ_A ⊗ γ) = S(ρ_A) + S(γ); Landauer's bound for every unitary coupling of a register to a Gibbs bath, S(ρ_A) − S(ρ′_A) ≤ β ΔQ_B | `QuantumLandauer` | `vnEnt_unitary_conj`, `vnEnt_le_diag`, `vnEnt_le_energy`, `vnEnt_init`, `quantum_landauer` |
-| Guard 1, βQ_B ≥ I_M + D_err + δ_I whenever the reset removes that entropy; the cycle work floor with guard 1 derived, not assumed | `Landauer`, `QuantumLandauer` | `guard_one`, `quantum_guard_one`, `cycle_work_floor_derived`, `quantum_cycle_work_floor` |
+| **Guard 1 derived (Landauer).** Reversible dynamics of a register and a Gibbs bath: the Reeb–Wolf identity $\beta\,\Delta Q_B - \Delta S_R = I(R':B') + D(q_B \,\Vert\, \gamma)$; Landauer's bound $\beta\,\Delta Q_B \ge \Delta S_R$; erasure costs $Q_B \ge k_B T\, H(p)$ | `Landauer` | `reeb_wolf_identity`, `landauer`, `landauer_erasure` |
+| **Guard 1 derived (quantum).** Von Neumann entropy: unitary invariance, pinching, the quantum Gibbs bound $S(\rho) \le \beta\,\mathrm{Tr}(\rho H) + \ln Z$ with equality at $\gamma$, $S(\rho_A \otimes \gamma) = S(\rho_A) + S(\gamma)$; Landauer's bound for every unitary coupling of a register to a Gibbs bath, $S(\rho_A) - S(\rho'_A) \le \beta\,\Delta Q_B$ | `QuantumLandauer` | `vnEnt_unitary_conj`, `vnEnt_le_diag`, `vnEnt_le_energy`, `vnEnt_init`, `quantum_landauer` |
+| Guard 1, $\beta Q_B \ge I_M + D_{\mathrm{err}} + \delta_I$ whenever the reset removes that entropy; the cycle work floor with guard 1 derived, not assumed | `Landauer`, `QuantumLandauer` | `guard_one`, `quantum_guard_one`, `cycle_work_floor_derived`, `quantum_cycle_work_floor` |
 | Funded-repair certificate; quarantine zero debt | `ThermoLedger` | `funded_repair_certificate`, `quarantine_zero_debt` |
 | Canon invariant: P(breach) ≤ P(Gᶜ) ≤ Σδ, no independence | `ThermoLedger` | `tower_bound`, `canon_invariant` |
 | Identity tracking envelope (Chapter 2) | `ThermoLedger` | `tracking_envelope`, `tracking_bounded`, `tracking_within_resolution` |
@@ -42,8 +42,8 @@
 | Byzantine quorum: robust estimates lie between honest readings; existence for K ≥ 2f + 1 | `E9SelfHealing` | `robust_between_honest`, `no_false_alarm`, `no_masking`, `exists_robust` |
 | Branch B: non-stabilizer errors below the distance have a non-trivial syndrome | `E9SelfHealing` | `syndrome_detects` |
 | Wave-race margin; code headroom; assembled E9 | `E9SelfHealing` | `wave_race_margin`, `code_headroom`, `e9_timely_self_healing` |
-| **Branch A rate bound (quantum speed limit).** Unitary evolution preserves the norm; under H₀ + V the trajectory departs from the H₀ trajectory at rate at most ‖V‖/ħ, and at most P_adv/(ħ ω_cutoff) under the per-site coupling ‖V‖ ≤ P_adv/ω_cutoff | `SpeedLimit` | `norm_conserved`, `branchA_divergence`, `branchA_rate` |
-| Mandelstam–Tamm, sharp: \|⟨ψ₀, ψ_t⟩\| ≥ cos(ΔE t/ħ) while ΔE t/ħ ≤ π; orthogonalisation time T ≥ πħ/(2ΔE) | `SpeedLimit` | `mandelstam_tamm`, `orthogonalization_time` |
+| **Branch A rate bound (quantum speed limit).** Unitary evolution preserves the norm; under H₀ + V the trajectory departs from the H₀ trajectory at rate at most ‖V‖/ħ, and at most $P_{\mathrm{adv}}/(\hbar\,\omega_{\mathrm{cutoff}})$ under the per-site coupling $\lVert V\rVert \le P_{\mathrm{adv}}/\omega_{\mathrm{cutoff}}$ | `SpeedLimit` | `norm_conserved`, `branchA_divergence`, `branchA_rate` |
+| Mandelstam–Tamm, sharp: $\lvert\langle\psi_0, \psi_t\rangle\rvert \ge \cos(\Delta E\, t/\hbar)$ while $\Delta E\, t/\hbar \le \pi$; orthogonalisation time $T \ge \pi\hbar/(2\Delta E)$ | `SpeedLimit` | `mandelstam_tamm`, `orthogonalization_time` |
 
 The Branch A divergence is measured in state-vector norm. For pure states, ‖ρ − σ‖₁ ≤ 2‖ψ − φ‖ is a standard inequality and is not compiled here.
 
@@ -64,8 +64,8 @@ The Branch A divergence is measured in state-vector norm. For pure states, ‖ρ
 | --- | --- | --- |
 | Data processing invariance I(H : 𝓡(S)) ≤ I(H : S), any probability spaces | `DataProcessing` | `data_processing`, `data_processing_map` |
 | Finite information theory: log-sum, data processing, flag identity, decoder bound | `FiniteInformation` | `log_sum`, `data_processing_fin`, `flag_identity`, `decoder_bound` |
-| Gaussian carrier tail; necessary radius; carrier radius R(t) ≥ w(t − t_c) | `GaussianTail`, `RecoveryWork`, `FiniteInformation` | `carrier_tail`, `necessary_radius_from_decoder`, `carrier_radius` |
-| Recovery-work theorem; W_min over all admitted protocols; divergence of delayed recovery | `RecoveryWork`, `GaussianTail` | `frontier_work_bound`, `Wmin_lower_bound`, `x3_work_from_decoder`, `delayed_work_diverges` |
+| Gaussian carrier tail; necessary radius; carrier radius $R(t) \ge w(t - t_c)$ | `GaussianTail`, `RecoveryWork`, `FiniteInformation` | `carrier_tail`, `necessary_radius_from_decoder`, `carrier_radius` |
+| Recovery-work theorem; $W_{\min}$ over all admitted protocols; divergence of delayed recovery | `RecoveryWork`, `GaussianTail` | `frontier_work_bound`, `Wmin_lower_bound`, `x3_work_from_decoder`, `delayed_work_diverges` |
 | Fano's inequality and the required information Δ₀ | `Fano` | `fano`, `mi_eq_ent_sub_condEnt`, `required_information` |
 | Gaussian maximum entropy: KL between Gaussians; golden formula; scalar, vector, correlated-noise and exact log-det channel bounds | `GaussianKL`, `GoldenFormula`, `GaussianChannel`, `KLAdditivity`, `GaussianChannelGen`, `GaussianVector`, `Whitening`, `Rotation`, `LogDet` | `klDiv_gaussian_gaussian`, `golden_formula`, `gaussian_channel_bound`, `klDiv_prod_kernel`, `vector_channel_bound`, `correlated_channel_bound`, `logdet_channel_bound` |
 | ln det(I + W) ≤ tr W; per-use cap; required traffic m ≥ θ₀n; area power | `AreaBridge`, `Workload` | `logdet_le_trace`, `channel_cap`, `required_traffic`, `area_power`, `range_variance_bound` |
@@ -80,8 +80,8 @@ The compiled X3 route is the banked transport route of the working argument (§1
 | Premise 5 derived: the law plus Bennett's feasible reversible counterpart forces reversible administration | `PremiseFloor` | `reversible_administration_forced` (no axioms) |
 | Premise 2 reduced: Lie–Trotter product formula with explicit error; Lloyd's simulation theorem | `Trotter` | `trotter_bound`, `trotter_tendsto`, `lloyd_simulation` |
 | Premise 7's ceiling is a dial: every target ε > 0 is met at some code distance | `ReciprocityCeiling` | `ceiling_achievable` |
-| **The threshold theorem's counting core.** Under local stochastic noise: P(at least m of T fail) ≤ C(\|T\|, m) p^m; with half-faulty failure witnesses, P(fail) ≤ Σ_w (2√p)^{\|w\|}; with at most V Δ^L witnesses of each length L ≥ d, P(fail) ≤ V r^d/(1 − r), r = 2Δ√p < 1 | `Threshold` | `many_faults`, `fail_le_witness`, `fail_le_geometric` |
-| The repetition code end to end: majority decoding fails with probability at most (4p)^t, and every ceiling is met below p = 1/4 | `Threshold` | `repetition_threshold`, `repetition_ceiling` |
+| **The threshold theorem's counting core.** Under local stochastic noise: $P(\text{at least } m \text{ of } T \text{ fail}) \le \binom{\lvert T\rvert}{m} p^m$; with half-faulty failure witnesses, $P(\text{fail}) \le \sum_w (2\sqrt p)^{\lvert w\rvert}$; with at most $V\Delta^L$ witnesses of each length $L \ge d$, $P(\text{fail}) \le V r^d/(1-r)$, $r = 2\Delta\sqrt p < 1$ | `Threshold` | `many_faults`, `fail_le_witness`, `fail_le_geometric` |
+| The repetition code end to end: majority decoding fails with probability at most $(4p)^t$, and every ceiling is met below $p = 1/4$ | `Threshold` | `repetition_threshold`, `repetition_ceiling` |
 | Code families with polynomially many witnesses: the charged kernel decays geometrically, and every target ceiling (10⁻⁶ included) is met at some distance and every larger one | `Threshold` | `family_ceiling` |
 
 ## 23.7 The Universal Protection Theorem, assembled (Global D)
@@ -91,7 +91,7 @@ The compiled X3 route is the banked transport route of the working argument (§1
 ## 23.8 What the compiled theorems rest on
 
 **Premises carried as stated premises or hypotheses:**
-* the surface-code chain lemma (Dennis, Kitaev, Landahl and Preskill, 2002): minimum-weight decoding fails only along a self-avoiding chain of length at least d with at least half its edges faulty, with at most V Δ^L such chains of length L. This is the code-specific input to `Threshold.family_ceiling`; the threshold theorem's counting core is compiled (§23.6);
+* the surface-code chain lemma (Dennis, Kitaev, Landahl and Preskill, 2002): minimum-weight decoding fails only along a self-avoiding chain of length at least d with at least half its edges faulty, with at most $V\Delta^L$ such chains of length $L$. This is the code-specific input to `Threshold.family_ceiling`; the threshold theorem's counting core is compiled (§23.6);
 * feasibility of Bennett's reversible counterpart;
 * the gate-set clause of premise 2 (a universal simulator implements each local factor);
 * the relational frame BCRD P1–P4.
@@ -102,10 +102,10 @@ The first three are published mathematical theorems, cited as such. The fourth i
 * finite-dimensional quantum mechanics, with Schrödinger dynamics generated by self-adjoint Hamiltonians;
 * unitary (in the classical form, reversible) joint dynamics;
 * a bath that starts in its Gibbs state, uncorrelated with the register;
-* for Branch A, the per-site coupling bound ‖V‖ ≤ P_adv/ω_cutoff;
+* for Branch A, the per-site coupling bound $\lVert V\rVert \le P_{\mathrm{adv}}/\omega_{\mathrm{cutoff}}$;
 * for the fault ceiling, local stochastic noise of rate p below the threshold of `Threshold.family_ceiling`.
 
-The amount I_M + D_err + δ_I that the reset removes from the register is the instance's entropy accounting (§18), stated as the hypothesis of `guard_one` and `quantum_guard_one`.
+The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the register is the instance's entropy accounting (§18), stated as the hypothesis of `guard_one` and `quantum_guard_one`.
 
 **Instance certificates, carried as hypotheses of the composition and assembly theorems:** the commuting refinement of the source by the abstract transitions, observation agreement, the initial witness, preservation by every admitted abstract transition, route coverage R(x) ∨ H(x), and the conditional kernel bounds of the charged accounts. These are what a physical installation supplies; the theorems state exactly what each installation owes.
 
