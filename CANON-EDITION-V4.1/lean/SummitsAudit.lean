@@ -38,6 +38,7 @@ import Snuffy.SpeedLimit
 import Snuffy.Landauer
 import Snuffy.QuantumLandauer
 import Snuffy.Threshold
+import Snuffy.UnionClosure
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -212,3 +213,11 @@ import Snuffy.Threshold
 #print axioms Snuffy.Threshold.repetition_ceiling
 #print axioms Snuffy.Threshold.poly_geom_le
 #print axioms Snuffy.Threshold.family_ceiling
+#print axioms Snuffy.UnionClosure.aligned_never_below
+#print axioms Snuffy.UnionClosure.dominates_of_affordable
+#print axioms Snuffy.UnionClosure.strict_of_affordable
+#print axioms Snuffy.UnionClosure.exists_union_bound
+#print axioms Snuffy.UnionClosure.dominates_within_slack
+#print axioms Snuffy.UnionClosure.union_closed_of_affordable
+#print axioms Snuffy.UnionClosure.greatest_of_affordable
+#print axioms Snuffy.UnionClosure.greatest_needs_budget

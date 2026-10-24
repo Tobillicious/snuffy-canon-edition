@@ -1,6 +1,6 @@
 # Section 23 — The machine-checked canon
 
-*This section records which results of the edition are compiled theorems, by module and theorem name, and what each compiled statement rests on. Forty Lean modules in `lean/Snuffy/` compile against Mathlib rev `56a005855ea1` (Lean 4.35.0) with exit 0 and zero compiler output, pass `leanchecker`, contain no `sorry`, and depend only on Lean's standard axioms (`propext`, `Classical.choice`, `Quot.sound`; several on fewer or none). Rebuild and audit with `lean/build-and-audit.sh`; the current receipt is `lean/RECEIPT.txt`.*
+*This section records which results of the edition are compiled theorems, by module and theorem name, and what each compiled statement rests on. Forty-one Lean modules in `lean/Snuffy/` compile against Mathlib rev `56a005855ea1` (Lean 4.35.0) with exit 0 and zero compiler output, pass `leanchecker`, contain no `sorry`, and depend only on Lean's standard axioms (`propext`, `Classical.choice`, `Quot.sound`; several on fewer or none). Rebuild and audit with `lean/build-and-audit.sh`; the current receipt is `lean/RECEIPT.txt`.*
 
 *Evidence convention (unchanged from the edition header): a compiled theorem is cited by its name; a statement carried as a hypothesis of a compiled theorem is named as such; a prose derivation keeps its stated premises. A prose proof does not acquire a compiler certificate by association.*
 
@@ -16,6 +16,8 @@
 | Proposition 3: maximality of the projection to a scope S guarantees no needless existing loss for every feasible family iff S is the whole existing domain; same-priority counting of a new particular admits a needless loss | `Law` | `scope_guarantee_iff`, `same_priority_admits_needless_loss` |
 | Proposition 4: a statewise faithful hold dominates every rival on every upward-closed event under any law on the worlds, strictly when the rival misses with positive probability | `Law` | `faithful_hold_dominates`, `faithful_hold_strict` |
 | Universal greatestness under stage-wise union closure (P-emu(c)); rivals are exact mirrors or strictly below; the canonical option is unique | `Greatestness` | `greatest_of_union_closed`, `strict_except_mirrors`, `aligned_unique` |
+| **Union closure from a resource model.** P-emu(c) splits into realisability through the shared action interface (premise 4) and a budget $B$. Every realisable rival whose union with the canonical outcome is affordable is contained in it, strictly below or an exact mirror. With subadditive cost, every finite set of rivals whose total cost fits in the canonical slack $B - c(o)$ is contained in it. When every feasible pair is jointly affordable, universal greatestness holds outright | `UnionClosure` | `dominates_of_affordable`, `strict_of_affordable`, `dominates_within_slack`, `greatest_of_affordable` |
+| Sharpness: the slack condition cannot be dropped, since without it a feasible rival can keep a particular the canonical option does not. Whatever the budget, no feasible rival is canonically above the canonical option | `UnionClosure` | `greatest_needs_budget`, `aligned_never_below` |
 | Reciprocity in the canonical order (§15, D3*) | `ReciprocityCeiling` | `reciprocity_dominance`, `omitting_rival_strictly_below` |
 | Option value and indicator reciprocity (§§15–16) | `ReasonsRoute` (v4.1, unchanged) | `optionValue_strict`, `law_dominates_strict`, `rival_fraction_lt_one` |
 | Irreplaceability dominance and grading (§16.1, U1), additive information model | `Irreplaceability` | `destroy_loses_exactly`, `preserve_dominates`, `optimal_keeps_most_irreplaceable` |
@@ -104,6 +106,8 @@ The first three are published mathematical theorems, cited as such. The fourth i
 * a bath that starts in its Gibbs state, uncorrelated with the register;
 * for Branch A, the per-site coupling bound $\lVert V\rVert \le P_{\mathrm{adv}}/\omega_{\mathrm{cutoff}}$;
 * for the fault ceiling, local stochastic noise of rate p below the threshold of `Threshold.family_ceiling`.
+
+**Union closure.** Universal greatestness (§5.3) used P-emu(c): the canonical regime realises the stage-wise union of any finite rival set within its slack. It now splits in two. The resource half is compiled: rivals whose cost fits in the canonical slack are contained in the canonical outcome, and the slack condition is shown necessary (§23.1, `UnionClosure`). The realisability half, that concurrent emulation through the shared action interface realises the union, is premise 4 of the stack, stated as `UnionRealizable`.
 
 The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the register is the instance's entropy accounting (§18), stated as the hypothesis of `guard_one` and `quantum_guard_one`.
 
