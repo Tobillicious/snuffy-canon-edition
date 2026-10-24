@@ -12,6 +12,7 @@ import Snuffy.Composition
 import Snuffy.PremiseFloor
 import Snuffy.ReciprocityCeiling
 import Snuffy.CyclicProjections
+import Snuffy.GaussianTail
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -61,3 +62,7 @@ import Snuffy.CyclicProjections
 #print axioms Snuffy.Cyclic.mem_of_norm_adj_eq
 #print axioms Snuffy.Cyclic.tendsto_cyc_iter
 #print axioms Snuffy.Cyclic.presentation_detector
+#print axioms Snuffy.GaussianTail.gaussian_lower_tail
+#print axioms Snuffy.GaussianTail.carrier_tail
+#print axioms Snuffy.GaussianTail.necessary_radius_of_decoder
+#print axioms Snuffy.GaussianTail.x3_work_from_decoder

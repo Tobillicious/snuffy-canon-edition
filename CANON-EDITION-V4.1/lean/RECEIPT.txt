@@ -1,4 +1,4 @@
-# v4.1 summit modules — build receipt (2026-10-24T11:45Z)
+# v4.1 summit modules — build receipt (2026-10-24T11:50Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -13,6 +13,7 @@
 ## PremiseFloor: exit=0 compiler-output-bytes=0
 ## ReciprocityCeiling: exit=0 compiler-output-bytes=0
 ## CyclicProjections: exit=0 compiler-output-bytes=0
+## GaussianTail: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -26,6 +27,7 @@
 ## leanchecker Snuffy.PremiseFloor: exit=0
 ## leanchecker Snuffy.ReciprocityCeiling: exit=0
 ## leanchecker Snuffy.CyclicProjections: exit=0
+## leanchecker Snuffy.GaussianTail: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -76,12 +78,17 @@
 ##   'Snuffy.Cyclic.mem_of_norm_adj_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.Cyclic.tendsto_cyc_iter' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.Cyclic.presentation_detector' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianTail.gaussian_lower_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianTail.carrier_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianTail.necessary_radius_of_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GaussianTail.x3_work_from_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## source sha256:
 ##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
 ##   be9e9002bf8ddd9689fe533ad9751d7967e890b4208842ca8612b1f7c9eff7e9  Snuffy/CanonVonNeumannAudit.lean
 ##   2524e8c846408e622bb8a31e89a8888ab07cade9f99f56aa700be3970c870bd5  Snuffy/Composition.lean
 ##   aa67f92c0cd71d1d246576d47dda71e819e6bec52e3ec3633ce9de1b54d87414  Snuffy/CyclicProjections.lean
 ##   a5e8804486c94667262516d164cebaac3a5063108864f261a3583547e2ad09f2  Snuffy/E9SelfHealing.lean
+##   adb88719fc0a4d583b725b234e0e21ec4b500ed5166eedea1917f4d4e63b9c6e  Snuffy/GaussianTail.lean
 ##   d21be5cb40a8a4d07e91bdaef149a7b61174ae7bc545c62562b3ce9c46f6613d  Snuffy/Greatestness.lean
 ##   d39dfc51423b0f9eb9aef9674eaa0abfd5426ee18845539004e1f91312dcc88d  Snuffy/H5Closure.lean
 ##   c6a9d6f150f2096d096084507ae940e2198c7bf8a16b8f2d06a42a07fea593ff  Snuffy/HalperinDecay.lean
@@ -91,5 +98,5 @@
 ##   352b83df636a2e16165c4cd78c7a784ca689353a59a2e27eae58d6da4fc096f2  Snuffy/ReciprocityCeiling.lean
 ##   ae54c335b663b2e9167e972a2f70df8dcdedc1236a4b107b1ae11862b04018bc  Snuffy/RecoveryWork.lean
 ##   ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035  Snuffy/ThermoLedger.lean
-##   1c453b409d608677aac6c0f65974fce6f01ca9e696b2130d8c26dbaae22fcadd  SummitsAudit.lean
+##   8bac8dd0f63a834ad92747fdcea2d74d5dcc4fe10d5ab5a8835d95dd276485db  SummitsAudit.lean
 ## overall: PASS
