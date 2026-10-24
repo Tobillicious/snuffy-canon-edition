@@ -39,6 +39,9 @@ import Snuffy.Landauer
 import Snuffy.QuantumLandauer
 import Snuffy.Threshold
 import Snuffy.UnionClosure
+import Snuffy.Bridge
+import Snuffy.Instruments
+import Snuffy.StrokeBookkeeping
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -220,4 +223,30 @@ import Snuffy.UnionClosure
 #print axioms Snuffy.UnionClosure.dominates_within_slack
 #print axioms Snuffy.UnionClosure.union_closed_of_affordable
 #print axioms Snuffy.UnionClosure.greatest_of_affordable
-#print axioms Snuffy.UnionClosure.greatest_needs_budget
+#print axioms Snuffy.UnionClosure.insolvent_not_greatest
+#print axioms Snuffy.UnionClosure.aligned_eq_of_greatest
+#print axioms Snuffy.UnionClosure.greatest_of_solvent
+#print axioms Snuffy.UnionClosure.greatest_or_irrelevant
+#print axioms Snuffy.UnionClosure.strict_of_solvent
+#print axioms Snuffy.Bridge.coverage_from_law
+#print axioms Snuffy.Bridge.nearest_decodes
+#print axioms Snuffy.Bridge.exists_nearest_decoder
+#print axioms Snuffy.Bridge.holding_preserves
+#print axioms Snuffy.Bridge.qsl_growth
+#print axioms Snuffy.Bridge.qsl_within_radius
+#print axioms Snuffy.Bridge.headroom_within_radius
+#print axioms Snuffy.Bridge.universal_protection_held
+#print axioms Snuffy.Bridge.holding_cycle_physical
+#print axioms Snuffy.Instruments.lindblad_reset_flow
+#print axioms Snuffy.Instruments.lindblad_step
+#print axioms Snuffy.Instruments.reset_contracts
+#print axioms Snuffy.Instruments.tracking_recursion_derived
+#print axioms Snuffy.Instruments.tracking_envelope_derived
+#print axioms Snuffy.Instruments.branchC_complete
+#print axioms Snuffy.Instruments.card_box
+#print axioms Snuffy.Instruments.card_boundary
+#print axioms Snuffy.Instruments.boundary_power
+#print axioms Snuffy.StrokeBookkeeping.controlled_unitary
+#print axioms Snuffy.StrokeBookkeeping.ptrB_controlled
+#print axioms Snuffy.StrokeBookkeeping.stroke_entropy_change
+#print axioms Snuffy.StrokeBookkeeping.stroke_identity_derived

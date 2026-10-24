@@ -1,4 +1,4 @@
-# v4.1 summit modules — build receipt (2026-10-24T17:46Z)
+# v4.1 summit modules — build receipt (2026-10-24T18:05Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -264,7 +264,11 @@
 ##   'Snuffy.UnionClosure.dominates_within_slack' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.UnionClosure.union_closed_of_affordable' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.UnionClosure.greatest_of_affordable' depends on axioms: [propext, Classical.choice, Quot.sound]
-##   'Snuffy.UnionClosure.greatest_needs_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.insolvent_not_greatest' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.aligned_eq_of_greatest' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.greatest_of_solvent' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.greatest_or_irrelevant' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.UnionClosure.strict_of_solvent' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## source sha256:
 ##   f69c4a382be9c0144463ccaacea960d01fb400b2ef1775e150c5edee429bcd38  Snuffy/AreaBridge.lean
 ##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
@@ -304,9 +308,9 @@
 ##   ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035  Snuffy/ThermoLedger.lean
 ##   2a32b8f01e8967eb10dcbb0435e507ad7daa4fb08081f6ba13faf92cf0542ddc  Snuffy/Threshold.lean
 ##   e2eb62081f7753a5ee4cc594c6d45f6be93da2d54e654f5613a0761677bc920d  Snuffy/Trotter.lean
-##   d8268924266f804c3cd6f8b281b5fcf7ebbcb674d903f9796298ad8ec28172e2  Snuffy/UnionClosure.lean
+##   7216f2e6d50a96bbc3b07ec8103e7e333d1d54a1f0793d81807590b0f2d520f4  Snuffy/UnionClosure.lean
 ##   ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1  Snuffy/UniversalProtection.lean
 ##   97796ec3be890378195fa42cfd4ae9e12494235f556e4d4679beea1dea75e7fc  Snuffy/Whitening.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   bdf32c39cdc49065890a20e7f7948c4341c5d5f37a103aeea0c9730c8907d0a0  SummitsAudit.lean
+##   01c4c05db275e845cce41619d6d7b02cd55302aa0bafa6f7f8f95d1f0cfd6b51  SummitsAudit.lean
 ## overall: PASS

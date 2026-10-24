@@ -1,39 +1,44 @@
 /-
-Snuffy — Canon Edition v4.1: union closure from a resource model — when
-universal greatestness holds, and exactly what holds when it does not
-(Chapter 5, §5.3–5.4; P-emu(c)).
+Snuffy — Canon Edition v4.1: universal greatestness at the declared premises,
+from the Master Solvency Condition (Chapter 5, §5.3–5.4; premise 6; Global D).
 
-`Greatestness.greatest_of_union_closed` takes union closure of the whole
-feasible family as its hypothesis. Here P-emu(c) is split into its two
-ingredients:
+The canonical regime's feasible family is the realisable outcome tuples whose
+cost is within its budget (`budgetFamily`). Keeping every particular at every
+stage is the top outcome. Premise 6 says the canonical regime's income covers
+the protection of every covered particular, and coverage R ∨ H reaches every
+particular; so the top outcome is feasible, and the canonical outcome is the
+top.
 
-  * realisability — concurrent emulation through the shared action interface
-    (premise 4) realises the stage-wise union of any two realisable outcome
-    tuples (`UnionRealizable`, a modelling premise);
-  * resources — the canonical regime's feasible family is the realisable
-    tuples of cost at most its budget `B` (`budgetFamily`), so the budget is a
-    checkable inequality, like the income condition.
+  * greatest_or_irrelevant — greatest, or not a protector: by income-or-
+    irrelevance, either the canonical ledger is solvent at every step and the
+    canonical regime is greatest at every step, or it breaches and is
+    comparison-void as a protector. No premise is assumed.
+  * greatest_of_solvent, strict_of_solvent — universal greatestness: under
+    solvency every canonical option keeps every particular, and the outcome of
+    every rival regime whatsoever is contained in it, strictly below or an
+    exact mirror. No union closure, slack inequality or cost model is needed.
+  * aligned_eq_of_greatest — a feasible family with a greatest option has that
+    option as its only canonical option.
+  * insolvent_not_greatest — the unfunded branch: when keeping everything costs
+    more than the income, a rival can keep a particular the canonical option
+    does not. Income-or-irrelevance classifies such regimes as irrelevant.
 
-Results:
+The finer results hold even below full solvency:
 
-  * aligned_never_below — whatever the budget, no feasible rival is canonically
-    above the canonical option.
-  * dominates_of_affordable — every realisable rival whose union with the
-    canonical outcome is affordable is contained in it stage by stage, and is
-    strictly below it or an exact mirror.
-  * dominates_within_slack — with subadditive cost, every finite set of
-    realisable rivals whose total cost fits in the canonical slack `B − c(o)`
-    is contained in the canonical outcome.
-  * union_closed_of_affordable — when every pair of feasible tuples is jointly
-    affordable, the budget family is union-closed, and universal greatestness
-    holds outright (via `Greatestness.greatest_of_union_closed`).
-  * greatest_needs_budget — sharpness: without the budget condition a feasible
-    rival can keep a particular the canonical option does not.
+  * dominates_of_affordable, strict_of_affordable — every realisable rival
+    whose union with the canonical outcome is affordable is contained in it.
+  * dominates_within_slack — with subadditive cost, every finite set of rivals
+    whose total cost fits in the canonical slack is contained in it.
+  * greatest_of_affordable — when every feasible pair is jointly affordable,
+    greatestness holds outright.
+  * aligned_never_below — whatever the budget, no feasible rival is
+    canonically above the canonical option.
 
 Zero `sorry`. Mathlib rev 56a005855ea1.
 -/
 
 import Snuffy.Greatestness
+import Snuffy.PremiseFloor
 import Mathlib.Algebra.Order.BigOperators.Group.Finset
 import Mathlib.Data.Finset.Card
 import Mathlib.Basic.Real.Basic
@@ -130,11 +135,78 @@ theorem greatest_of_affordable {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ}
     ∀ q ∈ budgetFamily R c B, q ≤ o :=
   greatest_of_union_closed (union_closed_of_affordable hR hjoint) ho
 
-/-- **Sharpness.** The budget condition cannot be dropped: with one stage, two
-particulars, each kept at unit cost, and budget one, the option keeping the
-first particular is canonical, yet the feasible option keeping the second is not
-contained in it. -/
-theorem greatest_needs_budget :
+/-- **Greatestness from a greatest feasible option.** If the feasible family
+contains an option that contains every feasible option, every canonical option
+is that option. -/
+theorem aligned_eq_of_greatest {F : Set (∀ i, L i)} {t : ∀ i, L i} (ht : t ∈ F)
+    (htop : ∀ q ∈ F, q ≤ t) {o : ∀ i, L i} (ho : Aligned F o) : o = t := by
+  rcases lexLe_of_le (htop o ho.1) with h | h
+  · exact h
+  · exact absurd h (ho.2 t ht)
+
+section Solvent
+
+variable [∀ i, OrderTop (L i)]
+
+/-- **Universal greatestness at the declared premises.** Keeping every
+particular at every stage is the top outcome `⊤`. Under the Master Solvency
+Condition (premise 6) the canonical regime's income covers the protection of
+every covered particular, so `⊤` is realisable within its budget; coverage
+`R ∨ H` reaches every particular. Then every canonical option keeps every
+particular, and the outcome of every rival regime whatsoever is contained in
+it, stage by stage. No union closure, slack inequality or cost model is
+needed. -/
+theorem greatest_of_solvent {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ} {B : ℝ}
+    (htopR : (⊤ : ∀ i, L i) ∈ R) (hsolv : c ⊤ ≤ B) {o : ∀ i, L i}
+    (ho : Aligned (budgetFamily R c B) o) : o = ⊤ ∧ ∀ q : ∀ i, L i, q ≤ o := by
+  have ho' : o = ⊤ := aligned_eq_of_greatest (show (⊤ : ∀ i, L i) ∈ budgetFamily R c B from ⟨htopR, hsolv⟩)
+    (fun q _ => le_top) ho
+  exact ⟨ho', fun q => ho' ▸ le_top⟩
+
+/-- Under solvency every rival outcome is strictly below the canonical one or an
+exact mirror of it. -/
+theorem strict_of_solvent {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ} {B : ℝ}
+    (htopR : (⊤ : ∀ i, L i) ∈ R) (hsolv : c ⊤ ≤ B) {o : ∀ i, L i}
+    (ho : Aligned (budgetFamily R c B) o) : ∀ q : ∀ i, L i, q = o ∨ LexLt q o :=
+  fun q => lexLe_of_le ((greatest_of_solvent htopR hsolv ho).2 q)
+
+/-- **Greatest, or not a protector.** Let the canonical regime's demand at
+step `k` be the cost of keeping every particular, and its budget at step `k` be
+its escrow balance plus that step's income. By income-or-irrelevance
+(`PremiseFloor.income_or_irrelevance`) exactly one holds: the ledger is solvent
+at every step, and then at every step every canonical option keeps every
+particular and contains the outcome of every rival regime whatsoever; or the
+ledger has a first breach step, the irrelevance branch, in which the regime
+cannot fund the protection of every particular and is comparison-void as a
+protector (`PremiseFloor.breach_strictly_below`). No premise is assumed. -/
+theorem greatest_or_irrelevant (E₀ : ℝ) (inc dem : ℕ → ℝ) (R : ℕ → Set (∀ i, L i))
+    (c : ℕ → (∀ i, L i) → ℝ) (htopR : ∀ k, (⊤ : ∀ i, L i) ∈ R k) (hcost : ∀ k, c k ⊤ = dem k) :
+    (∀ k (o : ∀ i, L i),
+        Aligned (budgetFamily (R k) (c k) (Snuffy.PremiseFloor.balance E₀ inc dem k + inc k)) o →
+          o = ⊤ ∧ ∀ q : ∀ i, L i, q ≤ o) ∨
+      ∃ kb, (∀ k < kb, 0 ≤ Snuffy.PremiseFloor.balance E₀ inc dem k) ∧
+        Snuffy.PremiseFloor.balance E₀ inc dem kb < 0 := by
+  rcases Snuffy.PremiseFloor.income_or_irrelevance E₀ inc dem with hs | hb
+  · left
+    intro k o ho
+    have hstep : Snuffy.PremiseFloor.balance E₀ inc dem (k + 1)
+        = Snuffy.PremiseFloor.balance E₀ inc dem k + inc k - dem k := by
+      unfold Snuffy.PremiseFloor.balance
+      rw [Finset.sum_range_succ]
+      ring
+    have h1 := hs (k + 1)
+    exact greatest_of_solvent (htopR k) (by rw [hcost]; linarith) ho
+  · exact Or.inr hb
+
+end Solvent
+
+/-- **An insolvent regime is not greatest.** With one stage, two particulars,
+each kept at unit cost, and budget one, keeping everything costs more than the
+income: the Master Solvency Condition fails. The option keeping the first
+particular is then canonical, yet a feasible option keeping the second is not
+contained in it. This is the unfunded branch that income-or-irrelevance
+(`PremiseFloor.income_or_irrelevance`) classifies as irrelevant. -/
+theorem insolvent_not_greatest :
     ∃ (R : Set (Fin 1 → Finset Bool)) (c : (Fin 1 → Finset Bool) → ℝ) (B : ℝ)
       (o q : Fin 1 → Finset Bool),
       UnionRealizable (L := fun _ => Finset Bool) R ∧
