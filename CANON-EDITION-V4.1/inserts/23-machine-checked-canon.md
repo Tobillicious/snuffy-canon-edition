@@ -96,3 +96,20 @@ The compiled X3 route is the banked transport route of the working argument (§1
 | Proposition 4: a statewise faithful hold dominates every rival on every upward-closed event, under any probability law on the worlds; strictly when the rival misses with positive probability | `Law` | `faithful_hold_dominates`, `faithful_hold_strict` |
 
 With Proposition 1 (`Greatestness.aligned_iff_no_needless_loss`), Propositions 1–4 of the law are compiled theorems. Proposition 4's statewise faithfulness of the hold (its outcome at least the rival's in every world) is the hypothesis the theorem states; the holding route supplies it.
+
+## 23.10 Addendum: the quantum speed limit (physical premise, §23.8; E9 Branch A)
+
+*Added 25 October 2026. With this module the compiled canon is thirty-seven modules. The build, `leanchecker` and axiom audit pass (`lean/RECEIPT.txt`).*
+
+The state space is any complex Hilbert space. The dynamics is the Schrödinger equation iħψ' = H(t)ψ with self-adjoint generators, carried as the differential equation the trajectory satisfies.
+
+| Claim | Module | Theorems |
+| --- | --- | --- |
+| Unitary evolution preserves the norm | `SpeedLimit` | `norm_conserved` |
+| E9 Branch A: under H₀ + V the trajectory departs from the H₀ trajectory at rate at most ‖V‖/ħ, so ‖ψ(b) − φ(b)‖ ≤ ‖ψ(a) − φ(a)‖ + (‖V‖/ħ)(b − a) | `SpeedLimit` | `branchA_divergence` |
+| The canon's rate bound: with the per-site coupling ‖V‖ ≤ P_adv/ω_cutoff, the divergence rate is at most P_adv/(ħ ω_cutoff) | `SpeedLimit` | `branchA_rate` |
+| Mandelstam–Tamm, sharp: \|⟨ψ₀, ψ_t⟩\| ≥ cos(ΔE t/ħ) while ΔE t/ħ ≤ π | `SpeedLimit` | `mandelstam_tamm` |
+| Orthogonalisation time T ≥ πħ/(2ΔE) | `SpeedLimit` | `orthogonalization_time` |
+| Supporting geometry: divergence growth from ⟨x, x'⟩ ≤ c‖x‖; chord and arc on the unit sphere; arc-length bound for curves on the sphere | `SpeedLimit` | `norm_le_of_inner_deriv_le`, `angle_le_chord`, `angle_le_speed_mul` |
+
+With this module, the quantum speed limit moves from the physical premises of §23.8 to the compiled theorems, in its Mandelstam–Tamm form and in the rate-bound form E9 Branch A uses. The modelling identification ‖V‖ ≤ P_adv/ω_cutoff is the hypothesis `branchA_rate` states: the coupling energy at a site is at most the energy the adversary delivers per cutoff period. The divergence is measured in state-vector norm. For pure states the trace norm satisfies ‖ρ − σ‖₁ ≤ 2‖ψ − φ‖, a standard inequality that is not compiled here.
