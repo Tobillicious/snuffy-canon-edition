@@ -20,6 +20,7 @@ import Snuffy.Irreplaceability
 import Snuffy.DataProcessing
 import Snuffy.MeetHilbert
 import Snuffy.FiniteInformation
+import Snuffy.AreaBridge
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -103,3 +104,7 @@ import Snuffy.FiniteInformation
 #print axioms Snuffy.FiniteInformation.flag_identity
 #print axioms Snuffy.FiniteInformation.decoder_bound
 #print axioms Snuffy.FiniteInformation.necessary_radius_from_decoder
+#print axioms Snuffy.AreaBridge.logdet_le_trace
+#print axioms Snuffy.AreaBridge.channel_cap
+#print axioms Snuffy.AreaBridge.required_traffic
+#print axioms Snuffy.AreaBridge.area_power
