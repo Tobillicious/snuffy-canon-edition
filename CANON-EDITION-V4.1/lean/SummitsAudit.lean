@@ -19,6 +19,7 @@ import Snuffy.Trotter
 import Snuffy.Irreplaceability
 import Snuffy.DataProcessing
 import Snuffy.MeetHilbert
+import Snuffy.FiniteInformation
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -97,3 +98,8 @@ import Snuffy.MeetHilbert
 #print axioms Snuffy.MeetHilbert.hilbert_contradiction_collapse
 #print axioms Snuffy.MeetHilbert.contradiction_detected
 #print axioms Snuffy.MeetHilbert.deduction_never_rolls_back
+#print axioms Snuffy.FiniteInformation.log_sum
+#print axioms Snuffy.FiniteInformation.data_processing_fin
+#print axioms Snuffy.FiniteInformation.flag_identity
+#print axioms Snuffy.FiniteInformation.decoder_bound
+#print axioms Snuffy.FiniteInformation.necessary_radius_from_decoder
