@@ -25,6 +25,7 @@ import Snuffy.UniversalProtection
 import Snuffy.Workload
 import Snuffy.Fano
 import Snuffy.GaussianKL
+import Snuffy.GoldenFormula
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -128,3 +129,6 @@ import Snuffy.GaussianKL
 #print axioms Snuffy.GaussianKL.llr_gaussian_gaussian
 #print axioms Snuffy.GaussianKL.integral_sq_sub_gaussian
 #print axioms Snuffy.GaussianKL.klDiv_gaussian_gaussian
+#print axioms Snuffy.Information.klDiv_map_swap
+#print axioms Snuffy.Information.golden_formula
+#print axioms Snuffy.Information.mutualInfo_le_klDiv
