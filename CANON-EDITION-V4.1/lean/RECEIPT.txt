@@ -1,4 +1,4 @@
-# v4.1 summit modules — build receipt (2026-10-24T11:56Z)
+# v4.1 summit modules — build receipt (2026-10-24T12:06Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -16,6 +16,7 @@
 ## GaussianTail: exit=0 compiler-output-bytes=0
 ## DeductionBoundary: exit=0 compiler-output-bytes=0
 ## ReflectionCertificate: exit=0 compiler-output-bytes=0
+## Trotter: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -32,6 +33,7 @@
 ## leanchecker Snuffy.GaussianTail: exit=0
 ## leanchecker Snuffy.DeductionBoundary: exit=0
 ## leanchecker Snuffy.ReflectionCertificate: exit=0
+## leanchecker Snuffy.Trotter: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -93,6 +95,13 @@
 ##   'Snuffy.Reflection.apriori_error' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.Reflection.stopping_count' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.Reflection.zero_constant_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.norm_exp_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.norm_exp_sub_one_sub_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.norm_exp_mul_exp_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.norm_exp_sum_sub_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.trotter_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.trotter_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Trotter.lloyd_simulation' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## source sha256:
 ##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
 ##   be9e9002bf8ddd9689fe533ad9751d7967e890b4208842ca8612b1f7c9eff7e9  Snuffy/CanonVonNeumannAudit.lean
@@ -111,5 +120,6 @@
 ##   ae54c335b663b2e9167e972a2f70df8dcdedc1236a4b107b1ae11862b04018bc  Snuffy/RecoveryWork.lean
 ##   87983d7ce3f9af2d1f3790e45e91fdb450eb346e75068542077eb755ba7ac7b0  Snuffy/ReflectionCertificate.lean
 ##   ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035  Snuffy/ThermoLedger.lean
-##   23659319f8325da925bb67344418838594fd1d1b4198b74aceb5b4aefb658ba2  SummitsAudit.lean
+##   e2eb62081f7753a5ee4cc594c6d45f6be93da2d54e654f5613a0761677bc920d  Snuffy/Trotter.lean
+##   1cddd9b7ab6ed66298bb9ee55663614687af3faaebaa5fd9cb535925d1849779  SummitsAudit.lean
 ## overall: PASS

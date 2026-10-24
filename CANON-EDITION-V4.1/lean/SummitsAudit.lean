@@ -15,6 +15,7 @@ import Snuffy.CyclicProjections
 import Snuffy.GaussianTail
 import Snuffy.DeductionBoundary
 import Snuffy.ReflectionCertificate
+import Snuffy.Trotter
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -75,3 +76,10 @@ import Snuffy.ReflectionCertificate
 #print axioms Snuffy.Reflection.apriori_error
 #print axioms Snuffy.Reflection.stopping_count
 #print axioms Snuffy.Reflection.zero_constant_fixed
+#print axioms Snuffy.Trotter.norm_exp_le
+#print axioms Snuffy.Trotter.norm_exp_sub_one_sub_le
+#print axioms Snuffy.Trotter.norm_exp_mul_exp_sub
+#print axioms Snuffy.Trotter.norm_exp_sum_sub_prod
+#print axioms Snuffy.Trotter.trotter_bound
+#print axioms Snuffy.Trotter.trotter_tendsto
+#print axioms Snuffy.Trotter.lloyd_simulation
