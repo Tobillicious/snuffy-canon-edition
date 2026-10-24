@@ -34,6 +34,7 @@ import Snuffy.Whitening
 import Snuffy.Rotation
 import Snuffy.LogDet
 import Snuffy.Law
+import Snuffy.SpeedLimit
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -171,3 +172,11 @@ import Snuffy.Law
 #print axioms Snuffy.Law.same_priority_admits_needless_loss
 #print axioms Snuffy.Law.faithful_hold_dominates
 #print axioms Snuffy.Law.faithful_hold_strict
+#print axioms Snuffy.SpeedLimit.norm_le_of_inner_deriv_le
+#print axioms Snuffy.SpeedLimit.angle_le_chord
+#print axioms Snuffy.SpeedLimit.angle_le_speed_mul
+#print axioms Snuffy.SpeedLimit.norm_conserved
+#print axioms Snuffy.SpeedLimit.branchA_divergence
+#print axioms Snuffy.SpeedLimit.branchA_rate
+#print axioms Snuffy.SpeedLimit.mandelstam_tamm
+#print axioms Snuffy.SpeedLimit.orthogonalization_time
