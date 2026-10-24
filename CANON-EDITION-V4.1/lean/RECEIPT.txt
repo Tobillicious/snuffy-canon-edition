@@ -1,4 +1,4 @@
-# v4.1 summit modules — build receipt (2026-10-24T12:45Z)
+# v4.1 summit modules — build receipt (2026-10-24T12:53Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -24,6 +24,7 @@
 ## FiniteInformation: exit=0 compiler-output-bytes=0
 ## AreaBridge: exit=0 compiler-output-bytes=0
 ## UniversalProtection: exit=0 compiler-output-bytes=0
+## Workload: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -48,6 +49,7 @@
 ## leanchecker Snuffy.FiniteInformation: exit=0
 ## leanchecker Snuffy.AreaBridge: exit=0
 ## leanchecker Snuffy.UniversalProtection: exit=0
+## leanchecker Snuffy.Workload: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -138,6 +140,11 @@
 ##   'Snuffy.AreaBridge.area_power' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.UniversalProtection.coverage_invariant' does not depend on any axioms
 ##   'Snuffy.UniversalProtection.universal_protection' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Workload.fifo_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Workload.fifo_deadlines' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Workload.fifo_tight' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Workload.serial_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Workload.range_variance_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## source sha256:
 ##   f69c4a382be9c0144463ccaacea960d01fb400b2ef1775e150c5edee429bcd38  Snuffy/AreaBridge.lean
 ##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
@@ -164,5 +171,6 @@
 ##   ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035  Snuffy/ThermoLedger.lean
 ##   e2eb62081f7753a5ee4cc594c6d45f6be93da2d54e654f5613a0761677bc920d  Snuffy/Trotter.lean
 ##   ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1  Snuffy/UniversalProtection.lean
-##   6bbf1edf25b3eb8ff2448712908407bdb5d1570d2e8dd929e9e6cfad5dadf9ae  SummitsAudit.lean
+##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
+##   47ce9b960be43bd3c8870f1c957c7be515b963a2dbd65645aaa3835f56b9c33e  SummitsAudit.lean
 ## overall: PASS

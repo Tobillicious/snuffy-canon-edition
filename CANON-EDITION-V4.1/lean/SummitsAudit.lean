@@ -22,6 +22,7 @@ import Snuffy.MeetHilbert
 import Snuffy.FiniteInformation
 import Snuffy.AreaBridge
 import Snuffy.UniversalProtection
+import Snuffy.Workload
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -111,3 +112,8 @@ import Snuffy.UniversalProtection
 #print axioms Snuffy.AreaBridge.area_power
 #print axioms Snuffy.UniversalProtection.coverage_invariant
 #print axioms Snuffy.UniversalProtection.universal_protection
+#print axioms Snuffy.Workload.fifo_certificate
+#print axioms Snuffy.Workload.fifo_deadlines
+#print axioms Snuffy.Workload.fifo_tight
+#print axioms Snuffy.Workload.serial_certificate
+#print axioms Snuffy.Workload.range_variance_bound
