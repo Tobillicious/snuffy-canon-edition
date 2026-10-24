@@ -55,6 +55,18 @@ in norm. Together with the identification step already proved in `MathlibAnalyti
 
 The three unchanged modules are byte-identical to the author-side canon tree (hashes in the receipt).
 
+## Section 23 and the sourced hardware ledger (Section 22)
+
+| File | Content |
+| --- | --- |
+| `inserts/23-machine-checked-canon.md` | Section 23: every compiled claim of the edition mapped to its module and theorem, and what each compiled statement rests on (physical premises, instance certificates). §23.9 adds the law's Propositions 2–4 (`Law.lean`). |
+| `inserts/22-physical-parameter-ledger.md` | Section 22, the physical parameter ledger, with **§22.5 Sourced figures** appended. The original text is unchanged. |
+| `inserts/SOURCES-22.md` | Sources [S1]–[S9] for §22.5, with links and checksums of the cited arXiv PDFs. |
+
+**What §22.5 certifies.** The income condition is physically satisfiable, with measured positive headroom of about 3.3× at the binding stages of a superconducting installation at the 50-qubit scale (Krinner et al. 2019), when the electrical income is sized at a few tens of kW. The code distance required by the §22.3 allocation follows from Fowler et al. 2012: d = 25 at p = 10⁻⁴.
+
+**What it does not yet certify.** The 10⁻⁶ failure ceiling over 10⁹ s on present hardware. Google's Willow processor measures a correlated logical error floor of about 10⁻¹⁰ per cycle, so fault accounts 1–7 are design allocations until that floor is removed. §22.5.5 gives the status of every §22 figure.
+
 ## The proof
 
 With \(T=P_AP_B\):
