@@ -32,6 +32,7 @@ import Snuffy.GaussianChannelGen
 import Snuffy.GaussianVector
 import Snuffy.Whitening
 import Snuffy.Rotation
+import Snuffy.LogDet
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -158,3 +159,7 @@ import Snuffy.Rotation
 #print axioms Snuffy.Whitening.correlated_channel_bound
 #print axioms Snuffy.Rotation.multivariateGaussian_one_map_isometry
 #print axioms Snuffy.Rotation.rotated_channel_bound
+#print axioms Snuffy.LogDet.var_lincomb
+#print axioms Snuffy.LogDet.var_rot_eq_eigenvalue
+#print axioms Snuffy.LogDet.det_one_add
+#print axioms Snuffy.LogDet.logdet_channel_bound
