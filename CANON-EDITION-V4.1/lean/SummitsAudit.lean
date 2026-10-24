@@ -42,6 +42,8 @@ import Snuffy.UnionClosure
 import Snuffy.Bridge
 import Snuffy.Instruments
 import Snuffy.StrokeBookkeeping
+import Snuffy.Bennett
+import Snuffy.Concatenated
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -250,3 +252,19 @@ import Snuffy.StrokeBookkeeping
 #print axioms Snuffy.StrokeBookkeeping.ptrB_controlled
 #print axioms Snuffy.StrokeBookkeeping.stroke_entropy_change
 #print axioms Snuffy.StrokeBookkeeping.stroke_identity_derived
+#print axioms Snuffy.Bennett.bennett_step
+#print axioms Snuffy.Bennett.bennett_compute_uncompute
+#print axioms Snuffy.Bennett.ent_equiv
+#print axioms Snuffy.Bennett.negMulLog_add_le
+#print axioms Snuffy.Bennett.negMulLog_add_lt
+#print axioms Snuffy.Bennett.ent_push_le
+#print axioms Snuffy.Bennett.ent_push_lt
+#print axioms Snuffy.Bennett.heat_reversible
+#print axioms Snuffy.Bennett.heat_irreversible
+#print axioms Snuffy.Bennett.premise5_from_bennett
+#print axioms Snuffy.Concatenated.distance3_corrects_one
+#print axioms Snuffy.Concatenated.fails_witness
+#print axioms Snuffy.Concatenated.card_witness
+#print axioms Snuffy.Concatenated.card_witnesses
+#print axioms Snuffy.Concatenated.concatenated_threshold
+#print axioms Snuffy.Concatenated.concatenated_ceiling
