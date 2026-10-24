@@ -13,6 +13,8 @@ import Snuffy.PremiseFloor
 import Snuffy.ReciprocityCeiling
 import Snuffy.CyclicProjections
 import Snuffy.GaussianTail
+import Snuffy.DeductionBoundary
+import Snuffy.ReflectionCertificate
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -66,3 +68,10 @@ import Snuffy.GaussianTail
 #print axioms Snuffy.GaussianTail.carrier_tail
 #print axioms Snuffy.GaussianTail.necessary_radius_of_decoder
 #print axioms Snuffy.GaussianTail.x3_work_from_decoder
+#print axioms Snuffy.DeductionBoundary.rank_criterion
+#print axioms Snuffy.DeductionBoundary.boundary_mem_image
+#print axioms Snuffy.DeductionBoundary.anchor_untouched
+#print axioms Snuffy.Reflection.residual_certificate
+#print axioms Snuffy.Reflection.apriori_error
+#print axioms Snuffy.Reflection.stopping_count
+#print axioms Snuffy.Reflection.zero_constant_fixed
