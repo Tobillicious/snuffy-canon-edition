@@ -1,4 +1,4 @@
-# v4.1 summit modules — build receipt (2026-10-24T16:20Z)
+# v4.1 summit modules — build receipt (2026-10-24T16:48Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -37,6 +37,8 @@
 ## LogDet: exit=0 compiler-output-bytes=0
 ## Law: exit=0 compiler-output-bytes=0
 ## SpeedLimit: exit=0 compiler-output-bytes=0
+## Landauer: exit=0 compiler-output-bytes=0
+## QuantumLandauer: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -74,6 +76,8 @@
 ## leanchecker Snuffy.LogDet: exit=0
 ## leanchecker Snuffy.Law: exit=0
 ## leanchecker Snuffy.SpeedLimit: exit=0
+## leanchecker Snuffy.Landauer: exit=0
+## leanchecker Snuffy.QuantumLandauer: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -220,6 +224,28 @@
 ##   'Snuffy.SpeedLimit.branchA_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.SpeedLimit.mandelstam_tamm' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.SpeedLimit.orthogonalization_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.kl_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.mutualInfo_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.ent_le_ent_marg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.ent_gibbs' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.ent_le_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.ent_evolve' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.reeb_wolf_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.landauer' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.landauer_erasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.guard_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Landauer.cycle_work_floor_derived' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_unitary_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_le_diag' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_le_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_gibbsState' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.ptrA_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.ptrB_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.vnEnt_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.quantum_landauer' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.quantum_guard_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.QuantumLandauer.quantum_cycle_work_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## source sha256:
 ##   f69c4a382be9c0144463ccaacea960d01fb400b2ef1775e150c5edee429bcd38  Snuffy/AreaBridge.lean
 ##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
@@ -242,6 +268,7 @@
 ##   c6a9d6f150f2096d096084507ae940e2198c7bf8a16b8f2d06a42a07fea593ff  Snuffy/HalperinDecay.lean
 ##   b0922dbbf603d6f62ff3e9a00d9d29644531767b8538f5bb184e33deb5fbea6e  Snuffy/Irreplaceability.lean
 ##   1e700a2d627206ab9896d3a883e1d6b2714e1c5eff2d5f8391dc1e07d2b8268d  Snuffy/KLAdditivity.lean
+##   2c298142b31e208998236815da2640efb1ca04264ac6aa2fe2e67e359e7d8e6e  Snuffy/Landauer.lean
 ##   e4c86207ca62bcde9307eb91db0910e7d58efe1b9430d8fbc81173ec1d6f4159  Snuffy/Law.lean
 ##   43ed67efec9f5c381e2101ec8562ccf6d07bf8b58a872d316b338657dc2a251f  Snuffy/LogDet.lean
 ##   67ce6b974cb46dab4dc8743bcb1908393bda307db25b56134b62cd1894b5abdd  Snuffy/MathlibAnalyticBridge.lean
@@ -249,6 +276,7 @@
 ##   62bf22d842fbd0c0cad2f3b87d0481089cbd5afa2c730f5bf3293fb9883581f8  Snuffy/MeetHilbert.lean
 ##   b3c74eba3d40bcd9c2422c53309d7975335e33fccdf0a160ac4657eb4bbb7871  Snuffy/OpialBridge.lean
 ##   5c6e13296b1dd2ed9dfbc5008369ded813a2830a4d10dc3988f5dadb2492a93d  Snuffy/PremiseFloor.lean
+##   aad81b1b8a01c270218516bf6af0bc7136efcbf6e861c7a1dd3c82be541400e0  Snuffy/QuantumLandauer.lean
 ##   352b83df636a2e16165c4cd78c7a784ca689353a59a2e27eae58d6da4fc096f2  Snuffy/ReciprocityCeiling.lean
 ##   ae54c335b663b2e9167e972a2f70df8dcdedc1236a4b107b1ae11862b04018bc  Snuffy/RecoveryWork.lean
 ##   87983d7ce3f9af2d1f3790e45e91fdb450eb346e75068542077eb755ba7ac7b0  Snuffy/ReflectionCertificate.lean
@@ -259,5 +287,5 @@
 ##   ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1  Snuffy/UniversalProtection.lean
 ##   97796ec3be890378195fa42cfd4ae9e12494235f556e4d4679beea1dea75e7fc  Snuffy/Whitening.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   0a3bcd8632155468cfd7c161b3e6067e67ff347633a4bb8a49d2bfd1d98280fc  SummitsAudit.lean
+##   f38110cb0bebf707651e71abb4cf8fe49d77836e8d6b9eb5a2a6751c08fd0e2e  SummitsAudit.lean
 ## overall: PASS

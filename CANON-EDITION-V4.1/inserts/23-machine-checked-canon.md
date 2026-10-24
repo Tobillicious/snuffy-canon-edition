@@ -113,3 +113,22 @@ The state space is any complex Hilbert space. The dynamics is the Schrödinger e
 | Supporting geometry: divergence growth from ⟨x, x'⟩ ≤ c‖x‖; chord and arc on the unit sphere; arc-length bound for curves on the sphere | `SpeedLimit` | `norm_le_of_inner_deriv_le`, `angle_le_chord`, `angle_le_speed_mul` |
 
 With this module, the quantum speed limit moves from the physical premises of §23.8 to the compiled theorems, in its Mandelstam–Tamm form and in the rate-bound form E9 Branch A uses. The modelling identification ‖V‖ ≤ P_adv/ω_cutoff is the hypothesis `branchA_rate` states: the coupling energy at a site is at most the energy the adversary delivers per cutoff period. The divergence is measured in state-vector norm. For pure states the trace norm satisfies ‖ρ − σ‖₁ ≤ 2‖ψ − φ‖, a standard inequality that is not compiled here.
+
+## 23.11 Addendum: guard 1 derived — Landauer's bound (physical premise, §23.8; §18 stroke III)
+
+*Added 25 October 2026. With these two modules the compiled canon is thirty-nine modules. The build, `leanchecker` and axiom audit pass (`lean/RECEIPT.txt`).*
+
+Guard 1 (canon §8.1: βQ_B ≥ I_M + D_err, "the bath must absorb the exported entropy") is Landauer's bound for the register the reset cleans. It is now a compiled theorem in two forms.
+
+| Claim | Module | Theorems |
+| --- | --- | --- |
+| Gibbs' inequality; subadditivity H(R′B′) ≤ H(R′) + H(B′); H(γ) = β⟨E⟩_γ + ln Z and H(a) ≤ β⟨E⟩_a + ln Z | `Landauer` | `kl_nonneg`, `ent_le_ent_marg`, `ent_gibbs`, `ent_le_energy` |
+| Reversible dynamics of register and Gibbs bath: the Reeb–Wolf identity β ΔQ_B − ΔS_R = I(R′:B′) + D(q_B ‖ γ), exactly | `Landauer` | `reeb_wolf_identity` |
+| Landauer's bound β ΔQ_B ≥ ΔS_R; erasure costs Q_B ≥ k_BT H(p) | `Landauer` | `landauer`, `landauer_erasure` |
+| Von Neumann entropy: unitary invariance, diagonal states, pinching (S(ρ) ≤ the Shannon entropy of the diagonal in any orthonormal basis) | `QuantumLandauer` | `vnEnt_unitary_conj`, `vnEnt_diagonal`, `vnEnt_le_diag` |
+| Quantum Gibbs bound S(ρ) ≤ β Tr(ρH) + ln Z, with equality at γ; S(ρ_A ⊗ γ) = S(ρ_A) + S(γ); partial traces in product bases | `QuantumLandauer` | `vnEnt_le_energy`, `vnEnt_gibbsState`, `vnEnt_init`, `ptrA_conj`, `ptrB_conj` |
+| **Landauer's bound for density matrices (Reeb–Wolf):** for every unitary coupling W of a register in state ρ_A to a bath in its Gibbs state, S(ρ_A) − S(ρ′_A) ≤ β ΔQ_B with ΔQ_B = Tr(ρ′_B H) − Tr(γH) | `QuantumLandauer` | `quantum_landauer` |
+| **Guard 1:** βQ_B ≥ I_M + D_err + δ_I whenever the reset removes that entropy from the register (classical and quantum registers) | `Landauer`, `QuantumLandauer` | `guard_one`, `quantum_guard_one` |
+| The cycle work floor W ≥ k_BT(I_M + D_err + δ_I) + (1 − η)C with guard 1 derived, not assumed | `Landauer`, `QuantumLandauer` | `cycle_work_floor_derived`, `quantum_cycle_work_floor` |
+
+With these modules, the second law in the form of guard 1 moves from the physical premises of §23.8 to the compiled theorems. What remains as the model is what Landauer's theorem itself assumes: finite-dimensional register and bath, a bath that starts in its Gibbs state uncorrelated with the register, and unitary (in the classical form, reversible) joint dynamics. The amount I_M + D_err + δ_I the reset removes from the register is the instance's entropy accounting (§18, strokes I–III), stated as the hypothesis of `guard_one` and `quantum_guard_one`.

@@ -35,6 +35,8 @@ import Snuffy.Rotation
 import Snuffy.LogDet
 import Snuffy.Law
 import Snuffy.SpeedLimit
+import Snuffy.Landauer
+import Snuffy.QuantumLandauer
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -180,3 +182,25 @@ import Snuffy.SpeedLimit
 #print axioms Snuffy.SpeedLimit.branchA_rate
 #print axioms Snuffy.SpeedLimit.mandelstam_tamm
 #print axioms Snuffy.SpeedLimit.orthogonalization_time
+#print axioms Snuffy.Landauer.kl_nonneg
+#print axioms Snuffy.Landauer.mutualInfo_eq
+#print axioms Snuffy.Landauer.ent_le_ent_marg
+#print axioms Snuffy.Landauer.ent_gibbs
+#print axioms Snuffy.Landauer.ent_le_energy
+#print axioms Snuffy.Landauer.ent_evolve
+#print axioms Snuffy.Landauer.reeb_wolf_identity
+#print axioms Snuffy.Landauer.landauer
+#print axioms Snuffy.Landauer.landauer_erasure
+#print axioms Snuffy.Landauer.guard_one
+#print axioms Snuffy.Landauer.cycle_work_floor_derived
+#print axioms Snuffy.QuantumLandauer.vnEnt_unitary_conj
+#print axioms Snuffy.QuantumLandauer.vnEnt_diagonal
+#print axioms Snuffy.QuantumLandauer.vnEnt_le_diag
+#print axioms Snuffy.QuantumLandauer.vnEnt_le_energy
+#print axioms Snuffy.QuantumLandauer.vnEnt_gibbsState
+#print axioms Snuffy.QuantumLandauer.ptrA_conj
+#print axioms Snuffy.QuantumLandauer.ptrB_conj
+#print axioms Snuffy.QuantumLandauer.vnEnt_init
+#print axioms Snuffy.QuantumLandauer.quantum_landauer
+#print axioms Snuffy.QuantumLandauer.quantum_guard_one
+#print axioms Snuffy.QuantumLandauer.quantum_cycle_work_floor
