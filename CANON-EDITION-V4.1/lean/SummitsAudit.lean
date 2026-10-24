@@ -6,6 +6,7 @@ import Snuffy.CanonVonNeumann
 import Snuffy.RecoveryWork
 import Snuffy.E9SelfHealing
 import Snuffy.H5Closure
+import Snuffy.Greatestness
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -27,3 +28,8 @@ import Snuffy.H5Closure
 #print axioms Snuffy.H5.no_unfunded_work
 #print axioms Snuffy.H5.no_harmful_effect
 #print axioms Snuffy.H5.consistency_detector
+#print axioms Snuffy.Greatestness.lexLt_trans
+#print axioms Snuffy.Greatestness.aligned_iff_no_needless_loss
+#print axioms Snuffy.Greatestness.greatest_of_union_closed
+#print axioms Snuffy.Greatestness.strict_except_mirrors
+#print axioms Snuffy.Greatestness.aligned_unique

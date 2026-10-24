@@ -10,7 +10,7 @@ BUILD=${BUILD:-$(mktemp -d)}
 export PATH=$LEAN_BIN:$PATH
 mkdir -p $BUILD/Snuffy
 export LEAN_PATH="$(cd $MATHLIB_PROJECT && lake env printenv LEAN_PATH):$BUILD"
-MODULES=(MathlibAnalyticBridge HalperinDecay OpialBridge CanonVonNeumann RecoveryWork E9SelfHealing H5Closure)
+MODULES=(MathlibAnalyticBridge HalperinDecay OpialBridge CanonVonNeumann RecoveryWork E9SelfHealing H5Closure Greatestness)
 OUT=$HERE/RECEIPT.txt
 {
   echo "# v4.1 summit modules — build receipt ($(date -u +%Y-%m-%dT%H:%MZ))"
