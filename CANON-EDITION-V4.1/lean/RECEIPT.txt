@@ -1,4 +1,4 @@
-# v4.1 summit modules — build receipt (2026-10-24T15:24Z)
+# v4.1 summit modules — build receipt (2026-10-24T15:46Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -35,6 +35,7 @@
 ## Whitening: exit=0 compiler-output-bytes=0
 ## Rotation: exit=0 compiler-output-bytes=0
 ## LogDet: exit=0 compiler-output-bytes=0
+## Law: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -70,6 +71,7 @@
 ## leanchecker Snuffy.Whitening: exit=0
 ## leanchecker Snuffy.Rotation: exit=0
 ## leanchecker Snuffy.LogDet: exit=0
+## leanchecker Snuffy.Law: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -201,6 +203,13 @@
 ##   'Snuffy.LogDet.var_rot_eq_eigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.LogDet.det_one_add' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.LogDet.logdet_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Law.exists_aligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Law.lexLt_first_le' depends on axioms: [propext]
+##   'Snuffy.Law.life_guard' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Law.scope_guarantee_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Law.same_priority_admits_needless_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Law.faithful_hold_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Law.faithful_hold_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## source sha256:
 ##   f69c4a382be9c0144463ccaacea960d01fb400b2ef1775e150c5edee429bcd38  Snuffy/AreaBridge.lean
 ##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
@@ -223,6 +232,7 @@
 ##   c6a9d6f150f2096d096084507ae940e2198c7bf8a16b8f2d06a42a07fea593ff  Snuffy/HalperinDecay.lean
 ##   b0922dbbf603d6f62ff3e9a00d9d29644531767b8538f5bb184e33deb5fbea6e  Snuffy/Irreplaceability.lean
 ##   1e700a2d627206ab9896d3a883e1d6b2714e1c5eff2d5f8391dc1e07d2b8268d  Snuffy/KLAdditivity.lean
+##   e4c86207ca62bcde9307eb91db0910e7d58efe1b9430d8fbc81173ec1d6f4159  Snuffy/Law.lean
 ##   43ed67efec9f5c381e2101ec8562ccf6d07bf8b58a872d316b338657dc2a251f  Snuffy/LogDet.lean
 ##   67ce6b974cb46dab4dc8743bcb1908393bda307db25b56134b62cd1894b5abdd  Snuffy/MathlibAnalyticBridge.lean
 ##   ce746eb7bab2d68153205fd4f2ea5725b5769a614271184ef105a815ef69809d  Snuffy/MeetAlgebra.lean
@@ -238,5 +248,5 @@
 ##   ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1  Snuffy/UniversalProtection.lean
 ##   97796ec3be890378195fa42cfd4ae9e12494235f556e4d4679beea1dea75e7fc  Snuffy/Whitening.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   aea722b6054c449fb0dec5533012bb18acc7219efb1a0dfd7a2b876469432a40  SummitsAudit.lean
+##   090b9b1285232b0e99840efd267362d91bc628885cf31dd339e50614ba0c5443  SummitsAudit.lean
 ## overall: PASS

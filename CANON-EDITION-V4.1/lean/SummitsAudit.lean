@@ -33,6 +33,7 @@ import Snuffy.GaussianVector
 import Snuffy.Whitening
 import Snuffy.Rotation
 import Snuffy.LogDet
+import Snuffy.Law
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -163,3 +164,10 @@ import Snuffy.LogDet
 #print axioms Snuffy.LogDet.var_rot_eq_eigenvalue
 #print axioms Snuffy.LogDet.det_one_add
 #print axioms Snuffy.LogDet.logdet_channel_bound
+#print axioms Snuffy.Law.exists_aligned
+#print axioms Snuffy.Law.lexLt_first_le
+#print axioms Snuffy.Law.life_guard
+#print axioms Snuffy.Law.scope_guarantee_iff
+#print axioms Snuffy.Law.same_priority_admits_needless_loss
+#print axioms Snuffy.Law.faithful_hold_dominates
+#print axioms Snuffy.Law.faithful_hold_strict
