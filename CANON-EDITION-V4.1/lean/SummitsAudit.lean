@@ -10,6 +10,7 @@ import Snuffy.Greatestness
 import Snuffy.ThermoLedger
 import Snuffy.Composition
 import Snuffy.PremiseFloor
+import Snuffy.ReciprocityCeiling
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -52,3 +53,6 @@ import Snuffy.PremiseFloor
 #print axioms Snuffy.PremiseFloor.forced_breach
 #print axioms Snuffy.PremiseFloor.breach_strictly_below
 #print axioms Snuffy.PremiseFloor.reversible_administration_forced
+#print axioms Snuffy.ReciprocityCeiling.reciprocity_dominance
+#print axioms Snuffy.ReciprocityCeiling.omitting_rival_strictly_below
+#print axioms Snuffy.ReciprocityCeiling.ceiling_achievable
