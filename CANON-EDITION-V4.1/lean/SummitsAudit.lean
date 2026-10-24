@@ -23,6 +23,7 @@ import Snuffy.FiniteInformation
 import Snuffy.AreaBridge
 import Snuffy.UniversalProtection
 import Snuffy.Workload
+import Snuffy.Fano
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -117,3 +118,8 @@ import Snuffy.Workload
 #print axioms Snuffy.Workload.fifo_tight
 #print axioms Snuffy.Workload.serial_certificate
 #print axioms Snuffy.Workload.range_variance_bound
+#print axioms Snuffy.Fano.max_entropy
+#print axioms Snuffy.Fano.fano_single
+#print axioms Snuffy.Fano.fano
+#print axioms Snuffy.Fano.mi_eq_ent_sub_condEnt
+#print axioms Snuffy.Fano.required_information
