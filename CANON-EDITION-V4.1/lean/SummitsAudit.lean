@@ -46,6 +46,23 @@ import Snuffy.Bennett
 import Snuffy.Concatenated
 import Snuffy.ReasonsCompiled
 import Snuffy.TwoLevel
+import Snuffy.GateSupport
+import Snuffy.RiskBounds
+import Snuffy.QueueDeadline
+import Snuffy.BandwidthReflection
+import Snuffy.AnalyticBridge
+import Snuffy.RankAndCoalition
+import Snuffy.MetricShadow
+import Snuffy.SemanticMap
+import Snuffy.BridgeD1
+import Snuffy.BridgeE9
+import Snuffy.BridgeH6
+import Snuffy.BridgeH7
+import Snuffy.BridgeH8
+import Snuffy.SensorTail
+import Snuffy.ConsensusRate
+import Snuffy.RGFixedPoint
+import Snuffy.FinalClosure
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -286,3 +303,97 @@ import Snuffy.TwoLevel
 #print axioms Snuffy.TwoLevel.next_column
 #print axioms Snuffy.TwoLevel.star_twoLevel
 #print axioms Snuffy.TwoLevel.two_level_decomposition
+-- The thirteen bridges (23 October 2026 banks)
+#print axioms GeminiThirteenAnalysis.integrating_factor_monotone
+#print axioms GeminiThirteenAnalysis.linear_barrier_preserves_safety
+#print axioms GeminiThirteenAnalysis.exponential_transient_bound
+#print axioms GeminiThirteenAnalysis.integrated_exponential_transient
+#print axioms GeminiThirteenAnalysis.integrated_transient_cost_bound
+#print axioms GeminiThirteenAnalysis.continuation_hazard_threshold
+#print axioms GeminiThirteenAnalysis.heterogeneous_quadratic_cost_identity
+#print axioms GeminiThirteenAnalysis.heterogeneous_uniform_is_not_minimum
+#print axioms GeminiThirteenAnalysis.eventually_better_continuation
+#print axioms GeminiBridgeH6.charged_transition_bound
+#print axioms GeminiBridgeH6.no_infinite_paid_run
+#print axioms GeminiBridgeH6.budget_exhaustion_need_not_be_fixed
+#print axioms GeminiBridgeH6.current_residual_bound
+#print axioms GeminiBridgeH6.next_residual_bound
+#print axioms GeminiThirteenBandwidth.normalized_susceptibility
+#print axioms GeminiThirteenBandwidth.exact_bandwidth_sensitivity
+#print axioms GeminiThirteenBandwidth.finite_positive_sensory_access_remains
+#print axioms GeminiThirteenBandwidth.bandwidth_bias_threshold
+#print axioms GeminiThirteenMetric.embedding_distance_stability
+#print axioms GeminiThirteenMetric.protected_close_edge_margin
+#print axioms GeminiThirteenMetric.protected_separated_edge_margin
+#print axioms GeminiBridgeH7.rate_bounds
+#print axioms GeminiBridgeH7.denominator_positive
+#print axioms GeminiBridgeH7.equilibrium_is_fixed
+#print axioms GeminiBridgeH7.fixed_point_unique
+#print axioms GeminiBridgeH7.exact_transient
+#print axioms GeminiBridgeH7.equilibrium_private_evidence_sensitivity
+#print axioms GeminiBridgeH7.stubborn_anchor_limit
+#print axioms GeminiBridgeH7.private_evidence_sensitivity_vanishes
+#print axioms GeminiBridgeH7.exact_bias_threshold
+#print axioms GeminiThirteenSemantics.identity_is_bijective
+#print axioms GeminiThirteenSemantics.flipped_is_bijective
+#print axioms GeminiThirteenSemantics.two_distinct_lossless_maps
+#print axioms GeminiThirteenSemantics.calibrated_reference_fixes_binary_mapping
+#print axioms GeminiThirteenQueue.exponential_service_tail
+#print axioms GeminiThirteenQueue.exponential_service_normalized
+#print axioms GeminiThirteenQueue.positive_deadline_miss_probability
+#print axioms GeminiThirteenQueue.small_mean_does_not_make_tail_zero
+#print axioms GeminiBridgeH8.variance_identity
+#print axioms GeminiBridgeH8.uniform_global_minimum
+#print axioms GeminiBridgeH8.equality_only_at_uniform
+#print axioms GeminiBridgeH8.blend_normalized
+#print axioms GeminiBridgeH8.blend_cap_preserved
+#print axioms GeminiBridgeH8.exact_excess_decay
+#print axioms GeminiBridgeH8.gradient_flow_equation
+#print axioms GeminiBridgeH8.flow_coefficient_in_unit_interval
+#print axioms GeminiBridgeH8.original_upper_fails_along_restoring_flow
+#print axioms GeminiThirteenGate.kraus_branch_preserves_support
+#print axioms GeminiThirteenGate.kraus_sum_preserves_support
+#print axioms GeminiThirteenGate.support_preservation_composes
+#print axioms GeminiBridgeD1.dynamic_survival_equation
+#print axioms GeminiBridgeD1.hazard_grows_without_bound
+#print axioms GeminiBridgeD1.positive_accumulated_prefix
+#print axioms GeminiBridgeD1.increasing_hazard_does_not_erase_prefix
+#print axioms GeminiBridgeD1.exact_discounted_dominance_criterion
+#print axioms GeminiBridgeD1.undiscounted_finite_crossover
+#print axioms GeminiBridgeE9.reaction_before_damage
+#print axioms GeminiBridgeE9.positive_propagation_margin
+#print axioms GeminiBridgeE9.local_buffer_covers_entire_reaction
+#print axioms GeminiBridgeE9.escrow_prevents_pre_detection_application
+#print axioms GeminiBridgeE9.incidence_has_circulation_kernel
+#print axioms GeminiBridgeE9.lost_circulation_need_not_change_divergence
+#print axioms GeminiThirteenExecution.ranked_trace_length
+#print axioms GeminiThirteenExecution.ranked_polynomial_step_bound
+#print axioms GeminiThirteenExecution.total_penalty_excludes_all_members_gaining
+#print axioms GeminiThirteenExecution.real_lyapunov_descent_need_not_terminate
+#print axioms GeminiThirteenRisk.weighted_markov
+#print axioms GeminiThirteenRisk.event_mass_mono
+#print axioms GeminiThirteenRisk.intersection_mass_le_each
+#print axioms GeminiThirteenRisk.positive_work_tail_control
+#print axioms GeminiThirteenRisk.dependent_chain_bound
+-- Bridges 2, 7 and 13 (with K1)
+#print axioms Snuffy.SensorTail.sensor_tail
+#print axioms Snuffy.SensorTail.sensor_law_tail
+#print axioms Snuffy.ConsensusRate.bandwidth_contraction
+#print axioms Snuffy.FinalClosure.verifier_bound_iff
+#print axioms Snuffy.FinalClosure.proxy_ungameable_iff
+#print axioms Snuffy.FinalClosure.proxy_gameable
+#print axioms Snuffy.FinalClosure.pruning_lowers_rate
+#print axioms Snuffy.FinalClosure.living_unbounded
+#print axioms Snuffy.FinalClosure.pruning_all_stalls
+#print axioms Snuffy.FinalClosure.void_strictly_below
+#print axioms Snuffy.FinalClosure.void_never_chosen
+#print axioms Snuffy.FinalClosure.dominance_channels
+#print axioms Snuffy.FinalClosure.coop_more_efficient
+#print axioms Snuffy.FinalClosure.stewardship_sustains
+#print axioms Snuffy.FinalClosure.extraction_depletes
+#print axioms Snuffy.FinalClosure.sustained_iff
+#print axioms Snuffy.RGFixedPoint.gstar_pos
+#print axioms Snuffy.RGFixedPoint.beta_gstar
+#print axioms Snuffy.RGFixedPoint.eigenvalue_gstar
+#print axioms Snuffy.RGFixedPoint.beta_pos_below
+#print axioms Snuffy.RGFixedPoint.beta_neg_above

@@ -10,7 +10,7 @@ BUILD=${BUILD:-$(mktemp -d)}
 export PATH=$LEAN_BIN:$PATH
 mkdir -p $BUILD/Snuffy
 export LEAN_PATH="$(cd $MATHLIB_PROJECT && lake env printenv LEAN_PATH):$BUILD"
-MODULES=(MathlibAnalyticBridge HalperinDecay OpialBridge CanonVonNeumann RecoveryWork E9SelfHealing H5Closure Greatestness ThermoLedger Composition PremiseFloor ReciprocityCeiling CyclicProjections GaussianTail DeductionBoundary ReflectionCertificate Trotter Irreplaceability DataProcessing MeetAlgebra MeetHilbert FiniteInformation AreaBridge UniversalProtection Workload Fano GaussianKL GoldenFormula GaussianChannel KLAdditivity GaussianChannelGen GaussianVector Whitening Rotation LogDet Law SpeedLimit Landauer QuantumLandauer Threshold UnionClosure Bridge Instruments StrokeBookkeeping Bennett Concatenated ReasonsCompiled TwoLevel)
+MODULES=(MathlibAnalyticBridge HalperinDecay OpialBridge CanonVonNeumann RecoveryWork E9SelfHealing H5Closure Greatestness ThermoLedger Composition PremiseFloor ReciprocityCeiling CyclicProjections GaussianTail DeductionBoundary ReflectionCertificate Trotter Irreplaceability DataProcessing MeetAlgebra MeetHilbert FiniteInformation AreaBridge UniversalProtection Workload Fano GaussianKL GoldenFormula GaussianChannel KLAdditivity GaussianChannelGen GaussianVector Whitening Rotation LogDet Law SpeedLimit Landauer QuantumLandauer Threshold UnionClosure Bridge Instruments StrokeBookkeeping Bennett Concatenated ReasonsCompiled TwoLevel GateSupport RiskBounds QueueDeadline BandwidthReflection AnalyticBridge RankAndCoalition MetricShadow SemanticMap BridgeD1 BridgeE9 BridgeH6 BridgeH7 BridgeH8 SensorTail ConsensusRate RGFixedPoint FinalClosure)
 OUT=$HERE/RECEIPT.txt
 {
   echo "# v4.1 summit modules — build receipt ($(date -u +%Y-%m-%dT%H:%MZ))"
@@ -35,8 +35,10 @@ OUT=$HERE/RECEIPT.txt
   echo "## axiom audit exit=$aec"
   [[ $aec -ne 0 ]] && ok=0
   # every printed theorem must depend on at most propext, Classical.choice, Quot.sound
-  bad=$(grep "depends on axioms" $BUILD/axioms.out | grep -v -E 'axioms: \[(propext|Classical\.choice|Quot\.sound)(, (propext|Classical\.choice|Quot\.sound))*\]')
-  printed=$(grep -c -E "depends on axioms|does not depend on any axioms" $BUILD/axioms.out)
+  # join axiom lists that Lean wraps over several lines before checking them
+  perl -0pe 's/,\n\s+/, /g' $BUILD/axioms.out > $BUILD/axioms.joined
+  bad=$(grep "depends on axioms" $BUILD/axioms.joined | grep -v -E 'axioms: \[(propext|Classical\.choice|Quot\.sound)(, (propext|Classical\.choice|Quot\.sound))*\]')
+  printed=$(grep -c -E "depends on axioms|does not depend on any axioms" $BUILD/axioms.joined)
   echo "## theorems audited: $printed; non-standard axiom dependencies: ${bad:-none}"
   [[ -n $bad ]] && ok=0
   grep -q -E ":[0-9]+:[0-9]+: error" $BUILD/axioms.out && ok=0
