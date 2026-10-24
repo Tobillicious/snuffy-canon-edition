@@ -20,6 +20,9 @@ in norm. Together with the identification step already proved in `MathlibAnalyti
 | `lean/Snuffy/MathlibAnalyticBridge.lean` | The canon tree's bridge with the full identification step (`von_neumann_identification`), unchanged. |
 | `lean/Snuffy/HalperinDecay.lean`, `lean/Snuffy/OpialBridge.lean` | The v4.1 engines (Bregman asymptotic regularity; weak-cluster lemmas and the invariant Pythagoras upgrade), unchanged. |
 
+| `lean/Snuffy/RecoveryWork.lean` | **New (Summit 4, X3).** The recovery-work theorem for an absolutely continuous frontier and real \(d_G\ge1\); \(W_{\min}\) over all admitted successful protocols; the necessary radius \(r\ge ut-c\sqrt t\) from the Gaussian information tail; the carrier radius \(R(t)\ge w(t-t_c)\); divergence of delayed recovery work. |
+| `lean/build-and-audit.sh`, `lean/SummitsAudit.lean`, `lean/RECEIPT.txt` | One-command rebuild of every module, `leanchecker` on each, `sorry` scan, axiom audit, source hashes. |
+
 The three unchanged modules are byte-identical to the author-side canon tree (hashes in the receipt).
 
 ## The proof
