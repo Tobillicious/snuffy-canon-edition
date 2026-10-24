@@ -7,6 +7,8 @@ import Snuffy.RecoveryWork
 import Snuffy.E9SelfHealing
 import Snuffy.H5Closure
 import Snuffy.Greatestness
+import Snuffy.ThermoLedger
+import Snuffy.Composition
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -33,3 +35,15 @@ import Snuffy.Greatestness
 #print axioms Snuffy.Greatestness.greatest_of_union_closed
 #print axioms Snuffy.Greatestness.strict_except_mirrors
 #print axioms Snuffy.Greatestness.aligned_unique
+#print axioms Snuffy.ThermoLedger.stroke_identity
+#print axioms Snuffy.ThermoLedger.cycle_work_floor
+#print axioms Snuffy.ThermoLedger.funded_repair_certificate
+#print axioms Snuffy.ThermoLedger.quarantine_zero_debt
+#print axioms Snuffy.ThermoLedger.tower_bound
+#print axioms Snuffy.ThermoLedger.canon_invariant
+#print axioms Snuffy.ThermoLedger.tracking_envelope
+#print axioms Snuffy.ThermoLedger.tracking_within_resolution
+#print axioms Snuffy.Composition.reactive_lockstep
+#print axioms Snuffy.Composition.reactive_lockstep₂
+#print axioms Snuffy.Composition.invariant_transfer
+#print axioms Snuffy.Composition.theorem8_composition

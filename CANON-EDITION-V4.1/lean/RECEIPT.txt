@@ -1,4 +1,4 @@
-# v4.1 summit modules — build receipt (2026-10-24T11:23Z)
+# v4.1 summit modules — build receipt (2026-10-24T11:29Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -8,6 +8,8 @@
 ## E9SelfHealing: exit=0 compiler-output-bytes=0
 ## H5Closure: exit=0 compiler-output-bytes=0
 ## Greatestness: exit=0 compiler-output-bytes=0
+## ThermoLedger: exit=0 compiler-output-bytes=0
+## Composition: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -16,6 +18,8 @@
 ## leanchecker Snuffy.E9SelfHealing: exit=0
 ## leanchecker Snuffy.H5Closure: exit=0
 ## leanchecker Snuffy.Greatestness: exit=0
+## leanchecker Snuffy.ThermoLedger: exit=0
+## leanchecker Snuffy.Composition: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -43,9 +47,22 @@
 ##   'Snuffy.Greatestness.greatest_of_union_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.Greatestness.strict_except_mirrors' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.Greatestness.aligned_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.stroke_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.cycle_work_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.funded_repair_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.quarantine_zero_debt' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.tower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.canon_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.tracking_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ThermoLedger.tracking_within_resolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.Composition.reactive_lockstep' depends on axioms: [propext]
+##   'Snuffy.Composition.reactive_lockstep₂' depends on axioms: [propext]
+##   'Snuffy.Composition.invariant_transfer' depends on axioms: [propext]
+##   'Snuffy.Composition.theorem8_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## source sha256:
 ##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
 ##   be9e9002bf8ddd9689fe533ad9751d7967e890b4208842ca8612b1f7c9eff7e9  Snuffy/CanonVonNeumannAudit.lean
+##   2524e8c846408e622bb8a31e89a8888ab07cade9f99f56aa700be3970c870bd5  Snuffy/Composition.lean
 ##   a5e8804486c94667262516d164cebaac3a5063108864f261a3583547e2ad09f2  Snuffy/E9SelfHealing.lean
 ##   d21be5cb40a8a4d07e91bdaef149a7b61174ae7bc545c62562b3ce9c46f6613d  Snuffy/Greatestness.lean
 ##   d39dfc51423b0f9eb9aef9674eaa0abfd5426ee18845539004e1f91312dcc88d  Snuffy/H5Closure.lean
@@ -53,5 +70,6 @@
 ##   67ce6b974cb46dab4dc8743bcb1908393bda307db25b56134b62cd1894b5abdd  Snuffy/MathlibAnalyticBridge.lean
 ##   b3c74eba3d40bcd9c2422c53309d7975335e33fccdf0a160ac4657eb4bbb7871  Snuffy/OpialBridge.lean
 ##   ae54c335b663b2e9167e972a2f70df8dcdedc1236a4b107b1ae11862b04018bc  Snuffy/RecoveryWork.lean
-##   df02e3bc8d2b47d2c4835ed01622597eb124e8f42516145f7610290a7ebd1d73  SummitsAudit.lean
+##   ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035  Snuffy/ThermoLedger.lean
+##   db25adce143aaa3691ae4c801ec9990c72594dbc5afbb0c1ffc1d7ae17a9af83  SummitsAudit.lean
 ## overall: PASS
