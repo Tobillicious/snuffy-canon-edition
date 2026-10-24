@@ -1,4 +1,4 @@
-# v4.1 summit modules — build receipt (2026-10-24T11:29Z)
+# v4.1 summit modules — build receipt (2026-10-24T11:33Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -10,6 +10,7 @@
 ## Greatestness: exit=0 compiler-output-bytes=0
 ## ThermoLedger: exit=0 compiler-output-bytes=0
 ## Composition: exit=0 compiler-output-bytes=0
+## PremiseFloor: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -20,6 +21,7 @@
 ## leanchecker Snuffy.Greatestness: exit=0
 ## leanchecker Snuffy.ThermoLedger: exit=0
 ## leanchecker Snuffy.Composition: exit=0
+## leanchecker Snuffy.PremiseFloor: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -59,6 +61,10 @@
 ##   'Snuffy.Composition.reactive_lockstep₂' depends on axioms: [propext]
 ##   'Snuffy.Composition.invariant_transfer' depends on axioms: [propext]
 ##   'Snuffy.Composition.theorem8_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PremiseFloor.income_or_irrelevance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PremiseFloor.forced_breach' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PremiseFloor.breach_strictly_below' does not depend on any axioms
+##   'Snuffy.PremiseFloor.reversible_administration_forced' does not depend on any axioms
 ## source sha256:
 ##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
 ##   be9e9002bf8ddd9689fe533ad9751d7967e890b4208842ca8612b1f7c9eff7e9  Snuffy/CanonVonNeumannAudit.lean
@@ -69,7 +75,8 @@
 ##   c6a9d6f150f2096d096084507ae940e2198c7bf8a16b8f2d06a42a07fea593ff  Snuffy/HalperinDecay.lean
 ##   67ce6b974cb46dab4dc8743bcb1908393bda307db25b56134b62cd1894b5abdd  Snuffy/MathlibAnalyticBridge.lean
 ##   b3c74eba3d40bcd9c2422c53309d7975335e33fccdf0a160ac4657eb4bbb7871  Snuffy/OpialBridge.lean
+##   5c6e13296b1dd2ed9dfbc5008369ded813a2830a4d10dc3988f5dadb2492a93d  Snuffy/PremiseFloor.lean
 ##   ae54c335b663b2e9167e972a2f70df8dcdedc1236a4b107b1ae11862b04018bc  Snuffy/RecoveryWork.lean
 ##   ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035  Snuffy/ThermoLedger.lean
-##   db25adce143aaa3691ae4c801ec9990c72594dbc5afbb0c1ffc1d7ae17a9af83  SummitsAudit.lean
+##   4c7a0b1d01f629532e7dd5c2f60b40f33af15200b0a96918695ca38b464ab082  SummitsAudit.lean
 ## overall: PASS

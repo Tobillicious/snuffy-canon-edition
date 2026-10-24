@@ -9,6 +9,7 @@ import Snuffy.H5Closure
 import Snuffy.Greatestness
 import Snuffy.ThermoLedger
 import Snuffy.Composition
+import Snuffy.PremiseFloor
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -47,3 +48,7 @@ import Snuffy.Composition
 #print axioms Snuffy.Composition.reactive_lockstep₂
 #print axioms Snuffy.Composition.invariant_transfer
 #print axioms Snuffy.Composition.theorem8_composition
+#print axioms Snuffy.PremiseFloor.income_or_irrelevance
+#print axioms Snuffy.PremiseFloor.forced_breach
+#print axioms Snuffy.PremiseFloor.breach_strictly_below
+#print axioms Snuffy.PremiseFloor.reversible_administration_forced
