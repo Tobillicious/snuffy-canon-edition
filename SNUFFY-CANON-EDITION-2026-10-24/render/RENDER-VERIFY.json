@@ -1,0 +1,16 @@
+{
+  "all_pass": true,
+  "epub": {
+    "all_citations_present_whitespace_normalized": true
+  },
+  "html": {
+    "all_citations_present_whitespace_normalized": true
+  },
+  "method_note": "needle matching after whitespace normalization; line wrapping by renderers otherwise splits the canon sentence",
+  "pdf": {
+    "all_citations_in_tex_input_whitespace_normalized": true,
+    "bytes": 143387,
+    "header_and_eof_intact": true,
+    "verified_via": "exact xelatex input (Snuffy-Canon-Edition.tex); no pdftotext on this machine"
+  }
+}

@@ -1,0 +1,217 @@
+{
+ "cycles": [
+  {
+   "payload": {
+    "bath_entropy": "143/20",
+    "checks": {
+     "admin_at_landauer_floor": true,
+     "bath_entropy_nondecreasing": true,
+     "first_law_heat": true,
+     "funds_verified_before_admission": true,
+     "landauer_export_bound": true,
+     "stroke2_identity_gives_minus_D_err": true,
+     "tax_conservation": true
+    },
+    "cycle": 0,
+    "escrow_after": "5793/1000",
+    "flows": {
+     "Q_B_exported": "57/10",
+     "W_on": "21/10",
+     "admin_erased_nats": "7/1000",
+     "adv_absorption": "1/20",
+     "ctrl_drain": "1/10",
+     "dD_II": "-11/10",
+     "emu_reserve": "1/20",
+     "escrow_liquidated": "3",
+     "maintenance": "1/2",
+     "meas_cost": "1/20",
+     "reset_cost": "29/20",
+     "tax_moved": "0"
+    },
+    "mode": "normal"
+   },
+   "rec_hash": "92565d1236db8d1e59cc5245c755683402cc44c75fd70223f7faa6cb50fe5b6d"
+  },
+  {
+   "payload": {
+    "bath_entropy": "123/10",
+    "checks": {
+     "admin_at_landauer_floor": true,
+     "bath_entropy_nondecreasing": true,
+     "first_law_heat": true,
+     "funds_verified_before_admission": true,
+     "landauer_export_bound": true,
+     "stroke2_identity_gives_minus_D_err": true,
+     "tax_conservation": true
+    },
+    "cycle": 1,
+    "escrow_after": "3543/500",
+    "flows": {
+     "Q_B_exported": "21/5",
+     "W_on": "21/10",
+     "admin_erased_nats": "7/1000",
+     "adv_absorption": "1/20",
+     "ctrl_drain": "1/10",
+     "dD_II": "-3/5",
+     "emu_reserve": "1/20",
+     "escrow_liquidated": "3",
+     "maintenance": "1/2",
+     "meas_cost": "1/20",
+     "reset_cost": "19/20",
+     "tax_moved": "0"
+    },
+    "mode": "normal"
+   },
+   "rec_hash": "3c73e951366dd839b3a0408a676e2947e328e4f7e09964790d267fced2b754c8"
+  },
+  {
+   "payload": {
+    "bath_entropy": "361/20",
+    "checks": {
+     "admin_at_landauer_floor": true,
+     "bath_entropy_nondecreasing": true,
+     "first_law_heat": true,
+     "funds_verified_before_admission": true,
+     "landauer_export_bound": true,
+     "stroke2_identity_gives_minus_D_err": true,
+     "tax_conservation": true
+    },
+    "cycle": 2,
+    "escrow_after": "4179/1000",
+    "flows": {
+     "Q_B_exported": "23/5",
+     "W_on": "21/10",
+     "admin_erased_nats": "7/1000",
+     "adv_absorption": "1/20",
+     "ctrl_drain": "1/10",
+     "dD_II": "-7/10",
+     "emu_reserve": "1/20",
+     "escrow_liquidated": "3",
+     "maintenance": "1/2",
+     "meas_cost": "1/20",
+     "reset_cost": "23/20",
+     "tax_moved": "0"
+    },
+    "mode": "normal"
+   },
+   "rec_hash": "5cef27499fd94cc0ad56d95dec1e4e5c476b7bcc546005635f04d3ac17ce59ca"
+  },
+  {
+   "payload": {
+    "bath_entropy": "363/20",
+    "checks": {
+     "bath_entropy_nondecreasing": true
+    },
+    "cycle": 3,
+    "escrow_after": "4029/1000",
+    "flows": {
+     "ctrl_drain": "1/10",
+     "min_hold_drain": "1/10",
+     "mode": "quarantine"
+    },
+    "mode": "quarantine"
+   },
+   "rec_hash": "02de0da8c01d52cad04056d5341b9eb7cd87bb0a1793558aed0bc359c4ef4504"
+  },
+  {
+   "payload": {
+    "bath_entropy": "73/4",
+    "checks": {
+     "bath_entropy_nondecreasing": true
+    },
+    "cycle": 4,
+    "escrow_after": "4029/1000",
+    "flows": {
+     "ctrl_drain": "1/10",
+     "min_hold_drain": "1/10",
+     "mode": "quarantine"
+    },
+    "mode": "quarantine"
+   },
+   "rec_hash": "71aa8793789d9a438c69eb85153756a135d1bbfe821df0972dc43a1f47fabdda"
+  },
+  {
+   "payload": {
+    "bath_entropy": "367/20",
+    "checks": {
+     "bath_entropy_nondecreasing": true
+    },
+    "cycle": 5,
+    "escrow_after": "9829/1000",
+    "flows": {
+     "ctrl_drain": "1/10",
+     "min_hold_drain": "1/10",
+     "mode": "quarantine"
+    },
+    "mode": "quarantine"
+   },
+   "rec_hash": "0f17132ad99ba8fcb9a029fc4de8b5e4a6996f4b6920c42878f606dbd3b1e7d5"
+  },
+  {
+   "payload": {
+    "bath_entropy": "369/20",
+    "checks": {
+     "bath_entropy_nondecreasing": true
+    },
+    "cycle": 6,
+    "escrow_after": "15629/1000",
+    "flows": {
+     "ctrl_drain": "1/10",
+     "min_hold_drain": "1/10",
+     "mode": "quarantine"
+    },
+    "mode": "quarantine"
+   },
+   "rec_hash": "8507922428063ea3141437c97dfd92ba1b0b5fb37e6c8dbedaeb9f9eca033842"
+  },
+  {
+   "payload": {
+    "bath_entropy": "371/20",
+    "checks": {
+     "bath_entropy_nondecreasing": true
+    },
+    "cycle": 7,
+    "escrow_after": "21429/1000",
+    "flows": {
+     "ctrl_drain": "1/10",
+     "min_hold_drain": "1/10",
+     "mode": "quarantine"
+    },
+    "mode": "quarantine"
+   },
+   "rec_hash": "41143bb2756875b03975b1cbb7c5cd09e6e0ee495b06c29243624de52a6a2788"
+  }
+ ],
+ "params": {
+  "C": "3",
+  "E0": "5",
+  "admin_nats": "7/1000",
+  "adv_sub": "1/20",
+  "compartments": [
+   "5/2",
+   "5/2"
+  ],
+  "delta_I": "1/20",
+  "emu_overhead": "1/20",
+  "eta": "7/10",
+  "gamma_ctrl": "1/10",
+  "kT": "1",
+  "min_hold": "1/10",
+  "mu_meas": "1/20",
+  "tax_lambda": "1/2"
+ },
+ "summary": {
+  "breach_on_good_event": 0,
+  "canon_holds": true,
+  "ceiling": "1/1000000",
+  "chain_head": "41143bb2756875b03975b1cbb7c5cd09e6e0ee495b06c29243624de52a6a2788",
+  "charged_events": [
+   {
+    "cycle": 4,
+    "delta": "39/50000000"
+   }
+  ],
+  "scenario": "charged",
+  "sigma_delta": "493209763047/500000000000000000"
+ }
+}

@@ -1,0 +1,8 @@
+# Compile receipts — 2026-10-24
+# PremiseStack, MeetAlgebra: lean 4.35.0 core, no imports. MathlibAnalyticBridge: lake env lean vs Mathlib rev 56a005855ea1 (mathlib-probe).
+
+## PremiseStack.lean exit=0
+
+## MeetAlgebra.lean exit=0
+
+## MathlibAnalyticBridge.lean exit=0

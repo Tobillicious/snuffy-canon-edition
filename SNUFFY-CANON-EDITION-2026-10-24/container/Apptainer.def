@@ -1,0 +1,47 @@
+# Snuffy — Canon Edition: reproducibility container (Apptainer/Singularity).
+# Mirrors container/Dockerfile for HPC clusters. Same pins: Lean 4.35.0,
+# Mathlib rev 56a005855ea1, Python 3.11+. Build context: this repository root.
+
+Bootstrap: docker
+From: ubuntu:24.04
+
+%files
+    SNUFFY-CANON-EDITION-2026-10-24 /work/SNUFFY-CANON-EDITION-2026-10-24
+    LEDGER-FOUR-STROKE-2026-10-24 /work/LEDGER-FOUR-STROKE-2026-10-24
+    SNUFFY-CANON-EDITION-2026-10-24/container/entrypoint.sh /work/entrypoint.sh
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update && apt-get install -y --no-install-recommends \
+        curl git python3 python3-pip ca-certificates rsync jq \
+    && rm -rf /var/lib/apt/lists/*
+    curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain leanprover/lean4:v4.35.0
+    export PATH="/root/.elan/bin:${PATH}"
+    chmod +x /work/entrypoint.sh
+    mkdir -p /work/mathlib-bridge && cd /work/mathlib-bridge
+    printf 'leanprover/lean4:v4.35.0\n' > lean-toolchain
+    printf 'require mathlib from git "https://github.com/leanprover-community/mathlib4" @ "56a005855ea1"\n' > lakefile.lean
+    lake update && lake exe cache get
+
+%environment
+    export PATH="/root/.elan/bin:${PATH}"
+    export LC_ALL=C.UTF-8
+
+%runscript
+    exec /work/entrypoint.sh "$@"
+
+%test
+    /work/entrypoint.sh
+
+%labels
+    Author Tobias Croydon-McRae
+    Name snuffy-canon-edition
+    Version 2026-10-24
+    Description Snuffy Canon Edition reproducibility suite (Lean + exact-rational ledger + assembly checks)
+    License CC-BY-4.0
+
+%help
+    Runs the full reproducibility assertion: Lean compilation of PremiseStack,
+    MeetAlgebra (core) and MathlibAnalyticBridge (pinned Mathlib), the ledger's
+    byte-identical replay verification, and the manuscript assembly checks.
+    All steps fail on any warning, any float usage, or any failed check.

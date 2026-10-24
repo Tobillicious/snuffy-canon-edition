@@ -1,0 +1,398 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "about": {
+        "@id": "./"
+      },
+      "conformsTo": "https://w3id.org/ro/crate/1.1"
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "Snuffy — Canon Edition: manuscript, Lean verification, ledger, containers, renders",
+      "author": {
+        "@id": "https://orcid.org/0009-0003-1419-7756",
+        "name": "Tobias Croydon-McRae"
+      },
+      "datePublished": "2026-10-24",
+      "license": "https://spdx.org/licenses/CC-BY-4.0",
+      "description": "Released theory (GLOBAL D: CLOSED-AT-DECLARED-PREMISES). Zero-warning Lean (core + Mathlib rev 56a005855ea1), exact-rational hash-chained ledger with byte-identical replay, reproducibility containers, verified PDF/EPUB/HTML renders, FAIR provenance, CC-BY-4.0 LICENSE, Zenodo deposit metadata. Source repository: github.com/Tobillicous/snuffy-canon-edition.",
+      "isRelatedTo": [
+        {
+          "@id": "https://doi.org/10.5281/zenodo.23599528",
+          "@type": "CreativeWork",
+          "name": "A Lattice Preservation Calculus (Zenodo preprint)",
+          "relation": "IsSupplementedBy"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/CITATION.cff"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/CREDITS.md"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/EVIDENCE-LINEAGE.md"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/LICENSE"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/README.md"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/SNUFFY-CANON-EDITION-MASTER.md"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/checks/check_master_assembly.out"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/checks/check_master_assembly.py"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/container/Apptainer.def"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/container/Dockerfile"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/container/entrypoint.sh"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/inserts/00-header-premise-stack.md"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/inserts/08-thermodynamic-core.md"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/inserts/11-identity-by-continuation.md"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/inserts/12-e9-trichotomy.md"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/inserts/13-h5-meet-algebra.md"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/inserts/14-canon-and-greatestness.md"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/lean/COMPILE-RECEIPTS.txt"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/lean/Snuffy/MathlibAnalyticBridge.lean"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/lean/Snuffy/MeetAlgebra.lean"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/lean/Snuffy/PremiseStack.lean"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/render/RENDER-VERIFY.json"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/render/Snuffy-Canon-Edition.epub"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/render/Snuffy-Canon-Edition.html"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/render/Snuffy-Canon-Edition.pdf"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/render/Snuffy-Canon-Edition.tex"
+        },
+        {
+          "@id": "SNUFFY-CANON-EDITION-2026-10-24/zenodo.json"
+        },
+        {
+          "@id": "LEDGER-FOUR-STROKE-2026-10-24/README.md"
+        },
+        {
+          "@id": "LEDGER-FOUR-STROKE-2026-10-24/four_stroke_ledger.py"
+        },
+        {
+          "@id": "LEDGER-FOUR-STROKE-2026-10-24/traces/charged.trace.json"
+        },
+        {
+          "@id": "LEDGER-FOUR-STROKE-2026-10-24/traces/quarantine.trace.json"
+        },
+        {
+          "@id": "LEDGER-FOUR-STROKE-2026-10-24/traces/solvent.trace.json"
+        },
+        {
+          "@id": "LEDGER-FOUR-STROKE-2026-10-24/verify_four_stroke.py"
+        }
+      ]
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/CITATION.cff",
+      "@type": "File",
+      "name": "CITATION.cff",
+      "contentSize": "1153",
+      "sha256": "62798888569de6d1da96e03a6049db2fd4c193056bd36d61099324fe35dd1cee",
+      "encodingFormat": "text/x-yaml"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/CREDITS.md",
+      "@type": "File",
+      "name": "CREDITS.md",
+      "contentSize": "611",
+      "sha256": "e41b749337da8f689a589ed72d8bb663a379d6bf3f13733ea2bb89beacf86399",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/EVIDENCE-LINEAGE.md",
+      "@type": "File",
+      "name": "EVIDENCE-LINEAGE.md",
+      "contentSize": "2433",
+      "sha256": "cd3e292cc405ac3458be724cdf007eacd5186cd8d0ba82ad71c0268245e7cc16",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/LICENSE",
+      "@type": "File",
+      "name": "LICENSE",
+      "contentSize": "18657",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "encodingFormat": "application/octet-stream"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/README.md",
+      "@type": "File",
+      "name": "README.md",
+      "contentSize": "3926",
+      "sha256": "87e520e2001637fc30f6e7d01343abfe03fef7d39790e6608e661825cd1f4fcb",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/SNUFFY-CANON-EDITION-MASTER.md",
+      "@type": "File",
+      "name": "SNUFFY-CANON-EDITION-MASTER.md",
+      "contentSize": "22663",
+      "sha256": "7c74e3eb8d5d75c0794f518e94242238c0b4b4c30b4affb2715b89d50daeadb4",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/checks/check_master_assembly.out",
+      "@type": "File",
+      "name": "check_master_assembly.out",
+      "contentSize": "977",
+      "sha256": "47e75237fcd13666964dad817b871081b1384ae09c08ade40712425c3c921c2b",
+      "encodingFormat": "application/octet-stream"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/checks/check_master_assembly.py",
+      "@type": "File",
+      "name": "check_master_assembly.py",
+      "contentSize": "2431",
+      "sha256": "3a5e63baade6237f1e1e5901aa0378e05c095023210736a578080d1b6d8dbf13",
+      "encodingFormat": "text/x-python"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/container/Apptainer.def",
+      "@type": "File",
+      "name": "Apptainer.def",
+      "contentSize": "1913",
+      "sha256": "0e7fcfec64eff50a00d9a5e6ad7c4b1d06c75f12d17db1d051bfb8b4cbedaaa9",
+      "encodingFormat": "text/plain"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/container/Dockerfile",
+      "@type": "File",
+      "name": "Dockerfile",
+      "contentSize": "1422",
+      "sha256": "0cd5e108dbe43873afedbc57ceb833ca4cd85986055a63411303b1f6db9a2d69",
+      "encodingFormat": "application/octet-stream"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/container/entrypoint.sh",
+      "@type": "File",
+      "name": "entrypoint.sh",
+      "contentSize": "1686",
+      "sha256": "5820924b6d893f474768b6bc58072893765878b51e3219afa4c56908c3faca3e",
+      "encodingFormat": "text/x-shellscript"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/inserts/00-header-premise-stack.md",
+      "@type": "File",
+      "name": "00-header-premise-stack.md",
+      "contentSize": "6023",
+      "sha256": "f6716748069ecdc9578205509420feaf14b0a3f661e1aad057ec2322235c7528",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/inserts/08-thermodynamic-core.md",
+      "@type": "File",
+      "name": "08-thermodynamic-core.md",
+      "contentSize": "5613",
+      "sha256": "fb5300d332e82023da6ceae16ff3e1d9f1ef308c2e3f69e26d55d98d9198aa4d",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/inserts/11-identity-by-continuation.md",
+      "@type": "File",
+      "name": "11-identity-by-continuation.md",
+      "contentSize": "4033",
+      "sha256": "0275ab50cb2fa974d6c16aa12a0266f717a5aa019a3769c28b92e60a28c8f258",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/inserts/12-e9-trichotomy.md",
+      "@type": "File",
+      "name": "12-e9-trichotomy.md",
+      "contentSize": "3881",
+      "sha256": "00cd70295fc385150a55173695c9d1c2d86564f9afe84e6fe5e78f2a71215b46",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/inserts/13-h5-meet-algebra.md",
+      "@type": "File",
+      "name": "13-h5-meet-algebra.md",
+      "contentSize": "2479",
+      "sha256": "f8e7317f6e00ca30bf946c0e587e90502902d76730458f3b232139d28b656a67",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/inserts/14-canon-and-greatestness.md",
+      "@type": "File",
+      "name": "14-canon-and-greatestness.md",
+      "contentSize": "5513",
+      "sha256": "1f1ba659a0c2f7ab42901f2e53164c76d51092d534749395e2ed109cfd0f23c4",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/lean/COMPILE-RECEIPTS.txt",
+      "@type": "File",
+      "name": "COMPILE-RECEIPTS.txt",
+      "contentSize": "270",
+      "sha256": "bbef9d58dd689b2fd5b81bdaf7dbf5d44728e2dd7f805f606a3c6cc346950f7f",
+      "encodingFormat": "text/plain"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/lean/Snuffy/MathlibAnalyticBridge.lean",
+      "@type": "File",
+      "name": "MathlibAnalyticBridge.lean",
+      "contentSize": "5410",
+      "sha256": "d65221c05ee7d1f289ee1b5f4f39fa37e12a82474a6ca70c160e4f18dfeeb7ee",
+      "encodingFormat": "text/x-lean"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/lean/Snuffy/MeetAlgebra.lean",
+      "@type": "File",
+      "name": "MeetAlgebra.lean",
+      "contentSize": "5900",
+      "sha256": "ce746eb7bab2d68153205fd4f2ea5725b5769a614271184ef105a815ef69809d",
+      "encodingFormat": "text/x-lean"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/lean/Snuffy/PremiseStack.lean",
+      "@type": "File",
+      "name": "PremiseStack.lean",
+      "contentSize": "3810",
+      "sha256": "508874229543081edefb2292f44a291480893986a1e58f73e282b0633f5b3fa0",
+      "encodingFormat": "text/x-lean"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/render/RENDER-VERIFY.json",
+      "@type": "File",
+      "name": "RENDER-VERIFY.json",
+      "contentSize": "533",
+      "sha256": "30f22c8193fdb138b4a1303cc48455175b0fc621b1c7a9430f8cbb7f7b3221ff",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/render/Snuffy-Canon-Edition.epub",
+      "@type": "File",
+      "name": "Snuffy-Canon-Edition.epub",
+      "contentSize": "24884",
+      "sha256": "3d7f1cf2f80826c0650b624c4515708d023de52f385393b403fab9092c3291c5",
+      "encodingFormat": "application/epub+zip"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/render/Snuffy-Canon-Edition.html",
+      "@type": "File",
+      "name": "Snuffy-Canon-Edition.html",
+      "contentSize": "72908",
+      "sha256": "30bad61a4bf1656c634d3d33ec7aa00b25d5b8bf9baa742273bf69e291abadc7",
+      "encodingFormat": "text/html"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/render/Snuffy-Canon-Edition.pdf",
+      "@type": "File",
+      "name": "Snuffy-Canon-Edition.pdf",
+      "contentSize": "143387",
+      "sha256": "5af234903fd2641fa8f99bc7c6aff3745236637482788b0d7e2dfc214d330a64",
+      "encodingFormat": "application/pdf"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/render/Snuffy-Canon-Edition.tex",
+      "@type": "File",
+      "name": "Snuffy-Canon-Edition.tex",
+      "contentSize": "27845",
+      "sha256": "5dcf78d39fdcef763c70ebea7fb91f238464d932d95338e1c43b603140e460f1",
+      "encodingFormat": "application/x-tex"
+    },
+    {
+      "@id": "SNUFFY-CANON-EDITION-2026-10-24/zenodo.json",
+      "@type": "File",
+      "name": "zenodo.json",
+      "contentSize": "2387",
+      "sha256": "55faa3df0884f6073382b36a51c60cc9ad6beec407d9323e563ad29a3a92e2fd",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "LEDGER-FOUR-STROKE-2026-10-24/README.md",
+      "@type": "File",
+      "name": "README.md",
+      "contentSize": "3609",
+      "sha256": "2dcfbfdb1e215cd94ef328255715571aa3b68bd69f5bfdd4254ae73870751683",
+      "encodingFormat": "text/markdown"
+    },
+    {
+      "@id": "LEDGER-FOUR-STROKE-2026-10-24/four_stroke_ledger.py",
+      "@type": "File",
+      "name": "four_stroke_ledger.py",
+      "contentSize": "9841",
+      "sha256": "4689df1b00bf7c2d736937375a609a33aa11039e4321012c31f5e9a13ed252c2",
+      "encodingFormat": "text/x-python"
+    },
+    {
+      "@id": "LEDGER-FOUR-STROKE-2026-10-24/traces/charged.trace.json",
+      "@type": "File",
+      "name": "charged.trace.json",
+      "contentSize": "5155",
+      "sha256": "bd4cd2d5ea7bbb95ceb8efc8c146e04db66c2adb9f342116cd718ad4e33b5326",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "LEDGER-FOUR-STROKE-2026-10-24/traces/quarantine.trace.json",
+      "@type": "File",
+      "name": "quarantine.trace.json",
+      "contentSize": "5560",
+      "sha256": "9838bbb2264814a357c8f90674792d007cc7c88df89415bf205196fb86d73841",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "LEDGER-FOUR-STROKE-2026-10-24/traces/solvent.trace.json",
+      "@type": "File",
+      "name": "solvent.trace.json",
+      "contentSize": "7450",
+      "sha256": "15d04208b7e2cf18489dc74015df72c08725af73591a89bc8abcd53b2062a9d6",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "LEDGER-FOUR-STROKE-2026-10-24/verify_four_stroke.py",
+      "@type": "File",
+      "name": "verify_four_stroke.py",
+      "contentSize": "2038",
+      "sha256": "22e8bf766535e54aca736ee7352b3da13f9ec6fc7330b70bae8b0315c1cbd091",
+      "encodingFormat": "text/x-python"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "all_pass": true,
+  "bennett_form_present": true,
+  "canon_sentence_rendered": true,
+  "chain_heads_verbatim": {
+    "charged": true,
+    "quarantine": true,
+    "solvent": true
+  },
+  "five_rate_components_present": {
+    "W_{mathrm{admin}}": true,
+    "W_{mathrm{adv,sub}}": true,
+    "W_{mathrm{damage}}": true,
+    "W_{mathrm{hold}}": true,
+    "W_{mathrm{maint}}": true
+  },
+  "guards_present": {
+    "Integration guard 1": true,
+    "Integration guard 2": true,
+    "Integration guards 3 and 4": true
+  },
+  "ledger_directory_cited": true,
+  "master": "SNUFFY-CANON-EDITION-MASTER.md",
+  "mirror_qualifier_present": true,
+  "premises_present": {
+    "BCRD P1": true,
+    "Master Solvency Condition": true,
+    "Turing\u2013Deutsch": true,
+    "cost model": true,
+    "reversible administration": true,
+    "shared action interface": true,
+    "twenty-one charged": true
+  },
+  "published_doi_cited": true,
+  "solvency_equation_rendered": true,
+  "word_count": 2746
+}

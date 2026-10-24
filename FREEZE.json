@@ -1,0 +1,169 @@
+{
+  "version": "canon-v4.0",
+  "date": "2026-10-24",
+  "files": [
+    {
+      "path": "LEDGER-FOUR-STROKE-2026-10-24/README.md",
+      "sha256": "2dcfbfdb1e215cd94ef328255715571aa3b68bd69f5bfdd4254ae73870751683"
+    },
+    {
+      "path": "LEDGER-FOUR-STROKE-2026-10-24/SHA256SUMS",
+      "sha256": "491bd6a27530a6d247a6d798e6fe0d0e73e96b34e8803662cb86670469aac3b0"
+    },
+    {
+      "path": "LEDGER-FOUR-STROKE-2026-10-24/four_stroke_ledger.py",
+      "sha256": "4689df1b00bf7c2d736937375a609a33aa11039e4321012c31f5e9a13ed252c2"
+    },
+    {
+      "path": "LEDGER-FOUR-STROKE-2026-10-24/traces/charged.trace.json",
+      "sha256": "bd4cd2d5ea7bbb95ceb8efc8c146e04db66c2adb9f342116cd718ad4e33b5326"
+    },
+    {
+      "path": "LEDGER-FOUR-STROKE-2026-10-24/traces/quarantine.trace.json",
+      "sha256": "9838bbb2264814a357c8f90674792d007cc7c88df89415bf205196fb86d73841"
+    },
+    {
+      "path": "LEDGER-FOUR-STROKE-2026-10-24/traces/solvent.trace.json",
+      "sha256": "15d04208b7e2cf18489dc74015df72c08725af73591a89bc8abcd53b2062a9d6"
+    },
+    {
+      "path": "LEDGER-FOUR-STROKE-2026-10-24/verify_four_stroke.py",
+      "sha256": "22e8bf766535e54aca736ee7352b3da13f9ec6fc7330b70bae8b0315c1cbd091"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/CITATION.cff",
+      "sha256": "62798888569de6d1da96e03a6049db2fd4c193056bd36d61099324fe35dd1cee"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/CREDITS.md",
+      "sha256": "e41b749337da8f689a589ed72d8bb663a379d6bf3f13733ea2bb89beacf86399"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/EVIDENCE-LINEAGE.md",
+      "sha256": "cd3e292cc405ac3458be724cdf007eacd5186cd8d0ba82ad71c0268245e7cc16"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/LICENSE",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/README.md",
+      "sha256": "87e520e2001637fc30f6e7d01343abfe03fef7d39790e6608e661825cd1f4fcb"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/SHA256SUMS",
+      "sha256": "cb8ebb8abb5a684f9ce0b07719a41d643d9019ec419dcbbab78f6b0468012ad7"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/SNUFFY-CANON-EDITION-MASTER.md",
+      "sha256": "7c74e3eb8d5d75c0794f518e94242238c0b4b4c30b4affb2715b89d50daeadb4"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/checks/check_master_assembly.out",
+      "sha256": "47e75237fcd13666964dad817b871081b1384ae09c08ade40712425c3c921c2b"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/checks/check_master_assembly.py",
+      "sha256": "3a5e63baade6237f1e1e5901aa0378e05c095023210736a578080d1b6d8dbf13"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/container/Apptainer.def",
+      "sha256": "0e7fcfec64eff50a00d9a5e6ad7c4b1d06c75f12d17db1d051bfb8b4cbedaaa9"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/container/Dockerfile",
+      "sha256": "0cd5e108dbe43873afedbc57ceb833ca4cd85986055a63411303b1f6db9a2d69"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/container/entrypoint.sh",
+      "sha256": "5820924b6d893f474768b6bc58072893765878b51e3219afa4c56908c3faca3e"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/inserts/00-header-premise-stack.md",
+      "sha256": "f6716748069ecdc9578205509420feaf14b0a3f661e1aad057ec2322235c7528"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/inserts/08-thermodynamic-core.md",
+      "sha256": "fb5300d332e82023da6ceae16ff3e1d9f1ef308c2e3f69e26d55d98d9198aa4d"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/inserts/11-identity-by-continuation.md",
+      "sha256": "0275ab50cb2fa974d6c16aa12a0266f717a5aa019a3769c28b92e60a28c8f258"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/inserts/12-e9-trichotomy.md",
+      "sha256": "00cd70295fc385150a55173695c9d1c2d86564f9afe84e6fe5e78f2a71215b46"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/inserts/13-h5-meet-algebra.md",
+      "sha256": "f8e7317f6e00ca30bf946c0e587e90502902d76730458f3b232139d28b656a67"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/inserts/14-canon-and-greatestness.md",
+      "sha256": "1f1ba659a0c2f7ab42901f2e53164c76d51092d534749395e2ed109cfd0f23c4"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/lean/COMPILE-RECEIPTS.txt",
+      "sha256": "bbef9d58dd689b2fd5b81bdaf7dbf5d44728e2dd7f805f606a3c6cc346950f7f"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/lean/Snuffy/MathlibAnalyticBridge.lean",
+      "sha256": "d65221c05ee7d1f289ee1b5f4f39fa37e12a82474a6ca70c160e4f18dfeeb7ee"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/lean/Snuffy/MeetAlgebra.lean",
+      "sha256": "ce746eb7bab2d68153205fd4f2ea5725b5769a614271184ef105a815ef69809d"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/lean/Snuffy/PremiseStack.lean",
+      "sha256": "508874229543081edefb2292f44a291480893986a1e58f73e282b0633f5b3fa0"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/render/RENDER-VERIFY.json",
+      "sha256": "30f22c8193fdb138b4a1303cc48455175b0fc621b1c7a9430f8cbb7f7b3221ff"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/render/Snuffy-Canon-Edition.epub",
+      "sha256": "3d7f1cf2f80826c0650b624c4515708d023de52f385393b403fab9092c3291c5"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/render/Snuffy-Canon-Edition.html",
+      "sha256": "30bad61a4bf1656c634d3d33ec7aa00b25d5b8bf9baa742273bf69e291abadc7"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/render/Snuffy-Canon-Edition.pdf",
+      "sha256": "5af234903fd2641fa8f99bc7c6aff3745236637482788b0d7e2dfc214d330a64"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/render/Snuffy-Canon-Edition.tex",
+      "sha256": "5dcf78d39fdcef763c70ebea7fb91f238464d932d95338e1c43b603140e460f1"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/ro-crate-metadata.json",
+      "sha256": "3e60eaeb5c98ace7047014296828a3948212e4e458a64ca8ab81798226442055"
+    },
+    {
+      "path": "SNUFFY-CANON-EDITION-2026-10-24/zenodo.json",
+      "sha256": "55faa3df0884f6073382b36a51c60cc9ad6beec407d9323e563ad29a3a92e2fd"
+    },
+    {
+      "path": "START-HERE.md",
+      "sha256": "9a09e610a56ae68863ef74dc6dbbe458888b1ff0d542e5d61f17aa258379493e"
+    },
+    {
+      "path": "verify-all.sh",
+      "sha256": "3724159494f70c7b0f69d0476cf94e5c7616fcbe6f1ca17ab0f37a9c1f6845c4"
+    }
+  ],
+  "root_sha256": "505eadcfa7af04da88b9f3fb817168ba290d0cff1ee4477eebc8953b1cb05e37",
+  "note": "Composite root = sha256 over the canonical sorted file listing. Matches git tag v4.0-canon. Source repository: github.com/Tobillicous/snuffy-canon-edition.",
+  "ledger_chain_heads": {
+    "solvent": "6160d931d55767f39525671ff4ef8f3305b609cd22c6043cd9e0fb3eada69132",
+    "quarantine": "d1a0d44bbad5a135928595e152a7a3e987e74a90017837e1491ad8b8430b0ef4",
+    "charged": "41143bb2756875b03975b1cbb7c5cd09e6e0ee495b06c29243624de52a6a2788"
+  }
+}

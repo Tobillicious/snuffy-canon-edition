@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: >-
+  If you use this work, please cite it as the Snuffy Canon Edition.
+title: "Snuffy — Canon Edition: Sovereign Lattice Architecture & Preservation Calculus"
+type: dataset
+authors:
+  - family-names: Croydon-McRae
+    given-names: Tobias
+    orcid: "0009-0003-1419-7756"
+version: canon-v4.0
+date-released: "2026-10-24"
+license: CC-BY-4.0
+repository-code: "https://github.com/Tobillicous/snuffy-canon-edition"
+abstract: >-
+  The Universal Protection Theory at released status (GLOBAL D:
+  CLOSED-AT-DECLARED-PREMISES): ratified canon invariant, funded-repair
+  thermodynamic core, identity-by-continuation layer, E9 adversarial
+  containment trichotomy, H5 meet algebra, and universal greatestness over
+  the class of physically implementable rivals, on a seven-point declared
+  premise stack. Includes verified manuscript renders, zero-warning Lean
+  modules (core and Mathlib-pinned analytic bridge), an exact-rational
+  hash-chained replayable ledger, reproducibility containers, and an
+  RO-Crate FAIR manifest.
+keywords:
+  - universal-protection-theory
+  - sovereign-lattice
+  - formal-verification
+  - reproducibility

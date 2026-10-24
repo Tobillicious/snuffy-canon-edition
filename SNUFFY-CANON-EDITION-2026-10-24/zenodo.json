@@ -1,0 +1,35 @@
+{
+  "title": "Snuffy — Canon Edition: Sovereign Lattice Architecture & Preservation Calculus",
+  "upload_type": "dataset",
+  "version": "canon-v4.0",
+  "publication_date": "2026-10-24",
+  "creators": [
+    {
+      "name": "Croydon-McRae, Tobias",
+      "role": "",
+      "orcid": "0009-0003-1419-7756"
+    }
+  ],
+  "description": "<p>The Universal Protection Theory at released status (GLOBAL D: CLOSED-AT-DECLARED-PREMISES): the ratified canon invariant, the funded-repair thermodynamic core, the identity-by-continuation layer, the E9 adversarial containment trichotomy, the H5 meet algebra, and universal greatestness over the class of physically implementable rivals — resting on a seven-point declared premise stack.</p><p>Includes: the unified master manuscript (verified PDF/EPUB/HTML renders); three zero-warning Lean 4.35.0 modules (two core; the Mathlib analytic bridge against Mathlib rev 56a005855ea1, proving the operator algebraic identities and the genuine conditional theorem that SOT convergence implies the limit subspace contains the intersection); the replayable four-stroke ledger with exact rational arithmetic and hash-chained, byte-identical replay; reproducibility containers (Docker and Apptainer) with a zero-warning, zero-float entrypoint; and an RO-Crate 1.1 FAIR manifest mapping every artifact to its SHA-256.</p><p>One-command verification: <code>bash verify-all.sh</code>.</p>",
+  "license": "cc-by-4.0",
+  "keywords": [
+    "universal protection theory",
+    "sovereign lattice",
+    "boundary-complete relational dynamics",
+    "thermodynamics of computation",
+    "quantum error correction",
+    "formal verification",
+    "Lean 4",
+    "reproducibility"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.23599528",
+      "relation": "isSupplementTo",
+      "resource_type": "publication"
+    }
+  ],
+  "notes": "Parent mathematical core: A Lattice Preservation Calculus (DOI 10.5281/zenodo.23599528). Ledger chain heads: solvent 6160d931d55767f39525671ff4ef8f3305b609cd22c6043cd9e0fb3eada69132; quarantine d1a0d44bbad5a135928595e152a7a3e987e74a90017837e1491ad8b8430b0ef4; charged 41143bb2756875b03975b1cbb7c5cd09e6e0ee495b06c29243624de52a6a2788. Content freeze root hash: see FREEZE.json. Prepared with the Snuffy programme's human and AI collaborators (Claude, Codex, Gemini, GLM).",
+  "communities": [],
+  "grants": []
+}
