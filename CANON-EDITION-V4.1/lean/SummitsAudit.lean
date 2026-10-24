@@ -11,6 +11,7 @@ import Snuffy.ThermoLedger
 import Snuffy.Composition
 import Snuffy.PremiseFloor
 import Snuffy.ReciprocityCeiling
+import Snuffy.CyclicProjections
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -56,3 +57,7 @@ import Snuffy.ReciprocityCeiling
 #print axioms Snuffy.ReciprocityCeiling.reciprocity_dominance
 #print axioms Snuffy.ReciprocityCeiling.omitting_rival_strictly_below
 #print axioms Snuffy.ReciprocityCeiling.ceiling_achievable
+#print axioms Snuffy.Cyclic.energy
+#print axioms Snuffy.Cyclic.mem_of_norm_adj_eq
+#print axioms Snuffy.Cyclic.tendsto_cyc_iter
+#print axioms Snuffy.Cyclic.presentation_detector
