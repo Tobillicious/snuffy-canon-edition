@@ -37,6 +37,7 @@ import Snuffy.Law
 import Snuffy.SpeedLimit
 import Snuffy.Landauer
 import Snuffy.QuantumLandauer
+import Snuffy.Threshold
 
 #print axioms Snuffy.CanonVonNeumann.canon_von_neumann_convergence
 #print axioms Snuffy.CanonVonNeumann.canon_opial_convergence
@@ -204,3 +205,10 @@ import Snuffy.QuantumLandauer
 #print axioms Snuffy.QuantumLandauer.quantum_landauer
 #print axioms Snuffy.QuantumLandauer.quantum_guard_one
 #print axioms Snuffy.QuantumLandauer.quantum_cycle_work_floor
+#print axioms Snuffy.Threshold.many_faults
+#print axioms Snuffy.Threshold.fail_le_witness
+#print axioms Snuffy.Threshold.fail_le_geometric
+#print axioms Snuffy.Threshold.repetition_threshold
+#print axioms Snuffy.Threshold.repetition_ceiling
+#print axioms Snuffy.Threshold.poly_geom_le
+#print axioms Snuffy.Threshold.family_ceiling
