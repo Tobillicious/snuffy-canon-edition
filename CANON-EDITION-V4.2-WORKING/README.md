@@ -25,4 +25,4 @@ python3 checks/verify_render.py        # citations unbroken in every rendering
 MATHLIB_PROJECT=/path/to/mathlib-at-56a005855ea1 CORPUS_ROOT=/path/to/workspace lean/build-and-audit.sh
 ```
 
-Previous editions: Snuffy Canon Edition 4.1, DOI 10.5281/zenodo.23631881, and 4.0, DOI 10.5281/zenodo.23608443. Parent mathematical core: *A Lattice Preservation Calculus*, DOI 10.5281/zenodo.23599528. Source repository: github.com/Tobillicous/snuffy-canon-edition.
+Previous editions: Snuffy Canon Edition 4.1, DOI 10.5281/zenodo.23631881, and 4.0, DOI 10.5281/zenodo.23608443. Parent mathematical core: *A Lattice Preservation Calculus*, DOI 10.5281/zenodo.23599528. Source repository: github.com/Tobillicious/snuffy-canon-edition.

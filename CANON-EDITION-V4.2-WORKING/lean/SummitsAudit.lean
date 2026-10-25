@@ -1277,7 +1277,13 @@ import Snuffy.PureStateTraceNorm
 -- G1Held
 #print axioms Snuffy.G1Held.good_cover
 #print axioms Snuffy.G1Held.held_source_protection
+#print axioms Snuffy.G1Held.initial_frame_normalised
+#print axioms Snuffy.G1Held.held_step_normalised
+#print axioms Snuffy.G1Held.held_run_normalised
 #print axioms Snuffy.G1Held.held_source_qsl
+#print axioms Snuffy.G1Held.zero_hamiltonian_trajectory
+#print axioms Snuffy.G1Held.concrete_decoder_certificate
+#print axioms Snuffy.G1Held.concrete_good_event_inhabited
 -- G1E9
 #print axioms Snuffy.G1E9.alarm_or_subthreshold
 #print axioms Snuffy.G1E9.held_source_e9
@@ -1297,6 +1303,13 @@ import Snuffy.PureStateTraceNorm
 #print axioms Snuffy.ReasonsEnsemble.ensemble_le
 #print axioms Snuffy.ReasonsEnsemble.ensemble_strict
 -- TheoremEightLyapunov
+#print axioms Snuffy.TheoremEightLyapunov.capacity_balance
+#print axioms Snuffy.TheoremEightLyapunov.solvent_cycle_energy_account
+#print axioms Snuffy.TheoremEightLyapunov.reserve_deficit_antitone
+#print axioms Snuffy.TheoremEightLyapunov.reserve_deficit_cap
+#print axioms Snuffy.TheoremEightLyapunov.replenishment_exact
+#print axioms Snuffy.TheoremEightLyapunov.replenishment_nonincrease
+#print axioms Snuffy.TheoremEightLyapunov.solvent_cycle_deficit
 #print axioms Snuffy.TheoremEightLyapunov.cycle_contracts
 #print axioms Snuffy.TheoremEightLyapunov.margin_pos
 #print axioms Snuffy.TheoremEightLyapunov.lyapunov_iterate

@@ -1,0 +1,22 @@
+{
+  "label": "01-normalised",
+  "overall_pass": true,
+  "working_sources_unchanged": true,
+  "fresh_compile_count": 169,
+  "fresh_kernel_count": 169,
+  "axiom_count": 1048,
+  "initial_run_retained": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-01-normalised/INITIAL-RECEIPT-FAIL.txt",
+  "gates_rerun": [
+    {
+      "script": "check-complete.py",
+      "exit": 0,
+      "output": "## completeness: canon 169, corpus names 84, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 282\n## build/audit coverage: canon 169, build 169, audit 169, errors 0\n"
+    },
+    {
+      "script": "check-claims.py",
+      "exit": 0,
+      "output": "## claims: audited theorems 1048, uncited in \u00a723 0; ledger rows 27, ledger theorems not audited 0\n"
+    }
+  ],
+  "receipt": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-01-normalised/lean/RECEIPT.txt"
+}

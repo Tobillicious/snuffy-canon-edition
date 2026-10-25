@@ -2,7 +2,7 @@
 
 **The Universal Protection Theory at released status** (GLOBAL D: CLOSED-AT-DECLARED-PREMISES): the ratified canon invariant, the funded-repair thermodynamic core, the identity-by-continuation layer, the E9 adversarial containment trichotomy, the H5 meet algebra, and universal greatestness over the class of physically implementable rivals — resting on a seven-point declared premise stack.
 
-**Record:** Zenodo DOI `10.5281/zenodo.23608443` (Canon Edition) · Parent mathematical core: [10.5281/zenodo.23599528](https://doi.org/10.5281/zenodo.23599528) · Release tag: [`v4.0-canon`](https://github.com/Tobillicous/snuffy-canon-edition/releases/tag/v4.0-canon)
+**Record:** Zenodo DOI `10.5281/zenodo.23608443` (Canon Edition) · Parent mathematical core: [10.5281/zenodo.23599528](https://doi.org/10.5281/zenodo.23599528) · Release tag: [`v4.0-canon`](https://github.com/Tobillicious/snuffy-canon-edition/releases/tag/v4.0-canon)
 
 ## Verify everything with one command
 

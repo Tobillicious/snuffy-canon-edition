@@ -38,7 +38,7 @@
       "resource_type": "publication"
     },
     {
-      "identifier": "https://github.com/Tobillicous/snuffy-canon-edition",
+      "identifier": "https://github.com/Tobillicious/snuffy-canon-edition",
       "relation": "isSupplementedBy",
       "resource_type": "software"
     }

@@ -63,33 +63,33 @@ exhaustive and the alarm is forced by the honest sensors, so the coupling is
 bounded by `W` at every step, and every particular is held. -/
 theorem held_source_e9 (μ : Measure Ω) (accounts : Finset ι) (Ev' : ι → Set Ω)
     (δ : ι → ENNReal) (hδ : ∀ i ∈ accounts, μ (Ev' i) ≤ δ i)
-    {rec : Part → E} {ε t dmin : ℝ} {Code : Set E} (hrec : ∀ x, rec x ∈ Code)
+    {rec : Part → NormalisedState E} {ε t dmin : ℝ} {Code : Set (NormalisedState E)} (hrec : ∀ x, rec x ∈ Code)
     (hsep : ∀ c ∈ Code, ∀ c' ∈ Code, c ≠ c' → dmin ≤ dist c c') (ht : 2 * t < dmin)
-    {dec : E → E} (hdecC : ∀ y, dec y ∈ Code)
+    {dec : NormalisedState E → NormalisedState E} (hdecC : ∀ y, dec y ∈ Code)
     (hnear : ∀ y, ∀ c ∈ Code, dist y (dec y) ≤ dist y c) (hε : 0 ≤ ε)
     (scope : Set Part)
     (hlaw : ∀ (F : Set (Set Part)) (o : Set Part),
       Snuffy.Law.ProjMax scope F o → ¬ Snuffy.Law.NeedlessLoss₁ F o)
-    (pre : Ω → (Part → E) → C → Ev → Part → E)
+    (pre : Ω → (Part → NormalisedState E) → C → Ev → Part → NormalisedState E)
     {ħ W Δ θ : ℝ} (hħ : 0 < ħ) (hΔ : 0 ≤ Δ) (hW : 0 ≤ W) {f : ℕ}
     -- the monitored support, its delivered power and sensor readings at each step
-    (supp : Ω → (Part → E) → C → Ev → Part → Finset Site)
-    (pow : Ω → (Part → E) → C → Ev → Part → Site → ℝ)
-    (y : Ω → (Part → E) → C → Ev → Part → Site → Sensor → ℝ)
-    (faulty : Ω → (Part → E) → C → Ev → Part → Site → Finset Sensor)
+    (supp : Ω → (Part → NormalisedState E) → C → Ev → Part → Finset Site)
+    (pow : Ω → (Part → NormalisedState E) → C → Ev → Part → Site → ℝ)
+    (y : Ω → (Part → NormalisedState E) → C → Ev → Part → Site → Sensor → ℝ)
+    (faulty : Ω → (Part → NormalisedState E) → C → Ev → Part → Site → Finset Sensor)
     (hf : ∀ ω a c e x i, (faulty ω a c e x i).card ≤ f)
     (hhonest : ∀ ω a c e x, ∀ i ∈ supp ω a c e x, θ ≤ pow ω a c e x i →
       ∀ j ∉ faulty ω a c e x i, θ < y ω a c e x i j)
     -- the frame's actual evolution during the step
-    (H₀ V : Ω → (Part → E) → C → Ev → Part → ℝ → E →L[ℂ] E)
-    (ψ : Ω → (Part → E) → C → Ev → Part → ℝ → E) (s₁ : Ω → (Part → E) → C → Ev → Part → ℝ)
+    (H₀ V : Ω → (Part → NormalisedState E) → C → Ev → Part → ℝ → E →L[ℂ] E)
+    (ψ : Ω → (Part → NormalisedState E) → C → Ev → Part → ℝ → E) (s₁ : Ω → (Part → NormalisedState E) → C → Ev → Part → ℝ)
     (hevol : ∀ ω ∈ goodEvent accounts Ev', ∀ a c e x,
       (∀ s, IsSelfAdjoint (H₀ ω a c e x s)) ∧
       (∀ s, IsSelfAdjoint (H₀ ω a c e x s + V ω a c e x s)) ∧
-      (∀ s, H₀ ω a c e x s (rec x) = 0) ∧
+      (∀ s, H₀ ω a c e x s (rec x).val = 0) ∧
       Snuffy.SpeedLimit.Solves ħ (fun s => H₀ ω a c e x s + V ω a c e x s) (ψ ω a c e x) ∧
-      ‖ψ ω a c e x 0‖ = 1 ∧ ψ ω a c e x (s₁ ω a c e x) = a x ∧
-      ψ ω a c e x (s₁ ω a c e x + Δ) = pre ω a c e x)
+      ‖ψ ω a c e x 0‖ = 1 ∧ ψ ω a c e x (s₁ ω a c e x) = (a x).val ∧
+      ψ ω a c e x (s₁ ω a c e x + Δ) = (pre ω a c e x).val)
     -- Branch A: below threshold at every support site, the coupling is sub-threshold
     (hsub : ∀ ω ∈ goodEvent accounts Ev', ∀ a c e x,
       (∀ i ∈ supp ω a c e x, pow ω a c e x i < θ) → ∀ s, ‖V ω a c e x s‖ ≤ W)
@@ -97,7 +97,7 @@ theorem held_source_e9 (μ : Measure Ω) (accounts : Finset ι) (Ev' : ι → Se
     (hresp : ∀ ω ∈ goodEvent accounts Ev', ∀ a c e x, ∀ i ∈ supp ω a c e x,
       (∀ m, Snuffy.E9.Robust (y ω a c e x i) f m → θ < m) → ∀ s, V ω a c e x s = 0)
     (hbudget : ε + W / ħ * Δ ≤ t)
-    (obs : (Part → E) → O) (ctrl : Ω → List O → C) (env : Ω → List O → C → Ev)
+    (obs : (Part → NormalisedState E) → O) (ctrl : Ω → List O → C) (env : Ω → List O → C → Ev)
     (horizon : ℕ) :
     (∀ ω ∈ goodEvent accounts Ev', ∀ k ≤ horizon, ∀ x,
       Continues rec ε

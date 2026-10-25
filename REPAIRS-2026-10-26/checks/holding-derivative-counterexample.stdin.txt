@@ -1,0 +1,7 @@
+import Mathlib.Analysis.Calculus.Deriv.Basic
+example : (∀ t ∈ Set.Icc (0 : ℝ) 0, (fun x : ℝ => x) t = 0) ∧
+    ‖deriv (fun x : ℝ => x) 0‖ ^ 2 ≠ 0 := by
+  constructor
+  · intro t ht
+    exact le_antisymm ht.2 ht.1
+  · simp

@@ -1,0 +1,9 @@
+{
+  "base_commit": "d3f0c684a40a0d4dea167e73b9f16df2f8bc354d",
+  "modules": 169,
+  "audited_names": 1042,
+  "branch": "canon-v4.2-repairs",
+  "worktree": "/Users/admin/Documents/2026/Snuffy-Book/CODEX-4.2-REPAIR-CHECKOUT",
+  "master_sha256": "b79281d29668959a4c3f3f262ffb110339afa9a2f4f5c04a640dff3f3847716a",
+  "publication": "Zenodo must not be published; draft PR only; merge requires author word"
+}

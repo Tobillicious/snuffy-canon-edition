@@ -1,4 +1,8 @@
-# v4.2 modules — build receipt (2026-10-25T13:09Z)
+# Checkpoint 01 completion after correcting snapshot placement
+# Fresh compile, kernel and axiom results below are retained from the initial run.
+# Only the strict completeness and claims gates were rerun; no proof sources changed.
+# Initial FAIL receipt is preserved as INITIAL-RECEIPT-FAIL.txt.
+# v4.2 modules — build receipt (2026-10-25T14:17Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -1330,7 +1334,13 @@
 ##   'Snuffy.CorrelatedCeiling.correlated_family_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.G1Held.good_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.G1Held.held_source_protection' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.initial_frame_normalised' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.held_step_normalised' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.held_run_normalised' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.G1Held.held_source_qsl' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.zero_hamiltonian_trajectory' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.concrete_decoder_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Held.concrete_good_event_inhabited' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.G1E9.alarm_or_subthreshold' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.G1E9.held_source_e9' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.G2Held.active_authorised_free' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1413,12 +1423,12 @@
 ##   'Snuffy.PureStateTraceNorm.pure_trace_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.PureStateTraceNorm.pure_trace_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## axiom audit exit=0
-## theorems audited: 1042; non-standard axiom dependencies: none
-## expected audited statements: 1042
-## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):
-##   ## completeness: canon 169, corpus names 84, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 105
+## theorems audited: 1048; non-standard axiom dependencies: none
+## expected audited statements: 1048
+## gates rerun after snapshot relocation:
+##   ## completeness: canon 169, corpus names 84, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 282
 ##   ## build/audit coverage: canon 169, build 169, audit 169, errors 0
-##   ## claims: audited theorems 1042, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
+##   ## claims: audited theorems 1048, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
 ## source sha256:
 ##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
 ##   4b416646e1fc8f74f524e0f9a680384e35e06adacd69f91bb30dcec70b921b7e  Snuffy/AffordableReciprocity.lean
@@ -1468,10 +1478,10 @@
 ##   2a7120678dfd22e9eaa9420621bab301099b9022ba59b20dbe5eeba4b7e70f87  Snuffy/FiniteInformation.lean
 ##   4fe05fcbc6235481ecdb46a20ef1ab020e690181cbb8b5d048262bd8ced5409d  Snuffy/G1Certificate.lean
 ##   06f3e520893f9d7d5574030f9fed30bd8d5e90a8d93243ab58d23c1422f82a94  Snuffy/G1Complete.lean
-##   9d6f10e20b3dbdd492281b083e2ac694e6043a2836633e4779ad63147f34ce7c  Snuffy/G1E9.lean
+##   a027c38adf36721c181dac0de478212732ded8e17e133c2a84f8eae3dac666d7  Snuffy/G1E9.lean
 ##   8414e6187adb9d866c6101555d628ee4a002b8ee6c68b8fa327c256fadd3d65f  Snuffy/G1Executable.lean
 ##   c788dfccee71414a16e33cbf98896f2c114e4891a12f54f21ed43c5344de39b1  Snuffy/G1FullDomain.lean
-##   5d60d030c12f9be5d42ef576804c1ff6299f1e5c9695413659f9b1893e7180e2  Snuffy/G1Held.lean
+##   6d915552e41a578a04621af254fc53107f383ee77234495945c391082751c16f  Snuffy/G1Held.lean
 ##   0a62a0c481971d96903e02828cf246fe64e43376c6124edb52ba74e6d4dfc9e9  Snuffy/G2Held.lean
 ##   5f63e5aef491836fc6675e446fe5a2a106ed7ff5e8a891dd329a853b677bfaee  Snuffy/G2Outcome.lean
 ##   139d7a503fbd004f1fc178a2f9cc054d471ac48c8b5dee32e298740030a2867e  Snuffy/G2Singleton.lean
@@ -1589,5 +1599,5 @@
 ##   fcfcf42fc99f43b196b65cb4f51d12e52d69d05bc0c7cdd90e2d03a6514a3e15  Snuffy/WorkBilling.lean
 ##   a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1  Snuffy/WorkIntegration.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   52648c67f003e26cebb47e32ce9454be00646b97287087122deb7cd1742ebb51  SummitsAudit.lean
+##   4ac81e0bae539e83ca24d843877e167834b90700939cdd37a5f1baa5ab969bfa  SummitsAudit.lean
 ## overall: PASS
