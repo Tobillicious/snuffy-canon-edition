@@ -308,6 +308,8 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `ReciprocityDistance` | `distance_floor`, `reciprocity_at_distance`, `reciprocity_strict_at_distance`, `canonical_tends_to_one` |
 | `CutEquivalence` | `closed_iff_no_bypass` |
 | `ConcatenatedDecoding` | `outer_decodes`, `mem_sub`, `decodes_unless_fails`, `decoding_failure_le` |
+| `ChannelCP` | `kron_entry`, `amp_eq`, `compress_entry`, `mp_posSemidef`, `decoder_completely_positive` |
+| `PureStateTraceNorm` | `sum_sq_eigenvalues`, `eigenvalue_cube`, `pureDiff_hermitian`, `vmv_smul`, `star_dot_swap`, `pure_cube`, `pure_trace_sq`, `pure_trace_norm` |
 <!-- END THEOREM INDEX -->
 
 ---

@@ -167,6 +167,8 @@ import Snuffy.R15CausalGluing
 import Snuffy.ReciprocityDistance
 import Snuffy.CutEquivalence
 import Snuffy.ConcatenatedDecoding
+import Snuffy.ChannelCP
+import Snuffy.PureStateTraceNorm
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1364,3 +1366,18 @@ import Snuffy.ConcatenatedDecoding
 #print axioms Snuffy.ConcatenatedDecoding.mem_sub
 #print axioms Snuffy.ConcatenatedDecoding.decodes_unless_fails
 #print axioms Snuffy.ConcatenatedDecoding.decoding_failure_le
+-- ChannelCP
+#print axioms Snuffy.ChannelCP.kron_entry
+#print axioms Snuffy.ChannelCP.amp_eq
+#print axioms Snuffy.ChannelCP.compress_entry
+#print axioms Snuffy.ChannelCP.mp_posSemidef
+#print axioms Snuffy.ChannelCP.decoder_completely_positive
+-- PureStateTraceNorm
+#print axioms Snuffy.PureStateTraceNorm.sum_sq_eigenvalues
+#print axioms Snuffy.PureStateTraceNorm.eigenvalue_cube
+#print axioms Snuffy.PureStateTraceNorm.pureDiff_hermitian
+#print axioms Snuffy.PureStateTraceNorm.vmv_smul
+#print axioms Snuffy.PureStateTraceNorm.star_dot_swap
+#print axioms Snuffy.PureStateTraceNorm.pure_cube
+#print axioms Snuffy.PureStateTraceNorm.pure_trace_sq
+#print axioms Snuffy.PureStateTraceNorm.pure_trace_norm

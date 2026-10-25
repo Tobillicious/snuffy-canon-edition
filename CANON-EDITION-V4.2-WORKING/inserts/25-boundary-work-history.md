@@ -738,14 +738,21 @@ with \(E^\dagger E=I\).
 - It maps positive semidefinite inputs to positive semidefinite outputs
   (`ext_posSemidef`).
 
-Complete positivity follows from the two summands: a conjugation, and a
-measure-and-prepare map. That standard fact is cited.
+Complete positivity is compiled (`ChannelCP`). Amplified by any finite reference
+register, the decoder is \((E^\dagger\otimes I)Y(E^\dagger\otimes I)^\dagger+\rho_0\otimes T(Y)\)
+(`amp_eq`). Here \(T(Y)\) is positive semidefinite as a sum of compressions of
+\((B\otimes I)Y(B\otimes I)^\dagger\), where \(I-EE^\dagger=B^\dagger B\) (`mp_posSemidef`). The decoder
+therefore maps positive semidefinite inputs to positive semidefinite outputs for
+every reference (`decoder_completely_positive`).
 
 **State-vector distance bounds infidelity** (`PureStateDistance`, §23.3). For
 unit vectors, \(1-|\langle\psi,\varphi\rangle|^2\le\|\psi-\varphi\|^2\)
-(`pure_infidelity_le`). With the standard pure-state identity
-\(\tfrac12\|\rho-\sigma\|_1=\sqrt{1-|\langle\psi,\varphi\rangle|^2}\), which is
-cited, this gives \(\tfrac12\|\rho-\sigma\|_1\le\|\psi-\varphi\|\). The
+(`pure_infidelity_le`). The pure-state identity
+\(\|\rho-\sigma\|_1=2\sqrt{1-|\langle\psi,\varphi\rangle|^2}\) is compiled for the trace norm
+as the sum of absolute eigenvalues (`PureStateTraceNorm.pure_trace_norm`). The
+proof uses \((P-Q)^3=(1-|\langle\psi,\varphi\rangle|^2)(P-Q)\) (`pure_cube`), so every eigenvalue is
+\(0\) or \(\pm s\), and \(\operatorname{Tr}(P-Q)^2=2s^2\) (`pure_trace_sq`,
+`sum_sq_eigenvalues`). Hence \(\tfrac12\|\rho-\sigma\|_1\le\|\psi-\varphi\|\). The
 speed-limit bounds, stated in state-vector norm, therefore bound the
 infidelity and the trace distance of the held state.
 
