@@ -175,6 +175,11 @@ import Snuffy.G2Freedom
 import Snuffy.G3GoodEvent
 import Snuffy.BennettExact
 import Snuffy.G3ArchiveStock
+import Snuffy.KnillLaflamme
+import Snuffy.AgeReliability
+import Snuffy.ExRecBound
+import Snuffy.EdgeLaw
+import Snuffy.MatchingWitness
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1439,3 +1444,24 @@ import Snuffy.G3ArchiveStock
 #print axioms Snuffy.G3ArchiveStock.live_stock_bill
 #print axioms Snuffy.G3ArchiveStock.retained_stock_quadratic
 #print axioms Snuffy.G3ArchiveStock.rollover_quadratic
+-- KnillLaflamme
+#print axioms Snuffy.KnillLaflamme.eq_zero_of_eq_neg
+#print axioms Snuffy.KnillLaflamme.spectral_projection
+#print axioms Snuffy.KnillLaflamme.sandwich_anticomm
+#print axioms Snuffy.KnillLaflamme.sandwich_scalar
+#print axioms Snuffy.KnillLaflamme.knill_laflamme_of_distance
+-- AgeReliability
+#print axioms Snuffy.AgeReliability.cubic_spacetime_rate
+#print axioms Snuffy.AgeReliability.log_distance_schedule
+#print axioms Snuffy.AgeReliability.log_factor_not_absorbed
+-- ExRecBound
+#print axioms Snuffy.ExRecBound.exrec_pair_bound
+#print axioms Snuffy.ExRecBound.circuit_level_rate
+#print axioms Snuffy.ExRecBound.surface_code_rate
+-- EdgeLaw
+#print axioms Snuffy.EdgeLaw.prob_push
+#print axioms Snuffy.EdgeLaw.push_localStochastic
+-- MatchingWitness
+#print axioms Snuffy.MatchingWitness.card_symmDiff
+#print axioms Snuffy.MatchingWitness.half_faulty
+#print axioms Snuffy.MatchingWitness.matching_witness

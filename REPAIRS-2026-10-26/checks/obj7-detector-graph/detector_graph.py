@@ -20,6 +20,8 @@ Reported, for each CNOT ordering:
 import itertools, json, sys
 from collections import defaultdict
 
+FACE = {}
+
 def build(d, order_x, order_z, rounds, basis):
     data = {(i, j): i * d + j for i in range(d) for j in range(d)}
     checks = []  # (type, ancilla, [data in CNOT order])
@@ -44,6 +46,7 @@ def build(d, order_x, order_z, rounds, basis):
             qs = [data[present[k]] for k in order if k in present]
             slots = [k in present for k in order]
             checks.append((typ, nq, qs, slots))
+            FACE[nq] = (i, j)
             nq += 1
     ops = []  # (op, qubits)
     meas = []  # measurement record: (kind, label)
@@ -87,11 +90,11 @@ def detectors(d, checks, meas, rounds, basis):
     det_type = 'Z' if basis == 'Z' else 'X'  # check type deterministic in round 0
     for (typ, a, qs, slots) in checks:
         if typ == det_type:
-            dets.append((typ, [idx[(0, a)]]))
+            dets.append((typ, [idx[(0, a)]], a))
         for r in range(1, rounds):
-            dets.append((typ, [idx[(r, a)], idx[(r - 1, a)]]))
+            dets.append((typ, [idx[(r, a)], idx[(r - 1, a)]], a))
         if typ == det_type:
-            dets.append((typ, [idx[q] for q in qs] + [idx[(rounds - 1, a)]]))
+            dets.append((typ, [idx[q] for q in qs] + [idx[(rounds - 1, a)]], a))
     return dets
 
 def logical_support(d, checks, basis):
@@ -132,7 +135,7 @@ def enumerate_faults(d, order_x, order_z, rounds, basis):
     obs = logical_support(d, checks, basis)
     obs_meas = [n for n, (k, lab) in enumerate(meas) if k == 'data' and lab in obs]
     det_masks = []
-    for (typ, ms) in dets:
+    for (typ, ms, _a) in dets:
         mm = 0
         for x in ms:
             mm |= 1 << x
@@ -186,7 +189,7 @@ def analyse(d, order_x, order_z, rounds, basis):
         by_sig[sig].add(ob)
     pair_logical = [s for s, obs in by_sig.items() if len(obs) == 2]
     dist = 1 if single_logical else (2 if pair_logical else 3)
-    types = [t for (t, _) in dets]
+    types = [t for (t, _, _) in dets]
     graphlike = all(sum(1 for k in sig if types[k] == t) <= 2 for (_, sig, _) in faults for t in 'XZ')
     edges = defaultdict(set)
     rel_t = 'Z' if basis == 'Z' else 'X'
@@ -240,9 +243,20 @@ def analyse(d, order_x, order_z, rounds, basis):
                 seen[w] = seen[u] + 1; dq.append(w)
     if single_logical:
         exact = 1
+    # potential across the logical: the face coordinate along which boundary edges sit at the
+    # two extremes. Every relevant edge's change in that coordinate bounds the per-fault progress.
+    anc = [a for (_, _, a) in dets]
+    bfaces = [FACE[anc[a]] for (a, b) in eobs if b == 'B']
+    coord = None
+    for k in (0, 1):
+        vals = sorted({f[k] for f in bfaces})
+        if len(vals) == 2 and vals[1] - vals[0] == d - 2:
+            coord = k
+    max_step = max(abs(FACE[anc[a]][coord] - FACE[anc[b]][coord]) for (a, b) in eobs if b != 'B') if coord is not None else None
+    bvals = sorted({f[coord] for f in bfaces}) if coord is not None else None
     return {'d': d, 'rounds': rounds, 'basis': basis, 'order_x': order_x, 'order_z': order_z,
             'faults': len(faults), 'detectors': len(dets), 'circuit_distance_pairwise_test': dist,
-            'circuit_distance_exact': exact, 'ambiguous_edge_observable': ambiguous,
+            'circuit_distance_exact': exact, 'potential_coordinate': coord, 'boundary_face_values': bvals, 'max_potential_step': max_step, 'ambiguous_edge_observable': ambiguous,
             'single_fault_logicals': len(single_logical), 'equal_signature_logical_pairs': len(pair_logical),
             'graphlike_per_type': graphlike,
             'pauli_resolved_multiplicity_relevant_type': max(pairs_per_edge.values()), 'max_detector_degree': maxdeg, 'edge_multiplicity_c': c,

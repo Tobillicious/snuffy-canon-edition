@@ -1,4 +1,4 @@
-# v4.2 modules — build receipt (2026-10-25T16:31Z)
+# v4.2 modules — build receipt (2026-10-25T17:03Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -175,6 +175,11 @@
 ## G3GoodEvent: exit=0 compiler-output-bytes=0
 ## BennettExact: exit=0 compiler-output-bytes=0
 ## G3ArchiveStock: exit=0 compiler-output-bytes=0
+## KnillLaflamme: exit=0 compiler-output-bytes=0
+## AgeReliability: exit=0 compiler-output-bytes=0
+## ExRecBound: exit=0 compiler-output-bytes=0
+## EdgeLaw: exit=0 compiler-output-bytes=0
+## MatchingWitness: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -350,6 +355,11 @@
 ## leanchecker Snuffy.G3GoodEvent: exit=0
 ## leanchecker Snuffy.BennettExact: exit=0
 ## leanchecker Snuffy.G3ArchiveStock: exit=0
+## leanchecker Snuffy.KnillLaflamme: exit=0
+## leanchecker Snuffy.AgeReliability: exit=0
+## leanchecker Snuffy.ExRecBound: exit=0
+## leanchecker Snuffy.EdgeLaw: exit=0
+## leanchecker Snuffy.MatchingWitness: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.AnalyticBridge.starProjection_fixed_iff_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1470,16 +1480,33 @@
 ##   'Snuffy.G3ArchiveStock.live_stock_bill' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.G3ArchiveStock.retained_stock_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.G3ArchiveStock.rollover_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KnillLaflamme.eq_zero_of_eq_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KnillLaflamme.spectral_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KnillLaflamme.sandwich_anticomm' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KnillLaflamme.sandwich_scalar' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.KnillLaflamme.knill_laflamme_of_distance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AgeReliability.cubic_spacetime_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AgeReliability.log_distance_schedule' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.AgeReliability.log_factor_not_absorbed' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ExRecBound.exrec_pair_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ExRecBound.circuit_level_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ExRecBound.surface_code_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.EdgeLaw.prob_push' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.EdgeLaw.push_localStochastic' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.MatchingWitness.card_symmDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.MatchingWitness.half_faulty' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.MatchingWitness.matching_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## axiom audit exit=0
-## theorems audited: 1088; non-standard axiom dependencies: none
-## expected audited statements: 1088
+## theorems audited: 1104; non-standard axiom dependencies: none
+## expected audited statements: 1104
 ## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):
-##   ## completeness: canon 175, corpus names 90, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 808
-##   ## build/audit coverage: canon 175, build 175, audit 175, errors 0
-##   ## claims: audited theorems 1088, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
+##   ## completeness: canon 180, corpus names 95, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 990
+##   ## build/audit coverage: canon 180, build 180, audit 180, errors 0
+##   ## claims: audited theorems 1104, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
 ## source sha256:
 ##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
 ##   4b416646e1fc8f74f524e0f9a680384e35e06adacd69f91bb30dcec70b921b7e  Snuffy/AffordableReciprocity.lean
+##   a942bf13a692b0d85a2dc7e8abde7bc944acccb9070d9eaf9953c05e01816960  Snuffy/AgeReliability.lean
 ##   27a8601f3279c9b86282baefe69fb3bcbf31de9540759306a774ee075dc219c7  Snuffy/AnalyticBridge.lean
 ##   f69c4a382be9c0144463ccaacea960d01fb400b2ef1775e150c5edee429bcd38  Snuffy/AreaBridge.lean
 ##   bdd3a90a36128370bba77aefe7ae87852ae5873fd3262cff9361a8e6af5e1bf5  Snuffy/BandwidthReflection.lean
@@ -1517,7 +1544,9 @@
 ##   7564d8e303e2832617e52d597c0affd33bf9dd96b96541f0c62257b885dd1e6e  Snuffy/DeductionBoundary.lean
 ##   980c8b3c290ad8298a5efccb85f66564195679daa59802a1bb47782ae9ae9d1f  Snuffy/E9Routes.lean
 ##   a5e8804486c94667262516d164cebaac3a5063108864f261a3583547e2ad09f2  Snuffy/E9SelfHealing.lean
+##   aa4051246ef25c7e30622e13bf0a3d84637453d36f49911d706efe4119c26b76  Snuffy/EdgeLaw.lean
 ##   a29747a66e158b7562139d480013f0e79fa22227182293528f0159c129dc9555  Snuffy/ErrorBudget.lean
+##   c8c695569efb76cfcbcb96eda30302db4b15297d27d42f9545627f7fce2eb97c  Snuffy/ExRecBound.lean
 ##   6af02f49d62a9de0839ab2e63aa831d903a740204f6ac2aa00a9491981f79b64  Snuffy/FIFOAdmission.lean
 ##   f5e6b9dae8621949167ad77add96f9de5a4338b4cafa69cc10579ee4b1fe5f7f  Snuffy/FIFOInstance.lean
 ##   bac2795fa7729999e21e077eef5c8f7b5274d2c011b67bf8382c7c086f64460d  Snuffy/FIFOWorkload.lean
@@ -1566,10 +1595,12 @@
 ##   47079cf63add2d1665f109bbfdd98b3a339e84c753d754ae07ea4c1613c01edd  Snuffy/IntegrationCertificate.lean
 ##   b0922dbbf603d6f62ff3e9a00d9d29644531767b8538f5bb184e33deb5fbea6e  Snuffy/Irreplaceability.lean
 ##   1e700a2d627206ab9896d3a883e1d6b2714e1c5eff2d5f8391dc1e07d2b8268d  Snuffy/KLAdditivity.lean
+##   a4e037dd498ba6a2deb3a22d5944940116286d7d7c51c0892804425c8ff26eca  Snuffy/KnillLaflamme.lean
 ##   2c298142b31e208998236815da2640efb1ca04264ac6aa2fe2e67e359e7d8e6e  Snuffy/Landauer.lean
 ##   9f6d187ea71b19c055d17f4f85378145d958ba69ee91173fc42a701935002326  Snuffy/LatticeLaplacian.lean
 ##   e4c86207ca62bcde9307eb91db0910e7d58efe1b9430d8fbc81173ec1d6f4159  Snuffy/Law.lean
 ##   43ed67efec9f5c381e2101ec8562ccf6d07bf8b58a872d316b338657dc2a251f  Snuffy/LogDet.lean
+##   a8aef225d4344bd88dcd7758da18fe05cfc1eecbff8c93ecb5cb230ac648c2e6  Snuffy/MatchingWitness.lean
 ##   67ce6b974cb46dab4dc8743bcb1908393bda307db25b56134b62cd1894b5abdd  Snuffy/MathlibAnalyticBridge.lean
 ##   61f09528cd934829780d7d076d2f6a33f1b04b8cab68a2688178af89f317bb22  Snuffy/MeanErgodic.lean
 ##   00a1c8024c586a5695951ac9d8cf34ade3176335d81da174707f9fbb3505a71c  Snuffy/MeanErgodicDeep.lean
@@ -1653,5 +1684,5 @@
 ##   fcfcf42fc99f43b196b65cb4f51d12e52d69d05bc0c7cdd90e2d03a6514a3e15  Snuffy/WorkBilling.lean
 ##   a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1  Snuffy/WorkIntegration.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   838cd54619b93affafb1bdc9c55d23586349801bed5fd39af528ade0306881f8  SummitsAudit.lean
+##   ac29b0d01b159827cff3e592d05eb53726951b132289898de0237b5c300d4ab2  SummitsAudit.lean
 ## overall: PASS

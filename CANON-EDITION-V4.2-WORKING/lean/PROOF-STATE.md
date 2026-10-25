@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 175. Corpus module names: 90. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 808. Build/audit manifest errors: 0.
+Canon modules: 180. Corpus module names: 95. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 990. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 175. Audit imports: 175.
+Build modules: 180. Audit imports: 180.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -807,6 +807,188 @@ Build modules: 175. Audit imports: 175.
 - `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-04-bennett-exact-archive-stock/lean/Snuffy/WorkIntegration.lean`
 - `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-04-bennett-exact-archive-stock/lean/Snuffy/Workload.lean`
 - `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-04-bennett-exact-archive-stock/lean/SummitsAudit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/CanonVonNeumannAudit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/AdaptiveConsensus.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/AffordableReciprocity.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/AgeReliability.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/AnalyticBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/AreaBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/BandwidthReflection.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Bennett.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/BennettCounterpart.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/BennettExact.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Bridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/BridgeD1.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/BridgeE9.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/BridgeH6.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/BridgeH7.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/BridgeH8.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/CanonVonNeumann.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/CascadeCore.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ChannelCP.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ChannelExtension.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ClosedCohold.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Composition.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Concatenated.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ConcatenatedDecoding.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ConsensusRate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ConservedRouting.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ControllerCertificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ControllerFence.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ControllerFinality.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/CorrelatedCeiling.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/CorrelatedStress.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/CutEquivalence.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/CyclicProjections.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/DataProcessing.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/DeadlineDemand.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/DecisionAndScale.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/DecisionPermit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/DecoderRetraction.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/DeductionBoundary.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/E9Routes.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/E9SelfHealing.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/EdgeLaw.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ErrorBudget.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ExRecBound.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/FIFOAdmission.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/FIFOInstance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/FIFOWorkload.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Fano.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/FaultCover.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/FinalClosure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/FiniteInformation.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G1Certificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G1Complete.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G1E9.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G1Executable.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G1FullDomain.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G1Held.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G1Refinement.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G2Freedom.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G2Held.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G2Outcome.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G2Physical.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G2Singleton.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G2Splice.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G2WholeOutcome.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G3ArchiveStock.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G3CompleteBill.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G3GoodEvent.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G3PatchDecode.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G3Sweep.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/G3WorkBill.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/GateSupport.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/GaussianChannel.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/GaussianChannelGen.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/GaussianKL.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/GaussianTail.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/GaussianVector.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/GenerativeClosure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/GoldenFormula.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Greatestness.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/GuardFactorization.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/GuardOperator.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/GuardSignature.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/H5Closure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/H8Bound.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/HalperinDecay.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/HamiltonianDecomposition.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Htopkeeps.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Instruments.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/IntegrationCertificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Irreplaceability.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/KLAdditivity.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/KnillLaflamme.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Landauer.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/LatticeLaplacian.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Law.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/LogDet.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/MatchingWitness.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/MathlibAnalyticBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/MeanErgodic.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/MeanErgodicDeep.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/MeetAlgebra.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/MeetHilbert.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/MetricShadow.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ObservationWinning.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/OpialBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/OriginalD1.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/OriginalE9AndH5.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/OriginalH6.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/OriginalH7.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/OriginalH8.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/P2P3.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/PhysicalGuard.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/PremiseFloor.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/PureStateDistance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/PureStateTraceNorm.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/QuantumLandauer.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/QueueDeadline.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/R14Boundary.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/R14Rivals.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/R15CausalGluing.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/R16Cut.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/R16Feedback.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/R16R14.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/R16Screened.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/R16TwoPhase.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/R17AQueueFinality.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/R17FIFOR17A.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/R17Funding.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/R17WorkConcrete.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/RGFixedPoint.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/RankAndCoalition.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ReadoutBounds.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ReadoutJoint.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ReasonsCompiled.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ReasonsEnsemble.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ReasonsRoute.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ReceivedCutR14Repaired.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ReceivedCutRepaired.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ReciprocityCeiling.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ReciprocityDistance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/RecoveryWork.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ReflectionCertificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ReflectionContraction.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ReflectionFuel.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/RegionBoundary.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/RelationalBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/RestrictedModels.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/RiskBounds.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Rotation.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/SafeGenesis.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/SemanticMap.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/SensorTail.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/SmearingIntegral.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/SnuffyLocal.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/SolventReciprocity.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/SpeedLimit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/StrokeBookkeeping.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/TIWAGuard.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/TIWARecovery.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/TIWASource.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/TIWAWork.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/TemporalSafety.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/TheoremEightLyapunov.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ThermalBalance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/ThermoLedger.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Threshold.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/TimelyCare.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/TopRealisability.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/TransportLaw.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Trotter.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/TwoLevel.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/UPTFence.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/UPTLawLife.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/UPTR12A.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/UnionClosure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/UniversalProtection.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Whitening.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/WorkBilling.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/WorkIntegration.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Workload.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/SummitsAudit.lean`
 - `2026-10-26-4.2-join-repairs/checks/snapshots/response/Snuffy/HoldingSpectralCriterion.lean`
 - `2026-10-26-4.2-join-repairs/snapshots/before-checkpoint-04/BennettCounterpart.lean`
 - `2026-10-26-4.2-join-repairs/snapshots/before-checkpoint-04/SummitsAudit.lean`
@@ -823,6 +1005,7 @@ Build modules: 175. Audit imports: 175.
 | --- | --- | --- |
 | `AdaptiveConsensus` | yes | `2026-10-23-adoption-contracts/lean/AdaptiveConsensus.lean` |
 | `AffordableReciprocity` | yes | `2026-10-25-affordable-reciprocity/AffordableReciprocity.lean` |
+| `AgeReliability` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/AgeReliability.lean` |
 | `AnalyticBridge` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/AnalyticBridge.lean` |
 | `AreaBridge` | yes | `(canon only)` |
 | `BandwidthReflection` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/BandwidthReflection.lean` |
@@ -860,7 +1043,9 @@ Build modules: 175. Audit imports: 175.
 | `DeductionBoundary` | yes | `(canon only)` |
 | `E9Routes` | yes | `2026-10-23-adoption-contracts/lean/E9Routes.lean` |
 | `E9SelfHealing` | yes | `(canon only)` |
+| `EdgeLaw` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/EdgeLaw.lean` |
 | `ErrorBudget` | yes | `2026-10-25-error-budget/ErrorBudget.lean` |
+| `ExRecBound` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/ExRecBound.lean` |
 | `FIFOAdmission` | yes | `2026-10-23-r17-fifo-verification/lean/FIFOAdmission.lean` |
 | `FIFOInstance` | yes | `2026-10-24-glm-phase-a/lean/FIFOInstance.lean` |
 | `FIFOWorkload` | yes | `2026-10-23-r17-fifo-verification/lean/FIFOWorkload.lean` |
@@ -909,10 +1094,12 @@ Build modules: 175. Audit imports: 175.
 | `IntegrationCertificate` | yes | `2026-10-24-glm-phase-a/lean/IntegrationCertificate.lean` |
 | `Irreplaceability` | yes | `(canon only)` |
 | `KLAdditivity` | yes | `(canon only)` |
+| `KnillLaflamme` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/KnillLaflamme.lean` |
 | `Landauer` | yes | `(canon only)` |
 | `LatticeLaplacian` | yes | `(canon only)` |
 | `Law` | yes | `(canon only)` |
 | `LogDet` | yes | `(canon only)` |
+| `MatchingWitness` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/MatchingWitness.lean` |
 | `MathlibAnalyticBridge` | yes | `(canon only)` |
 | `MeanErgodic` | yes | `(canon only)` |
 | `MeanErgodicDeep` | yes | `(canon only)` |

@@ -610,6 +610,10 @@ href="#g.17-premise-5-with-the-implemented-bennett-program-and-its-complete-cost
 id="toc-g.17-premise-5-with-the-implemented-bennett-program-and-its-complete-cost">G.17
 Premise 5 with the implemented Bennett program and its complete
 cost</a></li>
+<li><a
+href="#g.18-application-data-for-the-cited-fault-tolerance-theorems"
+id="toc-g.18-application-data-for-the-cited-fault-tolerance-theorems">G.18
+Application data for the cited fault-tolerance theorems</a></li>
 </ul></li>
 <li><a href="#part-iv-references-and-provenance"
 id="toc-part-iv-references-and-provenance">Part IV — References and
@@ -643,9 +647,9 @@ and develops the actual Bennett implementation. The physical source,
 whole-outcome, device-cost and external-theorem application
 correspondences remain explicit construction work; the component
 theorems do not by themselves declare the maximal argument complete.</p>
-<p>The current Lean tree contains 175 modules and 1088 audited public
-theorem/lemma names. All 175 modules were freshly compiled and
-kernel-checked in one run, and the full axiom audit over all 1088 names
+<p>The current Lean tree contains 180 modules and 1104 audited public
+theorem/lemma names. All 180 modules were freshly compiled and
+kernel-checked in one run, and the full axiom audit over all 1104 names
 and the completeness and claims gates were freshly run, overall PASS.
 The earlier receipts, including the 924-name combined receipt that
 reused Beam’s 136 results, are preserved with their banks. Seven
@@ -4438,7 +4442,7 @@ design values, not compiled theorems.</p>
 <h2 id="section-23-the-machine-checked-canon">Section 23 — The
 machine-checked canon</h2>
 <p><em>This section maps the edition’s compiled results and their actual
-hypotheses. The current source contains 175 modules and 1088 audited
+hypotheses. The current source contains 180 modules and 1104 audited
 public theorem/lemma names. The receipt records a fresh compilation and
 kernel check of every module, a fresh full axiom audit with only
 <code>propext</code>, <code>Classical.choice</code> and
@@ -5468,6 +5472,43 @@ lifecycle cost: forced inside the adiabatic window
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>Q</mi><mo>−</mo><mi>H</mi></mrow><annotation encoding="application/x-tex">0&lt;Q-H</annotation></semantics></math>,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mi>Q</mi><mo>−</mo><mi>H</mi><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><msub><mi>τ</mi><mi mathvariant="normal">max</mi></msub></mrow><annotation encoding="application/x-tex">A/(Q-H)&lt;\tau_{\max}</annotation></semantics></math>,
 and outside it the counterpart is not cheaper (G.17)</td>
+</tr>
+<tr>
+<td><code>KnillLaflamme</code></td>
+<td>Knill–Laflamme identities
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><msubsup><mi>E</mi><mi>i</mi><mo>†</mo></msubsup><msub><mi>E</mi><mi>j</mi></msub><mi>P</mi><mo>=</mo><msub><mi>α</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mi>P</mi></mrow><annotation encoding="application/x-tex">PE_i^\dagger E_jP=\alpha_{ij}P</annotation></semantics></math>
+for errors of weight
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>t</mi><mo>&lt;</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">2t&lt;d</annotation></semantics></math>,
+from the code distance; logical operators excluded by the distance
+(G.18)</td>
+</tr>
+<tr>
+<td><code>MatchingWitness</code></td>
+<td>Minimum-weight decoding leaves every zero-syndrome residual cycle at
+least half faulty: the witness hypothesis of
+<code>Threshold.fail_le_geometric</code> (G.18)</td>
+</tr>
+<tr>
+<td><code>EdgeLaw</code>, <code>ExRecBound</code></td>
+<td>Circuit faults induce local stochastic edge noise at rate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">cp</annotation></semantics></math>;
+with the enumerated degree 12 and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mn>52</mn></mrow><annotation encoding="application/x-tex">c=52</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>22</mn><msqrt><mrow><mn>52</mn><mi>p</mi></mrow></msqrt><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r=22\sqrt{52p}&lt;1</annotation></semantics></math>
+exactly when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>&lt;</mo><mn>1</mn><mi>/</mi><mn>25168</mn></mrow><annotation encoding="application/x-tex">p&lt;1/25168</annotation></semantics></math>;
+the gadget bound
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><msub><mi>M</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">|</mo><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mo stretchy="false" form="prefix">|</mo><mi>L</mi><mo stretchy="false" form="prefix">|</mo></mrow><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>p</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">|M_2|p^2+\binom{|L|}{3}p^3</annotation></semantics></math>
+(G.18)</td>
+</tr>
+<tr>
+<td><code>AgeReliability</code></td>
+<td>A logarithmic distance schedule holds global failure below
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ε</mi><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math>
+at every age; a logarithmic overhead is not absorbed into an
+age-independent constant (G.18)</td>
 </tr>
 </tbody>
 </table>
@@ -6764,6 +6805,32 @@ theorem listed here is kernel-checked and axiom-audited by
 <td><code>G3ArchiveStock</code></td>
 <td><code>live_stock_bill</code>, <code>retained_stock_quadratic</code>,
 <code>rollover_quadratic</code></td>
+</tr>
+<tr>
+<td><code>KnillLaflamme</code></td>
+<td><code>eq_zero_of_eq_neg</code>, <code>spectral_projection</code>,
+<code>sandwich_anticomm</code>, <code>sandwich_scalar</code>,
+<code>knill_laflamme_of_distance</code></td>
+</tr>
+<tr>
+<td><code>AgeReliability</code></td>
+<td><code>cubic_spacetime_rate</code>,
+<code>log_distance_schedule</code>,
+<code>log_factor_not_absorbed</code></td>
+</tr>
+<tr>
+<td><code>ExRecBound</code></td>
+<td><code>exrec_pair_bound</code>, <code>circuit_level_rate</code>,
+<code>surface_code_rate</code></td>
+</tr>
+<tr>
+<td><code>EdgeLaw</code></td>
+<td><code>prob_push</code>, <code>push_localStochastic</code></td>
+</tr>
+<tr>
+<td><code>MatchingWitness</code></td>
+<td><code>card_symmDiff</code>, <code>half_faulty</code>,
+<code>matching_witness</code></td>
 </tr>
 </tbody>
 </table>
@@ -8743,6 +8810,179 @@ reversible counterpart costs at least
 dominance forces premise 5 (<code>adiabatic_feasible_iff</code>).
 Outside the window, the reversible counterpart is not cheaper, so cost
 dominance alone does not establish premise 5 there.</p>
+<h2
+id="g.18-application-data-for-the-cited-fault-tolerance-theorems">G.18
+Application data for the cited fault-tolerance theorems</h2>
+<p>This section supplies application data for the cited fault-tolerance
+theorems (review objection 7). The full fault ceiling and the complete
+bill
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mi>C</mi><msup><mi>t</mi><msub><mi>d</mi><mi>G</mi></msub></msup></mrow><annotation encoding="application/x-tex">\le Ct^{d_G}</annotation></semantics></math>
+with an age-independent
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+are unchanged. Components are compiled or computed; the remaining joins
+are named at the end.</p>
+<p><strong>Knill–Laflamme from the code distance</strong>
+(<code>KnillLaflamme</code>). In any complex
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>*</mi><annotation encoding="application/x-tex">*</annotation></semantics></math>-algebra,
+the spectral projection
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">(1+S)/2</annotation></semantics></math>
+of an involution is idempotent and fixed by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+(<code>spectral_projection</code>). The code projector annihilates any
+operator that anticommutes with a generator
+(<code>sandwich_anticomm</code>). It returns
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">cP</annotation></semantics></math>
+for an operator acting as the scalar
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>
+on the code space (<code>sandwich_scalar</code>). Let errors have weight
+at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>t</mi><mo>&lt;</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">2t&lt;d</annotation></semantics></math>,
+where distance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+means that every operator of weight below
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+commuting with all generators acts as a scalar on the code space. Then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><msubsup><mi>E</mi><mi>i</mi><mo>†</mo></msubsup><msub><mi>E</mi><mi>j</mi></msub><mi>P</mi><mo>=</mo><msub><mi>α</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mi>P</mi></mrow><annotation encoding="application/x-tex">PE_i^\dagger E_jP=\alpha_{ij}P</annotation></semantics></math>
+for every pair (<code>knill_laflamme_of_distance</code>). Logical
+operators are excluded by the distance, not by the case split.</p>
+<p><strong>The witness property of minimum-weight decoding</strong>
+(<code>MatchingWitness</code>). Take a minimum-weight decoder and a
+syndrome additive under symmetric difference. Every zero-syndrome
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>γ</mi><mo>⊆</mo><mi>E</mi><mspace width="0.167em"></mspace><mi>△</mi><mspace width="0.167em"></mspace><mi>C</mi></mrow><annotation encoding="application/x-tex">\gamma\subseteq E\,\triangle\,C</annotation></semantics></math>
+of the residual is then at least half faulty:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mi>γ</mi><mo stretchy="false" form="prefix">|</mo><mo>≤</mo><mn>2</mn><mo stretchy="false" form="prefix">|</mo><mi>γ</mi><mo>∩</mo><mi>E</mi><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">|\gamma|\le2|\gamma\cap E|</annotation></semantics></math>
+(<code>half_faulty</code>, <code>matching_witness</code>). This is the
+witness hypothesis of <code>Threshold.fail_le_witness</code> and
+<code>fail_le_geometric</code>. The nontrivial component of a failed
+residual is a simple cycle or a boundary-to-boundary path, of length at
+least the circuit distance.</p>
+<p><strong>The circuit-level detector graph.</strong> A dependency-free
+Pauli-frame enumeration covers the rotated surface-code memory over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+rounds, with X checks in a Z-shaped CNOT order and Z checks in an
+N-shaped order. The faults enumerated are the 15 two-qubit Paulis after
+every CNOT,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
+after every reset, Hadamard and idle, and every measurement flip. For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>7</mn><mo>,</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">d=3,5,7,9</annotation></semantics></math>
+the enumeration gives:</p>
+<ul>
+<li>every fault flips at most two detectors of each check type;</li>
+<li>the maximum detector degree is 12;</li>
+<li>at most 52 (location, Pauli) faults produce each edge of the
+relevant type;</li>
+<li>the circuit distance is exactly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>.</li>
+</ul>
+<p>With the orders swapped, so that hooks run parallel to the logical,
+the distance falls to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⌈</mo><mi>d</mi><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">⌉</mo></mrow><annotation encoding="application/x-tex">\lceil d/2\rceil</annotation></semantics></math>.
+The orientation is load-bearing.</p>
+<p>The bound for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+uses a potential. Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>
+be the face coordinate across the logical. Boundary edges attach only at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varphi=0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo>=</mo><mi>d</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\varphi=d-2</annotation></semantics></math>,
+and every edge, time-like and hook edges included, changes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>
+by at most one. So any walk joining opposite boundaries has at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+edges. Every fault is local to one check neighbourhood in one round, so
+the edge types for larger
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+are translates of those enumerated. The script and its results are
+banked with their hashes.</p>
+<p><strong>Lattice-surgery merges.</strong> The same enumeration was
+applied to the merge. Two
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>×</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">d\times d</annotation></semantics></math>
+patches and a seam column were merged as the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>×</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>d</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">d\times(2d+1)</annotation></semantics></math>
+patch for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+rounds, with the seam initialised and finally split in the conjugate
+basis. The joint logical is found by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">GF(2)</annotation></semantics></math>
+elimination over the random seam checks. For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">d=3,5,7</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mi>d</mi><mo>−</mo><mn>2</mn><mo>,</mo><mi>d</mi><mo>,</mo><mi>d</mi><mo>+</mo><mn>2</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">T\in\{d-2,d,d+2\}</annotation></semantics></math>,
+the circuit distance is exactly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">min</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mo>,</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\min(d,T)</annotation></semantics></math>
+and every fault is graphlike. A merge therefore keeps distance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+exactly when it runs at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+rounds; with fewer, the time-like failure of the merged-product outcome
+binds. The horizontal merge enumerated measures
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mover><mi>X</mi><mo accent="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">\bar X\bar X</annotation></semantics></math>;
+the vertical merge, measuring
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>Z</mi><mo accent="true">‾</mo></mover><mover><mi>Z</mi><mo accent="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">\bar Z\bar Z</annotation></semantics></math>,
+is the same construction rotated and was not run separately.</p>
+<p><strong>The edge law and the explicit ratio</strong>
+(<code>EdgeLaw</code>, <code>ExRecBound</code>). Suppose circuit faults
+are local stochastic at rate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+on (location, Pauli) pairs, and at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>
+of them produce each edge. Then the induced edge law is local stochastic
+at rate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">cp</annotation></semantics></math>
+(<code>push_localStochastic</code>). With degree 12, so non-backtracking
+branching at most 11, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mn>52</mn></mrow><annotation encoding="application/x-tex">c=52</annotation></semantics></math>,
+<code>fail_le_geometric</code> applies with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>22</mn><msqrt><mrow><mn>52</mn><mi>p</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">r=22\sqrt{52p}</annotation></semantics></math>.
+This ratio is below one exactly when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>&lt;</mo><mn>1</mn><mi>/</mi><mn>25168</mn></mrow><annotation encoding="application/x-tex">p&lt;1/25168</annotation></semantics></math>
+(<code>surface_code_rate</code>).</p>
+<p>An operation outside the spacetime-volume argument has its own gadget
+bound. Under local stochastic noise, if every failing pattern contains a
+malignant pair or at least three faults, then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mrow><mi mathvariant="normal">f</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">l</mi></mrow><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mo stretchy="false" form="prefix">|</mo><msub><mi>M</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">|</mo><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mo stretchy="false" form="prefix">|</mo><mi>L</mi><mo stretchy="false" form="prefix">|</mo></mrow><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>p</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">P(\mathrm{fail})\le|M_2|p^2+\binom{|L|}{3}p^3</annotation></semantics></math>
+(<code>exrec_pair_bound</code>).</p>
+<p><strong>Reliability against age</strong>
+(<code>AgeReliability</code>). A distance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>≥</mo><mrow><mi mathvariant="normal">log</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>K</mi><msup><mi>t</mi><mi>d</mi></msup><mi>/</mi><mi>ε</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mrow><mi mathvariant="normal">log</mi><mo>&#8289;</mo></mrow><mi>r</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">D\ge\log(Kt^d/\varepsilon)/(-\log r)</annotation></semantics></math>
+holds the global failure over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><msup><mi>t</mi><mi>d</mi></msup></mrow><annotation encoding="application/x-tex">Kt^d</annotation></semantics></math>
+locations below
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ε</mi><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math>
+at every age (<code>log_distance_schedule</code>). A logarithmic
+overhead per location, however, is not absorbed into an age-independent
+constant: for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+some
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">t\ge1</annotation></semantics></math>
+has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><msup><mi>t</mi><mi>d</mi></msup><mo>&lt;</mo><msup><mi>t</mi><mi>d</mi></msup><mrow><mi mathvariant="normal">log</mi><mo>&#8289;</mo></mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">Ct^d&lt;t^d\log t</annotation></semantics></math>
+(<code>log_factor_not_absorbed</code>). The age-independent bill
+therefore needs the logarithm removed by construction.</p>
+<p><strong>Remaining joins.</strong></p>
+<ul>
+<li>The potential argument for merges at every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>,
+with the round index as the time-like potential.</li>
+<li>A map-by-map list showing that every repeated local map of holding,
+recovery, encoding, handoff and smearing is a Clifford circuit with
+exact native gates. This removes the compilation logarithm.</li>
+<li>Tolerance of the wavefront sweep to sparse patch failures, so that
+constant-distance inner patches suffice. This needs:
+<ul>
+<li>confinement of each failure;</li>
+<li>no cascade through the feedforward front;</li>
+<li>an outer decoder of the constant-size message
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+using its carrier’s redundancy, with its deviation bound.</li>
+</ul>
+This removes the reliability logarithm.</li>
+</ul>
 <hr />
 <h1 id="part-iv-references-and-provenance">Part IV — References and
 provenance</h1>
@@ -8822,8 +9062,8 @@ it maps, with the premises it lists. Elsewhere, prose remains prose.</p>
 <h1 id="appendix-verification-provenance-of-this-edition">Appendix —
 Verification provenance of this edition</h1>
 <p>The original published baseline contains 115 modules and 831 audited
-names. The current tree contains 175 modules and 1088 audited public
-theorem/lemma names. All 175 modules were freshly compiled and
+names. The current tree contains 180 modules and 1104 audited public
+theorem/lemma names. All 180 modules were freshly compiled and
 kernel-checked in one run, and the full axiom, completeness and claims
 gates were freshly run, overall PASS. The earlier receipts, including
 the 924-name combined receipt that reused Beam’s 136 results, are

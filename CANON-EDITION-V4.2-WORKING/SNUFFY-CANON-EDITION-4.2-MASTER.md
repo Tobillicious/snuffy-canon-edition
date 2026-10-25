@@ -8,7 +8,7 @@ Canon Edition 4.2, 26 October 2026. Research direction: Tobias Croydon-McRae. Th
 
 The three joined supports retain their full targets: the full-domain physical certificate (G1), realisability of the whole continuation-and-freedom tuple (G2), and recovery success with a complete pathwise work certificate (G3). This repair checkpoint corrects the normalised quantum-state domain and the clipped-reserve contraction, and develops the actual Bennett implementation. The physical source, whole-outcome, device-cost and external-theorem application correspondences remain explicit construction work; the component theorems do not by themselves declare the maximal argument complete.
 
-The current Lean tree contains 175 modules and 1088 audited public theorem/lemma names. All 175 modules were freshly compiled and kernel-checked in one run, and the full axiom audit over all 1088 names and the completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
+The current Lean tree contains 180 modules and 1104 audited public theorem/lemma names. All 180 modules were freshly compiled and kernel-checked in one run, and the full axiom audit over all 1104 names and the completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
 
 **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports and their constructions. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
 
@@ -1454,7 +1454,7 @@ The installation figures themselves are sourced measurements and design values, 
 
 ## Section 23 — The machine-checked canon
 
-*This section maps the edition's compiled results and their actual hypotheses. The current source contains 175 modules and 1088 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
+*This section maps the edition's compiled results and their actual hypotheses. The current source contains 180 modules and 1104 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
 
 *Evidence convention (unchanged from the edition header): a compiled theorem is cited by its name; a statement carried as a hypothesis of a compiled theorem is named as such; a prose derivation keeps its stated premises. A prose proof does not acquire a compiler certificate by association.*
 
@@ -1634,6 +1634,10 @@ The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the r
 | `G2Physical`, `G2Freedom` | The held installation realises the continuation top, which dominates without union closure; holding and timely authorised R17 delivery hold on one joint execution (G.16) |
 | `G3GoodEvent`, `G3ArchiveStock` | The wavefront sweep recovers on the good event with failure at most $\sum_i\delta_i$; archive holding is a separate bill term, charged on the held stock: live stock gives $\gamma(I_0+c)t^d$ for every $d\ge1$, while retaining every increment or rolling the whole stock over epochs is quadratic (G.16) |
 | `BennettExact` | Premise 5 with the implemented Bennett program and complete lifecycle cost: forced inside the adiabatic window $0<Q-H$, $A/(Q-H)<\tau_{\max}$, and outside it the counterpart is not cheaper (G.17) |
+| `KnillLaflamme` | Knill–Laflamme identities $PE_i^\dagger E_jP=\alpha_{ij}P$ for errors of weight $t$ with $2t<d$, from the code distance; logical operators excluded by the distance (G.18) |
+| `MatchingWitness` | Minimum-weight decoding leaves every zero-syndrome residual cycle at least half faulty: the witness hypothesis of `Threshold.fail_le_geometric` (G.18) |
+| `EdgeLaw`, `ExRecBound` | Circuit faults induce local stochastic edge noise at rate $cp$; with the enumerated degree 12 and $c=52$, $r=22\sqrt{52p}<1$ exactly when $p<1/25168$; the gadget bound $|M_2|p^2+\binom{|L|}{3}p^3$ (G.18) |
+| `AgeReliability` | A logarithmic distance schedule holds global failure below $\varepsilon$ at every age; a logarithmic overhead is not absorbed into an age-independent constant (G.18) |
 
 The earlier `G1Certificate.universal_protection_held` has conclusion `True`; it is a placeholder and is not the protection theorem `Bridge.universal_protection_held`. The latter's full source certificate is constructed in G.10 (`G1Held.held_source_protection`). The exact integration history and dependency trace accompany this working edition.
 
@@ -1819,6 +1823,11 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `G3GoodEvent` | `sweep_success_on_good_event`, `complete_bill_with_archive` |
 | `BennettExact` | `premise5_exact`, `window_exact`, `reversible_admin_computes` |
 | `G3ArchiveStock` | `live_stock_bill`, `retained_stock_quadratic`, `rollover_quadratic` |
+| `KnillLaflamme` | `eq_zero_of_eq_neg`, `spectral_projection`, `sandwich_anticomm`, `sandwich_scalar`, `knill_laflamme_of_distance` |
+| `AgeReliability` | `cubic_spacetime_rate`, `log_distance_schedule`, `log_factor_not_absorbed` |
+| `ExRecBound` | `exrec_pair_bound`, `circuit_level_rate`, `surface_code_rate` |
+| `EdgeLaw` | `prob_push`, `push_localStochastic` |
+| `MatchingWitness` | `card_symmDiff`, `half_faulty`, `matching_witness` |
 <!-- END THEOREM INDEX -->
 
 ---
@@ -3069,6 +3078,96 @@ forces premise 5 (`adiabatic_feasible_iff`). Outside the window, the reversible
 counterpart is not cheaper, so cost dominance alone does not establish premise
 5 there.
 
+## G.18 Application data for the cited fault-tolerance theorems
+
+This section supplies application data for the cited fault-tolerance theorems (review
+objection 7). The full fault ceiling and the complete bill \(\le Ct^{d_G}\) with an
+age-independent \(C\) are unchanged. Components are compiled or computed; the remaining joins are
+named at the end.
+
+**Knill–Laflamme from the code distance** (`KnillLaflamme`). In any complex \(*\)-algebra, the
+spectral projection \((1+S)/2\) of an involution is idempotent and fixed by \(S\)
+(`spectral_projection`). The code projector annihilates any operator that anticommutes with a
+generator (`sandwich_anticomm`). It returns \(cP\) for an operator acting as the scalar \(c\) on
+the code space (`sandwich_scalar`). Let errors have weight at most \(t\) with \(2t<d\), where
+distance \(d\) means that every operator of weight below \(d\) commuting with all generators acts
+as a scalar on the code space. Then \(PE_i^\dagger E_jP=\alpha_{ij}P\) for every pair
+(`knill_laflamme_of_distance`). Logical operators are excluded by the distance, not by the case
+split.
+
+**The witness property of minimum-weight decoding** (`MatchingWitness`). Take a
+minimum-weight decoder and a syndrome additive under symmetric difference. Every zero-syndrome
+\(\gamma\subseteq E\,\triangle\,C\) of the residual is then at least half faulty:
+\(|\gamma|\le2|\gamma\cap E|\) (`half_faulty`, `matching_witness`). This is the witness
+hypothesis of `Threshold.fail_le_witness` and `fail_le_geometric`. The nontrivial component of
+a failed residual is a simple cycle or a boundary-to-boundary path, of length at least the
+circuit distance.
+
+**The circuit-level detector graph.** A dependency-free Pauli-frame enumeration covers the
+rotated surface-code memory over \(d\) rounds, with X checks in a Z-shaped CNOT order and Z
+checks in an N-shaped order. The faults enumerated are the 15 two-qubit Paulis after every CNOT,
+\(X\), \(Y\), \(Z\) after every reset, Hadamard and idle, and every measurement flip. For
+\(d=3,5,7,9\) the enumeration gives:
+
+- every fault flips at most two detectors of each check type;
+- the maximum detector degree is 12;
+- at most 52 (location, Pauli) faults produce each edge of the relevant type;
+- the circuit distance is exactly \(d\).
+
+With the orders swapped, so that hooks run parallel to the logical, the distance falls to
+\(\lceil d/2\rceil\). The orientation is load-bearing.
+
+The bound for every \(d\) uses a potential. Let \(\varphi\) be the face coordinate across the
+logical. Boundary edges attach only at \(\varphi=0\) and \(\varphi=d-2\), and every edge,
+time-like and hook edges included, changes \(\varphi\) by at most one. So any walk joining
+opposite boundaries has at least \(d\) edges. Every fault is local to one check neighbourhood
+in one round, so the edge types for larger \(d\) are translates of those enumerated. The script
+and its results are banked with their hashes.
+
+**Lattice-surgery merges.** The same enumeration was applied to the merge. Two \(d\times d\)
+patches and a seam column were merged as the \(d\times(2d+1)\) patch for \(T\) rounds, with the
+seam initialised and finally split in the conjugate basis. The joint logical is found by \(GF(2)\)
+elimination over the random seam checks. For \(d=3,5,7\) and \(T\in\{d-2,d,d+2\}\), the circuit
+distance is exactly \(\min(d,T)\) and every fault is graphlike. A merge therefore keeps distance
+\(d\) exactly when it runs at least \(d\) rounds; with fewer, the time-like failure of the
+merged-product outcome binds. The horizontal merge enumerated measures \(\bar X\bar X\); the
+vertical merge, measuring \(\bar Z\bar Z\), is the same construction rotated and was not run
+separately.
+
+**The edge law and the explicit ratio** (`EdgeLaw`, `ExRecBound`). Suppose circuit faults are
+local stochastic at rate \(p\) on (location, Pauli) pairs, and at most \(c\) of them produce
+each edge. Then the induced edge law is local stochastic at rate \(cp\)
+(`push_localStochastic`). With degree 12, so non-backtracking branching at most 11, and
+\(c=52\), `fail_le_geometric` applies with \(r=22\sqrt{52p}\). This ratio is below one exactly
+when \(p<1/25168\) (`surface_code_rate`).
+
+An operation outside the spacetime-volume argument has its own gadget bound. Under local
+stochastic noise, if every failing pattern contains a malignant pair or at least three faults,
+then \(P(\mathrm{fail})\le|M_2|p^2+\binom{|L|}{3}p^3\) (`exrec_pair_bound`).
+
+**Reliability against age** (`AgeReliability`). A distance \(D\ge\log(Kt^d/\varepsilon)/(-\log r)\)
+holds the global failure over \(Kt^d\) locations below \(\varepsilon\) at every age
+(`log_distance_schedule`). A logarithmic overhead per location, however, is not absorbed into an
+age-independent constant: for every \(C\) some \(t\ge1\) has \(Ct^d<t^d\log t\)
+(`log_factor_not_absorbed`). The age-independent bill therefore needs the logarithm removed by
+construction.
+
+**Remaining joins.**
+
+- The potential argument for merges at every \(d\), with the round index as the time-like
+  potential.
+- A map-by-map list showing that every repeated local map of holding, recovery, encoding, handoff
+  and smearing is a Clifford circuit with exact native gates. This removes the compilation
+  logarithm.
+- Tolerance of the wavefront sweep to sparse patch failures, so that constant-distance inner
+  patches suffice. This needs:
+  - confinement of each failure;
+  - no cascade through the feedforward front;
+  - an outer decoder of the constant-size message \(W\) using its carrier's redundancy, with
+    its deviation bound.
+
+  This removes the reliability logarithm.
+
 ---
 
 # Part IV — References and provenance
@@ -3104,7 +3203,7 @@ The machine-checked canon of Section 23 certifies exactly the results it maps, w
 
 # Appendix — Verification provenance of this edition
 
-The original published baseline contains 115 modules and 831 audited names. The current tree contains 175 modules and 1088 audited public theorem/lemma names. All 175 modules were freshly compiled and kernel-checked in one run, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. The original failed run is preserved in the integration bank.
+The original published baseline contains 115 modules and 831 audited names. The current tree contains 180 modules and 1104 audited public theorem/lemma names. All 180 modules were freshly compiled and kernel-checked in one run, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. The original failed run is preserved in the integration bank.
 
 The eight-module integration and its 896-statement receipt remain preserved. This increment adds 28 checked statements in the existing DecoderRetraction, HamiltonianDecomposition and WorkBilling modules, integrates the three-pillar operator/history/work construction in Part III-G, and keeps the continuous integral/channel derivations and physical source correspondences explicit. Its exact changes and verification evidence accompany the working draft. No published edition or release is changed.
 

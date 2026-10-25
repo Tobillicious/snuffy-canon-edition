@@ -1,0 +1,137 @@
+[
+ {
+  "d": 3,
+  "T": 1,
+  "basis": "Z",
+  "note": "no joint logical for this basis"
+ },
+ {
+  "d": 3,
+  "T": 1,
+  "basis": "X",
+  "joint_logical_checks": 4,
+  "faults": 1364,
+  "graphlike_per_type": true,
+  "circuit_distance_exact": 1
+ },
+ {
+  "d": 3,
+  "T": 3,
+  "basis": "Z",
+  "note": "no joint logical for this basis"
+ },
+ {
+  "d": 3,
+  "T": 3,
+  "basis": "X",
+  "joint_logical_checks": 4,
+  "faults": 3708,
+  "graphlike_per_type": true,
+  "circuit_distance_exact": 3
+ },
+ {
+  "d": 3,
+  "T": 5,
+  "basis": "Z",
+  "note": "no joint logical for this basis"
+ },
+ {
+  "d": 3,
+  "T": 5,
+  "basis": "X",
+  "joint_logical_checks": 4,
+  "faults": 6052,
+  "graphlike_per_type": true,
+  "circuit_distance_exact": 3
+ },
+ {
+  "d": 5,
+  "T": 3,
+  "basis": "Z",
+  "note": "no joint logical for this basis"
+ },
+ {
+  "d": 5,
+  "T": 3,
+  "basis": "X",
+  "joint_logical_checks": 6,
+  "faults": 10456,
+  "graphlike_per_type": true,
+  "circuit_distance_exact": 3
+ },
+ {
+  "d": 5,
+  "T": 5,
+  "basis": "Z",
+  "note": "no joint logical for this basis"
+ },
+ {
+  "d": 5,
+  "T": 5,
+  "basis": "X",
+  "joint_logical_checks": 6,
+  "faults": 17080,
+  "graphlike_per_type": true,
+  "circuit_distance_exact": 5
+ },
+ {
+  "d": 5,
+  "T": 7,
+  "basis": "Z",
+  "note": "no joint logical for this basis"
+ },
+ {
+  "d": 5,
+  "T": 7,
+  "basis": "X",
+  "joint_logical_checks": 6,
+  "faults": 23704,
+  "graphlike_per_type": true,
+  "circuit_distance_exact": 5
+ },
+ {
+  "d": 7,
+  "T": 5,
+  "basis": "Z",
+  "note": "no joint logical for this basis"
+ },
+ {
+  "d": 7,
+  "T": 5,
+  "basis": "X",
+  "joint_logical_checks": 8,
+  "faults": 33628,
+  "graphlike_per_type": true,
+  "circuit_distance_exact": 5
+ },
+ {
+  "d": 7,
+  "T": 7,
+  "basis": "Z",
+  "note": "no joint logical for this basis"
+ },
+ {
+  "d": 7,
+  "T": 7,
+  "basis": "X",
+  "joint_logical_checks": 8,
+  "faults": 46676,
+  "graphlike_per_type": true,
+  "circuit_distance_exact": 7
+ },
+ {
+  "d": 7,
+  "T": 9,
+  "basis": "Z",
+  "note": "no joint logical for this basis"
+ },
+ {
+  "d": 7,
+  "T": 9,
+  "basis": "X",
+  "joint_logical_checks": 8,
+  "faults": 59724,
+  "graphlike_per_type": true,
+  "circuit_distance_exact": 7
+ }
+]

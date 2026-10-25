@@ -19,6 +19,12 @@
   "detectors": 24,
   "circuit_distance_pairwise_test": 3,
   "circuit_distance_exact": 3,
+  "potential_coordinate": 0,
+  "boundary_face_values": [
+   0,
+   1
+  ],
+  "max_potential_step": 1,
   "ambiguous_edge_observable": false,
   "single_fault_logicals": 0,
   "equal_signature_logical_pairs": 0,
@@ -49,6 +55,12 @@
   "detectors": 24,
   "circuit_distance_pairwise_test": 3,
   "circuit_distance_exact": 3,
+  "potential_coordinate": 1,
+  "boundary_face_values": [
+   0,
+   1
+  ],
+  "max_potential_step": 1,
   "ambiguous_edge_observable": false,
   "single_fault_logicals": 0,
   "equal_signature_logical_pairs": 0,
@@ -79,6 +91,12 @@
   "detectors": 24,
   "circuit_distance_pairwise_test": 2,
   "circuit_distance_exact": 2,
+  "potential_coordinate": 0,
+  "boundary_face_values": [
+   0,
+   1
+  ],
+  "max_potential_step": 1,
   "ambiguous_edge_observable": true,
   "single_fault_logicals": 0,
   "equal_signature_logical_pairs": 6,
@@ -109,6 +127,12 @@
   "detectors": 24,
   "circuit_distance_pairwise_test": 2,
   "circuit_distance_exact": 2,
+  "potential_coordinate": 1,
+  "boundary_face_values": [
+   0,
+   1
+  ],
+  "max_potential_step": 1,
   "ambiguous_edge_observable": true,
   "single_fault_logicals": 0,
   "equal_signature_logical_pairs": 12,

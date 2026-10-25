@@ -1,7 +1,7 @@
 {
   "all_pass": true,
   "epub": {
-    "bytes": 174065,
+    "bytes": 178015,
     "canon_sentence": true,
     "chain_head_charged": true,
     "chain_head_quarantine": true,
@@ -12,7 +12,7 @@
     "no_door_content": true
   },
   "html": {
-    "bytes": 832994,
+    "bytes": 855466,
     "canon_sentence": true,
     "chain_head_charged": true,
     "chain_head_quarantine": true,
@@ -24,7 +24,7 @@
   },
   "method_note": "needle matching after removing whitespace; the PDF is verified on its extracted text (pdftotext)",
   "pdf": {
-    "bytes": 478835,
+    "bytes": 488483,
     "canon_sentence": true,
     "chain_head_charged": true,
     "chain_head_quarantine": true,
@@ -33,6 +33,6 @@
     "doi_core": true,
     "module_count": true,
     "no_door_content": true,
-    "pages": 86
+    "pages": 87
   }
 }

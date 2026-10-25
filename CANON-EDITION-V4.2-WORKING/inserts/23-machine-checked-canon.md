@@ -316,6 +316,11 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `G3GoodEvent` | `sweep_success_on_good_event`, `complete_bill_with_archive` |
 | `BennettExact` | `premise5_exact`, `window_exact`, `reversible_admin_computes` |
 | `G3ArchiveStock` | `live_stock_bill`, `retained_stock_quadratic`, `rollover_quadratic` |
+| `KnillLaflamme` | `eq_zero_of_eq_neg`, `spectral_projection`, `sandwich_anticomm`, `sandwich_scalar`, `knill_laflamme_of_distance` |
+| `AgeReliability` | `cubic_spacetime_rate`, `log_distance_schedule`, `log_factor_not_absorbed` |
+| `ExRecBound` | `exrec_pair_bound`, `circuit_level_rate`, `surface_code_rate` |
+| `EdgeLaw` | `prob_push`, `push_localStochastic` |
+| `MatchingWitness` | `card_symmDiff`, `half_faulty`, `matching_witness` |
 <!-- END THEOREM INDEX -->
 
 ---

@@ -150,9 +150,9 @@ whole-outcome, device-cost and external-theorem application
 correspondences remain explicit construction work; the component
 theorems do not by themselves declare the maximal argument complete.
 
-The current Lean tree contains 175 modules and 1088 audited public
-theorem/lemma names. All 175 modules were freshly compiled and
-kernel-checked in one run, and the full axiom audit over all 1088 names
+The current Lean tree contains 180 modules and 1104 audited public
+theorem/lemma names. All 180 modules were freshly compiled and
+kernel-checked in one run, and the full axiom audit over all 1104 names
 and the completeness and claims gates were freshly run, overall PASS.
 The earlier receipts, including the 924-name combined receipt that
 reused Beam's 136 results, are preserved with their banks. Seven
@@ -3707,7 +3707,7 @@ values, not compiled theorems.
 canon}\label{section-23-the-machine-checked-canon}
 
 \emph{This section maps the edition's compiled results and their actual
-hypotheses. The current source contains 175 modules and 1088 audited
+hypotheses. The current source contains 180 modules and 1104 audited
 public theorem/lemma names. The receipt records a fresh compilation and
 kernel check of every module, a fresh full axiom audit with only
 \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, and
@@ -4562,6 +4562,22 @@ every increment or rolling the whole stock over epochs is quadratic
 and complete lifecycle cost: forced inside the adiabatic window
 \(0<Q-H\), \(A/(Q-H)<\tau_{\max}\), and outside it the counterpart is
 not cheaper (G.17) \\
+\texttt{KnillLaflamme} & Knill--Laflamme identities
+\(PE_i^\dagger E_jP=\alpha_{ij}P\) for errors of weight \(t\) with
+\(2t<d\), from the code distance; logical operators excluded by the
+distance (G.18) \\
+\texttt{MatchingWitness} & Minimum-weight decoding leaves every
+zero-syndrome residual cycle at least half faulty: the witness
+hypothesis of
+\texttt{T\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d\allowbreak{}.\allowbreak{}f\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}\_\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}g\allowbreak{}e\allowbreak{}o\allowbreak{}m\allowbreak{}e\allowbreak{}t\allowbreak{}r\allowbreak{}i\allowbreak{}c}
+(G.18) \\
+\texttt{EdgeLaw}, \texttt{ExRecBound} & Circuit faults induce local
+stochastic edge noise at rate \(cp\); with the enumerated degree 12 and
+\(c=52\), \(r=22\sqrt{52p}<1\) exactly when \(p<1/25168\); the gadget
+bound \(|M_2|p^2+\binom{|L|}{3}p^3\) (G.18) \\
+\texttt{AgeReliability} & A logarithmic distance schedule holds global
+failure below \(\varepsilon\) at every age; a logarithmic overhead is
+not absorbed into an age-independent constant (G.18) \\
 \end{longtable}
 }
 
@@ -5664,6 +5680,23 @@ Theorems
 \texttt{G3ArchiveStock} & \texttt{live\_stock\_bill},
 \texttt{r\allowbreak{}e\allowbreak{}t\allowbreak{}a\allowbreak{}i\allowbreak{}n\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}s\allowbreak{}t\allowbreak{}o\allowbreak{}c\allowbreak{}k\allowbreak{}\_\allowbreak{}q\allowbreak{}u\allowbreak{}a\allowbreak{}d\allowbreak{}r\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}c},
 \texttt{r\allowbreak{}o\allowbreak{}l\allowbreak{}l\allowbreak{}o\allowbreak{}v\allowbreak{}e\allowbreak{}r\allowbreak{}\_\allowbreak{}q\allowbreak{}u\allowbreak{}a\allowbreak{}d\allowbreak{}r\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}c} \\
+\texttt{KnillLaflamme} &
+\texttt{e\allowbreak{}q\allowbreak{}\_\allowbreak{}z\allowbreak{}e\allowbreak{}r\allowbreak{}o\allowbreak{}\_\allowbreak{}o\allowbreak{}f\allowbreak{}\_\allowbreak{}e\allowbreak{}q\allowbreak{}\_\allowbreak{}n\allowbreak{}e\allowbreak{}g},
+\texttt{s\allowbreak{}p\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}j\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n},
+\texttt{s\allowbreak{}a\allowbreak{}n\allowbreak{}d\allowbreak{}w\allowbreak{}i\allowbreak{}c\allowbreak{}h\allowbreak{}\_\allowbreak{}a\allowbreak{}n\allowbreak{}t\allowbreak{}i\allowbreak{}c\allowbreak{}o\allowbreak{}m\allowbreak{}m},
+\texttt{sandwich\_scalar},
+\texttt{k\allowbreak{}n\allowbreak{}i\allowbreak{}l\allowbreak{}l\allowbreak{}\_\allowbreak{}l\allowbreak{}a\allowbreak{}f\allowbreak{}l\allowbreak{}a\allowbreak{}m\allowbreak{}m\allowbreak{}e\allowbreak{}\_\allowbreak{}o\allowbreak{}f\allowbreak{}\_\allowbreak{}d\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e} \\
+\texttt{AgeReliability} &
+\texttt{c\allowbreak{}u\allowbreak{}b\allowbreak{}i\allowbreak{}c\allowbreak{}\_\allowbreak{}s\allowbreak{}p\allowbreak{}a\allowbreak{}c\allowbreak{}e\allowbreak{}t\allowbreak{}i\allowbreak{}m\allowbreak{}e\allowbreak{}\_\allowbreak{}r\allowbreak{}a\allowbreak{}t\allowbreak{}e},
+\texttt{l\allowbreak{}o\allowbreak{}g\allowbreak{}\_\allowbreak{}d\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e\allowbreak{}\_\allowbreak{}s\allowbreak{}c\allowbreak{}h\allowbreak{}e\allowbreak{}d\allowbreak{}u\allowbreak{}l\allowbreak{}e},
+\texttt{l\allowbreak{}o\allowbreak{}g\allowbreak{}\_\allowbreak{}f\allowbreak{}a\allowbreak{}c\allowbreak{}t\allowbreak{}o\allowbreak{}r\allowbreak{}\_\allowbreak{}n\allowbreak{}o\allowbreak{}t\allowbreak{}\_\allowbreak{}a\allowbreak{}b\allowbreak{}s\allowbreak{}o\allowbreak{}r\allowbreak{}b\allowbreak{}e\allowbreak{}d} \\
+\texttt{ExRecBound} & \texttt{exrec\_pair\_bound},
+\texttt{c\allowbreak{}i\allowbreak{}r\allowbreak{}c\allowbreak{}u\allowbreak{}i\allowbreak{}t\allowbreak{}\_\allowbreak{}l\allowbreak{}e\allowbreak{}v\allowbreak{}e\allowbreak{}l\allowbreak{}\_\allowbreak{}r\allowbreak{}a\allowbreak{}t\allowbreak{}e},
+\texttt{s\allowbreak{}u\allowbreak{}r\allowbreak{}f\allowbreak{}a\allowbreak{}c\allowbreak{}e\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}\_\allowbreak{}r\allowbreak{}a\allowbreak{}t\allowbreak{}e} \\
+\texttt{EdgeLaw} & \texttt{prob\_push},
+\texttt{p\allowbreak{}u\allowbreak{}s\allowbreak{}h\allowbreak{}\_\allowbreak{}l\allowbreak{}o\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}S\allowbreak{}t\allowbreak{}o\allowbreak{}c\allowbreak{}h\allowbreak{}a\allowbreak{}s\allowbreak{}t\allowbreak{}i\allowbreak{}c} \\
+\texttt{MatchingWitness} & \texttt{card\_symmDiff},
+\texttt{half\_faulty}, \texttt{matching\_witness} \\
 \end{longtable}
 }
 
@@ -7720,6 +7753,144 @@ forces premise 5
 Outside the window, the reversible counterpart is not cheaper, so cost
 dominance alone does not establish premise 5 there.
 
+\subsection{G.18 Application data for the cited fault-tolerance
+theorems}\label{g.18-application-data-for-the-cited-fault-tolerance-theorems}
+
+This section supplies application data for the cited fault-tolerance
+theorems (review objection 7). The full fault ceiling and the complete
+bill \(\le Ct^{d_G}\) with an age-independent \(C\) are unchanged.
+Components are compiled or computed; the remaining joins are named at
+the end.
+
+\textbf{Knill--Laflamme from the code distance}
+(\texttt{KnillLaflamme}). In any complex \(*\)-algebra, the spectral
+projection \((1+S)/2\) of an involution is idempotent and fixed by \(S\)
+(\texttt{s\allowbreak{}p\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}j\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n}).
+The code projector annihilates any operator that anticommutes with a
+generator
+(\texttt{s\allowbreak{}a\allowbreak{}n\allowbreak{}d\allowbreak{}w\allowbreak{}i\allowbreak{}c\allowbreak{}h\allowbreak{}\_\allowbreak{}a\allowbreak{}n\allowbreak{}t\allowbreak{}i\allowbreak{}c\allowbreak{}o\allowbreak{}m\allowbreak{}m}).
+It returns \(cP\) for an operator acting as the scalar \(c\) on the code
+space (\texttt{sandwich\_scalar}). Let errors have weight at most \(t\)
+with \(2t<d\), where distance \(d\) means that every operator of weight
+below \(d\) commuting with all generators acts as a scalar on the code
+space. Then \(PE_i^\dagger E_jP=\alpha_{ij}P\) for every pair
+(\texttt{k\allowbreak{}n\allowbreak{}i\allowbreak{}l\allowbreak{}l\allowbreak{}\_\allowbreak{}l\allowbreak{}a\allowbreak{}f\allowbreak{}l\allowbreak{}a\allowbreak{}m\allowbreak{}m\allowbreak{}e\allowbreak{}\_\allowbreak{}o\allowbreak{}f\allowbreak{}\_\allowbreak{}d\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e}).
+Logical operators are excluded by the distance, not by the case split.
+
+\textbf{The witness property of minimum-weight decoding}
+(\texttt{MatchingWitness}). Take a minimum-weight decoder and a syndrome
+additive under symmetric difference. Every zero-syndrome
+\(\gamma\subseteq E\,\triangle\,C\) of the residual is then at least
+half faulty: \(|\gamma|\le2|\gamma\cap E|\) (\texttt{half\_faulty},
+\texttt{matching\_witness}). This is the witness hypothesis of
+\texttt{T\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d\allowbreak{}.\allowbreak{}f\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}\_\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}w\allowbreak{}i\allowbreak{}t\allowbreak{}n\allowbreak{}e\allowbreak{}s\allowbreak{}s}
+and
+\texttt{f\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}\_\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}g\allowbreak{}e\allowbreak{}o\allowbreak{}m\allowbreak{}e\allowbreak{}t\allowbreak{}r\allowbreak{}i\allowbreak{}c}.
+The nontrivial component of a failed residual is a simple cycle or a
+boundary-to-boundary path, of length at least the circuit distance.
+
+\textbf{The circuit-level detector graph.} A dependency-free Pauli-frame
+enumeration covers the rotated surface-code memory over \(d\) rounds,
+with X checks in a Z-shaped CNOT order and Z checks in an N-shaped
+order. The faults enumerated are the 15 two-qubit Paulis after every
+CNOT, \(X\), \(Y\), \(Z\) after every reset, Hadamard and idle, and
+every measurement flip. For \(d=3,5,7,9\) the enumeration gives:
+
+\begin{itemize}
+\tightlist
+\item
+  every fault flips at most two detectors of each check type;
+\item
+  the maximum detector degree is 12;
+\item
+  at most 52 (location, Pauli) faults produce each edge of the relevant
+  type;
+\item
+  the circuit distance is exactly \(d\).
+\end{itemize}
+
+With the orders swapped, so that hooks run parallel to the logical, the
+distance falls to \(\lceil d/2\rceil\). The orientation is load-bearing.
+
+The bound for every \(d\) uses a potential. Let \(\varphi\) be the face
+coordinate across the logical. Boundary edges attach only at
+\(\varphi=0\) and \(\varphi=d-2\), and every edge, time-like and hook
+edges included, changes \(\varphi\) by at most one. So any walk joining
+opposite boundaries has at least \(d\) edges. Every fault is local to
+one check neighbourhood in one round, so the edge types for larger \(d\)
+are translates of those enumerated. The script and its results are
+banked with their hashes.
+
+\textbf{Lattice-surgery merges.} The same enumeration was applied to the
+merge. Two \(d\times d\) patches and a seam column were merged as the
+\(d\times(2d+1)\) patch for \(T\) rounds, with the seam initialised and
+finally split in the conjugate basis. The joint logical is found by
+\(GF(2)\) elimination over the random seam checks. For \(d=3,5,7\) and
+\(T\in\{d-2,d,d+2\}\), the circuit distance is exactly \(\min(d,T)\) and
+every fault is graphlike. A merge therefore keeps distance \(d\) exactly
+when it runs at least \(d\) rounds; with fewer, the time-like failure of
+the merged-product outcome binds. The horizontal merge enumerated
+measures \(\bar X\bar X\); the vertical merge, measuring
+\(\bar Z\bar Z\), is the same construction rotated and was not run
+separately.
+
+\textbf{The edge law and the explicit ratio} (\texttt{EdgeLaw},
+\texttt{ExRecBound}). Suppose circuit faults are local stochastic at
+rate \(p\) on (location, Pauli) pairs, and at most \(c\) of them produce
+each edge. Then the induced edge law is local stochastic at rate \(cp\)
+(\texttt{p\allowbreak{}u\allowbreak{}s\allowbreak{}h\allowbreak{}\_\allowbreak{}l\allowbreak{}o\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}S\allowbreak{}t\allowbreak{}o\allowbreak{}c\allowbreak{}h\allowbreak{}a\allowbreak{}s\allowbreak{}t\allowbreak{}i\allowbreak{}c}).
+With degree 12, so non-backtracking branching at most 11, and \(c=52\),
+\texttt{f\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}\_\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}g\allowbreak{}e\allowbreak{}o\allowbreak{}m\allowbreak{}e\allowbreak{}t\allowbreak{}r\allowbreak{}i\allowbreak{}c}
+applies with \(r=22\sqrt{52p}\). This ratio is below one exactly when
+\(p<1/25168\)
+(\texttt{s\allowbreak{}u\allowbreak{}r\allowbreak{}f\allowbreak{}a\allowbreak{}c\allowbreak{}e\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}\_\allowbreak{}r\allowbreak{}a\allowbreak{}t\allowbreak{}e}).
+
+An operation outside the spacetime-volume argument has its own gadget
+bound. Under local stochastic noise, if every failing pattern contains a
+malignant pair or at least three faults, then
+\(P(\mathrm{fail})\le|M_2|p^2+\binom{|L|}{3}p^3\)
+(\texttt{exrec\_pair\_bound}).
+
+\textbf{Reliability against age} (\texttt{AgeReliability}). A distance
+\(D\ge\log(Kt^d/\varepsilon)/(-\log r)\) holds the global failure over
+\(Kt^d\) locations below \(\varepsilon\) at every age
+(\texttt{l\allowbreak{}o\allowbreak{}g\allowbreak{}\_\allowbreak{}d\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e\allowbreak{}\_\allowbreak{}s\allowbreak{}c\allowbreak{}h\allowbreak{}e\allowbreak{}d\allowbreak{}u\allowbreak{}l\allowbreak{}e}).
+A logarithmic overhead per location, however, is not absorbed into an
+age-independent constant: for every \(C\) some \(t\ge1\) has
+\(Ct^d<t^d\log t\)
+(\texttt{l\allowbreak{}o\allowbreak{}g\allowbreak{}\_\allowbreak{}f\allowbreak{}a\allowbreak{}c\allowbreak{}t\allowbreak{}o\allowbreak{}r\allowbreak{}\_\allowbreak{}n\allowbreak{}o\allowbreak{}t\allowbreak{}\_\allowbreak{}a\allowbreak{}b\allowbreak{}s\allowbreak{}o\allowbreak{}r\allowbreak{}b\allowbreak{}e\allowbreak{}d}).
+The age-independent bill therefore needs the logarithm removed by
+construction.
+
+\textbf{Remaining joins.}
+
+\begin{itemize}
+\tightlist
+\item
+  The potential argument for merges at every \(d\), with the round index
+  as the time-like potential.
+\item
+  A map-by-map list showing that every repeated local map of holding,
+  recovery, encoding, handoff and smearing is a Clifford circuit with
+  exact native gates. This removes the compilation logarithm.
+\item
+  Tolerance of the wavefront sweep to sparse patch failures, so that
+  constant-distance inner patches suffice. This needs:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    confinement of each failure;
+  \item
+    no cascade through the feedforward front;
+  \item
+    an outer decoder of the constant-size message \(W\) using its
+    carrier's redundancy, with its deviation bound.
+  \end{itemize}
+
+  This removes the reliability logarithm.
+\end{itemize}
+
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \section{Part IV --- References and
@@ -7827,8 +7998,8 @@ maps, with the premises it lists. Elsewhere, prose remains prose.
 edition}\label{appendix-verification-provenance-of-this-edition}
 
 The original published baseline contains 115 modules and 831 audited
-names. The current tree contains 175 modules and 1088 audited public
-theorem/lemma names. All 175 modules were freshly compiled and
+names. The current tree contains 180 modules and 1104 audited public
+theorem/lemma names. All 180 modules were freshly compiled and
 kernel-checked in one run, and the full axiom, completeness and claims
 gates were freshly run, overall PASS. The earlier receipts, including
 the 924-name combined receipt that reused Beam's 136 results, are

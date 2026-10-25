@@ -22,7 +22,7 @@ abstract: >-
   closure derived from locality. Recovery work is Theta(t^d), with a wavefront
   sweep proved to succeed under a complete metered bill. The fault ceiling is
   attained, correlated bursts included, and Bennett's reversible counterpart is
-  constructed. 175 Lean 4 modules and 1,088 audited theorems compile
+  constructed. 180 Lean 4 modules and 1,104 audited theorems compile
   against Mathlib with only the standard axioms.
 keywords:
   - universal-protection-theory

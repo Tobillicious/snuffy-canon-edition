@@ -263,3 +263,118 @@ Still open within 7.2/7.3:
 * the general-d distance argument;
 * lattice-surgery merges, the same enumeration on the merged patch;
 * pātai (a) and (b) above.
+
+---
+
+# Round 3 — Gemini's answers to the five open items (inputs/GEMINI-OBJ7-ROUND3-FIVE-PATAI.md)
+
+None of the five is accepted as written. Items 1 and 2 are now constructed by other means, below.
+
+1. **DKLP line via RBIM — not the application line.**
+   * The RBIM phase transition concerns the optimal-decoder threshold. "Free-energy cost
+     proportional to L" is an asymptotic phase statement with no explicit constant.
+   * `fail_le_geometric` needs the combinatorial witness property instead.
+   * *Constructed:* `Snuffy.MatchingWitness` (zero output, leanchecker 0, standard axioms).
+     - `half_faulty`: γ ⊆ E∆C and |C| ≤ |C∆γ| give |γ| ≤ 2|γ∩E|.
+     - `matching_witness`: for a minimum-weight decoder and a ∆-additive syndrome, every
+       zero-syndrome residual γ is at least half faulty.
+   * Cited graph fact: a zero-boundary chain decomposes into simple cycles and
+     boundary-to-boundary paths, and a nontrivial class has a nontrivial component.
+2. **"Homological induction" — refuted.**
+   * The argument never uses the CNOT orientation. The swapped schedule has the same uniform
+     tiling and local density, yet its circuit distance is ⌈d/2⌉ (enumerated: 2, 3, 4, 5 for
+     d = 3, 5, 7, 9).
+   * *Constructed instead: the potential argument.* Let φ be the check-face coordinate across
+     the logical. For the standard schedule, the enumeration (RESULT-d3…d9; script SHA-256
+     `0c558c1c…828d`) shows two things. Boundary edges attach only to faces at φ = 0 and
+     φ = d − 2. Every edge, space-like, time-like and hook, changes φ by at most 1.
+   * So any walk joining opposite boundaries has at least 1 + (d − 2) + 1 = d edges. The
+     logical class of a walk is set by which boundaries it joins (the standard homology fact).
+     Hence the circuit distance is ≥ d, and the data logical gives ≤ d.
+   * For all d, every fault touches one check neighbourhood in one round, so each edge type at
+     larger d is a translate of a bulk, edge or corner type present at d = 9. The step bound
+     therefore persists. This is a locality argument backed by the finite check, stated as
+     such.
+   * Exact BFS distances agree with it: d for d = 3, 5, 7, 9.
+3. **Lattice-surgery merge — not accepted.** "At least ⌈d/2⌉ faults to bridge the seam" would
+   be a halved distance. A_merge = Θ(d) is not enumerated. The merge also has a time-like
+   failure mode, the merged-product outcome, which needs d rounds. Owed: the same enumeration on
+   the merged patch.
+4. **Clifford closure — not verified.** "Examining … reveals" lists no maps. Gottesman–Knill is
+   not the mechanism. Clifford maps remove the compilation logarithm because their gates are
+   exact natives, so no Solovay–Kitaev approximation is needed. Owed: a list of each repeated
+   local map — holding correction, patch decode, boundary encoder, handoff, smearing — with
+   its circuit.
+5. **Sparse-failure tolerance — not derived.** "Entanglement distillation and syndrome
+   re-routing" is named, but there is no confinement lemma, no outer decoder of W and no
+   deviation bound. "O(t) for d_G = 1" is not derived. Owed: exactly pātai (b).
+
+---
+
+# Round 4 — inventory and items 3–5 (inputs/GEMINI-OBJ7-ROUND4-INVENTORY-AND-ITEMS-3-5.md)
+
+## Item 3 (lattice-surgery merge) — now computed; the submission itself is not accepted
+
+The submission asserts distance d. Its "A_merge = |M₂|/C(N,2) = Θ(1)" is again the fraction-of-pairs
+definition rejected in round 2.
+
+*Computed:* `checks/obj7-detector-graph/merge_graph.py` (SHA-256 `d2ce20fe…28e9`), with results in
+`MERGE-RESULT.json` (`62ad8bf9…e2e`). It uses the standard schedule and the same exhaustive single-fault
+enumeration as `detector_graph.py`.
+* **Setup.** Two d×d patches with a seam column, merged as the d×(2d+1) patch for T rounds. The
+  seam starts in the conjugate basis, and the merge ends with a split that measures the seam data
+  in the conjugate basis. The joint logical is found by GF(2) elimination over the random seam
+  checks.
+* **Exact circuit distance.**
+
+  | d | T = d − 2 | T = d | T = d + 2 |
+  |---|---|---|---|
+  | 3 | 1 | 3 | 3 |
+  | 5 | 3 | 5 | 5 |
+  | 7 | 5 | 7 | 7 |
+
+  The distance is min(d, T) in every case, and every fault is graphlike. The merge keeps distance d
+  exactly when it runs T ≥ d rounds; below that, the time-like mode (the merged-product outcome)
+  binds.
+* **Scope.** The horizontal merge measures X̄X̄. Z̄Z̄ is the vertical merge, the 90°-rotated
+  construction, which was not run separately.
+* **For every d.** The same potential method applies, with φ the round index for the time-like
+  mode. That check has not yet been run.
+
+## Item 4 / R4-1 (inventory) — not accepted
+
+* It inventories the error-correction layer only. Pātai (a) asks about the installation's own
+  repeated logical maps:
+  - holding correction (`G1Refinement.guardedStep`);
+  - patch decode (`G3PatchDecode.patchCorr`);
+  - the boundary encoder (`DecoderRetraction`, Part III-G);
+  - handoff (`WorkBilling`);
+  - smearing (`SmearingIntegral`);
+  - the TIWA guard (`TIWAGuard`).
+
+  The question is whether any of these needs a non-Clifford logical gate.
+* It includes "non-Clifford resource injection" (M_Teleport). That would bring back magic-state
+  factories and the approximate synthesis of non-Clifford rotations, the opposite of its
+  conclusion. An exception holds only for unitaries exactly representable over Clifford+T.
+* Its circuits are wrong.
+  - The "X-stabilizer" initialises the ancilla in |0⟩ and uses ancilla-controlled CNOTs. These act
+    trivially, so nothing is measured.
+  - The "Z-stabilizer" initialises |+⟩ as a CNOT target. That is also trivial.
+  - CNOT and H generate level 2 of the Clifford hierarchy, not "𝒞₃".
+  - H and S are not transversal on the rotated code: H rotates the patch and S needs a twist or
+    an injected |Y⟩.
+
+## Item 5 — not accepted
+
+* "Absorbed by adjacent live patches via boundary entanglement routing" is not a confinement
+  proof.
+* Dobrushin's condition concerns uniqueness of Gibbs measures. The exponential cluster bound
+  presupposes that failures are independent beyond a finite range (finite-range dependence), and
+  a cascade along the sweep front is exactly what would violate that. The argument is circular.
+* "Constant expected cost per unit volume" does not bound the pathwise bill. The canon requires
+  gross pathwise work; an expected stock does not replace it.
+* There is still no outer decoder of W and no deviation bound.
+* Owed, unchanged — pātai (b). The likely route is a von Neumann-type fixed point for per-patch
+  failure that does not grow with depth, which needs each patch decoder to tolerate a bounded
+  number of failed dependencies. Concentration for the resulting dependent field then needs
+  finite-range dependence to be proved, not assumed.
