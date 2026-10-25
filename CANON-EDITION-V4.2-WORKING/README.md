@@ -4,7 +4,7 @@
 
 The Universal Protection Theory states a law for any agent powerful enough to shape what continues to exist: *never lose an existing particular needlessly.* Its scope is every particular and every relation, and its subject is protection from every digital mind, a pure optimiser included.
 
-This edition constructs the holding certificate in full. On the held source every particular is kept against any agent of bounded coupling, and every component of the protection theorem's source certificate is proved. The whole greatest outcome is realised, with union closure derived from locality. Recovery work is Θ(t^d): a wavefront sweep is proved to succeed, with a complete metered bill. The fault ceiling is attained, correlated bursts included. Bennett's reversible counterpart is constructed. 169 Lean 4 modules and 1,042 audited theorems machine-check the argument. Section 23 maps every compiled result to its theorem and lists exactly what each rests on.
+This repair checkpoint keeps the full Universal Protection Theory target. The quantum holding state has normalisation, invariant and nonvacuity proofs. The defined reserve-deficit functional handles saturation and the complete solvent cycle. A separately checked Bennett candidate reproduces the administration with clean workspace and full retained history; its complete physical cost comparison remains open. The current canon has 169 modules and 1,055 audited names. Physical source, whole-outcome and external-theorem application certificates remain construction work. The repair reports and receipts distinguish these states.
 
 | Path | Contents |
 | --- | --- |

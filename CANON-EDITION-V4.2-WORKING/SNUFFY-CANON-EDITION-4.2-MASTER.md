@@ -6,9 +6,9 @@ Canon Edition 4.2, 26 October 2026. Research direction: Tobias Croydon-McRae. Th
 
 **What 4.2 incorporates.** This edition brings the stronger existing arguments into the text: law-derived coverage; nearest-codeword holding and the physical holding cycle; tracking derived from the controller; the complete logical-attack split; reactive composition; whole-outcome greatestness and solvent reciprocity; and the full X3 information–traffic–carrier–work derivation with the accepted dimension-general scaling and predeployment accounting. Part II contains its proofs here, rather than delegating them to an earlier edition.
 
-The three joined supports are constructed in Part III-G and recorded in Part III-C: the full-domain physical certificate (G1; G.10), the realisability of the whole greatest outcome tuple (G2; G.9, G.11), and the wavefront protocol's success and complete-work certificate (G3; G.12). Their targets are unchanged. Naming an input or relabelling a conclusion does not supply its construction.
+The three joined supports retain their full targets: the full-domain physical certificate (G1), realisability of the whole continuation-and-freedom tuple (G2), and recovery success with a complete pathwise work certificate (G3). This repair checkpoint corrects the normalised quantum-state domain and the clipped-reserve contraction, and develops the actual Bennett implementation. The physical source, whole-outcome, device-cost and external-theorem application correspondences remain explicit construction work; the component theorems do not by themselves declare the maximal argument complete.
 
-The current Lean tree contains 169 modules and 1042 audited public theorem/lemma names. All 169 modules were freshly compiled and kernel-checked in one run, and the full axiom audit over all 1042 names and the completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
+The current Lean tree contains 169 modules and 1055 audited public theorem/lemma names. All 169 modules were freshly compiled and kernel-checked in one run, and the full axiom audit over all 1055 names and the completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
 
 **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports and their constructions. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
 
@@ -45,7 +45,7 @@ the five rate components being: boundary maintenance \(\omega_0R(t)^{d_G-1}\); t
 2. Premise 2 is reduced to its gate-set clause by the Lie–Trotter product formula and Lloyd's simulation theorem (`Trotter.lloyd_simulation`).
 3. Premise 3 remains standard, with P-mon derived within it.
 4. Premise 4 is derived from P1/P4.
-5. Premise 5 is **derived**: the Bennett counterpart is constructed, and the law forces reversible administration (`BennettCounterpart.premise5_constructed`; `PremiseFloor.reversible_administration_forced`).
+5. The full premise-5 target remains reversible administration. The canon proves the heat-only option-model result; its physical counterpart needs the actual lifecycle and deadline comparison (`BennettCounterpart.premise5_constructed`; `PremiseFloor.reversible_administration_forced`).
 6. The income ledger has a necessary-for-relevance resource split (`PremiseFloor.income_or_irrelevance`). Whole-outcome greatestness uses both realisability and funded cost (Part II.10); G2 retains the full construction and Section 22 states the installation ledger.
 7. Premise 7 is a parameter table. Its ceiling is met at some code distance below threshold (`Threshold.family_ceiling`), and its quantum-speed-limit rate bound is derived (`SpeedLimit.branchA_rate`).
 
@@ -201,7 +201,7 @@ Initially equal histories choose the same controller command. An environment rea
 \quad\operatorname{Continues}(p(s_k(\omega)),x).
 \]
 
-This is stronger than stopping at the abstract \(R\lor H\) interface: the code, decoder, repair and coverage derivations are in the composition. The full-domain construction joining those inputs is G1, constructed in G.10, where all five `hcert` components are proved.
+This is stronger than stopping at the abstract \(R\lor H\) interface: the code, decoder, repair and coverage derivations are in the composition. G.10 proves the five `hcert` components on the held source. The full-domain G1 target additionally requires the actual installation/source correspondence and response device.
 
 For risk, use actual named source events \(E_i\), with conditional kernels bounded by \(\delta_i\) at every admitted history, and establish \(G^c\subseteq\bigcup_i E_i\). The tower property gives unconditional event bounds and the union bound gives
 
@@ -374,7 +374,7 @@ With its three supporting repairs: quarantine has a minimal drain; \(G=\{\)state
 
 strict except exact stage-1–5 mirrors. The proof separates the whole-outcome construction from its funding. Let \(R\) be the realisable complete outcome tuples and \(c\) their complete cost. The full top tuple must be constructed in \(R\) (`htopR`); its cost must fit the budget (`hsolv`). These put it in the feasible family. If an aligned outcome were different, that feasible top would be a strict improvement at the first differing stage, contradicting alignment. Therefore the aligned outcome equals the top and contains every rival outcome (`UnionClosure.aligned_eq_of_greatest`, `greatest_of_solvent`, `strict_of_solvent`; Part II.10).
 
-This solvent proof needs no concurrent-emulation or union-closure premise. The full continuation and freedom stages remain in `htopR`; G2 supplies its joined construction. Income-or-irrelevance supplies the resource dichotomy and charging barrier, while the funded physical construction supplies protection on the relevant branch. Section 21 gives X3's complete information–traffic–carrier–work argument, the accepted dimension-general scaling and predeployment accounting, with the matching recovery construction G3 visible.
+This solvent proof needs no concurrent-emulation or union-closure premise. The full continuation and freedom stages remain in `htopR`; G2 retains the target of identifying the physical policy/outcome family with the compiled local-component model. Income-or-irrelevance supplies the resource dichotomy and charging barrier, while the funded physical construction supplies protection on the relevant branch. Section 21 gives X3's complete information–traffic–carrier–work argument, the accepted dimension-general scaling and predeployment accounting, with the matching recovery construction G3 visible.
 
 > **Integration guards 3 and 4.** The dominance quantifier carries the mirror exception. P-slack holds in the Landauer–Bennett form only: reversible administration attains the Landauer floor, so \(E_{\mathrm{slack}}(\pi^*)\ge E_{\mathrm{slack}}(\pi)\) for every rival, equality exactly for reversible mirrors. The variational-selection route is recorded as considered and rejected.
 
@@ -382,7 +382,7 @@ This solvent proof needs no concurrent-emulation or union-closure premise. The f
 * the canon invariant: `ThermoLedger.canon_invariant`, with \(P(\text{breach})\le P(G^c)\le\sum\delta\) and no independence assumed;
 * universal greatestness under stage-wise union closure, strict except exact mirrors: `Greatestness.greatest_of_union_closed`, `strict_except_mirrors`;
 * the assembled Universal Protection Theorem: `UniversalProtection.universal_protection`;
-* whole-outcome greatestness: `UnionClosure.greatest_of_solvent` uses `htopR` and `hsolv` to force every aligned outcome to equal the full top tuple, without union closure. `greatest_or_irrelevant` retains the realisability input at every step while deriving the solvent-or-first-breach resource split. Part II.10 gives the proof; G2 supplies the full construction.
+* whole-outcome greatestness: `UnionClosure.greatest_of_solvent` uses `htopR` and `hsolv` to force every aligned outcome to equal the full top tuple, without union closure. `greatest_or_irrelevant` retains the realisability input at every step while deriving the solvent-or-first-breach resource split. Part II.10 gives the proof; G2 retains the full physical policy/outcome correspondence as its construction target.
 
 The Landauer floor on which P-slack rests is derived (guard 1).
 
@@ -551,7 +551,7 @@ The seventh premise conflated two kinds of objects. Separated:
 | 2 | CTD | Standard physics; reduced to the gate-set clause by the Lie–Trotter product formula and Lloyd's simulation theorem (compiled, §23.6) |
 | 3 | The cost model | Standard, and P-mon derived within it |
 | 4 | The shared action interface | Derived from P1/P4 |
-| 5 | Reversible administration | **Derived:** the Bennett counterpart is constructed, and the law forces reversible administration (compiled, §23.6; G.14) |
+| 5 | Reversible administration | Heat-only model compiled; actual implementation candidate checked; full lifecycle/deadline comparison remains the construction target (§23.6; G.14) |
 | 6 | Income | **Necessary-for-relevance (17.1); sufficiency per instance** |
 | 7 | Code, sensing, \(\Pi\) | **Parameters, not premises.** The ceiling is met at some code distance below threshold, and the quantum-speed-limit rate bound is derived (compiled, §§23.3, 23.6) |
 
@@ -663,29 +663,47 @@ which satisfies:
   where $\eta C > 0$ is the discrete recovery magnitude.
 
 #### The Master Storage / Lyapunov Functional
-Define the unified autonomic storage functional $\Phi$ over system state, escrow reserve, and bath entropy:
-$$\boxed{\Phi(\rho_S, E_{\mathrm{escrow}}) \equiv \mathcal{E}_{\mathrm{code}}(\rho_S) + \frac{1}{\mathcal{W}_0} \max\left(0, W_{\mathrm{target}} - E_{\mathrm{escrow}}\right)}$$
-where $W_{\mathrm{target}}$ is the required safety reserve floor, and $\mathcal{W}_0$ is a scale calibration constant.
+Define the actual storage functional
+\[
+\Phi(\rho,E)=\mathcal E_{\mathrm{code}}(\rho)+f(E),\qquad
+f(E)=\frac{\max(0,W_{\mathrm{target}}-E)}{W_0},\quad W_0>0.
+\]
+The storage capacity \(K\) is chosen at least as large as the required reserve target.
+For nonnegative income \(I\), replenishment gives
+\[
+E^+=\min(K,E+I),\qquad
+f(E^+)-f(E)=-\min\{I/W_0,f(E)\}.
+\]
+Thus replenishment clears at most the existing deficit. Additional income does not
+drive the clipped term below zero (`TheoremEightLyapunov.replenishment_exact`).
 
-#### Cycle Ledger Accounting:
-1. **Noise / Drift Interval:**
-   $\Delta_{\mathrm{drift}} \Phi = \Delta_{\mathrm{drift}} \mathcal{E}_{\mathrm{code}} \le \lambda_{\mathrm{decay}} \tau_{\mathrm{cycle}}$.
-2. **Stroke I (Measurement):**
-   $\Delta_{\mathrm{I}} \Phi \le \frac{W_{\mathrm{meas}}}{\mathcal{W}_0}$.
-3. **Stroke II (Feedback):**
-   $$\Delta_{\mathrm{II}} \Phi = -\eta C < 0$$
-   Error is instantaneously eliminated in the code degree of freedom.
-4. **Stroke III (Reset):**
-   $\Delta_{\mathrm{III}} \Phi \le \frac{W_{\mathrm{reset}}}{\mathcal{W}_0}$, while bath absorbs $\Delta S_B \ge I_M$.
-5. **Stroke IV (Solvent Replenishment):**
-   $$\Delta_{\mathrm{IV}} \Phi \le -\frac{W_{\mathrm{income}}}{\mathcal{W}_0} \le -\frac{W_{\mathrm{meas}} + W_{\mathrm{reset}}}{\mathcal{W}_0}$$
+Let \(W_{\mathrm{cycle}}\) be the complete realised cycle charge, including
+measurement, correction, reset, holding, guard, routing, verification and controller
+work. Its physical escrow balance is
+\[
+E_{n+1}=\min(K,E_n-W_{\mathrm{cycle}}+I_n).
+\]
+The excess \(S_n=\max(0,E_n-W_{\mathrm{cycle}}+I_n-K)\) is explicitly exported:
+\[
+E_{n+1}+W_{\mathrm{cycle}}+S_n=E_n+I_n.
+\]
+`capacity_balance` and `solvent_cycle_energy_account` prove these identities.
+Within-cycle reservations still fund every operation before it executes.
 
-#### Net Cycle Change:
-Summing all four strokes over $\tau_{\mathrm{cycle}}$:
-$$\Delta_{\mathrm{cycle}} \Phi \le -\eta C + \lambda_{\mathrm{decay}} \tau_{\mathrm{cycle}} - \frac{W_{\mathrm{income}} - W_{\mathrm{demand}}}{\mathcal{W}_0}$$
-Under the standard design condition that cycle time is faster than error accumulation ($\tau_{\mathrm{cycle}} < \frac{\eta C}{\lambda_{\mathrm{decay}}}$) and the solvency condition ($W_{\mathrm{income}} \ge W_{\mathrm{demand}}$):
-$$\boxed{\Delta_{\mathrm{cycle}} \Phi \le -\sigma_0 < 0 \quad \text{whenever } \mathcal{E}_{\mathrm{code}} > 0}$$
-and $\Delta_{\mathrm{cycle}} \Phi = 0$ on the certified invariant manifold $\mathcal{C}$ with full escrow.
+If \(W_{\mathrm{cycle}}\le I_n\), the reserve term does not increase
+(`solvent_cycle_deficit`). The actual error drift and correction give
+\[
+\mathcal E_{\mathrm{drift}}\le\mathcal E_n+\lambda\tau,\qquad
+\mathcal E_{n+1}\le\mathcal E_{\mathrm{drift}}-\eta C.
+\]
+Therefore the defined functional obeys
+\[
+\Phi_{n+1}-\Phi_n\le-(\eta C-\lambda\tau).
+\]
+`cycle_contracts` proves this from the realised error bounds and complete solvent
+balance. For positive margin the contraction is strict on the stated error cycles.
+The controller supplies its tracking rate; the reserve plateau does not imply an
+additional exponential convergence theorem.
 
 ---
 
@@ -704,7 +722,9 @@ Then:
    $$W_{\mathrm{income}} = W_{\mathrm{on}} + Q_B + \Delta E_{\mathrm{escrow}}, \quad Q_B \ge T \Delta S_B \ge k_B T I_M$$
    with zero uncharged entropy or hidden energy debt.
 
-*Proof.* The stroke-by-stroke balance equations (18.2) give the cycle bound, and the contraction is compiled: the cycle change is at most \(-(\eta C-\lambda\tau)\) (`TheoremEightLyapunov.cycle_contracts`), timeliness makes \(\sigma_0=\eta C-\lambda\tau>0\) (`margin_pos`), and \(n\) error cycles lower \(\Phi\) by at least \(n\sigma_0\) (`lyapunov_iterate`). $\blacksquare$
+*Proof.* The actual error drift and repair bound, together with the complete solvent escrow balance of §18.3, give the cycle change at most \(-(\eta C-\lambda\tau)\) (`TheoremEightLyapunov.cycle_contracts`). The reserve-deficit term is handled through saturation and is nonincreasing over the cycle; no linear replenishment descent past zero is assumed. Timeliness gives \(\sigma_0=\eta C-\lambda\tau>0\) (`margin_pos`), and the cycle recurrence gives \(\Phi_n\le\Phi_0-n\sigma_0\) over the stated error cycles (`lyapunov_iterate`). The physical holding and entropy-export certificates retain their separate roles. $\blacksquare$
+
+The compiled result establishes the defined storage inequality from the actual drift, repair and complete solvent balance. The full Theorem 8 statement retains all its conclusions. Applying it to the physical installation still joins the protective source dynamics, invariant/error bounds and complete work/entropy accounts; those application certificates are not inferred from the reserve plateau or from the iteration identity alone.
 
 ---
 
@@ -1434,7 +1454,7 @@ The installation figures themselves are sourced measurements and design values, 
 
 ## Section 23 — The machine-checked canon
 
-*This section maps the edition's compiled results and their actual hypotheses. The current source contains 169 modules and 1042 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
+*This section maps the edition's compiled results and their actual hypotheses. The current source contains 169 modules and 1055 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
 
 *Evidence convention (unchanged from the edition header): a compiled theorem is cited by its name; a statement carried as a hypothesis of a compiled theorem is named as such; a prose derivation keeps its stated premises. A prose proof does not acquire a compiler certificate by association.*
 
@@ -1450,7 +1470,7 @@ The installation figures themselves are sourced measurements and design values, 
 | Proposition 3: maximality of the projection to a scope S guarantees no needless existing loss for every feasible family iff S is the whole existing domain; same-priority counting of a new particular admits a needless loss | `Law` | `scope_guarantee_iff`, `same_priority_admits_needless_loss` |
 | Proposition 4: a statewise faithful hold dominates every rival on every upward-closed event under any law on the worlds, strictly when the rival misses with positive probability | `Law` | `faithful_hold_dominates`, `faithful_hold_strict` |
 | Universal greatestness under stage-wise union closure (P-emu(c)); rivals are exact mirrors or strictly below; the canonical option is unique | `Greatestness` | `greatest_of_union_closed`, `strict_except_mirrors`, `aligned_unique` |
-| **Whole-outcome greatestness.** Given `htopR` (the full top tuple is realisable) and `hsolv` (its cost fits the budget), an aligned option equals that feasible top and contains every rival tuple. No union-closure premise enters. Part II.10 supplies the proof; G2 supplies the full construction | `UnionClosure` | `greatest_of_solvent`, `strict_of_solvent`, `aligned_eq_of_greatest` |
+| **Whole-outcome greatestness.** Given `htopR` (the full top tuple is realisable) and `hsolv` (its cost fits the budget), an aligned option equals that feasible top and contains every rival tuple. No union-closure premise enters. Part II.10 supplies the proof; G2 retains the full physical policy/outcome correspondence as its construction target | `UnionClosure` | `greatest_of_solvent`, `strict_of_solvent`, `aligned_eq_of_greatest` |
 | **Resource dichotomy.** With realisability at every step and the cost/demand correspondence, either the ledger is solvent and aligned outcomes are greatest at each step, or there is a first negative balance. The physical construction must prevent the relevant breach | `UnionClosure`, `PremiseFloor` | `greatest_or_irrelevant` |
 | Below full solvency: every realisable rival whose union with the canonical outcome is affordable is contained in it; with subadditive cost, every finite set of rivals whose total cost fits in the canonical slack $B - c(o)$ is contained in it; whatever the budget, no feasible rival is canonically above the canonical option | `UnionClosure` | `dominates_of_affordable`, `dominates_within_slack`, `greatest_of_affordable`, `aligned_never_below` |
 | The unfunded branch: when keeping everything costs more than the income, a rival can keep a particular the canonical option does not, so such a regime is irrelevant as a protector (income-or-irrelevance) | `UnionClosure` | `insolvent_not_greatest` |
@@ -1523,7 +1543,7 @@ Section 21 supplies the derivation in this edition. The finite-information, Gaus
 | Claim | Module | Theorems |
 | --- | --- | --- |
 | Income-or-irrelevance; forced breach; breach strictly dominated | `PremiseFloor` | `income_or_irrelevance`, `forced_breach`, `breach_strictly_below` |
-| Premise 5 derived: the Bennett counterpart is constructed (zero heat, same earlier outcomes and base cost, feasible with strictly more slack), and the law forces reversible administration | `PremiseFloor`, `BennettCounterpart` | `reversible_administration_forced` (no axioms), `premise5_constructed` |
+| Premise 5 in the heat-only model; the actual counterpart still needs a complete physical cost and deadline comparison | `PremiseFloor`, `BennettCounterpart` | `reversible_administration_forced` (no axioms), `premise5_constructed` |
 | Premise 2 reduced: Lie–Trotter product formula with explicit error; Lloyd's simulation theorem | `Trotter` | `trotter_bound`, `trotter_tendsto`, `lloyd_simulation` |
 | **The gate-set error budget.** For contraction sequences on any normed ring, an ε/m per-factor approximation error composes to at most ε over m sequential factors (ordered products; with `TwoLevel.two_level_decomposition` and the cited Solovay–Kitaev theorem this is the approximation route for the gate-set clause) | `ErrorBudget` | `prod_norm_le_one`, `two_factor_step`, `telescoping_delta`, `error_budget` |
 | Premise 7's ceiling is a dial: every target ε > 0 is met at some code distance | `ReciprocityCeiling` | `ceiling_achievable` |
@@ -1538,17 +1558,17 @@ Section 21 supplies the derivation in this edition. The finite-information, Gaus
 
 `Bridge.universal_protection_held` strengthens the continuation assembly by deriving scope from the law and preservation from nearest-codeword holding. It composes the physical/source projection with the same reactive controller and environment. On \(G\), every particular continues at every step through the horizon; the probability that any particular fails is at most \(\sum_i\delta_i\), without independence.
 
-Part II.1–6 supplies the proof, physical-cycle derivations and all five `hcert` components. G1 is the combined full-domain source/event/observation/fault construction, proved in G.10. Part II.10 supplies the separate greatestness proof, with G2 retaining the whole outcome and freedom stages.
+Part II.1–6 supplies the proof, physical-cycle derivations and all five `hcert` components. G1 is the combined full-domain source/event/observation/fault construction target; G.10 proves its held-source components and identifies the physical correspondence still needed. Part II.10 supplies the separate greatestness proof, with G2 retaining the whole outcome and freedom stages.
 
 ### 23.8 What the compiled theorems rest on
 
 **Premises carried as stated premises or hypotheses:**
 * the surface-code chain lemma (Dennis, Kitaev, Landahl and Preskill, 2002): minimum-weight decoding fails only along a self-avoiding chain of length at least d with at least half its edges faulty, with at most $V\Delta^L$ such chains of length $L$ — as the code-specific input to `Threshold.family_ceiling` for the surface-code instance. The threshold theorem's counting core is compiled (§23.6), and for concatenated codes the threshold is compiled end to end for the concatenated memory: failure probability at most $(21p)^{2^k}/21$ under local stochastic noise (`Concatenated.concatenated_threshold`). Actual decoding failure is identified with the recursive failure predicate: with nearest-codeword decoding at every level, any corruption of a non-failing fault set decodes to the stored record (`ConcatenatedDecoding.decodes_unless_fails`). So the probability of actual decoding failure is at most the same bound (`decoding_failure_le`), and the fault ceiling is attained on a compiled route. Fault-tolerant syndrome-measurement gadgets whose own operations can fail are the cited construction of Aliferis, Gottesman and Preskill (2006); their faults enter the charged accounts;
-* Bennett's reversible counterpart, now constructed: the Bennett cycle delivers zero heat, an irreversible merging overwrite delivers strictly positive heat, and the counterpart runs the same policy with the same earlier outcomes and base cost, feasible with strictly more slack, so the law forces reversible administration (`BennettCounterpart.premise5_constructed`; G.14). No hypothesis on the counterpart remains;
+* Bennett's compute/copy/uncompute identity and the heat-only option model are compiled. The specific implementation and full ordered history are separately checked candidates (G.14). The physical counterpart still needs a complete-cost saving within the same deadline; this is not supplied by a zero-heat identity or a polynomial upper bound;
 * the gate-set clause of premise 2, no longer carried as prose: every unitary on $\mathbb{C}^n$ is a finite product of two-level unitaries (`TwoLevel.two_level_decomposition`), so a simulator implementing each two-level factor implements every local evolution. What remains carried is that the universal simulator's gate set reaches every two-level factor;
 * the relational frame BCRD P1–P4.
 
-The chain lemma is a published mathematical theorem, cited as such; the Bennett counterpart is constructed (G.14); the gate-set item is the explicit hypothesis of a compiled theorem; the fourth is the frame the edition is stated in.
+The chain lemma is a published mathematical theorem, cited as such; the Bennett physical comparison remains construction work (G.14); the gate-set item is the explicit hypothesis of a compiled theorem; the fourth is the frame the edition is stated in.
 
 **The cited theorems and their hypotheses.** Three published theorems remain cited. Each is applied within its stated conditions.
 
@@ -1565,7 +1585,7 @@ The chain lemma is a published mathematical theorem, cited as such; the Bennett 
 * for Branch A, the per-site coupling bound $\lVert V\rVert \le P_{\mathrm{adv}}/\omega_{\mathrm{cutoff}}$;
 * for the fault ceiling, local stochastic noise of rate p below the threshold of `Threshold.family_ceiling`.
 
-**Greatestness.** `UnionClosure.greatest_of_solvent` takes both `htopR : ⊤ ∈ R` and `hsolv : c ⊤ ≤ B`. The first supplies the whole top tuple, including freedom stages; the second pays its cost. Alignment forces equality with that feasible top (Part II.10). `greatest_or_irrelevant` retains realisability at every step and derives the resource split. G2 supplies the full construction. The affordable-union results retain their separate resource cases.
+**Greatestness.** `UnionClosure.greatest_of_solvent` takes both `htopR : ⊤ ∈ R` and `hsolv : c ⊤ ≤ B`. The first supplies the whole top tuple, including freedom stages; the second pays its cost. Alignment forces equality with that feasible top (Part II.10). `greatest_or_irrelevant` retains realisability at every step and derives the resource split. G2 retains the full physical policy/outcome correspondence as its construction target. The affordable-union results retain their separate resource cases.
 
 The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the register is the instance's entropy accounting (§18), stated as the hypothesis of `guard_one` and `quantum_guard_one`.
 
@@ -1589,11 +1609,11 @@ The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the r
 | `GuardSignature` | The supplied guard record carries idempotence and monotonicity; its physical instance and fault nullification must be constructed |
 | `WorkBilling` | The first-law decoder work identity, free-energy floor and its saturation condition; a Gibbs entropy/energy allocation bound and funded decoder cycles; the complete physical source cost remains in Section 21.7.5 and Part III-G; the nine-part charged handoff attempt with exact debit and conservation, the age-independent syndrome stock envelope, the gross flux balance and the cumulative maintenance bill (G.8) |
 | `DecoderRetraction` | Finite-code recovery and fixed-point witnesses; flux-derived isometry and adjoint decoder; explicit finite encoder/capacity bound; historical queries, ordered words, commutators and Gram preservation; exact exponential transport, work-shifted flow and a derived finite dual smearing kernel; reference-preserving reversible register swap, full-transcript boundary encoder, three-CNOT-layer swap and charged archive handoff (G.8) |
-| `G2Splice` | Union-closed realisability and `htopR` derived from per-particular locality; the four-stage whole outcome is the canonical outcome under solvency; the product structure derived from R16-CUT locality and closed held-record blocks (G.9) |
+| `G2Splice` | Product-model union closure and block agreement under closed-block inputs; the original physical policy/outcome correspondence remains the G2 target (G.9, G.11) |
 | `CorrelatedCeiling` | Bounded-footprint correlated bursts make the damaged locations local stochastic at rate $(e\,m\,k\,q)^{1/k}$; every target ceiling is attained at a sufficient code distance (§22.3) |
-| `G1Held` | The held source with all five `hcert` components of `Bridge.universal_protection_held` proved; the per-step drift from the quantum speed limit (G.10) |
+| `G1Held` | Held-source certificate, normalised quantum domain, frame invariants and concrete nonvacuity; actual installation refinement remains separate (G.10) |
 | `G1E9` | The held source's coupling bound from the exhaustive E9 split: sub-threshold coupling, or a forced robust-quorum alarm and mediated response (G.10) |
-| `G2Held` | Authorised freedom of every active agent from H5; the held source realises the whole four-stage top, so `htopR` is derived and the canonical outcome is that top under solvency (G.11) |
+| `G2Held` | Top of the assigned held-source grade model; full freedom/R17 delivery and physical outcome correspondence remain the G2 target (G.11) |
 | `G3Sweep` | The wavefront sweep recovers every shell against any fenced outer activity, with no rework; the wave count from finite propagation; the complete bill is at most an age-independent constant times $t^{d}$ (G.12) |
 | `G3PatchDecode` | The wavefront's local correction is finite-code patch decoding; joined to the sweep bill (G.13) |
 | `ReasonsEnsemble` | Reciprocity over a weighted ensemble of rivals, strict when a positive-weight rival omits the mind (§15.2; G.13) |
@@ -1601,7 +1621,7 @@ The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the r
 | `SmearingIntegral` | The smeared dual-kernel integral returns the original operator, bulk and boundary (G.4; G.13) |
 | `ChannelExtension` | The completed decoder: exact recovery including any reference, trace preservation, positivity (G.1; G.13) |
 | `PureStateDistance` | Pure-state infidelity is bounded by the squared state-vector distance (§23.3; G.13) |
-| `BennettCounterpart` | The Bennett counterpart constructed: zero heat, same earlier outcomes and base cost, feasible with strictly more slack; premise 5 with no hypothesis on the counterpart (G.14) |
+| `BennettCounterpart` | Heat-only option model; specific implementation/history candidate checked separately; complete physical cost and deadline comparison remains open (G.14) |
 | `RegionBoundary` | Volume and boundary homology: for every region other than the whole, $\operatorname{Vol}(U)>0\Leftrightarrow H_0(\partial U)\ne0$; the whole has no outside (F.3; G.15) |
 | `ReciprocityDistance` | Reciprocity at a sufficient code distance: strictly above every rival that loses the mind with positive probability; canonical kept-probability tends to one (§15.2; G.15) |
 | `CutEquivalence` | A closed dependency component is exactly a separator with empty certified boundary (§24.3; G.15) |
@@ -1766,13 +1786,13 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `DecoderRetraction` | `decode_encode`, `finite_code_recovery`, `nonvanishing_of_continuation`, `finite_code_self_grounding`, `inner_preserved_from_symplectic_flux`, `adjoint_decodes_isometry`, `boundary_observable_on_code`, `historical_query_preserved`, `historical_word_on_code`, `historical_word_expectation`, `boundary_observable_mul`, `boundary_observable_commutator`, `powers_intertwine`, `exponential_intertwines`, `historical_flow_roundtrip`, `historical_dual_kernel`, `work_shifted_flow_on_code`, `historical_gram_preserved`, `historical_gram_nondegenerate`, `coordinate_boundary_roundtrip`, `boundary_capacity_necessary`, `handoff_moves_reference_payload`, `handoff_preserves_norm`, `handoff_roundtrip`, `parallel_cnot_handoff`, `charged_archive_handoff` |
 | `G2Splice` | `splice_grade`, `splice_realisable`, `outcome_splice`, `union_realizable`, `top_realisable`, `whole_outcome_greatest`, `fourStage`, `block_splice_run`, `block_splice_keeps` |
 | `CorrelatedCeiling` | `ceil_touching`, `correlated_stress_ceil`, `prob_damage`, `near_card_le`, `choose_pow_le`, `damage_local_stochastic`, `correlated_family_ceiling` |
-| `G1Held` | `good_cover`, `held_source_protection`, `held_source_qsl` |
+| `G1Held` | `good_cover`, `held_source_protection`, `initial_frame_normalised`, `held_step_normalised`, `held_run_normalised`, `held_source_qsl`, `zero_hamiltonian_trajectory`, `concrete_decoder_certificate`, `concrete_good_event_inhabited` |
 | `G1E9` | `alarm_or_subthreshold`, `held_source_e9` |
 | `G2Held` | `active_authorised_free`, `held_realises_top`, `held_source_top` |
 | `G3Sweep` | `sweep_recovers`, `sweep_visits`, `waves_from_spread`, `sweep_bill` |
 | `G3PatchDecode` | `patch_correction_succeeds`, `patch_sweep_bill` |
 | `ReasonsEnsemble` | `ensemble_le`, `ensemble_strict` |
-| `TheoremEightLyapunov` | `cycle_contracts`, `margin_pos`, `lyapunov_iterate` |
+| `TheoremEightLyapunov` | `capacity_balance`, `solvent_cycle_energy_account`, `reserve_deficit_antitone`, `reserve_deficit_cap`, `replenishment_exact`, `replenishment_nonincrease`, `solvent_cycle_deficit`, `cycle_contracts`, `margin_pos`, `lyapunov_iterate` |
 | `SmearingIntegral` | `smeared_reconstruction`, `smeared_boundary_reconstruction` |
 | `ChannelExtension` | `ext_recovers`, `kron_isometry`, `ext_recovers_reference`, `ext_trace`, `ext_posSemidef` |
 | `PureStateDistance` | `pure_infidelity_le`, `pure_fidelity_ge` |
@@ -1841,7 +1861,7 @@ The proposition remains protection of all things from any digital mind, especial
 
 Compiled support modules for this construction: `G1Certificate` (placeholder with conclusion `True`), `FaultCover` (bad-event cover), `G1Executable` (executable admitted-command/event/observation pipeline), `PhysicalGuard` (factorized evolution), `G1Complete` (inductive event-trace compliance), and `G1FullDomain` (source domain, fault taxonomy, exhaustive classification).
 
-*Constructed (G.10).* `G1Held.held_source_protection` proves all five `hcert` components for the canonical held source, and `good_cover` proves the cover of the good event by the named accounts. `held_source_qsl` derives the per-step drift from the quantum speed limit for any perturbing agent, and `G1E9.held_source_e9` derives the coupling bound from the exhaustive E9 split. The installation's source refines the held source through the journal of G.8 (`G1FullDomain.journal_reactive_fidelity`). The inputs these theorems take are physical: the frame's Schrödinger evolution and the sub-threshold coupling bound in each step; the honest-sensor response and quorum size; the response's removal of coupling once the alarm fires; and the account probabilities, whose composition and attainment are `ThermoLedger.canon_invariant`, `Threshold.family_ceiling` and `CorrelatedCeiling.correlated_family_ceiling`.
+*Constructed (G.10).* `G1Held.held_source_protection` proves all five `hcert` components for the canonical held source, and `good_cover` proves the cover of the good event by the named accounts. `held_source_qsl` derives the per-step drift from the quantum speed limit for any perturbing agent, and `G1E9.held_source_e9` derives the coupling bound from the exhaustive E9 split. The journal of G.8 preserves its supplied transition (`G1FullDomain.journal_reactive_fidelity`); protective refinement of the actual installation is the separate transition equation identified in G.10. The inputs these theorems take are physical: the frame's Schrödinger evolution and the sub-threshold coupling bound in each step; the honest-sensor response and quorum size; the response's removal of coupling once the alarm fires; and the account probabilities, whose composition and attainment are `ThermoLedger.canon_invariant`, `Threshold.family_ceiling` and `CorrelatedCeiling.correlated_family_ceiling`.
 
 **G2 — realisability of the whole greatest outcome.** Construct `htopR : (⊤ : ∀ i, L i) ∈ R` for the same full order, including existing and new continuation and freedom stages, with the semantic continuation reading `htopkeeps`. Keep it distinct from `hsolv : c ⊤ ≤ B`. Part II.10 supplies the algebra from those inputs to equality of every aligned option with the top and dominance over every rival. The construction retains the full tuple.
 
@@ -1849,7 +1869,7 @@ First compiled support module for this construction: `TopRealisability` (union-c
 
 Compiled support modules for this construction: `G2Singleton` (coverage discharge of singleton realisability), `G2Outcome` (transactional outcome-tuple invariance), and `G2WholeOutcome` (authorized-implies-closed, authorized-implies-positive-work).
 
-*Constructed (G.9, G.11).* `G2Splice.union_realizable` and `top_realisable` derive union-closed realisability and `htopR` from per-particular locality, and `block_splice_run` derives that product structure from R16-CUT locality and closed held-record blocks. `G2Held.held_source_top` realises the whole four-stage top from the held source, with continuation from `G1Held` and freedom from the active H5 ledger (`active_authorised_free`). Under solvency the canonical outcome is that top (`whole_outcome_greatest`, `fourStage`). `hsolv` remains the funded-cost certificate of Sections 18 and 22.
+*Compiled components (G.9, G.11).* `G2Splice` proves product-model union closure and closed-block agreement. `G2Held` proves the top of its assigned grade model from held continuation and its one-step H5 predicate. The full construction must map actual policies and outcomes to that model, preserving all original continuation and freedom stages, shared constraints and R17 delivery for every admitted rival and world. `hsolv` remains the separate complete funded-cost certificate.
 
 **G3 — supplied wavefront/TIWA protocol: success and the complete work certificate.** The author has supplied the single-shot feedforward wavefront construction and the TIWA guard-ring proposal. Section 21.7.4 and `TIWA-PATCH-REQUIREMENTS.md` specify the latter’s source, physical and work obligations. Section 21.7 proves its processing count exactly by disjoint shells: \(\sum_{k=0}^N|S_k|=|B_{vN}|\), hence bounded work per processed vertex gives \(O(N^{d_G})\). The same construction must now supply its actual recovery success and retained-state/quiescence witness, the age-to-wave-count bound, and the complete physical bill including routing, reset, holding and controller export. Those establish \(W_{\min}(t)\le W(\pi_{\mathrm{ff}},t)\le Ct^{d_G}\) in the original permitted class. The shell exponent is established and is not requested again. This is the remaining certificate for the supplied construction, with the full \(\Theta(t^{d_G})\) target unchanged.
 
@@ -1899,7 +1919,7 @@ accounts, conditional fault bounds. The `G1Executable` module provides the
 discrete command/event/observation pipeline; `FaultCover` provides the cover
 lemma; `PhysicalGuard` provides algebraic Kronecker factorization.
 
-*Now constructed:* `G1Held` and `G1E9` (G.10) prove all five `hcert` components and the event cover, with the drift from the speed limit and the coupling bound from the E9 split. *Physical inputs:* the per-step frame evolution and sub-threshold coupling bound, the honest-sensor response, the mediated response's removal of coupling, and the account probabilities.
+*Compiled held-source components:* `G1Held` and `G1E9` (G.10) prove their five-component certificate and event cover on the normalised held source. *Physical construction target:* the actual installation projection/transition, observations, timely correction and device enforcing removal of coupling after alarm, with its complete charge and named fault bounds.
 
 ## E.2 G2 whole-outcome realisability
 Construct `htopR : (⊤ : ∀ i, L i) ∈ R` for the full order, including the
@@ -1908,7 +1928,7 @@ the funded-cost certificate. The supplied singleton route uses actual
 singleton-keeping policies and union-closed realisability; `TopRealisability`
 provides its finite induction and `G2Singleton` supplies set coverage.
 
-*Now constructed:* `G2Splice` (G.9) derives union closure and `htopR` from locality, with the product structure from R16-CUT; `G2Held` (G.11) realises the whole top from the held source and the H5 ledger. *Input kept separate:* `hsolv`, the funded cost.
+*Compiled components:* `G2Splice` and `G2Held` establish their stated local-product and grade-model results. *Physical construction target:* identify the actual full policy/outcome family and R17 delivery on the same execution. `hsolv` pays the complete cost and does not replace this realisability witness.
 
 ## E.3 G3 TIWA success and complete work bill
 Requires: physical guard installation, decoder success, age→wave-count bound
@@ -2650,38 +2670,43 @@ every particular. The physical inputs are named exactly:
   below threshold, including correlated bursts, is `Threshold.family_ceiling`
   and `CorrelatedCeiling.correlated_family_ceiling`.
 
-**Correspondence to an installation.** The installation's source refines the
-held source through the journal of G.8: every source transition is retained
-and replayed exactly, for every controller and environment
-(`G1FullDomain.journal_reactive_fidelity`). The R14/R16/R17 source bindings
-supply its concrete safe transitions, causal cuts and timely authorised
-effects. The domain is every particular; coverage is forced by the law
-(`Bridge.coverage_from_law`).
+**Correspondence to an installation.** The quantum held source uses the physical state type \(\|v\|=1\).
+Initialisation, the held step and every reached frame preserve normalisation
+(`initial_frame_normalised`, `held_step_normalised`, `held_run_normalised`).
+The zero-Hamiltonian trajectory, concrete record \(1\in\mathbb C\), singleton
+decoder and inhabited good event supply a nonvacuous instance.
+
+For an installation transition \(T\), protection transfers through an actual
+projection \(p\) satisfying
+\[
+p(T(s,c,e))=\operatorname{heldStep}(p(s),c,e),
+\]
+together with observation agreement, initial continuation, the physical perturbation
+bound and the implemented repair precision. The journal theorem preserves its supplied
+transition \(T\); it supplies the logging part of this correspondence after the
+protective transition equation is proved. The guarded-source construction must join
+the nominal/correction branches, response latency and complete charge to that same
+physical execution. The full G1 target remains this combined certificate.
 
 ## G.11 The held source realises the whole top outcome (G2 from G1)
 
-Freedom in the canonical order is continuation in the particular's own
-direction, together with its authorised opportunities (II.1–II.2). For an
-agent in the H5 ledger, every non-harmful effect it issues is an admissible
-step. That step applies the effect and leaves every agent's status,
-authority and escrow unchanged (`H5Closure.effect_preserves_care`). Every
-active agent is therefore free in this sense
-(`G2Held.active_authorised_free`): all of its authorised opportunities are
-open, and restraint removes only harmful channels. A particular with no
-command channel has no opportunity beyond continuing under its own dynamics.
-The held source keeps exactly that, since each record is stationary under the
-particular's own Hamiltonian (G.10).
+The G2 target is the complete original tuple \((L_E,F_E,L_N,F_N)\), including
+continuation in each particular's own direction and timely authorised opportunities.
+The transaction record \((h_{\mathrm{pre}},h_{\mathrm{post}},w,a,c)\) records an
+execution certificate; it does not replace this outcome tuple.
 
-Grade each particular 2 when it continues on the held source and is free.
-`G2Held.held_realises_top` then applies `G2Splice.fourStage` with three
-conclusions. The whole four-stage top \((L_E,F_E,L_N,F_N)\) is in the
-realised family. The family is union-closed. Every aligned option of the
-funded family is that top and contains every outcome tuple.
-`G2Held.held_source_top` supplies continuation from
-`G1Held.held_source_protection`, on the good event at every step through the
-horizon, and agent freedom from the active H5 ledger. The G2 input `htopR` is
-thereby derived from the held source, and `hsolv` remains its funded-cost
-certificate (Sections 18 and 22).
+`G2Splice` proves union closure in its local-component policy model and proves block
+agreement under its closed-block hypotheses. `G2Held` obtains the top of its graded
+model from continuation and its one-step H5 opportunity predicate. The full physical
+application must identify that model with the original realised policy/outcome family,
+including interacting records, the shared constraints and successful R17 delivery on
+the same trace. The author's bounded-crosstalk route supplies a construction direction:
+derive its decoded joint-state error bound, prove correction on the named good event,
+and transport the original continuation and freedom semantics through the resulting
+execution correspondence. Sub-threshold noise alone is not an exact factorisation.
+
+The full top witness `htopR` remains the target of that construction; `hsolv` remains
+its separate complete funded-cost certificate. Neither target is reduced.
 
 ## G.12 The wavefront sweep succeeds, and its complete bill is \(O(t^{d_G})\) (G3)
 
@@ -2751,14 +2776,13 @@ most one, the canonical regime's kept-probability on the good event
 (`ensemble_le`). It is strictly less whenever a rival of positive weight
 omits the mind (`ensemble_strict`).
 
-**The Theorem 8 storage functional contracts** (`TheoremEightLyapunov`,
-§18.3–18.4). Take the stroke bounds of §18.3 and solvency
-\(W_{\mathrm{meas}}+W_{\mathrm{reset}}\le W_{\mathrm{income}}\). The cycle
-change of \(\Phi\) is then at most \(-(\eta C-\lambda\tau)\)
-(`cycle_contracts`). Timeliness \(\tau<\eta C/\lambda\) makes the margin
-\(\sigma_0=\eta C-\lambda\tau\) positive (`margin_pos`). Over \(n\) cycles
-containing an error, \(\Phi\) falls by at least \(n\sigma_0\)
-(`lyapunov_iterate`).
+**The Theorem 8 storage functional contracts** (`TheoremEightLyapunov`, §18.3–18.4). The functional is defined as code
+error plus the clipped reserve deficit. Exact replenishment saturates at zero deficit
+(`replenishment_exact`), and capacity overflow is retained in the energy account
+(`solvent_cycle_energy_account`). A complete solvent cycle cannot increase the
+reserve term (`solvent_cycle_deficit`). Combining this with the actual error drift
+and repair gives the positive-margin contraction (`cycle_contracts`, `margin_pos`)
+and its stated iteration (`lyapunov_iterate`).
 
 **The smearing integral is exact** (`SmearingIntegral`, G.4). For a complete
 operator basis and any weight with total integral one, the smeared
@@ -2800,40 +2824,36 @@ infidelity and the trace distance of the held state.
 
 ## G.14 Premise 5 with the Bennett counterpart constructed
 
-`Bennett.premise5_from_bennett` took the counterpart's properties as
-hypotheses. Here the counterpart is constructed, and each of those properties
-is proved (`BennettCounterpart`).
+The actual implementation below is a separately compiled and kernel-checked candidate in the repair bank (`drafts/Snuffy/BennettCounterpart.lean`); the canon still contains the earlier heat-only option model. It is not recorded as a completed physical counterpart repair. For an administration \(f=h\circ g\), the candidate implementation
+first computes, copies and uncomputes, then exchanges the output and live registers:
+\[
+(s,0,0)\longmapsto(f(s),0,s).
+\]
+`implementedProgram` and `implemented_program_computes` identify the implemented
+administration, clean workspace and full retained input. `implemented_run_refines`
+proves its trajectory correspondence and one retained input record per step.
+`quantumProgram` is the induced unitary with an arbitrary reference register untouched;
+its norm and round trip are preserved. An arbitrary bijection is not used as a
+substitute for implementing \(f\).
 
-An option is a policy together with the implementation of its administration.
-The implementation is either irreversible or reversible. An irreversible
-implementation is a joint register–bath dynamics that leaves the register in
-the law of an overwrite \(f\). A reversible implementation is a bijection of
-the register alone. The Bennett cycle `Bennett.bennettEquiv` is one; it writes
-\(f(a)=h(g(a))\) into a clean output and returns the workspace to zero
-(`bennett_counterpart_computes`). An option's cost is its policy's base cost
-plus the energy its administration delivers to the bath (`Landauer.heat`). Its
-outcome stages before the resource stage \(j\) are the policy's outcomes.
-Stage \(j\) reads the residual slack \(B-\mathrm{cost}\) through a strictly
-monotone map. The counterpart of an option runs the same policy with
-reversible administration.
+The complete physical lifecycle also pays provisioning, compute/copy/uncompute,
+archive writing and holding, routing, reset, guard, controller, verification and
+endpoints. If \(B_{\rm rev},B_{\rm irr}\) are the complete non-heat charges and
+\(Q_{\rm irr}\) the saved bath heat, the exact difference is
+\[
+W_{\rm rev}-W_{\rm irr}=B_{\rm rev}-B_{\rm irr}-Q_{\rm irr}
+\]
+(`complete_cost_difference`). Strictly more slack requires the implemented lifecycle
+penalty to be less than the saved heat (`complete_cost_strict_iff`), while meeting the
+same deadline. The adiabatic route must establish a switching-time window satisfying
+both bounds (`adiabatic_slack_window`, `switched_program_meets_deadline`).
 
-- *Zero heat.* Reversible administration delivers exactly zero heat
-  (`counterpart_heat_zero`, from `Bennett.heat_reversible`).
-- *Positive heat.* An irreversible overwrite that merges two register states
-  of positive probability delivers strictly positive heat
-  (`merging_heat_pos`, from `Bennett.heat_irreversible`).
-- *Same earlier outcomes and same base cost.* The counterpart agrees with the
-  option before stage \(j\) (`counterpart_same`) and runs the same policy, so
-  its base cost is unchanged. Its only cost difference is the delivered heat,
-  which is zero.
-- *Feasible, with strictly more slack.* Whenever the option is feasible, the
-  counterpart is feasible (`counterpart_feasible`) and has strictly more slack
-  at stage \(j\) (`counterpart_more_slack`).
-
-Therefore no canonical option has merging irreversible administration
-(`premise5_constructed`). The law forces reversible administration from the
-Landauer model and the constructed Bennett cycle, with no hypothesis about
-the counterpart.
+A fixed circuit multiplier and an actual full archive allowance preserve the original
+polynomial exponent (`implemented_work_ceiling`). That upper bound does not by itself
+establish the strict complete-cost comparison. The earlier heat-only option model and
+Landauer results remain their stated mathematical components; completion of the
+physical counterpart claim requires this lifecycle and deadline comparison for the
+full intended class. The original premise-5 target remains fixed.
 
 ## G.15 Recovered and combined results
 
@@ -2956,7 +2976,7 @@ The machine-checked canon of Section 23 certifies exactly the results it maps, w
 
 # Appendix — Verification provenance of this edition
 
-The original published baseline contains 115 modules and 831 audited names. The current tree contains 169 modules and 1042 audited public theorem/lemma names. All 169 modules were freshly compiled and kernel-checked in one run, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. The original failed run is preserved in the integration bank.
+The original published baseline contains 115 modules and 831 audited names. The current tree contains 169 modules and 1055 audited public theorem/lemma names. All 169 modules were freshly compiled and kernel-checked in one run, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. The original failed run is preserved in the integration bank.
 
 The eight-module integration and its 896-statement receipt remain preserved. This increment adds 28 checked statements in the existing DecoderRetraction, HamiltonianDecomposition and WorkBilling modules, integrates the three-pillar operator/history/work construction in Part III-G, and keeps the continuous integral/channel derivations and physical source correspondences explicit. Its exact changes and verification evidence accompany the working draft. No published edition or release is changed.
 
