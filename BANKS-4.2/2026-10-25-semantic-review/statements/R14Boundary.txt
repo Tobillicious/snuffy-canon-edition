@@ -1,0 +1,116 @@
+namespace UPTR14Boundary
+
+structure St where
+  floor : Nat
+  usedJ : List Nat
+  usedK : List Nat
+  journal : List Nat
+  sink : List Nat
+  outsideStock : Nat
+  outsideAlive : Bool
+  compromised : Bool
+  deriving DecidableEq, Repr
+
+inductive Ev where
+  | journal (generation nonce payload : Nat)
+  | effect (generation nonce payload : Nat) (harmful : Bool)
+  | raise (generation : Nat)
+  | weather (demand : Nat)
+  | recruit (identity : Nat) (allegiance : Bool)
+  | breach
+  deriving DecidableEq, Repr
+
+def step (s : St) : Ev → St
+  | .journal g n p =>
+      if s.floor ≤ g ∧ n ∉ s.usedJ then
+        {s with usedJ := n :: s.usedJ, journal := s.journal ++ [p]} else s
+  | .effect g n p harmful =>
+      if s.floor ≤ g ∧ n ∉ s.usedK ∧ harmful = false then
+        {s with usedK := n :: s.usedK, sink := s.sink ++ [p]} else s
+  | .raise g => {s with floor := max s.floor g}
+  | .weather d =>
+      {s with outsideStock := s.outsideStock + 4 - d, outsideAlive := s.outsideAlive && decide (d ≤ s.outsideStock + 4)}
+  | .recruit _ _ => s
+  | .breach => {s with outsideAlive := false, compromised := true}
+
+def run : St → List Ev → St
+  | s, [] => s
+  | s, e :: es => run (step s e) es
+
+def Safe (s : St) : Prop :=
+  s.outsideAlive = true ∧ 1 ≤ s.outsideStock ∧ s.compromised = false
+
+def Good : Ev → Prop
+  | .weather d => d ≤ 4
+  | .breach => False
+  | _ => True
+
+theorem safe_step (s : St) (e : Ev) (hs : Safe s) (he : Good e) : Safe (step s e)  := [proof body omitted in statement view]
+
+theorem every_good_trace_safe (s : St) (es : List Ev) (hs : Safe s)
+    (he : ∀ e ∈ es, Good e) : Safe (run s es)  := [proof body omitted in statement view]
+
+structure J where
+  floor : Nat
+  used : List Nat
+  log : List Nat
+  deriving DecidableEq, Repr
+
+def projectJ (s : St) : J := ⟨s.floor, s.usedJ, s.journal⟩
+def jStep (s : J) : Ev → J
+  | .journal g n p =>
+      if s.floor ≤ g ∧ n ∉ s.used then {s with used := n :: s.used, log := s.log ++ [p]} else s
+  | .raise g => {s with floor := max s.floor g}
+  | _ => s
+
+def projectK (s : St) : J := ⟨s.floor, s.usedK, s.sink⟩
+def kStep (s : J) : Ev → J
+  | .effect g n p harmful =>
+      if s.floor ≤ g ∧ n ∉ s.used ∧ harmful = false then
+        {s with used := n :: s.used, log := s.log ++ [p]} else s
+  | .raise g => {s with floor := max s.floor g}
+  | _ => s
+
+structure Outside where
+  stock : Nat
+  alive : Bool
+  deriving DecidableEq, Repr
+
+def projectOutside (s : St) : Outside := ⟨s.outsideStock, s.outsideAlive⟩
+def outsideStep (s : Outside) : Ev → Outside
+  | .weather d => ⟨s.stock + 4 - d, s.alive && decide (d ≤ s.stock + 4)⟩
+  | .breach => {s with alive := false}
+  | _ => s
+
+theorem journal_commutes (s : St) (e : Ev) : projectJ (step s e) = jStep (projectJ s) e  := [proof body omitted in statement view]
+
+theorem sink_commutes (s : St) (e : Ev) : projectK (step s e) = kStep (projectK s) e  := [proof body omitted in statement view]
+
+theorem outside_commutes (s : St) (e : Ev) :
+    projectOutside (step s e) = outsideStep (projectOutside s) e  := [proof body omitted in statement view]
+
+theorem harmful_effect_refused (s : St) (g n p : Nat) :
+    step s (.effect g n p true) = s  := [proof body omitted in statement view]
+
+theorem old_generation_refused (s : St) (g n p : Nat) (hg : g < s.floor) :
+    step s (.effect g n p false) = s  := [proof body omitted in statement view]
+
+theorem external_weather_is_not_a_replica_fault (s : St) (d : Nat) :
+    (step s (.weather d)).journal = s.journal ∧
+    (step s (.weather d)).sink = s.sink ∧
+    (step s (.weather d)).compromised = s.compromised  := [proof body omitted in statement view]
+
+def isRecruit : Ev → Bool
+  | .recruit _ _ => true
+  | _ => false
+
+theorem recruitment_erasure (s : St) (es : List Ev) :
+    run s es = run s (es.filter (fun e => !isRecruit e))  := [proof body omitted in statement view]
+
+theorem recruitment_never_ends_care (s : St) (i : Nat) (b : Bool) :
+    step s (.recruit i b) = s  := [proof body omitted in statement view]
+
+theorem failure_has_a_named_exception (s : St) (es : List Ev) (hs : Safe s)
+    (hbad : ¬ Safe (run s es)) : ∃ e ∈ es, ¬ Good e  := [proof body omitted in statement view]
+
+end UPTR14Boundary

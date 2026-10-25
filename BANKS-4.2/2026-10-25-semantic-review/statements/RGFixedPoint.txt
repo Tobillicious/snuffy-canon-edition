@@ -1,0 +1,37 @@
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.Analysis.Calculus.Deriv.Polynomial
+
+open Real
+
+namespace Snuffy.RGFixedPoint
+
+variable {ε b c : ℝ}
+
+def beta (ε b c g : ℝ) : ℝ := ε * g - b * g ^ 2 - c * g ^ 3
+
+noncomputable def gstar (ε b c : ℝ) : ℝ := (-b + √(b ^ 2 + 4 * ε * c)) / (2 * c)
+
+lemma sq_root (hε : 0 < ε) (hb : 0 < b) (hc : 0 < c) :
+    √(b ^ 2 + 4 * ε * c) ^ 2 = b ^ 2 + 4 * ε * c ∧ b < √(b ^ 2 + 4 * ε * c)  := [proof body omitted in statement view]
+
+theorem gstar_pos (hε : 0 < ε) (hb : 0 < b) (hc : 0 < c) : 0 < gstar ε b c  := [proof body omitted in statement view]
+
+lemma fixed_relation (hε : 0 < ε) (hb : 0 < b) (hc : 0 < c) :
+    c * gstar ε b c ^ 2 + b * gstar ε b c = ε  := [proof body omitted in statement view]
+
+theorem beta_gstar (hε : 0 < ε) (hb : 0 < b) (hc : 0 < c) : beta ε b c (gstar ε b c) = 0  := [proof body omitted in statement view]
+
+theorem eigenvalue_gstar (hε : 0 < ε) (hb : 0 < b) (hc : 0 < c) :
+    HasDerivAt (beta ε b c) (-b * gstar ε b c - 2 * c * gstar ε b c ^ 2) (gstar ε b c) ∧
+      -b * gstar ε b c - 2 * c * gstar ε b c ^ 2 < 0  := [proof body omitted in statement view]
+
+lemma beta_factor (hε : 0 < ε) (hb : 0 < b) (hc : 0 < c) (g : ℝ) :
+    beta ε b c g = c * g * (gstar ε b c - g) * (g + (b + √(b ^ 2 + 4 * ε * c)) / (2 * c))  := [proof body omitted in statement view]
+
+theorem beta_pos_below (hε : 0 < ε) (hb : 0 < b) (hc : 0 < c) {g : ℝ} (hg : 0 < g)
+    (hlt : g < gstar ε b c) : 0 < beta ε b c g  := [proof body omitted in statement view]
+
+theorem beta_neg_above (hε : 0 < ε) (hb : 0 < b) (hc : 0 < c) {g : ℝ}
+    (hgt : gstar ε b c < g) : beta ε b c g < 0  := [proof body omitted in statement view]
+
+end Snuffy.RGFixedPoint

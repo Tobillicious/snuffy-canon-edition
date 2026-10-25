@@ -1,0 +1,44 @@
+{
+  "modules": {
+    "GaussianChannelGen": {
+      "role": "Gaussian channel for an arbitrary measurable input signal",
+      "assessment": "Reviewed all statements and chanW/quadW/outVarW. The input space is general measurable alpha; a measurable real signal w determines the Gaussian kernel. Nonzero noise and MemLp(w,2,P) yield the exact comparison KL. This supports the vector construction without requiring independent input coordinates.",
+      "obligations": [
+        "Actual signal and conditional noise are physical bindings; these are actual Gaussian-kernel theorems rather than an assumed channel-cap inequality."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "GaussianVector": {
+      "role": "Finite vector Gaussian kernel with correlated signal",
+      "assessment": "Reviewed all statements and the recursive product channel/reference measures. The noise coordinates are conditionally product given arbitrary shared input; signal coordinates may be correlated. Measurable-equivalence, KL additivity and scalar KL establish the sum-log bound and the trace bound with second moments.",
+      "obligations": [
+        "The physical channel must instantiate the constructed noise kernel; the later whitening theorem covers positive-definite correlated noise."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "Whitening": {
+      "role": "Correlated Gaussian noise and information invariance",
+      "assessment": "Reviewed all statements, wht, whtEquiv, corrChan and whtSignal. Positive-definite covariance has an invertible square root; the measurable linear inverse whitens the actual multivariate Gaussian. Mutual information is invariant under that output equivalence, and the whitened coordinate bound yields the correlated channel result.",
+      "obligations": [
+        "The full conditional covariance must be positive definite after all permitted side information. Marginal noise variances are insufficient."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "Rotation": {
+      "role": "Orthogonal output rotation and Gaussian channel bound",
+      "assessment": "Reviewed all statements and rotEquiv/rotSignal. Isometry preserves identity-covariance Gaussian noise and information under the invertible output map. The rotated bound applies to actual rotated/whitened coordinate variances, retaining all signal correlation.",
+      "obligations": [
+        "Apply the supplied isometry to the full joint signal and preserve moment/measurement conditions."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "LogDet": {
+      "role": "Exact full-covariance Gaussian log-determinant upper bound",
+      "assessment": "Reviewed all statements and cov. The covariance quadratic form is derived from finite second moments; an orthonormal eigenbasis diagonalises its variances. The determinant product identity turns the rotated sum-log bound into the exact log-det bound for the actual correlated Gaussian kernel.",
+      "obligations": [
+        "Connect the actual whitened covariance to the gain/noise/range estimate in AreaBridge. The manuscript's bits convention divides the native nats bound by ln 2."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    }
+  }
+}

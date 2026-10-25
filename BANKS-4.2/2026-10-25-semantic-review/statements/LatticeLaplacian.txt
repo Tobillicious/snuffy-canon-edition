@@ -1,0 +1,25 @@
+import Mathlib.Analysis.Calculus.Deriv.MeanValue
+import Mathlib.Analysis.Calculus.Deriv.Slope
+import Mathlib.Analysis.Calculus.Deriv.Pow
+
+open Filter Topology Set
+
+namespace Snuffy.LatticeLaplacian
+
+lemma symmetric_slope {F' : ℝ → ℝ} {a x : ℝ} (hF' : HasDerivAt F' a x) :
+    Tendsto (fun c => (F' (x + c) - F' (x - c)) / (2 * c)) (𝓝[≠] 0) (𝓝 a)  := [proof body omitted in statement view]
+
+lemma ratio_eq_slope {F F' : ℝ → ℝ} (hF : ∀ y, HasDerivAt F (F' y) y) (x : ℝ) {h : ℝ}
+    (hh : 0 < h) : ∃ c ∈ Ioo 0 h,
+      (F (x + h) - 2 * F x + F (x - h)) / h ^ 2 = (F' (x + c) - F' (x - c)) / (2 * c)  := [proof body omitted in statement view]
+
+theorem second_difference {F F' : ℝ → ℝ} {a x : ℝ} (hF : ∀ y, HasDerivAt F (F' y) y)
+    (hF' : HasDerivAt F' a x) :
+    Tendsto (fun h => (F (x + h) - 2 * F x + F (x - h)) / h ^ 2) (𝓝[≠] 0) (𝓝 a)  := [proof body omitted in statement view]
+
+theorem lattice_laplacian {d : ℕ} (F F' : Fin d → ℝ → ℝ) (a : Fin d → ℝ) (x : Fin d → ℝ)
+    (hF : ∀ i y, HasDerivAt (F i) (F' i y) y) (hF' : ∀ i, HasDerivAt (F' i) (a i) (x i)) :
+    Tendsto (fun h => ∑ i, (F i (x i + h) - 2 * F i (x i) + F i (x i - h)) / h ^ 2)
+      (𝓝[≠] 0) (𝓝 (∑ i, a i))  := [proof body omitted in statement view]
+
+end Snuffy.LatticeLaplacian

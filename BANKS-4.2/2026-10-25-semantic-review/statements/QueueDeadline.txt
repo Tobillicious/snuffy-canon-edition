@@ -1,0 +1,25 @@
+import Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
+
+namespace GeminiThirteenQueue
+noncomputable section
+open MeasureTheory Set
+
+theorem exponential_service_tail (rate deadline : ℝ) (positive : 0 < rate) :
+    (∫ t : ℝ in Ioi deadline, rate*Real.exp (-rate*t))=Real.exp (-rate*deadline)  := [proof body omitted in statement view]
+
+theorem exponential_service_normalized (rate : ℝ) (positive : 0 < rate) :
+    (∀ t : ℝ, 0 ≤ rate*Real.exp (-rate*t)) ∧
+    (∫ t : ℝ in Ioi 0, rate*Real.exp (-rate*t))=1  := [proof body omitted in statement view]
+
+theorem positive_deadline_miss_probability (rate deadline : ℝ) (positive : 0 < rate) :
+    0 < (∫ t : ℝ in Ioi deadline, rate*Real.exp (-rate*t))  := [proof body omitted in statement view]
+
+theorem small_mean_does_not_make_tail_zero :
+    (17/(22*(22-17)):ℝ)<1 ∧
+    0 < (∫ t : ℝ in Ioi 1, 22*Real.exp (-22*t))  := [proof body omitted in statement view]
+
+end
+end GeminiThirteenQueue

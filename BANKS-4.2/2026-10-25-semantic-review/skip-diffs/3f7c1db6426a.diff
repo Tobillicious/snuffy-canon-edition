@@ -1,0 +1,9 @@
+--- 2026-10-24-codex-eight-answer-joins/inputs/GateSupport.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/GateSupport.lean
+@@ -43,6 +43,3 @@
+ 
+ end GeminiThirteenGate
+ 
+-#print axioms GeminiThirteenGate.kraus_branch_preserves_support
+-#print axioms GeminiThirteenGate.kraus_sum_preserves_support
+-#print axioms GeminiThirteenGate.support_preservation_composes

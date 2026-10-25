@@ -1,0 +1,95 @@
+import Snuffy.Landauer
+import Snuffy.PremiseFloor
+
+open Finset Real
+
+namespace Snuffy.Bennett
+
+open Snuffy.Landauer
+
+section Construction
+
+variable {α γ β : Type*} [AddGroup γ] [AddGroup β]
+
+def bennettStep (g : α → γ) (h : γ → β) (z : α × γ × β) : α × γ × β :=
+  (z.1, z.2.1, z.2.2 + h (z.2.1 + g z.1))
+
+def bennettEquiv (g : α → γ) (h : γ → β) : α × γ × β ≃ α × γ × β where
+  toFun := bennettStep g h
+  invFun z := (z.1, z.2.1, z.2.2 - h (z.2.1 + g z.1))
+  left_inv z := by simp [bennettStep]
+  right_inv z := by simp [bennettStep]
+
+theorem bennett_step (g : α → γ) (h : γ → β) (z : α × γ × β) :
+    let s1 : α × γ × β := (z.1, z.2.1 + g z.1, z.2.2)
+    let s2 : α × γ × β := (s1.1, s1.2.1, s1.2.2 + h s1.2.1)
+    let s3 : α × γ × β := (s2.1, s2.2.1 - g s2.1, s2.2.2)
+    s3 = bennettStep g h z  := [proof body omitted in statement view]
+
+theorem bennett_compute_uncompute (g : α → γ) (h : γ → β) (x : α) :
+    bennettEquiv g h (x, 0, 0) = (x, 0, h (g x))  := [proof body omitted in statement view]
+
+end Construction
+
+section Entropy
+
+variable {α ι : Type*} [Fintype α] [Fintype ι] [DecidableEq ι]
+
+theorem ent_equiv (p : α → ℝ) (e : α ≃ α) : ent (fun x => p (e.symm x)) = ent p  := [proof body omitted in statement view]
+
+theorem negMulLog_add_le {a b : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) :
+    negMulLog (a + b) ≤ negMulLog a + negMulLog b  := [proof body omitted in statement view]
+
+theorem negMulLog_add_lt {a b : ℝ} (ha : 0 < a) (hb : 0 < b) :
+    negMulLog (a + b) < negMulLog a + negMulLog b  := [proof body omitted in statement view]
+
+omit [Fintype α] in
+theorem negMulLog_sum_le (s : Finset α) (p : α → ℝ) (hp : ∀ x, 0 ≤ p x) :
+    negMulLog (∑ x ∈ s, p x) ≤ ∑ x ∈ s, negMulLog (p x)  := [proof body omitted in statement view]
+
+def push (p : α → ℝ) (f : α → ι) (y : ι) : ℝ := ∑ x ∈ univ.filter (fun x => f x = y), p x
+
+theorem ent_eq_fiber (p : α → ℝ) (f : α → ι) :
+    ent p = ∑ y, ∑ x ∈ univ.filter (fun x => f x = y), negMulLog (p x)  := [proof body omitted in statement view]
+
+theorem ent_push_le (p : α → ℝ) (hp : ∀ x, 0 ≤ p x) (f : α → ι) : ent (push p f) ≤ ent p  := [proof body omitted in statement view]
+
+theorem ent_push_lt (p : α → ℝ) (hp : ∀ x, 0 ≤ p x) (f : α → ι) {x₁ x₂ : α} (hne : x₁ ≠ x₂)
+    (hf : f x₁ = f x₂) (h₁ : 0 < p x₁) (h₂ : 0 < p x₂) : ent (push p f) < ent p  := [proof body omitted in statement view]
+
+end Entropy
+
+section Heat
+
+variable {α β : Type*} [Fintype α] [Fintype β] [Nonempty β]
+
+omit [Nonempty β] in
+
+theorem heat_reversible (p : α → ℝ) (hp1 : ∑ x, p x = 1) (b : ℝ) (E : β → ℝ) (e : α ≃ α) :
+    heat p b E (e.prodCongr (Equiv.refl β)) = 0  := [proof body omitted in statement view]
+
+theorem heat_irreversible [DecidableEq α] (p : α → ℝ) (hp : ∀ x, 0 ≤ p x) (hp1 : ∑ x, p x = 1)
+    {kT : ℝ} (hkT : 0 < kT) (E : β → ℝ) (σ : α × β ≃ α × β) (f : α → α)
+    (himpl : margA (evolve p (1 / kT) E σ) = push p f) {x₁ x₂ : α} (hne : x₁ ≠ x₂)
+    (hf : f x₁ = f x₂) (h₁ : 0 < p x₁) (h₂ : 0 < p x₂) :
+    0 < kT * (ent p - ent (push p f)) ∧ kT * (ent p - ent (push p f)) ≤ heat p (1 / kT) E σ  := [proof body omitted in statement view]
+
+end Heat
+
+section Premise5
+
+variable {n : ℕ} {L : Fin n → Type*} [∀ i, SemilatticeSup (L i)]
+
+theorem premise5_from_bennett (R : Set (∀ i, L i)) (base heatOf : (∀ i, L i) → ℝ) (B : ℝ)
+    (j : Fin n) (slackAt : (∀ i, L i) → ℝ) (hmono : ∀ x y, slackAt x < slackAt y → x j < y j)
+    (hslackdef : ∀ x, slackAt x = B - (base x + heatOf x))
+    (Irreversible : (∀ i, L i) → Prop) (rev : (∀ i, L i) → (∀ i, L i))
+    (hrevR : ∀ x ∈ R, rev x ∈ R) (hsame : ∀ x, ∀ i, i < j → rev x i = x i)
+    (hbase : ∀ x, base (rev x) = base x) (hrevheat : ∀ x, heatOf (rev x) = 0)
+    (hirr : ∀ x, Irreversible x → 0 < heatOf x)
+    {o : ∀ i, L i} (ho : Snuffy.Greatestness.Aligned {x | x ∈ R ∧ base x + heatOf x ≤ B} o) :
+    ¬ Irreversible o  := [proof body omitted in statement view]
+
+end Premise5
+
+end Snuffy.Bennett

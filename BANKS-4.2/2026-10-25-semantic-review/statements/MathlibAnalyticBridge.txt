@@ -1,0 +1,66 @@
+import Mathlib.Analysis.InnerProductSpace.Projection.Basic
+
+open Submodule Filter
+
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℂ E]
+
+namespace Snuffy.AnalyticBridge
+
+theorem starProjection_fixed_iff_mem {K : Submodule ℂ E} [K.HasOrthogonalProjection] {v : E} :
+    K.starProjection v = v ↔ v ∈ K  := [proof body omitted in statement view]
+
+theorem starProjection_idem (K : Submodule ℂ E) [K.HasOrthogonalProjection] :
+    K.starProjection.comp K.starProjection = K.starProjection  := [proof body omitted in statement view]
+
+noncomputable def altIterate (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection] (x : E) : ℕ → E
+  | 0 => x
+  | n + 1 => A.starProjection (B.starProjection (altIterate A B x n))
+
+theorem altIterate_succ_eq_self (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    (x : E) (hx : x ∈ A ⊓ B) (n : ℕ) :
+    altIterate A B x (n + 1) = x  := [proof body omitted in statement view]
+
+theorem altIterate_succ_mem (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection] (x : E) (n : ℕ) :
+    altIterate A B x (n + 1) ∈ A  := [proof body omitted in statement view]
+
+noncomputable def mirrorAltIterate (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection] (x : E) : ℕ → E
+  | 0 => x
+  | n + 1 => B.starProjection (A.starProjection (mirrorAltIterate A B x n))
+
+theorem mirrorIterate_succ_mem (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection] (x : E) (n : ℕ) :
+    mirrorAltIterate A B x (n + 1) ∈ B  := [proof body omitted in statement view]
+
+structure VonNeumannConvergence (A B AB : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    [AB.HasOrthogonalProjection] where
+                                                                                 
+  limit : ∀ x : E, Tendsto (fun n => altIterate A B x n) atTop (nhds (AB.starProjection x))
+                                                                                  
+  limit_mirror : ∀ x : E, Tendsto (fun n => mirrorAltIterate A B x n) atTop
+    (nhds (AB.starProjection x))
+
+theorem convergence_inf_le (A B AB : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    [AB.HasOrthogonalProjection] (h : VonNeumannConvergence A B AB) :
+    A ⊓ B ≤ AB  := [proof body omitted in statement view]
+
+theorem limit_mem_of_fixed (K : Submodule ℂ E) [K.HasOrthogonalProjection]
+    {f : ℕ → E} {y : E} (htendsto : Tendsto f atTop (nhds y))
+    (hf : ∀ᶠ n in atTop, f n ∈ K) : y ∈ K  := [proof body omitted in statement view]
+
+theorem convergence_inf_ge (A B AB : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    [AB.HasOrthogonalProjection] (h : VonNeumannConvergence A B AB) :
+    AB ≤ A ⊓ B  := [proof body omitted in statement view]
+
+theorem von_neumann_identification (A B AB : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    [AB.HasOrthogonalProjection] (h : VonNeumannConvergence A B AB) :
+    AB = A ⊓ B  := [proof body omitted in statement view]
+
+end Snuffy.AnalyticBridge

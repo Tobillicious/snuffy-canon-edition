@@ -1,0 +1,63 @@
+import Snuffy.ThermoLedger
+
+open MeasureTheory Finset
+
+namespace Snuffy.Composition
+
+variable {S A C Ev O : Type*}
+
+def run (T : S → C → Ev → S) (obs : S → O) (ctrl : List O → C)
+    (env : List O → C → Ev) (s₀ : S) : ℕ → S × List O
+  | 0 => (s₀, [obs s₀])
+  | k + 1 =>
+    let x := run T obs ctrl env s₀ k
+    let c := ctrl x.2
+    let s' := T x.1 c (env x.2 c)
+    (s', x.2 ++ [obs s'])
+
+theorem reactive_lockstep (p : S → A) (T : S → C → Ev → S) (U : A → C → Ev → A)
+    (hcomm : ∀ s c e, p (T s c e) = U (p s) c e)
+    (obsS : S → O) (obsA : A → O) (hobs : ∀ s, obsS s = obsA (p s))
+    (ctrl : List O → C) (env : List O → C → Ev) (s₀ : S) :
+    ∀ k, p (run T obsS ctrl env s₀ k).1 = (run U obsA ctrl env (p s₀) k).1 ∧
+      (run T obsS ctrl env s₀ k).2 = (run U obsA ctrl env (p s₀) k).2  := [proof body omitted in statement view]
+
+def run₂ (T₁ : S → C → S) (T₂ : S → Ev → S) (obs : S → O) (ctrl : List O → C)
+    (env : List O → C → O → Ev) (s₀ : S) : ℕ → S × List O
+  | 0 => (s₀, [obs s₀])
+  | k + 1 =>
+    let x := run₂ T₁ T₂ obs ctrl env s₀ k
+    let c := ctrl x.2
+    let m := T₁ x.1 c
+    let s' := T₂ m (env x.2 c (obs m))
+    (s', x.2 ++ [obs m, obs s'])
+
+theorem reactive_lockstep₂ (p : S → A) (T₁ : S → C → S) (T₂ : S → Ev → S)
+    (U₁ : A → C → A) (U₂ : A → Ev → A)
+    (hcomm₁ : ∀ s c, p (T₁ s c) = U₁ (p s) c) (hcomm₂ : ∀ m e, p (T₂ m e) = U₂ (p m) e)
+    (obsS : S → O) (obsA : A → O) (hobs : ∀ s, obsS s = obsA (p s))
+    (ctrl : List O → C) (env : List O → C → O → Ev) (s₀ : S) :
+    ∀ k, p (run₂ T₁ T₂ obsS ctrl env s₀ k).1 = (run₂ U₁ U₂ obsA ctrl env (p s₀) k).1 ∧
+      (run₂ T₁ T₂ obsS ctrl env s₀ k).2 = (run₂ U₁ U₂ obsA ctrl env (p s₀) k).2  := [proof body omitted in statement view]
+
+theorem invariant_transfer (p : S → A) (T : S → C → Ev → S) (U : A → C → Ev → A)
+    (hcomm : ∀ s c e, p (T s c e) = U (p s) c e)
+    (obsS : S → O) (obsA : A → O) (hobs : ∀ s, obsS s = obsA (p s))
+    (ctrl : List O → C) (env : List O → C → Ev) (s₀ : S)
+    (Inv : A → Prop) (hinit : Inv (p s₀)) (hpres : ∀ a c e, Inv a → Inv (U a c e)) :
+    ∀ k, Inv (p (run T obsS ctrl env s₀ k).1)  := [proof body omitted in statement view]
+
+theorem theorem8_composition {Ω ι : Type*} [MeasurableSpace Ω] (μ : Measure Ω)
+    (accounts : Finset ι) (E : ι → Set Ω) (δ : ι → ENNReal) (G : Set Ω)
+    (hG : Gᶜ ⊆ ⋃ i ∈ accounts, E i) (hδ : ∀ i ∈ accounts, μ (E i) ≤ δ i)
+    (p : S → A) (T : Ω → S → C → Ev → S) (U : Ω → A → C → Ev → A)
+    (obsS : S → O) (obsA : A → O) (ctrl : Ω → List O → C) (env : Ω → List O → C → Ev)
+    (s₀ : Ω → S) (Inv : A → Prop)
+    (hcert : ∀ ω ∈ G, (∀ s c e, p (T ω s c e) = U ω (p s) c e) ∧
+      (∀ s, obsS s = obsA (p s)) ∧ Inv (p (s₀ ω)) ∧ (∀ a c e, Inv a → Inv (U ω a c e)))
+    (horizon : ℕ) :
+    (∀ ω ∈ G, ∀ k ≤ horizon, Inv (p (run (T ω) obsS (ctrl ω) (env ω) (s₀ ω) k).1)) ∧
+    μ {ω | ∃ k ≤ horizon, ¬ Inv (p (run (T ω) obsS (ctrl ω) (env ω) (s₀ ω) k).1)}
+      ≤ ∑ i ∈ accounts, δ i  := [proof body omitted in statement view]
+
+end Snuffy.Composition

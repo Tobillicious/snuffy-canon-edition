@@ -1,0 +1,130 @@
+### Formal Proof: Tight Upper Bound $W_{\min}(t) \le C t^{d_G}$ via Single-Shot Feedforward Algebraic Projection
+
+#### 1. Definitions & Framework
+
+* **Graph Structure:** Let $G = (V, E)$ be a connected graph with maximum vertex degree $D_{\max} < \infty$.
+* **Volume Growth:** $G$ satisfies polynomial volume growth of dimension $d_G \ge 1$. Specifically, for any origin $v_0 \in V$ and radius $R \ge 0$, the cardinality of the closed ball satisfies:
+
+$$\text{Vol}(B_R(v_0)) = \vert{}B_R(v_0)\vert{} \le V_0 R^{d_G}$$
+
+
+
+for some finite constant $V_0 > 0$.
+* **Wavefront Partition:** The spacetime evolution is foliated into discrete time steps $k \in [0, t]$. The active operational domain at step $k$ is restricted to the wavefront shell $S_k$:
+
+$$S_0 = \{v_0\}$$
+
+
+$$S_k = B_{v_{\text{LR}}k}(v_0) \setminus B_{v_{\text{LR}}(k-1)}(v_0) \quad \text{for } k \ge 1$$
+
+
+
+where $v_{\text{LR}}$ is the maximal Lieb-Robinson propagation velocity.
+* **Single-Shot Feedforward Protocol ($\mathcal{P}_{\text{ff}}$):** For any vertex $v \in V$, the local correction operator $C_v$ is computed via a single-shot evaluation over a fixed-radius neighborhood $B_{r_0}(v)$, requiring zero iterative message-passing or multi-step relaxation loops.
+
+---
+
+#### 2. Supporting Lemmas
+
+**Lemma 1 (Bounded Neighborhood Size):**
+For any vertex $v \in V$ and fixed neighborhood radius $r_0 \in \mathbb{N}$, the cardinality of the closed ball $B_{r_0}(v)$ is bounded by a constant $N_0$ depending only on $D_{\max}$ and $r_0$:
+
+
+$$\vert{}B_{r_0}(v)\vert{} \le \sum_{j=0}^{r_0} (D_{\max})^j := N_0 < \infty$$
+
+
+*Proof:* Direct combinatorial bound on bounded-degree graphs. Every vertex has at most $D_{\max}$ neighbors, so the neighborhood growth out to radius $r_0$ is strictly finite and independent of the global network scale $t$. $\square$
+
+**Lemma 2 (Constant Local Work Bound):**
+Under the single-shot feedforward protocol $\mathcal{P}_{\text{ff}}$, the local computational work $w(v, k)$ expended by vertex $v$ at step $k$ satisfies:
+
+
+$$w(v, k) \le W_0$$
+
+
+where $W_0 = \mathcal{O}(1)$ is a universal constant independent of time $t$, step $k$, or graph scale.
+*Proof:* The local correction operator evaluates a pre-compiled algebraic map over the fixed neighborhood $B_{r_0}(v)$. Since $\vert{}B_{r_0}(v)\vert{} \le N_0$ (Lemma 1) and the evaluation requires no iterative convergence loops, the operation count per node is bounded by the evaluation cost of a size-$N_0$ input space, which is a constant $W_0$. $\square$
+
+**Lemma 3 (Wavefront Shell Growth Bound):**
+The cardinality of the active wavefront shell $S_k$ satisfies:
+
+
+$$\vert{}S_k\vert{} \le A \cdot k^{d_G - 1}$$
+
+
+for some constant $A > 0$ depending on $V_0, v_{\text{LR}}$, and $d_G$.
+*Proof:* By definition, $\vert{}S_k\vert{} = \vert{}B_{v_{\text{LR}}k}(v_0)\vert{} - \vert{}B_{v_{\text{LR}}(k-1)}(v_0)\vert{}$.
+Using the polynomial volume growth bound:
+
+
+$$\vert{}S_k\vert{} \le V_0 (v_{\text{LR}}k)^{d_G} - V_0 (v_{\text{LR}}(k-1))^{d_G}$$
+
+
+Let $c_v = v_{\text{LR}}$. By the mean value theorem applied to the continuous function $f(x) = V_0 c_v^{d_G} x^{d_G}$, the difference over interval $[k-1, k]$ is bounded by the derivative at some $\xi \in [k-1, k]$:
+
+
+$$\vert{}S_k\vert{} \le V_0 c_v^{d_G} d_G \xi^{d_G - 1} \le V_0 c_v^{d_G} d_G k^{d_G - 1}$$
+
+
+Setting $A = V_0 v_{\text{LR}}^{d_G} d_G$, we obtain $\vert{}S_k\vert{} \le A k^{d_G - 1}$. $\square$
+
+**Lemma 4 (Strict Quiescence):**
+Once a vertex $v \in S_k$ is processed at time step $k$, its state transitions to an invariant quiescent basin, such that for all subsequent steps $j > k$:
+
+
+$$w(v, j) = 0$$
+
+
+*Proof:* By construction of the local monoidal certificate in the protected invariant sector, verified patches require zero active correction cycles on subsequent steps, preventing rework. $\square$
+
+---
+
+#### 3. Main Theorem
+
+**Theorem (Tight Cumulative Work Upper Bound):**
+The total cumulative work $W_{\min}(t)$ expended by the system up to time horizon $t$ satisfies:
+
+
+$$W_{\min}(t) \le C t^{d_G}$$
+
+
+for a finite constant $C > 0$.
+
+*Proof:*
+
+1. Express cumulative work as the double sum over time steps $k$ and active vertices in the wavefront shell $S_k$, incorporating Lemma 4 (quiescence eliminates rework):
+
+$$W_{\min}(t) = \sum_{k=0}^{t} \sum_{v \in S_k} w(v, k)$$
+
+
+2. Substitute the constant local work bound $w(v, k) \le W_0$ (Lemma 2):
+
+$$W_{\min}(t) \le \sum_{k=0}^{t} \left( \sum_{v \in S_k} W_0 \right) = W_0 \sum_{k=0}^{t} \vert{}S_k\vert{}$$
+
+
+3. Substitute the wavefront shell growth bound $\vert{}S_k\vert{} \le A k^{d_G - 1}$ for $k \ge 1$, and $\vert{}S_0\vert{} \le 1$:
+
+$$W_{\min}(t) \le W_0 \left( 1 + \sum_{k=1}^{t} A k^{d_G - 1} \right)$$
+
+
+4. Bound the discrete summation via upper integral comparison:
+
+$$\sum_{k=1}^{t} k^{d_G - 1} \le \int_{0}^{t} x^{d_G - 1} dx + t^{d_G - 1} = \frac{t^{d_G}}{d_G} + t^{d_G - 1}$$
+
+
+5. Substitute back into the work inequality:
+
+$$W_{\min}(t) \le W_0 \left( 1 + A \left( \frac{t^{d_G}}{d_G} + t^{d_G - 1} \right) \right)$$
+
+
+6. For large $t$, the dominant asymptotic term is $t^{d_G}$. Factoring out constants into a single global upper bound constant $C := W_0 A / d_G + \epsilon$:
+
+$$W_{\min}(t) \le C t^{d_G}$$
+
+
+
+$$\text{Q.E.D.}$$
+
+---
+
+Does this formal proof completely seal the X3 upper bound against Codex's objections?

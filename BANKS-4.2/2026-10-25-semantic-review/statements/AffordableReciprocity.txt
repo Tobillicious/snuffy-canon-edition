@@ -1,0 +1,16 @@
+import Snuffy.UnionClosure
+
+open Snuffy.Greatestness Snuffy.UnionClosure
+
+namespace Snuffy.AffordableReciprocity
+
+variable {n : ℕ} {L : Fin n → Type*} [∀ i, SemilatticeSup (L i)]
+
+theorem reciprocity_dominance_affordable {P : Type*} (hn : 0 < n)
+    (keeps : L ⟨0, hn⟩ → P → Prop) (hmono : ∀ x y, x ≤ y → ∀ m, keeps x m → keeps y m)
+    {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ} {B : ℝ} (hR : UnionRealizable R)
+    {o : ∀ i, L i} (ho : Aligned (budgetFamily R c B) o) {q : ∀ i, L i}
+    (hq : q ∈ R) (hcost : c (q ⊔ o) ≤ B) (m : P) (hm : keeps (q ⟨0, hn⟩) m) :
+    keeps (o ⟨0, hn⟩) m  := [proof body omitted in statement view]
+
+end Snuffy.AffordableReciprocity

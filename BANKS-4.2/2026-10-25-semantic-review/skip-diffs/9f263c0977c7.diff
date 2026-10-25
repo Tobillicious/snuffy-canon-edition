@@ -1,0 +1,9 @@
+--- 2026-10-23-r17-fifo-verification/inputs/dependencies/R16Feedback.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/R16Feedback.lean
+@@ -70,6 +70,3 @@
+ 
+ end UPTR16
+ 
+-#print axioms UPTR16.map_iterate
+-#print axioms UPTR16.tick_commutes
+-#print axioms UPTR16.reactive_lockstep

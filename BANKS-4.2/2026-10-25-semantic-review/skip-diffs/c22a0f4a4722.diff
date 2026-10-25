@@ -1,0 +1,25 @@
+--- 2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/FIFOInstance.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/FIFOInstance.lean
+@@ -18,7 +18,7 @@
+ recorded joins.
+ -/
+ 
+-import ControllerCertificate
++import Snuffy.ControllerCertificate
+ 
+ /-- Exact FIFO finish times: F_i = max(r_i, F_{i-1}) + b_i over (release, budget) pairs,
+ with the inherited busy-until `base` as the initial condition. -/
+@@ -98,13 +98,3 @@
+ 
+ /-! ## Axiom reports -/
+ 
+-#print axioms finishes_three
+-#print axioms veto_envelope_three
+-#print axioms alloc_completion_is_the_charge_three
+-#print axioms control_lane_three_certified
+-#print axioms finishes_four
+-#print axioms veto_envelope_four
+-#print axioms alloc_completion_is_the_charge_four
+-#print axioms control_lane_four_certified
+-#print axioms per_job_deadlines_three
+-#print axioms per_job_deadlines_four

@@ -1,0 +1,21 @@
+--- 2026-10-23-workconcrete-readout-r17/inputs/ReadoutBounds.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/ReadoutBounds.lean
+@@ -39,7 +39,7 @@
+     least its determinant. The supplied matrix has already been identified
+     with this spectral data in the paper proof. -/
+ theorem spectral_lower (lo hi det bound : ℝ) (hl : 0 ≤ lo)
+-    (hh : 0 ≤ hi) (trace : lo+hi=1) (product : lo*hi=det)
++    (_hh : 0 ≤ hi) (trace : lo+hi=1) (product : lo*hi=det)
+     (hb : bound ≤ det) : bound ≤ lo := by
+   have hh1 : hi ≤ 1 := by linarith
+   have hm := mul_le_mul_of_nonneg_left hh1 hl
+@@ -84,9 +84,3 @@
+ 
+ end UPTReadoutFollowup
+ 
+-#print axioms UPTReadoutFollowup.determinant_identity
+-#print axioms UPTReadoutFollowup.determinant_lower
+-#print axioms UPTReadoutFollowup.strictly_positive_determinant
+-#print axioms UPTReadoutFollowup.spectral_lower
+-#print axioms UPTReadoutFollowup.conditional_record_lower
+-#print axioms UPTReadoutFollowup.baseline_normalized

@@ -1,0 +1,70 @@
+import Mathlib.Data.Fintype.Card
+import Mathlib.Basic.Real.Basic
+import Mathlib.LinearAlgebra.BilinearForm.Properties
+import Mathlib.Order.Interval.Finset.Defs
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.FieldSimp
+
+open Finset
+
+namespace Snuffy.E9
+
+section Quorum
+
+variable {ι : Type*} [Fintype ι] [DecidableEq ι]
+
+def Robust (y : ι → ℝ) (f : ℕ) (m : ℝ) : Prop :=
+  f + 1 ≤ (univ.filter (fun i => y i ≤ m)).card ∧
+    f + 1 ≤ (univ.filter (fun i => m ≤ y i)).card
+
+theorem robust_between_honest (y : ι → ℝ) (faulty : Finset ι) {f : ℕ}
+    (hf : faulty.card ≤ f) {m : ℝ} (hm : Robust y f m) :
+    (∃ i ∉ faulty, y i ≤ m) ∧ (∃ j ∉ faulty, m ≤ y j)  := [proof body omitted in statement view]
+
+theorem no_false_alarm (y : ι → ℝ) (faulty : Finset ι) {f : ℕ} (hf : faulty.card ≤ f)
+    {m θ : ℝ} (hm : Robust y f m) (halarm : θ < m) : ∃ j ∉ faulty, θ < y j  := [proof body omitted in statement view]
+
+theorem no_masking (y : ι → ℝ) (faulty : Finset ι) {f : ℕ} (hf : faulty.card ≤ f)
+    {m θ : ℝ} (hm : Robust y f m) (hall : ∀ i ∉ faulty, θ < y i) : θ < m  := [proof body omitted in statement view]
+
+omit [DecidableEq ι] in
+
+theorem exists_robust (y : ι → ℝ) {f : ℕ} (hK : 2 * f + 1 ≤ Fintype.card ι) :
+    ∃ m, Robust y f m  := [proof body omitted in statement view]
+
+end Quorum
+
+section Syndrome
+
+variable {K V : Type*} [Field K] [AddCommGroup V] [Module K V]
+
+abbrev Stabilizer {n : ℕ} (g : Fin n → V) : Submodule K V := Submodule.span K (Set.range g)
+
+theorem syndrome_detects (ω : LinearMap.BilinForm K V) {n : ℕ} (g : Fin n → V)
+    (wt : V → ℕ) (d : ℕ)
+    (hdist : ∀ P, (∀ s ∈ Stabilizer (K := K) g, ω P s = 0) →
+      P ∉ Stabilizer (K := K) g → d ≤ wt P)
+    (P : V) (hP : P ∉ Stabilizer (K := K) g) (hwt : wt P < d) :
+    ∃ i, ω P (g i) ≠ 0  := [proof body omitted in statement view]
+
+end Syndrome
+
+theorem wave_race_margin {L vh τ : ℝ} (hv : 0 < vh) (hL : vh * τ < L) : τ < L / vh  := [proof body omitted in statement view]
+
+theorem code_headroom {N d : ℕ} {lt : ℝ} (hN : (N : ℝ) ≤ lt) (hd : 2 * lt < d) :
+    2 * N + 1 ≤ d ∧ N ≤ (d - 1) / 2  := [proof body omitted in statement view]
+
+theorem e9_timely_self_healing {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (y : ι → ℝ) (faulty : Finset ι) {f : ℕ} (hK : 2 * f + 1 ≤ Fintype.card ι)
+    (hf : faulty.card ≤ f) {θ : ℝ} (hhonest : ∀ i ∉ faulty, θ < y i)
+    {L vh τ_detect τ_signal τ_decide τ_actuate : ℝ} (hv : 0 < vh)
+    (hL : vh * (τ_detect + τ_signal + τ_decide + τ_actuate) < L)
+    {N d : ℕ} {lam : ℝ}
+    (hN : (N : ℝ) ≤ lam * (τ_detect + τ_signal + τ_decide + τ_actuate))
+    (hd : 2 * (lam * (τ_detect + τ_signal + τ_decide + τ_actuate)) < d) :
+    (∃ m, Robust y f m ∧ θ < m) ∧
+    (∀ m, Robust y f m → θ < m → ∃ j ∉ faulty, θ < y j) ∧
+    τ_detect + τ_signal + τ_decide + τ_actuate < L / vh ∧
+    N ≤ (d - 1) / 2  := [proof body omitted in statement view]
+
+end Snuffy.E9

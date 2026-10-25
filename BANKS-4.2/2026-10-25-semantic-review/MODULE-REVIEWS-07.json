@@ -1,0 +1,75 @@
+{
+  "modules": {
+    "MathlibAnalyticBridge": {
+      "role": "Projection facts and the older convergence interface",
+      "assessment": "Reviewed projection fixed-point/idempotence, alternating/mirrored iterates, fixed-intersection preservation and both inclusions identifying the limit subspace. VonNeumannConvergence is explicitly an interface carrying limits. CanonVonNeumann actually constructs those fields, so the old convergence premise is discharged on the Hilbert route.",
+      "obligations": [
+        "Use the constructed CanonVonNeumann witness when claiming the analytic bridge, not the interface definition alone."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "HalperinDecay": {
+      "role": "Alternating-projection energy decay",
+      "assessment": "Reviewed norm/distance contraction, the two-projection Pythagorean chain identity, monotone squared distances, convergence of those real sequences, vanishing successive decrease and asymptotic regularity. These are actual projection calculations; asymptotic regularity alone is not the final strong convergence theorem.",
+      "obligations": [
+        "The subsequent CanonVonNeumann argument supplies strong convergence."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "OpialBridge": {
+      "role": "Weak-cluster characterisation and projection norm identity",
+      "assessment": "Reviewed WeaklyConvergesTo, iterates and the eight statements. Membership follows eventual exact membership or vanishing projection residual. Any supplied weak cluster is identified with the meet projection; norm-square convergence implies strong convergence through the exact norm identity. makeVonNeumannConvergence packages supplied limits; CanonVonNeumann discharges them.",
+      "obligations": [
+        "Do not treat the packaging lemma alone as the existence proof."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "CanonVonNeumann": {
+      "role": "Constructed strong alternating-projection convergence",
+      "assessment": "Reviewed all statements and iteration equivalences. The actual engine proves vanishing on the orthogonal complement in a complete Hilbert space, then strong convergence to the meet projection. canon_von_neumann_convergence constructs both original interface fields; the Opial route and norm limits are then derived.",
+      "obligations": [],
+      "settled_result": "The two-subspace convergence bridge is genuinely proved; do not reintroduce it as an assumed analytic gap.",
+      "status": "statements_and_definitions_reviewed"
+    },
+    "CyclicProjections": {
+      "role": "Finite-family Halperin cyclic projection theorem",
+      "assessment": "Reviewed cyc/adj recursive operators, norm bounds, adjoint identity, common fixed points, equality-of-norm membership, energy estimate, asymptotic regularity and strong convergence to the finite-family meet. presentation_detector is an equivalence between zero meet and convergence to zero for every input vector.",
+      "obligations": [
+        "Logical encoding and finite physical decision/stopping rules are separate from the asymptotic all-input theorem; trace those bindings in the actual H5 source."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "MeetAlgebra": {
+      "role": "Abstract meet-lattice anchor and contradiction identities",
+      "assessment": "Reviewed all statements against the ProjectionLattice fields. The results follow the actual order/meet/complement axioms: an entailed extension preserves the anchor; an orthogonal contradiction collapses the meet; lists inherit preservation/absorption.",
+      "obligations": [
+        "MeetHilbert constructs the algebraic instance. The interpretation of formulas/entailment still requires the declared faithful embedding."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "MeetHilbert": {
+      "role": "Actual Hilbert-submodule implementation of the meet algebra",
+      "assessment": "Reviewed the complete hilbertLattice instance and all statements. Abstract meet laws are realised by submodule intersection and orthogonal complement. Anchor-preserving deductions remain fixed under the meet, and alternating projections converge as stated for entailment/contradiction inputs.",
+      "obligations": [
+        "An asymptotic limit or a result for every x is not automatically a finite-time test on one chosen state. Locate the concrete logical/operational certificate before claiming that implementation."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "DeductionBoundary": {
+      "role": "Finite-dimensional rank separation and structural deduction closure",
+      "assessment": "Reviewed the rank iff for submodules, explicit context commutation, inductive prim/ctx/sum deduction syntax and its boundary evaluation. The image closure is proved for every finite tree; disjointness then forces any protected-anchor boundary to zero.",
+      "obligations": [
+        "Actual primitive boundaries/context maps and logical meaning of protected anchors; a semantic contradiction-to-anchor bridge is not supplied by rank arithmetic alone."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ReflectionCertificate": {
+      "role": "Contraction residual, a priori error and paid stopping count",
+      "assessment": "Reviewed all statements with ContractingWith on a complete nonempty metric space. The residual bound is for the returned n+1 state, the geometric bound is for n, and the Nat ceiling count uses positive tolerance, nonzero initial residual and 0<k<1. k=0 gives a fixed point after one update.",
+      "obligations": [
+        "Construct the actual contraction and pay the update/observation/stopping costs; this is distinct from a finite exact consistency detector."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    }
+  }
+}

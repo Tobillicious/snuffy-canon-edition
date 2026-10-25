@@ -1,0 +1,35 @@
+import Mathlib.Topology.MetricSpace.Basic
+import Mathlib.Algebra.Order.Floor.Ring
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Tactic.Linarith
+
+namespace GeminiBridgeH6
+noncomputable section
+open scoped BigOperators
+
+theorem charged_transition_bound (n : Nat) (price energy : ℝ)
+    (cost : Nat → ℝ) (positive : 0 < price)
+    (charged : ∀ i < n, price ≤ cost i)
+    (paid : ∑ i ∈ Finset.range n, cost i ≤ energy) :
+    n ≤ Nat.floor (energy / price)  := [proof body omitted in statement view]
+
+theorem no_infinite_paid_run (price energy : ℝ) (positive : 0 < price) :
+    ¬ (∀ n : Nat, (n:ℝ)*price ≤ energy)  := [proof body omitted in statement view]
+
+theorem budget_exhaustion_need_not_be_fixed (state : Bool) :
+    (!state) ≠ state  := [proof body omitted in statement view]
+
+variable {S : Type*} [PseudoMetricSpace S]
+
+theorem current_residual_bound (R : S → S) (fixed state : S) (k : ℝ)
+    (belowOne : k < 1) (isFixed : R fixed = fixed)
+    (contract : ∀ x y, dist (R x) (R y) ≤ k*dist x y) :
+    dist state fixed ≤ dist state (R state)/(1-k)  := [proof body omitted in statement view]
+
+theorem next_residual_bound (R : S → S) (fixed state : S) (k : ℝ)
+    (nonnegative : 0 ≤ k) (belowOne : k < 1) (isFixed : R fixed = fixed)
+    (contract : ∀ x y, dist (R x) (R y) ≤ k*dist x y) :
+    dist (R state) fixed ≤ k*dist state (R state)/(1-k)  := [proof body omitted in statement view]
+
+end
+end GeminiBridgeH6

@@ -1,0 +1,21 @@
+import Mathlib.Tactic
+
+variable {n : ℕ}
+
+def hhiQ (s : Fin n → ℚ) : ℚ := ∑ i, (s i)^2
+
+def transportPsi (D : Fin n → Fin n → ℚ) (α : ℚ) (s : Fin n → ℚ) : ℚ :=
+  ∑ i, ∑ j, (D i j)^2 * (s i)^2 * (s j)^2 + α * hhiQ s
+
+theorem transport_nonneg (D : Fin n → Fin n → ℚ) (_α : ℚ) (s : Fin n → ℚ) :
+    0 ≤ ∑ i, ∑ j, (D i j)^2 * (s i)^2 * (s j)^2  := [proof body omitted in statement view]
+
+theorem transport_ge_local (D : Fin n → Fin n → ℚ) (α : ℚ) (_hα : 0 ≤ α) (s : Fin n → ℚ) :
+    α * hhiQ s ≤ transportPsi D α s  := [proof body omitted in statement view]
+
+theorem hhi_ge_uniform (_hn : 0 < n) (s : Fin n → ℚ) (hs : ∑ i, s i = 1) :
+    1/(n:ℚ) ≤ hhiQ s  := [proof body omitted in statement view]
+
+theorem monopoly_penalty (_hn : 0 < n) (hα : 0 < α) (D : Fin n → Fin n → ℚ)
+    (s : Fin n → ℚ) (_hs : ∑ i, s i = 1) :
+    α/(n:ℚ) + α*(hhiQ s - 1/(n:ℚ)) ≤ transportPsi D α s  := [proof body omitted in statement view]

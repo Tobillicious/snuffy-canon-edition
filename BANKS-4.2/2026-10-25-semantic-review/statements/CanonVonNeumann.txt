@@ -1,0 +1,76 @@
+import Snuffy.MathlibAnalyticBridge
+import Snuffy.HalperinDecay
+import Snuffy.OpialBridge
+import Mathlib.Analysis.InnerProductSpace.Projection.Submodule
+
+open Submodule InnerProductSpace Filter
+
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℂ E]
+
+namespace Snuffy.CanonVonNeumann
+
+open Snuffy.AnalyticBridge
+
+section Engines
+
+variable (A B : Submodule ℂ E) [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+
+theorem altIterate_sub (x y : E) (n : ℕ) :
+    altIterate A B (x - y) n = altIterate A B x n - altIterate A B y n  := [proof body omitted in statement view]
+
+theorem altIterate_shift (x : E) (n : ℕ) :
+    altIterate A B (A.starProjection (B.starProjection x)) n = altIterate A B x (n + 1)  := [proof body omitted in statement view]
+
+theorem norm_altIterate_le (x : E) (n : ℕ) : ‖altIterate A B x n‖ ≤ ‖x‖  := [proof body omitted in statement view]
+
+theorem altIterate_eq_halperin (x : E) (n : ℕ) :
+    altIterate A B x n = Snuffy.Halperin.tIterate A B x n  := [proof body omitted in statement view]
+
+theorem opial_tIterate_eq (x : E) (n : ℕ) :
+    Snuffy.Opial.tIterate A B x n = altIterate A B x n  := [proof body omitted in statement view]
+
+theorem mirrorAltIterate_eq (x : E) (n : ℕ) :
+    mirrorAltIterate A B x n = altIterate B A x n  := [proof body omitted in statement view]
+
+theorem tendsto_altIterate_sub_succ (z : E) :
+    Tendsto (fun n => altIterate A B z n - altIterate A B z (n + 1)) atTop (nhds 0)  := [proof body omitted in statement view]
+
+theorem mem_inf_of_orthogonal_range (w : E)
+    (hw : ∀ z : E, ⟪z - A.starProjection (B.starProjection z), w⟫_ℂ = 0) :
+    w ∈ A ⊓ B  := [proof body omitted in statement view]
+
+theorem tendsto_zero_of_mem_orthogonal [CompleteSpace E] (y : E) (hy : y ∈ (A ⊓ B)ᗮ) :
+    Tendsto (fun n => altIterate A B y n) atTop (nhds 0)  := [proof body omitted in statement view]
+
+theorem tendsto_altIterate [CompleteSpace E] (AB : Submodule ℂ E) [AB.HasOrthogonalProjection]
+    (hAB : AB = A ⊓ B) (x : E) :
+    Tendsto (fun n => altIterate A B x n) atTop (nhds (AB.starProjection x))  := [proof body omitted in statement view]
+
+end Engines
+
+section Packaging
+
+variable (A B : Submodule ℂ E) [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+  [CompleteSpace E] [(A ⊓ B).HasOrthogonalProjection]
+
+theorem canon_von_neumann_convergence : VonNeumannConvergence A B (A ⊓ B) where
+  limit x  := [proof body omitted in statement view]
+
+omit [CompleteSpace E] [(A ⊓ B).HasOrthogonalProjection] in
+
+theorem limit_subspace_eq_inf (AB : Submodule ℂ E) [AB.HasOrthogonalProjection]
+    (h : VonNeumannConvergence A B AB) : AB = A ⊓ B  := [proof body omitted in statement view]
+
+theorem canon_opial_convergence : Snuffy.Opial.VonNeumannConvergence A B (A ⊓ B)  := [proof body omitted in statement view]
+
+theorem opial_norm_sq_tendsto (x : E) :
+    Tendsto (fun k => ‖Snuffy.Opial.tIterate A B x k‖ ^ 2) atTop
+      (nhds (‖(A ⊓ B).starProjection x‖ ^ 2))  := [proof body omitted in statement view]
+
+theorem opial_route_closes (x : E) :
+    Tendsto (fun k => Snuffy.Opial.tIterate A B x k) atTop
+      (nhds ((A ⊓ B).starProjection x))  := [proof body omitted in statement view]
+
+end Packaging
+
+end Snuffy.CanonVonNeumann

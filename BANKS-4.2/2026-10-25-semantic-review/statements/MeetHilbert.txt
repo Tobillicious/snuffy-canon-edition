@@ -1,0 +1,43 @@
+import Snuffy.MeetAlgebra
+import Snuffy.H5Closure
+
+open Submodule Filter
+
+namespace Snuffy.MeetHilbert
+
+variable {E : Type} [NormedAddCommGroup E] [InnerProductSpace ℂ E]
+
+noncomputable instance hilbertLattice : Snuffy.ProjectionLattice (Submodule ℂ E) where
+  le K L := K ≤ L
+  meet K L := K ⊓ L
+  top := ⊤
+  bot := ⊥
+  complement K := Kᗮ
+  refl K := le_refl K
+  antisymm h₁ h₂ := le_antisymm h₁ h₂
+  trans h₁ h₂ := le_trans h₁ h₂
+  meet_left _ _ := inf_le_left
+  meet_right _ _ := inf_le_right
+  meet_greatest h₁ h₂ := le_inf h₁ h₂
+  meet_comm K L := inf_comm K L
+  top_greatest _ := le_top
+  bot_least _ := bot_le
+  meet_complement K := Submodule.inf_orthogonal_eq_bot K
+
+theorem hilbert_anchor_preserved (T₀ : Submodule ℂ E) (ext : List (Submodule ℂ E))
+    (h : ∀ φ ∈ ext, T₀ ≤ φ) : Snuffy.meetAll T₀ ext = T₀  := [proof body omitted in statement view]
+
+theorem hilbert_contradiction_collapse (T₀ φ : Submodule ℂ E) (rest : List (Submodule ℂ E))
+    (h : T₀ ≤ φᗮ) : Snuffy.meetAll T₀ (φ :: rest) = ⊥  := [proof body omitted in statement view]
+
+theorem contradiction_detected [CompleteSpace E] (T₀ φ : Submodule ℂ E)
+    [T₀.HasOrthogonalProjection] [φ.HasOrthogonalProjection]
+    [(T₀ ⊓ φ).HasOrthogonalProjection] (h : T₀ ≤ φᗮ) :
+    ∀ x : E, Tendsto (fun n => Snuffy.AnalyticBridge.altIterate T₀ φ x n) atTop (nhds 0)  := [proof body omitted in statement view]
+
+theorem deduction_never_rolls_back [CompleteSpace E] (T₀ φ : Submodule ℂ E)
+    [T₀.HasOrthogonalProjection] [φ.HasOrthogonalProjection] (h : T₀ ≤ φ) (x : E) :
+    Tendsto (fun n => Snuffy.AnalyticBridge.altIterate T₀ φ x n) atTop
+      (nhds (T₀.starProjection x))  := [proof body omitted in statement view]
+
+end Snuffy.MeetHilbert

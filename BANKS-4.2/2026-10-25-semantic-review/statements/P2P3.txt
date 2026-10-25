@@ -1,0 +1,49 @@
+import Snuffy.TransportLaw
+import Mathlib.Analysis.Calculus.Deriv.Comp
+import Mathlib.Analysis.Calculus.Deriv.Mul
+
+theorem sensor_exp_positivity (η : ℝ → ℝ) (ω : ℝ) : 0 < Real.exp (η ω)  := [proof body omitted in statement view]
+
+theorem scaling_sum (n : ℕ) (Λ : ℝ) (_hn : 0 < n) :
+    ∑ _k ∈ Finset.range n, (Λ/(n:ℝ))^2 = Λ^2/(n:ℝ)  := [proof body omitted in statement view]
+
+theorem azuma_scaling (n : ℕ) (Λ ε : ℝ) (_hn : 0 < n) :
+    (2:ℝ)*Real.exp (-(ε^2)/(2*(Λ^2/(n:ℝ))))
+      = 2*Real.exp (-(n:ℝ)*ε^2/(2*Λ^2))  := [proof body omitted in statement view]
+
+theorem work_tv_floor (W kBT lg d tv : ℝ) (hk : 0 ≤ kBT) (hlg : 0 ≤ lg)
+    (h1 : kBT*lg*d ≤ W) (h2 : 2*tv^2 ≤ d) : 2*kBT*lg*tv^2 ≤ W  := [proof body omitted in statement view]
+
+theorem coordinate_sensitivity (n : ℕ) (Λ f_x f_y : ℝ) (hn : 0 < n)
+    (hrange : f_x - f_y ≤ Λ) (_hf : 0 ≤ f_x - f_y) :
+    (f_x - f_y)/(n:ℝ) ≤ Λ/(n:ℝ)  := [proof body omitted in statement view]
+
+theorem telescoping_drop (N : ℕ) (D0 r : ℝ) :
+    ∑ k ∈ Finset.range N, (D0*r^k - D0*r^(k+1)) = D0 - D0*r^N  := [proof body omitted in statement view]
+
+theorem semigroup_time_rescaling (c s : ℝ) (g : ℝ → ℝ) (g' : ℝ)
+    (h : HasDerivAt g g' (c*s)) :
+    HasDerivAt (fun t => g (c*t)) (g'*c) s  := [proof body omitted in statement view]
+
+theorem ness_work_linear (kBT rate F0 dt : ℝ) :
+    kBT*(rate*F0)*dt = rate*(kBT*F0*dt)  := [proof body omitted in statement view]
+
+theorem work_floor_positive (kBT rate F0 δ : ℝ) (h1 : 0 < kBT) (h2 : 0 < rate)
+    (h3 : 0 < F0) (h4 : 0 < δ) : 0 < kBT*rate*F0*δ^2  := [proof body omitted in statement view]
+
+theorem liquidation_triggers (E Wadv Wmin : ℝ) (_hE : Wmin ≤ E) (hW : Wmin ≤ Wadv)
+    (hE' : E ≤ Wadv ∨ Wadv < Wmin) : E ≤ Wadv  := [proof body omitted in statement view]
+
+theorem zero_breach_bound (n : ℕ) (Λ δ Pfluc Pbreach : ℝ)
+    (hfluc : Pfluc ≤ 2*Real.exp (-(n:ℝ)*δ^2/(2*Λ^2)))
+    (hroute : Pbreach ≤ Pfluc) :
+    Pbreach ≤ 2*Real.exp (-(n:ℝ)*δ^2/(2*Λ^2))  := [proof body omitted in statement view]
+
+theorem bound_decays (c : ℝ) (hc : 0 < c) (n : ℕ) :
+    Real.exp (-(((n:ℝ)+1)*c)) ≤ Real.exp (-((n:ℝ)*c))  := [proof body omitted in statement view]
+
+theorem escrow_ordering (detect commit applied : ℝ)
+    (h1 : detect ≤ commit) (h2 : commit ≤ applied) : detect ≤ applied  := [proof body omitted in statement view]
+
+theorem fluctuation_bound_le_two (δ Λ : ℝ) (hΛ : 0 < Λ) (n : ℕ) :
+    (2:ℝ)*Real.exp (-(n:ℝ)*δ^2/(2*Λ^2)) ≤ 2  := [proof body omitted in statement view]

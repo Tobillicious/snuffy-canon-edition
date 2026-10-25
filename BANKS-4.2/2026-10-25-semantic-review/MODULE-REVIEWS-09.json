@@ -1,0 +1,127 @@
+{
+  "modules": {
+    "BridgeH6": {
+      "role": "Paid-step bounds and residual accuracy",
+      "assessment": "Reviewed all five results. Positive per-step charge bounds a funded run length and rules out an infinite run with fixed total energy. A Boolean flip shows that exhausting a budget is not reaching a fixed point. Current/next residual bounds require an actual contraction and fixed point.",
+      "obligations": [
+        "Use ReflectionCertificate's constructed fixed point and adequate paid update count; a thermal depth cap is not a convergence proof."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "BridgeH7": {
+      "role": "Grounded scalar consensus equilibrium and sensitivity",
+      "assessment": "Reviewed the complete affine update, equilibrium, sensitivity and nine results. The anchored recurrence has a rate below one for the stated weights; its exact transient and equilibrium are derived. Private-evidence sensitivity stays explicit, tends to zero only at the stubborn-anchor limit, and has the stated finite bias threshold.",
+      "obligations": [
+        "Actual bandwidth and evidence semantics; this is the accepted grounded model, not a universal claim that stronger coupling alone forces truth."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "BridgeH8": {
+      "role": "Homogeneous concentration cost and restoring flow",
+      "assessment": "Reviewed all nine statements and energy/blend/flow definitions. Normalisation yields the variance identity and unique uniform minimum; convex blending preserves caps and reduces excess quadratically. The final result preserves the counterexample to the earlier proposed H8 upper expression along a restoring trajectory.",
+      "obligations": [
+        "Use the later corrected conserved-routing identity or H8Bound's explicit quantitative conditions, not the rejected old upper bound."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "OriginalD1": {
+      "role": "Exact discounted survival integral and retained counterexamples",
+      "assessment": "Reviewed all five results. The integral gives reward/(discount+hazard) when the denominator is positive. The explicit high-cost preservation policy loses to a mortal policy under that payoff; eventual death does not erase the accumulated positive prefix.",
+      "obligations": [
+        "Already answered by the objective-specific reasons plus holding route; do not reopen it as a demand that every objective voluntarily adopts protection."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "OriginalE9AndH5": {
+      "role": "Finite-speed observation and multi-step accumulation counterexamples",
+      "assessment": "Reviewed the local Boolean propagation and all three results. Outside the forward cone local observations coincide, so no local detector distinguishes attack before arrival. The entropy example shows a one-step rate condition does not bound a cumulative total forever.",
+      "obligations": [
+        "Existing local-buffer/escrow timing and multi-epoch funded tracking supply the required stronger route."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "OriginalH6": {
+      "role": "Thermal depth cap, actual scalar contraction and cycle counterexample",
+      "assessment": "Reviewed all six results with bankedStep, rate and run. A sustainable superlinear thermal cost gives a finite depth cap. The concrete averaging update is contractive for nonnegative tau, its error is exactly geometric, and paid epsilon accuracy needs enough funded steps. The final Boolean-cycle example separates the thermal cap from convergence.",
+      "obligations": [
+        "Bind actual reflection to the contractive update and complete per-update cost."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "OriginalH7": {
+      "role": "Exact two-agent anchored differential equation",
+      "assessment": "Reviewed all five results and explicit mean/difference exponential modes. These solve the displayed ODE for arbitrary initial pair and converge for every nonnegative coupling.",
+      "obligations": [
+        "The original equation does not supply a positive-coupling phase transition. The later grounded evidence model is the accepted stronger interpretation."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "OriginalH8": {
+      "role": "Four-share homogeneous cost counterexample",
+      "assessment": "Reviewed all three results and explicit HHI/dissipation/proposed-upper definitions. Uniform shares attain the true minimum; the stated 3/8,3/8,1/8,1/8 allocation violates the earlier proposed upper estimate.",
+      "obligations": [
+        "Carry the corrected conserved-routing formula; this counterexample is already integrated history, not a new objection."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "H8Bound": {
+      "role": "Exact additional conditions for the earlier concentration-shaped upper estimate",
+      "assessment": "Reviewed all six public statements including one_sub_u_pos. The upper bound holds with an explicit quadratic excess bound and lambda*(1-u)<=Psi_min. h8_iff characterises the necessary/sufficient coefficient condition for that quadratic family. Routing and graph bounds supply sufficient spectral/cost conditions.",
+      "obligations": [
+        "Establish the actual routing quadratic and coefficient bound before using this upper shape."
+      ],
+      "audit_note": "one_sub_u_pos is a public helper omitted from the 831 explicit audit prints, but used by audited results.",
+      "status": "statements_and_definitions_reviewed"
+    },
+    "RGFixedPoint": {
+      "role": "Explicit cubic beta-function fixed point",
+      "assessment": "Reviewed all eight public declarations including sq_root, fixed_relation and beta_factor. With epsilon,b,c positive, the positive root is explicit, beta vanishes there, its derivative is negative, and factorisation gives the signs below/above the root.",
+      "obligations": [
+        "Bind this cubic beta model to any claimed physical renormalisation flow; the statements do not derive that model from arbitrary substrates."
+      ],
+      "audit_note": "Three public algebra helpers are not individually printed in the existing audit; their use is transitive in audited results.",
+      "status": "statements_and_definitions_reviewed"
+    },
+    "LatticeLaplacian": {
+      "role": "Symmetric finite-difference continuum limit",
+      "assessment": "Reviewed both public helper lemmas and the two main theorems. Differentiability of F and derivative differentiability at the chosen point yield the second-difference limit; a finite sum yields the separable-coordinate lattice Laplacian limit.",
+      "obligations": [
+        "The actual graph/field discretisation must have this coordinate representation."
+      ],
+      "audit_note": "symmetric_slope and ratio_eq_slope are public helpers not individually printed in the existing 831-name audit.",
+      "status": "statements_and_definitions_reviewed"
+    },
+    "QueueDeadline": {
+      "role": "Positive exponential service tails",
+      "assessment": "Reviewed all four results. Exponential service normalises and has a strictly positive finite-deadline tail; a small mean expression does not make that tail zero.",
+      "obligations": [
+        "Use exact FIFO completion certificates for deterministic deadlines and charge stochastic deadline miss separately. The numbers 17/22 in the corrected controller are capacity rows, not these queue rates."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "BandwidthReflection": {
+      "role": "Bandwidth-to-consensus sensitivity",
+      "assessment": "Reviewed all four statements. Normalised peer susceptibility is below one with finite positive sensory bandwidth; the exact private-evidence sensitivity is positive, with a derived finite bias threshold.",
+      "obligations": [
+        "Supply actual peer/sensory bandwidth and anchor access. Finite evidence does not vanish merely by being outnumbered."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "GateSupport": {
+      "role": "Algebraic Kraus support preservation and composition",
+      "assessment": "Reviewed all three results in a star ring. The gate condition p*k*p=k*p and supported rho imply each Kraus branch remains supported, finite sums remain supported and support-preserving channels compose.",
+      "obligations": [
+        "Physical Kraus completeness/positivity and actual gate implementation; staying in a code subspace does not freeze the logical state inside it, so this alone is not TIWA's identity-action certificate."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "RankAndCoalition": {
+      "role": "Discrete-rank termination and coalition accounting",
+      "assessment": "Reviewed all four results. A strictly decreasing natural rank bounds trace length; a polynomial initial rank yields the polynomial step bound. Total penalties exceeding total gains force at least one losing coalition member. The real-valued geometric Lyapunov example never reaches zero in finite steps.",
+      "obligations": [
+        "Construct the actual rank/descent, complete step costs and coalition gain model; a declared rank bound is not a runtime construction by itself."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    }
+  }
+}

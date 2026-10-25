@@ -1,0 +1,61 @@
+import Snuffy.GaussianTail
+import Mathlib.Analysis.SpecialFunctions.Log.NegMulLog
+import Mathlib.Analysis.Convex.Jensen
+import Mathlib.Data.Fintype.Option
+
+open Finset Real
+
+namespace Snuffy.FiniteInformation
+
+theorem log_sum {ι : Type*} [Fintype ι] (a b : ι → ℝ) (ha : ∀ i, 0 ≤ a i) (hb : ∀ i, 0 ≤ b i)
+    (hab : ∀ i, b i = 0 → a i = 0) :
+    (∑ i, a i) * Real.log ((∑ i, a i) / ∑ i, b i) ≤ ∑ i, a i * Real.log (a i / b i)  := [proof body omitted in statement view]
+
+variable {H Y Z : Type*} [Fintype H] [Fintype Y] [Fintype Z]
+
+def margH (p : H → Y → ℝ) (h : H) : ℝ := ∑ y, p h y
+
+def margY (p : H → Y → ℝ) (y : Y) : ℝ := ∑ h, p h y
+
+noncomputable def mi (p : H → Y → ℝ) : ℝ :=
+  ∑ h, ∑ y, p h y * Real.log (p h y / (margH p h * margY p y))
+
+def process (p : H → Y → ℝ) (K : Y → Z → ℝ) (h : H) (z : Z) : ℝ := ∑ y, p h y * K y z
+
+omit [Fintype H] in
+theorem margH_process (p : H → Y → ℝ) (K : Y → Z → ℝ) (hK : ∀ y, ∑ z, K y z = 1) (h : H) :
+    margH (process p K) h = margH p h  := [proof body omitted in statement view]
+
+omit [Fintype Z] in
+theorem margY_process (p : H → Y → ℝ) (K : Y → Z → ℝ) (z : Z) :
+    margY (process p K) z = ∑ y, margY p y * K y z  := [proof body omitted in statement view]
+
+theorem data_processing_fin (p : H → Y → ℝ) (hp : ∀ h y, 0 ≤ p h y)
+    (K : Y → Z → ℝ) (hK0 : ∀ y z, 0 ≤ K y z) (hK : ∀ y, ∑ z, K y z = 1) :
+    mi (process p K) ≤ mi p  := [proof body omitted in statement view]
+
+variable {X : Type*} [Fintype X]
+
+def flag (pr : ℝ) (q : H → X → ℝ) (h : H) : Option X → ℝ
+  | some x => pr * q h x
+  | none => (1 - pr) * margH q h
+
+theorem flag_identity (pr : ℝ) (q : H → X → ℝ) (hq1 : ∑ h, ∑ x, q h x = 1) :
+    mi (flag pr q) = pr * mi q  := [proof body omitted in statement view]
+
+theorem decoder_bound {pr : ℝ} (hpr0 : 0 ≤ pr) (hpr1 : pr ≤ 1) (q : H → X → ℝ)
+    (hq : ∀ h x, 0 ≤ q h x) (hq1 : ∑ h, ∑ x, q h x = 1)
+    (K : Option X → Z → ℝ) (hK0 : ∀ y z, 0 ≤ K y z) (hK : ∀ y, ∑ z, K y z = 1) :
+    mi (process (flag pr q) K) ≤ pr * mi q  := [proof body omitted in statement view]
+
+open MeasureTheory ProbabilityTheory
+
+theorem necessary_radius_from_decoder {D u t r It : ℝ} (hD : 0 < D) (ht : 0 < t) (hIt : 0 < It)
+    (q : H → X → ℝ) (hq : ∀ h x, 0 ≤ q h x) (hq1 : ∑ h, ∑ x, q h x = 1)
+    (hItI0 : It ≤ mi q)
+    (K : Option X → Z → ℝ) (hK0 : ∀ y z, 0 ≤ K y z) (hK : ∀ y, ∑ z, K y z = 1)
+    (hsuccess : It ≤ mi (process (flag
+      ((gaussianReal (u * t) (Snuffy.GaussianTail.carrierVar D t hD ht)).real {x | x ≤ r}) q) K)) :
+    u * t - 2 * Real.sqrt (D * Real.log (mi q / It)) * Real.sqrt t ≤ r  := [proof body omitted in statement view]
+
+end Snuffy.FiniteInformation

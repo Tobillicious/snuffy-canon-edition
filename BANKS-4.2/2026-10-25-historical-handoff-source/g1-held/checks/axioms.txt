@@ -1,0 +1,3 @@
+'Snuffy.G1Held.good_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Snuffy.G1Held.held_source_protection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Snuffy.G1Held.held_source_qsl' depends on axioms: [propext, Classical.choice, Quot.sound]

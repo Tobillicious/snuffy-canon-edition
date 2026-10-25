@@ -1,0 +1,40 @@
+namespace UPTR16CUT
+
+universe u
+
+inductive Reach {V : Type u} (R : V → V → Prop)
+    (seed : V → Prop) : V → Prop where
+  | initial (v : V) : seed v → Reach R seed v
+  | follow (u v : V) : Reach R seed u → R u v → Reach R seed v
+
+def unmediated {V : Type u} (R : V → V → Prop)
+    (boundary : V → Prop) : V → V → Prop :=
+  fun u v => R u v ∧ ¬ boundary v
+
+theorem different_has_unmediated_path {V : Type u}
+    (R : V → V → Prop) (seed boundary diff : V → Prop)
+    (rank : V → Nat)
+    (boundary_equal : ∀ v, boundary v → ¬ diff v)
+    (locality : ∀ v, diff v →
+      seed v ∨ ∃ u, R u v ∧ diff u ∧ rank u < rank v)
+    (v : V) (hv : diff v) :
+    Reach (unmediated R boundary) seed v  := [proof body omitted in statement view]
+
+theorem outside_equal_of_cut {V : Type u}
+    (R : V → V → Prop) (seed boundary outside diff : V → Prop)
+    (rank : V → Nat)
+    (boundary_equal : ∀ v, boundary v → ¬ diff v)
+    (locality : ∀ v, diff v →
+      seed v ∨ ∃ u, R u v ∧ diff u ∧ rank u < rank v)
+    (cut : ∀ v, outside v → ¬ Reach (unmediated R boundary) seed v) :
+    ∀ v, outside v → ¬ diff v  := [proof body omitted in statement view]
+
+def adjacent {V : Type u} (R : V → V → Prop) (u v : V) : Prop :=
+  R u v ∨ R v u
+
+theorem r2_no_crossing {V : Type u} (R : V → V → Prop)
+    (seed : V → Prop) (u v : V)
+    (hu : Reach (adjacent R) seed u) (hedge : adjacent R u v) :
+    Reach (adjacent R) seed v  := [proof body omitted in statement view]
+
+end UPTR16CUT

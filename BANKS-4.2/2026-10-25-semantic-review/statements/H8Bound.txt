@@ -1,0 +1,39 @@
+import Snuffy.BridgeH8
+
+open Finset Matrix
+
+namespace Snuffy.H8Bound
+
+open GeminiBridgeH8
+
+lemma one_sub_u_pos {n : ℕ} (hn : 2 ≤ n) {u : ℝ} (uniform : (n : ℝ) * u = 1) : 0 < 1 - u  := [proof body omitted in statement view]
+
+theorem h8_of_concentration_bound {n : ℕ} (hn : 2 ≤ n) (s : Fin n → ℝ) (u : ℝ)
+    (normalized : ∑ i, s i = 1) (uniform : (n : ℝ) * u = 1) {Ψmin lam extra : ℝ}
+    (hextra : extra ≤ lam * ∑ i, (s i - u) ^ 2) (hlam : lam * (1 - u) ≤ Ψmin) :
+    Ψmin + extra ≤ Ψmin * (1 + (energy s - u) / (1 - u))  := [proof body omitted in statement view]
+
+theorem h8_graph {n : ℕ} (hn : 2 ≤ n) (s : Fin n → ℝ) (u : ℝ)
+    (normalized : ∑ i, s i = 1) (uniform : (n : ℝ) * u = 1) (Q : Matrix (Fin n) (Fin n) ℝ)
+    {Ψmin lam : ℝ} (hQ : ∀ x : Fin n → ℝ, x ⬝ᵥ (Q *ᵥ x) ≤ lam * (x ⬝ᵥ x))
+    (hlam : lam * (1 - u) ≤ Ψmin) :
+    Ψmin + (fun i => s i - u) ⬝ᵥ (Q *ᵥ fun i => s i - u) ≤
+      Ψmin * (1 + (energy s - u) / (1 - u))  := [proof body omitted in statement view]
+
+theorem h8_iff {n : ℕ} (hn : 2 ≤ n) (u : ℝ) (uniform : (n : ℝ) * u = 1) (Ψmin κ : ℝ) :
+    (∀ s : Fin n → ℝ, ∑ i, s i = 1 →
+        Ψmin + κ * ∑ i, (s i - u) ^ 2 ≤ Ψmin * (1 + (energy s - u) / (1 - u))) ↔
+      κ * (1 - u) ≤ Ψmin  := [proof body omitted in statement view]
+
+theorem routing_bound {E V : Type*} [Fintype E] [Fintype V] (w : E → ℝ) (hw : ∀ e, 0 ≤ w e)
+    (R : E → V → ℝ) (δ : V → ℝ) :
+    ∑ e, w e * (∑ i, R e i * δ i) ^ 2 ≤ (∑ e, w e * ∑ i, R e i ^ 2) * ∑ i, δ i ^ 2  := [proof body omitted in statement view]
+
+theorem h8_routed {n : ℕ} (hn : 2 ≤ n) (s : Fin n → ℝ) (u : ℝ)
+    (normalized : ∑ i, s i = 1) (uniform : (n : ℝ) * u = 1) {E : Type*} [Fintype E]
+    (d : E → ℝ) (R : E → Fin n → ℝ) {ν Ψmin T : ℝ} (hν : 0 ≤ ν)
+    (htrans : T ≤ ν * ∑ e, d e ^ 2 * (∑ i, R e i * (s i - u)) ^ 2)
+    (hgraph : ν * (∑ e, d e ^ 2 * ∑ i, R e i ^ 2) * (1 - u) ≤ Ψmin) :
+    Ψmin + T ≤ Ψmin * (1 + (energy s - u) / (1 - u))  := [proof body omitted in statement view]
+
+end Snuffy.H8Bound

@@ -1,0 +1,101 @@
+import Snuffy.FIFOWorkload
+import Snuffy.R17AQueueFinality
+
+namespace SnuffyWC
+
+structure Lane where
+  served : Nat → Nat
+  mono : ∀ s, served s ≤ served (s+1)
+
+theorem Lane.mono_le (L : Lane) {a b : Nat} (h : a ≤ b) : L.served a ≤ L.served b  := [proof body omitted in statement view]
+
+def Finished (L : Lane) (t W s : Nat) : Prop := W ≤ L.served s - L.served t
+
+theorem unfinished_before (L : Lane) (t W u v : Nat) (hv : v ≤ u)
+    (h : ¬ Finished L t W (t+u)) : ¬ Finished L t W (t+v)  := [proof body omitted in statement view]
+
+theorem carry_in_completion (L : Lane) (t W u : Nat) (beta : Nat → Nat)
+    (contract : ∀ v, v ≤ u → (∀ s, s ≤ v → ¬ Finished L t W (t+s)) →
+        beta v ≤ L.served (t+v) - L.served t)
+    (enough : W ≤ beta u) : Finished L t W (t+u)  := [proof body omitted in statement view]
+
+def affine (R T : Nat) (u : Nat) : Nat := R * (u - T)
+
+theorem ceil_div_covers (W R : Nat) (hR : 0 < R) : W ≤ R * ((W + R - 1) / R)  := [proof body omitted in statement view]
+
+theorem carry_in_affine (L : Lane) (t W R T : Nat) (hR : 0 < R)
+    (contract : ∀ v, v ≤ T + (W + R - 1) / R → (∀ s, s ≤ v → ¬ Finished L t W (t+s)) →
+        affine R T v ≤ L.served (t+v) - L.served t) :
+    Finished L t W (t + (T + (W + R - 1) / R))  := [proof body omitted in statement view]
+
+theorem no_service_no_completion (t W u : Nat) (hW : 0 < W) :
+    ¬ Finished ⟨fun _ => 0, fun _ => Nat.le_refl 0⟩ t W (t+u)  := [proof body omitted in statement view]
+
+def row (tau : Nat → Nat → Nat) (prev : Nat → Nat) (release : Nat) (work : Nat → Nat) :
+    Nat → Nat
+  | 0 => release
+  | k+1 => max (row tau prev release work k) (prev (k+1)) + tau (k+1) (work (k+1))
+
+def U (r h : Nat → Nat) (tau : Nat → Nat → Nat) (b : Nat → Nat → Nat) : Nat → Nat → Nat
+  | 0 => h
+  | i+1 => row tau (U r h tau b i) (r (i+1)) (b (i+1))
+
+theorem U_succ_succ (r h : Nat → Nat) (tau : Nat → Nat → Nat) (b : Nat → Nat → Nat)
+    (i k : Nat) :
+    U r h tau b (i+1) (k+1) =
+      max (U r h tau b (i+1) k) (U r h tau b i (k+1)) + tau (k+1) (b (i+1) (k+1))  := [proof body omitted in statement view]
+
+theorem exec_le_envelope (C : Nat → Nat → Nat) (r h : Nat → Nat)
+    (tau : Nat → Nat → Nat) (b : Nat → Nat → Nat)
+    (inherited : ∀ k, C 0 k ≤ h k)
+    (released : ∀ i, C (i+1) 0 ≤ r (i+1))
+    (contract : ∀ i k,
+      C (i+1) (k+1) ≤ max (C (i+1) k) (C i (k+1)) + tau (k+1) (b (i+1) (k+1))) :
+    ∀ i k, C i k ≤ U r h tau b i k  := [proof body omitted in statement view]
+
+theorem deadlines_met (C : Nat → Nat → Nat) (r h : Nat → Nat)
+    (tau : Nat → Nat → Nat) (b : Nat → Nat → Nat) (K : Nat) (d : Nat → Nat)
+    (inherited : ∀ k, C 0 k ≤ h k)
+    (released : ∀ i, C (i+1) 0 ≤ r (i+1))
+    (contract : ∀ i k,
+      C (i+1) (k+1) ≤ max (C (i+1) k) (C i (k+1)) + tau (k+1) (b (i+1) (k+1)))
+    (certified : ∀ i, U r h tau b (i+1) K ≤ d (i+1)) :
+    ∀ i, C (i+1) K ≤ d (i+1)  := [proof body omitted in statement view]
+
+theorem row_congr (tau : Nat → Nat → Nat) (p p' : Nat → Nat) (release : Nat)
+    (w w' : Nat → Nat) (hp : ∀ k, p k = p' k) (hw : ∀ k, w k = w' k) :
+    ∀ k, row tau p release w k = row tau p' release w' k  := [proof body omitted in statement view]
+
+theorem tail_admission_invariant (r r' h : Nat → Nat) (tau : Nat → Nat → Nat)
+    (b b' : Nat → Nat → Nat) (n : Nat)
+    (hr : ∀ i, i ≤ n → r i = r' i) (hb : ∀ i, i ≤ n → ∀ k, b i k = b' i k) :
+    ∀ i, i ≤ n → ∀ k, U r h tau b i k = U r' h tau b' i k  := [proof body omitted in statement view]
+
+theorem tail_admission_preserves_certificates (r r' h : Nat → Nat)
+    (tau : Nat → Nat → Nat) (b b' : Nat → Nat → Nat) (n K : Nat) (d : Nat → Nat)
+    (hr : ∀ i, i ≤ n → r i = r' i) (hb : ∀ i, i ≤ n → ∀ k, b i k = b' i k)
+    (before : ∀ i, i ≤ n → U r h tau b i K ≤ d i) :
+    ∀ i, i ≤ n → U r' h tau b' i K ≤ d i  := [proof body omitted in statement view]
+
+theorem applied_stage_effect_is_timely_and_authorized
+    (C : Nat → Nat → Nat) (r h : Nat → Nat) (tau : Nat → Nat → Nat)
+    (b : Nat → Nat → Nat) (K : Nat) (d : Nat → Nat) (i : Nat)
+    (inherited : ∀ k, C 0 k ≤ h k)
+    (released : ∀ i, C (i+1) 0 ≤ r (i+1))
+    (contract : ∀ i k,
+      C (i+1) (k+1) ≤ max (C (i+1) k) (C i (k+1)) + tau (k+1) (b (i+1) (k+1)))
+    (certified : U r h tau b (i+1) K ≤ d (i+1))
+    (registry : UPTR17A.Registry) (s : UPTR17A.Machine)
+    (ticket : Nat) (e : UPTR12A.Effect)
+    (hnow : s.now = C (i+1) K)
+    (happend : (UPTR17A.applyOne registry s ticket e).applied ≠ s.applied) :
+    s.now ≤ d (i+1) ∧
+      ∃ p, registry ticket = some p ∧ UPTR17A.Ready s ticket e p  := [proof body omitted in statement view]
+
+theorem timely_but_revoked_is_not_delivery
+    (registry : UPTR17A.Registry) (s : UPTR17A.Machine)
+    (ticket : Nat) (e : UPTR12A.Effect) (deadline : Nat)
+    (_timely : s.now ≤ deadline) (revoked : ticket ∈ s.revoked) :
+    (UPTR17A.applyOne registry s ticket e).applied = s.applied  := [proof body omitted in statement view]
+
+end SnuffyWC

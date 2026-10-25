@@ -1,0 +1,26 @@
+[
+  {
+    "case": "all-144-present",
+    "expected_exit": 0,
+    "actual_exit": 1,
+    "pass": false
+  },
+  {
+    "case": "eight-missing-from-build",
+    "expected_exit": 1,
+    "actual_exit": 1,
+    "pass": true
+  },
+  {
+    "case": "audit-import-missing",
+    "expected_exit": 1,
+    "actual_exit": 1,
+    "pass": true
+  },
+  {
+    "case": "corpus-root-unset",
+    "expected_exit": 1,
+    "actual_exit": 1,
+    "pass": true
+  }
+]

@@ -1,0 +1,89 @@
+import Snuffy.ReasonsCompiled
+
+open Filter Finset
+
+namespace Snuffy.FinalClosure
+
+section S4
+
+variable {S P : Type*} (Ψ : S → ℝ) (Θ : ℝ)
+
+def Sound (V : S → Prop) : Prop := ∀ σ, V σ → Θ ≤ Ψ σ
+
+def Complete (V : S → Prop) : Prop := ∀ σ, Θ ≤ Ψ σ → V σ
+
+theorem verifier_bound_iff (V : S → Prop) :
+    (Sound Ψ Θ V ∧ Complete Ψ Θ V) ↔ V = fun σ => Θ ≤ Ψ σ  := [proof body omitted in statement view]
+
+theorem proxy_ungameable_iff (f : S → P) :
+    (∃ g : P → Prop, Sound Ψ Θ (g ∘ f) ∧ Complete Ψ Θ (g ∘ f)) ↔
+      ∀ σ σ', f σ = f σ' → Θ ≤ Ψ σ → Θ ≤ Ψ σ'  := [proof body omitted in statement view]
+
+theorem proxy_gameable (f : S → P) (g : P → Prop) {σ σ' : S} (heq : f σ = f σ')
+    (hsurv : Θ ≤ Ψ σ) (hfail : Ψ σ' < Θ) :
+    ¬ (Sound Ψ Θ (g ∘ f) ∧ Complete Ψ Θ (g ∘ f))  := [proof body omitted in statement view]
+
+end S4
+
+section L1
+
+variable {ι : Type*} (κ : ℝ) (a f : ι → ℝ)
+
+def rate (A : Finset ι) : ℝ := κ * ∑ m ∈ A, a m * f m
+
+def objective (U₀ : ℝ) (A : Finset ι) (t : ℝ) : ℝ := U₀ + t * rate κ a f A
+
+theorem pruning_lowers_rate [DecidableEq ι] (hκ : 0 < κ) (ha : ∀ m, 0 < a m) (hf : ∀ m, 0 < f m)
+    {A W : Finset ι} (hW : W ⊆ A) (hne : W.Nonempty) :
+    rate κ a f A - rate κ a f (A \ W) = κ * ∑ m ∈ W, a m * f m ∧
+      rate κ a f (A \ W) < rate κ a f A  := [proof body omitted in statement view]
+
+theorem living_unbounded (hκ : 0 < κ) (ha : ∀ m, 0 < a m) (hf : ∀ m, 0 < f m)
+    {A : Finset ι} (hA : A.Nonempty) (U₀ : ℝ) :
+    Tendsto (objective κ a f U₀ A) atTop atTop  := [proof body omitted in statement view]
+
+theorem pruning_all_stalls (U₀ t : ℝ) :
+    HasDerivAt (objective κ a f U₀ ∅) 0 t ∧ ∀ s, objective κ a f U₀ ∅ s = U₀  := [proof body omitted in statement view]
+
+end L1
+
+section QED1
+
+variable {S : Type*} (U : S → ℝ)
+
+def value : Option S → WithBot ℝ
+  | none => ⊥
+  | some s => (U s : WithBot ℝ)
+
+theorem void_strictly_below (s : S) : value U none < value U (some s)  := [proof body omitted in statement view]
+
+theorem void_never_chosen (F : Set (Option S)) {s : S} (hs : some s ∈ F)
+    {o : Option S} (hmax : ∀ q ∈ F, value U q ≤ value U o) : o ≠ none  := [proof body omitted in statement view]
+
+end QED1
+
+section QED2
+
+theorem dominance_channels (N : ℕ) :
+    ((univ : Finset (Fin N)).offDiag).card = N * (N - 1)  := [proof body omitted in statement view]
+
+theorem coop_more_efficient {N : ℕ} (hN : 3 ≤ N) {W c : ℝ} (hW : 0 < W) (hc : 0 < c) :
+    W / (W + c * ((N : ℝ) * ((N : ℝ) - 1))) < W / (W + c * N)  := [proof body omitted in statement view]
+
+end QED2
+
+section K1
+
+def stock (S₀ : ℝ) (k : ℕ → ℝ) (n : ℕ) : ℝ := S₀ + ∑ i ∈ range n, k i
+
+theorem stewardship_sustains (S₀ : ℝ) (k : ℕ → ℝ) (hk : ∀ i, 0 ≤ k i) (n : ℕ) :
+    S₀ ≤ stock S₀ k n  := [proof body omitted in statement view]
+
+theorem extraction_depletes (S₀ : ℝ) (k : ℕ → ℝ) {δ : ℝ} (hδ : 0 < δ)
+    (hk : ∀ i, k i ≤ -δ) : ∃ n, stock S₀ k n < 0  := [proof body omitted in statement view]
+
+theorem sustained_iff (S₀ k : ℝ) : (∀ n, 0 ≤ stock S₀ (fun _ => k) n) ↔ 0 ≤ k ∧ 0 ≤ S₀  := [proof body omitted in statement view]
+
+end K1
+
+end Snuffy.FinalClosure

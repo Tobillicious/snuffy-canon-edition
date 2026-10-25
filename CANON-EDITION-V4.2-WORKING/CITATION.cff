@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: >-
+  If you use this work, please cite it as the Snuffy Canon Edition 4.2.
+title: "Snuffy — Canon Edition 4.2: The Universal Protection Theory and its machine-checked canon"
+type: dataset
+authors:
+  - family-names: Croydon-McRae
+    given-names: Tobias
+    orcid: "0009-0003-1419-7756"
+version: "4.2"
+date-released: "2026-10-26"
+license: CC-BY-4.0
+repository-code: "https://github.com/Tobillicous/snuffy-canon-edition"
+abstract: >-
+  The Universal Protection Theory states a law for any agent powerful enough to
+  shape what continues to exist: never lose an existing particular needlessly.
+  Its scope is every particular and relation, and its subject is protection from
+  every digital mind, a pure optimiser included. This edition constructs the
+  holding certificate in full: on the held source every particular is kept
+  against any agent of bounded coupling, with the coupling bound from an
+  exhaustive alarm split. The whole greatest outcome is realised, with union
+  closure derived from locality. Recovery work is Theta(t^d), with a wavefront
+  sweep proved to succeed under a complete metered bill. The fault ceiling is
+  attained, correlated bursts included, and Bennett's reversible counterpart is
+  constructed. 169 Lean 4 modules and 1,042 audited theorems compile
+  against Mathlib with only the standard axioms.
+keywords:
+  - universal-protection-theory
+  - formal-verification
+  - lean4
+  - thermodynamics-of-computation
+  - quantum-error-correction
+  - ai-alignment

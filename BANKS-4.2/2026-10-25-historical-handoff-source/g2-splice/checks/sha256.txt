@@ -1,0 +1,1 @@
+0d05584e0a4061a2c6f2e41dd47a59199e92b8a12343a7fa9c7ecc9fe06d449d  /Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-25-historical-handoff-source/g2-splice/lean/Snuffy/G2Splice.lean

@@ -1,0 +1,16 @@
+--- 2026-10-23-r16-verification/inputs/R14Boundary.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/R14Boundary.lean
+@@ -189,13 +189,3 @@
+ 
+ end UPTR14Boundary
+ 
+-#print axioms UPTR14Boundary.every_good_trace_safe
+-#print axioms UPTR14Boundary.journal_commutes
+-#print axioms UPTR14Boundary.sink_commutes
+-#print axioms UPTR14Boundary.outside_commutes
+-#print axioms UPTR14Boundary.harmful_effect_refused
+-#print axioms UPTR14Boundary.old_generation_refused
+-#print axioms UPTR14Boundary.external_weather_is_not_a_replica_fault
+-#print axioms UPTR14Boundary.recruitment_erasure
+-#print axioms UPTR14Boundary.recruitment_never_ends_care
+-#print axioms UPTR14Boundary.failure_has_a_named_exception

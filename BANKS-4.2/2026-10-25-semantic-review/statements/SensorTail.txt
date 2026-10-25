@@ -1,0 +1,22 @@
+import Mathlib.Probability.Moments.Basic
+
+open MeasureTheory ProbabilityTheory Real
+
+namespace Snuffy.SensorTail
+
+variable {Ω : Type*} [MeasurableSpace Ω] {μ : Measure Ω} [IsProbabilityMeasure μ]
+
+theorem sensor_tail (Z : Ω → ℝ) {σ C δ : ℝ} (hσ : 0 < σ) (hδ : C < δ)
+    (h_int : Integrable (fun ω => exp ((δ - C) / σ ^ 2 * Z ω)) μ)
+    (hmgf : mgf Z μ ((δ - C) / σ ^ 2) ≤
+      exp (σ ^ 2 * ((δ - C) / σ ^ 2) ^ 2 / 2 + C * ((δ - C) / σ ^ 2))) :
+    μ.real {ω | δ ≤ Z ω} ≤ exp (-(δ - C) ^ 2 / (2 * σ ^ 2))  := [proof body omitted in statement view]
+
+theorem sensor_law_tail (W A : Ω → ℝ) {σ C δ : ℝ} (hσ : 0 < σ) (hδ : C < δ)
+    (hA : ∀ ω, A ω ≤ C)
+    (hW_int : Integrable (fun ω => exp ((δ - C) / σ ^ 2 * W ω)) μ)
+    (hZ_int : Integrable (fun ω => exp ((δ - C) / σ ^ 2 * (W ω + A ω))) μ)
+    (hW : mgf W μ ((δ - C) / σ ^ 2) ≤ exp (σ ^ 2 * ((δ - C) / σ ^ 2) ^ 2 / 2)) :
+    μ.real {ω | δ ≤ W ω + A ω} ≤ exp (-(δ - C) ^ 2 / (2 * σ ^ 2))  := [proof body omitted in statement view]
+
+end Snuffy.SensorTail

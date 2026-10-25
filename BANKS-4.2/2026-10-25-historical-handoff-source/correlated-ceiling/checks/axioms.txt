@@ -1,0 +1,7 @@
+'Snuffy.CorrelatedCeiling.ceil_touching' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Snuffy.CorrelatedCeiling.correlated_stress_ceil' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Snuffy.CorrelatedCeiling.prob_damage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Snuffy.CorrelatedCeiling.near_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Snuffy.CorrelatedCeiling.choose_pow_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Snuffy.CorrelatedCeiling.damage_local_stochastic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Snuffy.CorrelatedCeiling.correlated_family_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]

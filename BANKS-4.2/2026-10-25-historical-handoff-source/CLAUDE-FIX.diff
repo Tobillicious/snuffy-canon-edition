@@ -1,0 +1,41 @@
+--- working/lean/Snuffy/WorkBilling.lean
++++ fixed/lean/Snuffy/WorkBilling.lean
+@@ -134,7 +134,7 @@
+   apply Snuffy.ThermoLedger.tracking_bounded hα hα₁
+   intro k
+   rw [hrec k]
+-  exact add_le_add_left (hcap k) _
++  linarith [hcap k]
+ 
+ /-- Export is retained in the gross ledger: final stock plus all flushed
+ charge equals initial stock plus all incoming charge. -/
+--- working/lean/Snuffy/HamiltonianDecomposition.lean
++++ fixed/lean/Snuffy/HamiltonianDecomposition.lean
+@@ -130,6 +130,7 @@
+ 
+ end GuardedHistory
+ 
++open scoped Kronecker in
+ /-- Swapping syndrome and reservoir registers preserves the complete history
+ and reference factor, for every initial correlation with those registers. -/
+ theorem syndrome_exchange_preserves_history {α : Type*}
+@@ -151,11 +152,13 @@
+ theorem syndrome_exchange_charge (ρ : Matrix (Fin 4) (Fin 4) ℂ) :
+     Matrix.trace (exchangeSwap * ρ * star exchangeSwap * boundaryCharge) =
+       Matrix.trace (ρ * reservoirCharge) := by
+-  calc
+-    _ = Matrix.trace ((ρ * star exchangeSwap) * boundaryCharge * exchangeSwap) := by
+-      simpa only [Matrix.mul_assoc] using
+-        Matrix.trace_mul_cycle exchangeSwap (ρ * star exchangeSwap) boundaryCharge
+-    _ = _ := by
+-      simp only [Matrix.mul_assoc, exchange_swap_charge]
++  rw [show exchangeSwap * ρ * star exchangeSwap * boundaryCharge =
++        exchangeSwap * (ρ * star exchangeSwap * boundaryCharge) by
++      simp only [Matrix.mul_assoc],
++    Matrix.trace_mul_comm,
++    show ρ * star exchangeSwap * boundaryCharge * exchangeSwap =
++        ρ * (star exchangeSwap * boundaryCharge * exchangeSwap) by
++      simp only [Matrix.mul_assoc],
++    exchange_swap_charge]
+ 
+ end Snuffy.HamiltonianDecomposition

@@ -1,0 +1,98 @@
+import Mathlib.LinearAlgebra.UnitaryGroup
+import Mathlib.Analysis.Complex.Basic
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.Data.Fintype.BigOperators
+
+open Matrix Finset ComplexConjugate
+
+namespace Snuffy.TwoLevel
+
+variable {n : ℕ}
+
+def IdOutside (V : Matrix (Fin n) (Fin n) ℂ) (i j : Fin n) : Prop :=
+  ∀ a b, ¬ ((a = i ∨ a = j) ∧ (b = i ∨ b = j)) → V a b = (1 : Matrix (Fin n) (Fin n) ℂ) a b
+
+def IsTwoLevel (V : Matrix (Fin n) (Fin n) ℂ) : Prop :=
+  V ∈ unitaryGroup (Fin n) ℂ ∧ ∃ i j, i ≠ j ∧ IdOutside V i j
+
+theorem mul_of_idOutside {V : Matrix (Fin n) (Fin n) ℂ} {i j : Fin n} (hij : i ≠ j)
+    (hV : IdOutside V i j) (M : Matrix (Fin n) (Fin n) ℂ) (a b : Fin n) :
+    (V * M) a b = if a = i ∨ a = j then V a i * M i b + V a j * M j b else M a b  := [proof body omitted in statement view]
+
+noncomputable def rad (α β : ℂ) : ℂ := ((Real.sqrt (Complex.normSq α + Complex.normSq β) : ℝ) : ℂ)
+
+theorem rad_mul_self (α β : ℂ) : rad α β * rad α β = α * conj α + β * conj β  := [proof body omitted in statement view]
+
+theorem conj_rad (α β : ℂ) : conj (rad α β) = rad α β  := [proof body omitted in statement view]
+
+noncomputable def givens (i j : Fin n) (α β : ℂ) : Matrix (Fin n) (Fin n) ℂ := fun a b =>
+  if a = i then (if b = i then conj α / rad α β else if b = j then conj β / rad α β else 0)
+  else if a = j then (if b = i then -β / rad α β else if b = j then α / rad α β else 0)
+  else if a = b then 1 else 0
+
+theorem givens_idOutside {i j : Fin n} (hij : i ≠ j) (α β : ℂ) : IdOutside (givens i j α β) i j  := [proof body omitted in statement view]
+
+theorem givens_unitary {i j : Fin n} (hij : i ≠ j) {α β : ℂ} (hr : rad α β ≠ 0) :
+    givens i j α β ∈ unitaryGroup (Fin n) ℂ  := [proof body omitted in statement view]
+
+theorem one_idOutside (i j : Fin n) : IdOutside (1 : Matrix (Fin n) (Fin n) ℂ) i j  := [proof body omitted in statement view]
+
+theorem rad_eq_zero {α β : ℂ} (h : rad α β = 0) : α = 0 ∧ β = 0  := [proof body omitted in statement view]
+
+noncomputable def elim (i j : Fin n) (α β : ℂ) : Matrix (Fin n) (Fin n) ℂ :=
+  if rad α β = 0 then 1 else givens i j α β
+
+theorem elim_unitary {i j : Fin n} (hij : i ≠ j) (α β : ℂ) : elim i j α β ∈ unitaryGroup (Fin n) ℂ  := [proof body omitted in statement view]
+
+theorem elim_idOutside {i j : Fin n} (hij : i ≠ j) (α β : ℂ) : IdOutside (elim i j α β) i j  := [proof body omitted in statement view]
+
+theorem elim_kills {i j : Fin n} (hij : i ≠ j) (W : Matrix (Fin n) (Fin n) ℂ) (m : Fin n) :
+    (elim i j (W i m) (W j m) * W) j m = 0  := [proof body omitted in statement view]
+
+theorem idOutside_row {V : Matrix (Fin n) (Fin n) ℂ} {i j : Fin n} (hij : i ≠ j)
+    (hV : IdOutside V i j) (W : Matrix (Fin n) (Fin n) ℂ) {a : Fin n} (ha : a ≠ i ∧ a ≠ j) (b : Fin n) :
+    (V * W) a b = W a b  := [proof body omitted in statement view]
+
+def StdCols (W : Matrix (Fin n) (Fin n) ℂ) (P : Fin n → Prop) : Prop :=
+  ∀ c, P c → ∀ a, W a c = (1 : Matrix (Fin n) (Fin n) ℂ) a c
+
+theorem idOutside_keeps_col {V : Matrix (Fin n) (Fin n) ℂ} {i j : Fin n} (hij : i ≠ j)
+    (hV : IdOutside V i j) (W : Matrix (Fin n) (Fin n) ℂ) {c : Fin n} (hci : c ≠ i) (hcj : c ≠ j)
+    (hc : ∀ a, W a c = (1 : Matrix (Fin n) (Fin n) ℂ) a c) :
+    ∀ a, (V * W) a c = (1 : Matrix (Fin n) (Fin n) ℂ) a c  := [proof body omitted in statement view]
+
+theorem col_zero_above {W : Matrix (Fin n) (Fin n) ℂ} (hW : W ∈ unitaryGroup (Fin n) ℂ) {m : Fin n}
+    (hstd : StdCols W (· < m)) {a : Fin n} (ha : a < m) : W a m = 0  := [proof body omitted in statement view]
+
+theorem clear_below {W : Matrix (Fin n) (Fin n) ℂ} (hW : W ∈ unitaryGroup (Fin n) ℂ) (m : Fin n)
+    (hstd : StdCols W (· < m)) (S : Finset (Fin n)) (hS : ∀ k ∈ S, m < k) :
+    ∃ Ls : List (Matrix (Fin n) (Fin n) ℂ), (∀ V ∈ Ls, IsTwoLevel V) ∧
+      Ls.prod * W ∈ unitaryGroup (Fin n) ℂ ∧ StdCols (Ls.prod * W) (· < m) ∧
+      ∀ k ∈ S, (Ls.prod * W) k m = 0  := [proof body omitted in statement view]
+
+def phase (m : Fin n) (z : ℂ) : Matrix (Fin n) (Fin n) ℂ := fun a b =>
+  if a = m ∧ b = m then conj z else (1 : Matrix (Fin n) (Fin n) ℂ) a b
+
+theorem phase_idOutside (m p : Fin n) (z : ℂ) : IdOutside (phase m z) m p  := [proof body omitted in statement view]
+
+theorem phase_unitary {m p : Fin n} (hmp : m ≠ p) {z : ℂ} (hz : conj z * z = 1) :
+    phase m z ∈ unitaryGroup (Fin n) ℂ  := [proof body omitted in statement view]
+
+theorem phase_mul_apply (m : Fin n) (z : ℂ) (W : Matrix (Fin n) (Fin n) ℂ) (a b : Fin n) :
+    (phase m z * W) a b = if a = m then conj z * W m b else W a b  := [proof body omitted in statement view]
+
+theorem next_column (hn : 2 ≤ n) {W : Matrix (Fin n) (Fin n) ℂ} (hW : W ∈ unitaryGroup (Fin n) ℂ)
+    (m : Fin n) (hstd : StdCols W (· < m)) :
+    ∃ Ls : List (Matrix (Fin n) (Fin n) ℂ), (∀ V ∈ Ls, IsTwoLevel V) ∧
+      Ls.prod * W ∈ unitaryGroup (Fin n) ℂ ∧ StdCols (Ls.prod * W) (· ≤ m)  := [proof body omitted in statement view]
+
+theorem star_list_prod' (L : List (Matrix (Fin n) (Fin n) ℂ)) :
+    star L.prod = (L.map star).reverse.prod  := [proof body omitted in statement view]
+
+theorem star_twoLevel {V : Matrix (Fin n) (Fin n) ℂ} (hV : IsTwoLevel V) : IsTwoLevel (star V)  := [proof body omitted in statement view]
+
+theorem two_level_decomposition (hn : 2 ≤ n) {U : Matrix (Fin n) (Fin n) ℂ}
+    (hU : U ∈ unitaryGroup (Fin n) ℂ) :
+    ∃ Ls : List (Matrix (Fin n) (Fin n) ℂ), (∀ V ∈ Ls, IsTwoLevel V) ∧ U = Ls.prod  := [proof body omitted in statement view]
+
+end Snuffy.TwoLevel

@@ -1,0 +1,35 @@
+import Mathlib.InformationTheory.KullbackLeibler.ChainRule
+import Mathlib.InformationTheory.KullbackLeibler.DataProcessing
+import Mathlib.Probability.Kernel.Composition.Lemmas
+
+open MeasureTheory ProbabilityTheory InformationTheory
+
+namespace Snuffy.KLAdditivity
+
+variable {α β γ : Type*} [MeasurableSpace α] [MeasurableSpace β] [MeasurableSpace γ]
+
+theorem prod_eq_compProd (κ : Kernel α β) [IsSFiniteKernel κ] (η : Kernel α γ)
+    [IsSFiniteKernel η] : κ ×ₖ η = κ ⊗ₖ Kernel.prodMkRight β η  := [proof body omitted in statement view]
+
+theorem klDiv_map_equiv {δ : Type*} [MeasurableSpace δ] (e : α ≃ᵐ δ) (μ ν : Measure α)
+    [IsFiniteMeasure μ] [IsFiniteMeasure ν] :
+    klDiv (μ.map e) (ν.map e) = klDiv μ ν  := [proof body omitted in statement view]
+
+variable {β₁ β₂ : Type*} [MeasurableSpace β₁] [MeasurableSpace β₂]
+
+theorem compProd_prod_assoc (P : Measure α) [SFinite P] (κ₁ : Kernel α β₁) [IsSFiniteKernel κ₁]
+    (κ₂ : Kernel α β₂) [IsSFiniteKernel κ₂] :
+    (P ⊗ₘ (κ₁ ×ₖ κ₂)).map MeasurableEquiv.prodAssoc.symm
+      = P ⊗ₘ κ₁ ⊗ₘ Kernel.prodMkRight β₁ κ₂  := [proof body omitted in statement view]
+
+theorem compProd_prod_swap (P : Measure α) [SFinite P] (κ₁ : Kernel α β₁) [IsSFiniteKernel κ₁]
+    (κ₂ : Kernel α β₂) [IsSFiniteKernel κ₂] :
+    (P ⊗ₘ (κ₁ ×ₖ κ₂)).map (Prod.map id Prod.swap) = P ⊗ₘ (κ₂ ×ₖ κ₁)  := [proof body omitted in statement view]
+
+theorem klDiv_prod_kernel (P : Measure α) [IsFiniteMeasure P]
+    (κ₁ c₁ : Kernel α β₁) [IsMarkovKernel κ₁] [IsMarkovKernel c₁]
+    (κ₂ c₂ : Kernel α β₂) [IsMarkovKernel κ₂] [IsMarkovKernel c₂] :
+    klDiv (P ⊗ₘ (κ₁ ×ₖ κ₂)) (P ⊗ₘ (c₁ ×ₖ c₂))
+      = klDiv (P ⊗ₘ κ₁) (P ⊗ₘ c₁) + klDiv (P ⊗ₘ κ₂) (P ⊗ₘ c₂)  := [proof body omitted in statement view]
+
+end Snuffy.KLAdditivity

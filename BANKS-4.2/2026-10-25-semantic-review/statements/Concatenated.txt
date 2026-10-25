@@ -1,0 +1,59 @@
+import Snuffy.Threshold
+import Snuffy.Bridge
+import Mathlib.Data.Fin.Tuple.Basic
+
+open Finset
+
+namespace Snuffy.Concatenated
+
+open Snuffy.Threshold
+
+theorem distance3_corrects_one {X : Type*} [MetricSpace X] {Code : Set X}
+    (hsep : ∀ c ∈ Code, ∀ c' ∈ Code, c ≠ c' → (3 : ℝ) ≤ dist c c') {dec : X → X}
+    (hdecC : ∀ y, dec y ∈ Code) (hnear : ∀ y, ∀ c ∈ Code, dist y (dec y) ≤ dist y c)
+    {c y : X} (hc : c ∈ Code) (hy : dist y c ≤ 1) : dec y = c  := [proof body omitted in statement view]
+
+abbrev Loc (k : ℕ) := Fin k → Fin 7
+
+def sub {k : ℕ} (F : Finset (Loc (k + 1))) (i : Fin 7) : Finset (Loc k) :=
+  univ.filter fun a => Fin.cons i a ∈ F
+
+def Fails : (k : ℕ) → Finset (Loc k) → Prop
+  | 0, F => F.Nonempty
+  | k + 1, F => ∃ i j, i ≠ j ∧ Fails k (sub F i) ∧ Fails k (sub F j)
+
+def consEmb (k : ℕ) (i : Fin 7) : Loc k ↪ Loc (k + 1) :=
+  ⟨fun a => Fin.cons i a, fun _ _ h => Fin.cons_right_injective (α := fun _ : Fin (k + 1) => Fin 7) i h⟩
+
+def lift {k : ℕ} (i : Fin 7) (w : Finset (Loc k)) : Finset (Loc (k + 1)) :=
+  w.map (consEmb k i)
+
+def witnesses : (k : ℕ) → Finset (Finset (Loc k))
+  | 0 => {univ}
+  | k + 1 => (univ.filter fun ij : Fin 7 × Fin 7 => ij.1 < ij.2).biUnion fun ij =>
+      (witnesses k ×ˢ witnesses k).image fun w => lift ij.1 w.1 ∪ lift ij.2 w.2
+
+theorem lift_subset {k : ℕ} {F : Finset (Loc (k + 1))} {i : Fin 7} {w : Finset (Loc k)}
+    (h : w ⊆ sub F i) : lift i w ⊆ F  := [proof body omitted in statement view]
+
+theorem fails_witness : ∀ (k : ℕ) (F : Finset (Loc k)), Fails k F → ∃ w ∈ witnesses k, w ⊆ F := [proof body omitted in statement view]
+
+theorem card_lift {k : ℕ} (i : Fin 7) (w : Finset (Loc k)) : (lift i w).card = w.card  := [proof body omitted in statement view]
+
+theorem disjoint_lift {k : ℕ} {i j : Fin 7} (hij : i ≠ j) (w₁ w₂ : Finset (Loc k)) :
+    Disjoint (lift i w₁) (lift j w₂)  := [proof body omitted in statement view]
+
+theorem card_witness : ∀ (k : ℕ), ∀ w ∈ witnesses k, w.card = 2 ^ k := [proof body omitted in statement view]
+
+theorem card_witnesses : ∀ k : ℕ, ((witnesses k).card : ℝ) ≤ 21 ^ (2 ^ k - 1) := [proof body omitted in statement view]
+
+theorem concatenated_threshold (k : ℕ) (μ : FaultLaw (Loc k)) {p : ℝ} (hp0 : 0 ≤ p)
+    (hμ : LocalStochastic μ p) [DecidablePred (Fails k)] :
+    prob μ (Fails k) ≤ (21 * p) ^ (2 ^ k) / 21  := [proof body omitted in statement view]
+
+theorem concatenated_ceiling {p : ℝ} (hp0 : 0 ≤ p) (hp : p < 1 / 21)
+    (μ : ∀ k, FaultLaw (Loc k)) (hμ : ∀ k, LocalStochastic (μ k) p)
+    [∀ k, DecidablePred (Fails k)] {ε : ℝ} (hε : 0 < ε) :
+    ∃ k₀, ∀ k ≥ k₀, prob (μ k) (Fails k) < ε  := [proof body omitted in statement view]
+
+end Snuffy.Concatenated

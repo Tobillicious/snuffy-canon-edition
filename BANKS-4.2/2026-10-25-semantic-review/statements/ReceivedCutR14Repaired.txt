@@ -1,0 +1,24 @@
+import Snuffy.R14Boundary
+
+namespace UPTR16CUTR14
+open UPTR14Boundary
+
+theorem journal_projection_step_ext (s t : St) (e : Ev)
+    (h : projectJ s = projectJ t) :
+    projectJ (step s e) = projectJ (step t e)  := [proof body omitted in statement view]
+
+theorem sink_projection_step_ext (s t : St) (e : Ev)
+    (h : projectK s = projectK t) :
+    projectK (step s e) = projectK (step t e)  := [proof body omitted in statement view]
+
+theorem outside_projection_step_ext (s t : St) (e : Ev)
+    (h : projectOutside s = projectOutside t) :
+    projectOutside (step s e) = projectOutside (step t e)  := [proof body omitted in statement view]
+
+theorem journal_outside_unchanged (s : St) (g n p : Nat) :
+    projectOutside (step s (.journal g n p)) = projectOutside s  := [proof body omitted in statement view]
+
+theorem sink_outside_unchanged (s : St) (g n p : Nat) (harmful : Bool) :
+    projectOutside (step s (.effect g n p harmful)) = projectOutside s  := [proof body omitted in statement view]
+
+end UPTR16CUTR14

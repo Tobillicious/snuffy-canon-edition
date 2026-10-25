@@ -1,0 +1,45 @@
+import Mathlib
+
+namespace UPTReadoutFollowup
+
+def outDiag (a g occupation : ℝ) := (1-g)*a+g*(1-occupation)
+def outDet (a coherence g occupation : ℝ) :=
+  outDiag a g occupation*(1-outDiag a g occupation)-(1-g)*coherence
+
+theorem determinant_identity (a coherence g occupation : ℝ) :
+    outDet a coherence g occupation =
+      g*occupation*(1-occupation) + g*(1-g)*(a-(1-occupation))^2 +
+        (1-g)*(a*(1-a)-coherence)  := [proof body omitted in statement view]
+
+theorem determinant_lower (a coherence g occupation : ℝ)
+    (hg0 : 0 ≤ g) (hg1 : g ≤ 1) (hc : coherence ≤ a*(1-a)) :
+    g*occupation*(1-occupation) ≤ outDet a coherence g occupation  := [proof body omitted in statement view]
+
+theorem strictly_positive_determinant (a coherence g occupation : ℝ)
+    (hg0 : 0 < g) (hg1 : g ≤ 1) (hn0 : 0 < occupation) (hn1 : occupation < 1)
+    (hc : coherence ≤ a*(1-a)) : 0 < outDet a coherence g occupation  := [proof body omitted in statement view]
+
+theorem spectral_lower (lo hi det bound : ℝ) (hl : 0 ≤ lo)
+    (_hh : 0 ≤ hi) (trace : lo+hi=1) (product : lo*hi=det)
+    (hb : bound ≤ det) : bound ≤ lo  := [proof body omitted in statement view]
+
+def weight (K : List Bool → Bool → ℝ) : List Bool → List Bool → ℝ
+  | _, [] => 1
+  | h, b :: rest => K h b * weight K (h++[b]) rest
+
+theorem weight_nonnegative (G : List Bool → Bool → ℝ)
+    (hG : ∀ h b, 0 ≤ G h b) (h path : List Bool) : 0 ≤ weight G h path  := [proof body omitted in statement view]
+
+theorem conditional_record_lower (K G : List Bool → Bool → ℝ) (eta : ℝ)
+    (he : 0 ≤ eta) (hG : ∀ h b, 0 ≤ G h b)
+    (minor : ∀ h b, eta*G h b ≤ K h b) (h path : List Bool) :
+    eta^path.length * weight G h path ≤ weight K h path  := [proof body omitted in statement view]
+
+def total (G : List Bool → Bool → ℝ) : List Bool → Nat → ℝ
+  | _, 0 => 1
+  | h, n+1 => G h false*total G (h++[false]) n + G h true*total G (h++[true]) n
+
+theorem baseline_normalized (G : List Bool → Bool → ℝ)
+    (norm : ∀ h, G h false+G h true=1) (h : List Bool) (n : Nat) : total G h n=1  := [proof body omitted in statement view]
+
+end UPTReadoutFollowup

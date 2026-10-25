@@ -1,0 +1,22 @@
+import Snuffy.DataProcessing
+import Mathlib.InformationTheory.KullbackLeibler.ChainRule
+import Mathlib.Probability.Kernel.Disintegration.StandardBorel
+
+open MeasureTheory ProbabilityTheory InformationTheory
+
+namespace Snuffy.Information
+
+variable {α β : Type*} [MeasurableSpace α] [MeasurableSpace β]
+
+theorem klDiv_map_swap (μ ν : Measure (α × β)) [IsFiniteMeasure μ] [IsFiniteMeasure ν] :
+    klDiv (μ.map Prod.swap) (ν.map Prod.swap) = klDiv μ ν  := [proof body omitted in statement view]
+
+theorem golden_formula [StandardBorelSpace α] [Nonempty α] (J : Measure (α × β))
+    [IsProbabilityMeasure J] (Q : Measure β) [IsProbabilityMeasure Q] :
+    klDiv J (J.fst.prod Q) = klDiv J.snd Q + mutualInfo J  := [proof body omitted in statement view]
+
+theorem mutualInfo_le_klDiv [StandardBorelSpace α] [Nonempty α] (J : Measure (α × β))
+    [IsProbabilityMeasure J] (Q : Measure β) [IsProbabilityMeasure Q] :
+    mutualInfo J ≤ klDiv J (J.fst.prod Q)  := [proof body omitted in statement view]
+
+end Snuffy.Information

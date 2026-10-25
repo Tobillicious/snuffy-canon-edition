@@ -1,0 +1,23 @@
+import Snuffy.UnionClosure
+
+open Snuffy.Greatestness Snuffy.UnionClosure
+
+namespace Snuffy.SolventReciprocity
+
+variable {n : ℕ} {L : Fin n → Type*} [∀ i, SemilatticeSup (L i)] [∀ i, OrderTop (L i)]
+
+theorem solvent_keeps_everyone {P : Type*} (hn : 0 < n) (keeps : L ⟨0, hn⟩ → P → Prop)
+    (htopkeeps : ∀ m : P, keeps ((⊤ : ∀ i, L i) ⟨0, hn⟩) m)
+    {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ} {B : ℝ}
+    (htopR : (⊤ : ∀ i, L i) ∈ R) (hsolv : c ⊤ ≤ B) {o : ∀ i, L i}
+    (ho : Aligned (budgetFamily R c B) o) (m : P) : keeps (o ⟨0, hn⟩) m  := [proof body omitted in statement view]
+
+theorem reciprocity_dominance_solvent {P : Type*} (hn : 0 < n)
+    (keeps : L ⟨0, hn⟩ → P → Prop)
+    (htopkeeps : ∀ m : P, keeps ((⊤ : ∀ i, L i) ⟨0, hn⟩) m)
+    {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ} {B : ℝ}
+    (htopR : (⊤ : ∀ i, L i) ∈ R) (hsolv : c ⊤ ≤ B) {o : ∀ i, L i}
+    (ho : Aligned (budgetFamily R c B) o) (q : ∀ i, L i) (m : P)
+    (_hm : keeps (q ⟨0, hn⟩) m) : keeps (o ⟨0, hn⟩) m  := [proof body omitted in statement view]
+
+end Snuffy.SolventReciprocity

@@ -1,0 +1,21 @@
+--- 2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/IntegrationCertificate.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/IntegrationCertificate.lean
+@@ -15,8 +15,8 @@
+    what the submitted general derivation must exclude or repair.
+ -/
+ 
+-import FIFOInstance
+-import TransportLaw
++import Snuffy.FIFOInstance
++import Snuffy.TransportLaw
+ 
+ /-! ## A1: typed-gate decomposition -/
+ 
+@@ -123,7 +123,3 @@
+ 
+ /-! ## Axiom reports -/
+ 
+-#print axioms typed_gate_decomposition
+-#print axioms psi2_uniform
+-#print axioms h8_bound_two_node
+-#print axioms finish_interval_deadline

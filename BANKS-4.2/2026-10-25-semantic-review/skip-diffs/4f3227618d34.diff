@@ -1,0 +1,20 @@
+--- 2026-10-24-codex-eight-answer-joins/inputs/R17AQueueFinality.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/R17AQueueFinality.lean
+@@ -1,4 +1,4 @@
+-import UPTR12A
++import Snuffy.UPTR12A
+ 
+ /-!
+ R17-A -- queued-effect finality, review candidate (2026-10-23).
+@@ -176,11 +176,4 @@
+   rcases h.sourceAccepts with ⟨_,_,hgen,hnonce,hmeaning,_⟩
+   exact ⟨hmeaning,hgen,hnonce⟩
+ 
+-#print axioms new_effect_has_current_permit
+-#print axioms drain_currently_authorized
+-#print axioms revoked_refuses
+-#print axioms expired_refuses
+-#print axioms installed_floor_refuses
+-#print axioms spend_is_funded
+-#print axioms application_has_source_binding
+ end UPTR17A

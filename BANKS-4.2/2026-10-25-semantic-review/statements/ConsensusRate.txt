@@ -1,0 +1,18 @@
+import Snuffy.BridgeH7
+
+namespace Snuffy.ConsensusRate
+
+open GeminiBridgeH7
+
+theorem bandwidth_contraction {R B a : ℝ} (hR : 0 ≤ R) (hB : 0 < B) (ha : 0 < a)
+    (haOne : a ≤ 1) (anchor evidence initial : ℝ) :
+    rate a (R / (R + B)) = R * (1 - a) / (R + B) ∧
+      0 ≤ rate a (R / (R + B)) ∧ rate a (R / (R + B)) < 1 ∧
+      (∀ s, step a (R / (R + B)) anchor evidence s = s →
+        s = equilibrium a (R / (R + B)) anchor evidence) ∧
+      ∀ n, run a (R / (R + B)) anchor evidence initial n
+          - equilibrium a (R / (R + B)) anchor evidence =
+        rate a (R / (R + B)) ^ n
+          * (initial - equilibrium a (R / (R + B)) anchor evidence)  := [proof body omitted in statement view]
+
+end Snuffy.ConsensusRate

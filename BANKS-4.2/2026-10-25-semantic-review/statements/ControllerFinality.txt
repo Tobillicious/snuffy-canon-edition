@@ -1,0 +1,258 @@
+namespace UPTController
+
+def tally {α : Type} (p : α → Bool) : List α → Nat
+  | [] => 0
+  | x :: xs => (if p x then 1 else 0) + tally p xs
+
+theorem tally_mono {α : Type} (p q : α → Bool) (xs : List α)
+    (h : ∀ x, x ∈ xs → p x = true → q x = true) : tally p xs ≤ tally q xs  := [proof body omitted in statement view]
+
+theorem quorum_has_honest {α : Type} (xs : List α) (fault vote : α → Bool) (f : Nat)
+    (hf : tally fault xs ≤ f) (hq : f < tally vote xs) :
+    ∃ x, x ∈ xs ∧ vote x = true ∧ fault x = false  := [proof body omitted in statement view]
+
+theorem two_tallies_bound {α : Type} (xs : List α) (fault a b : α → Bool)
+    (h : ∀ x, x ∈ xs → a x = true → b x = true → fault x = true) :
+    tally a xs + tally b xs ≤ xs.length + tally fault xs  := [proof body omitted in statement view]
+
+theorem quorum_intersection {α : Type} (xs : List α) (fault a b : α → Bool) (f q : Nat)
+    (hf : tally fault xs ≤ f) (ha : q ≤ tally a xs) (hb : q ≤ tally b xs)
+    (size : xs.length + f < 2 * q) :
+    ∃ x, x ∈ xs ∧ a x = true ∧ b x = true ∧ fault x = false  := [proof body omitted in statement view]
+
+theorem committee_threshold (f : Nat) : (3 * f + 1) + f < 2 * (2 * f + 1)  := [proof body omitted in statement view]
+
+def Prefix {α : Type} (a b : List α) : Prop := ∃ tail, b = a ++ tail
+
+theorem prefix_trans {α : Type} {a b c : List α} (h : Prefix a b) (k : Prefix b c) :
+    Prefix a c  := [proof body omitted in statement view]
+
+theorem equal_length_prefixes {α : Type} (a b final : List α)
+    (ha : Prefix a final) (hb : Prefix b final) (hlen : a.length = b.length) : a = b  := [proof body omitted in statement view]
+
+theorem certificates_do_not_equivocate {α : Type} (roster : List Nat)
+    (fault a b : Nat → Bool) (f : Nat) (u v : List α) (durable : Nat → List α)
+    (hf : tally fault roster ≤ f) (size : roster.length = 3 * f + 1)
+    (qa : 2 * f + 1 ≤ tally a roster) (qb : 2 * f + 1 ≤ tally b roster)
+    (authA : ∀ r, r ∈ roster → fault r = false → a r = true → Prefix u (durable r))
+    (authB : ∀ r, r ∈ roster → fault r = false → b r = true → Prefix v (durable r))
+    (samePosition : u.length = v.length) : u = v  := [proof body omitted in statement view]
+
+theorem certificate_is_final {α : Type} (roster : List Nat) (fault vote : Nat → Bool)
+    (f : Nat) (history final : List α) (durable : Nat → List α)
+    (fault_bound : tally fault roster ≤ f) (threshold : 2 * f + 1 ≤ tally vote roster)
+    (authenticated_emit : ∀ r, r ∈ roster → fault r = false → vote r = true →
+      Prefix history (durable r))
+    (ordered_durable : ∀ r, r ∈ roster → fault r = false → Prefix (durable r) final) :
+    Prefix history final  := [proof body omitted in statement view]
+
+structure Context where
+  scope : List Nat
+  generation : Nat
+  boot : Nat
+  sequence : Nat
+  nonce : Nat
+  deriving DecidableEq, Repr
+
+def contextWords (c : Context) : List Nat :=
+  [1, c.generation, c.boot, c.sequence, c.nonce] ++ c.scope
+
+theorem context_words_injective (a b : Context) (h : contextWords a = contextWords b) :
+    a = b  := [proof body omitted in statement view]
+
+structure State where
+  generation : Nat
+  held : Bool
+  boot : Nat
+  closed : Nat
+  pending : Option Context
+  deriving DecidableEq, Repr
+
+inductive Op
+  | authorize (c : Context)
+  | retire (c : Context)
+  | release (c : Context)
+  | openBoot (b : Nat)
+  | close (q : Nat)
+  deriving DecidableEq, Repr
+
+inductive Reply
+  | rejected
+  | grant (c : Context)
+  | floor (c : Context) (newFloor : Nat)
+  | released
+  | booted
+  | closed
+  deriving DecidableEq, Repr
+
+def step (enrol : Nat → List Nat) (s : State) : Op → State × Reply
+  | .authorize c =>
+    if c.scope = enrol c.generation ∧ c.generation = s.generation ∧
+        s.held = false ∧ c.boot = s.boot then
+      match s.pending with
+      | some old => if old = c then (s, .grant old) else (s, .rejected)
+      | none => if c.sequence = s.closed + 1 then
+          ({s with pending := some c}, .grant c) else (s, .rejected)
+    else (s, .rejected)
+  | .retire c =>
+    if c.scope = enrol c.generation ∧ c.generation = s.generation then
+      ({s with generation := s.generation + 1, held := true}, .floor c (s.generation + 1))
+    else (s, .rejected)
+  | .release c =>
+    if c.scope = enrol c.generation ∧ c.generation = s.generation ∧
+        s.held = true ∧ s.boot < c.boot then
+      ({s with held := false, boot := c.boot, closed := 0, pending := none}, .released)
+    else (s, .rejected)
+  | .openBoot b => if s.boot < b then
+      ({s with boot := b, closed := 0, pending := none}, .booted) else (s, .rejected)
+  | .close q => match s.pending with
+      | some c => if q = c.sequence then
+          ({s with closed := max s.closed q, pending := none}, .closed) else (s, .rejected)
+      | none => if q ≤ s.closed then (s, .closed) else (s, .rejected)
+
+def run (enrol : Nat → List Nat) (s : State) : List Op → State
+  | [] => s
+  | op :: rest => run enrol (step enrol s op).1 rest
+
+theorem run_append (enrol : Nat → List Nat) (s : State) (a b : List Op) :
+    run enrol s (a ++ b) = run enrol (run enrol s a) b  := [proof body omitted in statement view]
+
+theorem step_floor_mono (enrol : Nat → List Nat) (s : State) (op : Op) :
+    s.generation ≤ (step enrol s op).1.generation  := [proof body omitted in statement view]
+
+theorem run_floor_mono (enrol : Nat → List Nat) (s : State) (ops : List Op) :
+    s.generation ≤ (run enrol s ops).generation  := [proof body omitted in statement view]
+
+theorem grant_fields (enrol : Nat → List Nat) (s : State) (c : Context)
+    (h : (step enrol s (.authorize c)).2 = .grant c) :
+    c.scope = enrol c.generation ∧ c.generation = s.generation ∧
+      s.held = false ∧ c.boot = s.boot  := [proof body omitted in statement view]
+
+theorem floor_fields (enrol : Nat → List Nat) (s : State) (c : Context) (g : Nat)
+    (h : (step enrol s (.retire c)).2 = .floor c g) :
+    c.scope = enrol c.generation ∧ c.generation = s.generation ∧
+      g = c.generation + 1 ∧ (step enrol s (.retire c)).1.held = true  := [proof body omitted in statement view]
+
+theorem held_refuses (enrol : Nat → List Nat) (s : State) (c : Context)
+    (h : s.held = true) : (step enrol s (.authorize c)).2 = .rejected  := [proof body omitted in statement view]
+
+theorem retired_generation_refuses (enrol : Nat → List Nat) (s : State) (c : Context)
+    (retired : c.generation < s.generation) :
+    (step enrol s (.authorize c)).2 ≠ .grant c  := [proof body omitted in statement view]
+
+theorem pending_conflict_refuses (enrol : Nat → List Nat) (s : State) (old c : Context)
+    (pending : s.pending = some old) (different : old ≠ c) :
+    (step enrol s (.authorize c)).2 = .rejected  := [proof body omitted in statement view]
+
+theorem closed_sequence_refuses (enrol : Nat → List Nat) (s : State) (c : Context)
+    (empty : s.pending = none) (closed : c.sequence ≤ s.closed) :
+    (step enrol s (.authorize c)).2 = .rejected  := [proof body omitted in statement view]
+
+structure Receipt where
+  past : List Op
+  context : Context
+  isFloor : Bool
+  deriving DecidableEq, Repr
+
+def namedOp (r : Receipt) : Op := if r.isFloor then .retire r.context else .authorize r.context
+def expectedReply (r : Receipt) : Reply :=
+  if r.isFloor then .floor r.context (r.context.generation + 1) else .grant r.context
+def history (r : Receipt) : List Op := r.past ++ [namedOp r]
+def replayOK (enrol : Nat → List Nat) (start : State) (r : Receipt) : Prop :=
+  (step enrol (run enrol start r.past) (namedOp r)).2 = expectedReply r
+
+theorem receipt_names_success (enrol : Nat → List Nat) (start : State) (r : Receipt)
+    (final : List Op) (hc : Prefix (history r) final) (hr : replayOK enrol start r) :
+    ∃ suffix, final = (r.past ++ [namedOp r]) ++ suffix ∧
+      (step enrol (run enrol start r.past) (namedOp r)).2 = expectedReply r  := [proof body omitted in statement view]
+
+theorem certified_receipt_names_success (enrol : Nat → List Nat) (start : State)
+    (r : Receipt) (roster : List Nat) (fault vote : Nat → Bool) (f : Nat)
+    (final : List Op) (durable : Nat → List Op)
+    (hf : tally fault roster ≤ f) (hq : 2 * f + 1 ≤ tally vote roster)
+    (auth : ∀ x, x ∈ roster → fault x = false → vote x = true →
+      Prefix (history r) (durable x))
+    (order : ∀ x, x ∈ roster → fault x = false → Prefix (durable x) final)
+    (hr : replayOK enrol start r) :
+    ∃ suffix, final = (r.past ++ [namedOp r]) ++ suffix ∧
+      (step enrol (run enrol start r.past) (namedOp r)).2 = expectedReply r  := [proof body omitted in statement view]
+
+theorem same_generation_no_context_conflict (enrol : Nat → List Nat)
+    (s t : State) (a b : Context)
+    (ha : (step enrol s (.authorize a)).2 = .grant a)
+    (hb : (step enrol t (.authorize b)).2 = .grant b)
+    (hg : a.generation = b.generation) : a.scope = b.scope  := [proof body omitted in statement view]
+
+theorem checkpoint_replay (enrol : Nat → List Nat) (start : State) (initial suffix : List Op) :
+    run enrol (run enrol start initial) suffix = run enrol start (initial ++ suffix)  := [proof body omitted in statement view]
+
+structure Local where
+  floor : Nat
+  boot : Nat
+  ready : Bool
+  consumed : Bool
+  pending : Option Context
+  deriving DecidableEq, Repr
+
+def allows (s : Local) (c : Context) (age limit : Nat) : Prop :=
+  s.ready = true ∧ s.consumed = false ∧ s.floor ≤ c.generation ∧
+  c.boot = s.boot ∧ s.pending = some c ∧ age < limit
+
+def consume (s : Local) : Local := {s with consumed := true, pending := none}
+def restart (s : Local) (checkpointFloor : Nat) : Local :=
+  {s with floor := max s.floor checkpointFloor, boot := s.boot + 1, ready := false, consumed := true, pending := none}
+
+theorem consume_once (s : Local) (c : Context) (age limit : Nat) :
+    ¬ allows (consume s) c age limit  := [proof body omitted in statement view]
+
+theorem restart_disabled (s : Local) (g : Nat) (c : Context) (age limit : Nat) :
+    ¬ allows (restart s g) c age limit  := [proof body omitted in statement view]
+
+theorem retained_floor_refuses (s : Local) (checkpointFloor : Nat) (c : Context)
+    (age limit : Nat) (retired : c.generation < checkpointFloor)
+    (recovered : Local) (monotone : (restart s checkpointFloor).floor ≤ recovered.floor) :
+    ¬ allows recovered c age limit  := [proof body omitted in statement view]
+
+theorem old_boot_refuses (s : Local) (c : Context) (age limit : Nat)
+    (old : c.boot ≤ s.boot) (recovered : Local)
+    (newBoot : (restart s 0).boot ≤ recovered.boot) : ¬ allows recovered c age limit  := [proof body omitted in statement view]
+
+theorem deadline_refuses (s : Local) (c : Context) (age limit : Nat)
+    (expired : limit ≤ age) : ¬ allows s c age limit  := [proof body omitted in statement view]
+
+def emits (enrol : Nat → List Nat) (s : State) : Op → List Nat
+  | .authorize c => if (step enrol s (.authorize c)).2 = .grant c then [c.generation] else []
+  | _ => []
+
+def issued (enrol : Nat → List Nat) (s : State) : List Op → List Nat
+  | [] => []
+  | o :: os => emits enrol s o ++ issued enrol (step enrol s o).1 os
+
+theorem issued_append (enrol : Nat → List Nat) (s : State) (a b : List Op) :
+    issued enrol s (a ++ b) = issued enrol s a ++ issued enrol (run enrol s a) b  := [proof body omitted in statement view]
+
+theorem emission_bounded (enrol : Nat → List Nat) (s : State) (o : Op) (g : Nat)
+    (h : g ∈ emits enrol s o) : g ≤ s.generation  := [proof body omitted in statement view]
+
+theorem issues_bounded_by_final_floor (enrol : Nat → List Nat) (s : State) (ops : List Op)
+    (g : Nat) (h : g ∈ issued enrol s ops) : g ≤ (run enrol s ops).generation  := [proof body omitted in statement view]
+
+theorem step_stays_held (enrol : Nat → List Nat) (s : State) (o : Op)
+    (held : s.held = true) (noRelease : ∀ c, o ≠ .release c) :
+    (step enrol s o).1.held = true  := [proof body omitted in statement view]
+
+theorem held_issues_nothing (enrol : Nat → List Nat) (s : State) (ops : List Op)
+    (held : s.held = true) (noRelease : ∀ c, Op.release c ∉ ops) : issued enrol s ops = []  := [proof body omitted in statement view]
+
+theorem grant_receipt_is_issued (enrol : Nat → List Nat) (start : State) (r : Receipt)
+    (final : List Op) (grant : r.isFloor = false) (hc : Prefix (history r) final)
+    (hr : replayOK enrol start r) : r.context.generation ∈ issued enrol start final  := [proof body omitted in statement view]
+
+theorem hold_bounds_every_issued_grant (enrol : Nat → List Nat) (start : State)
+    (before during : List Op) (c : Context)
+    (retired : (step enrol (run enrol start before) (.retire c)).2 =
+      .floor c (c.generation + 1))
+    (noRelease : ∀ d, Op.release d ∉ during) (g : Nat)
+    (hg : g ∈ issued enrol start (before ++ .retire c :: during)) : g ≤ c.generation  := [proof body omitted in statement view]
+
+end UPTController

@@ -1,0 +1,32 @@
+--- 2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/ConservedRouting.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/ConservedRouting.lean
+@@ -19,7 +19,7 @@
+    for strict positivity; the ≥ 0 version holds non-strictly).
+ -/
+ 
+-import TransportLaw
++import Snuffy.TransportLaw
+ 
+ /-! ## The conserved routing family -/
+ 
+@@ -82,7 +82,7 @@
+ 
+ /-- At a concrete three-node population, the monopoly allocation has HHI exactly 1. -/
+ example : hhiQ (fun i : Fin 3 => if i = 0 then (1:ℚ) else 0) = 1 := by
+-  unfold hhiQ; simp [Fin.sum_univ_three]
++  unfold hhiQ; simp
+ 
+ /-- The monopoly penalty (the stub's theorem, with regularity from the original premise
+ class): for n > 1 and m + α > 0, uniform strictly beats monopoly. -/
+@@ -147,11 +147,3 @@
+ 
+ /-! ## Axiom reports -/
+ 
+-#print axioms conserved_decomposes
+-#print axioms regular_psi_is_hhi
+-#print axioms hhi_uniform
+-#print axioms monopoly_exceeds_uniform
+-#print axioms h8_exact_general
+-#print axioms thermal_ledger_positivity_strict
+-#print axioms thermal_ledger_positivity_nonneg
+-#print axioms jarzynski_bound_valid

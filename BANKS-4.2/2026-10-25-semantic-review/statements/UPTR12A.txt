@@ -1,0 +1,133 @@
+import Snuffy.UPTLawLife
+import Snuffy.ControllerFence
+
+namespace UPTR12A
+
+structure Meaning where
+  resident : Nat
+  criterion : Nat
+  feasibleFamily : Nat
+  outcomeSemantics : Nat
+  policy : Nat
+  target : Nat
+  effect : Nat
+  activation : Nat
+  deadlineBasis : Nat
+  riskLedger : Nat
+  deriving DecidableEq, Repr
+
+def words (m : Meaning) : List Nat :=
+  [1201, m.resident, m.criterion, m.feasibleFamily, m.outcomeSemantics,
+    m.policy, m.target, m.effect, m.activation, m.deadlineBasis, m.riskLedger]
+
+theorem words_injective {a b : Meaning} (h : words a = words b) : a = b  := [proof body omitted in statement view]
+
+structure DecisionCertificate where
+  meaning : Meaning
+  feasible : Nat → Prop
+  aliveExisting : Nat → Nat → Prop
+  freeExisting : Nat → Nat → Prop
+  aliveNew : Nat → Nat → Prop
+  freeNew : Nat → Nat → Prop
+  chosen : Nat
+  chosen_eq : chosen = meaning.policy
+  aligned : UPT.LexAlignedL feasible
+    [aliveExisting, freeExisting, aliveNew, freeNew] chosen
+
+structure BoundGrant where
+  cert : DecisionCertificate
+  enrol : Nat → List Nat
+  controller : UPTController.State
+  context : UPTController.Context
+  scopeBound : context.scope = words cert.meaning
+  grant : (UPTController.step enrol controller
+    (.authorize context)).2 = .grant context
+
+theorem grant_has_decision_scope (g : BoundGrant) :
+    g.enrol g.context.generation = words g.cert.meaning  := [proof body omitted in statement view]
+
+theorem same_generation_cannot_rebind (a b : BoundGrant)
+    (sameEnrol : a.enrol = b.enrol)
+    (sameGen : a.context.generation = b.context.generation) :
+    a.cert.meaning = b.cert.meaning  := [proof body omitted in statement view]
+
+structure FinalizedGrant where
+  bound : BoundGrant
+  initial : UPTController.State
+  receipt : UPTController.Receipt
+  finalOps : List UPTController.Op
+  receiptContext : receipt.context = bound.context
+  receiptIsGrant : receipt.isFloor = false
+  sameReplayState : bound.controller =
+    UPTController.run bound.enrol initial receipt.past
+  replayProof : UPTController.replayOK bound.enrol initial receipt
+  finalPrefix : UPTController.Prefix (UPTController.history receipt) finalOps
+
+theorem finalized_receipt_is_in_log (g : FinalizedGrant) :
+    ∃ suffix, g.finalOps =
+      (g.receipt.past ++ [UPTController.namedOp g.receipt]) ++ suffix  := [proof body omitted in statement view]
+
+theorem finalized_receipt_is_authorize (g : FinalizedGrant) :
+    UPTController.namedOp g.receipt = .authorize g.bound.context  := [proof body omitted in statement view]
+
+structure Effect where
+  meaning : Meaning
+  generation : Nat
+  nonce : Nat
+  deriving DecidableEq, Repr
+
+structure Target where
+  id : Nat
+  floor : Nat
+  usedNonces : List Nat
+  committed : List Effect
+  deriving Repr
+
+def Accepts (s : Target) (fg : FinalizedGrant) (e : Effect) : Prop :=
+  s.id = fg.bound.cert.meaning.target ∧
+  s.floor ≤ fg.bound.context.generation ∧
+  e.generation = fg.bound.context.generation ∧
+  e.nonce = fg.bound.context.nonce ∧
+  e.meaning = fg.bound.cert.meaning ∧
+  fg.bound.context.nonce ∉ s.usedNonces
+
+instance (s : Target) (fg : FinalizedGrant) (e : Effect) : Decidable (Accepts s fg e) := by
+  unfold Accepts; infer_instance
+
+def applyEffect (s : Target) (fg : FinalizedGrant) (e : Effect) : Target :=
+  if Accepts s fg e then
+    { s with
+      usedNonces := fg.bound.context.nonce :: s.usedNonces
+      committed := s.committed ++ [e] }
+  else s
+
+theorem changed_log_implies_checks (s : Target) (fg : FinalizedGrant) (e : Effect)
+    (changed : (applyEffect s fg e).committed ≠ s.committed) : Accepts s fg e  := [proof body omitted in statement view]
+
+theorem applied_effect_has_aligned_decision (s : Target) (fg : FinalizedGrant) (e : Effect)
+    (changed : (applyEffect s fg e).committed ≠ s.committed) :
+    e.meaning = fg.bound.cert.meaning ∧
+    e.meaning.policy = fg.bound.cert.chosen ∧
+    UPT.LexAlignedL fg.bound.cert.feasible
+      [fg.bound.cert.aliveExisting, fg.bound.cert.freeExisting,
+       fg.bound.cert.aliveNew, fg.bound.cert.freeNew] fg.bound.cert.chosen  := [proof body omitted in statement view]
+
+theorem raised_floor_refuses (s : Target) (fg : FinalizedGrant) (e : Effect)
+    (old : fg.bound.context.generation < s.floor) :
+    (applyEffect s fg e).committed = s.committed  := [proof body omitted in statement view]
+
+theorem wrong_effect_refuses (s : Target) (fg : FinalizedGrant) (e : Effect)
+    (wrong : e.meaning ≠ fg.bound.cert.meaning) :
+    (applyEffect s fg e).committed = s.committed  := [proof body omitted in statement view]
+
+theorem replay_refuses (s : Target) (fg : FinalizedGrant) (e : Effect)
+    (used : fg.bound.context.nonce ∈ s.usedNonces) :
+    (applyEffect s fg e).committed = s.committed  := [proof body omitted in statement view]
+
+theorem original_fence_theorem_available (s : UPTFence.St) (g : Nat)
+    (attempts : List UPTFence.Ev)
+    (oldTokens : ∀ h, h ∈ s.minted → h ≤ g)
+    (laterTokens : ∀ h, UPTFence.Ev.mint h ∈ attempts → h ≤ g) :
+    (UPTFence.run (UPTFence.apply s (.raise (g + 1))) attempts).log = s.log  := [proof body omitted in statement view]
+
+end UPTR12A

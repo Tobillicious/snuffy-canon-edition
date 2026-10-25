@@ -1,0 +1,74 @@
+import Mathlib.Analysis.Normed.Algebra.Exponential
+import Mathlib.Analysis.SpecialFunctions.Exponential
+import Mathlib.Analysis.SpecificLimits.Basic
+
+open NormedSpace Filter Finset
+open scoped Nat
+
+namespace Snuffy.Trotter
+
+variable {𝔸 : Type*} [NormedRing 𝔸] [NormedAlgebra ℝ 𝔸] [NormOneClass 𝔸] [CompleteSpace 𝔸]
+
+omit [NormOneClass 𝔸] in
+private lemma hasSum_exp (x : 𝔸) : HasSum (fun n => ((n !)⁻¹ : ℝ) • x ^ n) (exp x)  := [proof body omitted in statement view]
+
+private lemma hasSum_rexp (r : ℝ) : HasSum (fun n => ((n !)⁻¹ : ℝ) * r ^ n) (Real.exp r)  := [proof body omitted in statement view]
+
+omit [CompleteSpace 𝔸] in
+private lemma norm_term_le (x : 𝔸) (n : ℕ) :
+    ‖((n !)⁻¹ : ℝ) • x ^ n‖ ≤ ((n !)⁻¹ : ℝ) * ‖x‖ ^ n  := [proof body omitted in statement view]
+
+theorem norm_exp_le (x : 𝔸) : ‖exp x‖ ≤ Real.exp ‖x‖  := [proof body omitted in statement view]
+
+private lemma norm_exp_sub_one_sub_le_rexp (x : 𝔸) :
+    ‖exp x - 1 - x‖ ≤ Real.exp ‖x‖ - 1 - ‖x‖  := [proof body omitted in statement view]
+
+private lemma rexp_sub_one_sub_le {r : ℝ} (hr : 0 ≤ r) :
+    Real.exp r - 1 - r ≤ r ^ 2 / 2 * Real.exp r  := [proof body omitted in statement view]
+
+theorem norm_exp_sub_one_sub_le (x : 𝔸) : ‖exp x - 1 - x‖ ≤ ‖x‖ ^ 2 / 2 * Real.exp ‖x‖  := [proof body omitted in statement view]
+
+private lemma g_mono {t u : ℝ} (ht : 0 ≤ t) (htu : t ≤ u) :
+    t ^ 2 * Real.exp (2 * t) ≤ u ^ 2 * Real.exp (2 * u)  := [proof body omitted in statement view]
+
+theorem norm_exp_mul_exp_sub (a b : 𝔸) :
+    ‖exp a * exp b - exp (a + b)‖ ≤ 3 * (‖a‖ + ‖b‖) ^ 2 * Real.exp (2 * (‖a‖ + ‖b‖))  := [proof body omitted in statement view]
+
+omit [NormedAlgebra ℝ 𝔸] [NormOneClass 𝔸] [CompleteSpace 𝔸] in
+private lemma norm_list_sum_le (l : List 𝔸) : ‖l.sum‖ ≤ (l.map norm).sum  := [proof body omitted in statement view]
+
+omit [NormedAlgebra ℝ 𝔸] [NormOneClass 𝔸] [CompleteSpace 𝔸] in
+private lemma list_norm_sum_nonneg (l : List 𝔸) : 0 ≤ (l.map norm).sum  := [proof body omitted in statement view]
+
+private lemma norm_list_prod_exp_le (l : List 𝔸) :
+    ‖(l.map exp).prod‖ ≤ Real.exp (l.map norm).sum  := [proof body omitted in statement view]
+
+theorem norm_exp_sum_sub_prod : ∀ l : List 𝔸,
+    ‖exp l.sum - (l.map exp).prod‖
+      ≤ 3 * l.length * (l.map norm).sum ^ 2 * Real.exp (2 * (l.map norm).sum) := [proof body omitted in statement view]
+
+omit [NormOneClass 𝔸] [CompleteSpace 𝔸] in
+private lemma list_sum_smul (c : ℝ) (l : List 𝔸) :
+    (l.map fun a => c • a).sum = c • l.sum  := [proof body omitted in statement view]
+
+omit [NormOneClass 𝔸] [CompleteSpace 𝔸] in
+private lemma list_norm_smul {c : ℝ} (hc : 0 ≤ c) (l : List 𝔸) :
+    ((l.map fun a => c • a).map norm).sum = c * (l.map norm).sum  := [proof body omitted in statement view]
+
+omit [NormedAlgebra ℝ 𝔸] [CompleteSpace 𝔸] in
+private lemma pow_sub_pow_le (X Y : 𝔸) {q δ : ℝ} (hq : 1 ≤ q) (hX : ‖X‖ ≤ q) (hY : ‖Y‖ ≤ q)
+    (hδ : ‖X - Y‖ ≤ δ) : ∀ n : ℕ, ‖X ^ n - Y ^ n‖ ≤ n * q ^ n * δ  := [proof body omitted in statement view]
+
+theorem trotter_bound (l : List 𝔸) {n : ℕ} (hn : 0 < n) :
+    ‖exp l.sum - ((l.map fun a => exp ((n : ℝ)⁻¹ • a)).prod) ^ n‖
+      ≤ 3 * l.length * (l.map norm).sum ^ 2 * Real.exp (3 * (l.map norm).sum) / n  := [proof body omitted in statement view]
+
+theorem trotter_tendsto (l : List 𝔸) :
+    Tendsto (fun n : ℕ => ((l.map fun a => exp ((n : ℝ)⁻¹ • a)).prod) ^ n) atTop
+      (nhds (exp l.sum))  := [proof body omitted in statement view]
+
+theorem lloyd_simulation (l : List 𝔸) {ε : ℝ} (hε : 0 < ε) :
+    ∃ n : ℕ, n = ⌈3 * l.length * (l.map norm).sum ^ 2 * Real.exp (3 * (l.map norm).sum) / ε⌉₊ + 1 ∧
+      ‖exp l.sum - ((l.map fun a => exp ((n : ℝ)⁻¹ • a)).prod) ^ n‖ ≤ ε  := [proof body omitted in statement view]
+
+end Snuffy.Trotter

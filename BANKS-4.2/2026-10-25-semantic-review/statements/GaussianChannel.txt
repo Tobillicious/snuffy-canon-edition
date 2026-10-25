@@ -1,0 +1,62 @@
+import Snuffy.GaussianKL
+import Snuffy.GoldenFormula
+import Mathlib.Probability.Kernel.Composition.RadonNikodym
+import Mathlib.Probability.Kernel.Composition.IntegralCompProd
+import Mathlib.Probability.Kernel.Composition.AbsolutelyContinuous
+
+open MeasureTheory ProbabilityTheory InformationTheory Real
+open scoped ENNReal NNReal
+
+namespace Snuffy.GaussianChannel
+
+noncomputable def chan (g : ℝ) (v : ℝ≥0) : Kernel ℝ ℝ where
+  toFun x := gaussianReal (g * x) v
+  measurable' := measurable_gaussianReal.comp
+    (Measurable.prodMk (measurable_const.mul measurable_id) measurable_const)
+
+theorem chan_apply (g : ℝ) (v : ℝ≥0) (x : ℝ) : chan g v x = gaussianReal (g * x) v  := [proof body omitted in statement view]
+
+theorem integral_quadratic_gaussian (a b c : ℝ) {v : ℝ≥0} (s : ℝ) :
+    ∫ y, (c - (y - a) ^ 2 / (2 * v) + (y - b) ^ 2 / (2 * s)) ∂gaussianReal a v
+      = c - (v : ℝ) / (2 * v) + ((v : ℝ) + (a - b) ^ 2) / (2 * s)  := [proof body omitted in statement view]
+
+section Bound
+
+variable (g : ℝ) {v : ℝ≥0} (hv : v ≠ 0) (PX : Measure ℝ) [IsProbabilityMeasure PX]
+
+noncomputable def quad (v : ℝ≥0) (m : ℝ) (s : ℝ≥0) (p : ℝ × ℝ) : ℝ :=
+  Real.log ((s : ℝ) / v) / 2 - (p.2 - g * p.1) ^ 2 / (2 * v) + (p.2 - g * m) ^ 2 / (2 * s)
+
+theorem measurable_quad (v : ℝ≥0) (m : ℝ) (s : ℝ≥0) : Measurable (quad g v m s)  := [proof body omitted in statement view]
+
+include hv in
+                                                   
+theorem llr_chan (m : ℝ) {s : ℝ≥0} (hs : s ≠ 0) :
+    llr (PX ⊗ₘ chan g v) (PX ⊗ₘ Kernel.const ℝ (gaussianReal (g * m) s))
+      =ᵐ[PX ⊗ₘ chan g v] quad g v m s  := [proof body omitted in statement view]
+
+noncomputable def outVar (v : ℝ≥0) : ℝ≥0 :=
+  ⟨g ^ 2 * ∫ x, (x - ∫ y, y ∂PX) ^ 2 ∂PX + v,
+    add_nonneg (mul_nonneg (sq_nonneg g)
+      (integral_nonneg (f := fun x : ℝ => (x - ∫ y, y ∂PX) ^ 2) fun _ => sq_nonneg _)) v.2⟩
+
+omit [IsProbabilityMeasure PX] in
+theorem coe_outVar (v : ℝ≥0) :
+    (outVar g PX v : ℝ) = g ^ 2 * ∫ x, (x - ∫ y, y ∂PX) ^ 2 ∂PX + v  := [proof body omitted in statement view]
+
+include hv in
+                                                                   
+theorem klDiv_chan (hX : MemLp id 2 PX) :
+    klDiv (PX ⊗ₘ chan g v)
+      (PX ⊗ₘ Kernel.const ℝ (gaussianReal (g * ∫ y, y ∂PX) (outVar g PX v)))
+      = ENNReal.ofReal (Real.log ((outVar g PX v : ℝ) / v) / 2)  := [proof body omitted in statement view]
+
+include hv in
+
+theorem gaussian_channel_bound (hX : MemLp id 2 PX) :
+    Snuffy.Information.mutualInfo (PX ⊗ₘ chan g v)
+      ≤ ENNReal.ofReal (Real.log (1 + g ^ 2 * (∫ x, (x - ∫ y, y ∂PX) ^ 2 ∂PX) / v) / 2)  := [proof body omitted in statement view]
+
+end Bound
+
+end Snuffy.GaussianChannel

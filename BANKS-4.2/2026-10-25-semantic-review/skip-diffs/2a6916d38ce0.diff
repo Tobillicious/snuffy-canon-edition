@@ -1,0 +1,16 @@
+--- 2026-10-23-gemini-bridge-dynamics/inputs/prior/ReflectionContraction.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/ReflectionContraction.lean
+@@ -172,13 +172,3 @@
+ 
+ end UPTReflectionContraction
+ 
+-#print axioms UPTReflectionContraction.finite_error_bound
+-#print axioms UPTReflectionContraction.complete_contraction_has_unique_fixed_point
+-#print axioms UPTReflectionContraction.accuracy_within_budget
+-#print axioms UPTReflectionContraction.residual_error_bound
+-#print axioms UPTReflectionContraction.residual_tolerance
+-#print axioms UPTReflectionContraction.post_update_error_bound
+-#print axioms UPTReflectionContraction.post_update_tolerance
+-#print axioms UPTReflectionContraction.paired_trajectory_bound
+-#print axioms UPTReflectionContraction.residual_geometric_bound
+-#print axioms UPTReflectionContraction.first_residual_stop_is_paid_and_accurate

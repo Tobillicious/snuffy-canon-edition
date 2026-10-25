@@ -1,0 +1,159 @@
+import Snuffy.CanonVonNeumann
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Logic.Relation
+
+open Finset Filter Function
+
+namespace Snuffy.H5
+
+inductive Status
+  | unborn | reserved | active | retired | released
+  deriving DecidableEq
+
+structure Ledger (α Cap Eff : Type*) where
+  status : α → Status
+  auth : α → Set Cap
+  escrow : α → ℝ
+  credit : α → ℝ
+  spent : α → ℝ
+  parent : α → Option α
+  pool : ℝ
+  received : ℝ
+  applied : Set Eff
+
+structure Params (α Cap Eff : Type*) where
+  root : α
+  metaCaps : Set Cap
+  wmin : ℝ
+  wmin_nonneg : 0 ≤ wmin
+  margin : ℝ
+  margin_nonneg : 0 ≤ margin
+  harmful : Set Eff
+
+variable {α Cap Eff : Type*} [Fintype α] [DecidableEq α]
+
+inductive Step (P : Params α Cap Eff) : Ledger α Cap Eff → Ledger α Cap Eff → Prop
+  | spawn (s : Ledger α Cap Eff) (p c : α) (A : Set Cap) (W : ℝ)
+      (hp : s.status p = .active) (hc : s.status c = .unborn)
+      (hA : A ⊆ s.auth p \ P.metaCaps) (hW : P.wmin ≤ W) (hfund : W + P.margin ≤ s.escrow p) :
+      Step P s { s with
+        status := update s.status c .reserved
+        auth := update s.auth c A
+        escrow := update (update s.escrow p (s.escrow p - W)) c W
+        credit := update s.credit c W
+        parent := update s.parent c (some p) }
+  | activate (s : Ledger α Cap Eff) (c : α) (h : s.status c = .reserved) :
+      Step P s { s with status := update s.status c .active }
+  | retire (s : Ledger α Cap Eff) (c : α) (h : s.status c = .active) :
+      Step P s { s with status := update s.status c .retired }
+  | release (s : Ledger α Cap Eff) (c q : α) (h : s.status c = .retired)
+      (hq : s.parent c = some q) (hcq : c ≠ q) :
+      Step P s { s with
+        status := update s.status c .released
+        escrow := update (update s.escrow q (s.escrow q + s.escrow c)) c 0 }
+  | spend (s : Ledger α Cap Eff) (a : α) (x : ℝ) (ha : s.status a = .active)
+      (hx0 : 0 ≤ x) (hx : x ≤ s.escrow a) :
+      Step P s { s with
+        escrow := update s.escrow a (s.escrow a - x)
+        spent := update s.spent a (s.spent a + x) }
+  | income (s : Ledger α Cap Eff) (x : ℝ) (hx : 0 ≤ x) :
+      Step P s { s with pool := s.pool + x, received := s.received + x }
+  | fund (s : Ledger α Cap Eff) (a : α) (x : ℝ) (ha : s.status a = .active)
+      (hx0 : 0 ≤ x) (hx : x ≤ s.pool) :
+      Step P s { s with pool := s.pool - x, escrow := update s.escrow a (s.escrow a + x) }
+  | effect (s : Ledger α Cap Eff) (a : α) (e : Eff) (ha : s.status a = .active)
+      (he : e ∉ P.harmful) :
+      Step P s { s with applied := insert e s.applied }
+
+structure Inv (P : Params α Cap Eff) (T : ℝ) (s : Ledger α Cap Eff) : Prop where
+  escrow_nonneg : ∀ a, 0 ≤ s.escrow a
+  spent_nonneg : ∀ a, 0 ≤ s.spent a
+  pool_nonneg : 0 ≤ s.pool
+  unborn_empty : ∀ a, s.status a = .unborn → s.escrow a = 0 ∧ s.spent a = 0
+  conservation : ∑ a, (s.escrow a + s.spent a) + s.pool = T + s.received
+  root_born : s.status P.root ≠ .unborn
+  root_parent : s.parent P.root = none
+  within_root : ∀ a, s.status a ≠ .unborn → s.auth a ⊆ s.auth P.root
+  attenuated : ∀ a, a ≠ P.root → s.status a ≠ .unborn →
+    ∃ p, s.parent a = some p ∧ s.status p ≠ .unborn ∧ s.auth a ⊆ s.auth p \ P.metaCaps
+  credited : ∀ a, a ≠ P.root → s.status a ≠ .unborn → P.wmin ≤ s.credit a
+  no_harm : ∀ e ∈ s.applied, e ∉ P.harmful
+
+private lemma sum_update (f : α → ℝ) (c : α) (v : ℝ) :
+    ∑ a, update f c v a = ∑ a, f a - f c + v  := [proof body omitted in statement view]
+
+omit [Fintype α] in
+
+private lemma update_unborn_iff {st : α → Status} {c : α} {v : Status}
+    (hv : v ≠ .unborn) (hc : st c ≠ .unborn) (a : α) :
+    update st c v a = .unborn ↔ st a = .unborn  := [proof body omitted in statement view]
+
+theorem step_inv {P : Params α Cap Eff} {T : ℝ} {s s' : Ledger α Cap Eff}
+    (hs : Inv P T s) (h : Step P s s') : Inv P T s'  := [proof body omitted in statement view]
+
+theorem reachable_inv {P : Params α Cap Eff} {T : ℝ} {s₀ s : Ledger α Cap Eff}
+    (h₀ : Inv P T s₀) (h : Relation.ReflTransGen (Step P) s₀ s) : Inv P T s  := [proof body omitted in statement view]
+
+def genesis (P : Params α Cap Eff) (R : Set Cap) (E₀ pool₀ : ℝ) : Ledger α Cap Eff where
+  status := fun a => if a = P.root then .active else .unborn
+  auth := fun a => if a = P.root then R else ∅
+  escrow := fun a => if a = P.root then E₀ else 0
+  credit := fun _ => 0
+  spent := fun _ => 0
+  parent := fun _ => none
+  pool := pool₀
+  received := 0
+  applied := ∅
+
+theorem genesis_inv (P : Params α Cap Eff) (R : Set Cap) {E₀ pool₀ : ℝ} (hE : 0 ≤ E₀)
+    (hpool : 0 ≤ pool₀) : Inv P (E₀ + pool₀) (genesis P R E₀ pool₀)  := [proof body omitted in statement view]
+
+section Consequences
+
+variable {P : Params α Cap Eff} {R : Set Cap} {E₀ pool₀ : ℝ} {s : Ledger α Cap Eff}
+
+theorem authority_attenuation (hE : 0 ≤ E₀) (hpool : 0 ≤ pool₀)
+    (h : Relation.ReflTransGen (Step P) (genesis P R E₀ pool₀) s)
+    (a : α) (har : a ≠ P.root) (ha : s.status a ≠ .unborn) :
+    Disjoint (s.auth a) P.metaCaps ∧ s.auth a ⊆ s.auth P.root ∧
+      ∃ p, s.parent a = some p ∧ s.auth a ⊆ s.auth p \ P.metaCaps  := [proof body omitted in statement view]
+
+theorem reserve_before_activation (hE : 0 ≤ E₀) (hpool : 0 ≤ pool₀)
+    (h : Relation.ReflTransGen (Step P) (genesis P R E₀ pool₀) s)
+    (a : α) (har : a ≠ P.root) (ha : s.status a = .active) : P.wmin ≤ s.credit a  := [proof body omitted in statement view]
+
+theorem zero_debt (hE : 0 ≤ E₀) (hpool : 0 ≤ pool₀)
+    (h : Relation.ReflTransGen (Step P) (genesis P R E₀ pool₀) s) :
+    (∀ a, 0 ≤ s.escrow a) ∧ 0 ≤ s.pool  := [proof body omitted in statement view]
+
+theorem no_unfunded_work (hE : 0 ≤ E₀) (hpool : 0 ≤ pool₀)
+    (h : Relation.ReflTransGen (Step P) (genesis P R E₀ pool₀) s) :
+    ∑ a, s.spent a ≤ E₀ + pool₀ + s.received  := [proof body omitted in statement view]
+
+theorem no_harmful_effect (hE : 0 ≤ E₀) (hpool : 0 ≤ pool₀)
+    (h : Relation.ReflTransGen (Step P) (genesis P R E₀ pool₀) s) :
+    ∀ e ∈ s.applied, e ∉ P.harmful  := [proof body omitted in statement view]
+
+end Consequences
+
+omit [Fintype α] in
+
+theorem effect_preserves_care {P : Params α Cap Eff} {s s' : Ledger α Cap Eff}
+    (a : α) (e : Eff) (ha : s.status a = .active) (he : e ∉ P.harmful)
+    (hs' : s' = { s with applied := insert e s.applied }) :
+    Step P s s' ∧ s'.status = s.status ∧ s'.auth = s.auth ∧ s'.escrow = s.escrow  := [proof body omitted in statement view]
+
+section Detector
+
+open Submodule Snuffy.AnalyticBridge
+
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℂ E]
+
+theorem consistency_detector [CompleteSpace E] (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    [(A ⊓ B).HasOrthogonalProjection] :
+    (∀ x : E, Tendsto (fun n => altIterate A B x n) atTop (nhds 0)) ↔ A ⊓ B = ⊥  := [proof body omitted in statement view]
+
+end Detector
+
+end Snuffy.H5

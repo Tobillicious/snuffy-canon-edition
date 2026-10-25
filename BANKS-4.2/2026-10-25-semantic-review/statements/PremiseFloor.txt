@@ -1,0 +1,36 @@
+import Snuffy.Greatestness
+import Mathlib.Algebra.BigOperators.Intervals
+import Mathlib.Order.Filter.AtTopBot.Basic
+import Mathlib.Order.Filter.AtTopBot.Field
+import Mathlib.Algebra.Order.Archimedean.Real.Basic
+
+open Finset Filter
+
+namespace Snuffy.PremiseFloor
+
+def balance (E₀ : ℝ) (inc dem : ℕ → ℝ) (k : ℕ) : ℝ := E₀ + ∑ j ∈ range k, (inc j - dem j)
+
+theorem income_or_irrelevance (E₀ : ℝ) (inc dem : ℕ → ℝ) :
+    (∀ k, 0 ≤ balance E₀ inc dem k) ∨
+    ∃ kb, (∀ k < kb, 0 ≤ balance E₀ inc dem k) ∧ balance E₀ inc dem kb < 0  := [proof body omitted in statement view]
+
+theorem forced_breach (E₀ : ℝ) (inc dem : ℕ → ℝ)
+    (hdiv : Tendsto (fun k => ∑ j ∈ range k, (dem j - inc j)) atTop atTop) :
+    ∃ kb, (∀ k < kb, 0 ≤ balance E₀ inc dem k) ∧ balance E₀ inc dem kb < 0  := [proof body omitted in statement view]
+
+open Snuffy.Greatestness
+
+variable {n : ℕ} {L : Fin n → Type*} [∀ i, SemilatticeSup (L i)]
+
+theorem breach_strictly_below (hn : 0 < n) {q o : ∀ i, L i}
+    (hloss : q ⟨0, hn⟩ < o ⟨0, hn⟩) : LexLt q o  := [proof body omitted in statement view]
+
+theorem reversible_administration_forced {F : Set (∀ i, L i)} {o : ∀ i, L i}
+    (ho : Aligned F o) (Irreversible : (∀ i, L i) → Prop)
+    (rev : (∀ i, L i) → (∀ i, L i)) (j : Fin n)
+    (hfeas : ∀ x ∈ F, Irreversible x → rev x ∈ F)
+    (hsame : ∀ x, ∀ i, i < j → rev x i = x i)
+    (hslack : ∀ x, Irreversible x → x j < rev x j) :
+    ¬ Irreversible o  := [proof body omitted in statement view]
+
+end Snuffy.PremiseFloor

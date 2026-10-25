@@ -1,0 +1,4 @@
+cycles N = 9.0909e+14; per-cycle target per logical qubit = 4.889e-24
+Lambda = 2.12: d = 133, eps_d = 3.95e-24, physical qubits per logical = 70225, for 9 logical = 632025
+Lambda = 2.14: d = 131, eps_d = 4.67e-24, physical qubits per logical = 68121, for 9 logical = 613089
+Lambda = 2.16: d = 131, eps_d = 2.63e-24, physical qubits per logical = 68121, for 9 logical = 613089

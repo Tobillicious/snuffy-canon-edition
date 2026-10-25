@@ -1,0 +1,36 @@
+import Snuffy.UPTFence
+import Snuffy.ControllerFinality
+
+namespace UPTControllerFence
+open UPTController
+
+def TokenWitness (enrol : Nat → List Nat) (start : State) (final : List Op) (g : Nat) : Prop :=
+  ∃ r : Receipt, r.isFloor = false ∧ r.context.generation = g ∧
+    Prefix (history r) final ∧ replayOK enrol start r
+
+theorem certified_hold_nothing_lands (enrol : Nat → List Nat) (start : State)
+    (before during : List Op) (c : Context)
+    (retired : (step enrol (run enrol start before) (.retire c)).2 =
+      .floor c (c.generation + 1))
+    (noRelease : ∀ d, Op.release d ∉ during)
+    (target : UPTFence.St) (attempts : List UPTFence.Ev)
+    (tokens : ∀ g, g ∈ target.minted →
+      TokenWitness enrol start (before ++ .retire c :: during) g)
+    (later : ∀ g, UPTFence.Ev.mint g ∈ attempts →
+      TokenWitness enrol start (before ++ .retire c :: during) g) :
+    (UPTFence.run (UPTFence.apply target (.raise (c.generation + 1))) attempts).log = target.log  := [proof body omitted in statement view]
+
+theorem both_targets_held (enrol : Nat → List Nat) (start : State)
+    (before during : List Op) (c : Context)
+    (retired : (step enrol (run enrol start before) (.retire c)).2 =
+      .floor c (c.generation + 1))
+    (noRelease : ∀ d, Op.release d ∉ during)
+    (journal sink : UPTFence.St) (jEvents kEvents : List UPTFence.Ev)
+    (jTokens : ∀ g, g ∈ journal.minted → TokenWitness enrol start (before ++ .retire c :: during) g)
+    (kTokens : ∀ g, g ∈ sink.minted → TokenWitness enrol start (before ++ .retire c :: during) g)
+    (jLater : ∀ g, UPTFence.Ev.mint g ∈ jEvents → TokenWitness enrol start (before ++ .retire c :: during) g)
+    (kLater : ∀ g, UPTFence.Ev.mint g ∈ kEvents → TokenWitness enrol start (before ++ .retire c :: during) g) :
+    (UPTFence.run (UPTFence.apply journal (.raise (c.generation + 1))) jEvents).log = journal.log ∧
+    (UPTFence.run (UPTFence.apply sink (.raise (c.generation + 1))) kEvents).log = sink.log  := [proof body omitted in statement view]
+
+end UPTControllerFence

@@ -1,0 +1,10 @@
+--- 2026-10-23-gemini-bridge-dynamics/inputs/prior/ReflectionFuel.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/ReflectionFuel.lean
+@@ -45,7 +45,3 @@
+ 
+ end UPTReflectionQuota
+ 
+-#print axioms UPTReflectionQuota.steps_bounded
+-#print axioms UPTReflectionQuota.quota_conserved
+-#print axioms UPTReflectionQuota.no_unbounded_paid_reflection
+-#print axioms UPTReflectionQuota.bounded_depth_can_cycle

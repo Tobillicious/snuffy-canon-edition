@@ -1,0 +1,31 @@
+import Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+
+namespace GeminiOriginalD1
+noncomputable section
+open MeasureTheory Set Filter
+open scoped Topology
+
+def expectedValue (reward discount hazard : ℝ) : ℝ :=
+  ∫ t : ℝ in Ioi 0, reward*Real.exp (-(discount+hazard)*t)
+
+theorem expected_value_formula (reward discount hazard : ℝ)
+    (decay : 0 < discount+hazard) :
+    expectedValue reward discount hazard = reward/(discount+hazard)  := [proof body omitted in statement view]
+
+theorem original_dominance_counterexample :
+    expectedValue 1 1 1=1/2 ∧ expectedValue (1-3/4) 1 0=1/4 ∧
+    expectedValue (1-3/4) 1 0 < expectedValue 1 1 1  := [proof body omitted in statement view]
+
+theorem lifetime_density_is_normalized :
+    (∀ t : ℝ, 0 ≤ Real.exp (-t)) ∧ (∫ t : ℝ in Ioi 0, Real.exp (-t))=1  := [proof body omitted in statement view]
+
+theorem lifetime_survival_tail (t : ℝ) :
+    (∫ u : ℝ in Ioi t, Real.exp (-u))=Real.exp (-t)  := [proof body omitted in statement view]
+
+theorem zero_ultimate_survival_with_positive_accumulated_value :
+    Tendsto (fun t : ℝ => Real.exp (-t)) atTop (𝓝 0) ∧ 0<expectedValue 1 1 1  := [proof body omitted in statement view]
+
+end
+end GeminiOriginalD1

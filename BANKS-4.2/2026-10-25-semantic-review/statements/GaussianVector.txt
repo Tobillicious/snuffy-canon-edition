@@ -1,0 +1,76 @@
+import Snuffy.GaussianChannelGen
+import Snuffy.KLAdditivity
+import Snuffy.GoldenFormula
+
+open MeasureTheory ProbabilityTheory InformationTheory Real Finset
+open scoped ENNReal NNReal
+
+namespace Snuffy.GaussianVector
+
+open Snuffy.GaussianChannelGen
+
+noncomputable def eSucc (n : ℕ) : (Fin (n + 1) → ℝ) ≃ᵐ ℝ × (Fin n → ℝ) :=
+  MeasurableEquiv.piFinSuccAbove (fun _ => ℝ) 0
+
+variable {α : Type*} [MeasurableSpace α]
+
+noncomputable def vecChan (v : ℝ≥0) :
+    (n : ℕ) → (w : Fin n → α → ℝ) → (∀ i, Measurable (w i)) → Kernel α (Fin n → ℝ)
+  | 0, _, _ => Kernel.const α (Measure.dirac (fun i => Fin.elim0 i))
+  | n + 1, w, hw =>
+    (chanW (w 0) (hw 0) v ×ₖ vecChan v n (fun i => w i.succ) (fun i => hw i.succ)).map
+      (eSucc n).symm
+
+theorem isMarkov_vecChan (v : ℝ≥0) :
+    ∀ (n : ℕ) (w : Fin n → α → ℝ) (hw : ∀ i, Measurable (w i)), IsMarkovKernel (vecChan v n w hw) := [proof body omitted in statement view]
+
+noncomputable def refMeas : (n : ℕ) → (Fin n → ℝ) → (Fin n → ℝ≥0) → Measure (Fin n → ℝ)
+  | 0, _, _ => Measure.dirac (fun i => Fin.elim0 i)
+  | n + 1, m, s => ((gaussianReal (m 0) (s 0)).prod
+      (refMeas n (fun i => m i.succ) (fun i => s i.succ))).map (eSucc n).symm
+
+theorem isProb_refMeas : ∀ (n : ℕ) (m : Fin n → ℝ) (s : Fin n → ℝ≥0),
+    IsProbabilityMeasure (refMeas n m s) := [proof body omitted in statement view]
+
+theorem klDiv_compProd_map_equiv {β γ : Type*} [MeasurableSpace β] [MeasurableSpace γ]
+    (P : Measure α) [IsFiniteMeasure P] (κ c : Kernel α β) [IsMarkovKernel κ] [IsMarkovKernel c]
+    (e : β ≃ᵐ γ) :
+    klDiv (P ⊗ₘ κ.map e) (P ⊗ₘ c.map e) = klDiv (P ⊗ₘ κ) (P ⊗ₘ c)  := [proof body omitted in statement view]
+
+section Bound
+
+variable {v : ℝ≥0} (hv : v ≠ 0) (P : Measure α) [IsProbabilityMeasure P]
+
+noncomputable def meanW {n : ℕ} (w : Fin n → α → ℝ) (i : Fin n) : ℝ := ∫ y, w i y ∂P
+
+noncomputable def varW {n : ℕ} (w : Fin n → α → ℝ) (i : Fin n) : ℝ :=
+  ∫ x, (w i x - ∫ y, w i y ∂P) ^ 2 ∂P
+
+omit [IsProbabilityMeasure P] in
+theorem varW_nonneg {n : ℕ} (w : Fin n → α → ℝ) (i : Fin n) : 0 ≤ varW P w i  := [proof body omitted in statement view]
+
+include hv in
+                                                                           
+theorem klDiv_vecChan :
+    ∀ (n : ℕ) (w : Fin n → α → ℝ) (hw : ∀ i, Measurable (w i)) (_hX : ∀ i, MemLp (w i) 2 P),
+    klDiv (P ⊗ₘ vecChan v n w hw)
+      (P ⊗ₘ Kernel.const α (refMeas n (meanW P w) (fun i => outVarW (w i) P v)))
+      = ENNReal.ofReal (∑ i, Real.log ((varW P w i + v) / v) / 2) := [proof body omitted in statement view]
+
+include hv in
+
+theorem vector_channel_bound [StandardBorelSpace α] [Nonempty α] (n : ℕ) (w : Fin n → α → ℝ)
+    (hw : ∀ i, Measurable (w i)) (hX : ∀ i, MemLp (w i) 2 P) :
+    Snuffy.Information.mutualInfo (P ⊗ₘ vecChan v n w hw)
+      ≤ ENNReal.ofReal (∑ i, Real.log (1 + varW P w i / v) / 2)  := [proof body omitted in statement view]
+
+include hv in
+                                                       
+theorem vector_channel_trace_bound [StandardBorelSpace α] [Nonempty α] (n : ℕ)
+    (w : Fin n → α → ℝ) (hw : ∀ i, Measurable (w i)) (hX : ∀ i, MemLp (w i) 2 P) :
+    Snuffy.Information.mutualInfo (P ⊗ₘ vecChan v n w hw)
+      ≤ ENNReal.ofReal (∑ i, varW P w i / (2 * v))  := [proof body omitted in statement view]
+
+end Bound
+
+end Snuffy.GaussianVector

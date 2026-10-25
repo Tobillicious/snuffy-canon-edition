@@ -1,0 +1,78 @@
+import Snuffy.R17AQueueFinality
+
+namespace UPTR17AFunding
+open UPTR17A
+
+def ticketCost (registry : Registry) (ticket : Nat) : Nat :=
+  match registry ticket with
+  | none => 0
+  | some p => p.cost
+
+def charged (registry : Registry) : List (Nat × UPTR12A.Effect) → Nat
+  | [] => 0
+  | (ticket, _) :: tail => ticketCost registry ticket + charged registry tail
+
+def Reserved (registry : Registry) (s : Machine) : Prop :=
+  charged registry s.pending ≤ s.credits
+
+theorem charged_append (registry : Registry) (first tail : List (Nat × UPTR12A.Effect)) :
+    charged registry (first ++ tail) = charged registry first + charged registry tail  := [proof body omitted in statement view]
+
+theorem atomic_target_append (registry : Registry) (s : Machine)
+    (ticket : Nat) (e : UPTR12A.Effect) (p : Contract)
+    (registered : registry ticket = some p) (ready : Ready s ticket e p) :
+    (applyOne registry s ticket e).target.committed = s.target.committed ++ [e] ∧
+    (applyOne registry s ticket e).applied = s.applied ++ [(ticket,e)]  := [proof body omitted in statement view]
+
+theorem application_conserves_funding (registry : Registry) (s : Machine)
+    (ticket : Nat) (e : UPTR12A.Effect) :
+    (applyOne registry s ticket e).credits + charged registry (applyOne registry s ticket e).applied =
+      s.credits + charged registry s.applied  := [proof body omitted in statement view]
+
+noncomputable def applyTrace (registry : Registry) : Machine → List (Nat × UPTR12A.Effect) → Machine
+  | s, [] => s
+  | s, (ticket,e) :: rest => applyTrace registry (applyOne registry s ticket e) rest
+
+theorem trace_conserves_funding (registry : Registry) (s : Machine)
+    (requests : List (Nat × UPTR12A.Effect)) :
+    (applyTrace registry s requests).credits + charged registry (applyTrace registry s requests).applied =
+      s.credits + charged registry s.applied  := [proof body omitted in statement view]
+
+theorem cumulative_charge_is_funded (registry : Registry) (s : Machine)
+    (requests : List (Nat × UPTR12A.Effect)) :
+    charged registry (applyTrace registry s requests).applied ≤
+      s.credits + charged registry s.applied  := [proof body omitted in statement view]
+
+theorem used_ticket_refuses (registry : Registry) (s : Machine)
+    (ticket : Nat) (e : UPTR12A.Effect) (used : ticket ∈ s.target.usedNonces) :
+    (applyOne registry s ticket e).applied = s.applied  := [proof body omitted in statement view]
+
+theorem accepted_ticket_is_consumed (registry : Registry) (s : Machine)
+    (ticket : Nat) (e : UPTR12A.Effect) (p : Contract)
+    (registered : registry ticket = some p) (ready : Ready s ticket e p) :
+    ticket ∈ (applyOne registry s ticket e).target.usedNonces  := [proof body omitted in statement view]
+
+theorem replay_cannot_append (registry : Registry) (s : Machine)
+    (ticket : Nat) (e : UPTR12A.Effect) (p : Contract)
+    (registered : registry ticket = some p) (ready : Ready s ticket e p) :
+    (applyOne registry (applyOne registry s ticket e) ticket e).applied =
+      (applyOne registry s ticket e).applied  := [proof body omitted in statement view]
+
+def fundedEnqueue (registry : Registry) (s : Machine)
+    (ticket : Nat) (e : UPTR12A.Effect) : Machine :=
+  match registry ticket with
+  | none => s
+  | some p =>
+      if p.effect = e ∧ p.ticket = ticket ∧
+          charged registry s.pending + p.cost ≤ s.credits then
+        {s with pending := s.pending ++ [(ticket,e)]}
+      else s
+
+theorem funded_admission_preserves (registry : Registry) (s : Machine)
+    (ticket : Nat) (e : UPTR12A.Effect) (reserved : Reserved registry s) :
+    Reserved registry (fundedEnqueue registry s ticket e)  := [proof body omitted in statement view]
+
+theorem source_drain_preserves_reservation (registry : Registry) (s : Machine)
+    (reserved : Reserved registry s) : Reserved registry (drainOne registry s)  := [proof body omitted in statement view]
+
+end UPTR17AFunding

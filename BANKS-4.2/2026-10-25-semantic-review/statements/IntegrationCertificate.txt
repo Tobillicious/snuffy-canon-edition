@@ -1,0 +1,46 @@
+import Snuffy.FIFOInstance
+import Snuffy.TransportLaw
+
+section Gate
+variable {R : Type*} [Ring R]
+
+theorem typed_gate_decomposition (p m e : R) (hp : p*p = p) (hM : p*m*p = m*p) :
+    p*(m*p + e*(1 - p))*p = (m*p + e*(1 - p))*p  := [proof body omitted in statement view]
+
+end Gate
+
+def sumB : List (ℚ × ℚ) → ℚ
+  | [] => 0
+  | (_, b) :: tail => b + sumB tail
+
+def intervalOK : List (ℚ × ℚ) → ℚ → ℚ → Prop
+  | [], base, D => base ≤ D
+  | (r, b) :: tail, base, D =>
+      max base r + b + sumB tail ≤ D ∧ intervalOK tail (max base r + b) D
+
+theorem finish_interval_deadline (L : List (ℚ × ℚ)) :
+    ∀ base D, intervalOK L base D → finishQ base L ≤ D  := [proof body omitted in statement view]
+
+def psi2 (β α t : ℚ) : ℚ := 2*β*(t*(1-t))^2 + α*(t^2 + (1-t)^2)
+
+theorem psi2_uniform (β α : ℚ) : psi2 β α (1/2) = β/8 + α/2  := [proof body omitted in statement view]
+
+theorem h8_bound_two_node (α β t : ℚ) (_hα : 0 < α) (hβ : 0 < β)
+    (ht : 0 ≤ t) (ht' : t ≤ 1) :
+    psi2 β α t ≤ (β/8 + α/2)*(1 + ((t^2 + (1-t)^2) - 1/2)/(1 - 1/2))  := [proof body omitted in statement view]
+
+def d3 : Fin 3 → Fin 3 → ℚ := fun i j => if i = j then 0 else 1
+
+example :
+    transportPsi d3 1 (fun i => if i = 0 then 1/2 else if i = 1 then 1/2 else 0)
+      - (2/27 + 1/3)*(1 + (1/2 - 1/3)/(1 - 1/3)) = 25/216 := by
+  unfold transportPsi hhiQ d3
+  norm_num [Fin.sum_univ_three]
+
+example :
+    transportPsi (fun (i j : Fin 3) => if i = j then (0:ℚ) else 10) 1
+        (fun i => if i = 0 then 1 else 0) = 1
+      ∧ transportPsi (fun (i j : Fin 3) => if i = j then (0:ℚ) else 10) 1
+        (fun _ => 1/3) = 209/27 := by
+  unfold transportPsi hhiQ
+  norm_num [Fin.sum_univ_three]

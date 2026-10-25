@@ -1,0 +1,38 @@
+{
+  "all_pass": true,
+  "epub": {
+    "bytes": 168778,
+    "canon_sentence": true,
+    "chain_head_charged": true,
+    "chain_head_quarantine": true,
+    "chain_head_solvent": true,
+    "doi_canon_edition": true,
+    "doi_core": true,
+    "module_count": true,
+    "no_door_content": true
+  },
+  "html": {
+    "bytes": 815950,
+    "canon_sentence": true,
+    "chain_head_charged": true,
+    "chain_head_quarantine": true,
+    "chain_head_solvent": true,
+    "doi_canon_edition": true,
+    "doi_core": true,
+    "module_count": true,
+    "no_door_content": true
+  },
+  "method_note": "needle matching after removing whitespace; the PDF is verified on its extracted text (pdftotext)",
+  "pdf": {
+    "bytes": 465677,
+    "canon_sentence": true,
+    "chain_head_charged": true,
+    "chain_head_quarantine": true,
+    "chain_head_solvent": true,
+    "doi_canon_edition": true,
+    "doi_core": true,
+    "module_count": true,
+    "no_door_content": true,
+    "pages": 83
+  }
+}

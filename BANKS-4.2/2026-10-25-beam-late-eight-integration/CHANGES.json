@@ -1,0 +1,18 @@
+[
+  "lean/Snuffy/G3CompleteBill.lean",
+  "lean/Snuffy/GuardSignature.lean",
+  "lean/Snuffy/DecoderRetraction.lean",
+  "lean/build-and-audit.sh",
+  "lean/gen-index.py",
+  "lean/check-complete.py",
+  "lean/SummitsAudit.lean",
+  "lean/RECEIPT.txt",
+  "lean/PROOF-STATE.md",
+  "inserts/23-machine-checked-canon.md",
+  "SNUFFY-CANON-EDITION-4.2-MASTER.md",
+  "README.md",
+  "workspace/AGENTS.md",
+  "workspace/BEFORE-AFTER-BATCH-2026-10-25.md",
+  "TIWA-PATCH-REQUIREMENTS.md",
+  "SUPPORTS-FOR-GEMINI.md"
+]

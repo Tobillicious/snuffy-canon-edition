@@ -1,0 +1,25 @@
+import Snuffy.Threshold
+
+open Finset
+
+namespace Snuffy.CorrelatedStress
+
+open Snuffy.Threshold
+
+variable {Loc Shock : Type*} [DecidableEq Loc] [Fintype Shock] [DecidableEq Shock]
+
+def near (cover : Shock → Finset Loc) (S : Finset Loc) : Finset Shock :=
+  univ.filter fun σ => (cover σ ∩ S).Nonempty
+
+omit [DecidableEq Shock] in
+
+lemma many_touching (cover : Shock → Finset Loc) {k : ℕ} (hk : ∀ σ, (cover σ).card ≤ k)
+    {S : Finset Loc} {G : Finset Shock} (hS : S ⊆ G.biUnion cover) :
+    ∃ T ∈ powersetCard (S.card / k) (near cover S), T ⊆ G  := [proof body omitted in statement view]
+
+theorem correlated_stress (ν : FaultLaw Shock) {q : ℝ} (hν : LocalStochastic ν q)
+    (cover : Shock → Finset Loc) {k : ℕ} (hk : ∀ σ, (cover σ).card ≤ k) (S : Finset Loc) :
+    prob ν (fun G => S ⊆ G.biUnion cover) ≤
+      ((near cover S).card.choose (S.card / k) : ℝ) * q ^ (S.card / k)  := [proof body omitted in statement view]
+
+end Snuffy.CorrelatedStress

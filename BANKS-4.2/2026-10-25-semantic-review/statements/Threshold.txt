@@ -1,0 +1,84 @@
+import Snuffy.ReciprocityCeiling
+import Mathlib.Algebra.Order.Field.GeomSum
+import Mathlib.Analysis.SpecificLimits.Normed
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Data.Nat.Choose.Bounds
+import Mathlib.Topology.Order.LiminfLimsup
+
+open Finset Filter Topology
+
+namespace Snuffy.Threshold
+
+section Noise
+
+variable {Loc : Type*} [Fintype Loc] [DecidableEq Loc]
+
+structure FaultLaw (Loc : Type*) [Fintype Loc] [DecidableEq Loc] where
+  P : Finset Loc → ℝ
+  nonneg : ∀ F, 0 ≤ P F
+  sum_one : ∑ F, P F = 1
+
+noncomputable def prob (μ : FaultLaw Loc) (A : Finset Loc → Prop) [DecidablePred A] : ℝ :=
+  ∑ F, if A F then μ.P F else 0
+
+def LocalStochastic (μ : FaultLaw Loc) (p : ℝ) : Prop :=
+  ∀ S : Finset Loc, prob μ (fun F => S ⊆ F) ≤ p ^ S.card
+
+theorem prob_le_one (μ : FaultLaw Loc) (A : Finset Loc → Prop) [DecidablePred A] :
+    prob μ A ≤ 1  := [proof body omitted in statement view]
+
+theorem prob_nonneg (μ : FaultLaw Loc) (A : Finset Loc → Prop) [DecidablePred A] :
+    0 ≤ prob μ A  := [proof body omitted in statement view]
+
+omit [Fintype Loc] in
+theorem filter_subset_powersetCard (m : ℕ) (T F : Finset Loc) :
+    (powersetCard m T).filter (· ⊆ F) = powersetCard m (T ∩ F)  := [proof body omitted in statement view]
+
+theorem many_faults (μ : FaultLaw Loc) {p : ℝ} (hμ : LocalStochastic μ p) (T : Finset Loc)
+    (m : ℕ) : prob μ (fun F => m ≤ (T ∩ F).card) ≤ (T.card.choose m : ℝ) * p ^ m  := [proof body omitted in statement view]
+
+theorem fail_le_witness (μ : FaultLaw Loc) {p : ℝ} (hp0 : 0 ≤ p) (hp1 : p ≤ 1)
+    (hμ : LocalStochastic μ p) (W : Finset (Finset Loc)) (fail : Finset Loc → Prop)
+    [DecidablePred fail] (hw : ∀ F, fail F → ∃ w ∈ W, w.card ≤ 2 * (w ∩ F).card) :
+    prob μ fail ≤ ∑ w ∈ W, (2 * Real.sqrt p) ^ w.card  := [proof body omitted in statement view]
+
+theorem fail_le_geometric (μ : FaultLaw Loc) {p : ℝ} (hp0 : 0 ≤ p) (hp1 : p ≤ 1)
+    (hμ : LocalStochastic μ p) (W : Finset (Finset Loc)) (fail : Finset Loc → Prop)
+    [DecidablePred fail] (hw : ∀ F, fail F → ∃ w ∈ W, w.card ≤ 2 * (w ∩ F).card)
+    {d : ℕ} (hlen : ∀ w ∈ W, d ≤ w.card) {V Δ : ℝ} (hV : 0 ≤ V) (hΔ : 0 ≤ Δ)
+    (hcount : ∀ L, ((W.filter fun w => w.card = L).card : ℝ) ≤ V * Δ ^ L)
+    (hr : 2 * Δ * Real.sqrt p < 1) :
+    prob μ fail ≤ V * (2 * Δ * Real.sqrt p) ^ d / (1 - 2 * Δ * Real.sqrt p)  := [proof body omitted in statement view]
+
+end Noise
+
+def MajorityFails (t : ℕ) (F : Finset (Fin (2 * t + 1))) : Prop := t + 1 ≤ F.card
+
+instance (t : ℕ) : DecidablePred (MajorityFails t) := fun F => by
+  unfold MajorityFails; infer_instance
+
+theorem repetition_threshold (t : ℕ) (μ : FaultLaw (Fin (2 * t + 1))) {p : ℝ} (hp0 : 0 ≤ p)
+    (hp1 : p ≤ 1) (hμ : LocalStochastic μ p) :
+    prob μ (MajorityFails t) ≤ (2 * Real.sqrt p) ^ (2 * t + 1)  := [proof body omitted in statement view]
+
+theorem two_sqrt_pow_le {p : ℝ} (hp0 : 0 ≤ p) (hp : 4 * p ≤ 1) (t : ℕ) :
+    (2 * Real.sqrt p) ^ (2 * t + 1) ≤ (4 * p) ^ t  := [proof body omitted in statement view]
+
+theorem repetition_ceiling {p : ℝ} (hp0 : 0 ≤ p) (hp : p < 1 / 4)
+    (μ : ∀ t : ℕ, FaultLaw (Fin (2 * t + 1))) (hμ : ∀ t, LocalStochastic (μ t) p)
+    {ε : ℝ} (hε : 0 < ε) : ∃ t₀, ∀ t ≥ t₀, prob (μ t) (MajorityFails t) < ε  := [proof body omitted in statement view]
+
+theorem poly_geom_le {k : ℕ} {r : ℝ} (hr0 : 0 ≤ r) (hr1 : r < 1) :
+    ∃ B, 0 ≤ B ∧ ∀ d : ℕ, (d : ℝ) ^ k * r ^ d ≤ B * ((1 + r) / 2) ^ d  := [proof body omitted in statement view]
+
+theorem family_ceiling {Loc : ℕ → Type*} [∀ d, Fintype (Loc d)] [∀ d, DecidableEq (Loc d)]
+    (μ : ∀ d, FaultLaw (Loc d)) {p : ℝ} (hp0 : 0 ≤ p) (hp1 : p ≤ 1)
+    (hμ : ∀ d, LocalStochastic (μ d) p) (W : ∀ d, Finset (Finset (Loc d)))
+    (fail : ∀ d, Finset (Loc d) → Prop) [∀ d, DecidablePred (fail d)]
+    (hw : ∀ d F, fail d F → ∃ w ∈ W d, w.card ≤ 2 * (w ∩ F).card)
+    (hlen : ∀ d, ∀ w ∈ W d, d ≤ w.card) {C Δ : ℝ} {k : ℕ} (hC : 0 ≤ C) (hΔ : 0 ≤ Δ)
+    (hcount : ∀ d L, (((W d).filter fun w => w.card = L).card : ℝ) ≤ C * (d : ℝ) ^ k * Δ ^ L)
+    (hr : 2 * Δ * Real.sqrt p < 1) {ε : ℝ} (hε : 0 < ε) :
+    ∃ d₀, ∀ d ≥ d₀, prob (μ d) (fail d) < ε  := [proof body omitted in statement view]
+
+end Snuffy.Threshold

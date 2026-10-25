@@ -1,0 +1,9 @@
+--- 2026-10-23-gemini-thirteen-bridges 2/inputs/prior/FIFOWorkload.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/FIFOWorkload.lean
+@@ -69,6 +69,3 @@
+ 
+ end SnuffyFIFO
+ 
+-#print axioms SnuffyFIFO.fifo_step
+-#print axioms SnuffyFIFO.finish_le_upper
+-#print axioms SnuffyFIFO.certified_prefix_meets_deadline

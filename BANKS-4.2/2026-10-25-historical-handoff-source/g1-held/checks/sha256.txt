@@ -1,0 +1,1 @@
+5d60d030c12f9be5d42ef576804c1ff6299f1e5c9695413659f9b1893e7180e2  /Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-25-historical-handoff-source/g1-held/lean/Snuffy/G1Held.lean

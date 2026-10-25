@@ -1,0 +1,29 @@
+import Snuffy.FIFOWorkload
+import Snuffy.R17AQueueFinality
+
+namespace SnuffyFIFO
+
+theorem applied_fifo_effect_is_timely_and_authorized
+    (base : Nat) (priorJobs : List Job) (j : Job) (work : Job → Nat)
+    (hwork : ∀ k ∈ (priorJobs ++ [j]), work k ≤ k.budget)
+    (hcert : finish base (priorJobs ++ [j]) (fun k => k.budget) ≤ j.deadline)
+    (registry : UPTR17A.Registry) (s : UPTR17A.Machine)
+    (ticket : Nat) (e : UPTR12A.Effect)
+    (hnow : s.now = finish base (priorJobs ++ [j]) work)
+    (happend : (UPTR17A.applyOne registry s ticket e).applied ≠ s.applied) :
+    s.now ≤ j.deadline ∧
+      ∃ p, registry ticket = some p ∧ UPTR17A.Ready s ticket e p  := [proof body omitted in statement view]
+
+theorem ready_fifo_effect_applies_before_deadline
+    (base : Nat) (priorJobs : List Job) (j : Job) (work : Job → Nat)
+    (hwork : ∀ k ∈ (priorJobs ++ [j]), work k ≤ k.budget)
+    (hcert : finish base (priorJobs ++ [j]) (fun k => k.budget) ≤ j.deadline)
+    (registry : UPTR17A.Registry) (s : UPTR17A.Machine)
+    (ticket : Nat) (e : UPTR12A.Effect) (p : UPTR17A.Contract)
+    (hnow : s.now = finish base (priorJobs ++ [j]) work)
+    (hreg : registry ticket = some p)
+    (hready : UPTR17A.Ready s ticket e p) :
+    s.now ≤ j.deadline ∧
+    (UPTR17A.applyOne registry s ticket e).applied = s.applied ++ [(ticket,e)]  := [proof body omitted in statement view]
+
+end SnuffyFIFO

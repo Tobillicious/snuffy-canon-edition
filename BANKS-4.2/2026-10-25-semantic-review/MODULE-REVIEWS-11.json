@@ -1,0 +1,103 @@
+{
+  "modules": {
+    "UPTR12A": {
+      "role": "Decision meaning, finalised grant and application-time binding",
+      "assessment": "Reviewed all statements with the ten-field Meaning encoding, DecisionCertificate, BoundGrant, FinalizedGrant, Target, Accepts and applyEffect. Context encoding is injective; controller generations cannot rebind meaning with the same enrolment. A finalised receipt names the actual replayable authorisation. Applied effects bind exact target/generation/nonce/meaning and carry the existing life-first aligned decision; stale/wrong/replayed effects are refused.",
+      "obligations": [
+        "Construct the actual aligned decision certificate and physical meaning of its predicates; arbitrary Nat labels are not themselves a proof of semantic completeness.",
+        "Refine every physical application to the target transition."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "R17AQueueFinality": {
+      "role": "Actual registry-backed current permit at queued application",
+      "assessment": "Reviewed all statements, Contract/Machine/Ready and applyOne/drainOne. Ready checks registered ticket, nonce, payload, source grant, current generation/meaning/epoch, validity window, revocation and funding. Any appended effect has that full witness; stale/revoked/expired applications are refused. Ready consists of finite concrete equality/order/list checks, though the present implementation uses classical decision in a noncomputable definition.",
+      "obligations": [
+        "Actual immutable registry, current clock/epoch/authority, complete execution fence, and proof-carrying grant construction."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "R17FIFOR17A": {
+      "role": "FIFO deadline connected to actual R17-A application",
+      "assessment": "Reviewed both statements. applied_fifo_effect_is_timely_and_authorized conditions on an actual append and proves deadline/current permit. ready_fifo_effect_applies_before_deadline gives an actual append from a registered Ready contract at the certified FIFO completion time.",
+      "obligations": [
+        "Maintain the live Ready witness through application or construct a timely care alternative; safe refusal alone is not delivery."
+      ],
+      "settled_result": "The successful-delivery theorem already exists; do not request it again merely because the safety theorem is read first.",
+      "status": "statements_and_definitions_reviewed"
+    },
+    "R17Funding": {
+      "role": "Reservation, atomic append and conserved application charges",
+      "assessment": "Reviewed all results with ticketCost, charged, Reserved, applyTrace and fundedEnqueue. A ready application appends both target and source logs, consumes its nonce once and conserves credits plus spent charge. Arbitrary request traces remain funded. Admission reserves the entire pending charge, and draining preserves that reservation whether the head applies or is safely refused.",
+      "obligations": [
+        "Immutable registry/cost identity, actual resource units and liveness of legitimate care remain source/physical bindings."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "R17WorkConcrete": {
+      "role": "Service-curve, carry-in and serial-stage deadline construction",
+      "assessment": "Reviewed all statements and Lane, Finished, affine service, row and U. An actual cumulative service contract provides carry-in completion, with the affine bound using ceiling division. Serial-stage envelopes are defined explicitly and bound any execution satisfying the real service recurrence. Tail admission preserves earlier certificates. The last results connect an actual applied effect to the current permit and explicitly distinguish timely refusal from successful delivery.",
+      "obligations": [
+        "Real available servers, complete work/carry-in and funded service guarantees; a stage name does not create a server."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "R16Feedback": {
+      "role": "Reactive histories and commuting tick iteration",
+      "assessment": "Reviewed all statements with History, Configuration, tick and iterate. The controller and environment react to common histories and current command; observation fidelity and actual transition commutation give identical projected histories over every finite iteration.",
+      "obligations": [
+        "Actual source observations and full admitted transition domain."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "R16TwoPhase": {
+      "role": "Reactive response to the actual post-command observation",
+      "assessment": "Reviewed both statements and phaseTick. Source/abstract command and response phases commute separately; the environment sees the intermediate observation before choosing the response. Histories retain command, intermediate and final observations.",
+      "obligations": [
+        "Both phase refinements and intermediate observation fidelity; do not substitute a predetermined transcript."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "R16Cut": {
+      "role": "Closed dependency cuts and directed causal separators",
+      "assessment": "Reviewed all statements with AgreeOn, LocalTo, Bypass and the delayed pending-effect model. Closed dependency sets propagate state agreement; the directed ranked DAG proof traces any difference back along an unmediated path. A separator then yields outside equality. Reactive cut histories agree when observations depend only on the cut. The explicit delayed model proves pending and private cause belong in the closure and that omitting the edge breaks locality.",
+      "obligations": [
+        "Build the actual causal graph including delayed effects and observation dependencies.",
+        "The source offers two valid constructions with different hypotheses; any manuscript assertion that the constructions are equivalent needs its own correspondence, not merely their common purpose."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "R16R14": {
+      "role": "Concrete source-to-port projection and two-phase lockstep",
+      "assessment": "Reviewed all results against the actual R14 step and PortState/portStep. Journal, sink, outside stock/aliveness and compromised flag commute with each event. The resulting two-phase reactive lockstep is instantiated without assuming that concrete commuting square.",
+      "obligations": [
+        "This discharges the square for this actual source instance; the full physical-domain refinement remains G1."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "R16Screened": {
+      "role": "Policy-fibre exclusion under complete screening",
+      "assessment": "Reviewed the single theorem. If every private policy's command/response projections are the same boundary transitions and observations factor through the projection, equal initial boundary states yield identical projected reactive histories for any two policies.",
+      "obligations": [
+        "Establish complete physical screening, including all effect channels. The theorem does not establish screening merely by calling an interface a boundary."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ReceivedCutRepaired": {
+      "role": "Ranked unmediated-path proof and undirected closure",
+      "assessment": "Reviewed all statements and the explicit Reach/unmediated/adjacent definitions. Strong induction on rank propagates a difference to a seed through nonboundary nodes; a cut excludes outside differences. The closure result is the reachability step on the undirected adjacency relation.",
+      "obligations": [
+        "The actual rank/locality/cut supplies the application. Review the corresponding received originals for faithful repair."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ReceivedCutR14Repaired": {
+      "role": "Concrete R14 projection extensionality and outside-care noninterference",
+      "assessment": "Reviewed all statements. Equal journal/sink/outside projections remain equal under the same actual R14 event. Journal and effect events leave the outside projection unchanged, including refused harmful effects.",
+      "obligations": [
+        "Actual source-event refinement and outside-care physical interpretation; weather and explicit compromise remain distinct events."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    }
+  }
+}

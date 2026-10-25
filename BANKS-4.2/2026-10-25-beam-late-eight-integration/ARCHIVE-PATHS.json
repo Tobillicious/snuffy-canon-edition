@@ -1,0 +1,4 @@
+{
+  "lean/SummitsAudit.lean": "before/lean/SummitsAudit.lean.txt",
+  "reason": "Generated audit command list preserved verbatim as text; it is a verification manifest, not a Snuffy proof module."
+}

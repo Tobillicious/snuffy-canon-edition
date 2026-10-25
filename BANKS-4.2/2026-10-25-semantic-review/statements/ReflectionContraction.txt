@@ -1,0 +1,75 @@
+import Mathlib.Topology.MetricSpace.Contracting
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+
+namespace UPTReflectionContraction
+variable {S : Type} [MetricSpace S]
+
+def run (R : S → S) : Nat → S → S
+  | 0, s => s
+  | n+1, s => R (run R n s)
+
+theorem complete_contraction_has_unique_fixed_point [Nonempty S] [CompleteSpace S]
+    (R : S → S) (k : NNReal) (contract : ContractingWith k R) :
+    ∃! fixed, R fixed = fixed  := [proof body omitted in statement view]
+
+theorem finite_error_bound (R : S → S) (fixed : S) (k : ℝ) (hk : 0 ≤ k)
+    (hfixed : R fixed = fixed)
+    (contract : ∀ s t, dist (R s) (R t) ≤ k*dist s t) (s : S) (n : Nat) :
+    dist (run R n s) fixed ≤ k^n * dist s fixed  := [proof body omitted in statement view]
+
+theorem accuracy_within_budget (R : S → S) (fixed s : S) (k diameter epsilon : ℝ)
+    (hk : 0 ≤ k) (hfixed : R fixed = fixed)
+    (contract : ∀ s t, dist (R s) (R t) ≤ k*dist s t)
+    (initial : dist s fixed ≤ diameter) (steps energy cost : Nat)
+    (paid : steps ≤ energy / cost) (accurate : k^steps*diameter ≤ epsilon) :
+    dist (run R steps s) fixed ≤ epsilon ∧ steps*cost ≤ energy  := [proof body omitted in statement view]
+
+theorem residual_error_bound (R : S → S) (fixed s : S) (k : ℝ)
+    (hk : k < 1) (hfixed : R fixed = fixed)
+    (contract : ∀ s t, dist (R s) (R t) ≤ k*dist s t) :
+    dist s fixed ≤ dist s (R s)/(1-k)  := [proof body omitted in statement view]
+
+theorem residual_tolerance (R : S → S) (fixed s : S) (k epsilon : ℝ)
+    (hk : k < 1) (hfixed : R fixed = fixed)
+    (contract : ∀ s t, dist (R s) (R t) ≤ k*dist s t)
+    (stop : dist s (R s) ≤ (1-k)*epsilon) :
+    dist s fixed ≤ epsilon  := [proof body omitted in statement view]
+
+theorem post_update_error_bound (R : S → S) (fixed s : S) (k : ℝ)
+    (hk0 : 0 ≤ k) (hk1 : k < 1) (hfixed : R fixed = fixed)
+    (contract : ∀ s t, dist (R s) (R t) ≤ k*dist s t) :
+    dist (R s) fixed ≤ k*dist s (R s)/(1-k)  := [proof body omitted in statement view]
+
+theorem post_update_tolerance (R : S → S) (fixed s : S) (k epsilon : ℝ)
+    (hk0 : 0 ≤ k) (hk1 : k < 1) (hfixed : R fixed = fixed)
+    (contract : ∀ s t, dist (R s) (R t) ≤ k*dist s t)
+    (stop : k*dist s (R s) ≤ (1-k)*epsilon) :
+    dist (R s) fixed ≤ epsilon  := [proof body omitted in statement view]
+
+omit [MetricSpace S] in
+theorem run_commutes (R : S → S) (s : S) (n : Nat) :
+    run R n (R s) = R (run R n s)  := [proof body omitted in statement view]
+
+theorem paired_trajectory_bound (R : S → S) (k : ℝ) (hk : 0 ≤ k)
+    (contract : ∀ s t, dist (R s) (R t) ≤ k*dist s t) (s t : S) (n : Nat) :
+    dist (run R n s) (run R n t) ≤ k^n*dist s t  := [proof body omitted in statement view]
+
+theorem residual_geometric_bound (R : S → S) (k : ℝ) (hk : 0 ≤ k)
+    (contract : ∀ s t, dist (R s) (R t) ≤ k*dist s t) (s : S) (n : Nat) :
+    dist (run R n s) (R (run R n s)) ≤ k^n*dist s (R s)  := [proof body omitted in statement view]
+
+theorem first_residual_stop_is_paid_and_accurate
+    (R : S → S) (fixed s : S) (k epsilon energy cost : ℝ)
+    (hk0 : 0 ≤ k) (hk1 : k < 1) (hfixed : R fixed = fixed)
+    (contract : ∀ s t, dist (R s) (R t) ≤ k*dist s t)
+    (N : Nat) (positive : 0 < N) (costPositive : 0 < cost)
+    (paid : (N:ℝ)*cost ≤ energy)
+    (adequate : k^N*dist s (R s) ≤ (1-k)*epsilon) :
+    ∃ n : Nat, 0 < n ∧ n ≤ N ∧
+      k*dist (run R (n-1) s) (R (run R (n-1) s)) ≤ (1-k)*epsilon ∧
+      dist (run R n s) fixed ≤ epsilon ∧ (n:ℝ)*cost ≤ energy ∧
+      (∀ m, 0 < m → m < n →
+        ¬ k*dist (run R (m-1) s) (R (run R (m-1) s)) ≤ (1-k)*epsilon)  := [proof body omitted in statement view]
+
+end UPTReflectionContraction

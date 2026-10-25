@@ -1,0 +1,63 @@
+import Mathlib.Analysis.SpecialFunctions.Exp
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.FunProp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+
+namespace GeminiBridgeH7
+noncomputable section
+open Filter
+open scoped Topology
+
+def rate (a w : ℝ) : ℝ := w*(1-a)
+def denominator (a w : ℝ) : ℝ := 1-rate a w
+def step (a w anchor evidence state : ℝ) : ℝ :=
+  w*((1-a)*state+a*anchor)+(1-w)*evidence
+def equilibrium (a w anchor evidence : ℝ) : ℝ :=
+  (w*a*anchor+(1-w)*evidence)/denominator a w
+def sensitivity (a w : ℝ) : ℝ := (1-w)/denominator a w
+
+def run (a w anchor evidence initial : ℝ) : Nat → ℝ
+  | 0 => initial
+  | n+1 => step a w anchor evidence (run a w anchor evidence initial n)
+
+theorem rate_bounds (a w : ℝ) (ha : 0 < a) (haOne : a ≤ 1)
+    (hw : 0 ≤ w) (hwOne : w ≤ 1) : 0 ≤ rate a w ∧ rate a w < 1  := [proof body omitted in statement view]
+
+theorem denominator_positive (a w : ℝ) (ha : 0 < a) (haOne : a ≤ 1)
+    (hw : 0 ≤ w) (hwOne : w ≤ 1) : 0 < denominator a w  := [proof body omitted in statement view]
+
+theorem equilibrium_is_fixed (a w anchor evidence : ℝ)
+    (hd : denominator a w ≠ 0) :
+    step a w anchor evidence (equilibrium a w anchor evidence) =
+      equilibrium a w anchor evidence  := [proof body omitted in statement view]
+
+theorem fixed_point_unique (a w anchor evidence state : ℝ)
+    (hd : denominator a w ≠ 0)
+    (fixed : step a w anchor evidence state = state) :
+    state = equilibrium a w anchor evidence  := [proof body omitted in statement view]
+
+theorem exact_transient (a w anchor evidence initial : ℝ)
+    (hd : denominator a w ≠ 0) (n : Nat) :
+    run a w anchor evidence initial n-equilibrium a w anchor evidence =
+      rate a w^n*(initial-equilibrium a w anchor evidence)  := [proof body omitted in statement view]
+
+theorem equilibrium_private_evidence_sensitivity
+    (a w anchor evidence increment : ℝ) :
+    equilibrium a w anchor (evidence+increment)-equilibrium a w anchor evidence =
+      sensitivity a w*increment  := [proof body omitted in statement view]
+
+theorem stubborn_anchor_limit (a anchor evidence : ℝ) (ha : 0 < a) :
+    Tendsto (fun w => equilibrium a w anchor evidence) (𝓝 1) (𝓝 anchor)  := [proof body omitted in statement view]
+
+theorem private_evidence_sensitivity_vanishes (a : ℝ) (ha : 0 < a) :
+    Tendsto (fun w => sensitivity a w) (𝓝 1) (𝓝 0)  := [proof body omitted in statement view]
+
+theorem exact_bias_threshold (a w tolerance : ℝ)
+    (ha : 0 < a) (haOne : a ≤ 1) (hw : 0 ≤ w) (hwOne : w ≤ 1)
+    (ht : 0 ≤ tolerance) :
+    tolerance ≤ equilibrium a w 1 0 ↔
+      tolerance/(a+(1-a)*tolerance) ≤ w  := [proof body omitted in statement view]
+
+end
+end GeminiBridgeH7

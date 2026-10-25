@@ -1,0 +1,48 @@
+import Mathlib.Basic.Real.Basic
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Data.Fintype.Card
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.FieldSimp
+
+namespace UPTRestrictedModels
+open scoped BigOperators
+
+theorem anchored_consensus_dissipation (x y anchor coupling : ℝ)
+    (_ha : 0 ≤ anchor) (hc : 0 ≤ coupling) :
+    x * (coupling*(y-x)-anchor*x) + y * (coupling*(x-y)-anchor*y) ≤
+      -anchor*(x^2+y^2)  := [proof body omitted in statement view]
+
+theorem hhi_variance_identity {n : ℕ} (positive : 0 < n) (shares : Fin n → ℝ)
+    (normalized : ∑ i, shares i = 1) :
+    (∑ i, (shares i - (1/(n:ℝ)))^2) = (∑ i, shares i^2) - 1/(n:ℝ)  := [proof body omitted in statement view]
+
+theorem uniform_shares_minimize_hhi {n : ℕ} (positive : 0 < n) (shares : Fin n → ℝ)
+    (normalized : ∑ i, shares i = 1) :
+    1/(n:ℝ) ≤ ∑ i, shares i^2  := [proof body omitted in statement view]
+
+theorem uniform_shares_are_unique {n : ℕ} (positive : 0 < n) (shares : Fin n → ℝ)
+    (normalized : ∑ i, shares i = 1) (minimal : ∑ i, shares i^2 = 1/(n:ℝ)) :
+    ∀ i, shares i = 1/(n:ℝ)  := [proof body omitted in statement view]
+
+theorem quadratic_cost_floor {n : ℕ} (positive : 0 < n) (shares : Fin n → ℝ)
+    (normalized : ∑ i, shares i = 1) (base scale : ℝ) (hs : 0 ≤ scale) :
+    base + scale/(n:ℝ) ≤ base + scale*(∑ i, shares i^2)  := [proof body omitted in statement view]
+
+def outputMass {U A : Type} [Fintype U] [DecidableEq A]
+    (p : U → ℝ) (f : U → A) (a : A) : ℝ :=
+  ∑ u, if f u = a then p u else 0
+
+def jointOutputMass {U V A B : Type} [Fintype U] [Fintype V]
+    [DecidableEq A] [DecidableEq B]
+    (p : U → ℝ) (q : V → ℝ) (f : U → A) (g : V → B) (a : A) (b : B) : ℝ :=
+  ∑ u, ∑ v, if f u = a ∧ g v = b then p u*q v else 0
+
+theorem conditional_product_pushforward {U V A B : Type} [Fintype U] [Fintype V]
+    [DecidableEq A] [DecidableEq B]
+    (p : U → ℝ) (q : V → ℝ) (f : U → A) (g : V → B) (a : A) (b : B) :
+    jointOutputMass p q f g a b = outputMass p f a * outputMass q g b  := [proof body omitted in statement view]
+
+end UPTRestrictedModels

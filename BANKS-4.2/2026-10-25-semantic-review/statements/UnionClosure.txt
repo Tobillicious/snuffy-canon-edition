@@ -1,0 +1,83 @@
+import Snuffy.Greatestness
+import Snuffy.PremiseFloor
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Data.Finset.Card
+import Mathlib.Basic.Real.Basic
+import Mathlib.Tactic.Linarith
+
+open Snuffy.Greatestness Finset
+
+namespace Snuffy.UnionClosure
+
+variable {n : ℕ} {L : Fin n → Type*} [∀ i, SemilatticeSup (L i)]
+
+def budgetFamily (R : Set (∀ i, L i)) (c : (∀ i, L i) → ℝ) (B : ℝ) : Set (∀ i, L i) :=
+  {x | x ∈ R ∧ c x ≤ B}
+
+def UnionRealizable (R : Set (∀ i, L i)) : Prop := ∀ x ∈ R, ∀ y ∈ R, x ⊔ y ∈ R
+
+theorem aligned_never_below {F : Set (∀ i, L i)} {o : ∀ i, L i} (ho : Aligned F o) :
+    ∀ q ∈ F, ¬ LexLt o q  := [proof body omitted in statement view]
+
+theorem dominates_of_affordable {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ} {B : ℝ}
+    (hR : UnionRealizable R) {o : ∀ i, L i} (ho : Aligned (budgetFamily R c B) o)
+    {q : ∀ i, L i} (hq : q ∈ R) (hcost : c (q ⊔ o) ≤ B) : q ≤ o  := [proof body omitted in statement view]
+
+theorem strict_of_affordable {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ} {B : ℝ}
+    (hR : UnionRealizable R) {o : ∀ i, L i} (ho : Aligned (budgetFamily R c B) o)
+    {q : ∀ i, L i} (hq : q ∈ R) (hcost : c (q ⊔ o) ≤ B) : q = o ∨ LexLt q o  := [proof body omitted in statement view]
+
+theorem exists_union_bound {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ} (hR : UnionRealizable R)
+    (hsub : ∀ x y, c (x ⊔ y) ≤ c x + c y) {o : ∀ i, L i} (ho : o ∈ R) {ι : Type*}
+    (q : ι → ∀ i, L i) (s : Finset ι) (hq : ∀ j ∈ s, q j ∈ R) :
+    ∃ u ∈ R, o ≤ u ∧ (∀ j ∈ s, q j ≤ u) ∧ c u ≤ c o + ∑ j ∈ s, c (q j)  := [proof body omitted in statement view]
+
+theorem dominates_within_slack {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ} {B : ℝ}
+    (hR : UnionRealizable R) (hsub : ∀ x y, c (x ⊔ y) ≤ c x + c y) {o : ∀ i, L i}
+    (ho : Aligned (budgetFamily R c B) o) {ι : Type*} (q : ι → ∀ i, L i) (s : Finset ι)
+    (hq : ∀ j ∈ s, q j ∈ R) (hslack : ∑ j ∈ s, c (q j) ≤ B - c o) : ∀ j ∈ s, q j ≤ o  := [proof body omitted in statement view]
+
+theorem union_closed_of_affordable {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ} {B : ℝ}
+    (hR : UnionRealizable R)
+    (hjoint : ∀ x ∈ budgetFamily R c B, ∀ y ∈ budgetFamily R c B, c (x ⊔ y) ≤ B) :
+    ∀ x ∈ budgetFamily R c B, ∀ y ∈ budgetFamily R c B, x ⊔ y ∈ budgetFamily R c B  := [proof body omitted in statement view]
+
+theorem greatest_of_affordable {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ} {B : ℝ}
+    (hR : UnionRealizable R)
+    (hjoint : ∀ x ∈ budgetFamily R c B, ∀ y ∈ budgetFamily R c B, c (x ⊔ y) ≤ B)
+    {o : ∀ i, L i} (ho : Aligned (budgetFamily R c B) o) :
+    ∀ q ∈ budgetFamily R c B, q ≤ o  := [proof body omitted in statement view]
+
+theorem aligned_eq_of_greatest {F : Set (∀ i, L i)} {t : ∀ i, L i} (ht : t ∈ F)
+    (htop : ∀ q ∈ F, q ≤ t) {o : ∀ i, L i} (ho : Aligned F o) : o = t  := [proof body omitted in statement view]
+
+section Solvent
+
+variable [∀ i, OrderTop (L i)]
+
+theorem greatest_of_solvent {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ} {B : ℝ}
+    (htopR : (⊤ : ∀ i, L i) ∈ R) (hsolv : c ⊤ ≤ B) {o : ∀ i, L i}
+    (ho : Aligned (budgetFamily R c B) o) : o = ⊤ ∧ ∀ q : ∀ i, L i, q ≤ o  := [proof body omitted in statement view]
+
+theorem strict_of_solvent {R : Set (∀ i, L i)} {c : (∀ i, L i) → ℝ} {B : ℝ}
+    (htopR : (⊤ : ∀ i, L i) ∈ R) (hsolv : c ⊤ ≤ B) {o : ∀ i, L i}
+    (ho : Aligned (budgetFamily R c B) o) : ∀ q : ∀ i, L i, q = o ∨ LexLt q o  := [proof body omitted in statement view]
+
+theorem greatest_or_irrelevant (E₀ : ℝ) (inc dem : ℕ → ℝ) (R : ℕ → Set (∀ i, L i))
+    (c : ℕ → (∀ i, L i) → ℝ) (htopR : ∀ k, (⊤ : ∀ i, L i) ∈ R k) (hcost : ∀ k, c k ⊤ = dem k) :
+    (∀ k (o : ∀ i, L i),
+        Aligned (budgetFamily (R k) (c k) (Snuffy.PremiseFloor.balance E₀ inc dem k + inc k)) o →
+          o = ⊤ ∧ ∀ q : ∀ i, L i, q ≤ o) ∨
+      ∃ kb, (∀ k < kb, 0 ≤ Snuffy.PremiseFloor.balance E₀ inc dem k) ∧
+        Snuffy.PremiseFloor.balance E₀ inc dem kb < 0  := [proof body omitted in statement view]
+
+end Solvent
+
+theorem insolvent_not_greatest :
+    ∃ (R : Set (Fin 1 → Finset Bool)) (c : (Fin 1 → Finset Bool) → ℝ) (B : ℝ)
+      (o q : Fin 1 → Finset Bool),
+      UnionRealizable (L := fun _ => Finset Bool) R ∧
+      Aligned (L := fun _ => Finset Bool) (budgetFamily (L := fun _ => Finset Bool) R c B) o ∧
+      q ∈ budgetFamily (L := fun _ => Finset Bool) R c B ∧ ¬ q ≤ o  := [proof body omitted in statement view]
+
+end Snuffy.UnionClosure

@@ -1,0 +1,62 @@
+namespace UPT
+
+universe u v
+
+def Sub {α : Type u} (s t : α → Prop) : Prop := ∀ x, s x → t x
+def SSub {α : Type u} (s t : α → Prop) : Prop := Sub s t ∧ ¬ Sub t s
+theorem Sub.refl {α : Type u} (s : α → Prop) : Sub s s  := [proof body omitted in statement view]
+
+theorem Sub.trans {α : Type u} {a b c : α → Prop} (h1 : Sub a b) (h2 : Sub b c) : Sub a c  := [proof body omitted in statement view]
+
+def Aligned {α : Type u} {O : Type v} (F : O → Prop) (key : O → α → Prop) (o : O) : Prop :=
+  F o ∧ ∀ p, F p → ¬ SSub (key o) (key p)
+def Needless {α : Type u} {O : Type v} (F : O → Prop) (key : O → α → Prop) (o : O) (x : α) : Prop :=
+  ¬ key o x ∧ ∃ p, F p ∧ Sub (key o) (key p) ∧ key p x
+theorem U1 {α : Type u} {O : Type v} (F : O → Prop) (key : O → α → Prop) (o : O)
+    (h : Aligned F key o) : ∀ x, ¬ Needless F key o x  := [proof body omitted in statement view]
+
+theorem SSub.trans_sub {α : Type u} {a b c : α → Prop} (h1 : SSub a b) (h2 : Sub b c) : SSub a c  := [proof body omitted in statement view]
+
+theorem Sub.trans_ssub {α : Type u} {a b c : α → Prop} (h1 : Sub a b) (h2 : SSub b c) : SSub a c  := [proof body omitted in statement view]
+
+def Equiv {α : Type u} (s t : α → Prop) : Prop := Sub s t ∧ Sub t s
+
+def LexBetter {α : Type u} {O : Type v} : List (O → α → Prop) → O → O → Prop
+  | [], _, _ => False
+  | k :: ks, o, p => SSub (k o) (k p) ∨ (Equiv (k o) (k p) ∧ LexBetter ks o p)
+
+theorem lex_irrefl {α : Type u} {O : Type v} : ∀ (ks : List (O → α → Prop)) (o : O), ¬ LexBetter ks o o := [proof body omitted in statement view]
+
+theorem lex_trans {α : Type u} {O : Type v} :
+    ∀ (ks : List (O → α → Prop)) (o p q : O), LexBetter ks o p → LexBetter ks p q → LexBetter ks o q := [proof body omitted in statement view]
+
+def LexAlignedL {α : Type u} {O : Type v} (F : O → Prop) (ks : List (O → α → Prop)) (o : O) : Prop :=
+  F o ∧ ∀ p, F p → ¬ LexBetter ks o p
+
+def NoNeedlessAtEveryStage {α : Type u} {O : Type v} : (O → Prop) → List (O → α → Prop) → O → Prop
+  | _, [], _ => True
+  | F, k :: ks, o => (∀ x, ¬ Needless F k o x) ∧
+      NoNeedlessAtEveryStage (fun p => F p ∧ Equiv (k o) (k p)) ks o
+
+theorem lex_U1 {α : Type u} {O : Type v} :
+    ∀ (ks : List (O → α → Prop)) (F : O → Prop) (o : O), LexAlignedL F ks o → NoNeedlessAtEveryStage F ks o := [proof body omitted in statement view]
+
+theorem freedom_first_U1_legacy {α : Type u} {O : Type v} (F : O → Prop) (freeE aliveE freeN aliveN : O → α → Prop) (o : O)
+    (h : LexAlignedL F [freeE, aliveE, freeN, aliveN] o) :
+    NoNeedlessAtEveryStage F [freeE, aliveE, freeN, aliveN] o  := [proof body omitted in statement view]
+
+theorem guard_first_stage {α : Type u} {O : Type v} (F : O → Prop) (k : O → α → Prop)
+    (ks : List (O → α → Prop)) (s m : O)
+    (h : LexAlignedL (fun p => F p ∧ Sub (k s) (k p)) (k :: ks) m) :
+    LexAlignedL F (k :: ks) m ∧ Sub (k s) (k m)  := [proof body omitted in statement view]
+
+theorem canonical_life_first_U1 {α : Type u} {O : Type v} (F : O → Prop)
+    (aliveE freeE aliveN freeN : O → α → Prop) (o : O)
+    (h : LexAlignedL F [aliveE, freeE, aliveN, freeN] o) :
+    NoNeedlessAtEveryStage F [aliveE, freeE, aliveN, freeN] o  := [proof body omitted in statement view]
+
+theorem life_guard {α : Type u} {O : Type v} (F : O → Prop) (aliveE freeE aliveN freeN : O → α → Prop) (s m : O)
+    (h : LexAlignedL (fun p => F p ∧ Sub (aliveE s) (aliveE p)) [aliveE, freeE, aliveN, freeN] m) :
+    LexAlignedL F [aliveE, freeE, aliveN, freeN] m ∧ Sub (aliveE s) (aliveE m)  := [proof body omitted in statement view]
+
+end UPT

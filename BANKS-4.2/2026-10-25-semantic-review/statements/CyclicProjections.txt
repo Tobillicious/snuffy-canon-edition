@@ -1,0 +1,78 @@
+import Snuffy.HalperinDecay
+import Mathlib.Analysis.InnerProductSpace.Projection.Submodule
+import Mathlib.Topology.Order.MonotoneConvergence
+
+open Submodule InnerProductSpace Filter
+
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℂ E]
+
+namespace Snuffy.Cyclic
+
+noncomputable def cyc : ∀ (k : ℕ) (K : Fin k → Submodule ℂ E)
+    [∀ i, (K i).HasOrthogonalProjection], E →L[ℂ] E
+  | 0, _, _ => ContinuousLinearMap.id ℂ E
+  | k + 1, K, _ => (K (Fin.last k)).starProjection.comp (cyc k (fun i => K i.castSucc))
+
+noncomputable def adj : ∀ (k : ℕ) (K : Fin k → Submodule ℂ E)
+    [∀ i, (K i).HasOrthogonalProjection], E →L[ℂ] E
+  | 0, _, _ => ContinuousLinearMap.id ℂ E
+  | k + 1, K, _ => (adj k (fun i => K i.castSucc)).comp (K (Fin.last k)).starProjection
+
+theorem cyc_succ_apply (k : ℕ) (K : Fin (k + 1) → Submodule ℂ E)
+    [∀ i, (K i).HasOrthogonalProjection] (x : E) :
+    cyc (k + 1) K x = (K (Fin.last k)).starProjection (cyc k (fun i => K i.castSucc) x)  := [proof body omitted in statement view]
+
+theorem adj_succ_apply (k : ℕ) (K : Fin (k + 1) → Submodule ℂ E)
+    [∀ i, (K i).HasOrthogonalProjection] (w : E) :
+    adj (k + 1) K w = adj k (fun i => K i.castSucc) ((K (Fin.last k)).starProjection w)  := [proof body omitted in statement view]
+
+theorem norm_cyc_le : ∀ (k : ℕ) (K : Fin k → Submodule ℂ E)
+    [∀ i, (K i).HasOrthogonalProjection] (x : E), ‖cyc k K x‖ ≤ ‖x‖ := [proof body omitted in statement view]
+
+theorem norm_adj_le : ∀ (k : ℕ) (K : Fin k → Submodule ℂ E)
+    [∀ i, (K i).HasOrthogonalProjection] (w : E), ‖adj k K w‖ ≤ ‖w‖ := [proof body omitted in statement view]
+
+theorem inner_cyc : ∀ (k : ℕ) (K : Fin k → Submodule ℂ E)
+    [∀ i, (K i).HasOrthogonalProjection] (z w : E),
+    ⟪cyc k K z, w⟫_ℂ = ⟪z, adj k K w⟫_ℂ := [proof body omitted in statement view]
+
+theorem cyc_fix : ∀ (k : ℕ) (K : Fin k → Submodule ℂ E)
+    [∀ i, (K i).HasOrthogonalProjection] (x : E), (∀ i, x ∈ K i) → cyc k K x = x := [proof body omitted in statement view]
+
+private theorem fixed_of_norm_eq (K : Submodule ℂ E) [K.HasOrthogonalProjection] {w : E}
+    (h : ‖K.starProjection w‖ = ‖w‖) : K.starProjection w = w  := [proof body omitted in statement view]
+
+theorem mem_of_norm_adj_eq : ∀ (k : ℕ) (K : Fin k → Submodule ℂ E)
+    [∀ i, (K i).HasOrthogonalProjection] (w : E), ‖adj k K w‖ = ‖w‖ → ∀ i, w ∈ K i := [proof body omitted in statement view]
+
+theorem energy : ∀ (k : ℕ) (K : Fin k → Submodule ℂ E)
+    [∀ i, (K i).HasOrthogonalProjection] (x : E),
+    ‖x - cyc k K x‖ ^ 2 ≤ k * (‖x‖ ^ 2 - ‖cyc k K x‖ ^ 2) := [proof body omitted in statement view]
+
+section Iterates
+
+variable {k : ℕ} (K : Fin k → Submodule ℂ E) [∀ i, (K i).HasOrthogonalProjection]
+
+theorem iter_succ (n : ℕ) (x : E) : (cyc k K ^ (n + 1)) x = cyc k K ((cyc k K ^ n) x)  := [proof body omitted in statement view]
+
+theorem iter_shift (n : ℕ) (z : E) : (cyc k K ^ n) (cyc k K z) = (cyc k K ^ (n + 1)) z  := [proof body omitted in statement view]
+
+theorem norm_iter_le (n : ℕ) (x : E) : ‖(cyc k K ^ n) x‖ ≤ ‖x‖  := [proof body omitted in statement view]
+
+theorem iter_fix (n : ℕ) (x : E) (hx : ∀ i, x ∈ K i) : (cyc k K ^ n) x = x  := [proof body omitted in statement view]
+
+theorem tendsto_iter_sub_succ (z : E) :
+    Tendsto (fun n => (cyc k K ^ n) z - (cyc k K ^ (n + 1)) z) atTop (nhds 0)  := [proof body omitted in statement view]
+
+theorem tendsto_zero_of_mem_orthogonal [CompleteSpace E] (y : E) (hy : y ∈ (⨅ i, K i)ᗮ) :
+    Tendsto (fun n => (cyc k K ^ n) y) atTop (nhds 0)  := [proof body omitted in statement view]
+
+theorem tendsto_cyc_iter [CompleteSpace E] [(⨅ i, K i).HasOrthogonalProjection] (x : E) :
+    Tendsto (fun n => (cyc k K ^ n) x) atTop (nhds ((⨅ i, K i).starProjection x))  := [proof body omitted in statement view]
+
+theorem presentation_detector [CompleteSpace E] [(⨅ i, K i).HasOrthogonalProjection] :
+    (∀ x : E, Tendsto (fun n => (cyc k K ^ n) x) atTop (nhds 0)) ↔ ⨅ i, K i = ⊥  := [proof body omitted in statement view]
+
+end Iterates
+
+end Snuffy.Cyclic

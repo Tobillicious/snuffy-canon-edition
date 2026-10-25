@@ -1,0 +1,86 @@
+{
+  "modules": {
+    "FiniteInformation": {
+      "role": "Finite classical joint information, processing and flagged decoder",
+      "assessment": "Reviewed all declarations, marginals, mi, process and flag. log_sum and data_processing_fin are finite-array inequalities. flag_identity is the exact occupancy-weighted information identity; decoder_bound adds proper nonnegative normalised joint/channel data and 0<=pr<=1. necessary_radius_from_decoder uses that decoder and the Gaussian occupancy law to derive the radius, rather than inferring minimum spread from locality.",
+      "obligations": [
+        "Include every permitted correlated input and establish the actual carrier/decoder correspondence. The compiled array information uses natural logarithms."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "Fano": {
+      "role": "Finite entropy/error information deficit",
+      "assessment": "Reviewed all results and entW/condEnt definitions. max_entropy bounds entropy on a finite support. fano_single and fano use a finite message alphabet of size at least two and an actual deterministic decoder. required_information subtracts the error-flag entropy from the actual message entropy. The units are nats; the manuscript's bit version divides by ln 2.",
+      "obligations": [
+        "The conditional initial-side-information and adaptive-history route is written in the paper derivation. Preserve that conditioning and unit conversion when connecting the finite compiled theorem."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "RecoveryWork": {
+      "role": "Actual frontier integration and admitted-protocol lower bound",
+      "assessment": "Reviewed all statements and the RecoveryProtocol/Succeeds definitions. frontier_work_bound permits real growth dimension d>=1, absolutely continuous nonnegative frontier, speed upper bound and charged positive area power; it does not require monotonicity. Wmin_lower_bound is a per-protocol bound. The infimum inheritance in prose is immediate but is not a native infimum definition in this module. Succeeds means radius reached; actual recovery fidelity is supplied by the carrier/decoder binding. The square completion and power asymptotic establish the stated late-age floor and divergence.",
+      "obligations": [
+        "The physical protocol class must map to the admitted frontier/power structure; that mapping must establish rather than assume compulsory power.",
+        "G3 supplies a genuinely successful matching construction; radius reach alone is not its fidelity certificate."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "GaussianTail": {
+      "role": "Gaussian occupancy tail and recovery-work composition",
+      "assessment": "Reviewed all results and carrierVar=2Dt. gaussian_lower_tail is an actual Gaussian probability bound at r<=mean. carrier_tail substitutes drift/diffusion parameters; necessary_radius_of_decoder combines a supplied decoder information requirement with the occupancy tail. x3_work_from_decoder composes the necessary radius with the admitted work protocol.",
+      "obligations": [
+        "Actual drift, diffusion, complete payload/flag model and same-class work binding. The compiled implications retain their established gauntlet role."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "AreaBridge": {
+      "role": "Calibrated information-to-traffic-to-power algebra",
+      "assessment": "Reviewed all results. logdet_le_trace is a PSD-matrix theorem. channel_cap combines max-entropy/log-det, calibrated signal/noise trace and finite-range covariance bounds. required_traffic derives a uniform active fraction from positive deadline/capacity and an information deficit. area_power combines actual node count, activation and charged node power. The geometric or power quantities are not obtained from node count alone.",
+      "obligations": [
+        "Connect the Gaussian results to hmaxent and the physical gain/conditional-noise/range bounds.",
+        "Use positive deficit and same-task deadline; a varying active set needs its service/concurrency accounting."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "DataProcessing": {
+      "role": "General measurable classical data processing",
+      "assessment": "Reviewed four results with mutualInfo=KL(J||J.fst product J.snd) and process as identity/Markov-kernel product. Marginal identities and KL contraction hold for finite J and actual Markov kernels; deterministic processing is a measurable special case.",
+      "obligations": [
+        "This is a classical measurable-channel theorem. The quantum data-processing use is a separately stated mathematical route, not a new quantum formalisation by name."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "GaussianKL": {
+      "role": "Gaussian likelihood and KL calculation",
+      "assessment": "Reviewed all results. The likelihood-ratio formula and KL identity use nonzero variances. The quadratic moment identity supplies the finite second moment and mean shift. These establish the scalar Gaussian information building block.",
+      "obligations": [
+        "Apply with the stated variance and measure conditions; this proves a distribution identity, not physical Gaussianity."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "GoldenFormula": {
+      "role": "KL chain rule and mutual-information upper bound",
+      "assessment": "Reviewed all results. Swap is an equality under a measurable equivalence. The golden formula decomposes KL against the input marginal times arbitrary output probability Q into output KL plus mutual information, with StandardBorel/nonempty input conditions. Nonnegative output KL yields the comparison bound.",
+      "obligations": [
+        "The source joint law and comparison output measure must instantiate the actual channel."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "GaussianChannel": {
+      "role": "Scalar additive Gaussian channel bound",
+      "assessment": "Reviewed chan, quad, outVar and all results. The channel is an actual Gaussian Markov kernel centered at g*x. Nonzero noise variance and MemLp input provide the KL comparison against a Gaussian with output variance g^2 Var(X)+v. The resulting mutual-information bound is half the natural log of 1+SNR.",
+      "obligations": [
+        "Finite second moment, actual gain and independent additive Gaussian noise model; conditional/adaptive application uses the paper's per-history binding."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "KLAdditivity": {
+      "role": "Kernel-product and measurable-equivalence identities",
+      "assessment": "Reviewed all results. Product kernels are conditionally product channels given the input; the associativity/swap laws keep that common input. KL additivity is for those product kernel constructions with Markov kernels and finite input measure, not an arbitrary unconditional independence assumption.",
+      "obligations": [
+        "Use the actual conditional product model or the later whitening/correlated-noise theorem as appropriate."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    }
+  }
+}

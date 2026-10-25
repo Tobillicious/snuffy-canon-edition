@@ -1,0 +1,30 @@
+import Mathlib.Probability.Distributions.Gaussian.Real
+import Mathlib.InformationTheory.KullbackLeibler.Basic
+
+open MeasureTheory ProbabilityTheory Real
+open scoped ENNReal NNReal
+
+namespace Snuffy.GaussianKL
+
+variable {m₁ m₂ : ℝ} {v₁ v₂ : ℝ≥0}
+
+theorem rnDeriv_gaussian_gaussian (hv₂ : v₂ ≠ 0) :
+    (gaussianReal m₁ v₁).rnDeriv (gaussianReal m₂ v₂)
+      =ᵐ[volume] fun x => (gaussianPDF m₂ v₂ x)⁻¹ * gaussianPDF m₁ v₁ x  := [proof body omitted in statement view]
+
+theorem log_gaussianPDFReal (m : ℝ) {v : ℝ≥0} (hv : v ≠ 0) (x : ℝ) :
+    Real.log (gaussianPDFReal m v x) = -(Real.log (2 * π * v)) / 2 - (x - m) ^ 2 / (2 * v)  := [proof body omitted in statement view]
+
+theorem llr_gaussian_gaussian (hv₁ : v₁ ≠ 0) (hv₂ : v₂ ≠ 0) :
+    llr (gaussianReal m₁ v₁) (gaussianReal m₂ v₂)
+      =ᵐ[gaussianReal m₁ v₁] fun x =>
+        Real.log ((v₂ : ℝ) / v₁) / 2 - (x - m₁) ^ 2 / (2 * v₁) + (x - m₂) ^ 2 / (2 * v₂)  := [proof body omitted in statement view]
+
+theorem integral_sq_sub_gaussian (m : ℝ) :
+    ∫ x, (x - m) ^ 2 ∂gaussianReal m₁ v₁ = v₁ + (m₁ - m) ^ 2  := [proof body omitted in statement view]
+
+theorem klDiv_gaussian_gaussian (hv₁ : v₁ ≠ 0) (hv₂ : v₂ ≠ 0) :
+    (InformationTheory.klDiv (gaussianReal m₁ v₁) (gaussianReal m₂ v₂)).toReal
+      = (Real.log ((v₂ : ℝ) / v₁) + ((v₁ : ℝ) + (m₁ - m₂) ^ 2) / v₂ - 1) / 2  := [proof body omitted in statement view]
+
+end Snuffy.GaussianKL

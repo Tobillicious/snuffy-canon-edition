@@ -1,0 +1,31 @@
+import Mathlib.Analysis.Matrix.PosDef
+import Mathlib.Analysis.Matrix.Spectrum
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+
+open Matrix Finset
+open scoped ComplexOrder
+
+namespace Snuffy.AreaBridge
+
+variable {n : Type*} [Fintype n] [DecidableEq n] {𝕜 : Type*} [RCLike 𝕜]
+
+theorem logdet_le_trace (W : Matrix n n 𝕜) (hW : W.PosSemidef) :
+    Real.log (RCLike.re (1 + W).det) ≤ RCLike.re W.trace  := [proof body omitted in statement view]
+
+theorem channel_cap {I g σ m nn Λ : ℝ} (W K : Matrix n n 𝕜) (hW : W.PosSemidef)
+    (hσ : 0 < σ) (hn : 0 < nn)
+    (hmaxent : I ≤ 1 / (2 * Real.log 2) * Real.log (RCLike.re (1 + W).det))
+    (hsnr : RCLike.re W.trace ≤ g ^ 2 / σ ^ 2 * RCLike.re K.trace)
+    (hrange : RCLike.re K.trace ≤ m * Λ ^ 2 / (4 * nn ^ 2)) (hg : 0 ≤ g ^ 2 / σ ^ 2) :
+    I ≤ m * (g ^ 2 * Λ ^ 2 / (8 * σ ^ 2 * Real.log 2 * nn ^ 2))  := [proof body omitted in statement view]
+
+theorem required_traffic {m nn J Δ₀ τ Kr Kmax : ℝ} (hn : 0 < nn) (hτ : 0 < τ) (hKr : 0 < Kr)
+    (hKmax : Kr ≤ Kmax) (hΔ : 0 ≤ Δ₀) (hJ : Δ₀ / τ ≤ J) (hcut : J ≤ m * Kr / nn) :
+    Δ₀ / (τ * Kmax) * nn ≤ m  := [proof body omitted in statement view]
+
+theorem area_power {P p₀ θ₀ a r d m nn : ℝ} (hp : 0 ≤ p₀) (hθ : 0 ≤ θ₀)
+    (hnodes : a * r ^ (d - 1) ≤ nn) (hm : θ₀ * nn ≤ m) (hP : p₀ * m ≤ P) :
+    p₀ * θ₀ * a * r ^ (d - 1) ≤ P  := [proof body omitted in statement view]
+
+end Snuffy.AreaBridge

@@ -1,0 +1,33 @@
+import Snuffy.RecoveryWork
+import Mathlib.Probability.Distributions.Gaussian.Real
+import Mathlib.Probability.Moments.Basic
+
+open MeasureTheory ProbabilityTheory Real
+
+namespace Snuffy.GaussianTail
+
+theorem gaussian_lower_tail {m r : ℝ} {v : NNReal} (hv : 0 < (v : ℝ)) (hr : r ≤ m) :
+    (gaussianReal m v).real {x | x ≤ r} ≤ exp (-(m - r) ^ 2 / (2 * v))  := [proof body omitted in statement view]
+
+noncomputable def carrierVar (D t : ℝ) (hD : 0 < D) (ht : 0 < t) : NNReal :=
+  ⟨2 * D * t, by positivity⟩
+
+theorem carrier_tail {u D t r : ℝ} (hD : 0 < D) (ht : 0 < t) (hr : r ≤ u * t) :
+    (gaussianReal (u * t) (carrierVar D t hD ht)).real {x | x ≤ r}
+      ≤ exp (-(u * t - r) ^ 2 / (4 * D * t))  := [proof body omitted in statement view]
+
+theorem necessary_radius_of_decoder {I0 It D u t r : ℝ} (hD : 0 < D) (ht : 0 < t)
+    (hIt : 0 < It) (hItI0 : It ≤ I0)
+    (hdecoder : It ≤ I0 * (gaussianReal (u * t) (carrierVar D t hD ht)).real {x | x ≤ r}) :
+    u * t - 2 * Real.sqrt (D * Real.log (I0 / It)) * Real.sqrt t ≤ r  := [proof body omitted in statement view]
+
+theorem x3_work_from_decoder {I0 It D u w t R r0 v p' d : ℝ} (hD : 0 < D) (ht : 0 < t)
+    (hIt : 0 < It) (hItI0 : It ≤ I0) (hw : 0 < w) (hwu : w < u)
+    (htc : (2 * Real.sqrt (D * Real.log (I0 / It))) ^ 2 / (4 * w * (u - w)) ≤ t)
+    (hdecoder : It ≤ I0 * (gaussianReal (u * t) (carrierVar D t hD ht)).real {x | x ≤ R})
+    (hd : 1 ≤ d) (hv : 0 < v) (hp : 0 < p')
+    (prot : Snuffy.RecoveryWork.RecoveryProtocol r0 v p' d) (hsucc : prot.Succeeds R) :
+    p' / (v * d) * ((w * (t - (2 * Real.sqrt (D * Real.log (I0 / It))) ^ 2
+        / (4 * w * (u - w)))) ^ d - r0 ^ d) ≤ prot.work  := [proof body omitted in statement view]
+
+end Snuffy.GaussianTail

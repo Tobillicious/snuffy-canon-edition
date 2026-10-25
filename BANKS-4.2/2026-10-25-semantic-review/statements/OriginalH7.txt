@@ -1,0 +1,41 @@
+import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+import Mathlib.Analysis.SpecialFunctions.Exp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+
+namespace GeminiOriginalH7
+noncomputable section
+open Filter
+open scoped Topology
+
+def decay (amplitude rate t : ℝ) : ℝ := amplitude*Real.exp (-rate*t)
+def left (mean difference coupling t : ℝ) : ℝ :=
+  decay mean 1 t+decay difference (1+2*coupling) t
+def right (mean difference coupling t : ℝ) : ℝ :=
+  decay mean 1 t-decay difference (1+2*coupling) t
+
+theorem decay_derivative (amplitude rate t : ℝ) :
+    HasDerivAt (decay amplitude rate) (-rate*decay amplitude rate t) t  := [proof body omitted in statement view]
+
+theorem solves_original_equation (mean difference coupling t : ℝ) :
+    HasDerivAt (left mean difference coupling)
+      (coupling*(right mean difference coupling t-left mean difference coupling t)
+        -left mean difference coupling t) t ∧
+    HasDerivAt (right mean difference coupling)
+      (coupling*(left mean difference coupling t-right mean difference coupling t)
+        -right mean difference coupling t) t  := [proof body omitted in statement view]
+
+theorem decay_limit (amplitude rate : ℝ) (positive : 0 < rate) :
+    Tendsto (decay amplitude rate) atTop (𝓝 0)  := [proof body omitted in statement view]
+
+theorem all_nonnegative_couplings_converge
+    (mean difference coupling : ℝ) (nonnegative : 0 ≤ coupling) :
+    Tendsto (left mean difference coupling) atTop (𝓝 0) ∧
+    Tendsto (right mean difference coupling) atTop (𝓝 0)  := [proof body omitted in statement view]
+
+theorem every_initial_pair_is_represented (x y coupling : ℝ) :
+    left ((x+y)/2) ((x-y)/2) coupling 0=x ∧
+    right ((x+y)/2) ((x-y)/2) coupling 0=y  := [proof body omitted in statement view]
+
+end
+end GeminiOriginalH7

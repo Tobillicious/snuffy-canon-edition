@@ -1,0 +1,19 @@
+import Mathlib.Topology.MetricSpace.Basic
+import Mathlib.Tactic.Linarith
+
+namespace GeminiThirteenMetric
+
+theorem embedding_distance_stability {I V : Type*} [PseudoMetricSpace V]
+    (first second : I → V) (epsilon : ℝ)
+    (close : ∀ i, dist (first i) (second i) ≤ epsilon) (i j : I) :
+    |dist (first i) (first j)-dist (second i) (second j)| ≤ 2*epsilon  := [proof body omitted in statement view]
+
+theorem protected_close_edge_margin (original perturbed threshold epsilon : ℝ)
+    (distortion : |original-perturbed| ≤ epsilon)
+    (margin : original+epsilon < threshold) : perturbed < threshold  := [proof body omitted in statement view]
+
+theorem protected_separated_edge_margin (original perturbed threshold epsilon : ℝ)
+    (distortion : |original-perturbed| ≤ epsilon)
+    (margin : threshold < original-epsilon) : threshold < perturbed  := [proof body omitted in statement view]
+
+end GeminiThirteenMetric

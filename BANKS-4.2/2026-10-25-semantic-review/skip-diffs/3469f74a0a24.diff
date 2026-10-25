@@ -1,0 +1,93 @@
+--- 2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/R17AQueueFinality.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/R17AQueueFinality.lean
+@@ -1,4 +1,4 @@
+-import UPTR12A
++import Snuffy.UPTR12A
+ 
+ /-!
+ R17-A -- queued-effect finality, review candidate (2026-10-23).
+@@ -59,16 +59,15 @@
+ noncomputable def applyOne (registry : Registry) (s : Machine)
+     (ticket : Nat) (e : UPTR12A.Effect) : Machine := by
+   classical
+-  cases hi : registry ticket with
+-  | none => exact s
++  exact match registry ticket with
++  | none => s
+   | some p =>
+-    if h : Ready s ticket e p then
+-      exact {s with
+-        target := UPTR12A.applyEffect s.target p.grant e
+-        credits := s.credits - p.cost
+-        applied := s.applied ++ [(ticket,e)]}
+-    else
+-      exact s
++      if Ready s ticket e p then
++        {s with
++          target := UPTR12A.applyEffect s.target p.grant e
++          credits := s.credits - p.cost
++          applied := s.applied ++ [(ticket,e)]}
++      else s
+ 
+ /-- Application is not allowed to append a trace event without a genuine
+ source grant and *all* current application-time guards. -/
+@@ -84,7 +83,7 @@
+     exact False.elim (changed heq)
+   | some p =>
+     by_cases h : Ready s ticket e p
+-    · exact ⟨p, hi, h⟩
++    · exact ⟨p, rfl, h⟩
+     · have heq : (applyOne registry s ticket e).applied = s.applied := by
+         simp [applyOne, hi, h]
+       exact False.elim (changed heq)
+@@ -119,7 +118,7 @@
+       simpa [drainOne, hq] using changed
+     obtain ⟨p,hreg,hready⟩ :=
+       new_effect_has_current_permit registry {s with pending := rest} ticket e hchanged
+-    exact ⟨ticket,e,rest,p,hq,hreg,hready⟩
++    exact ⟨ticket,e,rest,p,rfl,hreg,hready⟩
+ 
+ /-- A revoked ticket is refused even if its (formerly final) R12-A grant
+ and queued payload are otherwise valid. -/
+@@ -128,7 +127,8 @@
+     (revoked : ticket ∈ s.revoked) :
+     (applyOne registry s ticket e).applied = s.applied := by
+   classical
+-  by_contra changed
++  apply Classical.byContradiction
++  intro changed
+   obtain ⟨p,_,ready⟩ :=
+     new_effect_has_current_permit registry s ticket e changed
+   exact ready.notRevoked revoked
+@@ -139,7 +139,8 @@
+     (expired : ∀ p, registry ticket = some p → p.expires < s.now) :
+     (applyOne registry s ticket e).applied = s.applied := by
+   classical
+-  by_contra changed
++  apply Classical.byContradiction
++  intro changed
+   obtain ⟨p,hreg,ready⟩ :=
+     new_effect_has_current_permit registry s ticket e changed
+   exact Nat.not_le_of_gt (expired p hreg) ready.notExpired
+@@ -152,7 +153,8 @@
+       p.grant.bound.context.generation < s.target.floor) :
+     (applyOne registry s ticket e).applied = s.applied := by
+   classical
+-  by_contra changed
++  apply Classical.byContradiction
++  intro changed
+   obtain ⟨p,hreg,ready⟩ :=
+     new_effect_has_current_permit registry s ticket e changed
+   exact Nat.not_le_of_gt (stale p hreg) ready.sourceAccepts.2.1
+@@ -174,11 +176,4 @@
+   rcases h.sourceAccepts with ⟨_,_,hgen,hnonce,hmeaning,_⟩
+   exact ⟨hmeaning,hgen,hnonce⟩
+ 
+-#print axioms new_effect_has_current_permit
+-#print axioms drain_currently_authorized
+-#print axioms revoked_refuses
+-#print axioms expired_refuses
+-#print axioms installed_floor_refuses
+-#print axioms spend_is_funded
+-#print axioms application_has_source_binding
+ end UPTR17A

@@ -1,0 +1,19 @@
+/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/DecoderRetraction.lean:90:0: warning: automatically included section variable(s) unused in theorem `Snuffy.DecoderRetraction.inner_preserved_from_symplectic_flux`:
+  [CompleteSpace H]
+  [CompleteSpace B]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace H] [CompleteSpace B] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/DecoderRetraction.lean:108:2: error: Type mismatch: After simplification, term
+  congrArg (fun A => A x) (LinearIsometry.adjoint_comp_self E)
+ has type
+  True
+but is expected to have type
+  (ContinuousLinearMap.adjoint E.toContinuousLinearMap) (E x) = x
+/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/DecoderRetraction.lean:141:48: warning: `ContinuousLinearMap.mul_apply` has been deprecated: Use `mul_apply_eq_comp` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.mul_apply` to `mul_apply_eq_comp x`).
+
+Hint: Replace the deprecated name:
+  C̵o̵n̵t̵i̵n̵u̵o̵u̵s̵L̵i̵n̵e̵a̵r̵M̵a̵p̵.̵m̵u̵l̵_̵a̵p̵p̵l̵y̵m̲u̲l̲_̲a̲p̲p̲l̲y̲_̲e̲q̲_̲c̲o̲m̲p̲

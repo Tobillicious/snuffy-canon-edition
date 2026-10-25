@@ -1,0 +1,99 @@
+{
+  "method": "Human review of extracted theorem statements, retained definitions and section/typeclass context; proof bodies followed for load-bearing links as recorded. Existing kernel receipt is separate evidence. A reviewed statement does not mean its full physical application has been constructed.",
+  "modules": {
+    "Greatestness": {
+      "status": "statements_and_definitions_reviewed",
+      "role": "Finite-stage lexicographic partial-order core",
+      "assessment": "LexLt is first strict coordinate with all earlier coordinates equal. Aligned means membership plus no strict feasible improvement. The no-needless-loss equivalence follows these definitions. The union-closure theorem upgrades maximality to componentwise greatestness by forming o sup q. strict_except_mirrors and aligned_unique retain that closure input.",
+      "application_obligations": [
+        "Construct the intended outcome coordinates and actual feasible family; closure is needed on the resource branch where this theorem is used."
+      ],
+      "private_helpers": [
+        "exists_first_diff uses finite n, not a choice over an unrestricted infinite lexicographic order."
+      ]
+    },
+    "Law": {
+      "status": "statements_and_definitions_reviewed",
+      "role": "Finite existence, standby life guard, full-scope criterion, faithful-hold comparison",
+      "assessment": "Finite nonempty F supplies an aligned option; life_guard retains stage-zero standby outcomes with n>0. scope_guarantee_iff quantifies over every feasible family of subsets and correctly forces full scope within the chosen index type. Faithful-hold dominance transfers supplied statewise canonical dominance to upward events. Strictness needs finite measure, measurability and positive missed mass.",
+      "application_obligations": [
+        "Bind the index type to the entire intended physical domain.",
+        "Construct the statewise faithful hold; the measure theorem does not construct it."
+      ]
+    },
+    "UnionClosure": {
+      "status": "statements_and_definitions_reviewed",
+      "role": "Resource feasibility, greatestness, solvent and finite-slack alternatives",
+      "assessment": "budgetFamily explicitly intersects realisability with the cost bound. Affordable dominance uses a realisable join and its affordability; finite-slack dominance also uses subadditive cost. aligned_eq_of_greatest is an order result using a supplied greatest feasible tuple. greatest_of_solvent takes htopR and hsolv independently. greatest_or_irrelevant retains htopR at every step and a cost/demand correspondence. Its negative branch is a first negative ledger balance. insolvent_not_greatest is a finite counterexample and does not refute the solvent theorem.",
+      "application_obligations": [
+        "G2: construct the full realisable top tuple.",
+        "Supply the actual cost and funding correspondence; the negative branch does not itself supply protection."
+      ]
+    },
+    "SolventReciprocity": {
+      "status": "statements_and_definitions_reviewed",
+      "role": "Already-established solvent keeps-form",
+      "assessment": "solvent_keeps_everyone substitutes o=top from UnionClosure and applies htopkeeps. The rival premise in reciprocity_dominance_solvent is deliberately unnecessary because everyone is already kept. No union closure or rival feasibility premise remains on this branch.",
+      "application_obligations": [
+        "htopkeeps supplies the physical continuation interpretation.",
+        "G2 supplies realisability; solvency supplies affordability."
+      ],
+      "settled_result": "Do not reopen the request for a solvent reciprocity restatement; both statements are already present."
+    },
+    "AffordableReciprocity": {
+      "status": "statements_and_definitions_reviewed",
+      "role": "Already-established below-solvency keeps-form",
+      "assessment": "Derives the keeps consequence from UnionClosure.dominates_of_affordable and monotonicity of keeps. It retains UnionRealizable, rival realisability and affordability of the join; it does not require family-wide budget closure.",
+      "application_obligations": [
+        "Use on the stated resource branch with the actual join certificate."
+      ],
+      "settled_result": "Present in the canon; register text describing it as still held/banked is stale."
+    },
+    "PremiseFloor": {
+      "status": "statements_and_definitions_reviewed",
+      "role": "Ledger dichotomy, deficit forcing, first-stage comparison and reversible-administration argument",
+      "assessment": "balance is initial escrow plus the finite sum of income minus demand. income_or_irrelevance is a classical nonnegative-or-first-negative dichotomy. forced_breach needs cumulative net deficit tending to infinity. breach_strictly_below receives strict first-stage loss. reversible_administration_forced receives a feasible counterpart preserving earlier stages and strictly improving the resource stage.",
+      "application_obligations": [
+        "Bind demand to the complete physical cost.",
+        "The reversible counterpart is constructed in the Bennett route, not by this order lemma alone.",
+        "Necessary funding and actual availability of that funding are distinct."
+      ]
+    },
+    "ReciprocityCeiling": {
+      "status": "statements_and_definitions_reviewed",
+      "role": "Union-closed reciprocity and geometric finite-account ceiling",
+      "assessment": "The original reciprocity theorem retains hF, correctly superseded on the solvent branch by SolventReciprocity. ceiling_achievable assumes uniform geometric account bounds A_i r^d with 0<=r<1 and a finite account set, then obtains every positive ceiling at sufficiently large distance.",
+      "application_obligations": [
+        "Supply the actual below-threshold account law; the convergence lemma does not establish the physical noise model."
+      ],
+      "settled_result": "No new union-closure demand on the solvent branch."
+    },
+    "ReasonsRoute": {
+      "status": "statements_and_definitions_reviewed",
+      "role": "Finite option-value and indicator calculations",
+      "assessment": "Option-value results compare a maximum with the immediate destructive payoff under nonnegative normalised rational weights; strictness needs a positive-weight strict improvement. Regime.law is defined with protects=True. law_protects_everyone and indicator_law therefore establish the representation's definitions. Finite rival fractions are bounded by one and strictly below one if a member fails to keep m.",
+      "application_obligations": [
+        "The physical all-preserving regime comes from G1/G2, not from protects=True.",
+        "A general ensemble of objectives needs its own interpretation; the source proves finite indicator statements."
+      ],
+      "settled_result": "The accepted reasons-or-holding route remains; this does not introduce universal voluntary adoption as a requirement."
+    },
+    "ReasonsCompiled": {
+      "status": "statements_and_definitions_reviewed",
+      "role": "Good-event expectation comparisons and controller recovery floor",
+      "assessment": "reciprocity_expectation concludes rival-event mass <= canonical-event mass + mass(G complement), given dominance on G. canonical_floor uses a measurable good event and top on G. Strictness needs rival missed mass larger than mass(G complement). reciprocity_from_solvency obtains top on G from realisability, affordability and alignment. controller_pays_floor is the RecoveryWork admitted-protocol inequality, and controller_floor_diverges is the associated real-power asymptotic.",
+      "application_obligations": [
+        "Trace the current Section 15.2 unconditional probability display to an all-world dominance or common-failure coupling support; the additive charged-event allowance cannot simply be erased."
+      ],
+      "trace_status": "Support tracing pending through BridgeD1, Law and accepted common-history arguments; not classified as a new theory gap."
+    },
+    "Irreplaceability": {
+      "status": "statements_and_definitions_reviewed",
+      "role": "Additive finite information-value model",
+      "assessment": "value is a sum of assigned real information weights. Erasing a member loses exactly its assigned weight; positive weight gives strict loss. An optimum under a cardinality budget cannot omit a higher-weight available item while retaining a lower-weight one.",
+      "application_obligations": [
+        "Use the stated additive model. Bind weights to genuinely irreplaceable information where the physical interpretation is made; arbitrary joint mutual information is not automatically additive."
+      ]
+    }
+  }
+}

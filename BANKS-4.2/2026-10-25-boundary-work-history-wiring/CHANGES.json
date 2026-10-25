@@ -1,0 +1,34 @@
+{
+  "changed": [
+    "lean/Snuffy/DecoderRetraction.lean",
+    "lean/Snuffy/HamiltonianDecomposition.lean",
+    "lean/Snuffy/WorkBilling.lean",
+    "lean/SummitsAudit.lean",
+    "lean/RECEIPT.txt",
+    "inserts/23-machine-checked-canon.md",
+    "SNUFFY-CANON-EDITION-4.2-MASTER.md",
+    "README.md",
+    "PUBLICATION-CHECKLIST.md",
+    "@root/AGENTS.md",
+    "@root/NEXT-PROOF-REGISTER-2026-10-25.md",
+    "SUPPORTS-FOR-GEMINI.md",
+    "inserts/25-boundary-work-history.md"
+  ],
+  "after_sha256": {
+    "lean/Snuffy/DecoderRetraction.lean": "25dcac240ca79842f80d7c3774661f6180ed33d0113774427f0d475da8557049",
+    "lean/Snuffy/HamiltonianDecomposition.lean": "fe447f1c5467550dcc2296c167739d827da3ec2b3e55aa07f4506cb930cb5339",
+    "lean/Snuffy/WorkBilling.lean": "10a4e1ed7e1eeb178fa9916d5e09ce597928b530d355786a3989559c3287ba61",
+    "lean/SummitsAudit.lean": "6ecca2ed6a110a8d90dabff7ef2e5a39b06f08b972a8612043e39de95052bf6b",
+    "lean/RECEIPT.txt": "cca40072c50373baf340c59ec755b61e41d75f94556cf6316da0bd182bcb0437",
+    "lean/PROOF-STATE.md": "b5148a3e2feb4b8cd0e9291208521072a1de298fff8c1842092ab02e1a52d708",
+    "lean/build-and-audit.sh": "49f45c31bbd93747ee2b26b253e8bc278ac80569a6fd799dfd5c5e0bd6103acf",
+    "inserts/23-machine-checked-canon.md": "7a98846e3961b89f019aa7933bce94459e7a300b20b016094fac30a0366979cd",
+    "SNUFFY-CANON-EDITION-4.2-MASTER.md": "86e6a1ea918761000c5cda5da0ae66e5f201f9abd31f6af11b5cdfa145a3a620",
+    "README.md": "0d83180378d36556f72dd5211e850aabe040dd14034c38a464739468fe3f1ed3",
+    "PUBLICATION-CHECKLIST.md": "66956dee614a4e419fc6ec4b148d0b2dccaedf1429fdfdda648367c5a320eb9a",
+    "@root/AGENTS.md": "e60293750c3dd90f637ec29abd3c26a3f74b35c04f38fb5dd5ce9f139394b025",
+    "@root/NEXT-PROOF-REGISTER-2026-10-25.md": "f5953743b3a965938b59b1e5d596afd728cdf21a344b10be1820981911042c9a",
+    "SUPPORTS-FOR-GEMINI.md": "0ecc951ff26dee30bcaba97fd58e8e6511aa8e35f63bbab3c4bd8fb04b8a2e68",
+    "inserts/25-boundary-work-history.md": "48e87549823d2e94d99139c2600e15e90058103d808def2e57c41f4296eed4a0"
+  }
+}
