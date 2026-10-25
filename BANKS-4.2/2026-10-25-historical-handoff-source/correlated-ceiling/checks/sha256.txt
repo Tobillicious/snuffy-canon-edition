@@ -1,0 +1,1 @@
+dad8822f00f28aa83bce2fc5b4941c2df4e8aa5cc79d4841e5836061c0d85b6f  /Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-25-historical-handoff-source/correlated-ceiling/lean/Snuffy/CorrelatedCeiling.lean
