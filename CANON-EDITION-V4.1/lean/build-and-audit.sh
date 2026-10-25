@@ -10,7 +10,7 @@ BUILD=${BUILD:-$(mktemp -d)}
 export PATH=$LEAN_BIN:$PATH
 mkdir -p $BUILD/Snuffy
 export LEAN_PATH="$(cd $MATHLIB_PROJECT && lake env printenv LEAN_PATH):$BUILD"
-MODULES=(MathlibAnalyticBridge HalperinDecay OpialBridge CanonVonNeumann RecoveryWork E9SelfHealing H5Closure Greatestness ThermoLedger Composition PremiseFloor ReciprocityCeiling CyclicProjections GaussianTail DeductionBoundary ReflectionCertificate Trotter Irreplaceability DataProcessing MeetAlgebra MeetHilbert FiniteInformation AreaBridge UniversalProtection Workload Fano GaussianKL GoldenFormula GaussianChannel KLAdditivity GaussianChannelGen GaussianVector Whitening Rotation LogDet Law SpeedLimit Landauer QuantumLandauer Threshold)
+MODULES=(MathlibAnalyticBridge HalperinDecay OpialBridge CanonVonNeumann RecoveryWork E9SelfHealing H5Closure Greatestness ThermoLedger Composition PremiseFloor ReciprocityCeiling CyclicProjections GaussianTail DeductionBoundary ReflectionCertificate Trotter Irreplaceability DataProcessing MeetAlgebra MeetHilbert FiniteInformation AreaBridge UniversalProtection Workload Fano GaussianKL GoldenFormula GaussianChannel KLAdditivity GaussianChannelGen GaussianVector Whitening Rotation LogDet Law SpeedLimit Landauer QuantumLandauer Threshold UnionClosure SolventReciprocity AffordableReciprocity Bridge Instruments StrokeBookkeeping Bennett Concatenated ReasonsCompiled TwoLevel ErrorBudget GateSupport RiskBounds QueueDeadline BandwidthReflection AnalyticBridge RankAndCoalition MetricShadow SemanticMap BridgeD1 BridgeE9 BridgeH6 BridgeH7 BridgeH8 ReasonsRoute SensorTail ConsensusRate RGFixedPoint FinalClosure H8Bound CorrelatedStress LatticeLaplacian SafeGenesis AdaptiveConsensus CascadeCore DecisionAndScale E9Routes GenerativeClosure ReflectionContraction ReflectionFuel RestrictedModels ThermalBalance TransportLaw ControllerCertificate FIFOWorkload R16Feedback UPTLawLife ClosedCohold R14Boundary ReceivedCutRepaired ReadoutJoint ReadoutBounds OriginalD1 OriginalE9AndH5 OriginalH6 OriginalH7 OriginalH8 ControllerFinality UPTFence ConservedRouting P2P3 FIFOInstance FIFOAdmission R16TwoPhase R16Cut ReceivedCutR14Repaired ControllerFence IntegrationCertificate R16R14 R16Screened UPTR12A R17AQueueFinality R17FIFOR17A R17Funding R17WorkConcrete)
 OUT=$HERE/RECEIPT.txt
 {
   echo "# v4.1 summit modules — build receipt ($(date -u +%Y-%m-%dT%H:%MZ))"
@@ -23,12 +23,28 @@ OUT=$HERE/RECEIPT.txt
     [[ $ec -ne 0 || $b -ne 0 ]] && { ok=0; sed 's/^/##   /' $BUILD/$m.out; }
   done
   for m in $MODULES; do
-    leanchecker Snuffy.$m > $BUILD/$m.check 2>&1; echo "## leanchecker Snuffy.$m: exit=$?"
+    leanchecker Snuffy.$m > $BUILD/$m.check 2>&1; cec=$?; echo "## leanchecker Snuffy.$m: exit=$cec"
+    [[ $cec -ne 0 ]] && { ok=0; sed 's/^/##   /' $BUILD/$m.check; }
   done
-  hits=$(grep -n -E '(:=|by|^)[[:space:]]*(sorry|admit)([[:space:]]|$)|^axiom ' $HERE/Snuffy/*.lean)
+  hits=$(grep -n -E '(^[[:space:]]*|(:=|by)[[:space:]]*)(sorry|admit)[[:space:]]*$|^axiom ' $HERE/Snuffy/*.lean)
   echo "## sorry/admit/axiom uses in sources: ${hits:-none}"
+  [[ -n $hits ]] && ok=0
   echo "## axiom audit (SummitsAudit.lean):"
-  lean $HERE/SummitsAudit.lean 2>&1 | sed 's/^/##   /'
+  lean $HERE/SummitsAudit.lean > $BUILD/axioms.out 2>&1; aec=$?
+  sed 's/^/##   /' $BUILD/axioms.out
+  echo "## axiom audit exit=$aec"
+  [[ $aec -ne 0 ]] && ok=0
+  # every printed theorem must depend on at most propext, Classical.choice, Quot.sound
+  # join axiom lists that Lean wraps over several lines before checking them
+  perl -0pe 's/,\n\s+/, /g' $BUILD/axioms.out > $BUILD/axioms.joined
+  bad=$(grep "depends on axioms" $BUILD/axioms.joined | grep -v -E 'axioms: \[(propext|Classical\.choice|Quot\.sound)(, (propext|Classical\.choice|Quot\.sound))*\]')
+  printed=$(grep -c -E "depends on axioms|does not depend on any axioms" $BUILD/axioms.joined)
+  echo "## theorems audited: $printed; non-standard axiom dependencies: ${bad:-none}"
+  [[ -n $bad ]] && ok=0
+  grep -q -E ":[0-9]+:[0-9]+: error" $BUILD/axioms.out && ok=0
+  echo "## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):"
+  (cd $HERE && python3 check-complete.py) | sed 's/^/##   /'; [[ ${pipestatus[1]} -ne 0 ]] && ok=0
+  (cd $HERE && python3 check-claims.py) | sed 's/^/##   /'; [[ ${pipestatus[1]} -ne 0 ]] && ok=0
   echo "## source sha256:"
   (cd $HERE && shasum -a 256 Snuffy/*.lean SummitsAudit.lean) | sed 's/^/##   /'
   echo "## overall: $([[ $ok -eq 1 ]] && echo PASS || echo FAIL)"
