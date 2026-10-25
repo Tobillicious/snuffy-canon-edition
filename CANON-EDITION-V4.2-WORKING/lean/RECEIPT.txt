@@ -1,4 +1,4 @@
-# v4.2 modules — build receipt (2026-10-25T15:16Z)
+# v4.2 modules — build receipt (2026-10-25T16:31Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -169,6 +169,12 @@
 ## ConcatenatedDecoding: exit=0 compiler-output-bytes=0
 ## ChannelCP: exit=0 compiler-output-bytes=0
 ## PureStateTraceNorm: exit=0 compiler-output-bytes=0
+## G1Refinement: exit=0 compiler-output-bytes=0
+## G2Physical: exit=0 compiler-output-bytes=0
+## G2Freedom: exit=0 compiler-output-bytes=0
+## G3GoodEvent: exit=0 compiler-output-bytes=0
+## BennettExact: exit=0 compiler-output-bytes=0
+## G3ArchiveStock: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -338,6 +344,12 @@
 ## leanchecker Snuffy.ConcatenatedDecoding: exit=0
 ## leanchecker Snuffy.ChannelCP: exit=0
 ## leanchecker Snuffy.PureStateTraceNorm: exit=0
+## leanchecker Snuffy.G1Refinement: exit=0
+## leanchecker Snuffy.G2Physical: exit=0
+## leanchecker Snuffy.G2Freedom: exit=0
+## leanchecker Snuffy.G3GoodEvent: exit=0
+## leanchecker Snuffy.BennettExact: exit=0
+## leanchecker Snuffy.G3ArchiveStock: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.AnalyticBridge.starProjection_fixed_iff_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1376,6 +1388,21 @@
 ##   'Snuffy.BennettCounterpart.counterpart_more_slack' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.BennettCounterpart.premise5_constructed' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.BennettCounterpart.bennett_counterpart_computes' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_program_computes' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_program_output' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_program_workspace' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_program_history' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_step_fields' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_run_refines' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_run_history' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_quantum_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_quantum_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.complete_cost_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.complete_cost_strict_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.implemented_work_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.adiabatic_slack_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.switched_program_meets_deadline' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettCounterpart.adiabatic_feasible_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.RegionBoundary.exists_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.RegionBoundary.region_bootstrap' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.RegionBoundary.whole_no_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1425,13 +1452,31 @@
 ##   'Snuffy.PureStateTraceNorm.pure_cube' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.PureStateTraceNorm.pure_trace_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.PureStateTraceNorm.pure_trace_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Refinement.guarded_step_continues' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Refinement.physical_protection' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Refinement.journaled_protection' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Refinement.physical_qsl_drift' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Refinement.physical_protection_qsl' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G1Refinement.physical_instance_inhabited' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Physical.held_installation_keeps_all' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Physical.top_dominates_continuation' does not depend on any axioms
+##   'Snuffy.G2Freedom.joint_holding' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G2Freedom.joint_holding_and_delivery' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3GoodEvent.sweep_success_on_good_event' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3GoodEvent.complete_bill_with_archive' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettExact.premise5_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettExact.window_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettExact.reversible_admin_computes' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.G3ArchiveStock.live_stock_bill' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3ArchiveStock.retained_stock_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.G3ArchiveStock.rollover_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## axiom audit exit=0
-## theorems audited: 1055; non-standard axiom dependencies: none
-## expected audited statements: 1055
+## theorems audited: 1088; non-standard axiom dependencies: none
+## expected audited statements: 1088
 ## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):
-##   ## completeness: canon 169, corpus names 84, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 454
-##   ## build/audit coverage: canon 169, build 169, audit 169, errors 0
-##   ## claims: audited theorems 1055, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
+##   ## completeness: canon 175, corpus names 90, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 808
+##   ## build/audit coverage: canon 175, build 175, audit 175, errors 0
+##   ## claims: audited theorems 1088, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
 ## source sha256:
 ##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
 ##   4b416646e1fc8f74f524e0f9a680384e35e06adacd69f91bb30dcec70b921b7e  Snuffy/AffordableReciprocity.lean
@@ -1439,7 +1484,8 @@
 ##   f69c4a382be9c0144463ccaacea960d01fb400b2ef1775e150c5edee429bcd38  Snuffy/AreaBridge.lean
 ##   bdd3a90a36128370bba77aefe7ae87852ae5873fd3262cff9361a8e6af5e1bf5  Snuffy/BandwidthReflection.lean
 ##   9b8b6aa47ff4fc77866694d73757f736d8beef2cbf8efa3d63e9fcb182fbe34f  Snuffy/Bennett.lean
-##   bd6cb06c7252991abcd7aebbe681abcdbc13c2174c99fcb39d2966ceef325a32  Snuffy/BennettCounterpart.lean
+##   26e561156ad7756056f8bf1af3a40ce61d54386244264ece501363e840431d97  Snuffy/BennettCounterpart.lean
+##   e88fee9687904d04ed4f04dda7110f9ff18cace95ca9b0c5780a86fc64277b00  Snuffy/BennettExact.lean
 ##   7c1c2d43f9d37d0ecf717fec37966d0f73805ba17a07d3f1c32b9f35794cd195  Snuffy/Bridge.lean
 ##   3e55b52b2b6516ea68b50248485e3aea36a531d01efce059168d14ad482f977f  Snuffy/BridgeD1.lean
 ##   b4af3475fb19e438dba9bb67bcfcb2d378f6654f173edfcebc117ed5b63b396f  Snuffy/BridgeE9.lean
@@ -1485,12 +1531,17 @@
 ##   8414e6187adb9d866c6101555d628ee4a002b8ee6c68b8fa327c256fadd3d65f  Snuffy/G1Executable.lean
 ##   c788dfccee71414a16e33cbf98896f2c114e4891a12f54f21ed43c5344de39b1  Snuffy/G1FullDomain.lean
 ##   6d915552e41a578a04621af254fc53107f383ee77234495945c391082751c16f  Snuffy/G1Held.lean
+##   3f0eb24d42b02a0fa90eba8d7088acff9a4122f668596f187c02f4f7c6dfa748  Snuffy/G1Refinement.lean
+##   d13969385ebbc7357126d9120309ae4bdbc22fe7d97b47bc596f595407315cf3  Snuffy/G2Freedom.lean
 ##   0a62a0c481971d96903e02828cf246fe64e43376c6124edb52ba74e6d4dfc9e9  Snuffy/G2Held.lean
 ##   5f63e5aef491836fc6675e446fe5a2a106ed7ff5e8a891dd329a853b677bfaee  Snuffy/G2Outcome.lean
+##   13bd510da69e51e56d0253cfa0f352ee61e7d1e1ae588a588fe97b3b887447f4  Snuffy/G2Physical.lean
 ##   139d7a503fbd004f1fc178a2f9cc054d471ac48c8b5dee32e298740030a2867e  Snuffy/G2Singleton.lean
 ##   0d05584e0a4061a2c6f2e41dd47a59199e92b8a12343a7fa9c7ecc9fe06d449d  Snuffy/G2Splice.lean
 ##   0fc2373ff37836a251cb278154165ce737eb305be6707b0ca88d602140307fc6  Snuffy/G2WholeOutcome.lean
+##   0fd27c463a1179606dd0a7c8632e17d9cf27f8752fb26498de5035b878f082ff  Snuffy/G3ArchiveStock.lean
 ##   653ec5e2fd542eb51cd174d0cd7d6fb647e1bea99a469448624f068a7bdee38b  Snuffy/G3CompleteBill.lean
+##   a284f54aa8d95826181fe27e61f21905d12479f7a6489f5cc4a9db20111cdb0e  Snuffy/G3GoodEvent.lean
 ##   33ffbe6b5ea8331276c16ed5901a9f1ab6fa3700b7adcc91b03d09863f7eca75  Snuffy/G3PatchDecode.lean
 ##   cbd95963785c3a6f4d59f94db2243dd05b5ee08b2d69bbd11e3b54b307988293  Snuffy/G3Sweep.lean
 ##   c9f0785d0958de799e259636534af41f7f68f2f1d124fc686410ffc08a65a809  Snuffy/G3WorkBill.lean
@@ -1602,5 +1653,5 @@
 ##   fcfcf42fc99f43b196b65cb4f51d12e52d69d05bc0c7cdd90e2d03a6514a3e15  Snuffy/WorkBilling.lean
 ##   a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1  Snuffy/WorkIntegration.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   b9b172c0b9fc6ed19d7f81181e6ccc0e029b2b98c7b863754a9c425e23a9a047  SummitsAudit.lean
+##   838cd54619b93affafb1bdc9c55d23586349801bed5fd39af528ade0306881f8  SummitsAudit.lean
 ## overall: PASS

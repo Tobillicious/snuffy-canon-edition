@@ -34,6 +34,8 @@ Zero `sorry`. Mathlib rev 56a005855ea1.
 
 import Snuffy.Bennett
 import Snuffy.Greatestness
+import Mathlib.Analysis.InnerProductSpace.PiL2
+import Mathlib.Tactic.Ring
 
 open Finset
 
@@ -144,5 +146,189 @@ theorem bennett_counterpart_computes {α γ β : Type*} [AddGroup γ] [AddGroup 
     (g : α → γ) (h : γ → β) (a : α) :
     bennettEquiv g h (a, 0, 0) = (a, 0, h (g a)) :=
   bennett_compute_uncompute g h a
+
+section ImplementedProgram
+
+variable {State Work : Type*} [AddGroup State] [AddGroup Work]
+
+/-- Relabel the computed output as the live register, retaining the original
+input as history. This permutation is its own inverse. -/
+def swapEnds : State × Work × State ≃ State × Work × State where
+  toFun z := (z.2.2, z.2.1, z.1)
+  invFun z := (z.2.2, z.2.1, z.1)
+  left_inv _ := rfl
+  right_inv _ := rfl
+
+/-- The specific administration, not an arbitrary reversible bijection. -/
+def implementedProgram (g : State → Work) (h : Work → State) :
+    State × Work × State ≃ State × Work × State :=
+  (bennettEquiv g h).trans swapEnds
+
+theorem implemented_program_computes (g : State → Work) (h : Work → State) (s : State) :
+    implementedProgram g h (s, 0, 0) = (h (g s), 0, s) := by
+  change swapEnds (bennettEquiv g h (s, 0, 0)) = _
+  rw [bennett_compute_uncompute]
+  rfl
+
+theorem implemented_program_output (g : State → Work) (h : Work → State) (s : State) :
+    (implementedProgram g h (s, 0, 0)).1 = h (g s) := by
+  rw [implemented_program_computes]
+
+theorem implemented_program_workspace (g : State → Work) (h : Work → State) (s : State) :
+    (implementedProgram g h (s, 0, 0)).2.1 = 0 := by
+  rw [implemented_program_computes]
+
+theorem implemented_program_history (g : State → Work) (h : Work → State) (s : State) :
+    (implementedProgram g h (s, 0, 0)).2.2 = s := by
+  rw [implemented_program_computes]
+
+/-- One committed administration consumes a reserved clean output cell,
+executes the specific reversible program, and retains its history cell. The
+provisioning, transfer and continued retention belong in the lifecycle bill. -/
+def implementedStep (g : State → Work) (h : Work → State)
+    (s : State × List State) : State × List State :=
+  let z := implementedProgram g h (s.1, 0, 0)
+  (z.1, s.2 ++ [z.2.2])
+
+theorem implemented_step_fields (g : State → Work) (h : Work → State)
+    (s : State × List State) :
+    implementedStep g h s = (h (g s.1), s.2 ++ [s.1]) := by
+  simp only [implementedStep, implemented_program_computes]
+
+def sourceRun (g : State → Work) (h : Work → State) (s₀ : State) : ℕ → State
+  | 0 => s₀
+  | k + 1 => h (g (sourceRun g h s₀ k))
+
+def implementedRun (g : State → Work) (h : Work → State) (s₀ : State) :
+    ℕ → State × List State
+  | 0 => (s₀, [])
+  | k + 1 => implementedStep g h (implementedRun g h s₀ k)
+
+/-- The actual implemented trajectory reproduces the administration and
+retains exactly one full input record per committed step. -/
+theorem implemented_run_refines (g : State → Work) (h : Work → State) (s₀ : State) :
+    ∀ k, (implementedRun g h s₀ k).1 = sourceRun g h s₀ k ∧
+      (implementedRun g h s₀ k).2.length = k := by
+  intro k
+  induction k with
+  | zero => exact ⟨rfl, rfl⟩
+  | succ k ih =>
+      simp only [implementedRun, implemented_step_fields, sourceRun,
+        List.length_append, List.length_singleton, ih.1, ih.2]
+      constructor <;> trivial
+
+/-- The retained cells contain the full ordered source history, not merely a
+counter of successful administrations. -/
+theorem implemented_run_history (g : State → Work) (h : Work → State) (s₀ : State) :
+    ∀ k, (implementedRun g h s₀ k).2 = (List.range k).map (sourceRun g h s₀) := by
+  intro k
+  induction k with
+  | zero => rfl
+  | succ k ih =>
+      rw [implementedRun, implemented_step_fields, List.range_succ, List.map_append,
+        List.map_singleton, ih, (implemented_run_refines g h s₀ k).1]
+
+variable [Fintype State] [Fintype Work]
+variable {Ref : Type*} [Fintype Ref]
+
+/-- The same implemented permutation is a unitary on the joint quantum
+register, leaving an arbitrary reference register untouched. -/
+noncomputable def quantumProgram (g : State → Work) (h : Work → State) :
+    EuclideanSpace ℂ ((State × Work × State) × Ref) ≃ₗᵢ[ℂ]
+      EuclideanSpace ℂ ((State × Work × State) × Ref) :=
+  LinearIsometryEquiv.piLpCongrLeft 2 ℂ ℂ
+    ((implementedProgram g h).prodCongr (Equiv.refl Ref))
+
+theorem implemented_quantum_norm (g : State → Work) (h : Work → State)
+    (ψ : EuclideanSpace ℂ ((State × Work × State) × Ref)) :
+    ‖quantumProgram g h ψ‖ = ‖ψ‖ :=
+  (quantumProgram g h).norm_map ψ
+
+theorem implemented_quantum_roundtrip (g : State → Work) (h : Work → State)
+    (ψ : EuclideanSpace ℂ ((State × Work × State) × Ref)) :
+    (quantumProgram g h).symm (quantumProgram g h ψ) = ψ :=
+  (quantumProgram g h).symm_apply_apply ψ
+
+end ImplementedProgram
+
+/-- The non-heat lifecycle charges. These explicitly retain provisioning,
+workspace return, output/history movement and continued archive care. -/
+structure LifecycleCharge where
+  compute : ℝ
+  copy : ℝ
+  uncompute : ℝ
+  provision : ℝ
+  archiveWrite : ℝ
+  archiveHold : ℝ
+  routing : ℝ
+  reset : ℝ
+  guard : ℝ
+  controller : ℝ
+  verification : ℝ
+  endpoints : ℝ
+
+def LifecycleCharge.total (q : LifecycleCharge) : ℝ :=
+  q.compute + q.copy + q.uncompute + q.provision + q.archiveWrite + q.archiveHold +
+    q.routing + q.reset + q.guard + q.controller + q.verification + q.endpoints
+
+/-- Exact comparison of complete costs: eliminating bath heat does not by
+itself remove the other physical lifecycle charges. -/
+theorem complete_cost_difference (rev irr : LifecycleCharge) (heat : ℝ) :
+    (rev.total + 0) - (irr.total + heat) = (rev.total - irr.total) - heat := by
+  ring
+
+theorem complete_cost_strict_iff (rev irr : LifecycleCharge) (heat : ℝ) :
+    rev.total + 0 < irr.total + heat ↔ rev.total - irr.total < heat := by
+  constructor <;> intro h <;> linarith
+
+/-- A fixed circuit multiplier and full archive allowance preserve the
+original exponent. The coefficient is explicit and independent of age. -/
+theorem implemented_work_ceiling {base archive total α C γ t : ℝ} {d : ℕ}
+    (hα : 0 ≤ α) (hbase : base ≤ C * t ^ d) (harchive : archive ≤ γ * t ^ d)
+    (hledger : total = α * base + archive) :
+    total ≤ (α * C + γ) * t ^ d := by
+  have hm := mul_le_mul_of_nonneg_left hbase hα
+  rw [hledger]
+  nlinarith
+
+/-- The exact compatibility condition for finite-time adiabatic work and the
+same deadline. The device must establish this window for its complete bill;
+slowing a circuit without a deadline bound is not sufficient. -/
+theorem adiabatic_slack_window {drive archive heat maxTime : ℝ}
+    (hgap : 0 < heat - archive) (htime : 0 < maxTime)
+    (hwindow : drive / (heat - archive) < maxTime) :
+    ∃ switchTime : ℝ, 0 < switchTime ∧ switchTime ≤ maxTime ∧
+      drive / switchTime + archive < heat := by
+  refine ⟨maxTime, htime, le_rfl, ?_⟩
+  have hw := (div_lt_iff₀ hgap).mp hwindow
+  have hd : drive / maxTime < heat - archive :=
+    (div_lt_iff₀ htime).mpr (by nlinarith)
+  linarith
+
+theorem switched_program_meets_deadline {depth overhead deadline switchTime : ℝ}
+    (hdepth : 0 < depth) (hwindow : switchTime ≤ (deadline - overhead) / depth) :
+    depth * switchTime + overhead ≤ deadline := by
+  rw [le_div_iff₀ hdepth] at hwindow
+  nlinarith
+
+/-- For the stated inverse-time device model, the engineering inequalities
+are necessary as well as sufficient. This identifies the exact support
+needed; it does not assume that a particular device satisfies it. -/
+theorem adiabatic_feasible_iff {drive archive heat maxTime : ℝ}
+    (hdrive : 0 ≤ drive) (htime : 0 < maxTime) :
+    (∃ switchTime : ℝ, 0 < switchTime ∧ switchTime ≤ maxTime ∧
+      drive / switchTime + archive < heat) ↔
+    0 < heat - archive ∧ drive / (heat - archive) < maxTime := by
+  constructor
+  · rintro ⟨switchTime, hswitch, hdeadline, hcost⟩
+    have hnonneg : 0 ≤ drive / switchTime := div_nonneg hdrive hswitch.le
+    have hgap : 0 < heat - archive := by linarith
+    refine ⟨hgap, (div_lt_iff₀ hgap).mpr ?_⟩
+    have hswitchcost : drive / switchTime < heat - archive := by linarith
+    have hproduct := (div_lt_iff₀ hswitch).mp hswitchcost
+    exact lt_of_lt_of_le hproduct (by
+      simpa [mul_comm] using mul_le_mul_of_nonneg_left hdeadline hgap.le)
+  · rintro ⟨hgap, hwindow⟩
+    exact adiabatic_slack_window hgap htime hwindow
 
 end Snuffy.BennettCounterpart

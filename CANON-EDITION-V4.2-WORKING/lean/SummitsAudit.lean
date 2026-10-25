@@ -169,6 +169,12 @@ import Snuffy.CutEquivalence
 import Snuffy.ConcatenatedDecoding
 import Snuffy.ChannelCP
 import Snuffy.PureStateTraceNorm
+import Snuffy.G1Refinement
+import Snuffy.G2Physical
+import Snuffy.G2Freedom
+import Snuffy.G3GoodEvent
+import Snuffy.BennettExact
+import Snuffy.G3ArchiveStock
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1333,6 +1339,21 @@ import Snuffy.PureStateTraceNorm
 #print axioms Snuffy.BennettCounterpart.counterpart_more_slack
 #print axioms Snuffy.BennettCounterpart.premise5_constructed
 #print axioms Snuffy.BennettCounterpart.bennett_counterpart_computes
+#print axioms Snuffy.BennettCounterpart.implemented_program_computes
+#print axioms Snuffy.BennettCounterpart.implemented_program_output
+#print axioms Snuffy.BennettCounterpart.implemented_program_workspace
+#print axioms Snuffy.BennettCounterpart.implemented_program_history
+#print axioms Snuffy.BennettCounterpart.implemented_step_fields
+#print axioms Snuffy.BennettCounterpart.implemented_run_refines
+#print axioms Snuffy.BennettCounterpart.implemented_run_history
+#print axioms Snuffy.BennettCounterpart.implemented_quantum_norm
+#print axioms Snuffy.BennettCounterpart.implemented_quantum_roundtrip
+#print axioms Snuffy.BennettCounterpart.complete_cost_difference
+#print axioms Snuffy.BennettCounterpart.complete_cost_strict_iff
+#print axioms Snuffy.BennettCounterpart.implemented_work_ceiling
+#print axioms Snuffy.BennettCounterpart.adiabatic_slack_window
+#print axioms Snuffy.BennettCounterpart.switched_program_meets_deadline
+#print axioms Snuffy.BennettCounterpart.adiabatic_feasible_iff
 -- RegionBoundary
 #print axioms Snuffy.RegionBoundary.exists_crossing
 #print axioms Snuffy.RegionBoundary.region_bootstrap
@@ -1394,3 +1415,27 @@ import Snuffy.PureStateTraceNorm
 #print axioms Snuffy.PureStateTraceNorm.pure_cube
 #print axioms Snuffy.PureStateTraceNorm.pure_trace_sq
 #print axioms Snuffy.PureStateTraceNorm.pure_trace_norm
+-- G1Refinement
+#print axioms Snuffy.G1Refinement.guarded_step_continues
+#print axioms Snuffy.G1Refinement.physical_protection
+#print axioms Snuffy.G1Refinement.journaled_protection
+#print axioms Snuffy.G1Refinement.physical_qsl_drift
+#print axioms Snuffy.G1Refinement.physical_protection_qsl
+#print axioms Snuffy.G1Refinement.physical_instance_inhabited
+-- G2Physical
+#print axioms Snuffy.G2Physical.held_installation_keeps_all
+#print axioms Snuffy.G2Physical.top_dominates_continuation
+-- G2Freedom
+#print axioms Snuffy.G2Freedom.joint_holding
+#print axioms Snuffy.G2Freedom.joint_holding_and_delivery
+-- G3GoodEvent
+#print axioms Snuffy.G3GoodEvent.sweep_success_on_good_event
+#print axioms Snuffy.G3GoodEvent.complete_bill_with_archive
+-- BennettExact
+#print axioms Snuffy.BennettExact.premise5_exact
+#print axioms Snuffy.BennettExact.window_exact
+#print axioms Snuffy.BennettExact.reversible_admin_computes
+-- G3ArchiveStock
+#print axioms Snuffy.G3ArchiveStock.live_stock_bill
+#print axioms Snuffy.G3ArchiveStock.retained_stock_quadratic
+#print axioms Snuffy.G3ArchiveStock.rollover_quadratic

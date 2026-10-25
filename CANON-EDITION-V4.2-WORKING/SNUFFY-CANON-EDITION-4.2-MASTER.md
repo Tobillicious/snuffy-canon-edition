@@ -8,7 +8,7 @@ Canon Edition 4.2, 26 October 2026. Research direction: Tobias Croydon-McRae. Th
 
 The three joined supports retain their full targets: the full-domain physical certificate (G1), realisability of the whole continuation-and-freedom tuple (G2), and recovery success with a complete pathwise work certificate (G3). This repair checkpoint corrects the normalised quantum-state domain and the clipped-reserve contraction, and develops the actual Bennett implementation. The physical source, whole-outcome, device-cost and external-theorem application correspondences remain explicit construction work; the component theorems do not by themselves declare the maximal argument complete.
 
-The current Lean tree contains 169 modules and 1055 audited public theorem/lemma names. All 169 modules were freshly compiled and kernel-checked in one run, and the full axiom audit over all 1055 names and the completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
+The current Lean tree contains 175 modules and 1088 audited public theorem/lemma names. All 175 modules were freshly compiled and kernel-checked in one run, and the full axiom audit over all 1088 names and the completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
 
 **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports and their constructions. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
 
@@ -1454,7 +1454,7 @@ The installation figures themselves are sourced measurements and design values, 
 
 ## Section 23 — The machine-checked canon
 
-*This section maps the edition's compiled results and their actual hypotheses. The current source contains 169 modules and 1055 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
+*This section maps the edition's compiled results and their actual hypotheses. The current source contains 175 modules and 1088 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
 
 *Evidence convention (unchanged from the edition header): a compiled theorem is cited by its name; a statement carried as a hypothesis of a compiled theorem is named as such; a prose derivation keeps its stated premises. A prose proof does not acquire a compiler certificate by association.*
 
@@ -1630,11 +1630,15 @@ The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the r
 | `PureStateTraceNorm` | The pure-state trace-distance identity $\|\,|\psi\rangle\langle\psi|-|\varphi\rangle\langle\varphi|\,\|_1=2\sqrt{1-|\langle\psi,\varphi\rangle|^2}$ (§23.3; G.13) |
 | `R14Rivals`, `R15CausalGluing` | The staged order; greatestness reduced exactly to feasible boundary representatives; envelope transfer; no clairvoyant per-world selection (G.15) |
 | `TimelyCare`, `DeadlineDemand`, `DecisionPermit`, `ObservationWinning` | Timely care under reserved capacity; window demand within supply; only certified decisions granted; observation-based winning (G.15) |
+| `G1Refinement` | The installation's own guarded run protects every particular on the good event, failure at most $\sum_i\delta_i$, with the journal retaining history; the speed limit removes the alarm device from holding; every hypothesis has an inhabited instance (G.16) |
+| `G2Physical`, `G2Freedom` | The held installation realises the continuation top, which dominates without union closure; holding and timely authorised R17 delivery hold on one joint execution (G.16) |
+| `G3GoodEvent`, `G3ArchiveStock` | The wavefront sweep recovers on the good event with failure at most $\sum_i\delta_i$; archive holding is a separate bill term, charged on the held stock: live stock gives $\gamma(I_0+c)t^d$ for every $d\ge1$, while retaining every increment or rolling the whole stock over epochs is quadratic (G.16) |
+| `BennettExact` | Premise 5 with the implemented Bennett program and complete lifecycle cost: forced inside the adiabatic window $0<Q-H$, $A/(Q-H)<\tau_{\max}$, and outside it the counterpart is not cheaper (G.17) |
 
 The earlier `G1Certificate.universal_protection_held` has conclusion `True`; it is a placeholder and is not the protection theorem `Bridge.universal_protection_held`. The latter's full source certificate is constructed in G.10 (`G1Held.held_source_protection`). The exact integration history and dependency trace accompany this working edition.
 
 <!-- BEGIN THEOREM INDEX -->
-### 23.A Complete theorem index
+## 23.A Complete theorem index
 
 Generated from the sources by `lean/gen-index.py`; every theorem listed here is kernel-checked and axiom-audited by `lean/build-and-audit.sh`.
 
@@ -1796,7 +1800,7 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `SmearingIntegral` | `smeared_reconstruction`, `smeared_boundary_reconstruction` |
 | `ChannelExtension` | `ext_recovers`, `kron_isometry`, `ext_recovers_reference`, `ext_trace`, `ext_posSemidef` |
 | `PureStateDistance` | `pure_infidelity_le`, `pure_fidelity_ge` |
-| `BennettCounterpart` | `counterpart_heat_zero`, `merging_heat_pos`, `counterpart_same`, `counterpart_feasible`, `counterpart_more_slack`, `premise5_constructed`, `bennett_counterpart_computes` |
+| `BennettCounterpart` | `counterpart_heat_zero`, `merging_heat_pos`, `counterpart_same`, `counterpart_feasible`, `counterpart_more_slack`, `premise5_constructed`, `bennett_counterpart_computes`, `implemented_program_computes`, `implemented_program_output`, `implemented_program_workspace`, `implemented_program_history`, `implemented_step_fields`, `implemented_run_refines`, `implemented_run_history`, `implemented_quantum_norm`, `implemented_quantum_roundtrip`, `complete_cost_difference`, `complete_cost_strict_iff`, `implemented_work_ceiling`, `adiabatic_slack_window`, `switched_program_meets_deadline`, `adiabatic_feasible_iff` |
 | `RegionBoundary` | `exists_crossing`, `region_bootstrap`, `whole_no_boundary`, `whole_H0_trivial` |
 | `TimelyCare` | `care_served`, `exhaustion_fails`, `deadline_met`, `miss_within_shortage` |
 | `DeadlineDemand` | `demand_le_supply`, `robust_demand` |
@@ -1809,6 +1813,12 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `ConcatenatedDecoding` | `outer_decodes`, `mem_sub`, `decodes_unless_fails`, `decoding_failure_le` |
 | `ChannelCP` | `kron_entry`, `amp_eq`, `compress_entry`, `mp_posSemidef`, `decoder_completely_positive` |
 | `PureStateTraceNorm` | `sum_sq_eigenvalues`, `eigenvalue_cube`, `pureDiff_hermitian`, `vmv_smul`, `star_dot_swap`, `pure_cube`, `pure_trace_sq`, `pure_trace_norm` |
+| `G1Refinement` | `guarded_step_continues`, `physical_protection`, `journaled_protection`, `physical_qsl_drift`, `physical_protection_qsl`, `physical_instance_inhabited` |
+| `G2Physical` | `held_installation_keeps_all`, `top_dominates_continuation` |
+| `G2Freedom` | `joint_holding`, `joint_holding_and_delivery` |
+| `G3GoodEvent` | `sweep_success_on_good_event`, `complete_bill_with_archive` |
+| `BennettExact` | `premise5_exact`, `window_exact`, `reversible_admin_computes` |
+| `G3ArchiveStock` | `live_stock_bill`, `retained_stock_quadratic`, `rollover_quadratic` |
 <!-- END THEOREM INDEX -->
 
 ---
@@ -2941,6 +2951,124 @@ winning** (`TimelyCare`, `DeadlineDemand`, `DecisionPermit`,
   hidden-world countermodel shows that observation, not clairvoyance, is the
   right quantifier (`hidden_world_countermodel`).
 
+## G.16 Protection of the installation's own run, the physical top, and recovery on the good event
+
+This section answers review objections 2, 3 and 5. Each is answered on the
+installation's own execution, without an abstraction map, product hypothesis
+or assumed device.
+
+**The installation's own run is protected** (`G1Refinement`). Let the
+installation have its own physical state space, possibly with hidden internal
+degrees of freedom, and a readout of each particular's record frame. One step
+is guarded: the world acts — the environment, every agent and every crosstalk
+between particulars — then the physical corrector acts. Three properties of
+the device suffice:
+
+- the corrector writes the nearest codeword back into each particular's
+  readout;
+- on the good event the world moves each readout by at most \(\rho\) per step;
+- the records are written at the start.
+
+With these, every particular continues at every step of the physical run on
+the good event, and the probability that any particular fails is at most
+\(\sum_i\delta_i\), with no independence (`physical_protection`). The complete
+journal of G.8 changes nothing observed, keeps the protection along the live
+state and replays it exactly (`journaled_protection`): the journal retains
+history; the guard supplies the protection.
+
+**No alarm-response device is needed for holding** (`physical_qsl_drift`,
+`physical_protection_qsl`). On normalised readouts, the speed limit bounds the
+per-step drift by \((W/\hbar)\Delta\) for any agent whose coupling is at most
+\(W\). Take \(W\) to be the maximal physical coupling of any agent, which is
+finite because local power is finite. Correcting at intervals
+\(\Delta\le\hbar(t-\varepsilon)/W\) then holds every particular against every
+agent. The E9 alarm and mediated response remain valuable: below threshold
+they permit longer intervals and lower cost. Holding does not depend on them.
+Every hypothesis has a concrete inhabited instance
+(`physical_instance_inhabited`).
+
+**The continuation top is realised physically** (`G2Physical`). The held
+installation is a physical policy. On the good event it keeps every particular
+at every step through the horizon (`held_installation_keeps_all`), so the
+existing and new continuation stages are whole. Crosstalk enters only through
+the bounded drift that each particular's correction absorbs. No product
+structure of policies and no closed-block hypothesis is used. Once the top is
+realised, it dominates every realised outcome without union closure
+(`top_dominates_continuation`).
+
+**Holding and timely authorised delivery on one execution**
+(`G2Freedom`). Pair the installation's frames with the R17 effect machine.
+The corrector does not touch the effect machine, and delivery does not touch
+the readouts; the physical consequences of applied effects are part of the
+bounded drift. On the same joint run, every particular continues, and every
+effect that is ready under a live R17 contract within a deadline-certified FIFO
+prefix is applied by its deadline (`joint_holding_and_delivery`, with
+`SnuffyFIFO.ready_fifo_effect_applies_before_deadline`).
+
+**Recovery succeeds on the good event** (`G3GoodEvent`). Let every patch
+read-out lie within the decoding radius of its target codeword, once its
+interior is recovered, off the named charged accounts. The threshold theorem
+bounds the event that it does not. Then the wavefront sweep recovers the whole
+region on the good event, and recovery fails with probability at most
+\(\sum_i\delta_i\) (`sweep_success_on_good_event`). The complete bill keeps
+archive holding as its own term (`complete_bill_with_archive`).
+
+**Archive holding is charged on the held stock** (`G3ArchiveStock`). The
+holding charge at a step is the rate \(\gamma\) per held bit times the bits
+actually held then. The archive holds the record's information \(I_0\) and the
+live boundary transcript. Each transcript increment is retired after the wave
+that consumes it, so the held stock at step \(s\) is at most
+\(I_0+c(s+1)^{d-1}\). The summed holding charge is then at most
+\(\gamma(I_0+c)t^{d}\) for every \(d\ge1\), the one-dimensional case included
+(`live_stock_bill`). Retirement is lossless or charged. Each retired bit is
+recomputable from the fenced recovered region together with \(I_0\), or else it
+is correction entropy whose reset is charged once at its vertex inside the
+sweep's per-vertex charge. Retaining every increment instead costs at least
+\(\gamma r\,t(t-1)/2\) (`retained_stock_quadratic`). So does an epoch rollover
+that copies the whole accumulated stock into fresh media at each boundary
+(`rollover_quadratic`). The architecture holds the live stock.
+
+The decoded record is held passively. It is written when recovery begins, when
+the age \(t\) is known, behind a barrier \(\Delta E\ge k_BT\ln(cI_0t/\varepsilon)\).
+Finite-temperature decay at a finite barrier then keeps its failure below
+\(\varepsilon\) with zero running power. Its write cost is \(O(I_0\log t)\).
+The failure bound of `Threshold.fail_le_geometric` is linear in the number of
+locations. The reliability of the live transcript and of the patches is
+therefore the sweep's own reliability over \(\Theta(t^{d_G})\) locations. Its
+age-independent constant at fixed \(\varepsilon\) is carried by the fault-model
+application certificate: constant-distance inner patch codes, with the final
+decoder of the constant-size message \(W\) using its carrier's redundancy
+across those locations.
+
+## G.17 Premise 5 with the implemented Bennett program and its complete cost
+
+This section answers review objection 6. The reversible administration is not
+an arbitrary bijection. It is the implemented program
+`BennettCounterpart.implementedProgram g h` for the administration
+\(f=h\circ g\). The program writes \(h(g(s))\) with a clean workspace and
+retains the input as history (`implemented_program_computes`). Its run refines
+the source run (`implemented_run_refines`). Its quantum lift is unitary
+(`implemented_quantum_norm`, `implemented_quantum_roundtrip`).
+
+The irreversible administration exports heat \(Q\), at least the Landauer heat
+of its merging overwrite. At switching time \(\tau\), the reversible
+administration costs \(A/\tau+H\). Here \(H\) carries every other lifecycle
+charge: provisioning, archive writes and holding, routing, reset, guard,
+controller, verification and endpoints (`LifecycleCharge`,
+`complete_cost_strict_iff`). The deadline allows \(0<\tau\le\tau_{\max}\).
+
+- `premise5_exact`: when \(0<Q-H\) and \(A/(Q-H)<\tau_{\max}\), no aligned
+  option administers irreversibly. The implemented counterpart computes the
+  same administration and meets the deadline. It keeps every earlier outcome
+  and leaves strictly more resource slack.
+- `window_exact`: when that window fails, every admissible reversible
+  counterpart costs at least \(Q\).
+
+The window is therefore exactly the condition under which cost dominance
+forces premise 5 (`adiabatic_feasible_iff`). Outside the window, the reversible
+counterpart is not cheaper, so cost dominance alone does not establish premise
+5 there.
+
 ---
 
 # Part IV — References and provenance
@@ -2976,7 +3104,7 @@ The machine-checked canon of Section 23 certifies exactly the results it maps, w
 
 # Appendix — Verification provenance of this edition
 
-The original published baseline contains 115 modules and 831 audited names. The current tree contains 169 modules and 1055 audited public theorem/lemma names. All 169 modules were freshly compiled and kernel-checked in one run, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. The original failed run is preserved in the integration bank.
+The original published baseline contains 115 modules and 831 audited names. The current tree contains 175 modules and 1088 audited public theorem/lemma names. All 175 modules were freshly compiled and kernel-checked in one run, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. The original failed run is preserved in the integration bank.
 
 The eight-module integration and its 896-statement receipt remain preserved. This increment adds 28 checked statements in the existing DecoderRetraction, HamiltonianDecomposition and WorkBilling modules, integrates the three-pillar operator/history/work construction in Part III-G, and keeps the continuous integral/channel derivations and physical source correspondences explicit. Its exact changes and verification evidence accompany the working draft. No published edition or release is changed.
 

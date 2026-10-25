@@ -1,0 +1,122 @@
+[
+ {
+  "d": 5,
+  "rounds": 5,
+  "basis": "Z",
+  "order_x": [
+   "NW",
+   "NE",
+   "SW",
+   "SE"
+  ],
+  "order_z": [
+   "NW",
+   "SW",
+   "NE",
+   "SE"
+  ],
+  "faults": 7240,
+  "detectors": 120,
+  "circuit_distance_pairwise_test": 3,
+  "circuit_distance_exact": 5,
+  "ambiguous_edge_observable": false,
+  "single_fault_logicals": 0,
+  "equal_signature_logical_pairs": 0,
+  "graphlike_per_type": true,
+  "pauli_resolved_multiplicity_relevant_type": 52,
+  "max_detector_degree": 12,
+  "edge_multiplicity_c": 20,
+  "edges": 502,
+  "schedule": "standard (X: Z-shape, Z: N-shape)"
+ },
+ {
+  "d": 5,
+  "rounds": 5,
+  "basis": "X",
+  "order_x": [
+   "NW",
+   "NE",
+   "SW",
+   "SE"
+  ],
+  "order_z": [
+   "NW",
+   "SW",
+   "NE",
+   "SE"
+  ],
+  "faults": 7390,
+  "detectors": 120,
+  "circuit_distance_pairwise_test": 3,
+  "circuit_distance_exact": 5,
+  "ambiguous_edge_observable": false,
+  "single_fault_logicals": 0,
+  "equal_signature_logical_pairs": 0,
+  "graphlike_per_type": true,
+  "pauli_resolved_multiplicity_relevant_type": 52,
+  "max_detector_degree": 12,
+  "edge_multiplicity_c": 18,
+  "edges": 502,
+  "schedule": "standard (X: Z-shape, Z: N-shape)"
+ },
+ {
+  "d": 5,
+  "rounds": 5,
+  "basis": "Z",
+  "order_x": [
+   "NW",
+   "SW",
+   "NE",
+   "SE"
+  ],
+  "order_z": [
+   "NW",
+   "NE",
+   "SW",
+   "SE"
+  ],
+  "faults": 7240,
+  "detectors": 120,
+  "circuit_distance_pairwise_test": 3,
+  "circuit_distance_exact": 3,
+  "ambiguous_edge_observable": false,
+  "single_fault_logicals": 0,
+  "equal_signature_logical_pairs": 0,
+  "graphlike_per_type": true,
+  "pauli_resolved_multiplicity_relevant_type": 52,
+  "max_detector_degree": 12,
+  "edge_multiplicity_c": 21,
+  "edges": 498,
+  "schedule": "swapped (X: N-shape, Z: Z-shape)"
+ },
+ {
+  "d": 5,
+  "rounds": 5,
+  "basis": "X",
+  "order_x": [
+   "NW",
+   "SW",
+   "NE",
+   "SE"
+  ],
+  "order_z": [
+   "NW",
+   "NE",
+   "SW",
+   "SE"
+  ],
+  "faults": 7390,
+  "detectors": 120,
+  "circuit_distance_pairwise_test": 3,
+  "circuit_distance_exact": 3,
+  "ambiguous_edge_observable": false,
+  "single_fault_logicals": 0,
+  "equal_signature_logical_pairs": 0,
+  "graphlike_per_type": true,
+  "pauli_resolved_multiplicity_relevant_type": 52,
+  "max_detector_degree": 12,
+  "edge_multiplicity_c": 19,
+  "edges": 498,
+  "schedule": "swapped (X: N-shape, Z: Z-shape)"
+ }
+]

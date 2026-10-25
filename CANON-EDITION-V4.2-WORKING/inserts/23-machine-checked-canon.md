@@ -297,7 +297,7 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `SmearingIntegral` | `smeared_reconstruction`, `smeared_boundary_reconstruction` |
 | `ChannelExtension` | `ext_recovers`, `kron_isometry`, `ext_recovers_reference`, `ext_trace`, `ext_posSemidef` |
 | `PureStateDistance` | `pure_infidelity_le`, `pure_fidelity_ge` |
-| `BennettCounterpart` | `counterpart_heat_zero`, `merging_heat_pos`, `counterpart_same`, `counterpart_feasible`, `counterpart_more_slack`, `premise5_constructed`, `bennett_counterpart_computes` |
+| `BennettCounterpart` | `counterpart_heat_zero`, `merging_heat_pos`, `counterpart_same`, `counterpart_feasible`, `counterpart_more_slack`, `premise5_constructed`, `bennett_counterpart_computes`, `implemented_program_computes`, `implemented_program_output`, `implemented_program_workspace`, `implemented_program_history`, `implemented_step_fields`, `implemented_run_refines`, `implemented_run_history`, `implemented_quantum_norm`, `implemented_quantum_roundtrip`, `complete_cost_difference`, `complete_cost_strict_iff`, `implemented_work_ceiling`, `adiabatic_slack_window`, `switched_program_meets_deadline`, `adiabatic_feasible_iff` |
 | `RegionBoundary` | `exists_crossing`, `region_bootstrap`, `whole_no_boundary`, `whole_H0_trivial` |
 | `TimelyCare` | `care_served`, `exhaustion_fails`, `deadline_met`, `miss_within_shortage` |
 | `DeadlineDemand` | `demand_le_supply`, `robust_demand` |
@@ -310,6 +310,12 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `ConcatenatedDecoding` | `outer_decodes`, `mem_sub`, `decodes_unless_fails`, `decoding_failure_le` |
 | `ChannelCP` | `kron_entry`, `amp_eq`, `compress_entry`, `mp_posSemidef`, `decoder_completely_positive` |
 | `PureStateTraceNorm` | `sum_sq_eigenvalues`, `eigenvalue_cube`, `pureDiff_hermitian`, `vmv_smul`, `star_dot_swap`, `pure_cube`, `pure_trace_sq`, `pure_trace_norm` |
+| `G1Refinement` | `guarded_step_continues`, `physical_protection`, `journaled_protection`, `physical_qsl_drift`, `physical_protection_qsl`, `physical_instance_inhabited` |
+| `G2Physical` | `held_installation_keeps_all`, `top_dominates_continuation` |
+| `G2Freedom` | `joint_holding`, `joint_holding_and_delivery` |
+| `G3GoodEvent` | `sweep_success_on_good_event`, `complete_bill_with_archive` |
+| `BennettExact` | `premise5_exact`, `window_exact`, `reversible_admin_computes` |
+| `G3ArchiveStock` | `live_stock_bill`, `retained_stock_quadratic`, `rollover_quadratic` |
 <!-- END THEOREM INDEX -->
 
 ---
