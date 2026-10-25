@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 144. Corpus module names: 59. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
+Canon modules: 148. Corpus module names: 63. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 144. Audit imports: 144.
+Build modules: 148. Audit imports: 148.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -140,11 +140,12 @@ Build modules: 144. Audit imports: 144.
 | `ControllerCertificate` | yes | `2026-10-24-glm-phase-a/lean/ControllerCertificate.lean` |
 | `ControllerFence` | yes | `(canon only)` |
 | `ControllerFinality` | yes | `(canon only)` |
+| `CorrelatedCeiling` | yes | `2026-10-25-historical-handoff-source/correlated-ceiling/lean/Snuffy/CorrelatedCeiling.lean` |
 | `CorrelatedStress` | yes | `(canon only)` |
 | `CyclicProjections` | yes | `(canon only)` |
 | `DataProcessing` | yes | `(canon only)` |
 | `DecisionAndScale` | yes | `2026-10-23-adoption-contracts/lean/DecisionAndScale.lean` |
-| `DecoderRetraction` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/DecoderRetraction.lean` |
+| `DecoderRetraction` | yes | `2026-10-25-historical-handoff-source/working/lean/Snuffy/DecoderRetraction.lean` |
 | `DeductionBoundary` | yes | `(canon only)` |
 | `E9Routes` | yes | `2026-10-23-adoption-contracts/lean/E9Routes.lean` |
 | `E9SelfHealing` | yes | `(canon only)` |
@@ -158,11 +159,14 @@ Build modules: 144. Audit imports: 144.
 | `FiniteInformation` | yes | `(canon only)` |
 | `G1Certificate` | yes | `(canon only)` |
 | `G1Complete` | yes | `(canon only)` |
+| `G1E9` | yes | `2026-10-25-historical-handoff-source/g1-e9/lean/Snuffy/G1E9.lean` |
 | `G1Executable` | yes | `(canon only)` |
-| `G1FullDomain` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/G1FullDomain.lean` |
+| `G1FullDomain` | yes | `2026-10-25-historical-handoff-source/working/lean/Snuffy/G1FullDomain.lean` |
+| `G1Held` | yes | `2026-10-25-historical-handoff-source/g1-held/lean/Snuffy/G1Held.lean` |
 | `G2Outcome` | yes | `(canon only)` |
 | `G2Singleton` | yes | `(canon only)` |
-| `G2WholeOutcome` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/G2WholeOutcome.lean` |
+| `G2Splice` | yes | `2026-10-25-historical-handoff-source/g2-splice/lean/Snuffy/G2Splice.lean` |
+| `G2WholeOutcome` | yes | `2026-10-25-historical-handoff-source/working/lean/Snuffy/G2WholeOutcome.lean` |
 | `G3CompleteBill` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/G3CompleteBill.lean` |
 | `G3WorkBill` | yes | `(canon only)` |
 | `GateSupport` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/GateSupport.lean` |
@@ -180,7 +184,7 @@ Build modules: 144. Audit imports: 144.
 | `H5Closure` | yes | `(canon only)` |
 | `H8Bound` | yes | `(canon only)` |
 | `HalperinDecay` | yes | `(canon only)` |
-| `HamiltonianDecomposition` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/HamiltonianDecomposition.lean` |
+| `HamiltonianDecomposition` | yes | `2026-10-25-historical-handoff-source/working/lean/Snuffy/HamiltonianDecomposition.lean` |
 | `Htopkeeps` | yes | `(canon only)` |
 | `Instruments` | yes | `(canon only)` |
 | `IntegrationCertificate` | yes | `2026-10-24-glm-phase-a/lean/IntegrationCertificate.lean` |
@@ -259,6 +263,6 @@ Build modules: 144. Audit imports: 144.
 | `UnionClosure` | yes | `(canon only)` |
 | `UniversalProtection` | yes | `(canon only)` |
 | `Whitening` | yes | `(canon only)` |
-| `WorkBilling` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/WorkBilling.lean` |
+| `WorkBilling` | yes | `2026-10-25-historical-handoff-source/working/lean/Snuffy/WorkBilling.lean` |
 | `WorkIntegration` | yes | `(canon only)` |
 | `Workload` | yes | `(canon only)` |

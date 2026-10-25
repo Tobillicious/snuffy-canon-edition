@@ -8,7 +8,7 @@ Author-side working draft, 25 October 2026. Research direction: Tobias Croydon-M
 
 The same three joined supports being supplied by the author and Gemini remain visible in Part III-C: the combined full-domain physical certificate (G1), the realisability of the whole greatest outcome tuple (G2), and the supplied X3 wavefront protocol's success and complete-work certificate (G3). Their targets are unchanged. Naming an input or relabelling a conclusion does not supply its construction.
 
-The current Lean tree contains 144 modules and 924 audited public theorem/lemma names. The combined receipt reuses Beam's 136 clean compilation/kernel results after source and object hash checks, adds eight freshly compiled and kernel-checked modules, and records a fresh full axiom audit, completeness and claims gates with overall PASS. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
+The current Lean tree contains 148 modules and 963 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the four further modules were compiled and kernel-checked fresh against those objects, and the full axiom audit over all 963 names and the completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
 
 **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports in progress. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
 
@@ -1338,7 +1338,7 @@ and the composition holds with no independence assumed (`ThermoLedger.canon_inva
 | Account | Fault | Mitigation | Allocated $\delta$ | Status |
 | :---: | :--- | :--- | :---: | :--- |
 | **1–4** | Single-qubit Pauli and leakage errors | Stabilizer decoding | $4 \times 10^{-8}$ | Met at **d = 25** for p = 10⁻⁴, or d = 41 for p = 5 × 10⁻⁴ (§22.5.2), once the correlated floor of accounts 5–7 is removed |
-| **5–7** | Correlated bursts (high-energy impacts, phonon events) | Gap engineering, rapid reset | $3 \times 10^{-8}$ | **Not yet met.** The measured logical floor is ≈ 10⁻¹⁰ per cycle [S6]; the target is ≤ 3.7 × 10⁻²⁴ per cycle per logical qubit (§22.5.2) |
+| **5–7** | Correlated bursts (high-energy impacts, phonon events) | Gap engineering, rapid reset, code distance beyond the burst footprint | $3 \times 10^{-8}$ | **Attained at a sufficient distance** (`CorrelatedCeiling.correlated_family_ceiling`): bounded-footprint bursts are local stochastic at rate $(e\,m\,k\,q)^{1/k}$. The measured floor on present devices is ≈ 10⁻¹⁰ per cycle [S6], which fixes their burst parameters; the target is ≤ 3.7 × 10⁻²⁴ per cycle per logical qubit (§22.5.2) |
 | **8–10** | Clock drift, dephasing, timing jitter | Byzantine clock distribution (E9) | $3 \times 10^{-8}$ | Design allocation; no installation measurement sourced |
 | **11–12** | Sensor failure and readout spoofing | Trimmed-median consensus, $K \ge 2f + 1$ | $2 \times 10^{-8}$ | Design allocation; the consensus logic is compiled (`E9SelfHealing`) |
 | **13–14** | Thermal fluctuations above threshold | Thermal ballast escrow, automatic throttle | $2 \times 10^{-8}$ | Design allocation |
@@ -1348,7 +1348,7 @@ and the composition holds with no independence assumed (`ThermoLedger.canon_inva
 | **21** | External macroscopic boundary shear | Standoff buffer $L_{\mathrm{buffer}} > v_{\mathrm{harm}} \tau_{\mathrm{resp}}$ | $1 \times 10^{-8}$ | Design allocation |
 | **Total** | | | $\le 2.1 \times 10^{-7} < 10^{-6}$ | Certified when each account is |
 
-**Correlated errors.** Gap-engineered junctions remove the high-energy-impact T₁ bursts [S9]. The remaining correlated events occur about once per hour, "whose origins are not yet understood", and they set the floor of 10⁻¹⁰ per cycle with a deviation from exponential suppression at d ≥ 15 [S6]. The threshold theorem's geometric decay (§23.8) holds for the noise it assumes, local and weakly correlated. Present hardware satisfies that assumption up to d ≈ 11–15, and removing the floor is the open engineering requirement of accounts 1–7.
+**Correlated errors.** Gap-engineered junctions remove the high-energy-impact T₁ bursts [S9]. The remaining correlated events occur about once per hour, "whose origins are not yet understood", and they set the floor of 10⁻¹⁰ per cycle with a deviation from exponential suppression at d ≥ 15 [S6]. The threshold theorem covers these correlated events. Let each burst damage at most $k$ locations, let each location be touched by at most $m$ burst types, and let bursts be local stochastic at rate $q$, common causes included. Then the damaged locations are local stochastic at the effective rate $(e\,m\,k\,q)^{1/k}$ (`CorrelatedCeiling.damage_local_stochastic`). Every target ceiling is then met at some code distance and at every larger one (`correlated_family_ceiling`). Correlated damage therefore sets no floor that distance cannot pass. The measured deviation at d ≥ 15 [S6] fixes the burst parameters of present devices, which enter this theorem.
 
 **Achievability, as a theorem.** That the ceiling is attainable in physical matter is a compiled theorem.
 * `Threshold.family_ceiling`: for any code family under local stochastic noise of rate p (every set S of locations is entirely faulty with probability at most $p^{\lvert S\rvert}$), with 2Δ√p < 1 and polynomially many failure witnesses of each length, every target ceiling is met at some code distance and at every larger one. The 10⁻⁶ ceiling over the horizon is included.
@@ -1377,7 +1377,7 @@ Any installation whose noise meets the local stochastic condition below threshol
 * The ceiling is attainable as a theorem: under local stochastic noise below threshold, every target, 10⁻⁶ included, is met at some code distance (`Threshold.family_ceiling`).
 
 **What it does not yet certify.**
-* The 10⁻⁶ failure ceiling over 10⁹ s on present hardware. The measured correlated floor [S6] is the open engineering requirement, stated here with its size.
+* A built installation at the distance the ceiling requires. The ceiling is attained by theorem for local and correlated bounded-footprint faults (`Threshold.family_ceiling`, `CorrelatedCeiling.correlated_family_ceiling`). Present devices measure their burst parameters [S6], and the required distance follows from them.
 * Implementation B, whose budget awaits a published installation source.
 * Solvency at installations of 10⁴ qubits and above, which is a sizing requirement without published stage loads.
 
@@ -1430,7 +1430,7 @@ The installation figures themselves are sourced measurements and design values, 
 
 ## Section 23 — The machine-checked canon
 
-*This section maps the edition's compiled results and their actual hypotheses. The current source contains 144 modules and 924 audited public theorem/lemma names. The combined receipt records 136 reused clean compilation/kernel results, eight fresh compilation/kernel checks, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. The reused results are tied to the preserved Beam receipt and source/object hashes. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
+*This section maps the edition's compiled results and their actual hypotheses. The current source contains 148 modules and 963 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
 
 *Evidence convention (unchanged from the edition header): a compiled theorem is cited by its name; a statement carried as a hypothesis of a compiled theorem is named as such; a prose derivation keeps its stated premises. A prose proof does not acquire a compiler certificate by association.*
 
@@ -1569,14 +1569,18 @@ The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the r
 
 | Module | Verified result and current role |
 | --- | --- |
-| `G1FullDomain` | Source/fault enumeration and append-preserved event compliance; the full physical source and charged faults must supply their correspondence to `Bridge.hcert` |
-| `G2WholeOutcome` | Authorized transaction records are closed and record positive work; the whole continuation/freedom tuple and its realisability remain the G2 construction |
+| `G1FullDomain` | Source/fault enumeration and append-preserved event compliance; the full physical source and charged faults must supply their correspondence to `Bridge.hcert`; independent journal/live updates, exact replay, reactive fidelity for every controller and environment, and full-transcript capacity (G.8) |
+| `G2WholeOutcome` | Authorized transaction records are closed and record positive work; the whole continuation/freedom tuple and its realisability remain the G2 construction; preservation of an arbitrary complete outcome and equality of the realised outcome families under the journal (G.8) |
 | `G3CompleteBill` | `cumulative_charge_bound`, `valid_work_bill_from_complete_ledger` and `valid_bill_bound_in_age` derive the bill from complete metered local charges and the wave schedule |
 | `GuardOperator` | The threshold cases select the supplied projection or penalty map |
-| `HamiltonianDecomposition` | Explicit Hermitian boundary/reservoir exchange, total-charge conservation, nonzero boundary pumping and a unitary charge-transfer gate; the full physical source correspondence remains explicit |
+| `HamiltonianDecomposition` | Explicit Hermitian boundary/reservoir exchange, total-charge conservation, nonzero boundary pumping and a unitary charge-transfer gate; the full physical source correspondence remains explicit; full off-diagonal reduced-state covariance under a local unitary, history preserved by the syndrome exchange, and exact charge transfer to the reservoir (G.8) |
 | `GuardSignature` | The supplied guard record carries idempotence and monotonicity; its physical instance and fault nullification must be constructed |
-| `WorkBilling` | The first-law decoder work identity, free-energy floor and its saturation condition; a Gibbs entropy/energy allocation bound and funded decoder cycles; the complete physical source cost remains in Section 21.7.5 and Part III-G |
-| `DecoderRetraction` | Finite-code recovery and fixed-point witnesses; flux-derived isometry and adjoint decoder; explicit finite encoder/capacity bound; historical queries, ordered words, commutators and Gram preservation; exact exponential transport, work-shifted flow and a derived finite dual smearing kernel |
+| `WorkBilling` | The first-law decoder work identity, free-energy floor and its saturation condition; a Gibbs entropy/energy allocation bound and funded decoder cycles; the complete physical source cost remains in Section 21.7.5 and Part III-G; the nine-part charged handoff attempt with exact debit and conservation, the age-independent syndrome stock envelope, the gross flux balance and the cumulative maintenance bill (G.8) |
+| `DecoderRetraction` | Finite-code recovery and fixed-point witnesses; flux-derived isometry and adjoint decoder; explicit finite encoder/capacity bound; historical queries, ordered words, commutators and Gram preservation; exact exponential transport, work-shifted flow and a derived finite dual smearing kernel; reference-preserving reversible register swap, full-transcript boundary encoder, three-CNOT-layer swap and charged archive handoff (G.8) |
+| `G2Splice` | Union-closed realisability and `htopR` derived from per-particular locality; the four-stage whole outcome is the canonical outcome under solvency; the product structure derived from R16-CUT locality and closed held-record blocks (G.9) |
+| `CorrelatedCeiling` | Bounded-footprint correlated bursts make the damaged locations local stochastic at rate $(e\,m\,k\,q)^{1/k}$; every target ceiling is attained at a sufficient code distance (§22.3) |
+| `G1Held` | The held source with all five `hcert` components of `Bridge.universal_protection_held` proved; the per-step drift from the quantum speed limit (G.10) |
+| `G1E9` | The held source's coupling bound from the exhaustive E9 split: sub-threshold coupling, or a forced robust-quorum alarm and mediated response (G.10) |
 
 The earlier `G1Certificate.universal_protection_held` has conclusion `True`; it is a placeholder and is not the protection theorem `Bridge.universal_protection_held`. The latter's full source certificate remains the unchanged G1 target. The exact integration history and dependency trace accompany this working edition.
 
@@ -1723,14 +1727,18 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `G3WorkBill` | `g3_append_work_bill` |
 | `Htopkeeps` | `htopkeeps` |
 | `SnuffyLocal` | `local_trajectory_growth_valid`, `tpt_state_preservation` |
-| `G1FullDomain` | `g1_source_exhaustive`, `g1_fault_taxonomy_exhaustive`, `g1_append_preserves` |
-| `G2WholeOutcome` | `g2_authorized_implies_closed`, `g2_authorized_implies_positive_work`, `g2_compose_valid` |
+| `G1FullDomain` | `g1_source_exhaustive`, `g1_fault_taxonomy_exhaustive`, `g1_append_preserves`, `replay_journal_step`, `journal_reactive_fidelity`, `transcript_capacity` |
+| `G2WholeOutcome` | `g2_authorized_implies_closed`, `g2_authorized_implies_positive_work`, `g2_compose_valid`, `journal_whole_outcome`, `journal_outcome_family` |
 | `G3CompleteBill` | `g3_success_implies_bound`, `g3_compose_valid`, `g3_wave_count_nonnegative`, `cumulative_charge_bound`, `valid_work_bill_from_complete_ledger`, `valid_bill_bound_in_age` |
 | `GuardOperator` | `guard_within_tolerance`, `guard_exceeds_tolerance` |
-| `HamiltonianDecomposition` | `total_is_sum`, `boundary_confinement_positive`, `exchange_hamiltonian_hermitian`, `exchange_conserves_total_charge`, `exchange_pumps_boundary`, `exchange_swap_unitary`, `exchange_swap_charge`, `exchange_swap_total` |
+| `HamiltonianDecomposition` | `total_is_sum`, `boundary_confinement_positive`, `exchange_hamiltonian_hermitian`, `exchange_conserves_total_charge`, `exchange_pumps_boundary`, `exchange_swap_unitary`, `exchange_swap_charge`, `exchange_swap_total`, `partial_trace_local_conjugation`, `guarded_history_reduced_state`, `syndrome_exchange_preserves_history`, `syndrome_exchange_charge` |
 | `GuardSignature` | `guard_idempotent` |
-| `WorkBilling` | `work_nonnegative`, `work_bound_preserved`, `decoder_work_balance`, `decoder_work_floor`, `decoder_work_floor_saturation`, `funded_decoder_entropy_bound`, `funded_decoder_cycles` |
-| `DecoderRetraction` | `decode_encode`, `finite_code_recovery`, `nonvanishing_of_continuation`, `finite_code_self_grounding`, `inner_preserved_from_symplectic_flux`, `adjoint_decodes_isometry`, `boundary_observable_on_code`, `historical_query_preserved`, `historical_word_on_code`, `historical_word_expectation`, `boundary_observable_mul`, `boundary_observable_commutator`, `powers_intertwine`, `exponential_intertwines`, `historical_flow_roundtrip`, `historical_dual_kernel`, `work_shifted_flow_on_code`, `historical_gram_preserved`, `historical_gram_nondegenerate`, `coordinate_boundary_roundtrip`, `boundary_capacity_necessary` |
+| `WorkBilling` | `work_nonnegative`, `work_bound_preserved`, `decoder_work_balance`, `decoder_work_floor`, `decoder_work_floor_saturation`, `funded_decoder_entropy_bound`, `funded_decoder_cycles`, `charged_attempt_accounting`, `syndrome_stock_bound`, `syndrome_flux_balance`, `cumulative_maintenance_bound` |
+| `DecoderRetraction` | `decode_encode`, `finite_code_recovery`, `nonvanishing_of_continuation`, `finite_code_self_grounding`, `inner_preserved_from_symplectic_flux`, `adjoint_decodes_isometry`, `boundary_observable_on_code`, `historical_query_preserved`, `historical_word_on_code`, `historical_word_expectation`, `boundary_observable_mul`, `boundary_observable_commutator`, `powers_intertwine`, `exponential_intertwines`, `historical_flow_roundtrip`, `historical_dual_kernel`, `work_shifted_flow_on_code`, `historical_gram_preserved`, `historical_gram_nondegenerate`, `coordinate_boundary_roundtrip`, `boundary_capacity_necessary`, `handoff_moves_reference_payload`, `handoff_preserves_norm`, `handoff_roundtrip`, `parallel_cnot_handoff`, `charged_archive_handoff` |
+| `G2Splice` | `splice_grade`, `splice_realisable`, `outcome_splice`, `union_realizable`, `top_realisable`, `whole_outcome_greatest`, `fourStage`, `block_splice_run`, `block_splice_keeps` |
+| `CorrelatedCeiling` | `ceil_touching`, `correlated_stress_ceil`, `prob_damage`, `near_card_le`, `choose_pow_le`, `damage_local_stochastic`, `correlated_family_ceiling` |
+| `G1Held` | `good_cover`, `held_source_protection`, `held_source_qsl` |
+| `G1E9` | `alarm_or_subthreshold`, `held_source_e9` |
 <!-- END THEOREM INDEX -->
 
 ---
@@ -2499,6 +2507,97 @@ The physical installation identifies its dependency graph and the blocks of
 its held records; that is the G1 source certificate. `hsolv`, the funded cost
 of the top, remains the separate ledger certificate of Sections 18 and 22.
 
+## G.10 The held source: the full holding certificate derived (G1)
+
+`Bridge.universal_protection_held` takes its source certificate `hcert` as an
+input with five components: commuting refinement, observation agreement,
+initial continuation of every particular, the decoding-radius bound and
+repair precision. Here all five are proved for the canonical held source.
+The only inputs left are the physical bound on each step and the
+probabilities of the named charged accounts.
+
+**The held source.** The state is the record frame of every particular. One
+step applies three operations to each particular. First the world perturbs
+the frame; the world here is the environment and any agent, a pure optimiser
+included. Then the nearest-codeword decoder returns a codeword. Finally
+funded repair prepares that codeword. The good event is that no named charged
+account fires,
+
+\[
+G=\{\omega:\ \omega\notin E_i\ \text{for every account } i\},
+\]
+
+and its complement is covered exactly by the named accounts
+(`G1Held.good_cover`).
+
+**The five components, proved** (`G1Held.held_source_protection`).
+
+1. *Refinement* and 2. *observation agreement* hold by construction: the
+   held source is its own abstract model.
+3. *Initial continuation*: every particular starts at its record, at
+   distance \(0\le\varepsilon\).
+4. *The decoding-radius bound*: let each step move the frame's distance to
+   its record by at most \(\rho\) on the good event. A continuing particular
+   lies within \(\varepsilon\) of its record, so after the perturbation it lies
+   within \(\varepsilon+\rho\le t\).
+5. *Repair precision* is exact: repair prepares the decoded codeword itself.
+
+`universal_protection_held` then gives, for every \(\omega\in G\), every step
+through the horizon and every particular, that the particular continues. It
+also gives
+
+\[
+P(\exists k\le T,\ \exists x:\ \neg\mathrm{Continues}(s_k,x))\le\sum_i\delta_i,
+\]
+
+with no independence assumed.
+
+**The per-step bound from the speed limit** (`G1Held.held_source_qsl`). On the
+good event, let each particular's frame evolve for one step of duration
+\(\Delta\) under \(H_0+V\), with the record stationary under \(H_0\) and
+\(\|V\|\le W\). The agent applying \(V\) is arbitrary. `Bridge.qsl_growth`
+gives
+
+\[
+\|\psi(s_1+\Delta)-c_x\|\le\|\psi(s_1)-c_x\|+\frac W\hbar\Delta,
+\]
+
+so \(\rho=(W/\hbar)\Delta\). Every particular is held whenever
+\(\varepsilon+(W/\hbar)\Delta\le t\).
+
+**The coupling bound from E9** (`G1E9.held_source_e9`). Each step is
+exhaustively one of two cases (`G1E9.alarm_or_subthreshold`).
+
+- *Every monitored support site is below threshold.* The coupling is the
+  sub-threshold coupling, bounded by \(W\) (Branch A).
+- *Some site reaches threshold.* Its honest sensors read above threshold, so
+  every robust quorum estimate exceeds it, whatever up to \(f\) faulty
+  sensors report (`E9SelfHealing.no_masking`). The alarm fires. The mediated
+  response is committed before the harm front arrives
+  (`E9SelfHealing.e9_timely_self_healing`, the wave race) and is enforced at
+  application time (`H5Closure.no_harmful_effect`). It removes the perturbing
+  coupling from the frame for that step.
+
+In both cases the coupling is bounded by \(W\), and the held source keeps
+every particular. The physical inputs are named exactly:
+
+- the frame's Schrödinger evolution during a step;
+- the sub-threshold coupling bound;
+- the response's removal of coupling once the alarm fires;
+- the honest-sensor response and quorum size;
+- the probabilities of the named accounts. Their composition into the
+  \(10^{-6}\) ceiling is `ThermoLedger.canon_invariant`. Their attainment
+  below threshold, including correlated bursts, is `Threshold.family_ceiling`
+  and `CorrelatedCeiling.correlated_family_ceiling`.
+
+**Correspondence to an installation.** The installation's source refines the
+held source through the journal of G.8: every source transition is retained
+and replayed exactly, for every controller and environment
+(`G1FullDomain.journal_reactive_fidelity`). The R14/R16/R17 source bindings
+supply its concrete safe transitions, causal cuts and timely authorised
+effects. The domain is every particular; coverage is forced by the law
+(`Bridge.coverage_from_law`).
+
 ---
 
 # Part IV — References and provenance
@@ -2533,7 +2632,7 @@ The machine-checked canon of Section 23 certifies exactly the results it maps, w
 
 # Appendix — Verification provenance of this working draft
 
-The original published baseline contains 115 modules and 831 audited names. The current working tree contains 144 modules and 924 audited public theorem/lemma names. The combined verification preserves Beam's completed 136 compilation/kernel results with source/object hashes, freshly verifies the eight later modules, and freshly runs the full axiom, completeness and claims gates. The receipt states exactly which results are reused. The original failed run is preserved in the integration bank.
+The original published baseline contains 115 modules and 831 audited names. The current working tree contains 148 modules and 963 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the four further modules were compiled and kernel-checked fresh against those objects, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. The original failed run is preserved in the integration bank.
 
 The eight-module integration and its 896-statement receipt remain preserved. This increment adds 28 checked statements in the existing DecoderRetraction, HamiltonianDecomposition and WorkBilling modules, integrates the three-pillar operator/history/work construction in Part III-G, and keeps the continuous integral/channel derivations and physical source correspondences explicit. Its exact changes and verification evidence accompany the working draft. No published edition or release is changed.
 

@@ -144,6 +144,10 @@ import Snuffy.HamiltonianDecomposition
 import Snuffy.GuardSignature
 import Snuffy.WorkBilling
 import Snuffy.DecoderRetraction
+import Snuffy.G2Splice
+import Snuffy.CorrelatedCeiling
+import Snuffy.G1Held
+import Snuffy.G1E9
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1231,3 +1235,28 @@ import Snuffy.DecoderRetraction
 #print axioms Snuffy.DecoderRetraction.handoff_roundtrip
 #print axioms Snuffy.DecoderRetraction.parallel_cnot_handoff
 #print axioms Snuffy.DecoderRetraction.charged_archive_handoff
+-- G2Splice
+#print axioms Snuffy.G2Splice.splice_grade
+#print axioms Snuffy.G2Splice.splice_realisable
+#print axioms Snuffy.G2Splice.outcome_splice
+#print axioms Snuffy.G2Splice.union_realizable
+#print axioms Snuffy.G2Splice.top_realisable
+#print axioms Snuffy.G2Splice.whole_outcome_greatest
+#print axioms Snuffy.G2Splice.fourStage
+#print axioms Snuffy.G2Splice.block_splice_run
+#print axioms Snuffy.G2Splice.block_splice_keeps
+-- CorrelatedCeiling
+#print axioms Snuffy.CorrelatedCeiling.ceil_touching
+#print axioms Snuffy.CorrelatedCeiling.correlated_stress_ceil
+#print axioms Snuffy.CorrelatedCeiling.prob_damage
+#print axioms Snuffy.CorrelatedCeiling.near_card_le
+#print axioms Snuffy.CorrelatedCeiling.choose_pow_le
+#print axioms Snuffy.CorrelatedCeiling.damage_local_stochastic
+#print axioms Snuffy.CorrelatedCeiling.correlated_family_ceiling
+-- G1Held
+#print axioms Snuffy.G1Held.good_cover
+#print axioms Snuffy.G1Held.held_source_protection
+#print axioms Snuffy.G1Held.held_source_qsl
+-- G1E9
+#print axioms Snuffy.G1E9.alarm_or_subthreshold
+#print axioms Snuffy.G1E9.held_source_e9

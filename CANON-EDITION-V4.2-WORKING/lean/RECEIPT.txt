@@ -1,10 +1,5 @@
-# Canon Edition 4.2 — combined verification receipt (2026-10-25T09:38:18+00:00)
-# 136 compilation/kernel results reused from the preserved Beam run; eight fresh.
-# Prior receipt sha256: f629c41e4074379b2188fce82761c4f31f60544f650e30d729c0555b26c73412
-# Reuse checked against recorded source and .olean hashes.
-# Full axiom audit and completeness/claims gates are fresh.
-# Lean 4.35.0; Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
-## modules: 144; reused compile/kernel: 136; fresh compile/kernel: 8
+# v4.2 modules — build receipt (2026-10-25T10:17Z)
+# Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
 ## OpialBridge: exit=0 compiler-output-bytes=0
@@ -1189,9 +1184,14 @@
 ##   'Snuffy.G1FullDomain.g1_source_exhaustive' does not depend on any axioms
 ##   'Snuffy.G1FullDomain.g1_fault_taxonomy_exhaustive' depends on axioms: [propext]
 ##   'Snuffy.G1FullDomain.g1_append_preserves' depends on axioms: [propext]
+##   'Snuffy.G1FullDomain.replay_journal_step' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.G1FullDomain.journal_reactive_fidelity' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.G1FullDomain.transcript_capacity' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.G2WholeOutcome.g2_authorized_implies_closed' does not depend on any axioms
 ##   'Snuffy.G2WholeOutcome.g2_authorized_implies_positive_work' does not depend on any axioms
 ##   'Snuffy.G2WholeOutcome.g2_compose_valid' depends on axioms: [propext]
+##   'Snuffy.G2WholeOutcome.journal_whole_outcome' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.G2WholeOutcome.journal_outcome_family' depends on axioms: [propext, Quot.sound]
 ##   'Snuffy.G3CompleteBill.g3_success_implies_bound' depends on axioms: [propext]
 ##   'Snuffy.G3CompleteBill.g3_compose_valid' depends on axioms: [propext]
 ##   'Snuffy.G3CompleteBill.g3_wave_count_nonnegative' does not depend on any axioms
@@ -1212,6 +1212,16 @@
 ##   'Snuffy.HamiltonianDecomposition.exchange_swap_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.HamiltonianDecomposition.exchange_swap_charge' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.HamiltonianDecomposition.exchange_swap_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HamiltonianDecomposition.partial_trace_local_conjugation' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'Snuffy.HamiltonianDecomposition.guarded_history_reduced_state' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'Snuffy.HamiltonianDecomposition.syndrome_exchange_preserves_history' depends on axioms: [propext,
+##    Classical.choice,
+##    Quot.sound]
+##   'Snuffy.HamiltonianDecomposition.syndrome_exchange_charge' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.GuardSignature.guard_idempotent' does not depend on any axioms
 ##   'Snuffy.WorkBilling.work_nonnegative' does not depend on any axioms
 ##   'Snuffy.WorkBilling.work_bound_preserved' depends on axioms: [propext]
@@ -1220,6 +1230,10 @@
 ##   'Snuffy.WorkBilling.decoder_work_floor_saturation' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.WorkBilling.funded_decoder_entropy_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.WorkBilling.funded_decoder_cycles' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WorkBilling.charged_attempt_accounting' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.WorkBilling.syndrome_stock_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WorkBilling.syndrome_flux_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WorkBilling.cumulative_maintenance_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.DecoderRetraction.decode_encode' does not depend on any axioms
 ##   'Snuffy.DecoderRetraction.finite_code_recovery' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.DecoderRetraction.nonvanishing_of_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1243,12 +1257,24 @@
 ##   'Snuffy.DecoderRetraction.historical_gram_nondegenerate' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.DecoderRetraction.coordinate_boundary_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.DecoderRetraction.boundary_capacity_necessary' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.handoff_moves_reference_payload' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.handoff_preserves_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.handoff_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.DecoderRetraction.parallel_cnot_handoff' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.DecoderRetraction.charged_archive_handoff' depends on axioms: [propext, Quot.sound]
 ## axiom audit exit=0
-## theorems/lemmas audited: 924; expected: 924; non-standard axiom dependencies: none
-##   ## completeness: canon 144, corpus names 59, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 105
+## theorems audited: 942; non-standard axiom dependencies: none
+## expected audited statements: 942
+## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):
+##   ## completeness: canon 144, corpus names 65, excluded 0, missing 6, phantom exclusions 0, skipped-by-policy 105
+##   ##   MISSING CorrelatedCeiling  (2026-10-25-historical-handoff-source/correlated-ceiling/lean/Snuffy/CorrelatedCeiling.lean)
+##   ##   MISSING G1Held  (2026-10-25-historical-handoff-source/g1-held/lean/Snuffy/G1Held.lean)
+##   ##   MISSING G2Splice  (2026-10-25-historical-handoff-source/g2-splice/lean/Snuffy/G2Splice.lean)
+##   ##   MISSING G2SpliceAxioms  (2026-10-25-historical-handoff-source/g2-splice/checks/G2SpliceAxioms.lean)
+##   ##   MISSING axc  (2026-10-25-historical-handoff-source/correlated-ceiling/checks/axc.lean)
+##   ##   MISSING axg  (2026-10-25-historical-handoff-source/g1-held/checks/axg.lean)
 ##   ## build/audit coverage: canon 144, build 144, audit 144, errors 0
-##   ## claims: audited theorems 924, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
-## source changes during verification: none
+##   ## claims: audited theorems 942, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
 ## source sha256:
 ##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
 ##   4b416646e1fc8f74f524e0f9a680384e35e06adacd69f91bb30dcec70b921b7e  Snuffy/AffordableReciprocity.lean
@@ -1276,7 +1302,7 @@
 ##   aa67f92c0cd71d1d246576d47dda71e819e6bec52e3ec3633ce9de1b54d87414  Snuffy/CyclicProjections.lean
 ##   c59d5eac1b24cca21a2581f64fbb37c74d6517c5a91d03b7866469d6c6c19172  Snuffy/DataProcessing.lean
 ##   c91607cc89eb3bcb6be6a3c546816bf69f336f0246c57cca685aa189df5d6507  Snuffy/DecisionAndScale.lean
-##   25dcac240ca79842f80d7c3774661f6180ed33d0113774427f0d475da8557049  Snuffy/DecoderRetraction.lean
+##   4275cfc98e301674eddb2316861fa6f6d85f21e72e0b0000262ca1c9b2c15d07  Snuffy/DecoderRetraction.lean
 ##   7564d8e303e2832617e52d597c0affd33bf9dd96b96541f0c62257b885dd1e6e  Snuffy/DeductionBoundary.lean
 ##   980c8b3c290ad8298a5efccb85f66564195679daa59802a1bb47782ae9ae9d1f  Snuffy/E9Routes.lean
 ##   a5e8804486c94667262516d164cebaac3a5063108864f261a3583547e2ad09f2  Snuffy/E9SelfHealing.lean
@@ -1291,10 +1317,10 @@
 ##   4fe05fcbc6235481ecdb46a20ef1ab020e690181cbb8b5d048262bd8ced5409d  Snuffy/G1Certificate.lean
 ##   06f3e520893f9d7d5574030f9fed30bd8d5e90a8d93243ab58d23c1422f82a94  Snuffy/G1Complete.lean
 ##   8414e6187adb9d866c6101555d628ee4a002b8ee6c68b8fa327c256fadd3d65f  Snuffy/G1Executable.lean
-##   50b3b8fbe7f0696bb16ee1688646d5e50e8f3f9e02545bd1de527f6893b10f20  Snuffy/G1FullDomain.lean
+##   c788dfccee71414a16e33cbf98896f2c114e4891a12f54f21ed43c5344de39b1  Snuffy/G1FullDomain.lean
 ##   5f63e5aef491836fc6675e446fe5a2a106ed7ff5e8a891dd329a853b677bfaee  Snuffy/G2Outcome.lean
 ##   139d7a503fbd004f1fc178a2f9cc054d471ac48c8b5dee32e298740030a2867e  Snuffy/G2Singleton.lean
-##   103220c7cad4c69a5c3170a3b5be9d14ad447d895ebafc39bb6b553428ae84d5  Snuffy/G2WholeOutcome.lean
+##   0fc2373ff37836a251cb278154165ce737eb305be6707b0ca88d602140307fc6  Snuffy/G2WholeOutcome.lean
 ##   653ec5e2fd542eb51cd174d0cd7d6fb647e1bea99a469448624f068a7bdee38b  Snuffy/G3CompleteBill.lean
 ##   c9f0785d0958de799e259636534af41f7f68f2f1d124fc686410ffc08a65a809  Snuffy/G3WorkBill.lean
 ##   f3409eced84bc9b69bd8560427edeabf40c4a069834231bfa9a16b0ea07807cb  Snuffy/GateSupport.lean
@@ -1312,7 +1338,7 @@
 ##   d39dfc51423b0f9eb9aef9674eaa0abfd5426ee18845539004e1f91312dcc88d  Snuffy/H5Closure.lean
 ##   e5bd4636e808952a30e22b9d8512a21b6f7c7c2c4bb00e794027a22d16516a91  Snuffy/H8Bound.lean
 ##   c6a9d6f150f2096d096084507ae940e2198c7bf8a16b8f2d06a42a07fea593ff  Snuffy/HalperinDecay.lean
-##   fe447f1c5467550dcc2296c167739d827da3ec2b3e55aa07f4506cb930cb5339  Snuffy/HamiltonianDecomposition.lean
+##   50d896d0f65492a4ee12f9dbde9fe8477598eb9d7067bd5394050bc439c3435f  Snuffy/HamiltonianDecomposition.lean
 ##   e559ec229b24e3af38d023a4eec5d29525e6b756cb7a0eb47ee68ab3948d6f43  Snuffy/Htopkeeps.lean
 ##   55751cd8393856b86b937090231718dc7225386f21ebc04152fbd2a27ca9995a  Snuffy/Instruments.lean
 ##   47079cf63add2d1665f109bbfdd98b3a339e84c753d754ae07ea4c1613c01edd  Snuffy/IntegrationCertificate.lean
@@ -1391,8 +1417,8 @@
 ##   7216f2e6d50a96bbc3b07ec8103e7e333d1d54a1f0793d81807590b0f2d520f4  Snuffy/UnionClosure.lean
 ##   ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1  Snuffy/UniversalProtection.lean
 ##   97796ec3be890378195fa42cfd4ae9e12494235f556e4d4679beea1dea75e7fc  Snuffy/Whitening.lean
-##   10a4e1ed7e1eeb178fa9916d5e09ce597928b530d355786a3989559c3287ba61  Snuffy/WorkBilling.lean
+##   fcfcf42fc99f43b196b65cb4f51d12e52d69d05bc0c7cdd90e2d03a6514a3e15  Snuffy/WorkBilling.lean
 ##   a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1  Snuffy/WorkIntegration.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   6ecca2ed6a110a8d90dabff7ef2e5a39b06f08b972a8612043e39de95052bf6b  SummitsAudit.lean
-## overall: PASS
+##   463e7bfe61260788e41e390becece2d4157e730e439fc6a45dd52851b444c0a2  SummitsAudit.lean
+## overall: FAIL

@@ -285,6 +285,10 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `GuardSignature` | `guard_idempotent` |
 | `WorkBilling` | `work_nonnegative`, `work_bound_preserved`, `decoder_work_balance`, `decoder_work_floor`, `decoder_work_floor_saturation`, `funded_decoder_entropy_bound`, `funded_decoder_cycles`, `charged_attempt_accounting`, `syndrome_stock_bound`, `syndrome_flux_balance`, `cumulative_maintenance_bound` |
 | `DecoderRetraction` | `decode_encode`, `finite_code_recovery`, `nonvanishing_of_continuation`, `finite_code_self_grounding`, `inner_preserved_from_symplectic_flux`, `adjoint_decodes_isometry`, `boundary_observable_on_code`, `historical_query_preserved`, `historical_word_on_code`, `historical_word_expectation`, `boundary_observable_mul`, `boundary_observable_commutator`, `powers_intertwine`, `exponential_intertwines`, `historical_flow_roundtrip`, `historical_dual_kernel`, `work_shifted_flow_on_code`, `historical_gram_preserved`, `historical_gram_nondegenerate`, `coordinate_boundary_roundtrip`, `boundary_capacity_necessary`, `handoff_moves_reference_payload`, `handoff_preserves_norm`, `handoff_roundtrip`, `parallel_cnot_handoff`, `charged_archive_handoff` |
+| `G2Splice` | `splice_grade`, `splice_realisable`, `outcome_splice`, `union_realizable`, `top_realisable`, `whole_outcome_greatest`, `fourStage`, `block_splice_run`, `block_splice_keeps` |
+| `CorrelatedCeiling` | `ceil_touching`, `correlated_stress_ceil`, `prob_damage`, `near_card_le`, `choose_pow_le`, `damage_local_stochastic`, `correlated_family_ceiling` |
+| `G1Held` | `good_cover`, `held_source_protection`, `held_source_qsl` |
+| `G1E9` | `alarm_or_subthreshold`, `held_source_e9` |
 <!-- END THEOREM INDEX -->
 
 ---
