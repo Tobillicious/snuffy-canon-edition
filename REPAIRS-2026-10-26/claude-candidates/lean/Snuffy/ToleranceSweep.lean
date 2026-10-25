@@ -34,6 +34,10 @@ dependencies are wrong.
     `(base + θ · repair) · N`, outside an event of probability at most
     `K · C(N, n) · q^n`.
 
+  * recovery_tail — an outer decoder that returns the record whenever fewer
+    than `K n` patches are wrong fails with probability at most
+    `K · C(N, n) · (C(w, k) p^k)^n`, at every age.
+
 The physical input is the interface property of the windowed decoder: a
 wrong commit costs the next window at most `c` of its `k` faults.
 
@@ -183,5 +187,35 @@ theorem pathwise_bill (P Wr : Finset V) (cost : V → ℕ) (base repair m : ℕ)
         rw [sum_add_distrib, sum_const, smul_eq_mul, mul_comm, sum_ite_mem, inter_eq_right.mpr hWr,
           sum_const, smul_eq_mul, mul_comm (#Wr)]
     _ ≤ base * P.card + repair * m := Nat.add_le_add_left (Nat.mul_le_mul_left _ hfew) _
+
+open Snuffy.Threshold in
+open scoped Classical in
+/-- **Recovery of the record through a tolerant outer decoder.** -/
+theorem recovery_tail {Loc Out : Type*} [Fintype Loc] [DecidableEq Loc] (μ : FaultLaw Loc) {p : ℝ}
+    (hp : 0 ≤ p) (hμ : LocalStochastic μ p) (layer : V → ℕ)
+    (corr : Finset Loc → V → (V → Val) → Val) (outer : Finset Loc → ℕ → (V → Val) → (V → Val))
+    (s₀ : Finset Loc → V → Val) (target : V → Val)
+    (hfence : ∀ F k s v, layer v < k → outer F k s v = s v)
+    (Wn : V → Finset Loc) {w k : ℕ} (hw : ∀ v, (Wn v).card ≤ w)
+    (htol : ∀ F v s, (Wn v ∩ F).card < k → corr F v s = target v)
+    (P : Finset V) (N : ℕ) (hP : ∀ v ∈ P, layer v < N) {K : ℕ} (hK : 0 < K) (col : V → Fin K)
+    (hcol : ∀ a ∈ P, ∀ b ∈ P, a ≠ b → col a = col b → Disjoint (Wn a) (Wn b)) (n : ℕ)
+    (decOut : (V → Val) → Out) (rec : Out)
+    (hout : ∀ s : V → Val, (P.filter fun v => s v ≠ target v).card < K * n → decOut s = rec) :
+    prob μ (fun F => decOut (sweep layer (corr F) (outer F) (s₀ F) N) ≠ rec) ≤
+      K * (P.card.choose n) * ((w.choose k : ℝ) * p ^ k) ^ n := by
+  refine le_trans ?_ (sweep_density μ hp hμ layer corr outer s₀ target hfence Wn hw htol P N hP hK
+    col hcol n)
+  unfold prob
+  refine sum_le_sum fun F _ => ?_
+  split_ifs with ha hb hb
+  · exact le_rfl
+  · exfalso
+    apply hb
+    by_contra hlt
+    push Not at hlt
+    exact ha (hout _ hlt)
+  · exact μ.nonneg F
+  · exact le_rfl
 
 end Snuffy.ToleranceSweep

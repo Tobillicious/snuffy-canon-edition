@@ -633,3 +633,55 @@ record and relations, or must full quantum coherence of its state be held indefi
 * With a classical record, the passive route keeps the holding rate Θ(1) uniformly in age.
 * With full quantum coherence, no proven route without a log t overhead has been found. That bears
   on the stated Θ(1)-rate maintenance demand (master line 536) and on the holding-power item.
+
+---
+
+# Item 5 closure route; `recovery_tail` compiled; round 10 (renewal "bypass") disposition (26 October)
+
+## Compiled: `ToleranceSweep.recovery_tail` (candidate; zero output, leanchecker 0, standard axioms)
+
+Suppose an outer decoder returns the record whenever fewer than Kn patches are wrong. Then it fails
+with probability at most K · C(N, n) · (C(w, k) p^k)^n, at every age. This chains the actual sweep,
+`sweep_density` and the outer decoder.
+
+## The single property item 5 needs, and its supports
+
+Item 5 needs the answer to tolerate a constant fraction of silent local errors. That holds exactly
+when the record is spread redundantly across its carrier.
+
+* **The record is redundant.** Item 5 then closes with the compiled pieces and no logarithm.
+  Supports, cited rather than invented:
+  - Brandão, Piani and Horodecki (Nat. Commun. 6, 7908, 2015): classical information emerges
+    redundantly, and generically, in quantum Darwinism.
+  - Horodecki, Korbicz and Horodecki (PRA 91, 032122, 2015): objectivity implies a
+    spectrum-broadcast structure.
+  - So an accessible, objective historical record is redundantly encoded.
+* **The record is not redundant**, so that every location matters. The logarithm is then necessary
+  for any protocol built from noisy gates, by the Dobrushin–Ortyukov / Pippenger lower bound for
+  input-sensitive functions.
+* **The interface property** is DKLP's overlapping-recovery analysis, the paper the canon already
+  cites: windows with buffers of order d fail only if a long error chain lies inside one window.
+
+## Round 10 — "periodic renewal bypasses the trilemma": not accepted
+
+* **The submission refutes itself.** Its own derivation gives P_survival(t) = e^{−αt} with α > 0
+  constant. Then P_fail(t) = 1 − e^{−αt} tends to 1, which contradicts its stated theorem
+  P_fail(t) ≤ ε for arbitrary t.
+* **The trilemma is not about static memory.** It is arithmetic. A constant failure rate α, which is
+  what renewal achieves, gives P_fail ≈ αt. Holding ε at age t needs α ≤ ε/t, hence d ~ log t. The
+  same holds for actively corrected memory: DKLP's indefinite-storage analysis gives a failure rate
+  per unit time of order e^{−cL}.
+* **Passive storage is relevant.** It applies to held records, such as the archive I₀, not only to
+  cold storage.
+
+## Refinement of the open question (self-healing)
+
+Holding need not mean that a particular never fails. It can mean that every failure is detected and
+repaired within bounded delay (`E9SelfHealing`, funded repair). Prompt repair costs O(1) per failure
+(W_min at bounded delay), so a constant failure rate gives a constant-rate bill. Only silent failures
+break this.
+* Redundant classical records make failures detectable by comparison.
+* Coherent quantum content suffers silent logical errors.
+
+The question to the author stands: for indefinite holding, is the protected content the
+(objective, classical) record and relations, or full quantum coherence?
