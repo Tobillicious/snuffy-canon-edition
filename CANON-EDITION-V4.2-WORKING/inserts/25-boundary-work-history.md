@@ -817,6 +817,18 @@ directed separator with empty certified boundary
 (`closed_iff_no_bypass`), and the separator form extends it to a matched
 certified boundary (`UPTR16Cut.causal_separator`).
 
+**The concatenated memory decodes its record unless its block fails**
+(`ConcatenatedDecoding`, §23.8). The record is encoded recursively onto the
+\(7^k\) locations through an outer code of Hamming distance at least three. It
+is decoded recursively by nearest codeword at every level. If the block does
+not fail in the recursive sense of `Concatenated.Fails`, decoding returns the
+original record, whatever values the faulty locations hold
+(`decodes_unless_fails`). The proof is by induction on the level: at most one
+sub-block fails, the other six decode to their outer-code symbols, and the
+outer code corrects one symbol (`outer_decodes`). Actual decoding failure
+therefore has probability at most \((21p)^{2^k}/21\)
+(`decoding_failure_le`).
+
 **Volume and boundary** (`RegionBoundary`, F.3). For every region of a
 connected relational structure other than the whole, positive volume holds
 exactly when the boundary homology is nonzero (`region_bootstrap`). The whole

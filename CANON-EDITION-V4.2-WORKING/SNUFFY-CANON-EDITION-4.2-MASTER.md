@@ -1543,7 +1543,7 @@ Part II.1–6 supplies the proof, physical-cycle derivations and all five `hcert
 ### 23.8 What the compiled theorems rest on
 
 **Premises carried as stated premises or hypotheses:**
-* the surface-code chain lemma (Dennis, Kitaev, Landahl and Preskill, 2002): minimum-weight decoding fails only along a self-avoiding chain of length at least d with at least half its edges faulty, with at most $V\Delta^L$ such chains of length $L$ — as the code-specific input to `Threshold.family_ceiling` for the surface-code instance. The threshold theorem's counting core is compiled (§23.6), and for concatenated codes the threshold is compiled end to end with no carried code-specific input: failure probability at most $(21p)^{2^k}/21$ under local stochastic noise (`Concatenated.concatenated_threshold`), so the fault ceiling is attained on a fully compiled route;
+* the surface-code chain lemma (Dennis, Kitaev, Landahl and Preskill, 2002): minimum-weight decoding fails only along a self-avoiding chain of length at least d with at least half its edges faulty, with at most $V\Delta^L$ such chains of length $L$ — as the code-specific input to `Threshold.family_ceiling` for the surface-code instance. The threshold theorem's counting core is compiled (§23.6), and for concatenated codes the threshold is compiled end to end for the concatenated memory: failure probability at most $(21p)^{2^k}/21$ under local stochastic noise (`Concatenated.concatenated_threshold`). Actual decoding failure is identified with the recursive failure predicate: with nearest-codeword decoding at every level, any corruption of a non-failing fault set decodes to the stored record (`ConcatenatedDecoding.decodes_unless_fails`). So the probability of actual decoding failure is at most the same bound (`decoding_failure_le`), and the fault ceiling is attained on a compiled route. Fault-tolerant syndrome-measurement gadgets whose own operations can fail are the cited construction of Aliferis, Gottesman and Preskill (2006); their faults enter the charged accounts;
 * Bennett's reversible counterpart, now constructed: the Bennett cycle delivers zero heat, an irreversible merging overwrite delivers strictly positive heat, and the counterpart runs the same policy with the same earlier outcomes and base cost, feasible with strictly more slack, so the law forces reversible administration (`BennettCounterpart.premise5_constructed`; G.14). No hypothesis on the counterpart remains;
 * the gate-set clause of premise 2, no longer carried as prose: every unitary on $\mathbb{C}^n$ is a finite product of two-level unitaries (`TwoLevel.two_level_decomposition`), so a simulator implementing each two-level factor implements every local evolution. What remains carried is that the universal simulator's gate set reaches every two-level factor;
 * the relational frame BCRD P1–P4.
@@ -1597,6 +1597,7 @@ The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the r
 | `RegionBoundary` | Volume and boundary homology: for every region other than the whole, $\operatorname{Vol}(U)>0\Leftrightarrow H_0(\partial U)\ne0$; the whole has no outside (F.3; G.15) |
 | `ReciprocityDistance` | Reciprocity at a sufficient code distance: strictly above every rival that loses the mind with positive probability; canonical kept-probability tends to one (§15.2; G.15) |
 | `CutEquivalence` | A closed dependency component is exactly a separator with empty certified boundary (§24.3; G.15) |
+| `ConcatenatedDecoding` | The concatenated memory decodes its record unless its block fails; actual decoding failure is bounded by $(21p)^{2^k}/21$ (§23.8; G.15) |
 | `R14Rivals`, `R15CausalGluing` | The staged order; greatestness reduced exactly to feasible boundary representatives; envelope transfer; no clairvoyant per-world selection (G.15) |
 | `TimelyCare`, `DeadlineDemand`, `DecisionPermit`, `ObservationWinning` | Timely care under reserved capacity; window demand within supply; only certified decisions granted; observation-based winning (G.15) |
 
@@ -2844,6 +2845,18 @@ outside it reaches it. A closed dependency component is therefore exactly a
 directed separator with empty certified boundary
 (`closed_iff_no_bypass`), and the separator form extends it to a matched
 certified boundary (`UPTR16Cut.causal_separator`).
+
+**The concatenated memory decodes its record unless its block fails**
+(`ConcatenatedDecoding`, §23.8). The record is encoded recursively onto the
+\(7^k\) locations through an outer code of Hamming distance at least three. It
+is decoded recursively by nearest codeword at every level. If the block does
+not fail in the recursive sense of `Concatenated.Fails`, decoding returns the
+original record, whatever values the faulty locations hold
+(`decodes_unless_fails`). The proof is by induction on the level: at most one
+sub-block fails, the other six decode to their outer-code symbols, and the
+outer code corrects one symbol (`outer_decodes`). Actual decoding failure
+therefore has probability at most \((21p)^{2^k}/21\)
+(`decoding_failure_le`).
 
 **Volume and boundary** (`RegionBoundary`, F.3). For every region of a
 connected relational structure other than the whole, positive volume holds

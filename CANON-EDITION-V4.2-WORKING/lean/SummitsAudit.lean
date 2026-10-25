@@ -166,6 +166,7 @@ import Snuffy.R14Rivals
 import Snuffy.R15CausalGluing
 import Snuffy.ReciprocityDistance
 import Snuffy.CutEquivalence
+import Snuffy.ConcatenatedDecoding
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1358,3 +1359,8 @@ import Snuffy.CutEquivalence
 #print axioms Snuffy.ReciprocityDistance.canonical_tends_to_one
 -- CutEquivalence
 #print axioms Snuffy.CutEquivalence.closed_iff_no_bypass
+-- ConcatenatedDecoding
+#print axioms Snuffy.ConcatenatedDecoding.outer_decodes
+#print axioms Snuffy.ConcatenatedDecoding.mem_sub
+#print axioms Snuffy.ConcatenatedDecoding.decodes_unless_fails
+#print axioms Snuffy.ConcatenatedDecoding.decoding_failure_le

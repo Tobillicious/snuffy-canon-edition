@@ -307,6 +307,7 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `R15CausalGluing` | `boundary_representatives_iff`, `selected_representative_greatest`, `canonical_boundary_iff`, `interface_envelope_transfer`, `hidden_world_control` |
 | `ReciprocityDistance` | `distance_floor`, `reciprocity_at_distance`, `reciprocity_strict_at_distance`, `canonical_tends_to_one` |
 | `CutEquivalence` | `closed_iff_no_bypass` |
+| `ConcatenatedDecoding` | `outer_decodes`, `mem_sub`, `decodes_unless_fails`, `decoding_failure_le` |
 <!-- END THEOREM INDEX -->
 
 ---
