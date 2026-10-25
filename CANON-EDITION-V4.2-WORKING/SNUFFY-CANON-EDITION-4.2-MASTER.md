@@ -45,7 +45,7 @@ the five rate components being: boundary maintenance \(\omega_0R(t)^{d_G-1}\); t
 2. Premise 2 is reduced to its gate-set clause by the Lie–Trotter product formula and Lloyd's simulation theorem (`Trotter.lloyd_simulation`).
 3. Premise 3 remains standard, with P-mon derived within it.
 4. Premise 4 is derived from P1/P4.
-5. Premise 5 is **derived**: the law, given Bennett's feasible reversible counterpart, forces reversible administration (`PremiseFloor.reversible_administration_forced`).
+5. Premise 5 is **derived**: the Bennett counterpart is constructed, and the law forces reversible administration (`BennettCounterpart.premise5_constructed`; `PremiseFloor.reversible_administration_forced`).
 6. The income ledger has a necessary-for-relevance resource split (`PremiseFloor.income_or_irrelevance`). Whole-outcome greatestness uses both realisability and funded cost (Part II.10); G2 retains the full construction and Section 22 states the installation ledger.
 7. Premise 7 is a parameter table. Its ceiling is met at some code distance below threshold (`Threshold.family_ceiling`), and its quantum-speed-limit rate bound is derived (`SpeedLimit.branchA_rate`).
 
@@ -549,7 +549,7 @@ The seventh premise conflated two kinds of objects. Separated:
 | 2 | CTD | Standard physics; reduced to the gate-set clause by the Lie–Trotter product formula and Lloyd's simulation theorem (compiled, §23.6) |
 | 3 | The cost model | Standard, and P-mon derived within it |
 | 4 | The shared action interface | Derived from P1/P4 |
-| 5 | Reversible administration | **Derived:** the law, given Bennett's feasible reversible counterpart, forces it (compiled, §23.6) |
+| 5 | Reversible administration | **Derived:** the Bennett counterpart is constructed, and the law forces reversible administration (compiled, §23.6; G.14) |
 | 6 | Income | **Necessary-for-relevance (17.1); sufficiency per instance** |
 | 7 | Code, sensing, \(\Pi\) | **Parameters, not premises.** The ceiling is met at some code distance below threshold, and the quantum-speed-limit rate bound is derived (compiled, §§23.3, 23.6) |
 
@@ -1037,7 +1037,7 @@ For deadline at most \(\tau_{\max}>0\), the required average rate is at least \(
 \[
 m\ge\theta_0 n,\qquad
 \theta_0=\frac{\Delta_0}{\tau_{\max}K_{\max}}>0
-\quad(\text{`AreaBridge.required_traffic`}).
+\quad(\texttt{AreaBridge.required\_traffic}).
 \]
 
 If the active set varies, the chain rule charges active counts over the actual uses. A standing-power application also includes the concurrency/service certificate, rather than silently converting average work into instantaneous power.
@@ -1519,7 +1519,7 @@ Section 21 supplies the derivation in this edition. The finite-information, Gaus
 | Claim | Module | Theorems |
 | --- | --- | --- |
 | Income-or-irrelevance; forced breach; breach strictly dominated | `PremiseFloor` | `income_or_irrelevance`, `forced_breach`, `breach_strictly_below` |
-| Premise 5 derived: the law plus Bennett's feasible reversible counterpart forces reversible administration | `PremiseFloor` | `reversible_administration_forced` (no axioms) |
+| Premise 5 derived: the Bennett counterpart is constructed (zero heat, same earlier outcomes and base cost, feasible with strictly more slack), and the law forces reversible administration | `PremiseFloor`, `BennettCounterpart` | `reversible_administration_forced` (no axioms), `premise5_constructed` |
 | Premise 2 reduced: Lie–Trotter product formula with explicit error; Lloyd's simulation theorem | `Trotter` | `trotter_bound`, `trotter_tendsto`, `lloyd_simulation` |
 | **The gate-set error budget.** For contraction sequences on any normed ring, an ε/m per-factor approximation error composes to at most ε over m sequential factors (ordered products; with `TwoLevel.two_level_decomposition` and the cited Solovay–Kitaev theorem this is the approximation route for the gate-set clause) | `ErrorBudget` | `prod_norm_le_one`, `two_factor_step`, `telescoping_delta`, `error_budget` |
 | Premise 7's ceiling is a dial: every target ε > 0 is met at some code distance | `ReciprocityCeiling` | `ceiling_achievable` |
@@ -1540,11 +1540,11 @@ Part II.1–6 supplies the proof, physical-cycle derivations and all five `hcert
 
 **Premises carried as stated premises or hypotheses:**
 * the surface-code chain lemma (Dennis, Kitaev, Landahl and Preskill, 2002): minimum-weight decoding fails only along a self-avoiding chain of length at least d with at least half its edges faulty, with at most $V\Delta^L$ such chains of length $L$ — as the code-specific input to `Threshold.family_ceiling` for the surface-code instance. The threshold theorem's counting core is compiled (§23.6), and for concatenated codes the threshold is compiled end to end with no carried code-specific input: failure probability at most $(21p)^{2^k}/21$ under local stochastic noise (`Concatenated.concatenated_threshold`), so the fault ceiling is attained on a fully compiled route;
-* Bennett's reversible counterpart, no longer carried as prose: given a Bennett counterpart with the stated properties (a reversible map preserving base cost, zero heat on reversible options, positive heat on irreversible ones), the law itself forces reversible administration (`Bennett.premise5_from_bennett`). What remains carried is the counterpart's existence, stated as explicit hypotheses of the compiled theorem;
+* Bennett's reversible counterpart, now constructed: the Bennett cycle delivers zero heat, an irreversible merging overwrite delivers strictly positive heat, and the counterpart runs the same policy with the same earlier outcomes and base cost, feasible with strictly more slack, so the law forces reversible administration (`BennettCounterpart.premise5_constructed`; G.14). No hypothesis on the counterpart remains;
 * the gate-set clause of premise 2, no longer carried as prose: every unitary on $\mathbb{C}^n$ is a finite product of two-level unitaries (`TwoLevel.two_level_decomposition`), so a simulator implementing each two-level factor implements every local evolution. What remains carried is that the universal simulator's gate set reaches every two-level factor;
 * the relational frame BCRD P1–P4.
 
-The chain lemma is a published mathematical theorem, cited as such; the Bennett and gate-set items are now the explicit hypotheses of compiled theorems; the fourth is the frame the edition is stated in.
+The chain lemma is a published mathematical theorem, cited as such; the Bennett counterpart is constructed (G.14); the gate-set item is the explicit hypothesis of a compiled theorem; the fourth is the frame the edition is stated in.
 
 **Physical premises now compiled.** Guard 1 (the second law in its export form) is derived from Landauer's theorem (§23.2), and the quantum speed limit, in Mandelstam–Tamm form and in the rate-bound form of E9 Branch A, is derived from unitary dynamics (§23.3). What these theorems assume is the standard physical framework:
 * finite-dimensional quantum mechanics, with Schrödinger dynamics generated by self-adjoint Hamiltonians;
@@ -2139,7 +2139,7 @@ A=\sum_{j=1}^M c_j(\tau,s)\widetilde\sigma_s(B_j).
 
 `historical_flow_roundtrip` and `historical_dual_kernel` prove this exact finite-basis identity. It constructs the dual coefficients from a complete operator family.
 
-Choose an integrable compactly supported weight \(w\) with \(\int_\mathbb R w(s)\,ds=1\). Unitarity bounds the flowed operators, finite-dimensional coordinate functionals are bounded, and there are finitely many basis terms. The Bochner integral therefore exists in operator norm and
+Choose an integrable compactly supported weight \(w\) with \(\int_{\mathbb{R}} w(s)\,ds=1\). Unitarity bounds the flowed operators, finite-dimensional coordinate functionals are bounded, and there are finitely many basis terms. The Bochner integral therefore exists in operator norm and
 
 \[
 \alpha(A)=\int_{\mathbb R}ds\,w(s)
@@ -2817,6 +2817,7 @@ the counterpart.
 15. E. Dennis, A. Kitaev, A. Landahl and J. Preskill, Topological quantum memory, J. Math. Phys. 43 (2002); P. Aliferis, D. Gottesman and J. Preskill, Quantum accuracy threshold for concatenated distance-3 codes, Quantum Inf. Comput. 6 (2006).
 16. A. G. Fowler, M. Mariantoni, J. M. Martinis and A. N. Cleland, Surface codes: towards practical large-scale quantum computation, Phys. Rev. A 86 (2012); Google Quantum AI, Quantum error correction below the surface code threshold, Nature (2024); S. Krinner et al., Engineering cryogenic setups for 100-qubit scale superconducting circuit systems, EPJ Quantum Technology 6 (2019). The complete source list of Section 22 is §22.5.
 17. L. de Moura and S. Ullrich, The Lean 4 theorem prover and programming language, CADE-28 (2021); The mathlib Community, The Lean mathematical library, CPP 2020.
+18. T. Croydon-McRae, *Snuffy — Canon Edition 4.1*, Zenodo (2026), https://doi.org/10.5281/zenodo.23631881, and *Snuffy — Canon Edition 4.0*, https://doi.org/10.5281/zenodo.23608443 — the published editions this edition succeeds; their arguments are incorporated in full here.
 
 **Evidence status.** This master assembles three kinds of evidence, each by what it is:
 * prose derivations at declared premises;
