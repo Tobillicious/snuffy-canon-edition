@@ -1,6 +1,6 @@
 # Proof state
 
-Canon modules: 113. Corpus module names: 51. Excluded with reason: 0. Missing: 2. Phantom exclusions: 0. Skipped by directory policy: 105.
+Canon modules: 115. Corpus module names: 51. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -115,7 +115,7 @@ Canon modules: 113. Corpus module names: 51. Excluded with reason: 0. Missing: 2
 | Module | In canon | Corpus copies (first) |
 | --- | --- | --- |
 | `AdaptiveConsensus` | yes | `2026-10-23-adoption-contracts/lean/AdaptiveConsensus.lean` |
-| `AffordableReciprocity` | **MISSING** | `2026-10-25-affordable-reciprocity/AffordableReciprocity.lean` |
+| `AffordableReciprocity` | yes | `2026-10-25-affordable-reciprocity/AffordableReciprocity.lean` |
 | `AnalyticBridge` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/AnalyticBridge.lean` |
 | `AreaBridge` | yes | `(canon only)` |
 | `BandwidthReflection` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/BandwidthReflection.lean` |
@@ -143,7 +143,7 @@ Canon modules: 113. Corpus module names: 51. Excluded with reason: 0. Missing: 2
 | `DeductionBoundary` | yes | `(canon only)` |
 | `E9Routes` | yes | `2026-10-23-adoption-contracts/lean/E9Routes.lean` |
 | `E9SelfHealing` | yes | `(canon only)` |
-| `ErrorBudget` | **MISSING** | `2026-10-25-error-budget/ErrorBudget.lean` |
+| `ErrorBudget` | yes | `2026-10-25-error-budget/ErrorBudget.lean` |
 | `FIFOAdmission` | yes | `2026-10-23-r17-fifo-verification/lean/FIFOAdmission.lean` |
 | `FIFOInstance` | yes | `2026-10-24-glm-phase-a/lean/FIFOInstance.lean` |
 | `FIFOWorkload` | yes | `2026-10-23-r17-fifo-verification/lean/FIFOWorkload.lean` |
