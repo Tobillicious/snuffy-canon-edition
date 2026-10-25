@@ -522,3 +522,72 @@ the correct schedule, while under the swapped schedule the computed distance is 
    patches specified.
 3. **The assembly:** P(W wrong) ≤ K · C(N, θN/K) · q^{θN/K}, and the complete bill with an
    age-independent constant per location.
+
+---
+
+# Item 5 — `Snuffy.ToleranceSweep` compiled; round 8 disposition (26 October)
+
+## Compiled (candidate; zero output, leanchecker 0, standard axioms)
+
+* `frozen_after`: a vertex keeps its value after its wave, through every later wave and every fenced
+  outer step of the actual `G3Sweep.sweep`.
+* `wrong_has_cause`: with tolerant correction (a good patch decodes correctly when at most τ
+  dependencies are wrong), every wrong vertex is bad or has more than τ wrong dependencies.
+* `wrong_le_of_eroder`: an eroder geometry gives |wrong| ≤ C·|bad|.
+* `wrong_subset_bad`: with interface-tolerant correction (a good patch decodes correctly whatever the
+  interior commits), every wrong vertex is bad, so C = 1.
+* `sweep_density`: the end-to-end statement. Under local stochastic noise, with patch windows
+  coloured K ways, at least Kn wrong vertices among N occur with probability at most
+  K · C(N, n) · (C(w, k) p^k)^n, for every age.
+* `pathwise_bill`: on the event that fewer than m vertices are wrong, the realised bill is at most
+  base·N + repair·m.
+
+**Why interface tolerance replaces an eroder.** A wrong inner commit reaches the next window as an
+error of bounded weight c at the interface; it is not a corrupted input to be outvoted. A window
+whose own faults stay within its budget minus c therefore decodes correctly whatever the commit.
+No cascade can occur.
+
+**The remaining physical input.** The windowed decoder must have this interface property: a wrong
+commit costs the next window at most c of its k faults. This must also hold for undetected wrong
+commits, which raise no flag. It can be checked by the same enumeration, injecting wrong commits at
+the interface.
+
+## R8-1 (Peierls eroder) — not needed, and the bound fails as written
+
+* With interface tolerance the eroder constant is C = 1; no contour argument is required.
+* The sum does not converge. Connected shapes of size n number about μ^n, while the weight decays
+  only as (z p̃)^{c n^{(d−1)/d}}, a stretched exponential. Σ μ^n (z p̃)^{c n^{(d−1)/d}} diverges.
+  For d = 1 the exponent is 0 and there is no decay at all.
+* Persistence of a cluster does not require every perimeter site to fail.
+
+## R8-2 (Parts 1 and 2) — erasure flagging is a useful design element; the claims need correction
+
+* Flagging a detected failure as an erasure is compatible with the interface property, and it is
+  cheaper: e erasures together with s errors are corrected when e + 2s < d.
+* A patch cannot flag an undetected logical failure, and those are the dangerous ones. Undetected
+  wrong commits arrive unflagged, as bounded-weight interface errors. The interface property must
+  cover them.
+* `disjoint_windows` uses no conditional independence; local stochastic noise suffices. The
+  displayed product, with p^{k|U|} inside a per-window factor, misstates it.
+* "Σ Y ≥ N·n" should read K·n.
+
+## R8-3 (outer decoder and work bill) — partly right; two corrections
+
+* **Per-slice tolerance for storage of fixed size reintroduces the logarithm.** Over t slices the
+  union gives t · e^{−αM}. A fixed-size memory held for age t therefore needs M of order log t. This
+  is the archive and holding reliability point already recorded: the record I₀ is held passively,
+  behind a barrier chosen at write time. For the recovery sweep, N grows with t, so e^{−αN} absorbs
+  the union.
+* **The bill is stated in expectation.** The canon requires the pathwise bill, now supplied by
+  `pathwise_bill` on the event controlled by `sweep_density`.
+* **The outer code W across macro-blocks is a design choice for installation-held data.** For the
+  historical message, its spreading over the carrier is physical. Tolerance of a θ fraction of failed
+  patches then has to be shown from that carrier's structure, not chosen.
+
+## Item 5 status
+
+* Compiled: the density tail, the sweep link and the pathwise bill.
+* Open:
+  1. the decoder's interface property, to be checked by enumeration;
+  2. W's tolerance of a θ fraction of failed patches;
+  3. reliability of long-lived holding at fixed size, which joins the open holding-power item.
