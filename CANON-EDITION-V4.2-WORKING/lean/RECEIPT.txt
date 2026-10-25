@@ -1,8 +1,4 @@
-# Checkpoint 01 completion after correcting snapshot placement
-# Fresh compile, kernel and axiom results below are retained from the initial run.
-# Only the strict completeness and claims gates were rerun; no proof sources changed.
-# Initial FAIL receipt is preserved as INITIAL-RECEIPT-FAIL.txt.
-# v4.2 modules — build receipt (2026-10-25T14:17Z)
+# v4.2 modules — build receipt (2026-10-25T15:16Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -1354,6 +1350,13 @@
 ##   'Snuffy.G3PatchDecode.patch_sweep_bill' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.ReasonsEnsemble.ensemble_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.ReasonsEnsemble.ensemble_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.capacity_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.solvent_cycle_energy_account' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.reserve_deficit_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.reserve_deficit_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.replenishment_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.replenishment_nonincrease' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.TheoremEightLyapunov.solvent_cycle_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.TheoremEightLyapunov.cycle_contracts' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.TheoremEightLyapunov.margin_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.TheoremEightLyapunov.lyapunov_iterate' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1423,12 +1426,12 @@
 ##   'Snuffy.PureStateTraceNorm.pure_trace_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.PureStateTraceNorm.pure_trace_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## axiom audit exit=0
-## theorems audited: 1048; non-standard axiom dependencies: none
-## expected audited statements: 1048
-## gates rerun after snapshot relocation:
-##   ## completeness: canon 169, corpus names 84, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 282
+## theorems audited: 1055; non-standard axiom dependencies: none
+## expected audited statements: 1055
+## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):
+##   ## completeness: canon 169, corpus names 84, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 454
 ##   ## build/audit coverage: canon 169, build 169, audit 169, errors 0
-##   ## claims: audited theorems 1048, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
+##   ## claims: audited theorems 1055, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
 ## source sha256:
 ##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
 ##   4b416646e1fc8f74f524e0f9a680384e35e06adacd69f91bb30dcec70b921b7e  Snuffy/AffordableReciprocity.lean
@@ -1581,7 +1584,7 @@
 ##   52cd2a40f0e571274c3cf8f062d5d00874b669d9ed995aae876694304e904d92  Snuffy/TIWASource.lean
 ##   80b1094d3158ce303e8566c818e7391a3e46c79623b42e43662061cdf15cc392  Snuffy/TIWAWork.lean
 ##   b51eb402dc54ed5b8856e87104e055c2da228f57364fed890f4e820b14815df9  Snuffy/TemporalSafety.lean
-##   5ebbf12dc6fc1bada05fab5c8492c5031e471081f1de4507b60b1fa2f74289d9  Snuffy/TheoremEightLyapunov.lean
+##   56137a3e88275d20872dcd9e8f1de150792ad8d758520a08ff47169d8c96dd9b  Snuffy/TheoremEightLyapunov.lean
 ##   4d42eead54a831c0e58ad441fdd74012047658d3c9c328451db7b67158f5bee2  Snuffy/ThermalBalance.lean
 ##   ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035  Snuffy/ThermoLedger.lean
 ##   2a32b8f01e8967eb10dcbb0435e507ad7daa4fb08081f6ba13faf92cf0542ddc  Snuffy/Threshold.lean
@@ -1599,5 +1602,5 @@
 ##   fcfcf42fc99f43b196b65cb4f51d12e52d69d05bc0c7cdd90e2d03a6514a3e15  Snuffy/WorkBilling.lean
 ##   a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1  Snuffy/WorkIntegration.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   4ac81e0bae539e83ca24d843877e167834b90700939cdd37a5f1baa5ab969bfa  SummitsAudit.lean
+##   b9b172c0b9fc6ed19d7f81181e6ccc0e029b2b98c7b863754a9c425e23a9a047  SummitsAudit.lean
 ## overall: PASS

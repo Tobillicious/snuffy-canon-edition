@@ -65,7 +65,7 @@ master and render/checksum metadata still require integration; do not claim
 publication-ready. `REPAIR-STATUS.md` flags this staged state.
 
 The isolated checkout contains the canon edits, generated 1,055-name index,
-last applicable 1,048-name receipt, selected reports and separate candidates
+now-applicable 1,055-name full PASS receipt, selected reports and separate candidates
 under `REPAIRS-2026-10-26/`. The status explicitly distinguishes these.
 No push, PR creation, merge or Zenodo publication has been performed yet.
 Create the requested DRAFT PR after finishing/checking the staged integration;
@@ -111,3 +111,10 @@ source/prose claims, regenerate the master theorem index/counts, check claims
 and render/seals, then commit/push a draft PR. Preserve the separate candidates
 and unresolved physical constructions explicitly. Ask for the specific
 missing device/source certificate if it cannot be derived from existing work.
+
+Final audit update: checkpoint 02 completed PASS before banking ended. All
+169 source hashes were checked against the working edition; the 1,055-name
+receipt and parallel audit provenance are copied into the repair branch.
+Do not rerun this completed full audit merely because the prose is pending.
+Banking is local only; Claude should finish prose/render/seal integration and
+create the requested draft PR.

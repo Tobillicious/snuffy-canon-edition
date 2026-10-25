@@ -65,3 +65,7 @@ axiom audit and strict gates are unchanged. It copies the receipt back only
 on full PASS and unchanged working sources. Do not mutate working Lean sources
 until it completes. Preserve all receipts and failed attempts. No new axioms,
 no sorry, no publication or merge.
+
+Final bank: both concrete repairs now have passing full checkpoints. The
+current 1,055-name receipt is copied into the repair branch. Prose/count
+integration, render/seals and draft PR remain for Claude; no push or merge.

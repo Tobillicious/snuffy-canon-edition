@@ -1,0 +1,6 @@
+{
+  "jobs": 4,
+  "canonical_driver_sha256": "8f992a7ffd4033f63667663980c7b85d3daca8d3c18bb4179ed2b3a1f22f9913",
+  "executed_driver_sha256": "612b52ba7678bb6a8dd5c15ff4956e82cfc270b0fa3b25cf720102861e5b190e",
+  "orchestration": "fresh DAG compilation; independent kernel checks; unchanged axiom audit and gates"
+}

@@ -1,0 +1,1527 @@
+{
+  "jobs": 4,
+  "phase": "kernel",
+  "results": [
+    {
+      "module": "MathlibAnalyticBridge",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 23.208,
+      "source_sha256": "67ce6b974cb46dab4dc8743bcb1908393bda307db25b56134b62cd1894b5abdd",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/MathlibAnalyticBridge.check"
+    },
+    {
+      "module": "HalperinDecay",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 23.211,
+      "source_sha256": "c6a9d6f150f2096d096084507ae940e2198c7bf8a16b8f2d06a42a07fea593ff",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/HalperinDecay.check"
+    },
+    {
+      "module": "OpialBridge",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 23.211,
+      "source_sha256": "b3c74eba3d40bcd9c2422c53309d7975335e33fccdf0a160ac4657eb4bbb7871",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/OpialBridge.check"
+    },
+    {
+      "module": "CanonVonNeumann",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 23.211,
+      "source_sha256": "6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/CanonVonNeumann.check"
+    },
+    {
+      "module": "RecoveryWork",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 22.247,
+      "source_sha256": "ae54c335b663b2e9167e972a2f70df8dcdedc1236a4b107b1ae11862b04018bc",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/RecoveryWork.check"
+    },
+    {
+      "module": "E9SelfHealing",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 21.331,
+      "source_sha256": "a5e8804486c94667262516d164cebaac3a5063108864f261a3583547e2ad09f2",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/E9SelfHealing.check"
+    },
+    {
+      "module": "H5Closure",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 21.829,
+      "source_sha256": "d39dfc51423b0f9eb9aef9674eaa0abfd5426ee18845539004e1f91312dcc88d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/H5Closure.check"
+    },
+    {
+      "module": "Greatestness",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 19.857,
+      "source_sha256": "d21be5cb40a8a4d07e91bdaef149a7b61174ae7bc545c62562b3ce9c46f6613d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Greatestness.check"
+    },
+    {
+      "module": "ThermoLedger",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.161,
+      "source_sha256": "ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ThermoLedger.check"
+    },
+    {
+      "module": "Composition",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.98,
+      "source_sha256": "2524e8c846408e622bb8a31e89a8888ab07cade9f99f56aa700be3970c870bd5",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Composition.check"
+    },
+    {
+      "module": "PremiseFloor",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.569,
+      "source_sha256": "5c6e13296b1dd2ed9dfbc5008369ded813a2830a4d10dc3988f5dadb2492a93d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/PremiseFloor.check"
+    },
+    {
+      "module": "ReciprocityCeiling",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.822,
+      "source_sha256": "352b83df636a2e16165c4cd78c7a784ca689353a59a2e27eae58d6da4fc096f2",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ReciprocityCeiling.check"
+    },
+    {
+      "module": "CyclicProjections",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 17.244,
+      "source_sha256": "aa67f92c0cd71d1d246576d47dda71e819e6bec52e3ec3633ce9de1b54d87414",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/CyclicProjections.check"
+    },
+    {
+      "module": "GaussianTail",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 15.946,
+      "source_sha256": "adb88719fc0a4d583b725b234e0e21ec4b500ed5166eedea1917f4d4e63b9c6e",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/GaussianTail.check"
+    },
+    {
+      "module": "DeductionBoundary",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 14.133,
+      "source_sha256": "7564d8e303e2832617e52d597c0affd33bf9dd96b96541f0c62257b885dd1e6e",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/DeductionBoundary.check"
+    },
+    {
+      "module": "ReflectionCertificate",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 13.465,
+      "source_sha256": "87983d7ce3f9af2d1f3790e45e91fdb450eb346e75068542077eb755ba7ac7b0",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ReflectionCertificate.check"
+    },
+    {
+      "module": "Trotter",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 21.324,
+      "source_sha256": "e2eb62081f7753a5ee4cc594c6d45f6be93da2d54e654f5613a0761677bc920d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Trotter.check"
+    },
+    {
+      "module": "Irreplaceability",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 19.699,
+      "source_sha256": "b0922dbbf603d6f62ff3e9a00d9d29644531767b8538f5bb184e33deb5fbea6e",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Irreplaceability.check"
+    },
+    {
+      "module": "DataProcessing",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 22.419,
+      "source_sha256": "c59d5eac1b24cca21a2581f64fbb37c74d6517c5a91d03b7866469d6c6c19172",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/DataProcessing.check"
+    },
+    {
+      "module": "MeetAlgebra",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 13.818,
+      "source_sha256": "ce746eb7bab2d68153205fd4f2ea5725b5769a614271184ef105a815ef69809d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/MeetAlgebra.check"
+    },
+    {
+      "module": "MeetHilbert",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.696,
+      "source_sha256": "62bf22d842fbd0c0cad2f3b87d0481089cbd5afa2c730f5bf3293fb9883581f8",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/MeetHilbert.check"
+    },
+    {
+      "module": "FiniteInformation",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 20.677,
+      "source_sha256": "2a7120678dfd22e9eaa9420621bab301099b9022ba59b20dbe5eeba4b7e70f87",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/FiniteInformation.check"
+    },
+    {
+      "module": "AreaBridge",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 19.004,
+      "source_sha256": "f69c4a382be9c0144463ccaacea960d01fb400b2ef1775e150c5edee429bcd38",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/AreaBridge.check"
+    },
+    {
+      "module": "UniversalProtection",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 16.859,
+      "source_sha256": "ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/UniversalProtection.check"
+    },
+    {
+      "module": "Workload",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 14.636,
+      "source_sha256": "506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Workload.check"
+    },
+    {
+      "module": "Fano",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 26.085,
+      "source_sha256": "0a8889d629d81e4aa27b4d627b4fe009d3c1901d27a7b9b86e4a45e3ee560bc1",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Fano.check"
+    },
+    {
+      "module": "GaussianKL",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 25.782,
+      "source_sha256": "1e2848810f40ad0f1e8c0071ddccbc268960c8c49707bb00e4a32fa238150a32",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/GaussianKL.check"
+    },
+    {
+      "module": "GoldenFormula",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 25.718,
+      "source_sha256": "1dcb27d5a4fcc2da54355430b6f5d9cfda2ac1fa9680d21b4cf175db2f672525",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/GoldenFormula.check"
+    },
+    {
+      "module": "GaussianChannel",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 24.221,
+      "source_sha256": "058dd64dd7f47621403bed64f2df232e9ac113e91d927293725c4d6709c9de9c",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/GaussianChannel.check"
+    },
+    {
+      "module": "KLAdditivity",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 26.912,
+      "source_sha256": "1e700a2d627206ab9896d3a883e1d6b2714e1c5eff2d5f8391dc1e07d2b8268d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/KLAdditivity.check"
+    },
+    {
+      "module": "GaussianChannelGen",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 26.91,
+      "source_sha256": "cb047325001c7872fb83df5b57ffe3bce192cd3c9c78b856a76f3a837b50fe74",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/GaussianChannelGen.check"
+    },
+    {
+      "module": "GaussianVector",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 26.903,
+      "source_sha256": "1b88e2f9f079cef062bf749a96f4ff69ca749775e534b0fbc510250b048a06af",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/GaussianVector.check"
+    },
+    {
+      "module": "Whitening",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 27.31,
+      "source_sha256": "97796ec3be890378195fa42cfd4ae9e12494235f556e4d4679beea1dea75e7fc",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Whitening.check"
+    },
+    {
+      "module": "Rotation",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 20.872,
+      "source_sha256": "4e6c32de3088efebd3bc32d69ea6a7770e231af6605fe0bd4fcf09d7c66d09e2",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Rotation.check"
+    },
+    {
+      "module": "LogDet",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 20.872,
+      "source_sha256": "43ed67efec9f5c381e2101ec8562ccf6d07bf8b58a872d316b338657dc2a251f",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/LogDet.check"
+    },
+    {
+      "module": "Law",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 19.717,
+      "source_sha256": "e4c86207ca62bcde9307eb91db0910e7d58efe1b9430d8fbc81173ec1d6f4159",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Law.check"
+    },
+    {
+      "module": "SpeedLimit",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 20.005,
+      "source_sha256": "355c12f48ab339d34d57c02f9e3a9d556d27009aecb26335b9113c9e327d11b6",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/SpeedLimit.check"
+    },
+    {
+      "module": "Landauer",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 16.363,
+      "source_sha256": "2c298142b31e208998236815da2640efb1ca04264ac6aa2fe2e67e359e7d8e6e",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Landauer.check"
+    },
+    {
+      "module": "QuantumLandauer",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 15.788,
+      "source_sha256": "aad81b1b8a01c270218516bf6af0bc7136efcbf6e861c7a1dd3c82be541400e0",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/QuantumLandauer.check"
+    },
+    {
+      "module": "Threshold",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 14.006,
+      "source_sha256": "2a32b8f01e8967eb10dcbb0435e507ad7daa4fb08081f6ba13faf92cf0542ddc",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Threshold.check"
+    },
+    {
+      "module": "UnionClosure",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 13.173,
+      "source_sha256": "7216f2e6d50a96bbc3b07ec8103e7e333d1d54a1f0793d81807590b0f2d520f4",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/UnionClosure.check"
+    },
+    {
+      "module": "SolventReciprocity",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 21.025,
+      "source_sha256": "47572c51ec0936496697e6858aa46465b00fb18c5fba10255ec9f6c2293188f3",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/SolventReciprocity.check"
+    },
+    {
+      "module": "AffordableReciprocity",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 20.192,
+      "source_sha256": "4b416646e1fc8f74f524e0f9a680384e35e06adacd69f91bb30dcec70b921b7e",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/AffordableReciprocity.check"
+    },
+    {
+      "module": "Bridge",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 20.472,
+      "source_sha256": "7c1c2d43f9d37d0ecf717fec37966d0f73805ba17a07d3f1c32b9f35794cd195",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Bridge.check"
+    },
+    {
+      "module": "Instruments",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 20.305,
+      "source_sha256": "55751cd8393856b86b937090231718dc7225386f21ebc04152fbd2a27ca9995a",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Instruments.check"
+    },
+    {
+      "module": "StrokeBookkeeping",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 25.913,
+      "source_sha256": "40d4899d038811565a8ed51c027fc0e8f30c0c53fd9c3915a13a725ffe619dc3",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/StrokeBookkeeping.check"
+    },
+    {
+      "module": "Bennett",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 25.932,
+      "source_sha256": "9b8b6aa47ff4fc77866694d73757f736d8beef2cbf8efa3d63e9fcb182fbe34f",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Bennett.check"
+    },
+    {
+      "module": "Concatenated",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 24.464,
+      "source_sha256": "ead9ece1b170bcfba9bf202fc290d4600e716bb75f7ac6fec0fd483cce5d256e",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Concatenated.check"
+    },
+    {
+      "module": "ReasonsCompiled",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 24.423,
+      "source_sha256": "98488c652f4361d2ffc3ca5c2b8741f0ae54e8ae9bc0fa07d1280f23e544e31e",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ReasonsCompiled.check"
+    },
+    {
+      "module": "TwoLevel",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 17.004,
+      "source_sha256": "ee8b224614cd6411b2b8bcae7f67b838669ba5d95043c2a485ac686030266c65",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/TwoLevel.check"
+    },
+    {
+      "module": "ErrorBudget",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 16.253,
+      "source_sha256": "a29747a66e158b7562139d480013f0e79fa22227182293528f0159c129dc9555",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ErrorBudget.check"
+    },
+    {
+      "module": "GateSupport",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 16.075,
+      "source_sha256": "f3409eced84bc9b69bd8560427edeabf40c4a069834231bfa9a16b0ea07807cb",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/GateSupport.check"
+    },
+    {
+      "module": "RiskBounds",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 16.072,
+      "source_sha256": "eff529052a2f51f9a2a9eca07de9b0bdef88a7966764f7d95401acdf303d373d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/RiskBounds.check"
+    },
+    {
+      "module": "QueueDeadline",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 19.325,
+      "source_sha256": "df49270aca477c7240c0f02d158e5aa53b5f9769171a535f1765c43d01361d21",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/QueueDeadline.check"
+    },
+    {
+      "module": "BandwidthReflection",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 17.905,
+      "source_sha256": "bdd3a90a36128370bba77aefe7ae87852ae5873fd3262cff9361a8e6af5e1bf5",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/BandwidthReflection.check"
+    },
+    {
+      "module": "AnalyticBridge",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 19.231,
+      "source_sha256": "27a8601f3279c9b86282baefe69fb3bcbf31de9540759306a774ee075dc219c7",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/AnalyticBridge.check"
+    },
+    {
+      "module": "RankAndCoalition",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 17.022,
+      "source_sha256": "5dd527ab44fa53c46b068fd8b5b7635632ed0275a284ad86285eda8eabaded72",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/RankAndCoalition.check"
+    },
+    {
+      "module": "MetricShadow",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.848,
+      "source_sha256": "e1bad9fc57f51713b3ef18056dc61548f07cecbaf759d85c1186f8b315b8fecb",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/MetricShadow.check"
+    },
+    {
+      "module": "SemanticMap",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.537,
+      "source_sha256": "86d9fde7d6637b6ac3835bcc4011c08cbfc00f3c6b6f90b246248ebcb847199c",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/SemanticMap.check"
+    },
+    {
+      "module": "BridgeD1",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 14.671,
+      "source_sha256": "3e55b52b2b6516ea68b50248485e3aea36a531d01efce059168d14ad482f977f",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/BridgeD1.check"
+    },
+    {
+      "module": "BridgeE9",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.443,
+      "source_sha256": "b4af3475fb19e438dba9bb67bcfcb2d378f6654f173edfcebc117ed5b63b396f",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/BridgeE9.check"
+    },
+    {
+      "module": "BridgeH6",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 14.507,
+      "source_sha256": "9f2008ce0ba3cf52e943f1442f545a9a9894caf25ffc06aeebecb04e4697e0aa",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/BridgeH6.check"
+    },
+    {
+      "module": "BridgeH7",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 15.583,
+      "source_sha256": "a1ec93a1c569fb26c29a93513f0a29a5bfbd86a113395b2acdc09a1976fd35ad",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/BridgeH7.check"
+    },
+    {
+      "module": "BridgeH8",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 15.651,
+      "source_sha256": "5c7e2109540c8106e74de8bec1c0ad27b5839720988ebb76d89f1797807ca8aa",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/BridgeH8.check"
+    },
+    {
+      "module": "ReasonsRoute",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.842,
+      "source_sha256": "6ac4ba0d3e30f5508e2d784f3aec640661ab4e67a85f99919f798a05e4466573",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ReasonsRoute.check"
+    },
+    {
+      "module": "SensorTail",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 18.019,
+      "source_sha256": "c23049174f6dfaaedb7d583b5de221f17fb9e5e854c1ffa7b7daaa261f146851",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/SensorTail.check"
+    },
+    {
+      "module": "ConsensusRate",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 16.083,
+      "source_sha256": "fcd89bf81c2949641e6b3c8065e31e3886565c76659a189dd7ed26b87e13997c",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ConsensusRate.check"
+    },
+    {
+      "module": "RGFixedPoint",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 15.733,
+      "source_sha256": "777ae7896b7df5664cb4e443a03a97413eaf6f1490c3943158cd57e57ded5006",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/RGFixedPoint.check"
+    },
+    {
+      "module": "FinalClosure",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 16.236,
+      "source_sha256": "f48e31cc9614cdbe9673d9affde6809fbc9b4da1c1aba716d97c5a5d2f42b836",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/FinalClosure.check"
+    },
+    {
+      "module": "H8Bound",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 23.247,
+      "source_sha256": "e5bd4636e808952a30e22b9d8512a21b6f7c7c2c4bb00e794027a22d16516a91",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/H8Bound.check"
+    },
+    {
+      "module": "CorrelatedStress",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 23.081,
+      "source_sha256": "beb05c3273ac414cea47d28c9ce8e0f6f0160a7a2ed1cff43f0d0da0ced52ea3",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/CorrelatedStress.check"
+    },
+    {
+      "module": "LatticeLaplacian",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 22.433,
+      "source_sha256": "9f6d187ea71b19c055d17f4f85378145d958ba69ee91173fc42a701935002326",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/LatticeLaplacian.check"
+    },
+    {
+      "module": "SafeGenesis",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 22.334,
+      "source_sha256": "8d105a75e692b99a39af6cf050ab500fd8b6fd0faa8e7d8b8160118efa54c28b",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/SafeGenesis.check"
+    },
+    {
+      "module": "AdaptiveConsensus",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 15.074,
+      "source_sha256": "13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/AdaptiveConsensus.check"
+    },
+    {
+      "module": "CascadeCore",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 15.106,
+      "source_sha256": "81f805ae276d44122f4f1dab4455502371e7250fe7a56afb204a12e76c59a5c9",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/CascadeCore.check"
+    },
+    {
+      "module": "DecisionAndScale",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 15.101,
+      "source_sha256": "c91607cc89eb3bcb6be6a3c546816bf69f336f0246c57cca685aa189df5d6507",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/DecisionAndScale.check"
+    },
+    {
+      "module": "E9Routes",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 14.811,
+      "source_sha256": "980c8b3c290ad8298a5efccb85f66564195679daa59802a1bb47782ae9ae9d1f",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/E9Routes.check"
+    },
+    {
+      "module": "GenerativeClosure",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 16.613,
+      "source_sha256": "9020f99f13fafe8b9ec1e14904a7b260c31bb4515f6d78f38bb5debe6fd6ee9b",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/GenerativeClosure.check"
+    },
+    {
+      "module": "ReflectionContraction",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 17.179,
+      "source_sha256": "db2de0ba7d76b9eed147a5384b6b862a1b82c6299d7ab76bfcc6427ef148157d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ReflectionContraction.check"
+    },
+    {
+      "module": "ReflectionFuel",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.633,
+      "source_sha256": "384f72d55b6742a2042859eadff537d1c9c3ad6d84f11b7204520ba0d65b9801",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ReflectionFuel.check"
+    },
+    {
+      "module": "RestrictedModels",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 16.576,
+      "source_sha256": "574ef45ce40a6ea3855d1c25805911ba761b22dcaa7f952cb453389feece6218",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/RestrictedModels.check"
+    },
+    {
+      "module": "ThermalBalance",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.697,
+      "source_sha256": "4d42eead54a831c0e58ad441fdd74012047658d3c9c328451db7b67158f5bee2",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ThermalBalance.check"
+    },
+    {
+      "module": "TransportLaw",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 14.399,
+      "source_sha256": "50c825e0012825c3aa4fdc0791d6a10c845162cd2281fc42fd31771efe9ea03d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/TransportLaw.check"
+    },
+    {
+      "module": "ControllerCertificate",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 14.386,
+      "source_sha256": "200b979928bfb647972dce49e5724872ed4a5f4d66d87e2776f3ac25c4ca1b4e",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ControllerCertificate.check"
+    },
+    {
+      "module": "FIFOWorkload",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 10.154,
+      "source_sha256": "bac2795fa7729999e21e077eef5c8f7b5274d2c011b67bf8382c7c086f64460d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/FIFOWorkload.check"
+    },
+    {
+      "module": "R16Feedback",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 10.286,
+      "source_sha256": "ca923659b764ccdfd743fdd08fdb251b2d5ccb12466a6dbb7a276b4c729cab15",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/R16Feedback.check"
+    },
+    {
+      "module": "UPTLawLife",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 10.681,
+      "source_sha256": "0387bb2b2fee8e4c29820ed7fcb2518010f988729350e3f1a69f5c0d442ee14c",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/UPTLawLife.check"
+    },
+    {
+      "module": "ClosedCohold",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.764,
+      "source_sha256": "c33c38aa705a5b3b61a47d22fe227c8f1062f299550f3fdd0a68138c51ea94b5",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ClosedCohold.check"
+    },
+    {
+      "module": "R14Boundary",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.804,
+      "source_sha256": "02fb5e1bbf8c48977fce3fd85fc75f97f6a89b963e6c588bf889a82e7f2182bc",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/R14Boundary.check"
+    },
+    {
+      "module": "ReceivedCutRepaired",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 10.791,
+      "source_sha256": "2eed523669db987fdca31929f885589f8feb08876367b89ddd40b6b187117b4e",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ReceivedCutRepaired.check"
+    },
+    {
+      "module": "ReadoutJoint",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 87.548,
+      "source_sha256": "1154e288cdf3f67032a3b794a6e8e7bc6d30b04744d834224754ec368f05d1a4",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ReadoutJoint.check"
+    },
+    {
+      "module": "ReadoutBounds",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 82.838,
+      "source_sha256": "c7a0929261f69172f184ae32ec7649399094ee172d801c69eb4f9d6d0bcafd99",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ReadoutBounds.check"
+    },
+    {
+      "module": "OriginalD1",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 16.523,
+      "source_sha256": "7f0e58cf3d426f2a321bfa50a7bdcc27db561c8099ac4bc12ebc71c6c77471ef",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/OriginalD1.check"
+    },
+    {
+      "module": "OriginalE9AndH5",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 10.521,
+      "source_sha256": "64151f4c20cdd3bbc0653148748cb9e2729281c93bbaeca09fb2680a82bd19a9",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/OriginalE9AndH5.check"
+    },
+    {
+      "module": "OriginalH6",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 17.384,
+      "source_sha256": "0a522c7baeb2dd44e684ab3eac581e74a0479aadaa656a56d0a9741aea76c56f",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/OriginalH6.check"
+    },
+    {
+      "module": "OriginalH7",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 15.021,
+      "source_sha256": "f1ebedbfa20f13988c787609559bf6e8b5de72348b32bda8b6f258b1c1e0851b",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/OriginalH7.check"
+    },
+    {
+      "module": "OriginalH8",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.943,
+      "source_sha256": "b546f090c342bf4a4d85a5c4bf72f57f5e3bf63ce99aaad883c3ae5970eeeebb",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/OriginalH8.check"
+    },
+    {
+      "module": "ControllerFinality",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 9.523,
+      "source_sha256": "e5cfdacff59c22ff7c9447c308faa09e3822d5ad7531f2e8435e535c4432dca7",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ControllerFinality.check"
+    },
+    {
+      "module": "UPTFence",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 10.397,
+      "source_sha256": "efeeb4e9074c463eb308f598a588116e32744e0645289837da2d5dcd42a4999c",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/UPTFence.check"
+    },
+    {
+      "module": "ConservedRouting",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 34.37,
+      "source_sha256": "aeb5e586ee5d972b2c72a2fa7f3ea7c72855da3c23228ab6ab1e3a64124481a6",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ConservedRouting.check"
+    },
+    {
+      "module": "P2P3",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 27.393,
+      "source_sha256": "87476d6351da978a583f7c6b69bb6b20b27ae253afd6118337782fe6053daa51",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/P2P3.check"
+    },
+    {
+      "module": "FIFOInstance",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 31.263,
+      "source_sha256": "f5e6b9dae8621949167ad77add96f9de5a4338b4cafa69cc10579ee4b1fe5f7f",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/FIFOInstance.check"
+    },
+    {
+      "module": "FIFOAdmission",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 14.167,
+      "source_sha256": "6af02f49d62a9de0839ab2e63aa831d903a740204f6ac2aa00a9491981f79b64",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/FIFOAdmission.check"
+    },
+    {
+      "module": "R16TwoPhase",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.642,
+      "source_sha256": "abeba603f044134fa8919a7da66ebe15caf5bb09c14ad92bfd914851e10b6408",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/R16TwoPhase.check"
+    },
+    {
+      "module": "R16Cut",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.621,
+      "source_sha256": "7a8f054ccb463e7528c404772d4e0845ba6bfcf2f73fc4d9f90b7e6890a03ff0",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/R16Cut.check"
+    },
+    {
+      "module": "ReceivedCutR14Repaired",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.401,
+      "source_sha256": "26c87dfc9f4118960e4e74b54ce5644d15e20e93b298ee2b815c16ba2a702fac",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ReceivedCutR14Repaired.check"
+    },
+    {
+      "module": "ControllerFence",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.787,
+      "source_sha256": "8f4d8faaf7ebc5e15997f0b5667ec988016bbea090ed487d27e5271ed6ccbd43",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ControllerFence.check"
+    },
+    {
+      "module": "IntegrationCertificate",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 15.188,
+      "source_sha256": "47079cf63add2d1665f109bbfdd98b3a339e84c753d754ae07ea4c1613c01edd",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/IntegrationCertificate.check"
+    },
+    {
+      "module": "R16R14",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.516,
+      "source_sha256": "9e0a0b881ee7bf50416d71bc9f537ea47d880db390a4cd7d706714826a792787",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/R16R14.check"
+    },
+    {
+      "module": "R16Screened",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.529,
+      "source_sha256": "fbfbc799da4aef8124aacaab9b8a57601667d155a093f41109041850bb91b258",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/R16Screened.check"
+    },
+    {
+      "module": "UPTR12A",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.716,
+      "source_sha256": "23dd889faff2debe9d8cf589c2708a80520df6283af077ded96785f3114a2594",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/UPTR12A.check"
+    },
+    {
+      "module": "R17AQueueFinality",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.677,
+      "source_sha256": "eed1d61c17bae5522a354d143f4720f0e4ffae2175205b4327e36a26775da48b",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/R17AQueueFinality.check"
+    },
+    {
+      "module": "R17FIFOR17A",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.698,
+      "source_sha256": "aa17c304a673be08c3508c300085e4f7cb212ecc857dddef487d3f4cac086c13",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/R17FIFOR17A.check"
+    },
+    {
+      "module": "R17Funding",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 13.55,
+      "source_sha256": "2195463776a7520105cfac06cb6824ed852c504af91c8c0a84b8551cd2b29d89",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/R17Funding.check"
+    },
+    {
+      "module": "R17WorkConcrete",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 13.017,
+      "source_sha256": "602d3384459c73e5f1bc9d3b20b71d0827dc0145497a0a2202639b688c0ff652",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/R17WorkConcrete.check"
+    },
+    {
+      "module": "TIWASource",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 19.436,
+      "source_sha256": "52cd2a40f0e571274c3cf8f062d5d00874b669d9ed995aae876694304e904d92",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/TIWASource.check"
+    },
+    {
+      "module": "TIWAGuard",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 13.047,
+      "source_sha256": "97b05c1eab08f2c15fe8d0e3dff67038df7f25b9ee394f19f0ff0e49c4997dbb",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/TIWAGuard.check"
+    },
+    {
+      "module": "TIWARecovery",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.971,
+      "source_sha256": "333d45b711ad6a1879c73adc9e736fbbd6c9f227bc17a65753e5892c97a4c6e9",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/TIWARecovery.check"
+    },
+    {
+      "module": "TIWAWork",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.301,
+      "source_sha256": "80b1094d3158ce303e8566c818e7391a3e46c79623b42e43662061cdf15cc392",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/TIWAWork.check"
+    },
+    {
+      "module": "TopRealisability",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 13.091,
+      "source_sha256": "0dda349042a5f2d2adf24f213e812c09aafb834d19fbe48723ff36eccb2eff02",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/TopRealisability.check"
+    },
+    {
+      "module": "FaultCover",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 13.084,
+      "source_sha256": "13db39413f14e9b3f08bcbde01216113db5a267ff0d838ed4ea8a30d599c4951",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/FaultCover.check"
+    },
+    {
+      "module": "G2Singleton",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.795,
+      "source_sha256": "139d7a503fbd004f1fc178a2f9cc054d471ac48c8b5dee32e298740030a2867e",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G2Singleton.check"
+    },
+    {
+      "module": "G1Certificate",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.844,
+      "source_sha256": "4fe05fcbc6235481ecdb46a20ef1ab020e690181cbb8b5d048262bd8ced5409d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G1Certificate.check"
+    },
+    {
+      "module": "G1Executable",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.44,
+      "source_sha256": "8414e6187adb9d866c6101555d628ee4a002b8ee6c68b8fa327c256fadd3d65f",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G1Executable.check"
+    },
+    {
+      "module": "PhysicalGuard",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.401,
+      "source_sha256": "c2f5e45956371b46a7dec2ff38b117aa4ad9d0f3c52f8141362b3a8cd4064571",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/PhysicalGuard.check"
+    },
+    {
+      "module": "MeanErgodic",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.548,
+      "source_sha256": "61f09528cd934829780d7d076d2f6a33f1b04b8cab68a2688178af89f317bb22",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/MeanErgodic.check"
+    },
+    {
+      "module": "TemporalSafety",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.508,
+      "source_sha256": "b51eb402dc54ed5b8856e87104e055c2da228f57364fed890f4e820b14815df9",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/TemporalSafety.check"
+    },
+    {
+      "module": "WorkIntegration",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.089,
+      "source_sha256": "a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/WorkIntegration.check"
+    },
+    {
+      "module": "RelationalBridge",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.183,
+      "source_sha256": "2fbb30a5f38a07474f870a220bfdf55de166246e64888aec32ba31f21debaef9",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/RelationalBridge.check"
+    },
+    {
+      "module": "MeanErgodicDeep",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.095,
+      "source_sha256": "00a1c8024c586a5695951ac9d8cf34ade3176335d81da174707f9fbb3505a71c",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/MeanErgodicDeep.check"
+    },
+    {
+      "module": "GuardFactorization",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 21.457,
+      "source_sha256": "cf60d764670e729bf00a7182121f1924fa609dcafde9fe666ccb471f216d50c5",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/GuardFactorization.check"
+    },
+    {
+      "module": "G1Complete",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 10.311,
+      "source_sha256": "06f3e520893f9d7d5574030f9fed30bd8d5e90a8d93243ab58d23c1422f82a94",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G1Complete.check"
+    },
+    {
+      "module": "G2Outcome",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 10.256,
+      "source_sha256": "5f63e5aef491836fc6675e446fe5a2a106ed7ff5e8a891dd329a853b677bfaee",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G2Outcome.check"
+    },
+    {
+      "module": "G3WorkBill",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 9.612,
+      "source_sha256": "c9f0785d0958de799e259636534af41f7f68f2f1d124fc686410ffc08a65a809",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G3WorkBill.check"
+    },
+    {
+      "module": "Htopkeeps",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.596,
+      "source_sha256": "e559ec229b24e3af38d023a4eec5d29525e6b756cb7a0eb47ee68ab3948d6f43",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/Htopkeeps.check"
+    },
+    {
+      "module": "SnuffyLocal",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 10.999,
+      "source_sha256": "383e3c786d7ec50ce2557d10a10cce49c6a7c99c59c4b0a821a5719503ead9e9",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/SnuffyLocal.check"
+    },
+    {
+      "module": "G1FullDomain",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 18.802,
+      "source_sha256": "c788dfccee71414a16e33cbf98896f2c114e4891a12f54f21ed43c5344de39b1",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G1FullDomain.check"
+    },
+    {
+      "module": "G2WholeOutcome",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 18.074,
+      "source_sha256": "0fc2373ff37836a251cb278154165ce737eb305be6707b0ca88d602140307fc6",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G2WholeOutcome.check"
+    },
+    {
+      "module": "G3CompleteBill",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 12.349,
+      "source_sha256": "653ec5e2fd542eb51cd174d0cd7d6fb647e1bea99a469448624f068a7bdee38b",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G3CompleteBill.check"
+    },
+    {
+      "module": "GuardOperator",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.377,
+      "source_sha256": "db15ea3027dda06fa32620e2b7c5542dc68b7d2d31efcb2957011ced43077948",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/GuardOperator.check"
+    },
+    {
+      "module": "HamiltonianDecomposition",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 22.844,
+      "source_sha256": "50d896d0f65492a4ee12f9dbde9fe8477598eb9d7067bd5394050bc439c3435f",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/HamiltonianDecomposition.check"
+    },
+    {
+      "module": "GuardSignature",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 13.467,
+      "source_sha256": "dd128c497f9ab78d4df360a25a762b8341084940c6659e37033f3c12ce5e9400",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/GuardSignature.check"
+    },
+    {
+      "module": "WorkBilling",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 19.831,
+      "source_sha256": "fcfcf42fc99f43b196b65cb4f51d12e52d69d05bc0c7cdd90e2d03a6514a3e15",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/WorkBilling.check"
+    },
+    {
+      "module": "DecoderRetraction",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 20.408,
+      "source_sha256": "4275cfc98e301674eddb2316861fa6f6d85f21e72e0b0000262ca1c9b2c15d07",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/DecoderRetraction.check"
+    },
+    {
+      "module": "G2Splice",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 9.513,
+      "source_sha256": "0d05584e0a4061a2c6f2e41dd47a59199e92b8a12343a7fa9c7ecc9fe06d449d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G2Splice.check"
+    },
+    {
+      "module": "CorrelatedCeiling",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 25.866,
+      "source_sha256": "dad8822f00f28aa83bce2fc5b4941c2df4e8aa5cc79d4841e5836061c0d85b6f",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/CorrelatedCeiling.check"
+    },
+    {
+      "module": "G1Held",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 25.372,
+      "source_sha256": "6d915552e41a578a04621af254fc53107f383ee77234495945c391082751c16f",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G1Held.check"
+    },
+    {
+      "module": "G1E9",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 25.213,
+      "source_sha256": "a027c38adf36721c181dac0de478212732ded8e17e133c2a84f8eae3dac666d7",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G1E9.check"
+    },
+    {
+      "module": "G2Held",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 24.853,
+      "source_sha256": "0a62a0c481971d96903e02828cf246fe64e43376c6124edb52ba74e6d4dfc9e9",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G2Held.check"
+    },
+    {
+      "module": "G3Sweep",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 21.16,
+      "source_sha256": "cbd95963785c3a6f4d59f94db2243dd05b5ee08b2d69bbd11e3b54b307988293",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G3Sweep.check"
+    },
+    {
+      "module": "G3PatchDecode",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 23.896,
+      "source_sha256": "33ffbe6b5ea8331276c16ed5901a9f1ab6fa3700b7adcc91b03d09863f7eca75",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/G3PatchDecode.check"
+    },
+    {
+      "module": "ReasonsEnsemble",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 21.158,
+      "source_sha256": "4e3640be5eae2db1c52120c40d808e25da44b4dde6d4d7b8a05b87f61991d4ab",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ReasonsEnsemble.check"
+    },
+    {
+      "module": "TheoremEightLyapunov",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 21.149,
+      "source_sha256": "56137a3e88275d20872dcd9e8f1de150792ad8d758520a08ff47169d8c96dd9b",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/TheoremEightLyapunov.check"
+    },
+    {
+      "module": "SmearingIntegral",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 21.36,
+      "source_sha256": "ef4ee84cdbdb99bada98fd609b03d5adc1ab58fb3e6922778ddaac6d0934ce39",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/SmearingIntegral.check"
+    },
+    {
+      "module": "ChannelExtension",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 20.847,
+      "source_sha256": "7e6c4e740f0c62d68e7a56c37b0513bdcde6f9032c357e652a2b313d210e8017",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ChannelExtension.check"
+    },
+    {
+      "module": "PureStateDistance",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 20.835,
+      "source_sha256": "d120f4c73096a49eeb9cbd4042f55f44ddec2084e89535475ea85331b01f9c5a",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/PureStateDistance.check"
+    },
+    {
+      "module": "BennettCounterpart",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 18.558,
+      "source_sha256": "bd6cb06c7252991abcd7aebbe681abcdbc13c2174c99fcb39d2966ceef325a32",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/BennettCounterpart.check"
+    },
+    {
+      "module": "RegionBoundary",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 14.629,
+      "source_sha256": "6f593cbdf348c766c81c458843fd2af15cbb5c857b0b35e736015a970f7bf533",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/RegionBoundary.check"
+    },
+    {
+      "module": "TimelyCare",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 172.697,
+      "source_sha256": "3a04ade37df22268e40f83df4509c8a88949b7e45fe4ed83a1f4336e5541722d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/TimelyCare.check"
+    },
+    {
+      "module": "DeadlineDemand",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 172.157,
+      "source_sha256": "fbf8dbe2595ff092db44929a5c78924cf2b16e4078b667e8dda42e303e662219",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/DeadlineDemand.check"
+    },
+    {
+      "module": "DecisionPermit",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 11.389,
+      "source_sha256": "9c646ea72b5cca6c461e116054b97ce1150423488f79d54175153983b8d6c37a",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/DecisionPermit.check"
+    },
+    {
+      "module": "ObservationWinning",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 160.719,
+      "source_sha256": "d93af125041fc4801e062bd01630c7745f83a41690e3c229f2a43aa05b9c2fd8",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ObservationWinning.check"
+    },
+    {
+      "module": "R14Rivals",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 8.834,
+      "source_sha256": "4fabd6097a8d16f0f120771623479cb29cbaa4ad93e52618145c9a5eac753a45",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/R14Rivals.check"
+    },
+    {
+      "module": "R15CausalGluing",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 8.314,
+      "source_sha256": "0a79b8bd3cb1a9e544e2a59a555881e22df6a83a141a53e5abb526752b0318d4",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/R15CausalGluing.check"
+    },
+    {
+      "module": "ReciprocityDistance",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 43.1,
+      "source_sha256": "b6533e046988c94d76a6eafd08e63649d027207bea6ec9c55a72602bd2ab520d",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ReciprocityDistance.check"
+    },
+    {
+      "module": "CutEquivalence",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 10.194,
+      "source_sha256": "0d1c1d0875fbee992b5d5a069e1b32e0f123446755277aaf90fb4c819eccc225",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/CutEquivalence.check"
+    },
+    {
+      "module": "ConcatenatedDecoding",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 52.998,
+      "source_sha256": "89f4eb6cd0f8099260c4796a302448679bd1219b24eb6e796286c29eac00cfaf",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ConcatenatedDecoding.check"
+    },
+    {
+      "module": "ChannelCP",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 34.669,
+      "source_sha256": "3cd5e3ba33ece3d49702ff3d5fe8cf9fa5d2b30f67aa2633ae26634a0bfba2a0",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/ChannelCP.check"
+    },
+    {
+      "module": "PureStateTraceNorm",
+      "exit": 0,
+      "output_bytes": 0,
+      "elapsed_seconds": 13.317,
+      "source_sha256": "cf9df261dc459cfdabc863eb8f1a0b73cda85650cb9218274e90410cfaab8b52",
+      "source_unchanged": true,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-02-lyapunov/objects/PureStateTraceNorm.check"
+    }
+  ]
+}
