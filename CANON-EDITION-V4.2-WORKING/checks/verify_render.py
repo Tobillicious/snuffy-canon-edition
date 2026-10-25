@@ -21,7 +21,7 @@ NEEDLES = {
     'doi_core': '10.5281/zenodo.23599528',
     'doi_canon_edition': '10.5281/zenodo.23608443',
     'canon_sentence': 'Uncompensated breach is deterministically impossible on the certified good event',
-    'module_count': '157 modules and 993 audited',
+    'module_count': '166 modules and 1025 audited',
 }
 DOOR_MARKERS = ['whakapapa', 'umuntu', 'ubuntu']
 

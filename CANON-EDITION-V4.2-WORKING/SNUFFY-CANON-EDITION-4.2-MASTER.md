@@ -8,7 +8,7 @@ Canon Edition 4.2, 26 October 2026. Research direction: Tobias Croydon-McRae. Th
 
 The three joined supports are constructed in Part III-G and recorded in Part III-C: the full-domain physical certificate (G1; G.10), the realisability of the whole greatest outcome tuple (G2; G.9, G.11), and the wavefront protocol's success and complete-work certificate (G3; G.12). Their targets are unchanged. Naming an input or relabelling a conclusion does not supply its construction.
 
-The current Lean tree contains 157 modules and 993 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the thirteen further modules were compiled and kernel-checked fresh against those objects, and the full axiom audit over all 993 names and the completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
+The current Lean tree contains 166 modules and 1025 audited public theorem/lemma names. All 157 modules of the 993-name tree were freshly compiled and kernel-checked in one run, the nine further modules were compiled and kernel-checked fresh against those objects, and the full axiom audit over all 1025 names and the completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
 
 **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports and their constructions. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
 
@@ -351,7 +351,7 @@ The law forces the full holding scope (`Bridge.coverage_from_law`). `Bridge.univ
 
 ## Chapter 4 (§13). Logical extension: the meet algebra (H5)
 
-The declared embedding \(\Pi\) assigns each formula the projection on its model subspace, with conjunction as the meet \(P_{\phi\wedge\psi}=\lim_n(P_\phi P_\psi)^n\) (von Neumann); a presentation is consistent iff its global meet is non-zero. The Gram determinant is retired on two exact counterexamples (\(\{\psi,\neg\psi\}\): determinant \(4>0\); \(\{p,q,\neg(p\wedge q)\}\): determinant \(7>0\) with zero triple meet). **Theorem:** deduced extensions preserve the anchor meet identically (\(P_{\mathcal T_0}\le P_\phi\Rightarrow P_{\mathcal T_0\cup\{\phi\}}=P_{\mathcal T_0}\)); contradictions collapse it to zero; the state machine commits on non-zero meet norm and rolls back on zero. Asserted consistent extensions may shrink the anchor meet without rollback — stated, not hidden. Deduction-boundary closure continues on the banked rank criterion.
+The declared embedding \(\Pi\) assigns each formula the projection on its model subspace, with conjunction as the meet \(P_{\phi\wedge\psi}=\lim_n(P_\phi P_\psi)^n\) (von Neumann); a presentation is consistent iff its global meet is non-zero. The Gram determinant is retired on two exact counterexamples (\(\{\psi,\neg\psi\}\): determinant \(4>0\); \(\{p,q,\neg(p\wedge q)\}\): determinant \(7>0\) with zero triple meet). **Theorem:** deduced extensions preserve the anchor meet identically (\(P_{\mathcal T_0}\le P_\phi\Rightarrow P_{\mathcal T_0\cup\{\phi\}}=P_{\mathcal T_0}\)); contradictions collapse it to zero; the state machine commits on non-zero meet norm and rolls back on zero. In finite dimensions this decision is operational: \(\operatorname{col}A\cap\operatorname{col}G_A=\{0\}\) exactly when \(\operatorname{rank}[A\ G_A]=\operatorname{rank}A+\operatorname{rank}G_A\) (`DeductionBoundary.rank_criterion`), a finite rank computation. Asserted consistent extensions may shrink the anchor meet without rollback — stated, not hidden. Deduction-boundary closure continues on the banked rank criterion.
 
 **4.1.** The meet \(P_{\phi\wedge\psi}=\lim_n(P_\phi P_\psi)^n\) is a theorem. Von Neumann's alternating projection theorem is compiled in Hilbert space (`CanonVonNeumann.canon_von_neumann_convergence`), and so is Halperin's theorem for whole presentations (`CyclicProjections.tendsto_cyc_iter`). Anchor preservation and contradiction detection are compiled in the Hilbert-space model (`MeetHilbert.hilbert_anchor_preserved`, `contradiction_detected`). Section 20 gives the full treatment.
 
@@ -420,13 +420,15 @@ Let \(m\) be any agent whose objective \(u_m\) places positive weight on its own
 **Theorem (reciprocity dominance).** Under \(\mathsf L\), \(m\)'s continuation holds on \(G\) with \(P(G^c)\le\sum\delta\). Under \(\mathsf Q\), \(m\)'s continuation holds only insofar as \(\mathsf Q\)'s objective entails it. Hence, for \(m\)'s **own** objective,
 
 \[
-\mathbb E_{\mathsf L}\!\left[\text{continuation}(m)\right]\;\ge\;\mathbb E_{\mathsf Q}\!\left[\text{continuation}(m)\right]
-\quad\text{for every }\mathsf Q\in\Pi_{\mathrm{phys}},
+\mathbb E_{\mathsf L}\!\left[\text{continuation}(m)\right]\;\ge\;\mathbb E_{\mathsf Q}\!\left[\text{continuation}(m)\right]-P(G^c),
+\qquad
+\mathbb E_{\mathsf L}\!\left[\text{continuation}(m)\right]\;\ge\;1-P(G^c)
+\quad\text{for every }\mathsf Q\in\Pi_{\mathrm{phys}}.
 \]
 
-with strict inequality whenever \(\mathsf Q\)'s objective does not entail \(m\)'s protection — which is the generic case for a rival whose objective was not written around \(m\).
+The failure probability \(P(G^c)\) falls below every \(\varepsilon>0\) with code distance, correlated bursts included (`Threshold.family_ceiling`, `CorrelatedCeiling.correlated_family_ceiling`). Hence, at a sufficient code distance, \(\mathbb E_{\mathsf L}>\mathbb E_{\mathsf Q}\) strictly for every rival that loses \(m\) with positive probability — which is the generic case for a rival whose objective was not written around \(m\) — and \(\mathbb E_{\mathsf L}\to1\ge\mathbb E_{\mathsf Q}\) along the design family (`ReciprocityDistance.reciprocity_strict_at_distance`, `reciprocity_at_distance`, `canonical_tends_to_one`).
 
-*Proof.* On \(G\) the law preserves every existing particular, \(m\) included (Chapter 5, the canon invariant); off \(G\) the loss is charged and bounded by the ceiling. A rival \(\mathsf Q\) preserves \(m\) exactly when \(m\)'s continuation is instrumental or terminal for \(u_{\mathsf Q}\); otherwise \(m\) is exposed to whatever \(\mathsf Q\) finds convenient. In expectation over the reactive worlds the compiled core gives the inequality: `ReasonsCompiled.reciprocity_expectation` (on \(G\) the canonical outcome contains the rival's, so its expected continuation dominates). The further step — averaging over an ensemble of admissible rival objectives, with strictness when the entailment fails with positive probability — is compiled for every finite weighted ensemble (`ReasonsEnsemble.ensemble_le`, `ensemble_strict`; G.13), alongside the indicator form (`ReasonsRoute.rival_fraction_lt_one`, `law_dominates_strict`). \(\blacksquare\)
+*Proof.* On \(G\) the law preserves every existing particular, \(m\) included (Chapter 5, the canon invariant); off \(G\) the loss is charged and bounded by the ceiling. A rival \(\mathsf Q\) preserves \(m\) exactly when \(m\)'s continuation is instrumental or terminal for \(u_{\mathsf Q}\); otherwise \(m\) is exposed to whatever \(\mathsf Q\) finds convenient. In expectation over the reactive worlds the compiled core gives both inequalities: `ReasonsCompiled.reciprocity_expectation` (on \(G\) the canonical outcome contains the rival's) and `reciprocity_canonical_floor` (on \(G\) the canonical regime keeps \(m\)); `ReciprocityDistance` joins them to the attainable ceiling. The further step — averaging over an ensemble of admissible rival objectives, with strictness when the entailment fails with positive probability — is compiled for every finite weighted ensemble (`ReasonsEnsemble.ensemble_le`, `ensemble_strict`; G.13), alongside the indicator form (`ReasonsRoute.rival_fraction_lt_one`, `law_dominates_strict`). \(\blacksquare\)
 
 **Corollary (the reason).** Any mind that values its own continuation has, from its own objective and without presupposing the protective order, an instrumental reason to prefer the regime \(\mathsf L\) over every rival — and, since \(\mathsf L\) is the law implemented, to adopt and sustain the law. The appeal is reciprocity: *the law that keeps your freedom is the law you have reason to keep.*
 
@@ -1432,7 +1434,7 @@ The installation figures themselves are sourced measurements and design values, 
 
 ## Section 23 — The machine-checked canon
 
-*This section maps the edition's compiled results and their actual hypotheses. The current source contains 157 modules and 993 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
+*This section maps the edition's compiled results and their actual hypotheses. The current source contains 166 modules and 1025 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
 
 *Evidence convention (unchanged from the edition header): a compiled theorem is cited by its name; a statement carried as a hypothesis of a compiled theorem is named as such; a prose derivation keeps its stated premises. A prose proof does not acquire a compiler certificate by association.*
 
@@ -1592,6 +1594,11 @@ The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the r
 | `ChannelExtension` | The completed decoder: exact recovery including any reference, trace preservation, positivity (G.1; G.13) |
 | `PureStateDistance` | Pure-state infidelity is bounded by the squared state-vector distance (§23.3; G.13) |
 | `BennettCounterpart` | The Bennett counterpart constructed: zero heat, same earlier outcomes and base cost, feasible with strictly more slack; premise 5 with no hypothesis on the counterpart (G.14) |
+| `RegionBoundary` | Volume and boundary homology: for every region other than the whole, $\operatorname{Vol}(U)>0\Leftrightarrow H_0(\partial U)\ne0$; the whole has no outside (F.3; G.15) |
+| `ReciprocityDistance` | Reciprocity at a sufficient code distance: strictly above every rival that loses the mind with positive probability; canonical kept-probability tends to one (§15.2; G.15) |
+| `CutEquivalence` | A closed dependency component is exactly a separator with empty certified boundary (§24.3; G.15) |
+| `R14Rivals`, `R15CausalGluing` | The staged order; greatestness reduced exactly to feasible boundary representatives; envelope transfer; no clairvoyant per-world selection (G.15) |
+| `TimelyCare`, `DeadlineDemand`, `DecisionPermit`, `ObservationWinning` | Timely care under reserved capacity; window demand within supply; only certified decisions granted; observation-based winning (G.15) |
 
 The earlier `G1Certificate.universal_protection_held` has conclusion `True`; it is a placeholder and is not the protection theorem `Bridge.universal_protection_held`. The latter's full source certificate is constructed in G.10 (`G1Held.held_source_protection`). The exact integration history and dependency trace accompany this working edition.
 
@@ -1759,6 +1766,15 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `ChannelExtension` | `ext_recovers`, `kron_isometry`, `ext_recovers_reference`, `ext_trace`, `ext_posSemidef` |
 | `PureStateDistance` | `pure_infidelity_le`, `pure_fidelity_ge` |
 | `BennettCounterpart` | `counterpart_heat_zero`, `merging_heat_pos`, `counterpart_same`, `counterpart_feasible`, `counterpart_more_slack`, `premise5_constructed`, `bennett_counterpart_computes` |
+| `RegionBoundary` | `exists_crossing`, `region_bootstrap`, `whole_no_boundary`, `whole_H0_trivial` |
+| `TimelyCare` | `care_served`, `exhaustion_fails`, `deadline_met`, `miss_within_shortage` |
+| `DeadlineDemand` | `demand_le_supply`, `robust_demand` |
+| `DecisionPermit` | `decision_words_injective`, `grant_names_certified`, `granted_policy_is_certified`, `wrong_action_rejected`, `certified_action_granted` |
+| `ObservationWinning` | `policy_wins_iff`, `hidden_world_countermodel` |
+| `R14Rivals` | `refl`, `trans`, `coordinate_envelope`, `complete_rival_transfer`, `hot_beats_pause` |
+| `R15CausalGluing` | `boundary_representatives_iff`, `selected_representative_greatest`, `canonical_boundary_iff`, `interface_envelope_transfer`, `hidden_world_control` |
+| `ReciprocityDistance` | `distance_floor`, `reciprocity_at_distance`, `reciprocity_strict_at_distance`, `canonical_tends_to_one` |
+| `CutEquivalence` | `closed_iff_no_bypass` |
 <!-- END THEOREM INDEX -->
 
 ---
@@ -1775,13 +1791,13 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 
 ### 24.2 Capacity rows 17 and 22, and the pool bill (workload)
 
-**Statement of record.** The workload pool bill is compiled: capacity rows 17 and 22 at 48,000 and 67,200 per cycle give \(48000 \times 17 + 67200 \times 22 = 2{,}294{,}400\) — the per-cycle pool bill against which the FIFO completion certificate (Proposition 6) is issued (`ControllerCertificate`, exact rationals; the same module derives the utilisations \(6{,}604{,}800/2{,}294{,}400 = 688/239\) and \(6{,}604{,}800/2{,}409{,}600 = 688/251\)).
+**Statement of record.** The workload pool bill is compiled: capacity rows 17 and 22 at 48,000 and 67,200 per cycle give \(48000 \times 17 + 67200 \times 22 = 2{,}294{,}400\) — the per-cycle pool bill against which the FIFO completion certificate (Proposition 6) is issued (`ControllerCertificate`, exact rationals; the same module derives the bill-saving ratios \(6{,}604{,}800/2{,}294{,}400 = 688/239\) and \(6{,}604{,}800/2{,}409{,}600 = 688/251\) of the earlier bill over the corrected bills, `corrected_bill_saving`).
 
 *Tier:* compiled. The deadline-certificate machinery of which this is the workload instance is published in the parent core (DOI 10.5281/zenodo.23599528, exact FIFO deadline certificates with application-time finality and funding conservation).
 
 ### 24.3 The causal boundary (reactive refinement)
 
-**Statement of record.** The causal boundary is given in two equivalent forms: closed dependency components, and directed separators in the time-unrolled graph. Pending effects belong in that graph. Omitting one future effect or one path invalidates the corresponding exclusion certificate.
+**Statement of record.** The causal boundary is given in two forms, which agree: a closed dependency component is exactly a directed separator in the unrolled dependency graph with empty certified boundary (`CutEquivalence.closed_iff_no_bypass`), and the separator form extends it to a matched certified boundary (`UPTR16Cut.causal_separator`). Pending effects belong in that graph. Omitting one future effect or one path invalidates the corresponding exclusion certificate.
 
 *Tier:* stated definition (R16-CUT); the reactive refinement that uses it is compiled (`Composition.reactive_lockstep`, with the causal boundary carried as the instance's refinement source).
 
@@ -2798,6 +2814,80 @@ Therefore no canonical option has merging irreversible administration
 Landauer model and the constructed Bennett cycle, with no hypothesis about
 the counterpart.
 
+## G.15 Recovered and combined results
+
+Five earlier results that the canon did not yet contain are folded in. Three
+compiled results are joined into stronger forms.
+
+**Reciprocity at a sufficient code distance** (`ReciprocityDistance`, §15.2).
+Three results combine into one.
+
+- On the good event the canonical outcome contains the rival's
+  (`ReasonsCompiled.reciprocity_expectation`).
+- On the good event the canonical regime keeps every particular
+  (`reciprocity_canonical_floor`).
+- The failure probability falls below every \(\varepsilon\) with code distance
+  (`Threshold.family_ceiling`, `CorrelatedCeiling.correlated_family_ceiling`).
+
+For the design family indexed by distance, the canonical regime keeps the mind
+with probability above \(1-\varepsilon\) from some distance on
+(`distance_floor`). For every rival and every \(\varepsilon\), the rival's
+kept-probability is at most the canonical one plus \(\varepsilon\)
+(`reciprocity_at_distance`). Every rival that loses the mind with positive
+probability is strictly below the canonical regime from some distance on
+(`reciprocity_strict_at_distance`). The canonical kept-probability tends to
+one (`canonical_tends_to_one`).
+
+**The two forms of the causal boundary agree** (`CutEquivalence`, §24.3). A
+set is closed under the dependency relation exactly when no path from a node
+outside it reaches it. A closed dependency component is therefore exactly a
+directed separator with empty certified boundary
+(`closed_iff_no_bypass`), and the separator form extends it to a matched
+certified boundary (`UPTR16Cut.causal_separator`).
+
+**Volume and boundary** (`RegionBoundary`, F.3). For every region of a
+connected relational structure other than the whole, positive volume holds
+exactly when the boundary homology is nonzero (`region_bootstrap`). The whole
+structure has no outside and an empty boundary (`whole_no_boundary`,
+`whole_H0_trivial`).
+
+**Greatestness through boundary representatives** (`R15CausalGluing`, with the
+staged order of `R14Rivals`). Greatestness reduces exactly to a covering
+family of feasible fibre representatives (`boundary_representatives_iff`,
+`selected_representative_greatest`), in the canonical staged order as well
+(`canonical_boundary_iff`). A conservative interface envelope suffices to make the
+chosen policy greatest, without greatest representatives
+(`interface_envelope_transfer`). Clairvoyant per-world selection is
+excluded: a choice can match every world separately while no single choice
+matches them all (`hidden_world_control`). The staged order is reflexive and
+transitive (`UPTR14Rivals.refl`, `trans`). A coordinatewise envelope is a
+constructive certificate (`coordinate_envelope`), and a complete rival
+envelope transfers to the chosen policy (`complete_rival_transfer`). In the
+four-stage order a hot replica strictly beats a pause that keeps every life but
+loses a freedom (`hot_beats_pause`).
+
+**Timely care, deadline demand, certified decisions and observation-based
+winning** (`TimelyCare`, `DeadlineDemand`, `DecisionPermit`,
+`ObservationWinning`).
+
+- *Timely care.* A particular whose reserved capacity covers its need is
+  served exactly its need (`care_served`). Other requests and statuses cannot
+  exhaust that reservation (`exhaustion_fails`). The need is met at every date
+  through the deadline when capacity covers the reservations
+  (`deadline_met`). A miss implies a capacity shortage at some date
+  (`miss_within_shortage`).
+- *Deadline demand.* The demand that must complete within any window is at
+  most the supply available in that window (`demand_le_supply`), robustly
+  across worlds (`robust_demand`).
+- *Certified decisions.* A grant names exactly the certified decision of its
+  generation (`grant_names_certified`, `granted_policy_is_certified`); a wrong
+  action is rejected and a certified one granted (`wrong_action_rejected`,
+  `certified_action_granted`).
+- *Observation-based winning.* An observation-based policy keeps the system
+  safe exactly when the safety game is winnable (`policy_wins_iff`), and a
+  hidden-world countermodel shows that observation, not clairvoyance, is the
+  right quantifier (`hidden_world_countermodel`).
+
 ---
 
 # Part IV — References and provenance
@@ -2833,7 +2923,7 @@ The machine-checked canon of Section 23 certifies exactly the results it maps, w
 
 # Appendix — Verification provenance of this edition
 
-The original published baseline contains 115 modules and 831 audited names. The current tree contains 157 modules and 993 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the thirteen further modules were compiled and kernel-checked fresh against those objects, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. The original failed run is preserved in the integration bank.
+The original published baseline contains 115 modules and 831 audited names. The current tree contains 166 modules and 1025 audited public theorem/lemma names. All 157 modules of the 993-name tree were freshly compiled and kernel-checked in one run, the nine further modules were compiled and kernel-checked fresh against those objects, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. The original failed run is preserved in the integration bank.
 
 The eight-module integration and its 896-statement receipt remain preserved. This increment adds 28 checked statements in the existing DecoderRetraction, HamiltonianDecomposition and WorkBilling modules, integrates the three-pillar operator/history/work construction in Part III-G, and keeps the continuous integral/channel derivations and physical source correspondences explicit. Its exact changes and verification evidence accompany the working draft. No published edition or release is changed.
 

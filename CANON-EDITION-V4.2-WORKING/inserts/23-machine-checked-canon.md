@@ -298,6 +298,15 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `ChannelExtension` | `ext_recovers`, `kron_isometry`, `ext_recovers_reference`, `ext_trace`, `ext_posSemidef` |
 | `PureStateDistance` | `pure_infidelity_le`, `pure_fidelity_ge` |
 | `BennettCounterpart` | `counterpart_heat_zero`, `merging_heat_pos`, `counterpart_same`, `counterpart_feasible`, `counterpart_more_slack`, `premise5_constructed`, `bennett_counterpart_computes` |
+| `RegionBoundary` | `exists_crossing`, `region_bootstrap`, `whole_no_boundary`, `whole_H0_trivial` |
+| `TimelyCare` | `care_served`, `exhaustion_fails`, `deadline_met`, `miss_within_shortage` |
+| `DeadlineDemand` | `demand_le_supply`, `robust_demand` |
+| `DecisionPermit` | `decision_words_injective`, `grant_names_certified`, `granted_policy_is_certified`, `wrong_action_rejected`, `certified_action_granted` |
+| `ObservationWinning` | `policy_wins_iff`, `hidden_world_countermodel` |
+| `R14Rivals` | `refl`, `trans`, `coordinate_envelope`, `complete_rival_transfer`, `hot_beats_pause` |
+| `R15CausalGluing` | `boundary_representatives_iff`, `selected_representative_greatest`, `canonical_boundary_iff`, `interface_envelope_transfer`, `hidden_world_control` |
+| `ReciprocityDistance` | `distance_floor`, `reciprocity_at_distance`, `reciprocity_strict_at_distance`, `canonical_tends_to_one` |
+| `CutEquivalence` | `closed_iff_no_bypass` |
 <!-- END THEOREM INDEX -->
 
 ---

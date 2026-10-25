@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 157. Corpus module names: 72. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
+Canon modules: 166. Corpus module names: 81. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 157. Audit imports: 157.
+Build modules: 166. Audit imports: 166.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -144,9 +144,12 @@ Build modules: 157. Audit imports: 157.
 | `ControllerFinality` | yes | `(canon only)` |
 | `CorrelatedCeiling` | yes | `2026-10-25-historical-handoff-source/correlated-ceiling/lean/Snuffy/CorrelatedCeiling.lean` |
 | `CorrelatedStress` | yes | `(canon only)` |
+| `CutEquivalence` | yes | `2026-10-25-historical-handoff-source/cut-equivalence/lean/Snuffy/CutEquivalence.lean` |
 | `CyclicProjections` | yes | `(canon only)` |
 | `DataProcessing` | yes | `(canon only)` |
+| `DeadlineDemand` | yes | `2026-10-25-historical-handoff-source/recovered-r17-sources/lean/Snuffy/DeadlineDemand.lean` |
 | `DecisionAndScale` | yes | `2026-10-23-adoption-contracts/lean/DecisionAndScale.lean` |
+| `DecisionPermit` | yes | `2026-10-25-historical-handoff-source/recovered-r17-sources/lean/Snuffy/DecisionPermit.lean` |
 | `DecoderRetraction` | yes | `2026-10-25-historical-handoff-source/working/lean/Snuffy/DecoderRetraction.lean` |
 | `DeductionBoundary` | yes | `(canon only)` |
 | `E9Routes` | yes | `2026-10-23-adoption-contracts/lean/E9Routes.lean` |
@@ -205,6 +208,7 @@ Build modules: 157. Audit imports: 157.
 | `MeetAlgebra` | yes | `(canon only)` |
 | `MeetHilbert` | yes | `(canon only)` |
 | `MetricShadow` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/MetricShadow.lean` |
+| `ObservationWinning` | yes | `2026-10-25-historical-handoff-source/recovered-r17-sources/lean/Snuffy/ObservationWinning.lean` |
 | `OpialBridge` | yes | `(canon only)` |
 | `OriginalD1` | yes | `2026-10-23-gemini-original-derivations/lean/OriginalD1.lean` |
 | `OriginalE9AndH5` | yes | `2026-10-23-gemini-original-derivations/lean/OriginalE9AndH5.lean` |
@@ -218,6 +222,8 @@ Build modules: 157. Audit imports: 157.
 | `QuantumLandauer` | yes | `(canon only)` |
 | `QueueDeadline` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/QueueDeadline.lean` |
 | `R14Boundary` | yes | `(canon only)` |
+| `R14Rivals` | yes | `2026-10-25-historical-handoff-source/recovered-r14-r15/lean/Snuffy/R14Rivals.lean` |
+| `R15CausalGluing` | yes | `2026-10-25-historical-handoff-source/recovered-r14-r15/lean/Snuffy/R15CausalGluing.lean` |
 | `R16Cut` | yes | `2026-10-23-r16-verification/lean/R16Cut.lean` |
 | `R16Feedback` | yes | `2026-10-23-r16-verification/lean/R16Feedback.lean` |
 | `R16R14` | yes | `2026-10-23-r16-verification/lean/R16R14.lean` |
@@ -237,10 +243,12 @@ Build modules: 157. Audit imports: 157.
 | `ReceivedCutR14Repaired` | yes | `2026-10-23-r16-verification/lean/ReceivedCutR14Repaired.lean` |
 | `ReceivedCutRepaired` | yes | `2026-10-23-r16-verification/lean/ReceivedCutRepaired.lean` |
 | `ReciprocityCeiling` | yes | `(canon only)` |
+| `ReciprocityDistance` | yes | `2026-10-25-historical-handoff-source/reciprocity-distance/lean/Snuffy/ReciprocityDistance.lean` |
 | `RecoveryWork` | yes | `(canon only)` |
 | `ReflectionCertificate` | yes | `(canon only)` |
 | `ReflectionContraction` | yes | `2026-10-23-adoption-contracts/lean/ReflectionContraction.lean` |
 | `ReflectionFuel` | yes | `2026-10-23-adoption-contracts/lean/ReflectionFuel.lean` |
+| `RegionBoundary` | yes | `2026-10-25-historical-handoff-source/region-boundary/lean/Snuffy/RegionBoundary.lean` |
 | `RelationalBridge` | yes | `(canon only)` |
 | `RestrictedModels` | yes | `2026-10-23-adoption-contracts/lean/RestrictedModels.lean` |
 | `RiskBounds` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/RiskBounds.lean` |
@@ -262,6 +270,7 @@ Build modules: 157. Audit imports: 157.
 | `ThermalBalance` | yes | `2026-10-23-adoption-contracts/lean/ThermalBalance.lean` |
 | `ThermoLedger` | yes | `(canon only)` |
 | `Threshold` | yes | `(canon only)` |
+| `TimelyCare` | yes | `2026-10-25-historical-handoff-source/recovered-r17-sources/lean/Snuffy/TimelyCare.lean` |
 | `TopRealisability` | yes | `(canon only)` |
 | `TransportLaw` | yes | `2026-10-24-glm-phase-a/lean/TransportLaw.lean` |
 | `Trotter` | yes | `(canon only)` |

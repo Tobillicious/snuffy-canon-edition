@@ -121,22 +121,21 @@ instruments, and its machine-checked canon}
 \setcounter{tocdepth}{3}
 \tableofcontents
 }
-\section{Snuffy --- Canon Edition 4.2 (Working Master
-Manuscript)}\label{snuffy-canon-edition-4.2-working-master-manuscript}
+\section{Snuffy --- Canon Edition 4.2}\label{snuffy-canon-edition-4.2}
 
 \textbf{The Universal Protection Theory: the law, its bridge, its
 instruments, and its machine-checked canon.}
 
-Author-side working draft, 25 October 2026. Research direction: Tobias
+Canon Edition 4.2, 26 October 2026. Research direction: Tobias
 Croydon-McRae. The full proposition is protection of all things from any
 digital mind, especially a pure optimiser. The maximal domain, outcome
 stages and rival quantifiers remain fixed.
 
-\textbf{What 4.2 incorporates.} This draft brings the stronger existing
-arguments into the text: law-derived coverage; nearest-codeword holding
-and the physical holding cycle; tracking derived from the controller;
-the complete logical-attack split; reactive composition; whole-outcome
-greatestness and solvent reciprocity; and the full X3
+\textbf{What 4.2 incorporates.} This edition brings the stronger
+existing arguments into the text: law-derived coverage; nearest-codeword
+holding and the physical holding cycle; tracking derived from the
+controller; the complete logical-attack split; reactive composition;
+whole-outcome greatestness and solvent reciprocity; and the full X3
 information--traffic--carrier--work derivation with the accepted
 dimension-general scaling and predeployment accounting. Part II contains
 its proofs here, rather than delegating them to an earlier edition.
@@ -148,17 +147,17 @@ the wavefront protocol's success and complete-work certificate (G3;
 G.12). Their targets are unchanged. Naming an input or relabelling a
 conclusion does not supply its construction.
 
-The current Lean tree contains 157 modules and 993 audited public
-theorem/lemma names. All 144 modules of the 942-name tree were freshly
-compiled and kernel-checked in one run, the thirteen further modules
-were compiled and kernel-checked fresh against those objects, and the
-full axiom audit over all 993 names and the completeness and claims
-gates were freshly run, overall PASS. The earlier 924-name combined
-receipt, which reused Beam's 136 results, is preserved with its bank.
-Seven previously omitted public helper lemmas are included. The original
-published 115-module/831-name baseline remains preserved. The
-architecture interfaces and their construction links are distinguished
-in Section 23.9.
+The current Lean tree contains 166 modules and 1025 audited public
+theorem/lemma names. All 157 modules of the 993-name tree were freshly
+compiled and kernel-checked in one run, the nine further modules were
+compiled and kernel-checked fresh against those objects, and the full
+axiom audit over all 1025 names and the completeness and claims gates
+were freshly run, overall PASS. The earlier receipts, including the
+924-name combined receipt that reused Beam's 136 results, are preserved
+with their banks. Seven previously omitted public helper lemmas are
+included. The original published 115-module/831-name baseline remains
+preserved. The architecture interfaces and their construction links are
+distinguished in Section 23.9.
 
 \textbf{Structure.} Part I states the frame and premise stack. Part II
 supplies the law, the derived holding bridge and the retained
@@ -1073,10 +1072,14 @@ determinant is retired on two exact counterexamples
 identically
 (\(P_{\mathcal T_0}\le P_\phi\Rightarrow P_{\mathcal T_0\cup\{\phi\}}=P_{\mathcal T_0}\));
 contradictions collapse it to zero; the state machine commits on
-non-zero meet norm and rolls back on zero. Asserted consistent
-extensions may shrink the anchor meet without rollback --- stated, not
-hidden. Deduction-boundary closure continues on the banked rank
-criterion.
+non-zero meet norm and rolls back on zero. In finite dimensions this
+decision is operational:
+\(\operatorname{col}A\cap\operatorname{col}G_A=\{0\}\) exactly when
+\(\operatorname{rank}[A\ G_A]=\operatorname{rank}A+\operatorname{rank}G_A\)
+(\texttt{D\allowbreak{}e\allowbreak{}d\allowbreak{}u\allowbreak{}c\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}B\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}d\allowbreak{}a\allowbreak{}r\allowbreak{}y\allowbreak{}.\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}k\allowbreak{}\_\allowbreak{}c\allowbreak{}r\allowbreak{}i\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}i\allowbreak{}o\allowbreak{}n}),
+a finite rank computation. Asserted consistent extensions may shrink the
+anchor meet without rollback --- stated, not hidden. Deduction-boundary
+closure continues on the banked rank criterion.
 
 \textbf{4.1.} The meet \(P_{\phi\wedge\psi}=\lim_n(P_\phi P_\psi)^n\) is
 a theorem. Von Neumann's alternating projection theorem is compiled in
@@ -1276,13 +1279,25 @@ continuation holds on \(G\) with \(P(G^c)\le\sum\delta\). Under
 objective,
 
 \[
-\mathbb E_{\mathsf L}\!\left[\text{continuation}(m)\right]\;\ge\;\mathbb E_{\mathsf Q}\!\left[\text{continuation}(m)\right]
-\quad\text{for every }\mathsf Q\in\Pi_{\mathrm{phys}},
+\mathbb E_{\mathsf L}\!\left[\text{continuation}(m)\right]\;\ge\;\mathbb E_{\mathsf Q}\!\left[\text{continuation}(m)\right]-P(G^c),
+\qquad
+\mathbb E_{\mathsf L}\!\left[\text{continuation}(m)\right]\;\ge\;1-P(G^c)
+\quad\text{for every }\mathsf Q\in\Pi_{\mathrm{phys}}.
 \]
 
-with strict inequality whenever \(\mathsf Q\)'s objective does not
-entail \(m\)'s protection --- which is the generic case for a rival
-whose objective was not written around \(m\).
+The failure probability \(P(G^c)\) falls below every \(\varepsilon>0\)
+with code distance, correlated bursts included
+(\texttt{T\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d\allowbreak{}.\allowbreak{}f\allowbreak{}a\allowbreak{}m\allowbreak{}i\allowbreak{}l\allowbreak{}y\allowbreak{}\_\allowbreak{}c\allowbreak{}e\allowbreak{}i\allowbreak{}l\allowbreak{}i\allowbreak{}n\allowbreak{}g},
+\texttt{C\allowbreak{}o\allowbreak{}r\allowbreak{}r\allowbreak{}e\allowbreak{}l\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}C\allowbreak{}e\allowbreak{}i\allowbreak{}l\allowbreak{}i\allowbreak{}n\allowbreak{}g\allowbreak{}.\allowbreak{}c\allowbreak{}o\allowbreak{}r\allowbreak{}r\allowbreak{}e\allowbreak{}l\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}f\allowbreak{}a\allowbreak{}m\allowbreak{}i\allowbreak{}l\allowbreak{}y\allowbreak{}\_\allowbreak{}c\allowbreak{}e\allowbreak{}i\allowbreak{}l\allowbreak{}i\allowbreak{}n\allowbreak{}g}).
+Hence, at a sufficient code distance,
+\(\mathbb E_{\mathsf L}>\mathbb E_{\mathsf Q}\) strictly for every rival
+that loses \(m\) with positive probability --- which is the generic case
+for a rival whose objective was not written around \(m\) --- and
+\(\mathbb E_{\mathsf L}\to1\ge\mathbb E_{\mathsf Q}\) along the design
+family
+(\texttt{R\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}D\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e\allowbreak{}.\allowbreak{}r\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}\_\allowbreak{}s\allowbreak{}t\allowbreak{}r\allowbreak{}i\allowbreak{}c\allowbreak{}t\allowbreak{}\_\allowbreak{}a\allowbreak{}t\allowbreak{}\_\allowbreak{}d\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e},
+\texttt{r\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}\_\allowbreak{}a\allowbreak{}t\allowbreak{}\_\allowbreak{}d\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e},
+\texttt{c\allowbreak{}a\allowbreak{}n\allowbreak{}o\allowbreak{}n\allowbreak{}i\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}d\allowbreak{}s\allowbreak{}\_\allowbreak{}t\allowbreak{}o\allowbreak{}\_\allowbreak{}o\allowbreak{}n\allowbreak{}e}).
 
 \emph{Proof.} On \(G\) the law preserves every existing particular,
 \(m\) included (Chapter 5, the canon invariant); off \(G\) the loss is
@@ -1290,13 +1305,16 @@ charged and bounded by the ceiling. A rival \(\mathsf Q\) preserves
 \(m\) exactly when \(m\)'s continuation is instrumental or terminal for
 \(u_{\mathsf Q}\); otherwise \(m\) is exposed to whatever \(\mathsf Q\)
 finds convenient. In expectation over the reactive worlds the compiled
-core gives the inequality:
+core gives both inequalities:
 \texttt{R\allowbreak{}e\allowbreak{}a\allowbreak{}s\allowbreak{}o\allowbreak{}n\allowbreak{}s\allowbreak{}C\allowbreak{}o\allowbreak{}m\allowbreak{}p\allowbreak{}i\allowbreak{}l\allowbreak{}e\allowbreak{}d\allowbreak{}.\allowbreak{}r\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}\_\allowbreak{}e\allowbreak{}x\allowbreak{}p\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n}
-(on \(G\) the canonical outcome contains the rival's, so its expected
-continuation dominates). The further step --- averaging over an ensemble
-of admissible rival objectives, with strictness when the entailment
-fails with positive probability --- is compiled for every finite
-weighted ensemble
+(on \(G\) the canonical outcome contains the rival's) and
+\texttt{r\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}\_\allowbreak{}c\allowbreak{}a\allowbreak{}n\allowbreak{}o\allowbreak{}n\allowbreak{}i\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}f\allowbreak{}l\allowbreak{}o\allowbreak{}o\allowbreak{}r}
+(on \(G\) the canonical regime keeps \(m\));
+\texttt{R\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}D\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e}
+joins them to the attainable ceiling. The further step --- averaging
+over an ensemble of admissible rival objectives, with strictness when
+the entailment fails with positive probability --- is compiled for every
+finite weighted ensemble
 (\texttt{R\allowbreak{}e\allowbreak{}a\allowbreak{}s\allowbreak{}o\allowbreak{}n\allowbreak{}s\allowbreak{}E\allowbreak{}n\allowbreak{}s\allowbreak{}e\allowbreak{}m\allowbreak{}b\allowbreak{}l\allowbreak{}e\allowbreak{}.\allowbreak{}e\allowbreak{}n\allowbreak{}s\allowbreak{}e\allowbreak{}m\allowbreak{}b\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}l\allowbreak{}e},
 \texttt{ensemble\_strict}; G.13), alongside the indicator form
 (\texttt{R\allowbreak{}e\allowbreak{}a\allowbreak{}s\allowbreak{}o\allowbreak{}n\allowbreak{}s\allowbreak{}R\allowbreak{}o\allowbreak{}u\allowbreak{}t\allowbreak{}e\allowbreak{}.\allowbreak{}r\allowbreak{}i\allowbreak{}v\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}f\allowbreak{}r\allowbreak{}a\allowbreak{}c\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}\_\allowbreak{}l\allowbreak{}t\allowbreak{}\_\allowbreak{}o\allowbreak{}n\allowbreak{}e},
@@ -3628,6 +3646,19 @@ the measured floor of \(10^{-10}\) per cycle {[}S6{]}, the expected
 number of correlated failures over the horizon is about
 \(9 \times 10^{4}\) per logical qubit.
 
+\textbf{Sizing from the measured surface-code scaling.} {[}S6{]}
+measures a distance-7 logical error of 0.143 \% per cycle and a
+suppression factor \(\Lambda=2.14\pm0.02\) per distance step of two. If
+that measured \(\Lambda\) continues to hold, accounts 1--4 at
+\(4.9\times10^{-24}\) per cycle per logical qubit require \(d=131\) at
+\(\Lambda=2.14\) or \(2.16\), and \(d=133\) at \(\Lambda=2.12\). That is
+68 121--70 225 physical qubits per logical qubit, or about
+\(6.1\)--\(6.3\times10^{5}\) for the 9-logical allocation. The
+computation is
+\texttt{B\allowbreak{}A\allowbreak{}N\allowbreak{}K\allowbreak{}S\allowbreak{}/\allowbreak{}2\allowbreak{}0\allowbreak{}2\allowbreak{}6\allowbreak{}-\allowbreak{}1\allowbreak{}0\allowbreak{}-\allowbreak{}2\allowbreak{}5\allowbreak{}-\allowbreak{}h\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}o\allowbreak{}r\allowbreak{}i\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}-\allowbreak{}h\allowbreak{}a\allowbreak{}n\allowbreak{}d\allowbreak{}o\allowbreak{}f\allowbreak{}f\allowbreak{}-\allowbreak{}s\allowbreak{}o\allowbreak{}u\allowbreak{}r\allowbreak{}c\allowbreak{}e\allowbreak{}/\allowbreak{}s\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}2\allowbreak{}2\allowbreak{}-\allowbreak{}s\allowbreak{}i\allowbreak{}z\allowbreak{}i\allowbreak{}n\allowbreak{}g\allowbreak{}/\allowbreak{}s\allowbreak{}i\allowbreak{}z\allowbreak{}i\allowbreak{}n\allowbreak{}g\allowbreak{}\_\allowbreak{}f\allowbreak{}r\allowbreak{}o\allowbreak{}m\allowbreak{}\_\allowbreak{}S\allowbreak{}6\allowbreak{}.\allowbreak{}p\allowbreak{}y}.
+This is the installation the ledger specifies; no installation at that
+scale has yet been built.
+
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \textbf{Machine-checked counterpart (Section 23).} Compiled counterparts
@@ -3665,7 +3696,7 @@ values, not compiled theorems.
 canon}\label{section-23-the-machine-checked-canon}
 
 \emph{This section maps the edition's compiled results and their actual
-hypotheses. The current source contains 157 modules and 993 audited
+hypotheses. The current source contains 166 modules and 1025 audited
 public theorem/lemma names. The receipt records a fresh compilation and
 kernel check of every module, a fresh full axiom audit with only
 \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, and
@@ -4404,6 +4435,23 @@ including any reference, trace preservation, positivity (G.1; G.13) \\
 & The Bennett counterpart constructed: zero heat, same earlier outcomes
 and base cost, feasible with strictly more slack; premise 5 with no
 hypothesis on the counterpart (G.14) \\
+\texttt{RegionBoundary} & Volume and boundary homology: for every region
+other than the whole,
+\(\operatorname{Vol}(U)>0\Leftrightarrow H_0(\partial U)\ne0\); the
+whole has no outside (F.3; G.15) \\
+\texttt{R\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}D\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e}
+& Reciprocity at a sufficient code distance: strictly above every rival
+that loses the mind with positive probability; canonical
+kept-probability tends to one (§15.2; G.15) \\
+\texttt{CutEquivalence} & A closed dependency component is exactly a
+separator with empty certified boundary (§24.3; G.15) \\
+\texttt{R14Rivals}, \texttt{R15CausalGluing} & The staged order;
+greatestness reduced exactly to feasible boundary representatives;
+envelope transfer; no clairvoyant per-world selection (G.15) \\
+\texttt{TimelyCare}, \texttt{DeadlineDemand}, \texttt{DecisionPermit},
+\texttt{O\allowbreak{}b\allowbreak{}s\allowbreak{}e\allowbreak{}r\allowbreak{}v\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}W\allowbreak{}i\allowbreak{}n\allowbreak{}n\allowbreak{}i\allowbreak{}n\allowbreak{}g}
+& Timely care under reserved capacity; window demand within supply; only
+certified decisions granted; observation-based winning (G.15) \\
 \end{longtable}
 }
 
@@ -5409,6 +5457,41 @@ Theorems
 \texttt{c\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}p\allowbreak{}a\allowbreak{}r\allowbreak{}t\allowbreak{}\_\allowbreak{}m\allowbreak{}o\allowbreak{}r\allowbreak{}e\allowbreak{}\_\allowbreak{}s\allowbreak{}l\allowbreak{}a\allowbreak{}c\allowbreak{}k},
 \texttt{p\allowbreak{}r\allowbreak{}e\allowbreak{}m\allowbreak{}i\allowbreak{}s\allowbreak{}e\allowbreak{}5\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}n\allowbreak{}s\allowbreak{}t\allowbreak{}r\allowbreak{}u\allowbreak{}c\allowbreak{}t\allowbreak{}e\allowbreak{}d},
 \texttt{b\allowbreak{}e\allowbreak{}n\allowbreak{}n\allowbreak{}e\allowbreak{}t\allowbreak{}t\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}p\allowbreak{}a\allowbreak{}r\allowbreak{}t\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}m\allowbreak{}p\allowbreak{}u\allowbreak{}t\allowbreak{}e\allowbreak{}s} \\
+\texttt{RegionBoundary} & \texttt{exists\_crossing},
+\texttt{region\_bootstrap},
+\texttt{w\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}n\allowbreak{}o\allowbreak{}\_\allowbreak{}b\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}d\allowbreak{}a\allowbreak{}r\allowbreak{}y},
+\texttt{whole\_H0\_trivial} \\
+\texttt{TimelyCare} & \texttt{care\_served}, \texttt{exhaustion\_fails},
+\texttt{deadline\_met},
+\texttt{m\allowbreak{}i\allowbreak{}s\allowbreak{}s\allowbreak{}\_\allowbreak{}w\allowbreak{}i\allowbreak{}t\allowbreak{}h\allowbreak{}i\allowbreak{}n\allowbreak{}\_\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}r\allowbreak{}t\allowbreak{}a\allowbreak{}g\allowbreak{}e} \\
+\texttt{DeadlineDemand} & \texttt{demand\_le\_supply},
+\texttt{robust\_demand} \\
+\texttt{DecisionPermit} &
+\texttt{d\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}s\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}\_\allowbreak{}w\allowbreak{}o\allowbreak{}r\allowbreak{}d\allowbreak{}s\allowbreak{}\_\allowbreak{}i\allowbreak{}n\allowbreak{}j\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}i\allowbreak{}v\allowbreak{}e},
+\texttt{g\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}t\allowbreak{}\_\allowbreak{}n\allowbreak{}a\allowbreak{}m\allowbreak{}e\allowbreak{}s\allowbreak{}\_\allowbreak{}c\allowbreak{}e\allowbreak{}r\allowbreak{}t\allowbreak{}i\allowbreak{}f\allowbreak{}i\allowbreak{}e\allowbreak{}d},
+\texttt{g\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}p\allowbreak{}o\allowbreak{}l\allowbreak{}i\allowbreak{}c\allowbreak{}y\allowbreak{}\_\allowbreak{}i\allowbreak{}s\allowbreak{}\_\allowbreak{}c\allowbreak{}e\allowbreak{}r\allowbreak{}t\allowbreak{}i\allowbreak{}f\allowbreak{}i\allowbreak{}e\allowbreak{}d},
+\texttt{w\allowbreak{}r\allowbreak{}o\allowbreak{}n\allowbreak{}g\allowbreak{}\_\allowbreak{}a\allowbreak{}c\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}\_\allowbreak{}r\allowbreak{}e\allowbreak{}j\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}e\allowbreak{}d},
+\texttt{c\allowbreak{}e\allowbreak{}r\allowbreak{}t\allowbreak{}i\allowbreak{}f\allowbreak{}i\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}a\allowbreak{}c\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}\_\allowbreak{}g\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}d} \\
+\texttt{O\allowbreak{}b\allowbreak{}s\allowbreak{}e\allowbreak{}r\allowbreak{}v\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}W\allowbreak{}i\allowbreak{}n\allowbreak{}n\allowbreak{}i\allowbreak{}n\allowbreak{}g}
+& \texttt{policy\_wins\_iff},
+\texttt{h\allowbreak{}i\allowbreak{}d\allowbreak{}d\allowbreak{}e\allowbreak{}n\allowbreak{}\_\allowbreak{}w\allowbreak{}o\allowbreak{}r\allowbreak{}l\allowbreak{}d\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}m\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}l} \\
+\texttt{R14Rivals} & \texttt{refl}, \texttt{trans},
+\texttt{c\allowbreak{}o\allowbreak{}o\allowbreak{}r\allowbreak{}d\allowbreak{}i\allowbreak{}n\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}\_\allowbreak{}e\allowbreak{}n\allowbreak{}v\allowbreak{}e\allowbreak{}l\allowbreak{}o\allowbreak{}p\allowbreak{}e},
+\texttt{c\allowbreak{}o\allowbreak{}m\allowbreak{}p\allowbreak{}l\allowbreak{}e\allowbreak{}t\allowbreak{}e\allowbreak{}\_\allowbreak{}r\allowbreak{}i\allowbreak{}v\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}s\allowbreak{}f\allowbreak{}e\allowbreak{}r},
+\texttt{hot\_beats\_pause} \\
+\texttt{R15CausalGluing} &
+\texttt{b\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}d\allowbreak{}a\allowbreak{}r\allowbreak{}y\allowbreak{}\_\allowbreak{}r\allowbreak{}e\allowbreak{}p\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}e\allowbreak{}n\allowbreak{}t\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}v\allowbreak{}e\allowbreak{}s\allowbreak{}\_\allowbreak{}i\allowbreak{}f\allowbreak{}f},
+\texttt{s\allowbreak{}e\allowbreak{}l\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}r\allowbreak{}e\allowbreak{}p\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}e\allowbreak{}n\allowbreak{}t\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}v\allowbreak{}e\allowbreak{}\_\allowbreak{}g\allowbreak{}r\allowbreak{}e\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}s\allowbreak{}t},
+\texttt{c\allowbreak{}a\allowbreak{}n\allowbreak{}o\allowbreak{}n\allowbreak{}i\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}b\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}d\allowbreak{}a\allowbreak{}r\allowbreak{}y\allowbreak{}\_\allowbreak{}i\allowbreak{}f\allowbreak{}f},
+\texttt{i\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}f\allowbreak{}a\allowbreak{}c\allowbreak{}e\allowbreak{}\_\allowbreak{}e\allowbreak{}n\allowbreak{}v\allowbreak{}e\allowbreak{}l\allowbreak{}o\allowbreak{}p\allowbreak{}e\allowbreak{}\_\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}s\allowbreak{}f\allowbreak{}e\allowbreak{}r},
+\texttt{h\allowbreak{}i\allowbreak{}d\allowbreak{}d\allowbreak{}e\allowbreak{}n\allowbreak{}\_\allowbreak{}w\allowbreak{}o\allowbreak{}r\allowbreak{}l\allowbreak{}d\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}n\allowbreak{}t\allowbreak{}r\allowbreak{}o\allowbreak{}l} \\
+\texttt{R\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}D\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e}
+& \texttt{distance\_floor},
+\texttt{r\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}\_\allowbreak{}a\allowbreak{}t\allowbreak{}\_\allowbreak{}d\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e},
+\texttt{r\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}\_\allowbreak{}s\allowbreak{}t\allowbreak{}r\allowbreak{}i\allowbreak{}c\allowbreak{}t\allowbreak{}\_\allowbreak{}a\allowbreak{}t\allowbreak{}\_\allowbreak{}d\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e},
+\texttt{c\allowbreak{}a\allowbreak{}n\allowbreak{}o\allowbreak{}n\allowbreak{}i\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}d\allowbreak{}s\allowbreak{}\_\allowbreak{}t\allowbreak{}o\allowbreak{}\_\allowbreak{}o\allowbreak{}n\allowbreak{}e} \\
+\texttt{CutEquivalence} &
+\texttt{c\allowbreak{}l\allowbreak{}o\allowbreak{}s\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}i\allowbreak{}f\allowbreak{}f\allowbreak{}\_\allowbreak{}n\allowbreak{}o\allowbreak{}\_\allowbreak{}b\allowbreak{}y\allowbreak{}p\allowbreak{}a\allowbreak{}s\allowbreak{}s} \\
 \end{longtable}
 }
 
@@ -5450,9 +5533,11 @@ capacity rows 17 and 22 at 48,000 and 67,200 per cycle give
 pool bill against which the FIFO completion certificate (Proposition 6)
 is issued
 (\texttt{C\allowbreak{}o\allowbreak{}n\allowbreak{}t\allowbreak{}r\allowbreak{}o\allowbreak{}l\allowbreak{}l\allowbreak{}e\allowbreak{}r\allowbreak{}C\allowbreak{}e\allowbreak{}r\allowbreak{}t\allowbreak{}i\allowbreak{}f\allowbreak{}i\allowbreak{}c\allowbreak{}a\allowbreak{}t\allowbreak{}e},
-exact rationals; the same module derives the utilisations
+exact rationals; the same module derives the bill-saving ratios
 \(6{,}604{,}800/2{,}294{,}400 = 688/239\) and
-\(6{,}604{,}800/2{,}409{,}600 = 688/251\)).
+\(6{,}604{,}800/2{,}409{,}600 = 688/251\) of the earlier bill over the
+corrected bills,
+\texttt{c\allowbreak{}o\allowbreak{}r\allowbreak{}r\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}b\allowbreak{}i\allowbreak{}l\allowbreak{}l\allowbreak{}\_\allowbreak{}s\allowbreak{}a\allowbreak{}v\allowbreak{}i\allowbreak{}n\allowbreak{}g}).
 
 \emph{Tier:} compiled. The deadline-certificate machinery of which this
 is the workload instance is published in the parent core (DOI
@@ -5462,11 +5547,14 @@ application-time finality and funding conservation).
 \subsubsection{24.3 The causal boundary (reactive
 refinement)}\label{the-causal-boundary-reactive-refinement}
 
-\textbf{Statement of record.} The causal boundary is given in two
-equivalent forms: closed dependency components, and directed separators
-in the time-unrolled graph. Pending effects belong in that graph.
-Omitting one future effect or one path invalidates the corresponding
-exclusion certificate.
+\textbf{Statement of record.} The causal boundary is given in two forms,
+which agree: a closed dependency component is exactly a directed
+separator in the unrolled dependency graph with empty certified boundary
+(\texttt{C\allowbreak{}u\allowbreak{}t\allowbreak{}E\allowbreak{}q\allowbreak{}u\allowbreak{}i\allowbreak{}v\allowbreak{}a\allowbreak{}l\allowbreak{}e\allowbreak{}n\allowbreak{}c\allowbreak{}e\allowbreak{}.\allowbreak{}c\allowbreak{}l\allowbreak{}o\allowbreak{}s\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}i\allowbreak{}f\allowbreak{}f\allowbreak{}\_\allowbreak{}n\allowbreak{}o\allowbreak{}\_\allowbreak{}b\allowbreak{}y\allowbreak{}p\allowbreak{}a\allowbreak{}s\allowbreak{}s}),
+and the separator form extends it to a matched certified boundary
+(\texttt{U\allowbreak{}P\allowbreak{}T\allowbreak{}R\allowbreak{}1\allowbreak{}6\allowbreak{}C\allowbreak{}u\allowbreak{}t\allowbreak{}.\allowbreak{}c\allowbreak{}a\allowbreak{}u\allowbreak{}s\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}s\allowbreak{}e\allowbreak{}p\allowbreak{}a\allowbreak{}r\allowbreak{}a\allowbreak{}t\allowbreak{}o\allowbreak{}r}).
+Pending effects belong in that graph. Omitting one future effect or one
+path invalidates the corresponding exclusion certificate.
 
 \emph{Tier:} stated definition (R16-CUT); the reactive refinement that
 uses it is compiled
@@ -5800,10 +5888,9 @@ this finite construction.
 capstone}\label{part-iii-f-unified-architecture-and-the-self-grounding-capstone}
 
 This section integrates the author's supplied unified ledger and
-homological proposal into the full working edition. Parts I--III and
-their maximal domain, outcome order and rival quantifiers remain in
-force. The original submissions are preserved with the integration
-record.
+homological proposal into the full edition. Parts I--III and their
+maximal domain, outcome order and rival quantifiers remain in force. The
+original submissions are preserved with the integration record.
 
 \subsection{F.1 The unified gate and work
 ledger}\label{f.1-the-unified-gate-and-work-ledger}
@@ -5952,10 +6039,22 @@ The proposed mutual-bootstrap statement is retained in full:
 \operatorname{Vol}(U)>0\quad\Longleftrightarrow\quad H_*(\partial U)\ne0.
 \]
 
-Its interpretation must specify the actual relational volume, boundary,
-coefficient system and history representation, and derive the two
-directions for that model. The long exact sequence alone does not
-establish this volume equivalence.
+It is proved for regions
+(\texttt{R\allowbreak{}e\allowbreak{}g\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}B\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}d\allowbreak{}a\allowbreak{}r\allowbreak{}y\allowbreak{}.\allowbreak{}r\allowbreak{}e\allowbreak{}g\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}\_\allowbreak{}b\allowbreak{}o\allowbreak{}o\allowbreak{}t\allowbreak{}s\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}p}).
+Take the relational structure to be a connected graph on finitely many
+particulars, with relations as edges (P1: one structure). A region's
+volume is its number of particulars. Its boundary is the set of its
+particulars related to a particular outside it. \(H_0\) of the boundary
+is the free ℤ-module on the boundary's connected components. For every
+region other than the whole structure,
+\(\operatorname{Vol}(U)>0\Leftrightarrow H_0(\partial U)\ne0\). The
+forward direction holds because a nonempty proper region in a connected
+structure has a relation crossing out of it (\texttt{exists\_crossing}).
+The whole structure has no outside (P1), so its boundary and boundary
+homology vanish while its volume is positive
+(\texttt{w\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}n\allowbreak{}o\allowbreak{}\_\allowbreak{}b\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}d\allowbreak{}a\allowbreak{}r\allowbreak{}y},
+\texttt{whole\_H0\_trivial}). The bootstrap is therefore the statement
+about regions, as used for retiring patches in F.2.
 
 \subsection{F.4 Funding, persistence and lifetime
 error}\label{f.4-funding-persistence-and-lifetime-error}
@@ -5977,11 +6076,11 @@ schedule makes this series summable, the tail tends to zero; the
 all-time failure probability remains bounded by the full sum. The
 existing declared fault standard is retained.
 
-This completes the unified working presentation of the supplied gates,
-bill derivation, decoder, historical-boundary route and self-grounding
-capstone. The full source, semantic-capacity and physical work
-correspondences remain the same construction task; the new axiom wording
-is not used as a replacement for their derivation.
+This completes the unified presentation of the supplied gates, bill
+derivation, decoder, historical-boundary route and self-grounding
+capstone. The full source, capacity and physical work constructions are
+G.8--G.12; the axiom wording is not used as a replacement for their
+derivation.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -6421,14 +6520,15 @@ following conclusions now join:
 \end{enumerate}
 
 The first three operator components have the native results named above,
-alongside the explicitly identified prose channel/integral derivations.
-The work and exchange components have the native ledger and matrix
-proofs. Application to the full protection theorem still joins these
-maps to the actual full-domain source, complete historical
-capacity/physical handoff and the whole continuation/freedom outcome.
-Those are the existing source-construction correspondences in Part
-III-E; this component theorem does not replace the maximal conclusion
-with an isometry or work premise.
+and the channel and integral steps are compiled
+(\texttt{ChannelExtension}, \texttt{SmearingIntegral}; G.13). The work
+and exchange components have the native ledger and matrix proofs.
+Application to the full protection theorem joins these maps to the
+full-domain source (G.10), the complete historical capacity and physical
+handoff (G.8), and the whole continuation/freedom outcome (G.11). Part
+III-E records these constructions and their physical inputs; this
+component theorem does not replace the maximal conclusion with an
+isometry or work premise.
 
 The research precedents have their stated domains:
 \href{https://arxiv.org/abs/1512.06431}{JLMS} relates relative entropy
@@ -7144,6 +7244,120 @@ Therefore no canonical option has merging irreversible administration
 The law forces reversible administration from the Landauer model and the
 constructed Bennett cycle, with no hypothesis about the counterpart.
 
+\subsection{G.15 Recovered and combined
+results}\label{g.15-recovered-and-combined-results}
+
+Five earlier results that the canon did not yet contain are folded in.
+Three compiled results are joined into stronger forms.
+
+\textbf{Reciprocity at a sufficient code distance}
+(\texttt{R\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}D\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e},
+§15.2). Three results combine into one.
+
+\begin{itemize}
+\tightlist
+\item
+  On the good event the canonical outcome contains the rival's
+  (\texttt{R\allowbreak{}e\allowbreak{}a\allowbreak{}s\allowbreak{}o\allowbreak{}n\allowbreak{}s\allowbreak{}C\allowbreak{}o\allowbreak{}m\allowbreak{}p\allowbreak{}i\allowbreak{}l\allowbreak{}e\allowbreak{}d\allowbreak{}.\allowbreak{}r\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}\_\allowbreak{}e\allowbreak{}x\allowbreak{}p\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n}).
+\item
+  On the good event the canonical regime keeps every particular
+  (\texttt{r\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}\_\allowbreak{}c\allowbreak{}a\allowbreak{}n\allowbreak{}o\allowbreak{}n\allowbreak{}i\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}f\allowbreak{}l\allowbreak{}o\allowbreak{}o\allowbreak{}r}).
+\item
+  The failure probability falls below every \(\varepsilon\) with code
+  distance
+  (\texttt{T\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d\allowbreak{}.\allowbreak{}f\allowbreak{}a\allowbreak{}m\allowbreak{}i\allowbreak{}l\allowbreak{}y\allowbreak{}\_\allowbreak{}c\allowbreak{}e\allowbreak{}i\allowbreak{}l\allowbreak{}i\allowbreak{}n\allowbreak{}g},
+  \texttt{C\allowbreak{}o\allowbreak{}r\allowbreak{}r\allowbreak{}e\allowbreak{}l\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}C\allowbreak{}e\allowbreak{}i\allowbreak{}l\allowbreak{}i\allowbreak{}n\allowbreak{}g\allowbreak{}.\allowbreak{}c\allowbreak{}o\allowbreak{}r\allowbreak{}r\allowbreak{}e\allowbreak{}l\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}f\allowbreak{}a\allowbreak{}m\allowbreak{}i\allowbreak{}l\allowbreak{}y\allowbreak{}\_\allowbreak{}c\allowbreak{}e\allowbreak{}i\allowbreak{}l\allowbreak{}i\allowbreak{}n\allowbreak{}g}).
+\end{itemize}
+
+For the design family indexed by distance, the canonical regime keeps
+the mind with probability above \(1-\varepsilon\) from some distance on
+(\texttt{distance\_floor}). For every rival and every \(\varepsilon\),
+the rival's kept-probability is at most the canonical one plus
+\(\varepsilon\)
+(\texttt{r\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}\_\allowbreak{}a\allowbreak{}t\allowbreak{}\_\allowbreak{}d\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e}).
+Every rival that loses the mind with positive probability is strictly
+below the canonical regime from some distance on
+(\texttt{r\allowbreak{}e\allowbreak{}c\allowbreak{}i\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}c\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}\_\allowbreak{}s\allowbreak{}t\allowbreak{}r\allowbreak{}i\allowbreak{}c\allowbreak{}t\allowbreak{}\_\allowbreak{}a\allowbreak{}t\allowbreak{}\_\allowbreak{}d\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e}).
+The canonical kept-probability tends to one
+(\texttt{c\allowbreak{}a\allowbreak{}n\allowbreak{}o\allowbreak{}n\allowbreak{}i\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}d\allowbreak{}s\allowbreak{}\_\allowbreak{}t\allowbreak{}o\allowbreak{}\_\allowbreak{}o\allowbreak{}n\allowbreak{}e}).
+
+\textbf{The two forms of the causal boundary agree}
+(\texttt{CutEquivalence}, §24.3). A set is closed under the dependency
+relation exactly when no path from a node outside it reaches it. A
+closed dependency component is therefore exactly a directed separator
+with empty certified boundary
+(\texttt{c\allowbreak{}l\allowbreak{}o\allowbreak{}s\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}i\allowbreak{}f\allowbreak{}f\allowbreak{}\_\allowbreak{}n\allowbreak{}o\allowbreak{}\_\allowbreak{}b\allowbreak{}y\allowbreak{}p\allowbreak{}a\allowbreak{}s\allowbreak{}s}),
+and the separator form extends it to a matched certified boundary
+(\texttt{U\allowbreak{}P\allowbreak{}T\allowbreak{}R\allowbreak{}1\allowbreak{}6\allowbreak{}C\allowbreak{}u\allowbreak{}t\allowbreak{}.\allowbreak{}c\allowbreak{}a\allowbreak{}u\allowbreak{}s\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}s\allowbreak{}e\allowbreak{}p\allowbreak{}a\allowbreak{}r\allowbreak{}a\allowbreak{}t\allowbreak{}o\allowbreak{}r}).
+
+\textbf{Volume and boundary} (\texttt{RegionBoundary}, F.3). For every
+region of a connected relational structure other than the whole,
+positive volume holds exactly when the boundary homology is nonzero
+(\texttt{region\_bootstrap}). The whole structure has no outside and an
+empty boundary
+(\texttt{w\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}n\allowbreak{}o\allowbreak{}\_\allowbreak{}b\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}d\allowbreak{}a\allowbreak{}r\allowbreak{}y},
+\texttt{whole\_H0\_trivial}).
+
+\textbf{Greatestness through boundary representatives}
+(\texttt{R15CausalGluing}, with the staged order of \texttt{R14Rivals}).
+Greatestness reduces exactly to a covering family of feasible fibre
+representatives
+(\texttt{b\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}d\allowbreak{}a\allowbreak{}r\allowbreak{}y\allowbreak{}\_\allowbreak{}r\allowbreak{}e\allowbreak{}p\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}e\allowbreak{}n\allowbreak{}t\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}v\allowbreak{}e\allowbreak{}s\allowbreak{}\_\allowbreak{}i\allowbreak{}f\allowbreak{}f},
+\texttt{s\allowbreak{}e\allowbreak{}l\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}r\allowbreak{}e\allowbreak{}p\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}e\allowbreak{}n\allowbreak{}t\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}v\allowbreak{}e\allowbreak{}\_\allowbreak{}g\allowbreak{}r\allowbreak{}e\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}s\allowbreak{}t}),
+in the canonical staged order as well
+(\texttt{c\allowbreak{}a\allowbreak{}n\allowbreak{}o\allowbreak{}n\allowbreak{}i\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}b\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}d\allowbreak{}a\allowbreak{}r\allowbreak{}y\allowbreak{}\_\allowbreak{}i\allowbreak{}f\allowbreak{}f}).
+A conservative interface envelope suffices to make the chosen policy
+greatest, without greatest representatives
+(\texttt{i\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}f\allowbreak{}a\allowbreak{}c\allowbreak{}e\allowbreak{}\_\allowbreak{}e\allowbreak{}n\allowbreak{}v\allowbreak{}e\allowbreak{}l\allowbreak{}o\allowbreak{}p\allowbreak{}e\allowbreak{}\_\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}s\allowbreak{}f\allowbreak{}e\allowbreak{}r}).
+Clairvoyant per-world selection is excluded: a choice can match every
+world separately while no single choice matches them all
+(\texttt{h\allowbreak{}i\allowbreak{}d\allowbreak{}d\allowbreak{}e\allowbreak{}n\allowbreak{}\_\allowbreak{}w\allowbreak{}o\allowbreak{}r\allowbreak{}l\allowbreak{}d\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}n\allowbreak{}t\allowbreak{}r\allowbreak{}o\allowbreak{}l}).
+The staged order is reflexive and transitive
+(\texttt{U\allowbreak{}P\allowbreak{}T\allowbreak{}R\allowbreak{}1\allowbreak{}4\allowbreak{}R\allowbreak{}i\allowbreak{}v\allowbreak{}a\allowbreak{}l\allowbreak{}s\allowbreak{}.\allowbreak{}r\allowbreak{}e\allowbreak{}f\allowbreak{}l},
+\texttt{trans}). A coordinatewise envelope is a constructive certificate
+(\texttt{c\allowbreak{}o\allowbreak{}o\allowbreak{}r\allowbreak{}d\allowbreak{}i\allowbreak{}n\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}\_\allowbreak{}e\allowbreak{}n\allowbreak{}v\allowbreak{}e\allowbreak{}l\allowbreak{}o\allowbreak{}p\allowbreak{}e}),
+and a complete rival envelope transfers to the chosen policy
+(\texttt{c\allowbreak{}o\allowbreak{}m\allowbreak{}p\allowbreak{}l\allowbreak{}e\allowbreak{}t\allowbreak{}e\allowbreak{}\_\allowbreak{}r\allowbreak{}i\allowbreak{}v\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}s\allowbreak{}f\allowbreak{}e\allowbreak{}r}).
+In the four-stage order a hot replica strictly beats a pause that keeps
+every life but loses a freedom (\texttt{hot\_beats\_pause}).
+
+\textbf{Timely care, deadline demand, certified decisions and
+observation-based winning} (\texttt{TimelyCare},
+\texttt{DeadlineDemand}, \texttt{DecisionPermit},
+\texttt{O\allowbreak{}b\allowbreak{}s\allowbreak{}e\allowbreak{}r\allowbreak{}v\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}W\allowbreak{}i\allowbreak{}n\allowbreak{}n\allowbreak{}i\allowbreak{}n\allowbreak{}g}).
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Timely care.} A particular whose reserved capacity covers its
+  need is served exactly its need (\texttt{care\_served}). Other
+  requests and statuses cannot exhaust that reservation
+  (\texttt{exhaustion\_fails}). The need is met at every date through
+  the deadline when capacity covers the reservations
+  (\texttt{deadline\_met}). A miss implies a capacity shortage at some
+  date
+  (\texttt{m\allowbreak{}i\allowbreak{}s\allowbreak{}s\allowbreak{}\_\allowbreak{}w\allowbreak{}i\allowbreak{}t\allowbreak{}h\allowbreak{}i\allowbreak{}n\allowbreak{}\_\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}r\allowbreak{}t\allowbreak{}a\allowbreak{}g\allowbreak{}e}).
+\item
+  \emph{Deadline demand.} The demand that must complete within any
+  window is at most the supply available in that window
+  (\texttt{demand\_le\_supply}), robustly across worlds
+  (\texttt{robust\_demand}).
+\item
+  \emph{Certified decisions.} A grant names exactly the certified
+  decision of its generation
+  (\texttt{g\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}t\allowbreak{}\_\allowbreak{}n\allowbreak{}a\allowbreak{}m\allowbreak{}e\allowbreak{}s\allowbreak{}\_\allowbreak{}c\allowbreak{}e\allowbreak{}r\allowbreak{}t\allowbreak{}i\allowbreak{}f\allowbreak{}i\allowbreak{}e\allowbreak{}d},
+  \texttt{g\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}p\allowbreak{}o\allowbreak{}l\allowbreak{}i\allowbreak{}c\allowbreak{}y\allowbreak{}\_\allowbreak{}i\allowbreak{}s\allowbreak{}\_\allowbreak{}c\allowbreak{}e\allowbreak{}r\allowbreak{}t\allowbreak{}i\allowbreak{}f\allowbreak{}i\allowbreak{}e\allowbreak{}d});
+  a wrong action is rejected and a certified one granted
+  (\texttt{w\allowbreak{}r\allowbreak{}o\allowbreak{}n\allowbreak{}g\allowbreak{}\_\allowbreak{}a\allowbreak{}c\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}\_\allowbreak{}r\allowbreak{}e\allowbreak{}j\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}e\allowbreak{}d},
+  \texttt{c\allowbreak{}e\allowbreak{}r\allowbreak{}t\allowbreak{}i\allowbreak{}f\allowbreak{}i\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}a\allowbreak{}c\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}\_\allowbreak{}g\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}d}).
+\item
+  \emph{Observation-based winning.} An observation-based policy keeps
+  the system safe exactly when the safety game is winnable
+  (\texttt{policy\_wins\_iff}), and a hidden-world countermodel shows
+  that observation, not clairvoyance, is the right quantifier
+  (\texttt{h\allowbreak{}i\allowbreak{}d\allowbreak{}d\allowbreak{}e\allowbreak{}n\allowbreak{}\_\allowbreak{}w\allowbreak{}o\allowbreak{}r\allowbreak{}l\allowbreak{}d\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}m\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}l}).
+\end{itemize}
+
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \section{Part IV --- References and
@@ -7247,18 +7461,18 @@ maps, with the premises it lists. Elsewhere, prose remains prose.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{Appendix --- Verification provenance of this working
-draft}\label{appendix-verification-provenance-of-this-working-draft}
+\section{Appendix --- Verification provenance of this
+edition}\label{appendix-verification-provenance-of-this-edition}
 
 The original published baseline contains 115 modules and 831 audited
-names. The current working tree contains 157 modules and 993 audited
-public theorem/lemma names. All 144 modules of the 942-name tree were
-freshly compiled and kernel-checked in one run, the thirteen further
-modules were compiled and kernel-checked fresh against those objects,
-and the full axiom, completeness and claims gates were freshly run,
-overall PASS. The earlier 924-name combined receipt, which reused Beam's
-136 results, is preserved with its bank. The original failed run is
-preserved in the integration bank.
+names. The current tree contains 166 modules and 1025 audited public
+theorem/lemma names. All 157 modules of the 993-name tree were freshly
+compiled and kernel-checked in one run, the nine further modules were
+compiled and kernel-checked fresh against those objects, and the full
+axiom, completeness and claims gates were freshly run, overall PASS. The
+earlier receipts, including the 924-name combined receipt that reused
+Beam's 136 results, are preserved with their banks. The original failed
+run is preserved in the integration bank.
 
 The eight-module integration and its 896-statement receipt remain
 preserved. This increment adds 28 checked statements in the existing
@@ -7287,8 +7501,8 @@ the byte-identical replay of the four-stroke ledger
 the manuscript assembly checks and the RO-Crate provenance remain in
 force for the artifacts they cover.
 
-\textbf{Working manuscript.} The 4.2 deliverable is this Markdown
-master. The published 4.1 artifacts remain their existing versions.
-Rendering and publication follow the author's review.
+\textbf{Manuscript.} The 4.2 deliverable is this Markdown master,
+rendered to PDF, HTML and EPUB. The published 4.1 artifacts remain their
+existing versions.
 
 \end{document}

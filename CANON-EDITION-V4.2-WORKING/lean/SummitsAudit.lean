@@ -157,6 +157,15 @@ import Snuffy.SmearingIntegral
 import Snuffy.ChannelExtension
 import Snuffy.PureStateDistance
 import Snuffy.BennettCounterpart
+import Snuffy.RegionBoundary
+import Snuffy.TimelyCare
+import Snuffy.DeadlineDemand
+import Snuffy.DecisionPermit
+import Snuffy.ObservationWinning
+import Snuffy.R14Rivals
+import Snuffy.R15CausalGluing
+import Snuffy.ReciprocityDistance
+import Snuffy.CutEquivalence
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1308,3 +1317,44 @@ import Snuffy.BennettCounterpart
 #print axioms Snuffy.BennettCounterpart.counterpart_more_slack
 #print axioms Snuffy.BennettCounterpart.premise5_constructed
 #print axioms Snuffy.BennettCounterpart.bennett_counterpart_computes
+-- RegionBoundary
+#print axioms Snuffy.RegionBoundary.exists_crossing
+#print axioms Snuffy.RegionBoundary.region_bootstrap
+#print axioms Snuffy.RegionBoundary.whole_no_boundary
+#print axioms Snuffy.RegionBoundary.whole_H0_trivial
+-- TimelyCare
+#print axioms UPTTimely.care_served
+#print axioms UPTTimely.exhaustion_fails
+#print axioms UPTTimely.deadline_met
+#print axioms UPTTimely.miss_within_shortage
+-- DeadlineDemand
+#print axioms UPTDeadline.demand_le_supply
+#print axioms UPTDeadline.robust_demand
+-- DecisionPermit
+#print axioms UPTDecisionPermit.decision_words_injective
+#print axioms UPTDecisionPermit.grant_names_certified
+#print axioms UPTDecisionPermit.granted_policy_is_certified
+#print axioms UPTDecisionPermit.wrong_action_rejected
+#print axioms UPTDecisionPermit.certified_action_granted
+-- ObservationWinning
+#print axioms UPTObsWin.policy_wins_iff
+#print axioms UPTObsWin.hidden_world_countermodel
+-- R14Rivals
+#print axioms UPTR14Rivals.refl
+#print axioms UPTR14Rivals.trans
+#print axioms UPTR14Rivals.coordinate_envelope
+#print axioms UPTR14Rivals.complete_rival_transfer
+#print axioms UPTR14Rivals.hot_beats_pause
+-- R15CausalGluing
+#print axioms UPTR15.boundary_representatives_iff
+#print axioms UPTR15.selected_representative_greatest
+#print axioms UPTR15.canonical_boundary_iff
+#print axioms UPTR15.interface_envelope_transfer
+#print axioms UPTR15.hidden_world_control
+-- ReciprocityDistance
+#print axioms Snuffy.ReciprocityDistance.distance_floor
+#print axioms Snuffy.ReciprocityDistance.reciprocity_at_distance
+#print axioms Snuffy.ReciprocityDistance.reciprocity_strict_at_distance
+#print axioms Snuffy.ReciprocityDistance.canonical_tends_to_one
+-- CutEquivalence
+#print axioms Snuffy.CutEquivalence.closed_iff_no_bypass
