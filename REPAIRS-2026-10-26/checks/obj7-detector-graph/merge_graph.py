@@ -27,6 +27,7 @@ def build_merge(d, T, basis, order_x, order_z):
     data = {(i, j): i * cols + j for i in range(rows) for j in range(cols)}
     nq = rows * cols
     checks = []
+    face = {}
     for i in range(-1, rows):
         for j in range(-1, cols):
             corners = {'NW': (i, j), 'NE': (i, j + 1), 'SW': (i + 1, j), 'SE': (i + 1, j + 1)}
@@ -47,16 +48,19 @@ def build_merge(d, T, basis, order_x, order_z):
             slots = [k in present for k in order]
             touches = any(v[1] == seam for v in present.values())
             checks.append((typ, nq, qs, slots, touches))
+            face[nq] = (i, j)
             nq += 1
     seamq = {data[(i, seam)] for i in range(rows)}
     other = 'X' if basis == 'Z' else 'Z'
     ops, meas = [], []
+    oprnd = []
     allq = list(range(rows * cols))
     for q in allq:
         ops.append(('R', (q,)))
         conj = q in seamq
         if (basis == 'X') != conj:  # X-eigenstate for basis X off the seam, or for basis Z on it
             ops.append(('H', (q,)))
+    oprnd += [-1] * (len(ops) - len(oprnd))
     for r in range(T):
         for (typ, a, qs, slots, _) in checks:
             ops.append(('R', (a,)))
@@ -78,6 +82,7 @@ def build_merge(d, T, basis, order_x, order_z):
                 ops.append(('H', (a,)))
             ops.append(('M', (a,)))
             meas.append(('anc', (r, a)))
+        oprnd += [r] * (len(ops) - len(oprnd))
     # split: the seam data are measured in the conjugate basis, the patch data in basis b
     for q in allq:
         conj = q in seamq
@@ -85,15 +90,16 @@ def build_merge(d, T, basis, order_x, order_z):
             ops.append(('H', (q,)))
         ops.append(('M', (q,)))
         meas.append(('data', q))
+    oprnd += [T] * (len(ops) - len(oprnd))
     idx = {lab: n for n, (_, lab) in enumerate(meas)}
     dets = []
     for (typ, a, qs, slots, touches) in checks:
         if typ == basis and not touches:
-            dets.append((typ, [idx[(0, a)]]))
+            dets.append((typ, [idx[(0, a)]], (0,) + face[a]))
         for r in range(1, T):
-            dets.append((typ, [idx[(r, a)], idx[(r - 1, a)]]))
+            dets.append((typ, [idx[(r, a)], idx[(r - 1, a)]], (r,) + face[a]))
         if typ == basis and not touches:
-            dets.append((typ, [idx[q] for q in qs] + [idx[(T - 1, a)]]))
+            dets.append((typ, [idx[q] for q in qs] + [idx[(T - 1, a)]], (T,) + face[a]))
     # joint logical: GF(2) combination of random type-b checks whose seam support cancels
     rnd = [(a, qs) for (typ, a, qs, s, touches) in checks if typ == basis and touches]
     vecs = []
@@ -120,12 +126,12 @@ def build_merge(d, T, basis, order_x, order_z):
         raise RuntimeError('no joint logical for this basis')
     chosen = [rnd[k][0] for k in range(n) if combo >> k & 1]
     obs = [idx[(0, a)] for a in chosen]
-    return ops, meas, dets, obs, len(chosen)
+    return ops, meas, dets, obs, len(chosen), oprnd, rows, cols
 
 def analyse_merge(d, T, basis, order_x, order_z):
-    ops, meas, dets, obs, nch = build_merge(d, T, basis, order_x, order_z)
+    ops, meas, dets, obs, nch, oprnd, rows, cols = build_merge(d, T, basis, order_x, order_z)
     det_masks = []
-    for (typ, ms) in dets:
+    for (typ, ms, _c) in dets:
         mm = 0
         for x in ms:
             mm |= 1 << x
@@ -162,7 +168,8 @@ def analyse_merge(d, T, basis, order_x, order_z):
             sig = frozenset(k for k, mm in enumerate(det_masks) if bin(mm & flips).count('1') % 2)
             ob = bin(obs_mask & flips).count('1') % 2
             faults.append((n_, sig, ob))
-    types = [t for (t, _) in dets]
+    types = [t for (t, _, _) in dets]
+    coords = [c for (_, _, c) in dets]
     single = any((not sig) and ob for (_, sig, ob) in faults)
     graphlike = all(sum(1 for k in sig if types[k] == t) <= 2 for (_, sig, _) in faults for t in 'XZ')
     eobs = defaultdict(set)
@@ -190,7 +197,57 @@ def analyse_merge(d, T, basis, order_x, order_z):
                 seen[w] = seen[u] + 1; dq.append(w)
     if single:
         exact = 1
-    return {'d': d, 'T': T, 'basis': basis, 'joint_logical_checks': nch, 'faults': len(faults),
+    # DIAGNOSTIC boundary classification (heuristic, by nearest side; it merges the A and B
+    # segments of one side, so same-side odd pairs can appear). A one-detector edge attaches to the time-start boundary when its
+    # fault lies in the initialisation or round 0 at a seam-touching detector, to the split
+    # boundary when its fault lies in the last round or the split readout at such a detector,
+    # and otherwise to the spatial side nearest its detector's face.
+    def bclass(loc, k):
+        r, i, j = coords[k]
+        rr = oprnd[loc]
+        seamish = j in (d - 1, d)
+        if seamish and rr <= 0:
+            return 'START'
+        if seamish and rr >= T - 1:
+            return 'SPLIT'
+        dists = {'TOP': i + 1, 'BOTTOM': rows - 1 - i, 'LEFT': j + 1, 'RIGHT': cols - 1 - j}
+        return min(dists, key=dists.get)
+    eobs2 = defaultdict(set)
+    for (loc, sig, ob) in faults:
+        part = tuple(sorted(k for k in sig if types[k] == basis))
+        if len(part) == 1:
+            eobs2[(part[0], bclass(loc, part[0]))].add(ob)
+        elif len(part) == 2:
+            eobs2[part].add(ob)
+    adj2 = defaultdict(list)
+    classes = set()
+    for (a, b), obset in eobs2.items():
+        if isinstance(b, str):
+            classes.add(b)
+        for ob in obset:
+            adj2[a].append((b, ob)); adj2[b].append((a, ob))
+    pair = {}
+    for c0 in sorted(classes):
+        seen2 = {(c0, 0): 0}; dq2 = deque([(c0, 0)])
+        while dq2:
+            u = dq2.popleft()
+            for (v, ob) in adj2[u[0]]:
+                w = (v, u[1] ^ ob)
+                if w in seen2:
+                    continue
+                seen2[w] = seen2[u] + 1
+                if isinstance(v, str):
+                    continue  # stop at a boundary: record, do not pass through
+                dq2.append(w)
+        for c1 in sorted(classes):
+            if (c1, 1) in seen2:
+                pair[c0 + '-' + c1] = seen2[(c1, 1)]
+    inner = [(a, b) for (a, b) in eobs if b != 'B']
+    max_dr = max(abs(coords[a][0] - coords[b][0]) for (a, b) in inner)
+    max_di = max(abs(coords[a][1] - coords[b][1]) for (a, b) in inner)
+    max_dj = max(abs(coords[a][2] - coords[b][2]) for (a, b) in inner)
+    return {'d': d, 'T': T, 'basis': basis, 'odd_boundary_pairs': pair, 'max_round_step': max_dr, 'max_row_step': max_di,
+            'max_col_step': max_dj, 'joint_logical_checks': nch, 'faults': len(faults),
             'graphlike_per_type': graphlike, 'circuit_distance_exact': exact}
 
 if __name__ == '__main__':

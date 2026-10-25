@@ -378,3 +378,56 @@ enumeration as `detector_graph.py`.
   failure that does not grow with depth, which needs each patch decoder to tolerate a bounded
   number of failed dependencies. Concentration for the resulting dependent field then needs
   finite-range dependence to be proved, not assumed.
+
+
+---
+
+# Round 5 — three seams and the column-cut invariant (inputs/GEMINI-OBJ7-ROUND5-SEAMS-AND-COLUMN-CUT.md)
+
+None is accepted as written.
+
+* **Seam 1 (merge).**
+  - "A single fault … only propagates to weight-1 errors on adjacent qubits" is false: hook
+    faults propagate to weight-2 errors. Under the swapped schedule this is exactly what halves
+    the distance. The argument never uses the CNOT orientation.
+  - The seam-check formula Z⊗Z⊗X is not a check of the merged patch.
+  - The result stands on the enumeration instead: distance min(d, T) for d ≤ 7.
+* **Seam 2 (inventory).** This repeats, a third time, circuits shown to measure nothing:
+  - the |0⟩ ancilla used as a CNOT control;
+  - the |+⟩ ancilla used as a CNOT target.
+
+  It again labels the Clifford level as "𝒞₃". The "merge" circuit, CNOT(boundary_A → strip)
+  then M_Z, measures single-qubit Z on A's boundary, not a joint logical. It still lists only the
+  error-correction layer, not the installation's maps.
+* **Seam 3 (sparse failure).**
+  - The displayed "Dobrushin condition" differentiates a conditional probability with respect to
+    a discrete variable.
+  - Dobrushin uniqueness gives a unique Gibbs measure with decaying correlations. It does not
+    exclude percolation, and ρ < 1/(z+1) is not Dobrushin's condition.
+  - The sweep's failure field is not a Gibbs field. Its dependence arises through cascade, which
+    is the thing to be proved.
+  - Routing logical data around a failed patch does not recover that patch's lost historical
+    information.
+  - The bound remains in expectation, not pathwise.
+* **R5-2 (column cut).**
+  - Each edge is one fault, so its weight is exactly 1. Assigning step-2 edges weight "≥ 1" to
+    obtain d assumes the conclusion.
+  - A step-2 edge does skip a column: one fault flips two detectors two columns apart. That is
+    the swapped schedule's ⌈d/2⌉.
+  - "For all d ≤ 9 and inductively for all d" has no inductive step.
+
+*Computed this round* (`merge_graph.py`, SHA-256 `ef43c4a6…31cb`; `MERGE-RESULT.json`
+`ddd1129e…c724`):
+* In the merged graph every edge spans at most one round, so the time-like potential holds: a
+  start-to-split walk has at least T edges.
+* Spatially, the column step is ≤ 1 but the row step reaches 2, where the hooks run.
+* A diagnostic split of the boundary into START, SPLIT and four spatial sides, by nearest side,
+  gives a shortest odd walk between any two classes of min(d, T) for d = 3, 5, 7. It agrees with
+  the exact distance. At d = 3, T = 1 the distance-1 logical is a single undetected fault and
+  lies in no boundary pair.
+
+**Still open: the merge distance for every d.** A single-coordinate potential is not enough,
+because top–bottom odd walks need d edges even though row-step-2 edges exist in that graph. The
+proof needs a finer invariant, for instance:
+* counting faults across a cut rather than detector steps; or
+* exact boundary segmentation (A and B segments separated) with a parity sublattice.
