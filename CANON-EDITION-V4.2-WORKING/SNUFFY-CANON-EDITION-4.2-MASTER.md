@@ -8,7 +8,7 @@ Canon Edition 4.2, 26 October 2026. Research direction: Tobias Croydon-McRae. Th
 
 The three joined supports are constructed in Part III-G and recorded in Part III-C: the full-domain physical certificate (G1; G.10), the realisability of the whole greatest outcome tuple (G2; G.9, G.11), and the wavefront protocol's success and complete-work certificate (G3; G.12). Their targets are unchanged. Naming an input or relabelling a conclusion does not supply its construction.
 
-The current Lean tree contains 166 modules and 1025 audited public theorem/lemma names. All 157 modules of the 993-name tree were freshly compiled and kernel-checked in one run, the nine further modules were compiled and kernel-checked fresh against those objects, and the full axiom audit over all 1025 names and the completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
+The current Lean tree contains 169 modules and 1042 audited public theorem/lemma names. All 169 modules were freshly compiled and kernel-checked in one run, and the full axiom audit over all 1042 names and the completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
 
 **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports and their constructions. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
 
@@ -1434,7 +1434,7 @@ The installation figures themselves are sourced measurements and design values, 
 
 ## Section 23 — The machine-checked canon
 
-*This section maps the edition's compiled results and their actual hypotheses. The current source contains 166 modules and 1025 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
+*This section maps the edition's compiled results and their actual hypotheses. The current source contains 169 modules and 1042 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
 
 *Evidence convention (unchanged from the edition header): a compiled theorem is cited by its name; a statement carried as a hypothesis of a compiled theorem is named as such; a prose derivation keeps its stated premises. A prose proof does not acquire a compiler certificate by association.*
 
@@ -1786,6 +1786,9 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `R15CausalGluing` | `boundary_representatives_iff`, `selected_representative_greatest`, `canonical_boundary_iff`, `interface_envelope_transfer`, `hidden_world_control` |
 | `ReciprocityDistance` | `distance_floor`, `reciprocity_at_distance`, `reciprocity_strict_at_distance`, `canonical_tends_to_one` |
 | `CutEquivalence` | `closed_iff_no_bypass` |
+| `ConcatenatedDecoding` | `outer_decodes`, `mem_sub`, `decodes_unless_fails`, `decoding_failure_le` |
+| `ChannelCP` | `kron_entry`, `amp_eq`, `compress_entry`, `mp_posSemidef`, `decoder_completely_positive` |
+| `PureStateTraceNorm` | `sum_sq_eigenvalues`, `eigenvalue_cube`, `pureDiff_hermitian`, `vmv_smul`, `star_dot_swap`, `pure_cube`, `pure_trace_sq`, `pure_trace_norm` |
 <!-- END THEOREM INDEX -->
 
 ---
@@ -2953,7 +2956,7 @@ The machine-checked canon of Section 23 certifies exactly the results it maps, w
 
 # Appendix — Verification provenance of this edition
 
-The original published baseline contains 115 modules and 831 audited names. The current tree contains 166 modules and 1025 audited public theorem/lemma names. All 157 modules of the 993-name tree were freshly compiled and kernel-checked in one run, the nine further modules were compiled and kernel-checked fresh against those objects, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. The original failed run is preserved in the integration bank.
+The original published baseline contains 115 modules and 831 audited names. The current tree contains 169 modules and 1042 audited public theorem/lemma names. All 169 modules were freshly compiled and kernel-checked in one run, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier receipts, including the 924-name combined receipt that reused Beam's 136 results, are preserved with their banks. The original failed run is preserved in the integration bank.
 
 The eight-module integration and its 896-statement receipt remain preserved. This increment adds 28 checked statements in the existing DecoderRetraction, HamiltonianDecomposition and WorkBilling modules, integrates the three-pillar operator/history/work construction in Part III-G, and keeps the continuous integral/channel derivations and physical source correspondences explicit. Its exact changes and verification evidence accompany the working draft. No published edition or release is changed.
 

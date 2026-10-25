@@ -147,17 +147,16 @@ the wavefront protocol's success and complete-work certificate (G3;
 G.12). Their targets are unchanged. Naming an input or relabelling a
 conclusion does not supply its construction.
 
-The current Lean tree contains 166 modules and 1025 audited public
-theorem/lemma names. All 157 modules of the 993-name tree were freshly
-compiled and kernel-checked in one run, the nine further modules were
-compiled and kernel-checked fresh against those objects, and the full
-axiom audit over all 1025 names and the completeness and claims gates
-were freshly run, overall PASS. The earlier receipts, including the
-924-name combined receipt that reused Beam's 136 results, are preserved
-with their banks. Seven previously omitted public helper lemmas are
-included. The original published 115-module/831-name baseline remains
-preserved. The architecture interfaces and their construction links are
-distinguished in Section 23.9.
+The current Lean tree contains 169 modules and 1042 audited public
+theorem/lemma names. All 169 modules were freshly compiled and
+kernel-checked in one run, and the full axiom audit over all 1042 names
+and the completeness and claims gates were freshly run, overall PASS.
+The earlier receipts, including the 924-name combined receipt that
+reused Beam's 136 results, are preserved with their banks. Seven
+previously omitted public helper lemmas are included. The original
+published 115-module/831-name baseline remains preserved. The
+architecture interfaces and their construction links are distinguished
+in Section 23.9.
 
 \textbf{Structure.} Part I states the frame and premise stack. Part II
 supplies the law, the derived holding bridge and the retained
@@ -3696,7 +3695,7 @@ values, not compiled theorems.
 canon}\label{section-23-the-machine-checked-canon}
 
 \emph{This section maps the edition's compiled results and their actual
-hypotheses. The current source contains 166 modules and 1025 audited
+hypotheses. The current source contains 169 modules and 1042 audited
 public theorem/lemma names. The receipt records a fresh compilation and
 kernel check of every module, a fresh full axiom audit with only
 \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, and
@@ -3985,8 +3984,10 @@ The Branch A divergence is measured in state-vector norm. For pure
 states the infidelity is bounded by the squared state-vector distance,
 \(1-|\langle\psi,\varphi\rangle|^2\le\|\psi-\varphi\|^2\)
 (\texttt{P\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}S\allowbreak{}t\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}D\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e\allowbreak{}.\allowbreak{}p\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}\_\allowbreak{}i\allowbreak{}n\allowbreak{}f\allowbreak{}i\allowbreak{}d\allowbreak{}e\allowbreak{}l\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}\_\allowbreak{}l\allowbreak{}e};
-G.13); with the standard pure-state identity
-\(\tfrac12\|\rho-\sigma\|_1=\sqrt{1-|\langle\psi,\varphi\rangle|^2}\)
+G.13); with the pure-state identity
+\(\|\rho-\sigma\|_1=2\sqrt{1-|\langle\psi,\varphi\rangle|^2}\), now
+compiled
+(\texttt{P\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}S\allowbreak{}t\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}T\allowbreak{}r\allowbreak{}a\allowbreak{}c\allowbreak{}e\allowbreak{}N\allowbreak{}o\allowbreak{}r\allowbreak{}m\allowbreak{}.\allowbreak{}p\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}\_\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}c\allowbreak{}e\allowbreak{}\_\allowbreak{}n\allowbreak{}o\allowbreak{}r\allowbreak{}m}),
 this gives \(\|\rho-\sigma\|_1\le2\|\psi-\varphi\|\).
 
 \subsubsection{23.4 H5 (§20; Chapter 4)}\label{h5-20-chapter-4}
@@ -4234,10 +4235,20 @@ on}\label{what-the-compiled-theorems-rest-on}
   \texttt{T\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d\allowbreak{}.\allowbreak{}f\allowbreak{}a\allowbreak{}m\allowbreak{}i\allowbreak{}l\allowbreak{}y\allowbreak{}\_\allowbreak{}c\allowbreak{}e\allowbreak{}i\allowbreak{}l\allowbreak{}i\allowbreak{}n\allowbreak{}g}
   for the surface-code instance. The threshold theorem's counting core
   is compiled (§23.6), and for concatenated codes the threshold is
-  compiled end to end with no carried code-specific input: failure
-  probability at most \((21p)^{2^k}/21\) under local stochastic noise
-  (\texttt{C\allowbreak{}o\allowbreak{}n\allowbreak{}c\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}.\allowbreak{}c\allowbreak{}o\allowbreak{}n\allowbreak{}c\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}t\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d}),
-  so the fault ceiling is attained on a fully compiled route;
+  compiled end to end for the concatenated memory: failure probability
+  at most \((21p)^{2^k}/21\) under local stochastic noise
+  (\texttt{C\allowbreak{}o\allowbreak{}n\allowbreak{}c\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}.\allowbreak{}c\allowbreak{}o\allowbreak{}n\allowbreak{}c\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}t\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d}).
+  Actual decoding failure is identified with the recursive failure
+  predicate: with nearest-codeword decoding at every level, any
+  corruption of a non-failing fault set decodes to the stored record
+  (\texttt{C\allowbreak{}o\allowbreak{}n\allowbreak{}c\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}D\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}i\allowbreak{}n\allowbreak{}g\allowbreak{}.\allowbreak{}d\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}s\allowbreak{}\_\allowbreak{}u\allowbreak{}n\allowbreak{}l\allowbreak{}e\allowbreak{}s\allowbreak{}s\allowbreak{}\_\allowbreak{}f\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}s}).
+  So the probability of actual decoding failure is at most the same
+  bound
+  (\texttt{d\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}i\allowbreak{}n\allowbreak{}g\allowbreak{}\_\allowbreak{}f\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}\_\allowbreak{}l\allowbreak{}e}),
+  and the fault ceiling is attained on a compiled route. Fault-tolerant
+  syndrome-measurement gadgets whose own operations can fail are the
+  cited construction of Aliferis, Gottesman and Preskill (2006); their
+  faults enter the charged accounts;
 \item
   Bennett's reversible counterpart, now constructed: the Bennett cycle
   delivers zero heat, an irreversible merging overwrite delivers
@@ -4261,6 +4272,65 @@ The chain lemma is a published mathematical theorem, cited as such; the
 Bennett counterpart is constructed (G.14); the gate-set item is the
 explicit hypothesis of a compiled theorem; the fourth is the frame the
 edition is stated in.
+
+\textbf{The cited theorems and their hypotheses.} Three published
+theorems remain cited. Each is applied within its stated conditions.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Cited theorem
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Form used
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Our setting meets its conditions because
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Surface-code chain lemma (Dennis, Kitaev, Landahl and Preskill, \emph{J.
+Math. Phys.} 43, 2002) & Minimum-weight decoding fails only along a
+self-avoiding chain of length at least \(d\) with at least half its
+edges faulty; at most \(V\Delta^L\) such chains of length \(L\) & The
+counting argument uses only that a given set of locations is entirely
+faulty with probability at most \(p^{|S|}\). That is exactly
+\texttt{T\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d\allowbreak{}.\allowbreak{}L\allowbreak{}o\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}S\allowbreak{}t\allowbreak{}o\allowbreak{}c\allowbreak{}h\allowbreak{}a\allowbreak{}s\allowbreak{}t\allowbreak{}i\allowbreak{}c},
+which includes independent noise and is weaker than it. It enters
+\texttt{T\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d\allowbreak{}.\allowbreak{}f\allowbreak{}a\allowbreak{}m\allowbreak{}i\allowbreak{}l\allowbreak{}y\allowbreak{}\_\allowbreak{}c\allowbreak{}e\allowbreak{}i\allowbreak{}l\allowbreak{}i\allowbreak{}n\allowbreak{}g}
+as the witness and count inputs. \\
+Solovay--Kitaev theorem (Kitaev 1997; Dawson and Nielsen 2006), with the
+two-level-to-gate reduction of Nielsen and Chuang, §4.5 & Every
+single-qubit unitary is approximated to \(\varepsilon\) in operator norm
+by a word of length polylogarithmic in \(1/\varepsilon\) over a finite,
+inverse-closed set generating a dense subgroup; two-level unitaries
+reduce to CNOTs and single-qubit gates &
+\texttt{T\allowbreak{}w\allowbreak{}o\allowbreak{}L\allowbreak{}e\allowbreak{}v\allowbreak{}e\allowbreak{}l\allowbreak{}.\allowbreak{}t\allowbreak{}w\allowbreak{}o\allowbreak{}\_\allowbreak{}l\allowbreak{}e\allowbreak{}v\allowbreak{}e\allowbreak{}l\allowbreak{}\_\allowbreak{}d\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}m\allowbreak{}p\allowbreak{}o\allowbreak{}s\allowbreak{}i\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n}
+writes every unitary as a product of two-level factors.
+\texttt{E\allowbreak{}r\allowbreak{}r\allowbreak{}o\allowbreak{}r\allowbreak{}B\allowbreak{}u\allowbreak{}d\allowbreak{}g\allowbreak{}e\allowbreak{}t\allowbreak{}.\allowbreak{}e\allowbreak{}r\allowbreak{}r\allowbreak{}o\allowbreak{}r\allowbreak{}\_\allowbreak{}b\allowbreak{}u\allowbreak{}d\allowbreak{}g\allowbreak{}e\allowbreak{}t}
+needs each factor within \(\varepsilon/m\) in the norm of a normed ring
+of contractions; operator-norm approximation by unitaries meets that.
+The gate set must be universal in this sense; that is the gate-set
+clause of premise 2. \\
+Fault-tolerant syndrome gadgets (Aliferis, Gottesman and Preskill,
+\emph{Quantum Inf. Comput.} 6, 2006) & Under local stochastic noise, a
+level-\(k\) extended rectangle is correct unless it contains two
+independent malignant level-\((k-1)\) rectangles & Their noise model is
+local stochastic noise, as in
+\texttt{T\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d\allowbreak{}.\allowbreak{}L\allowbreak{}o\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}S\allowbreak{}t\allowbreak{}o\allowbreak{}c\allowbreak{}h\allowbreak{}a\allowbreak{}s\allowbreak{}t\allowbreak{}i\allowbreak{}c}.
+Their recursion is the recursion of
+\texttt{C\allowbreak{}o\allowbreak{}n\allowbreak{}c\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}.\allowbreak{}F\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}s},
+now joined to actual decoding of the memory
+(\texttt{C\allowbreak{}o\allowbreak{}n\allowbreak{}c\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}D\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}i\allowbreak{}n\allowbreak{}g}).
+With faulty syndrome gadgets the threshold constant is theirs, set by
+the location count of an extended rectangle, rather than the \(1/21\) of
+the memory model. \\
+\end{longtable}
+}
 
 \textbf{Physical premises now compiled.} Guard 1 (the second law in its
 export form) is derived from Landauer's theorem (§23.2), and the quantum
@@ -4445,6 +4515,17 @@ that loses the mind with positive probability; canonical
 kept-probability tends to one (§15.2; G.15) \\
 \texttt{CutEquivalence} & A closed dependency component is exactly a
 separator with empty certified boundary (§24.3; G.15) \\
+\texttt{C\allowbreak{}o\allowbreak{}n\allowbreak{}c\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}D\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}i\allowbreak{}n\allowbreak{}g}
+& The concatenated memory decodes its record unless its block fails;
+actual decoding failure is bounded by \((21p)^{2^k}/21\) (§23.8;
+G.15) \\
+\texttt{ChannelCP} & The completed decoder is completely positive:
+amplified by any finite reference it maps positive semidefinite inputs
+to positive semidefinite outputs (G.1; G.13) \\
+\texttt{P\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}S\allowbreak{}t\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}T\allowbreak{}r\allowbreak{}a\allowbreak{}c\allowbreak{}e\allowbreak{}N\allowbreak{}o\allowbreak{}r\allowbreak{}m}
+& The pure-state trace-distance identity
+\(\|\,|\psi\rangle\langle\psi|-|\varphi\rangle\langle\varphi|\,\|_1=2\sqrt{1-|\langle\psi,\varphi\rangle|^2}\)
+(§23.3; G.13) \\
 \texttt{R14Rivals}, \texttt{R15CausalGluing} & The staged order;
 greatestness reduced exactly to feasible boundary representatives;
 envelope transfer; no clairvoyant per-world selection (G.15) \\
@@ -5492,6 +5573,20 @@ Theorems
 \texttt{c\allowbreak{}a\allowbreak{}n\allowbreak{}o\allowbreak{}n\allowbreak{}i\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}d\allowbreak{}s\allowbreak{}\_\allowbreak{}t\allowbreak{}o\allowbreak{}\_\allowbreak{}o\allowbreak{}n\allowbreak{}e} \\
 \texttt{CutEquivalence} &
 \texttt{c\allowbreak{}l\allowbreak{}o\allowbreak{}s\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}i\allowbreak{}f\allowbreak{}f\allowbreak{}\_\allowbreak{}n\allowbreak{}o\allowbreak{}\_\allowbreak{}b\allowbreak{}y\allowbreak{}p\allowbreak{}a\allowbreak{}s\allowbreak{}s} \\
+\texttt{C\allowbreak{}o\allowbreak{}n\allowbreak{}c\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}D\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}i\allowbreak{}n\allowbreak{}g}
+& \texttt{outer\_decodes}, \texttt{mem\_sub},
+\texttt{d\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}s\allowbreak{}\_\allowbreak{}u\allowbreak{}n\allowbreak{}l\allowbreak{}e\allowbreak{}s\allowbreak{}s\allowbreak{}\_\allowbreak{}f\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}s},
+\texttt{d\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}i\allowbreak{}n\allowbreak{}g\allowbreak{}\_\allowbreak{}f\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}\_\allowbreak{}l\allowbreak{}e} \\
+\texttt{ChannelCP} & \texttt{kron\_entry}, \texttt{amp\_eq},
+\texttt{compress\_entry}, \texttt{mp\_posSemidef},
+\texttt{d\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}r\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}m\allowbreak{}p\allowbreak{}l\allowbreak{}e\allowbreak{}t\allowbreak{}e\allowbreak{}l\allowbreak{}y\allowbreak{}\_\allowbreak{}p\allowbreak{}o\allowbreak{}s\allowbreak{}i\allowbreak{}t\allowbreak{}i\allowbreak{}v\allowbreak{}e} \\
+\texttt{P\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}S\allowbreak{}t\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}T\allowbreak{}r\allowbreak{}a\allowbreak{}c\allowbreak{}e\allowbreak{}N\allowbreak{}o\allowbreak{}r\allowbreak{}m}
+&
+\texttt{s\allowbreak{}u\allowbreak{}m\allowbreak{}\_\allowbreak{}s\allowbreak{}q\allowbreak{}\_\allowbreak{}e\allowbreak{}i\allowbreak{}g\allowbreak{}e\allowbreak{}n\allowbreak{}v\allowbreak{}a\allowbreak{}l\allowbreak{}u\allowbreak{}e\allowbreak{}s},
+\texttt{eigenvalue\_cube},
+\texttt{p\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}D\allowbreak{}i\allowbreak{}f\allowbreak{}f\allowbreak{}\_\allowbreak{}h\allowbreak{}e\allowbreak{}r\allowbreak{}m\allowbreak{}i\allowbreak{}t\allowbreak{}i\allowbreak{}a\allowbreak{}n},
+\texttt{vmv\_smul}, \texttt{star\_dot\_swap}, \texttt{pure\_cube},
+\texttt{pure\_trace\_sq}, \texttt{pure\_trace\_norm} \\
 \end{longtable}
 }
 
@@ -6169,10 +6264,12 @@ preservation and positivity of this channel are compiled
 (\texttt{C\allowbreak{}h\allowbreak{}a\allowbreak{}n\allowbreak{}n\allowbreak{}e\allowbreak{}l\allowbreak{}E\allowbreak{}x\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}s\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}.\allowbreak{}e\allowbreak{}x\allowbreak{}t\allowbreak{}\_\allowbreak{}r\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}v\allowbreak{}e\allowbreak{}r\allowbreak{}s},
 \texttt{e\allowbreak{}x\allowbreak{}t\allowbreak{}\_\allowbreak{}r\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}v\allowbreak{}e\allowbreak{}r\allowbreak{}s\allowbreak{}\_\allowbreak{}r\allowbreak{}e\allowbreak{}f\allowbreak{}e\allowbreak{}r\allowbreak{}e\allowbreak{}n\allowbreak{}c\allowbreak{}e},
 \texttt{ext\_trace}, \texttt{ext\_posSemidef}; G.13); complete
-positivity of its two summands, a conjugation and a measure-and-prepare
-map, is the standard fact cited. The existing finite-code correction
-theorem supplies the noisy-radius guarantee when the physical
-perturbation satisfies that certificate.
+positivity is compiled: for every finite reference register the
+amplified decoder maps positive semidefinite inputs to positive
+semidefinite outputs
+(\texttt{C\allowbreak{}h\allowbreak{}a\allowbreak{}n\allowbreak{}n\allowbreak{}e\allowbreak{}l\allowbreak{}C\allowbreak{}P\allowbreak{}.\allowbreak{}d\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}r\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}m\allowbreak{}p\allowbreak{}l\allowbreak{}e\allowbreak{}t\allowbreak{}e\allowbreak{}l\allowbreak{}y\allowbreak{}\_\allowbreak{}p\allowbreak{}o\allowbreak{}s\allowbreak{}i\allowbreak{}t\allowbreak{}i\allowbreak{}v\allowbreak{}e}).
+The existing finite-code correction theorem supplies the noisy-radius
+guarantee when the physical perturbation satisfies that certificate.
 
 \subsection{G.2 Charge and the complete historical
 algebra}\label{g.2-charge-and-the-complete-historical-algebra}
@@ -7175,18 +7272,30 @@ with \(E^\dagger E=I\).
   (\texttt{ext\_posSemidef}).
 \end{itemize}
 
-Complete positivity follows from the two summands: a conjugation, and a
-measure-and-prepare map. That standard fact is cited.
+Complete positivity is compiled (\texttt{ChannelCP}). Amplified by any
+finite reference register, the decoder is
+\((E^\dagger\otimes I)Y(E^\dagger\otimes I)^\dagger+\rho_0\otimes T(Y)\)
+(\texttt{amp\_eq}). Here \(T(Y)\) is positive semidefinite as a sum of
+compressions of \((B\otimes I)Y(B\otimes I)^\dagger\), where
+\(I-EE^\dagger=B^\dagger B\) (\texttt{mp\_posSemidef}). The decoder
+therefore maps positive semidefinite inputs to positive semidefinite
+outputs for every reference
+(\texttt{d\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}r\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}m\allowbreak{}p\allowbreak{}l\allowbreak{}e\allowbreak{}t\allowbreak{}e\allowbreak{}l\allowbreak{}y\allowbreak{}\_\allowbreak{}p\allowbreak{}o\allowbreak{}s\allowbreak{}i\allowbreak{}t\allowbreak{}i\allowbreak{}v\allowbreak{}e}).
 
 \textbf{State-vector distance bounds infidelity}
 (\texttt{P\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}S\allowbreak{}t\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}D\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e},
 §23.3). For unit vectors,
 \(1-|\langle\psi,\varphi\rangle|^2\le\|\psi-\varphi\|^2\)
 (\texttt{p\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}\_\allowbreak{}i\allowbreak{}n\allowbreak{}f\allowbreak{}i\allowbreak{}d\allowbreak{}e\allowbreak{}l\allowbreak{}i\allowbreak{}t\allowbreak{}y\allowbreak{}\_\allowbreak{}l\allowbreak{}e}).
-With the standard pure-state identity
-\(\tfrac12\|\rho-\sigma\|_1=\sqrt{1-|\langle\psi,\varphi\rangle|^2}\),
-which is cited, this gives
-\(\tfrac12\|\rho-\sigma\|_1\le\|\psi-\varphi\|\). The speed-limit
+The pure-state identity
+\(\|\rho-\sigma\|_1=2\sqrt{1-|\langle\psi,\varphi\rangle|^2}\) is
+compiled for the trace norm as the sum of absolute eigenvalues
+(\texttt{P\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}S\allowbreak{}t\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}T\allowbreak{}r\allowbreak{}a\allowbreak{}c\allowbreak{}e\allowbreak{}N\allowbreak{}o\allowbreak{}r\allowbreak{}m\allowbreak{}.\allowbreak{}p\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}\_\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}c\allowbreak{}e\allowbreak{}\_\allowbreak{}n\allowbreak{}o\allowbreak{}r\allowbreak{}m}).
+The proof uses \((P-Q)^3=(1-|\langle\psi,\varphi\rangle|^2)(P-Q)\)
+(\texttt{pure\_cube}), so every eigenvalue is \(0\) or \(\pm s\), and
+\(\operatorname{Tr}(P-Q)^2=2s^2\) (\texttt{pure\_trace\_sq},
+\texttt{s\allowbreak{}u\allowbreak{}m\allowbreak{}\_\allowbreak{}s\allowbreak{}q\allowbreak{}\_\allowbreak{}e\allowbreak{}i\allowbreak{}g\allowbreak{}e\allowbreak{}n\allowbreak{}v\allowbreak{}a\allowbreak{}l\allowbreak{}u\allowbreak{}e\allowbreak{}s}).
+Hence \(\tfrac12\|\rho-\sigma\|_1\le\|\psi-\varphi\|\). The speed-limit
 bounds, stated in state-vector norm, therefore bound the infidelity and
 the trace distance of the held state.
 
@@ -7289,6 +7398,23 @@ with empty certified boundary
 (\texttt{c\allowbreak{}l\allowbreak{}o\allowbreak{}s\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}i\allowbreak{}f\allowbreak{}f\allowbreak{}\_\allowbreak{}n\allowbreak{}o\allowbreak{}\_\allowbreak{}b\allowbreak{}y\allowbreak{}p\allowbreak{}a\allowbreak{}s\allowbreak{}s}),
 and the separator form extends it to a matched certified boundary
 (\texttt{U\allowbreak{}P\allowbreak{}T\allowbreak{}R\allowbreak{}1\allowbreak{}6\allowbreak{}C\allowbreak{}u\allowbreak{}t\allowbreak{}.\allowbreak{}c\allowbreak{}a\allowbreak{}u\allowbreak{}s\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}s\allowbreak{}e\allowbreak{}p\allowbreak{}a\allowbreak{}r\allowbreak{}a\allowbreak{}t\allowbreak{}o\allowbreak{}r}).
+
+\textbf{The concatenated memory decodes its record unless its block
+fails}
+(\texttt{C\allowbreak{}o\allowbreak{}n\allowbreak{}c\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}D\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}i\allowbreak{}n\allowbreak{}g},
+§23.8). The record is encoded recursively onto the \(7^k\) locations
+through an outer code of Hamming distance at least three. It is decoded
+recursively by nearest codeword at every level. If the block does not
+fail in the recursive sense of
+\texttt{C\allowbreak{}o\allowbreak{}n\allowbreak{}c\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}a\allowbreak{}t\allowbreak{}e\allowbreak{}d\allowbreak{}.\allowbreak{}F\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}s},
+decoding returns the original record, whatever values the faulty
+locations hold
+(\texttt{d\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}s\allowbreak{}\_\allowbreak{}u\allowbreak{}n\allowbreak{}l\allowbreak{}e\allowbreak{}s\allowbreak{}s\allowbreak{}\_\allowbreak{}f\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}s}).
+The proof is by induction on the level: at most one sub-block fails, the
+other six decode to their outer-code symbols, and the outer code
+corrects one symbol (\texttt{outer\_decodes}). Actual decoding failure
+therefore has probability at most \((21p)^{2^k}/21\)
+(\texttt{d\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}i\allowbreak{}n\allowbreak{}g\allowbreak{}\_\allowbreak{}f\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}\_\allowbreak{}l\allowbreak{}e}).
 
 \textbf{Volume and boundary} (\texttt{RegionBoundary}, F.3). For every
 region of a connected relational structure other than the whole,
@@ -7465,14 +7591,13 @@ maps, with the premises it lists. Elsewhere, prose remains prose.
 edition}\label{appendix-verification-provenance-of-this-edition}
 
 The original published baseline contains 115 modules and 831 audited
-names. The current tree contains 166 modules and 1025 audited public
-theorem/lemma names. All 157 modules of the 993-name tree were freshly
-compiled and kernel-checked in one run, the nine further modules were
-compiled and kernel-checked fresh against those objects, and the full
-axiom, completeness and claims gates were freshly run, overall PASS. The
-earlier receipts, including the 924-name combined receipt that reused
-Beam's 136 results, are preserved with their banks. The original failed
-run is preserved in the integration bank.
+names. The current tree contains 169 modules and 1042 audited public
+theorem/lemma names. All 169 modules were freshly compiled and
+kernel-checked in one run, and the full axiom, completeness and claims
+gates were freshly run, overall PASS. The earlier receipts, including
+the 924-name combined receipt that reused Beam's 136 results, are
+preserved with their banks. The original failed run is preserved in the
+integration bank.
 
 The eight-module integration and its 896-statement receipt remain
 preserved. This increment adds 28 checked statements in the existing

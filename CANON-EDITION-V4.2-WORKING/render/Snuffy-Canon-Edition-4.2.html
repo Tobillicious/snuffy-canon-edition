@@ -630,17 +630,16 @@ realisability of the whole greatest outcome tuple (G2; G.9, G.11), and
 the wavefront protocol’s success and complete-work certificate (G3;
 G.12). Their targets are unchanged. Naming an input or relabelling a
 conclusion does not supply its construction.</p>
-<p>The current Lean tree contains 166 modules and 1025 audited public
-theorem/lemma names. All 157 modules of the 993-name tree were freshly
-compiled and kernel-checked in one run, the nine further modules were
-compiled and kernel-checked fresh against those objects, and the full
-axiom audit over all 1025 names and the completeness and claims gates
-were freshly run, overall PASS. The earlier receipts, including the
-924-name combined receipt that reused Beam’s 136 results, are preserved
-with their banks. Seven previously omitted public helper lemmas are
-included. The original published 115-module/831-name baseline remains
-preserved. The architecture interfaces and their construction links are
-distinguished in Section 23.9.</p>
+<p>The current Lean tree contains 169 modules and 1042 audited public
+theorem/lemma names. All 169 modules were freshly compiled and
+kernel-checked in one run, and the full axiom audit over all 1042 names
+and the completeness and claims gates were freshly run, overall PASS.
+The earlier receipts, including the 924-name combined receipt that
+reused Beam’s 136 results, are preserved with their banks. Seven
+previously omitted public helper lemmas are included. The original
+published 115-module/831-name baseline remains preserved. The
+architecture interfaces and their construction links are distinguished
+in Section 23.9.</p>
 <p><strong>Structure.</strong> Part I states the frame and premise
 stack. Part II supplies the law, the derived holding bridge and the
 retained instruments. Part III retains the five-chapter synthesis;
@@ -4409,7 +4408,7 @@ design values, not compiled theorems.</p>
 <h2 id="section-23-the-machine-checked-canon">Section 23 — The
 machine-checked canon</h2>
 <p><em>This section maps the edition’s compiled results and their actual
-hypotheses. The current source contains 166 modules and 1025 audited
+hypotheses. The current source contains 169 modules and 1042 audited
 public theorem/lemma names. The receipt records a fresh compilation and
 kernel check of every module, a fresh full axiom audit with only
 <code>propext</code>, <code>Classical.choice</code> and
@@ -4772,9 +4771,10 @@ orthogonalisation time
 states the infidelity is bounded by the squared state-vector distance,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">⟨</mo><mi>ψ</mi><mo>,</mo><mi>φ</mi><mo stretchy="false" form="postfix">⟩</mo><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo>≤</mo><mo stretchy="false" form="postfix">∥</mo><mi>ψ</mi><mo>−</mo><mi>φ</mi><msup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">1-|\langle\psi,\varphi\rangle|^2\le\|\psi-\varphi\|^2</annotation></semantics></math>
 (<code>PureStateDistance.pure_infidelity_le</code>; G.13); with the
-standard pure-state identity
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo stretchy="false" form="postfix">∥</mo><mi>ρ</mi><mo>−</mo><mi>σ</mi><msub><mo stretchy="false" form="postfix">∥</mo><mn>1</mn></msub><mo>=</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">⟨</mo><mi>ψ</mi><mo>,</mo><mi>φ</mi><mo stretchy="false" form="postfix">⟩</mo><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">\tfrac12\|\rho-\sigma\|_1=\sqrt{1-|\langle\psi,\varphi\rangle|^2}</annotation></semantics></math>
-this gives
+pure-state identity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mi>ρ</mi><mo>−</mo><mi>σ</mi><msub><mo stretchy="false" form="postfix">∥</mo><mn>1</mn></msub><mo>=</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">⟨</mo><mi>ψ</mi><mo>,</mo><mi>φ</mi><mo stretchy="false" form="postfix">⟩</mo><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">\|\rho-\sigma\|_1=2\sqrt{1-|\langle\psi,\varphi\rangle|^2}</annotation></semantics></math>,
+now compiled (<code>PureStateTraceNorm.pure_trace_norm</code>), this
+gives
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mi>ρ</mi><mo>−</mo><mi>σ</mi><msub><mo stretchy="false" form="postfix">∥</mo><mn>1</mn></msub><mo>≤</mo><mn>2</mn><mo stretchy="false" form="postfix">∥</mo><mi>ψ</mi><mo>−</mo><mi>φ</mi><mo stretchy="false" form="postfix">∥</mo></mrow><annotation encoding="application/x-tex">\|\rho-\sigma\|_1\le2\|\psi-\varphi\|</annotation></semantics></math>.</p>
 <h3 id="h5-20-chapter-4">23.4 H5 (§20; Chapter 4)</h3>
 <table>
@@ -5050,12 +5050,19 @@ such chains of length
 — as the code-specific input to <code>Threshold.family_ceiling</code>
 for the surface-code instance. The threshold theorem’s counting core is
 compiled (§23.6), and for concatenated codes the threshold is compiled
-end to end with no carried code-specific input: failure probability at
-most
+end to end for the concatenated memory: failure probability at most
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>21</mn><mi>p</mi><msup><mo stretchy="false" form="postfix">)</mo><msup><mn>2</mn><mi>k</mi></msup></msup><mi>/</mi><mn>21</mn></mrow><annotation encoding="application/x-tex">(21p)^{2^k}/21</annotation></semantics></math>
 under local stochastic noise
-(<code>Concatenated.concatenated_threshold</code>), so the fault ceiling
-is attained on a fully compiled route;</li>
+(<code>Concatenated.concatenated_threshold</code>). Actual decoding
+failure is identified with the recursive failure predicate: with
+nearest-codeword decoding at every level, any corruption of a
+non-failing fault set decodes to the stored record
+(<code>ConcatenatedDecoding.decodes_unless_fails</code>). So the
+probability of actual decoding failure is at most the same bound
+(<code>decoding_failure_le</code>), and the fault ceiling is attained on
+a compiled route. Fault-tolerant syndrome-measurement gadgets whose own
+operations can fail are the cited construction of Aliferis, Gottesman
+and Preskill (2006); their faults enter the charged accounts;</li>
 <li>Bennett’s reversible counterpart, now constructed: the Bennett cycle
 delivers zero heat, an irreversible merging overwrite delivers strictly
 positive heat, and the counterpart runs the same policy with the same
@@ -5077,6 +5084,78 @@ every two-level factor;</li>
 the Bennett counterpart is constructed (G.14); the gate-set item is the
 explicit hypothesis of a compiled theorem; the fourth is the frame the
 edition is stated in.</p>
+<p><strong>The cited theorems and their hypotheses.</strong> Three
+published theorems remain cited. Each is applied within its stated
+conditions.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Cited theorem</th>
+<th>Form used</th>
+<th>Our setting meets its conditions because</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Surface-code chain lemma (Dennis, Kitaev, Landahl and Preskill,
+<em>J. Math. Phys.</em> 43, 2002)</td>
+<td>Minimum-weight decoding fails only along a self-avoiding chain of
+length at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+with at least half its edges faulty; at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><msup><mi mathvariant="normal">Δ</mi><mi>L</mi></msup></mrow><annotation encoding="application/x-tex">V\Delta^L</annotation></semantics></math>
+such chains of length
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math></td>
+<td>The counting argument uses only that a given set of locations is
+entirely faulty with probability at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>p</mi><mrow><mo stretchy="false" form="prefix">|</mo><mi>S</mi><mo stretchy="false" form="prefix">|</mo></mrow></msup><annotation encoding="application/x-tex">p^{|S|}</annotation></semantics></math>.
+That is exactly <code>Threshold.LocalStochastic</code>, which includes
+independent noise and is weaker than it. It enters
+<code>Threshold.family_ceiling</code> as the witness and count
+inputs.</td>
+</tr>
+<tr>
+<td>Solovay–Kitaev theorem (Kitaev 1997; Dawson and Nielsen 2006), with
+the two-level-to-gate reduction of Nielsen and Chuang, §4.5</td>
+<td>Every single-qubit unitary is approximated to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ε</mi><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math>
+in operator norm by a word of length polylogarithmic in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>ε</mi></mrow><annotation encoding="application/x-tex">1/\varepsilon</annotation></semantics></math>
+over a finite, inverse-closed set generating a dense subgroup; two-level
+unitaries reduce to CNOTs and single-qubit gates</td>
+<td><code>TwoLevel.two_level_decomposition</code> writes every unitary
+as a product of two-level factors. <code>ErrorBudget.error_budget</code>
+needs each factor within
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mi>/</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">\varepsilon/m</annotation></semantics></math>
+in the norm of a normed ring of contractions; operator-norm
+approximation by unitaries meets that. The gate set must be universal in
+this sense; that is the gate-set clause of premise 2.</td>
+</tr>
+<tr>
+<td>Fault-tolerant syndrome gadgets (Aliferis, Gottesman and Preskill,
+<em>Quantum Inf. Comput.</em> 6, 2006)</td>
+<td>Under local stochastic noise, a
+level-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+extended rectangle is correct unless it contains two independent
+malignant
+level-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(k-1)</annotation></semantics></math>
+rectangles</td>
+<td>Their noise model is local stochastic noise, as in
+<code>Threshold.LocalStochastic</code>. Their recursion is the recursion
+of <code>Concatenated.Fails</code>, now joined to actual decoding of the
+memory (<code>ConcatenatedDecoding</code>). With faulty syndrome gadgets
+the threshold constant is theirs, set by the location count of an
+extended rectangle, rather than the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>21</mn></mrow><annotation encoding="application/x-tex">1/21</annotation></semantics></math>
+of the memory model.</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Physical premises now compiled.</strong> Guard 1 (the second
 law in its export form) is derived from Landauer’s theorem (§23.2), and
 the quantum speed limit, in Mandelstam–Tamm form and in the rate-bound
@@ -5295,6 +5374,25 @@ kept-probability tends to one (§15.2; G.15)</td>
 <td><code>CutEquivalence</code></td>
 <td>A closed dependency component is exactly a separator with empty
 certified boundary (§24.3; G.15)</td>
+</tr>
+<tr>
+<td><code>ConcatenatedDecoding</code></td>
+<td>The concatenated memory decodes its record unless its block fails;
+actual decoding failure is bounded by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>21</mn><mi>p</mi><msup><mo stretchy="false" form="postfix">)</mo><msup><mn>2</mn><mi>k</mi></msup></msup><mi>/</mi><mn>21</mn></mrow><annotation encoding="application/x-tex">(21p)^{2^k}/21</annotation></semantics></math>
+(§23.8; G.15)</td>
+</tr>
+<tr>
+<td><code>ChannelCP</code></td>
+<td>The completed decoder is completely positive: amplified by any
+finite reference it maps positive semidefinite inputs to positive
+semidefinite outputs (G.1; G.13)</td>
+</tr>
+<tr>
+<td><code>PureStateTraceNorm</code></td>
+<td>The pure-state trace-distance identity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mspace width="0.167em"></mspace><mo stretchy="false" form="prefix">|</mo><mi>ψ</mi><mo stretchy="false" form="postfix">⟩</mo><mo stretchy="false" form="prefix">⟨</mo><mi>ψ</mi><mo stretchy="false" form="prefix">|</mo><mi>−</mi><mo stretchy="false" form="prefix">|</mo><mi>φ</mi><mo stretchy="false" form="postfix">⟩</mo><mo stretchy="false" form="prefix">⟨</mo><mi>φ</mi><mo stretchy="false" form="prefix">|</mo><mspace width="0.167em"></mspace><msub><mo stretchy="false" form="postfix">∥</mo><mn>1</mn></msub><mo>=</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">⟨</mo><mi>ψ</mi><mo>,</mo><mi>φ</mi><mo stretchy="false" form="postfix">⟩</mo><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">\|\,|\psi\rangle\langle\psi|-|\varphi\rangle\langle\varphi|\,\|_1=2\sqrt{1-|\langle\psi,\varphi\rangle|^2}</annotation></semantics></math>
+(§23.3; G.13)</td>
 </tr>
 <tr>
 <td><code>R14Rivals</code>, <code>R15CausalGluing</code></td>
@@ -6530,6 +6628,24 @@ theorem listed here is kernel-checked and axiom-audited by
 <td><code>CutEquivalence</code></td>
 <td><code>closed_iff_no_bypass</code></td>
 </tr>
+<tr>
+<td><code>ConcatenatedDecoding</code></td>
+<td><code>outer_decodes</code>, <code>mem_sub</code>,
+<code>decodes_unless_fails</code>, <code>decoding_failure_le</code></td>
+</tr>
+<tr>
+<td><code>ChannelCP</code></td>
+<td><code>kron_entry</code>, <code>amp_eq</code>,
+<code>compress_entry</code>, <code>mp_posSemidef</code>,
+<code>decoder_completely_positive</code></td>
+</tr>
+<tr>
+<td><code>PureStateTraceNorm</code></td>
+<td><code>sum_sq_eigenvalues</code>, <code>eigenvalue_cube</code>,
+<code>pureDiff_hermitian</code>, <code>vmv_smul</code>,
+<code>star_dot_swap</code>, <code>pure_cube</code>,
+<code>pure_trace_sq</code>, <code>pure_trace_norm</code></td>
+</tr>
 </tbody>
 </table>
 <!-- END THEOREM INDEX -->
@@ -7150,11 +7266,12 @@ and the second vanishes on encoded inputs. The exact recovery, including
 with any reference register, trace preservation and positivity of this
 channel are compiled (<code>ChannelExtension.ext_recovers</code>,
 <code>ext_recovers_reference</code>, <code>ext_trace</code>,
-<code>ext_posSemidef</code>; G.13); complete positivity of its two
-summands, a conjugation and a measure-and-prepare map, is the standard
-fact cited. The existing finite-code correction theorem supplies the
-noisy-radius guarantee when the physical perturbation satisfies that
-certificate.</p>
+<code>ext_posSemidef</code>; G.13); complete positivity is compiled: for
+every finite reference register the amplified decoder maps positive
+semidefinite inputs to positive semidefinite outputs
+(<code>ChannelCP.decoder_completely_positive</code>). The existing
+finite-code correction theorem supplies the noisy-radius guarantee when
+the physical perturbation satisfies that certificate.</p>
 <h2 id="g.2-charge-and-the-complete-historical-algebra">G.2 Charge and
 the complete historical algebra</h2>
 <p>Define the boundary representative of every code observable by</p>
@@ -8158,14 +8275,33 @@ retained.</li>
 <li>It maps positive semidefinite inputs to positive semidefinite
 outputs (<code>ext_posSemidef</code>).</li>
 </ul>
-<p>Complete positivity follows from the two summands: a conjugation, and
-a measure-and-prepare map. That standard fact is cited.</p>
+<p>Complete positivity is compiled (<code>ChannelCP</code>). Amplified
+by any finite reference register, the decoder is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>E</mi><mo>†</mo></msup><mo>⊗</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>E</mi><mo>†</mo></msup><mo>⊗</mo><mi>I</mi><msup><mo stretchy="false" form="postfix">)</mo><mo>†</mo></msup><mo>+</mo><msub><mi>ρ</mi><mn>0</mn></msub><mo>⊗</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(E^\dagger\otimes I)Y(E^\dagger\otimes I)^\dagger+\rho_0\otimes T(Y)</annotation></semantics></math>
+(<code>amp_eq</code>). Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">T(Y)</annotation></semantics></math>
+is positive semidefinite as a sum of compressions of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo>⊗</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo>⊗</mo><mi>I</mi><msup><mo stretchy="false" form="postfix">)</mo><mo>†</mo></msup></mrow><annotation encoding="application/x-tex">(B\otimes I)Y(B\otimes I)^\dagger</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>−</mo><mi>E</mi><msup><mi>E</mi><mo>†</mo></msup><mo>=</mo><msup><mi>B</mi><mo>†</mo></msup><mi>B</mi></mrow><annotation encoding="application/x-tex">I-EE^\dagger=B^\dagger B</annotation></semantics></math>
+(<code>mp_posSemidef</code>). The decoder therefore maps positive
+semidefinite inputs to positive semidefinite outputs for every reference
+(<code>decoder_completely_positive</code>).</p>
 <p><strong>State-vector distance bounds infidelity</strong>
 (<code>PureStateDistance</code>, §23.3). For unit vectors,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">⟨</mo><mi>ψ</mi><mo>,</mo><mi>φ</mi><mo stretchy="false" form="postfix">⟩</mo><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo>≤</mo><mo stretchy="false" form="postfix">∥</mo><mi>ψ</mi><mo>−</mo><mi>φ</mi><msup><mo stretchy="false" form="postfix">∥</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">1-|\langle\psi,\varphi\rangle|^2\le\|\psi-\varphi\|^2</annotation></semantics></math>
-(<code>pure_infidelity_le</code>). With the standard pure-state identity
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo stretchy="false" form="postfix">∥</mo><mi>ρ</mi><mo>−</mo><mi>σ</mi><msub><mo stretchy="false" form="postfix">∥</mo><mn>1</mn></msub><mo>=</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">⟨</mo><mi>ψ</mi><mo>,</mo><mi>φ</mi><mo stretchy="false" form="postfix">⟩</mo><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">\tfrac12\|\rho-\sigma\|_1=\sqrt{1-|\langle\psi,\varphi\rangle|^2}</annotation></semantics></math>,
-which is cited, this gives
+(<code>pure_infidelity_le</code>). The pure-state identity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">∥</mo><mi>ρ</mi><mo>−</mo><mi>σ</mi><msub><mo stretchy="false" form="postfix">∥</mo><mn>1</mn></msub><mo>=</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">⟨</mo><mi>ψ</mi><mo>,</mo><mi>φ</mi><mo stretchy="false" form="postfix">⟩</mo><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">\|\rho-\sigma\|_1=2\sqrt{1-|\langle\psi,\varphi\rangle|^2}</annotation></semantics></math>
+is compiled for the trace norm as the sum of absolute eigenvalues
+(<code>PureStateTraceNorm.pure_trace_norm</code>). The proof uses
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>P</mi><mo>−</mo><mi>Q</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>3</mn></msup><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">⟨</mo><mi>ψ</mi><mo>,</mo><mi>φ</mi><mo stretchy="false" form="postfix">⟩</mo><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>P</mi><mo>−</mo><mi>Q</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(P-Q)^3=(1-|\langle\psi,\varphi\rangle|^2)(P-Q)</annotation></semantics></math>
+(<code>pure_cube</code>), so every eigenvalue is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>
+or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>±</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">\pm s</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">Tr</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>P</mi><mo>−</mo><mi>Q</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>=</mo><mn>2</mn><msup><mi>s</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\operatorname{Tr}(P-Q)^2=2s^2</annotation></semantics></math>
+(<code>pure_trace_sq</code>, <code>sum_sq_eigenvalues</code>). Hence
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo stretchy="false" form="postfix">∥</mo><mi>ρ</mi><mo>−</mo><mi>σ</mi><msub><mo stretchy="false" form="postfix">∥</mo><mn>1</mn></msub><mo>≤</mo><mo stretchy="false" form="postfix">∥</mo><mi>ψ</mi><mo>−</mo><mi>φ</mi><mo stretchy="false" form="postfix">∥</mo></mrow><annotation encoding="application/x-tex">\tfrac12\|\rho-\sigma\|_1\le\|\psi-\varphi\|</annotation></semantics></math>.
 The speed-limit bounds, stated in state-vector norm, therefore bound the
 infidelity and the trace distance of the held state.</p>
@@ -8256,6 +8392,21 @@ separator with empty certified boundary
 (<code>closed_iff_no_bypass</code>), and the separator form extends it
 to a matched certified boundary
 (<code>UPTR16Cut.causal_separator</code>).</p>
+<p><strong>The concatenated memory decodes its record unless its block
+fails</strong> (<code>ConcatenatedDecoding</code>, §23.8). The record is
+encoded recursively onto the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>7</mn><mi>k</mi></msup><annotation encoding="application/x-tex">7^k</annotation></semantics></math>
+locations through an outer code of Hamming distance at least three. It
+is decoded recursively by nearest codeword at every level. If the block
+does not fail in the recursive sense of <code>Concatenated.Fails</code>,
+decoding returns the original record, whatever values the faulty
+locations hold (<code>decodes_unless_fails</code>). The proof is by
+induction on the level: at most one sub-block fails, the other six
+decode to their outer-code symbols, and the outer code corrects one
+symbol (<code>outer_decodes</code>). Actual decoding failure therefore
+has probability at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>21</mn><mi>p</mi><msup><mo stretchy="false" form="postfix">)</mo><msup><mn>2</mn><mi>k</mi></msup></msup><mi>/</mi><mn>21</mn></mrow><annotation encoding="application/x-tex">(21p)^{2^k}/21</annotation></semantics></math>
+(<code>decoding_failure_le</code>).</p>
 <p><strong>Volume and boundary</strong> (<code>RegionBoundary</code>,
 F.3). For every region of a connected relational structure other than
 the whole, positive volume holds exactly when the boundary homology is
@@ -8386,14 +8537,13 @@ it maps, with the premises it lists. Elsewhere, prose remains prose.</p>
 <h1 id="appendix-verification-provenance-of-this-edition">Appendix —
 Verification provenance of this edition</h1>
 <p>The original published baseline contains 115 modules and 831 audited
-names. The current tree contains 166 modules and 1025 audited public
-theorem/lemma names. All 157 modules of the 993-name tree were freshly
-compiled and kernel-checked in one run, the nine further modules were
-compiled and kernel-checked fresh against those objects, and the full
-axiom, completeness and claims gates were freshly run, overall PASS. The
-earlier receipts, including the 924-name combined receipt that reused
-Beam’s 136 results, are preserved with their banks. The original failed
-run is preserved in the integration bank.</p>
+names. The current tree contains 169 modules and 1042 audited public
+theorem/lemma names. All 169 modules were freshly compiled and
+kernel-checked in one run, and the full axiom, completeness and claims
+gates were freshly run, overall PASS. The earlier receipts, including
+the 924-name combined receipt that reused Beam’s 136 results, are
+preserved with their banks. The original failed run is preserved in the
+integration bank.</p>
 <p>The eight-module integration and its 896-statement receipt remain
 preserved. This increment adds 28 checked statements in the existing
 DecoderRetraction, HamiltonianDecomposition and WorkBilling modules,

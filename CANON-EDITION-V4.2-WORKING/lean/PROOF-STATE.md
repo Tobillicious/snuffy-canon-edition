@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 166. Corpus module names: 81. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
+Canon modules: 169. Corpus module names: 84. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 166. Audit imports: 166.
+Build modules: 169. Audit imports: 169.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -133,10 +133,12 @@ Build modules: 166. Audit imports: 166.
 | `BridgeH8` | yes | `2026-10-23-gemini-bridge-dynamics/lean/BridgeH8.lean` |
 | `CanonVonNeumann` | yes | `(canon only)` |
 | `CascadeCore` | yes | `2026-10-23-adoption-contracts/lean/CascadeCore.lean` |
+| `ChannelCP` | yes | `2026-10-25-historical-handoff-source/cited-small/lean/Snuffy/ChannelCP.lean` |
 | `ChannelExtension` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/ChannelExtension.lean` |
 | `ClosedCohold` | yes | `(canon only)` |
 | `Composition` | yes | `(canon only)` |
 | `Concatenated` | yes | `(canon only)` |
+| `ConcatenatedDecoding` | yes | `2026-10-25-historical-handoff-source/concatenated-decoding/lean/Snuffy/ConcatenatedDecoding.lean` |
 | `ConsensusRate` | yes | `(canon only)` |
 | `ConservedRouting` | yes | `2026-10-24-glm-phase-a/lean/ConservedRouting.lean` |
 | `ControllerCertificate` | yes | `2026-10-24-glm-phase-a/lean/ControllerCertificate.lean` |
@@ -219,6 +221,7 @@ Build modules: 166. Audit imports: 166.
 | `PhysicalGuard` | yes | `(canon only)` |
 | `PremiseFloor` | yes | `(canon only)` |
 | `PureStateDistance` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/PureStateDistance.lean` |
+| `PureStateTraceNorm` | yes | `2026-10-25-historical-handoff-source/cited-small/lean/Snuffy/PureStateTraceNorm.lean` |
 | `QuantumLandauer` | yes | `(canon only)` |
 | `QueueDeadline` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/QueueDeadline.lean` |
 | `R14Boundary` | yes | `(canon only)` |
