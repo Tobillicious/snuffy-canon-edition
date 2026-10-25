@@ -591,3 +591,45 @@ the interface.
   1. the decoder's interface property, to be checked by enumeration;
   2. W's tolerance of a θ fraction of failed patches;
   3. reliability of long-lived holding at fixed size, which joins the open holding-power item.
+
+---
+
+# Item 4 classified; round 9 (item-5 subtasks) disposition; one question for the author (26 October)
+
+## Item 4 — `ITEM-4-MAP-CLASSIFICATION.md`
+
+Nine runtime maps are classified. Holding correction, patch decode, merge/split, the padding boundary
+encoder, its decoder, the handoff and the guard are exact Clifford circuits with classical control,
+over the enumerated gate set {R, H, CX, I, M}. The modular flow (smearing) is not a runtime map: the
+canon's finite-basis route α(A) = E A E†, with D = E†, is exact. The Bennett administration is exact
+reversible logic, and its quantum lift is exact over Clifford+T. No repeated map needs an
+approximation whose precision depends on ε or on age, so there is no compilation logarithm. The
+remaining logarithm question is reliability alone.
+
+## Round 9 — not accepted as written
+
+* **R9-1 (interface).** The bound is linear in the commit weight, and that weight is at least k by
+  the submission's own definition, so c·k can exceed the next window's budget. The property needed
+  is a constant c < k, independent of the commit. The cited exhaustive enumeration has not been run.
+  It remains owed, with a windowed observable defined relative to the previous commit.
+* **R9-2 (outer code).** The arithmetic is fine, and an outer code is a valid design choice for
+  installation-held data. For the historical message, the carrier is not a designed codeword; that
+  it has constant relative distance is the unproven physical input.
+* **R9-3 (renewal).** It refutes itself. P_survival(t) ≥ e^{−αt} tends to 0, so failure tends to
+  certainty. Renewal resets physical errors, not logical errors.
+
+## Finding, and question for the author (support needed; the target is not changed)
+
+A finite memory under local noise and active correction has a bounded lifetime. Holding a record for
+age t at fixed failure ε requires one of:
+* size growing like log t: with active correction, a total cost of about t log t;
+* passive storage behind a barrier of about k_B T ln(t/ε): zero running power and a one-time
+  O(log t) cost, which is available for classical records;
+* a passive self-correcting quantum memory, which is not known to exist in three or fewer
+  dimensions (the 4D toric code is self-correcting).
+
+**Question.** For indefinite holding, is the protected content of each particular its classical
+record and relations, or must full quantum coherence of its state be held indefinitely?
+* With a classical record, the passive route keeps the holding rate Θ(1) uniformly in age.
+* With full quantum coherence, no proven route without a log t overhead has been found. That bears
+  on the stated Θ(1)-rate maintenance demand (master line 536) and on the holding-power item.
