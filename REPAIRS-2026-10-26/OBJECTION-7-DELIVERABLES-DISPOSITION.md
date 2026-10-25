@@ -472,7 +472,10 @@ that every logical error has at least D faults. The data logical (memory), or th
 
 **Verification (every fault, exact).** For d = 3, 5, 7, the memory in both bases and the merge at
 T ∈ {d−2, d, d+2}: every fault lies in at most one cut, 14/14 cases, up to 59,724 faults
-(`CUT-CERTIFICATE-FORMULA-d3-7.json`). The d = 9 run is in progress.
+(`CUT-CERTIFICATE-FORMULA-d3-7.json`, SHA-256 `9ee95ef2…e5`). At d = 9 the memory in both bases
+and the merge at T = 7, 9, 11 also pass, 5/5 cases, up to 120,544 faults
+(`CUT-CERTIFICATE-FORMULA-d9.json`, `d69dab83…602`; script `956f826a…48ec`). In total 19 of 19
+cases are certified.
 
 **Why this holds for every d.** A fault's multiplicity is determined by three things: its observable
 bit, the values of φ at its at most two relevant detectors, and D. φ is an explicit
