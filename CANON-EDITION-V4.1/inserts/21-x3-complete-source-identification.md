@@ -39,6 +39,8 @@ $$Q = \begin{pmatrix} A & C \\ C^\dagger & B \end{pmatrix}, \quad \delta I \le Q
 the mutual information (in nats) satisfies the exact Frobenius norm bound:
 $$\boxed{I(H : F) \le \frac{\|C\|_F^2}{\delta(1 - \delta)}}$$
 
+**Bosonic carriers — stated condition.** The bound above is fermionic. For bosonic carriers the operative regime is \(h\nu \gg k_B T\): at 1550 nm and 300 K the thermal occupation is \(\bar n_{\mathrm{th}} = (e^{h\nu/k_B T} - 1)^{-1} \approx 3.7 \times 10^{-14}\) (§22.5.1), so the carrier modes sit in the single-excitation regime, where occupations are bounded as in the fermionic case and the covariance bound applies with \(\delta\) set by the excitation margin. This is a stated physical condition of the route, not a derived one.
+
 ---
 
 ## 21.3 Dispersion, Lieb-Robinson Velocity, and Carrier Radius
