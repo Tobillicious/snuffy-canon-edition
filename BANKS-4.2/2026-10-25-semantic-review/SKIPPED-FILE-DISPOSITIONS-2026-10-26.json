@@ -1,0 +1,943 @@
+{
+ "date": "2026-10-26",
+ "reviewer": "Claude",
+ "method": "statement-level comparison of every theorem/lemma against the 4.2 canon sources (skipcmp.py), then reading of every non-identical case",
+ "files": [
+  {
+   "path": "2026-10-23-adoption-contracts/inputs/ReadoutJoint.lean",
+   "class": "A",
+   "identical": [
+    "block_det_identity",
+    "shifted_det_identity",
+    "cp_coeff_nonneg",
+    "cp_coeff_pos",
+    "iso01_shift_nonneg",
+    "iso10_shift_nonneg",
+    "blockA_shift_nonneg",
+    "blockD_shift_nonneg",
+    "block_shifted_det_nonneg",
+    "quad_form_nonneg",
+    "choi_form_nonneg",
+    "positive_constant_not_cp",
+    "cp_constant_at_half_half",
+    "weight_nonneg",
+    "chain_nonneg",
+    "joint_record_lower",
+    "chain_ge_pow",
+    "hard_count_floor"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-gemini-bridge-dynamics/inputs/prior/ReadoutJoint.lean",
+   "class": "A",
+   "identical": [
+    "block_det_identity",
+    "shifted_det_identity",
+    "cp_coeff_nonneg",
+    "cp_coeff_pos",
+    "iso01_shift_nonneg",
+    "iso10_shift_nonneg",
+    "blockA_shift_nonneg",
+    "blockD_shift_nonneg",
+    "block_shifted_det_nonneg",
+    "quad_form_nonneg",
+    "choi_form_nonneg",
+    "positive_constant_not_cp",
+    "cp_constant_at_half_half",
+    "weight_nonneg",
+    "chain_nonneg",
+    "joint_record_lower",
+    "chain_ge_pow",
+    "hard_count_floor"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-gemini-bridge-dynamics/inputs/prior/OriginalD1.lean",
+   "class": "A",
+   "identical": [
+    "expected_value_formula",
+    "original_dominance_counterexample",
+    "lifetime_density_is_normalized",
+    "lifetime_survival_tail",
+    "zero_ultimate_survival_with_positive_accumulated_value"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-gemini-bridge-dynamics/inputs/prior/OriginalH6.lean",
+   "class": "A",
+   "identical": [
+    "original_thermal_depth_ceiling",
+    "banked_rate_is_contractive",
+    "banked_step_error",
+    "banked_exact_error",
+    "banked_paid_epsilon_accuracy",
+    "original_thermal_premises_allow_cycle"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-gemini-bridge-dynamics/inputs/prior/ReflectionContraction.lean",
+   "class": "A",
+   "identical": [
+    "complete_contraction_has_unique_fixed_point",
+    "finite_error_bound",
+    "accuracy_within_budget",
+    "residual_error_bound",
+    "residual_tolerance",
+    "post_update_error_bound",
+    "post_update_tolerance",
+    "run_commutes",
+    "paired_trajectory_bound",
+    "residual_geometric_bound",
+    "first_residual_stop_is_paid_and_accurate"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-gemini-bridge-dynamics/inputs/prior/ReflectionFuel.lean",
+   "class": "A",
+   "identical": [
+    "steps_bounded",
+    "quota_conserved",
+    "no_unbounded_paid_reflection",
+    "bounded_depth_can_cycle"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-gemini-thirteen-bridges 2/inputs/prior/FIFOAdmission.lean",
+   "class": "A",
+   "identical": [
+    "checks_iff",
+    "certified_mono",
+    "certified_append",
+    "admission_preserves",
+    "completion_preserves",
+    "cancellation_preserves",
+    "all_occurrences_timely",
+    "queue_step_preserves",
+    "refinement_preserves_queue"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-gemini-thirteen-bridges/inputs/prior/FIFOAdmission.lean",
+   "class": "A",
+   "identical": [
+    "checks_iff",
+    "certified_mono",
+    "certified_append",
+    "admission_preserves",
+    "completion_preserves",
+    "cancellation_preserves",
+    "all_occurrences_timely",
+    "queue_step_preserves",
+    "refinement_preserves_queue"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-gemini-thirteen-bridges 2/inputs/prior/FIFOWorkload.lean",
+   "class": "A",
+   "identical": [
+    "fifo_step",
+    "finish_le_upper",
+    "certified_prefix_meets_deadline"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-gemini-thirteen-bridges/inputs/prior/FIFOWorkload.lean",
+   "class": "A",
+   "identical": [
+    "fifo_step",
+    "finish_le_upper",
+    "certified_prefix_meets_deadline"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-gemini-thirteen-bridges 2/inputs/prior/GenerativeClosure.lean",
+   "class": "A",
+   "identical": [
+    "step_preserves_paid_activation",
+    "every_generated_active_is_funded",
+    "reserve_does_not_displace_existing_agents",
+    "generated_authority_stays_within_root"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-gemini-thirteen-bridges/inputs/prior/GenerativeClosure.lean",
+   "class": "A",
+   "identical": [
+    "step_preserves_paid_activation",
+    "every_generated_active_is_funded",
+    "reserve_does_not_displace_existing_agents",
+    "generated_authority_stays_within_root"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-eight-answer-joins/inputs/GenerativeClosure.lean",
+   "class": "A",
+   "identical": [
+    "step_preserves_paid_activation",
+    "every_generated_active_is_funded",
+    "reserve_does_not_displace_existing_agents",
+    "generated_authority_stays_within_root"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-gemini-deep-read/inputs/reference/2026-10-23-adoption-contracts/GenerativeClosure.lean",
+   "class": "A",
+   "identical": [
+    "step_preserves_paid_activation",
+    "every_generated_active_is_funded",
+    "reserve_does_not_displace_existing_agents",
+    "generated_authority_stays_within_root"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-eight-answer-joins/inputs/GenerativeClosure.lean",
+   "class": "A",
+   "identical": [
+    "step_preserves_paid_activation",
+    "every_generated_active_is_funded",
+    "reserve_does_not_displace_existing_agents",
+    "generated_authority_stays_within_root"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-gemini-deep-read/inputs/reference/2026-10-23-adoption-contracts/GenerativeClosure.lean",
+   "class": "A",
+   "identical": [
+    "step_preserves_paid_activation",
+    "every_generated_active_is_funded",
+    "reserve_does_not_displace_existing_agents",
+    "generated_authority_stays_within_root"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-register-responses-review/prior/GenerativeClosure.lean",
+   "class": "A",
+   "identical": [
+    "step_preserves_paid_activation",
+    "every_generated_active_is_funded",
+    "reserve_does_not_displace_existing_agents",
+    "generated_authority_stays_within_root"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r16-verification/inputs/ClosedCohold.lean",
+   "class": "A",
+   "identical": [
+    "reachable_closed",
+    "reachable_least",
+    "factorised_cohold",
+    "outside_unchanged",
+    "crossing_boundary_changes_outside_later"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r16-verification/inputs/received-cut/R16-CUT/source/ClosedCohold.lean",
+   "class": "A",
+   "identical": [
+    "reachable_closed",
+    "reachable_least",
+    "factorised_cohold",
+    "outside_unchanged",
+    "crossing_boundary_changes_outside_later"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r16-verification/inputs/R14Boundary.lean",
+   "class": "A",
+   "identical": [
+    "safe_step",
+    "every_good_trace_safe",
+    "journal_commutes",
+    "sink_commutes",
+    "outside_commutes",
+    "harmful_effect_refused",
+    "old_generation_refused",
+    "external_weather_is_not_a_replica_fault",
+    "recruitment_erasure",
+    "recruitment_never_ends_care",
+    "failure_has_a_named_exception"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r16-verification/inputs/received-cut/R16-CUT/source/R14Boundary.lean",
+   "class": "A",
+   "identical": [
+    "safe_step",
+    "every_good_trace_safe",
+    "journal_commutes",
+    "sink_commutes",
+    "outside_commutes",
+    "harmful_effect_refused",
+    "old_generation_refused",
+    "external_weather_is_not_a_replica_fault",
+    "recruitment_erasure",
+    "recruitment_never_ends_care",
+    "failure_has_a_named_exception"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r16-verification/inputs/received-cut/R16-CUT/R16CUT-R14.lean",
+   "class": "A",
+   "identical": [
+    "journal_projection_step_ext",
+    "sink_projection_step_ext",
+    "outside_projection_step_ext",
+    "journal_outside_unchanged",
+    "sink_outside_unchanged"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r16-verification/inputs/received-cut/R16-CUT/R16CUT.lean",
+   "class": "A",
+   "identical": [
+    "different_has_unmediated_path",
+    "outside_equal_of_cut",
+    "r2_no_crossing"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r16-verification/inputs/received-cut/R16-CUT/source/R12A.lean",
+   "class": "A",
+   "identical": [
+    "words_injective",
+    "grant_has_decision_scope",
+    "same_generation_cannot_rebind",
+    "finalized_receipt_is_in_log",
+    "finalized_receipt_is_authorize",
+    "changed_log_implies_checks",
+    "applied_effect_has_aligned_decision",
+    "raised_floor_refuses",
+    "wrong_effect_refuses",
+    "replay_refuses",
+    "original_fence_theorem_available"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/UPTR12A.lean",
+   "class": "A",
+   "identical": [
+    "words_injective",
+    "grant_has_decision_scope",
+    "same_generation_cannot_rebind",
+    "finalized_receipt_is_in_log",
+    "finalized_receipt_is_authorize",
+    "changed_log_implies_checks",
+    "applied_effect_has_aligned_decision",
+    "raised_floor_refuses",
+    "wrong_effect_refuses",
+    "replay_refuses",
+    "original_fence_theorem_available"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r16-verification/inputs/received-cut/R16-CUT/source/R15CausalGluing.lean",
+   "class": "C",
+   "identical": [],
+   "variant": [],
+   "absent": [
+    "boundary_representatives_iff",
+    "selected_representative_greatest",
+    "canonical_boundary_iff",
+    "interface_envelope_transfer",
+    "hidden_world_control"
+   ],
+   "note": "Contains results absent from the canon.",
+   "disposition": "Pending author decision: depends on R14Rivals, found only in the superseded WHOLE-EDITION-3.8 tree (uses UPTR14Rivals.LE and trans)."
+  },
+  {
+   "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/R15CausalGluing.lean",
+   "class": "C",
+   "identical": [],
+   "variant": [],
+   "absent": [
+    "boundary_representatives_iff",
+    "selected_representative_greatest",
+    "canonical_boundary_iff",
+    "interface_envelope_transfer",
+    "hidden_world_control"
+   ],
+   "note": "Contains results absent from the canon.",
+   "disposition": "Pending author decision: depends on R14Rivals, found only in the superseded WHOLE-EDITION-3.8 tree (uses UPTR14Rivals.LE and trans)."
+  },
+  {
+   "path": "2026-10-23-r17-fifo-verification/inputs/dependencies/ControllerFence.lean",
+   "class": "A",
+   "identical": [
+    "certified_hold_nothing_lands",
+    "both_targets_held"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r17-fifo-verification/inputs/dependencies/R16Feedback.lean",
+   "class": "A",
+   "identical": [
+    "map_iterate",
+    "tick_commutes",
+    "reactive_lockstep"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/FIFOWorkload.lean",
+   "class": "B",
+   "identical": [
+    "fifo_step",
+    "finish_le_upper"
+   ],
+   "variant": [
+    "certified_prefix_meets_deadline"
+   ],
+   "absent": [],
+   "note": "Variant statements: binder renames only (prefix\u2192priorJobs, hh\u2192_hh) or weaker (P2P3.liquidation_triggers concludes True; canon proves E \u2264 Wadv). Canon carries the content at equal or greater strength.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/R17FIFOR17A.lean",
+   "class": "B",
+   "identical": [],
+   "variant": [
+    "applied_fifo_effect_is_timely_and_authorized",
+    "ready_fifo_effect_applies_before_deadline"
+   ],
+   "absent": [],
+   "note": "Variant statements: binder renames only (prefix\u2192priorJobs, hh\u2192_hh) or weaker (P2P3.liquidation_triggers concludes True; canon proves E \u2264 Wadv). Canon carries the content at equal or greater strength.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/DeadlineDemand.lean",
+   "class": "C",
+   "identical": [],
+   "variant": [],
+   "absent": [
+    "demand_le_supply",
+    "robust_demand"
+   ],
+   "note": "Contains results absent from the canon.",
+   "disposition": "Incorporated into the 4.2 canon as Snuffy.DeadlineDemand (imports adjusted to Snuffy.*, in-file #print lines removed, if_pos/if_neg replaced by ite_eq_left_of_eq_true/ite_eq_right_of_eq_false); compiled zero output, kernel-checked."
+  },
+  {
+   "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/DecisionPermit.lean",
+   "class": "C",
+   "identical": [],
+   "variant": [],
+   "absent": [
+    "decision_words_injective",
+    "grant_names_certified",
+    "granted_policy_is_certified",
+    "wrong_action_rejected",
+    "certified_action_granted"
+   ],
+   "note": "Contains results absent from the canon.",
+   "disposition": "Incorporated into the 4.2 canon as Snuffy.DecisionPermit (imports adjusted to Snuffy.*, in-file #print lines removed, if_pos/if_neg replaced by ite_eq_left_of_eq_true/ite_eq_right_of_eq_false); compiled zero output, kernel-checked."
+  },
+  {
+   "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/ObservationWinning.lean",
+   "class": "C",
+   "identical": [],
+   "variant": [],
+   "absent": [
+    "policy_wins_iff",
+    "hidden_world_countermodel"
+   ],
+   "note": "Contains results absent from the canon.",
+   "disposition": "Incorporated into the 4.2 canon as Snuffy.ObservationWinning (imports adjusted to Snuffy.*, in-file #print lines removed, if_pos/if_neg replaced by ite_eq_left_of_eq_true/ite_eq_right_of_eq_false); compiled zero output, kernel-checked."
+  },
+  {
+   "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/R17AQueueFinality.lean",
+   "class": "A",
+   "identical": [
+    "new_effect_has_current_permit",
+    "drain_currently_authorized",
+    "revoked_refuses",
+    "expired_refuses",
+    "installed_floor_refuses",
+    "spend_is_funded",
+    "application_has_source_binding"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/TimelyCare.lean",
+   "class": "C",
+   "identical": [],
+   "variant": [],
+   "absent": [
+    "care_served",
+    "exhaustion_fails",
+    "deadline_met",
+    "miss_within_shortage"
+   ],
+   "note": "Contains results absent from the canon.",
+   "disposition": "Incorporated into the 4.2 canon as Snuffy.TimelyCare (imports adjusted to Snuffy.*, in-file #print lines removed, if_pos/if_neg replaced by ite_eq_left_of_eq_true/ite_eq_right_of_eq_false); compiled zero output, kernel-checked."
+  },
+  {
+   "path": "2026-10-23-workconcrete-readout-r17/inputs/ReadoutBounds.lean",
+   "class": "B",
+   "identical": [
+    "determinant_identity",
+    "determinant_lower",
+    "strictly_positive_determinant",
+    "weight_nonnegative",
+    "conditional_record_lower",
+    "baseline_normalized"
+   ],
+   "variant": [
+    "spectral_lower"
+   ],
+   "absent": [],
+   "note": "Variant statements: binder renames only (prefix\u2192priorJobs, hh\u2192_hh) or weaker (P2P3.liquidation_triggers concludes True; canon proves E \u2264 Wadv). Canon carries the content at equal or greater strength.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/CanonVonNeumannAudit.lean",
+   "class": "A",
+   "identical": [],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-claude-summit-1-von-neumann/lean/Snuffy/CanonVonNeumannAudit.lean",
+   "class": "A",
+   "identical": [],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/SummitsAudit.lean",
+   "class": "A",
+   "identical": [],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-25-canon-v4.1-pre-law-snapshot/lean/SummitsAudit.lean",
+   "class": "A",
+   "identical": [],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-eight-answer-joins/inputs/BandwidthReflection.lean",
+   "class": "A",
+   "identical": [
+    "normalized_susceptibility",
+    "exact_bandwidth_sensitivity",
+    "finite_positive_sensory_access_remains",
+    "bandwidth_bias_threshold"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-eight-answer-joins/inputs/BandwidthReflection.lean",
+   "class": "A",
+   "identical": [
+    "normalized_susceptibility",
+    "exact_bandwidth_sensitivity",
+    "finite_positive_sensory_access_remains",
+    "bandwidth_bias_threshold"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-eight-answer-joins/inputs/GateSupport.lean",
+   "class": "A",
+   "identical": [
+    "kraus_branch_preserves_support",
+    "kraus_sum_preserves_support",
+    "support_preservation_composes"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-gemini-deep-read/inputs/reference/2026-10-23-gemini-thirteen-bridges/GateSupport.lean",
+   "class": "A",
+   "identical": [
+    "kraus_branch_preserves_support",
+    "kraus_sum_preserves_support",
+    "support_preservation_composes"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-eight-answer-joins/inputs/GateSupport.lean",
+   "class": "A",
+   "identical": [
+    "kraus_branch_preserves_support",
+    "kraus_sum_preserves_support",
+    "support_preservation_composes"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-gemini-deep-read/inputs/reference/2026-10-23-gemini-thirteen-bridges/GateSupport.lean",
+   "class": "A",
+   "identical": [
+    "kraus_branch_preserves_support",
+    "kraus_sum_preserves_support",
+    "support_preservation_composes"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-eight-answer-joins/inputs/R17AQueueFinality.lean",
+   "class": "A",
+   "identical": [
+    "new_effect_has_current_permit",
+    "drain_currently_authorized",
+    "revoked_refuses",
+    "expired_refuses",
+    "installed_floor_refuses",
+    "spend_is_funded",
+    "application_has_source_binding"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-gemini-deep-read/inputs/reference/2026-10-23-r17-fifo-verification/R17AQueueFinality.lean",
+   "class": "A",
+   "identical": [
+    "new_effect_has_current_permit",
+    "drain_currently_authorized",
+    "revoked_refuses",
+    "expired_refuses",
+    "installed_floor_refuses",
+    "spend_is_funded",
+    "application_has_source_binding"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-eight-answer-joins/inputs/R17AQueueFinality.lean",
+   "class": "A",
+   "identical": [
+    "new_effect_has_current_permit",
+    "drain_currently_authorized",
+    "revoked_refuses",
+    "expired_refuses",
+    "installed_floor_refuses",
+    "spend_is_funded",
+    "application_has_source_binding"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-gemini-deep-read/inputs/reference/2026-10-23-r17-fifo-verification/R17AQueueFinality.lean",
+   "class": "A",
+   "identical": [
+    "new_effect_has_current_permit",
+    "drain_currently_authorized",
+    "revoked_refuses",
+    "expired_refuses",
+    "installed_floor_refuses",
+    "spend_is_funded",
+    "application_has_source_binding"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/ConservedRouting.lean",
+   "class": "A",
+   "identical": [
+    "conserved_decomposes",
+    "regular_psi_is_hhi",
+    "hhi_uniform",
+    "monopoly_exceeds_uniform",
+    "h8_exact_general",
+    "thermal_ledger_positivity_strict",
+    "thermal_ledger_positivity_nonneg",
+    "jarzynski_bound_valid"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/ControllerCertificate.lean",
+   "class": "A",
+   "identical": [
+    "stable_min_three",
+    "delta_min_three",
+    "rate_min_three",
+    "debt_min_three",
+    "alloc_min_three",
+    "total_min_three",
+    "total_min_three_le",
+    "band_min_three",
+    "stable_min_four",
+    "delta_min_four",
+    "rate_min_four",
+    "debt_min_four",
+    "alloc_min_four",
+    "total_min_four",
+    "total_min_four_le",
+    "band_min_four",
+    "stable_rob_three_two",
+    "stable_rob_three_four",
+    "total_rob_three_two",
+    "total_rob_three_three",
+    "total_rob_three_four",
+    "total_rob_three_two_le",
+    "total_rob_three_three_le",
+    "total_rob_three_four_le",
+    "band_rob_three",
+    "stable_rob_four_two",
+    "stable_rob_four_four",
+    "total_rob_four_two",
+    "total_rob_four_three",
+    "total_rob_four_four",
+    "total_rob_four_two_le",
+    "total_rob_four_three_le",
+    "total_rob_four_four_le",
+    "band_rob_four",
+    "pool_bills",
+    "corrected_bill_saving",
+    "allocation_undercharge_three",
+    "allocation_undercharge_four"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/FIFOInstance.lean",
+   "class": "A",
+   "identical": [
+    "finishes_three",
+    "veto_envelope_three",
+    "alloc_completion_is_the_charge_three",
+    "control_lane_three_certified",
+    "finishes_four",
+    "veto_envelope_four",
+    "alloc_completion_is_the_charge_four",
+    "control_lane_four_certified",
+    "per_job_deadlines_three",
+    "per_job_deadlines_four"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/IntegrationCertificate.lean",
+   "class": "A",
+   "identical": [
+    "typed_gate_decomposition",
+    "finish_interval_deadline",
+    "psi2_uniform",
+    "h8_bound_two_node"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/P2P3.lean",
+   "class": "B",
+   "identical": [
+    "sensor_exp_positivity",
+    "work_tv_floor",
+    "coordinate_sensitivity",
+    "telescoping_drop",
+    "semigroup_time_rescaling",
+    "ness_work_linear",
+    "work_floor_positive",
+    "zero_breach_bound",
+    "bound_decays",
+    "escrow_ordering",
+    "fluctuation_bound_le_two"
+   ],
+   "variant": [
+    "scaling_sum",
+    "azuma_scaling",
+    "liquidation_triggers"
+   ],
+   "absent": [],
+   "note": "Variant statements: binder renames only (prefix\u2192priorJobs, hh\u2192_hh) or weaker (P2P3.liquidation_triggers concludes True; canon proves E \u2264 Wadv). Canon carries the content at equal or greater strength.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/TransportLaw.lean",
+   "class": "A",
+   "identical": [
+    "transport_nonneg",
+    "transport_ge_local",
+    "hhi_ge_uniform",
+    "monopoly_penalty"
+   ],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-25-canon-v4.1-pre-landauer-snapshot/lean/SummitsAudit.lean",
+   "class": "A",
+   "identical": [],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  },
+  {
+   "path": "2026-10-25-canon-v4.1-pre-speedlimit-snapshot/lean/SummitsAudit.lean",
+   "class": "A",
+   "identical": [],
+   "variant": [],
+   "absent": [],
+   "note": "Every theorem/lemma statement is identical (whitespace-normalised) to a canon declaration of the same name.",
+   "disposition": "Content incorporated in canon."
+  }
+ ]
+}

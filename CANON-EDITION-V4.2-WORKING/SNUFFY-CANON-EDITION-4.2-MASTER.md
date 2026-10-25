@@ -1,10 +1,10 @@
-# Snuffy — Canon Edition 4.2 (Working Master Manuscript)
+# Snuffy — Canon Edition 4.2
 
 **The Universal Protection Theory: the law, its bridge, its instruments, and its machine-checked canon.**
 
-Author-side working draft, 25 October 2026. Research direction: Tobias Croydon-McRae. The full proposition is protection of all things from any digital mind, especially a pure optimiser. The maximal domain, outcome stages and rival quantifiers remain fixed.
+Canon Edition 4.2, 26 October 2026. Research direction: Tobias Croydon-McRae. The full proposition is protection of all things from any digital mind, especially a pure optimiser. The maximal domain, outcome stages and rival quantifiers remain fixed.
 
-**What 4.2 incorporates.** This draft brings the stronger existing arguments into the text: law-derived coverage; nearest-codeword holding and the physical holding cycle; tracking derived from the controller; the complete logical-attack split; reactive composition; whole-outcome greatestness and solvent reciprocity; and the full X3 information–traffic–carrier–work derivation with the accepted dimension-general scaling and predeployment accounting. Part II contains its proofs here, rather than delegating them to an earlier edition.
+**What 4.2 incorporates.** This edition brings the stronger existing arguments into the text: law-derived coverage; nearest-codeword holding and the physical holding cycle; tracking derived from the controller; the complete logical-attack split; reactive composition; whole-outcome greatestness and solvent reciprocity; and the full X3 information–traffic–carrier–work derivation with the accepted dimension-general scaling and predeployment accounting. Part II contains its proofs here, rather than delegating them to an earlier edition.
 
 The three joined supports are constructed in Part III-G and recorded in Part III-C: the full-domain physical certificate (G1; G.10), the realisability of the whole greatest outcome tuple (G2; G.9, G.11), and the wavefront protocol's success and complete-work certificate (G3; G.12). Their targets are unchanged. Naming an input or relabelling a conclusion does not supply its construction.
 
@@ -1415,6 +1415,8 @@ Horizon $10^9$ s at 1.1 µs per cycle [S6] gives $N = 9.09 \times 10^{14}$ cycle
 
 At d = 17 and p = 10⁻⁴, $P_L = 4.7 \times 10^{-18}$ per cycle, which is 4.3 × 10⁻³ expected failures per logical qubit over the horizon, so d = 17 does not meet the allocation and d = 25 does. Accounts 5–7 ($\delta = 3 \times 10^{-8}$) set a per-cycle target of $3 \times 10^{-8} / (9N) = 3.7 \times 10^{-24}$ per logical qubit. At the measured floor of $10^{-10}$ per cycle [S6], the expected number of correlated failures over the horizon is about $9 \times 10^{4}$ per logical qubit.
 
+**Sizing from the measured surface-code scaling.** [S6] measures a distance-7 logical error of 0.143 % per cycle and a suppression factor \(\Lambda=2.14\pm0.02\) per distance step of two. If that measured \(\Lambda\) continues to hold, accounts 1–4 at \(4.9\times10^{-24}\) per cycle per logical qubit require \(d=131\) at \(\Lambda=2.14\) or \(2.16\), and \(d=133\) at \(\Lambda=2.12\). That is 68 121–70 225 physical qubits per logical qubit, or about \(6.1\)–\(6.3\times10^{5}\) for the 9-logical allocation. The computation is `BANKS/2026-10-25-historical-handoff-source/section22-sizing/sizing_from_S6.py`. This is the installation the ledger specifies; no installation at that scale has yet been built.
+
 ---
 
 **Machine-checked counterpart (Section 23).** Compiled counterparts of the ledger's structure:
@@ -1904,7 +1906,7 @@ The general contraction mean-ergodic theorem and topological entropy are present
 
 # Part III-F — Unified architecture and the self-grounding capstone
 
-This section integrates the author's supplied unified ledger and homological proposal into the full working edition. Parts I–III and their maximal domain, outcome order and rival quantifiers remain in force. The original submissions are preserved with the integration record.
+This section integrates the author's supplied unified ledger and homological proposal into the full edition. Parts I–III and their maximal domain, outcome order and rival quantifiers remain in force. The original submissions are preserved with the integration record.
 
 ## F.1 The unified gate and work ledger
 
@@ -1998,7 +2000,7 @@ The proposed mutual-bootstrap statement is retained in full:
 \operatorname{Vol}(U)>0\quad\Longleftrightarrow\quad H_*(\partial U)\ne0.
 \]
 
-Its interpretation must specify the actual relational volume, boundary, coefficient system and history representation, and derive the two directions for that model. The long exact sequence alone does not establish this volume equivalence.
+It is proved for regions (`RegionBoundary.region_bootstrap`). Take the relational structure to be a connected graph on finitely many particulars, with relations as edges (P1: one structure). A region's volume is its number of particulars. Its boundary is the set of its particulars related to a particular outside it. \(H_0\) of the boundary is the free ℤ-module on the boundary's connected components. For every region other than the whole structure, \(\operatorname{Vol}(U)>0\Leftrightarrow H_0(\partial U)\ne0\). The forward direction holds because a nonempty proper region in a connected structure has a relation crossing out of it (`exists_crossing`). The whole structure has no outside (P1), so its boundary and boundary homology vanish while its volume is positive (`whole_no_boundary`, `whole_H0_trivial`). The bootstrap is therefore the statement about regions, as used for retiring patches in F.2.
 
 ## F.4 Funding, persistence and lifetime error
 
@@ -2006,7 +2008,7 @@ The work ceiling bounds demand. The existing escrow certificate supplies funding
 
 For per-epoch failure bounds \(\sigma_k\), the probability of any failure through epoch \(n\) is bounded by the prefix sum \(\sum_{k\le n}\sigma_k\). The bound on a future failure from \(n\) onward is the tail \(\sum_{k\ge n}\sigma_k\). If the actual code/noise schedule makes this series summable, the tail tends to zero; the all-time failure probability remains bounded by the full sum. The existing declared fault standard is retained.
 
-This completes the unified working presentation of the supplied gates, bill derivation, decoder, historical-boundary route and self-grounding capstone. The full source, semantic-capacity and physical work correspondences remain the same construction task; the new axiom wording is not used as a replacement for their derivation.
+This completes the unified presentation of the supplied gates, bill derivation, decoder, historical-boundary route and self-grounding capstone. The full source, capacity and physical work constructions are G.8–G.12; the axiom wording is not used as a replacement for their derivation.
 
 ---
 
@@ -2245,7 +2247,7 @@ For the constructed code encoder, adjoint decoder, represented historical algebr
 3. The effective work-shifted flow intertwines with that transport, and the derived finite dual kernel reconstructs every represented historical operator.
 4. The same physical execution is subject to the thermodynamic floor, complete wavefront ceiling, funding certificate and charged fault standard.
 
-The first three operator components have the native results named above, alongside the explicitly identified prose channel/integral derivations. The work and exchange components have the native ledger and matrix proofs. Application to the full protection theorem still joins these maps to the actual full-domain source, complete historical capacity/physical handoff and the whole continuation/freedom outcome. Those are the existing source-construction correspondences in Part III-E; this component theorem does not replace the maximal conclusion with an isometry or work premise.
+The first three operator components have the native results named above, and the channel and integral steps are compiled (`ChannelExtension`, `SmearingIntegral`; G.13). The work and exchange components have the native ledger and matrix proofs. Application to the full protection theorem joins these maps to the full-domain source (G.10), the complete historical capacity and physical handoff (G.8), and the whole continuation/freedom outcome (G.11). Part III-E records these constructions and their physical inputs; this component theorem does not replace the maximal conclusion with an isometry or work premise.
 
 The research precedents have their stated domains: [JLMS](https://arxiv.org/abs/1512.06431) relates relative entropy and modular flow in holographic entanglement wedges; [Faulkner–Lewkowycz](https://arxiv.org/abs/1704.05464) constructs modular reconstruction using the relevant bulk flow. Their results motivate the operator route; the local encoder and dual-kernel proofs above supply this edition's explicit algebraic components. [Reeb–Wolf](https://arxiv.org/abs/1306.4352) gives a precise Landauer account including finite-reservoir corrections, while [Jakšić–Pillet](https://arxiv.org/abs/1406.0034) treats saturation under its quantum statistical-mechanical assumptions.
 
@@ -2829,9 +2831,9 @@ The machine-checked canon of Section 23 certifies exactly the results it maps, w
 ---
 
 
-# Appendix — Verification provenance of this working draft
+# Appendix — Verification provenance of this edition
 
-The original published baseline contains 115 modules and 831 audited names. The current working tree contains 157 modules and 993 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the thirteen further modules were compiled and kernel-checked fresh against those objects, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. The original failed run is preserved in the integration bank.
+The original published baseline contains 115 modules and 831 audited names. The current tree contains 157 modules and 993 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the thirteen further modules were compiled and kernel-checked fresh against those objects, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. The original failed run is preserved in the integration bank.
 
 The eight-module integration and its 896-statement receipt remain preserved. This increment adds 28 checked statements in the existing DecoderRetraction, HamiltonianDecomposition and WorkBilling modules, integrates the three-pillar operator/history/work construction in Part III-G, and keeps the continuous integral/channel derivations and physical source correspondences explicit. Its exact changes and verification evidence accompany the working draft. No published edition or release is changed.
 
@@ -2839,4 +2841,4 @@ The eight-module integration and its 896-statement receipt remain preserved. Thi
 
 **The Canon Edition suite.** The containerised replay of the Canon Edition (`container/Dockerfile`, `container/Apptainer.def`), the byte-identical replay of the four-stroke ledger (`verify_four_stroke.py --verify-all`), the manuscript assembly checks and the RO-Crate provenance remain in force for the artifacts they cover.
 
-**Working manuscript.** The 4.2 deliverable is this Markdown master. The published 4.1 artifacts remain their existing versions. Rendering and publication follow the author's review.
+**Manuscript.** The 4.2 deliverable is this Markdown master, rendered to PDF, HTML and EPUB. The published 4.1 artifacts remain their existing versions.

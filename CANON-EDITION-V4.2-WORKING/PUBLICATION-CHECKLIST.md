@@ -1,42 +1,36 @@
-# 4.2 working edition — route to publication
+# 4.2 edition — route to publication (updated 26 October 2026)
 
 ## Verified and integrated
 
-- All eight late Beam modules are in the 144-module build and audit.
-- 924 public statements pass the fresh axiom audit; only standard Lean axioms.
-- The combined receipt identifies 136 reused compilation/kernel results and
-  eight fresh checks, with original receipt/source/object hashes.
-- Build/audit parity, corpus completeness and claims gates pass.
-- The complete master index matches all 144 modules and 924 statements.
-- Six derived connections supply finite-code recovery, non-vanishing and
-  fixed-point witnesses, a complete metered bill and its age conversion.
-- The supplied homological and self-grounding proposals are in the full
-  working master. Original attachments and before/after evidence are preserved.
+- G1, G2 and G3 constructed and compiled: `G1Held`, `G1E9`, `G2Splice`,
+  `G2Held`, `G3Sweep`, `G3PatchDecode` (master §G.9–G.12; Parts III-C and
+  III-E record the constructions and their physical inputs).
+- Joins compiled: `CorrelatedCeiling`, `ReasonsEnsemble`, `TheoremEightLyapunov`,
+  `SmearingIntegral`, `ChannelExtension`, `PureStateDistance`,
+  `BennettCounterpart` (§22.3, G.13, G.14).
+- F.3 volume/boundary bootstrap proved for regions (`RegionBoundary`).
+- Recovered source modules from the R17 verification package:
+  `TimelyCare`, `DeadlineDemand`, `DecisionPermit`, `ObservationWinning`.
+- The 59 pending skipped-file comparisons: 49 fully contained in canon, 4
+  equivalent or weaker variants, 6 with absent results (5 incorporated; R15
+  pending the author's decision on `R14Rivals`). See
+  `BANKS/2026-10-25-semantic-review/SKIPPED-FILE-DISPOSITIONS-2026-10-26.json`.
+- Manuscript rewrites shown and approved: count/receipt batch, §22.3,
+  III-C/III-E, batches D, E and F.
+- Rendered PDF/HTML/EPUB with verification all pass.
 
-- The 28 new operator/history/work statements pass compilation, kernel and axiom checks in the existing late modules; Part III-G contains their construction and identifies the prose integral/channel derivations.
+## Awaiting the author
 
-## Proof construction and review to finish
-
-- Instantiate the constructed coordinate/flux encoder on the actual full historical query/relational record, with its boundary capacity assignment, physical handoff, retained memory and complete local charges.
-- Join the actual full-domain source and named fault accounts to the existing
-  Bridge protection theorem.
-- Construct the whole continuation/freedom outcome in the same realisable
-  family, keeping realisability and affordability distinct.
-- Supply the actual model definitions/proof for the proposed bulk-volume /
-  boundary-homology equivalence. The fixed-point component has a derived
-  finite-code witness; no new Lean axiom substitutes for the source proof.
-- Finish the outstanding semantic-review checkpoint: 59 skipped-file
-  comparisons and the recorded application links. The seven public helper
-  names are now explicitly audited and no longer an inventory omission.
+- Batch G (semantic-review application links 4–8):
+  `BANKS/2026-10-25-historical-handoff-source/BATCH-G-REVIEW-LINKS.md`.
+- Whether to incorporate `R14Rivals` (superseded 3.8 tree) so that
+  `R15CausalGluing` can join the canon.
+- Review of `zenodo.json`, `CITATION.cff` and `README.md`.
+- The word to publish the Zenodo version and to merge PR #7.
 
 ## Release preparation
 
-- Review the unified text and exact before/after changes.
-- Render and check the PDF/EPUB from the finalized manuscript.
-- Reconcile the release description, module/statement counts and evidence tier.
-- Verify inclusion of the required replay ledger, source provenance, metadata
-  and checksums; keep held doors/companion material out of public artifacts.
-- Prepare the versioned release/deposit, then publish on the author's word.
-
-This is a working review candidate. No remote release, deposit or published
-edition has been changed.
+- Fresh full build of every canon module with a single receipt.
+- Final render and verification after the last manuscript change.
+- `SHA256SUMS` over the release folder; the four-stroke ledger included; no
+  doors or companion material.

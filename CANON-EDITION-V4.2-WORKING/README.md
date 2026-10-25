@@ -1,21 +1,28 @@
-# Snuffy Canon 4.2 — working argument
+# Snuffy — Canon Edition 4.2
 
-The full target remains protection of all things from any digital mind, especially a pure optimiser.
+**The Universal Protection Theory and its machine-checked canon.**
 
-- [Working master](SNUFFY-CANON-EDITION-4.2-MASTER.md): the complete current manuscript, with the stronger bridge and X3 arguments incorporated.
-- [The three support requests](SUPPORTS-FOR-GEMINI.md): G1 full-domain physical certificate; G2 whole-outcome realisability; G3 the supplied wavefront protocol's success and complete-work certificate. The G3 shell-counting proof is now in Section 21.7.
-- [TIWA patch requirements](TIWA-PATCH-REQUIREMENTS.md): the author's guard-ring architecture made concrete as source transitions, isolation, recovery success, bounded visits and the full work bill.
-- [Before/after review](../BANKS/2026-10-25-4.2-stronger-argument/BEFORE-AFTER.md) and [exact diff](../BANKS/2026-10-25-4.2-stronger-argument/4.1-to-4.2.diff).
-- [Integration receipt](../BANKS/2026-10-25-4.2-stronger-argument/RECEIPT.json).
+The Universal Protection Theory states a law for any agent powerful enough to shape what continues to exist: *never lose an existing particular needlessly.* Its scope is every particular and every relation, and its subject is protection from every digital mind, a pure optimiser included.
 
-Part II includes the law, nearest decoding, holding cycle, controller-derived tracking, complete attack split, reactive refinement, timing, paid generation/reflection, conserved allocation and greatestness proofs. Section 21 contains the complete-input, calibrated-channel, Fano deficit, required-traffic, carrier-tail, recovery-work and one-pass wavefront arguments.
+This edition constructs the holding certificate in full. On the held source every particular is kept against any agent of bounded coupling, and every component of the protection theorem's source certificate is proved. The whole greatest outcome is realised, with union closure derived from locality. Recovery work is Θ(t^d): a wavefront sweep is proved to succeed, with a complete metered bill. The fault ceiling is attained, correlated bursts included. Bennett's reversible counterpart is constructed. __MODULES__ Lean 4 modules and __NAMES__ audited theorems machine-check the argument. Section 23 maps every compiled result to its theorem and lists exactly what each rests on.
 
-The current verification covers 144 modules and 924 public theorem/lemma names. Its combined receipt reuses 136 verified compilation/kernel results from Beam and freshly compiles and checks the eight later modules; the complete axiom audit, strict coverage, corpus completeness and claims gates pass. Seven previously omitted public helpers are included.
+| Path | Contents |
+| --- | --- |
+| `SNUFFY-CANON-EDITION-4.2-MASTER.md` | The master manuscript: the law and bridge (Part II), the canon and the 4.1 sections (Part III, Sections 15–24), and the 4.2 constructions (Parts III-C to III-G, §G.1–G.14). |
+| `render/` | `Snuffy-Canon-Edition-4.2.pdf`, `.epub`, `.html` and the exact LaTeX input. `RENDER-VERIFY.json` records that each rendering carries the ledger chain heads, the DOIs, the canon sentence and the module count unbroken, with no door content. |
+| `lean/` | The machine-checked canon. `lean/build-and-audit.sh` rebuilds and audits it against Mathlib rev `56a005855ea1`; the receipt is `lean/RECEIPT.txt`. |
+| `inserts/` | The section sources of §23 (with the generated theorem index) and Part III-G. |
+| `SOURCES-22.md` | The sources of the physical parameter ledger (§22.5). |
+| `checks/` | The render script (`render.sh` with its header and filter) and the render verification (`verify_render.py`). |
+| `CITATION.cff`, `zenodo.json`, `LICENSE` | Citation metadata, deposit metadata and the CC-BY-4.0 licence. |
+| `SHA256SUMS` | Checksums of every file above. |
 
-The new derived connections construct Beam's finite-code decoder, derive the complete metered bill and age bound, and prove the non-vanishing/fixed-point witnesses. The historical boundary encoder and self-grounding proposal are integrated in Part III-F with their actual source and semantic correspondences visible.
+**Reproduce.**
 
-[Current integration, before/after and dependency trace](../BANKS/2026-10-25-beam-late-eight-integration/DEPENDENCY-TRACE.md).
+```bash
+bash checks/render.sh                  # PDF (xelatex), HTML and EPUB (pandoc)
+python3 checks/verify_render.py        # citations unbroken in every rendering
+MATHLIB_PROJECT=/path/to/mathlib-at-56a005855ea1 CORPUS_ROOT=/path/to/workspace lean/build-and-audit.sh
+```
 
-The published 4.1 tree is preserved. This is an author-side working draft awaiting the remaining joined supports and review.
-
-The operator/history/work continuation adds 28 checked statements in the existing three modules. [Part III-G](inserts/25-boundary-work-history.md) constructs the encoder/adjoint decoder, historical operator transport, work-shifted flow, dual kernel, work floor and reservoir charge exchange. [Verification and before/after](../BANKS/2026-10-25-boundary-work-history-wiring/BEFORE-AFTER.md) record exactly what was checked and the remaining source correspondences.
+Previous editions: Snuffy Canon Edition 4.1, DOI 10.5281/zenodo.23631881, and 4.0, DOI 10.5281/zenodo.23608443. Parent mathematical core: *A Lattice Preservation Calculus*, DOI 10.5281/zenodo.23599528. Source repository: github.com/Tobillicous/snuffy-canon-edition.
