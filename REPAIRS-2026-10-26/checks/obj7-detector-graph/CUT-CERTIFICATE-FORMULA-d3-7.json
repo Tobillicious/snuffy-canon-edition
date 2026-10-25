@@ -1,0 +1,142 @@
+[
+ {
+  "kind": "memory",
+  "d": 3,
+  "T": 3,
+  "basis": "Z",
+  "D": 3,
+  "faults": 1392,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "memory",
+  "d": 3,
+  "T": 3,
+  "basis": "X",
+  "D": 3,
+  "faults": 1446,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "merge",
+  "d": 3,
+  "T": 3,
+  "basis": "X",
+  "D": 3,
+  "faults": 3708,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "merge",
+  "d": 3,
+  "T": 5,
+  "basis": "X",
+  "D": 3,
+  "faults": 6052,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "memory",
+  "d": 5,
+  "T": 5,
+  "basis": "Z",
+  "D": 5,
+  "faults": 7240,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "memory",
+  "d": 5,
+  "T": 5,
+  "basis": "X",
+  "D": 5,
+  "faults": 7390,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "merge",
+  "d": 5,
+  "T": 3,
+  "basis": "X",
+  "D": 3,
+  "faults": 10456,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "merge",
+  "d": 5,
+  "T": 5,
+  "basis": "X",
+  "D": 5,
+  "faults": 17080,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "merge",
+  "d": 5,
+  "T": 7,
+  "basis": "X",
+  "D": 5,
+  "faults": 23704,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "memory",
+  "d": 7,
+  "T": 7,
+  "basis": "Z",
+  "D": 7,
+  "faults": 20776,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "memory",
+  "d": 7,
+  "T": 7,
+  "basis": "X",
+  "D": 7,
+  "faults": 21070,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "merge",
+  "d": 7,
+  "T": 5,
+  "basis": "X",
+  "D": 5,
+  "faults": 33628,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "merge",
+  "d": 7,
+  "T": 7,
+  "basis": "X",
+  "D": 7,
+  "faults": 46676,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "merge",
+  "d": 7,
+  "T": 9,
+  "basis": "X",
+  "D": 7,
+  "faults": 59724,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ }
+]

@@ -1,0 +1,52 @@
+[
+ {
+  "kind": "memory",
+  "d": 9,
+  "T": 9,
+  "basis": "Z",
+  "D": 9,
+  "faults": 45216,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "memory",
+  "d": 9,
+  "T": 9,
+  "basis": "X",
+  "D": 9,
+  "faults": 45702,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "merge",
+  "d": 9,
+  "T": 7,
+  "basis": "X",
+  "D": 7,
+  "faults": 77312,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "merge",
+  "d": 9,
+  "T": 9,
+  "basis": "X",
+  "D": 9,
+  "faults": 98928,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ },
+ {
+  "kind": "merge",
+  "d": 9,
+  "T": 11,
+  "basis": "X",
+  "D": 9,
+  "faults": 120544,
+  "max_multiplicity": 1,
+  "certificate_holds": true
+ }
+]

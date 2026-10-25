@@ -431,3 +431,91 @@ because top–bottom odd walks need d edges even though row-step-2 edges exist i
 proof needs a finer invariant, for instance:
 * counting faults across a cut rather than detector steps; or
 * exact boundary segmentation (A and B segments separated) with a parity sublattice.
+
+---
+
+# Round 6 — "fault-counting cut invariant" for the merge (pasted by the author, 26 October)
+
+The submission is not preserved verbatim in this bank: it arrived inside the author's message, and
+this entry summarises it. It defines a transversal cut Γ and claims that the cup product
+[Γ]⌣[ε] = 1 forces at least min(d, T) faults.
+
+* Not accepted as a proof. An intersection number of 1 gives an odd crossing, so at least one
+  fault on Γ, not d.
+* The right form needs:
+  - d cuts, pairwise disjoint as fault sets;
+  - each cut crossed an odd number of times by every nontrivial logical.
+
+  The hook orientation enters through disjointness: with the correct schedule, a hook fault lies
+  in one cut. The time-like half (rounds as cuts) is sound, since edges span at most one round.
+
+---
+
+# Item 3 closed for every d by an explicit cut certificate; item 5 core theorem compiled (26 October)
+
+## Item 3 — the disjoint-cut certificate (`checks/obj7-detector-graph/cut_certificate.py`)
+
+**The method.** For any set S of relevant detectors, the fault set
+K_S = {f : obs(f) ⊕ |sig(f) ∩ S| odd} is crossed an odd number of times by every fault set that
+has zero relevant syndrome and odd observable. Over GF(2), the parity of |F ∩ K_S| equals
+obs(F) + Σ_{v∈S} syndrome_v(F) = 1. So D sets S_m whose K_{S_m} are pairwise disjoint certify
+that every logical error has at least D faults. The data logical (memory), or the time-like chain
+(merge), supplies the matching upper bound.
+
+**The closed forms.** S_m = S0 ⊕ {φ < m}, where:
+* *memory*: S0 = ∅, and φ = (face row) + 1 in the Z basis, (face column) + 1 in the X basis;
+  D = d.
+* *merge*: S0 = ∅, and φ = max(τ(r), σ(j)), with
+  - τ(r) = max(1, r);
+  - σ(j) = d−1−j for j ≤ d−2, 1 on the seam face columns d−1 and d, and j−d for j ≥ d+1;
+  - D = min(d, T).
+
+**Verification (every fault, exact).** For d = 3, 5, 7, the memory in both bases and the merge at
+T ∈ {d−2, d, d+2}: every fault lies in at most one cut, 14/14 cases, up to 59,724 faults
+(`CUT-CERTIFICATE-FORMULA-d3-7.json`). The d = 9 run is in progress.
+
+**Why this holds for every d.** A fault's multiplicity is determined by three things: its observable
+bit, the values of φ at its at most two relevant detectors, and D. φ is an explicit
+translation-covariant formula, so the multiplicity condition is a local property of each fault
+type: bulk, edge, corner, seam and time boundary. Every fault type occurs at the enumerated sizes,
+because each fault touches one check neighbourhood in one round. This is the locality step of the
+argument, stated as such. It replaces the step-2 problem: hook edges change φ by at most 1 under
+the correct schedule, while under the swapped schedule the computed distance is ⌈d/2⌉.
+
+## Item 5 — compiled core: `Snuffy.SparseFailure` (zero output, leanchecker 0, standard axioms)
+
+* `disjoint_windows`: under local stochastic noise, patches with pairwise disjoint windows,
+  each needing at least k faults in its window, all fail with probability at most
+  ∏ C(|W_v|, k) · p^{k|U|}.
+* `many_failures`: with a K-colouring of the patches in which same-coloured windows are disjoint,
+  at least Kn of N patches fail with probability at most K · C(N, n) · (C(w, k) p^k)^n.
+* With n = θN/K this is at most K (eKq/θ)^{θN/K}, where q = C(w, k) p^k. That is exponentially small
+  in N, uniformly in age, and pathwise: the bound concerns the realised failure count, not an
+  expectation.
+
+## Round 7 (R7-1, R7-2, R7-3) — the direction is right; the conclusions are not proved as stated
+
+* **R7-2's theorem omits the union over locations.** "Failure anywhere in Λ_t" carries a factor
+  |Λ_t| ∝ t. Its own closing line ("a constant expectation per unit spacetime volume") concedes that
+  failures occur at a constant density. A guarantee of no failure anywhere at fixed ε is exactly
+  what forces the logarithm.
+* **Lemma 1 is false as stated.** Syndrome projection renews the error frame. A logical error is
+  projected back into the code space with the wrong logical value; it is not erased.
+* **What renewal supplies is finite-range dependence of patch failures.** This requires a windowed
+  decoder; global matching is not finite-range. Finite-range dependence is precisely the window
+  hypothesis of `many_failures`.
+* **R7-3** bounds only the expected density. Its concentration step is a cited name (meaning
+  Liggett–Schonmann–Stacey), not an application, and its bill is again an expectation.
+  `many_failures` supplies the pathwise tail directly from `LocalStochastic` and a colouring.
+
+## Remaining for item 5 (target unchanged)
+
+1. **The window property for the canon's sweep.** Each patch's failure must be decided by faults in
+   a bounded window. The compiled sweep corrects each patch against the recovered interior
+   (`G3Sweep`, `G3PatchDecode`), so an interior failure could propagate outward. Needed: a sweep in
+   which each patch decodes from its own window's data with a windowed decoder, or a proved
+   tolerance of failed interior inputs.
+2. **An outer decoder for W tolerating a θ fraction of failed patches**, with W's encoding across
+   patches specified.
+3. **The assembly:** P(W wrong) ≤ K · C(N, θN/K) · q^{θN/K}, and the complete bill with an
+   age-independent constant per location.
