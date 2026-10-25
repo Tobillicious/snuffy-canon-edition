@@ -1,0 +1,1 @@
+exit=0 compiler-output-bytes=0 (lean -R, Lean 4.35.0, Mathlib 56a005855ea1); leanchecker Snuffy.G2Splice exit=0
