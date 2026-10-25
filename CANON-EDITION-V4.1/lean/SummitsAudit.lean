@@ -41,6 +41,7 @@ import Snuffy.Landauer
 import Snuffy.QuantumLandauer
 import Snuffy.Threshold
 import Snuffy.UnionClosure
+import Snuffy.SolventReciprocity
 import Snuffy.Bridge
 import Snuffy.Instruments
 import Snuffy.StrokeBookkeeping
@@ -61,6 +62,7 @@ import Snuffy.BridgeE9
 import Snuffy.BridgeH6
 import Snuffy.BridgeH7
 import Snuffy.BridgeH8
+import Snuffy.ReasonsRoute
 import Snuffy.SensorTail
 import Snuffy.ConsensusRate
 import Snuffy.RGFixedPoint
@@ -466,6 +468,9 @@ import Snuffy.R17WorkConcrete
 #print axioms Snuffy.UnionClosure.strict_of_solvent
 #print axioms Snuffy.UnionClosure.greatest_or_irrelevant
 #print axioms Snuffy.UnionClosure.insolvent_not_greatest
+-- SolventReciprocity
+#print axioms Snuffy.SolventReciprocity.solvent_keeps_everyone
+#print axioms Snuffy.SolventReciprocity.reciprocity_dominance_solvent
 -- Bridge
 #print axioms Snuffy.Bridge.coverage_from_law
 #print axioms Snuffy.Bridge.nearest_decodes
@@ -631,6 +636,16 @@ import Snuffy.R17WorkConcrete
 #print axioms GeminiBridgeH8.gradient_flow_equation
 #print axioms GeminiBridgeH8.flow_coefficient_in_unit_interval
 #print axioms GeminiBridgeH8.original_upper_fails_along_restoring_flow
+-- ReasonsRoute
+#print axioms Snuffy.ReasonsRoute.optionValue_pointwise
+#print axioms Snuffy.ReasonsRoute.optionValue_expectation
+#print axioms Snuffy.ReasonsRoute.optionValue_strict
+#print axioms Snuffy.ReasonsRoute.law_protects_everyone
+#print axioms Snuffy.ReasonsRoute.indicator_law
+#print axioms Snuffy.ReasonsRoute.law_dominates
+#print axioms Snuffy.ReasonsRoute.law_dominates_strict
+#print axioms Snuffy.ReasonsRoute.rival_fraction_le_one
+#print axioms Snuffy.ReasonsRoute.rival_fraction_lt_one
 -- SensorTail
 #print axioms Snuffy.SensorTail.sensor_tail
 #print axioms Snuffy.SensorTail.sensor_law_tail

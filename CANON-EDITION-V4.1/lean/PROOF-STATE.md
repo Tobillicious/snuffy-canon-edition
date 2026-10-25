@@ -1,6 +1,6 @@
 # Proof state
 
-Canon modules: 113. Corpus module names: 48. Excluded with reason: 5. Missing: 0.
+Canon modules: 113. Corpus module names: 49. Excluded with reason: 5. Missing: 1.
 
 | Module | In canon | Corpus copies (first) |
 | --- | --- | --- |
@@ -102,6 +102,7 @@ Canon modules: 113. Corpus module names: 48. Excluded with reason: 5. Missing: 0
 | `SafeGenesis` | yes | `(canon only)` |
 | `SemanticMap` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/SemanticMap.lean` |
 | `SensorTail` | yes | `(canon only)` |
+| `SolventReciprocity` | **MISSING** | `2026-10-25-solvent-reciprocity/SolventReciprocity.lean` |
 | `SpeedLimit` | yes | `(canon only)` |
 | `StrokeBookkeeping` | yes | `(canon only)` |
 | `ThermalBalance` | yes | `2026-10-23-adoption-contracts/lean/ThermalBalance.lean` |
