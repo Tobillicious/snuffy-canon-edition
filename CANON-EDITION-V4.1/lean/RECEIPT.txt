@@ -1,4 +1,4 @@
-# v4.1 summit modules — build receipt (2026-10-25T01:04Z)
+# v4.1 summit modules — build receipt (2026-10-25T01:30Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -41,6 +41,7 @@
 ## QuantumLandauer: exit=0 compiler-output-bytes=0
 ## Threshold: exit=0 compiler-output-bytes=0
 ## UnionClosure: exit=0 compiler-output-bytes=0
+## SolventReciprocity: exit=0 compiler-output-bytes=0
 ## Bridge: exit=0 compiler-output-bytes=0
 ## Instruments: exit=0 compiler-output-bytes=0
 ## StrokeBookkeeping: exit=0 compiler-output-bytes=0
@@ -153,6 +154,7 @@
 ## leanchecker Snuffy.QuantumLandauer: exit=0
 ## leanchecker Snuffy.Threshold: exit=0
 ## leanchecker Snuffy.UnionClosure: exit=0
+## leanchecker Snuffy.SolventReciprocity: exit=0
 ## leanchecker Snuffy.Bridge: exit=0
 ## leanchecker Snuffy.Instruments: exit=0
 ## leanchecker Snuffy.StrokeBookkeeping: exit=0
@@ -539,6 +541,8 @@
 ##   'Snuffy.UnionClosure.strict_of_solvent' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.UnionClosure.greatest_or_irrelevant' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.UnionClosure.insolvent_not_greatest' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SolventReciprocity.solvent_keeps_everyone' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SolventReciprocity.reciprocity_dominance_solvent' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.Bridge.coverage_from_law' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.Bridge.nearest_decodes' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.Bridge.exists_nearest_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -692,6 +696,15 @@
 ##   'GeminiBridgeH8.gradient_flow_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'GeminiBridgeH8.flow_coefficient_in_unit_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'GeminiBridgeH8.original_upper_fails_along_restoring_flow' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.optionValue_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.optionValue_expectation' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.optionValue_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.law_protects_everyone' does not depend on any axioms
+##   'Snuffy.ReasonsRoute.indicator_law' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.ReasonsRoute.law_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.law_dominates_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.rival_fraction_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReasonsRoute.rival_fraction_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.SensorTail.sensor_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.SensorTail.sensor_law_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.ConsensusRate.bandwidth_contraction' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1057,11 +1070,10 @@
 ##   'SnuffyWC.applied_stage_effect_is_timely_and_authorized' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'SnuffyWC.timely_but_revoked_is_not_delivery' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## axiom audit exit=0
-## theorems audited: 814; non-standard axiom dependencies: none
+## theorems audited: 825; non-standard axiom dependencies: none
 ## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):
-##   ## completeness: canon 113, corpus names 49, excluded 5, missing 1
-##   ##   MISSING SolventReciprocity  (2026-10-25-solvent-reciprocity/SolventReciprocity.lean)
-##   ## claims: audited theorems 814, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
+##   ## completeness: canon 113, corpus names 49, excluded 5, missing 0
+##   ## claims: audited theorems 825, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
 ## source sha256:
 ##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
 ##   27a8601f3279c9b86282baefe69fb3bcbf31de9540759306a774ee075dc219c7  Snuffy/AnalyticBridge.lean
@@ -1075,7 +1087,6 @@
 ##   a1ec93a1c569fb26c29a93513f0a29a5bfbd86a113395b2acdc09a1976fd35ad  Snuffy/BridgeH7.lean
 ##   5c7e2109540c8106e74de8bec1c0ad27b5839720988ebb76d89f1797807ca8aa  Snuffy/BridgeH8.lean
 ##   6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14  Snuffy/CanonVonNeumann.lean
-##   be9e9002bf8ddd9689fe533ad9751d7967e890b4208842ca8612b1f7c9eff7e9  Snuffy/CanonVonNeumannAudit.lean
 ##   81f805ae276d44122f4f1dab4455502371e7250fe7a56afb204a12e76c59a5c9  Snuffy/CascadeCore.lean
 ##   c33c38aa705a5b3b61a47d22fe227c8f1062f299550f3fdd0a68138c51ea94b5  Snuffy/ClosedCohold.lean
 ##   2524e8c846408e622bb8a31e89a8888ab07cade9f99f56aa700be3970c870bd5  Snuffy/Composition.lean
@@ -1161,6 +1172,7 @@
 ##   8d105a75e692b99a39af6cf050ab500fd8b6fd0faa8e7d8b8160118efa54c28b  Snuffy/SafeGenesis.lean
 ##   86d9fde7d6637b6ac3835bcc4011c08cbfc00f3c6b6f90b246248ebcb847199c  Snuffy/SemanticMap.lean
 ##   c23049174f6dfaaedb7d583b5de221f17fb9e5e854c1ffa7b7daaa261f146851  Snuffy/SensorTail.lean
+##   47572c51ec0936496697e6858aa46465b00fb18c5fba10255ec9f6c2293188f3  Snuffy/SolventReciprocity.lean
 ##   355c12f48ab339d34d57c02f9e3a9d556d27009aecb26335b9113c9e327d11b6  Snuffy/SpeedLimit.lean
 ##   40d4899d038811565a8ed51c027fc0e8f30c0c53fd9c3915a13a725ffe619dc3  Snuffy/StrokeBookkeeping.lean
 ##   4d42eead54a831c0e58ad441fdd74012047658d3c9c328451db7b67158f5bee2  Snuffy/ThermalBalance.lean
@@ -1176,5 +1188,5 @@
 ##   ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1  Snuffy/UniversalProtection.lean
 ##   97796ec3be890378195fa42cfd4ae9e12494235f556e4d4679beea1dea75e7fc  Snuffy/Whitening.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   93b944783a1fd47c47500cbf508b759b50ea7c81d89867b8c006b881daeb5154  SummitsAudit.lean
-## overall: FAIL
+##   8e06f633c883b550af729e1f452f425cf3b5662d184df693db03cbbd8cadb27d  SummitsAudit.lean
+## overall: PASS
