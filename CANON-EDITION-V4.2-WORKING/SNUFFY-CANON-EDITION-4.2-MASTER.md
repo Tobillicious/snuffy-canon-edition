@@ -8,7 +8,7 @@ Author-side working draft, 25 October 2026. Research direction: Tobias Croydon-M
 
 The three joined supports are constructed in Part III-G and recorded in Part III-C: the full-domain physical certificate (G1; G.10), the realisability of the whole greatest outcome tuple (G2; G.9, G.11), and the wavefront protocol's success and complete-work certificate (G3; G.12). Their targets are unchanged. Naming an input or relabelling a conclusion does not supply its construction.
 
-The current Lean tree contains 156 modules and 986 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the twelve further modules were compiled and kernel-checked fresh against those objects, and the full axiom audit over all 986 names and the completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
+The current Lean tree contains 157 modules and 993 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the thirteen further modules were compiled and kernel-checked fresh against those objects, and the full axiom audit over all 993 names and the completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
 
 **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports and their constructions. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
 
@@ -1430,7 +1430,7 @@ The installation figures themselves are sourced measurements and design values, 
 
 ## Section 23 — The machine-checked canon
 
-*This section maps the edition's compiled results and their actual hypotheses. The current source contains 156 modules and 986 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
+*This section maps the edition's compiled results and their actual hypotheses. The current source contains 157 modules and 993 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
 
 *Evidence convention (unchanged from the edition header): a compiled theorem is cited by its name; a statement carried as a hypothesis of a compiled theorem is named as such; a prose derivation keeps its stated premises. A prose proof does not acquire a compiler certificate by association.*
 
@@ -1589,6 +1589,7 @@ The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the r
 | `SmearingIntegral` | The smeared dual-kernel integral returns the original operator, bulk and boundary (G.4; G.13) |
 | `ChannelExtension` | The completed decoder: exact recovery including any reference, trace preservation, positivity (G.1; G.13) |
 | `PureStateDistance` | Pure-state infidelity is bounded by the squared state-vector distance (§23.3; G.13) |
+| `BennettCounterpart` | The Bennett counterpart constructed: zero heat, same earlier outcomes and base cost, feasible with strictly more slack; premise 5 with no hypothesis on the counterpart (G.14) |
 
 The earlier `G1Certificate.universal_protection_held` has conclusion `True`; it is a placeholder and is not the protection theorem `Bridge.universal_protection_held`. The latter's full source certificate is constructed in G.10 (`G1Held.held_source_protection`). The exact integration history and dependency trace accompany this working edition.
 
@@ -1755,6 +1756,7 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `SmearingIntegral` | `smeared_reconstruction`, `smeared_boundary_reconstruction` |
 | `ChannelExtension` | `ext_recovers`, `kron_isometry`, `ext_recovers_reference`, `ext_trace`, `ext_posSemidef` |
 | `PureStateDistance` | `pure_infidelity_le`, `pure_fidelity_ge` |
+| `BennettCounterpart` | `counterpart_heat_zero`, `merging_heat_pos`, `counterpart_same`, `counterpart_feasible`, `counterpart_more_slack`, `premise5_constructed`, `bennett_counterpart_computes` |
 <!-- END THEOREM INDEX -->
 
 ---
@@ -2757,6 +2759,43 @@ cited, this gives \(\tfrac12\|\rho-\sigma\|_1\le\|\psi-\varphi\|\). The
 speed-limit bounds, stated in state-vector norm, therefore bound the
 infidelity and the trace distance of the held state.
 
+## G.14 Premise 5 with the Bennett counterpart constructed
+
+`Bennett.premise5_from_bennett` took the counterpart's properties as
+hypotheses. Here the counterpart is constructed, and each of those properties
+is proved (`BennettCounterpart`).
+
+An option is a policy together with the implementation of its administration.
+The implementation is either irreversible or reversible. An irreversible
+implementation is a joint register–bath dynamics that leaves the register in
+the law of an overwrite \(f\). A reversible implementation is a bijection of
+the register alone. The Bennett cycle `Bennett.bennettEquiv` is one; it writes
+\(f(a)=h(g(a))\) into a clean output and returns the workspace to zero
+(`bennett_counterpart_computes`). An option's cost is its policy's base cost
+plus the energy its administration delivers to the bath (`Landauer.heat`). Its
+outcome stages before the resource stage \(j\) are the policy's outcomes.
+Stage \(j\) reads the residual slack \(B-\mathrm{cost}\) through a strictly
+monotone map. The counterpart of an option runs the same policy with
+reversible administration.
+
+- *Zero heat.* Reversible administration delivers exactly zero heat
+  (`counterpart_heat_zero`, from `Bennett.heat_reversible`).
+- *Positive heat.* An irreversible overwrite that merges two register states
+  of positive probability delivers strictly positive heat
+  (`merging_heat_pos`, from `Bennett.heat_irreversible`).
+- *Same earlier outcomes and same base cost.* The counterpart agrees with the
+  option before stage \(j\) (`counterpart_same`) and runs the same policy, so
+  its base cost is unchanged. Its only cost difference is the delivered heat,
+  which is zero.
+- *Feasible, with strictly more slack.* Whenever the option is feasible, the
+  counterpart is feasible (`counterpart_feasible`) and has strictly more slack
+  at stage \(j\) (`counterpart_more_slack`).
+
+Therefore no canonical option has merging irreversible administration
+(`premise5_constructed`). The law forces reversible administration from the
+Landauer model and the constructed Bennett cycle, with no hypothesis about
+the counterpart.
+
 ---
 
 # Part IV — References and provenance
@@ -2791,7 +2830,7 @@ The machine-checked canon of Section 23 certifies exactly the results it maps, w
 
 # Appendix — Verification provenance of this working draft
 
-The original published baseline contains 115 modules and 831 audited names. The current working tree contains 156 modules and 986 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the twelve further modules were compiled and kernel-checked fresh against those objects, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. The original failed run is preserved in the integration bank.
+The original published baseline contains 115 modules and 831 audited names. The current working tree contains 157 modules and 993 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the thirteen further modules were compiled and kernel-checked fresh against those objects, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. The original failed run is preserved in the integration bank.
 
 The eight-module integration and its 896-statement receipt remain preserved. This increment adds 28 checked statements in the existing DecoderRetraction, HamiltonianDecomposition and WorkBilling modules, integrates the three-pillar operator/history/work construction in Part III-G, and keeps the continuous integral/channel derivations and physical source correspondences explicit. Its exact changes and verification evidence accompany the working draft. No published edition or release is changed.
 

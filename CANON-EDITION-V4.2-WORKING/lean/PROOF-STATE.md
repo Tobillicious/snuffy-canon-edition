@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 156. Corpus module names: 71. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
+Canon modules: 157. Corpus module names: 72. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 156. Audit imports: 156.
+Build modules: 157. Audit imports: 157.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -124,6 +124,7 @@ Build modules: 156. Audit imports: 156.
 | `AreaBridge` | yes | `(canon only)` |
 | `BandwidthReflection` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/BandwidthReflection.lean` |
 | `Bennett` | yes | `(canon only)` |
+| `BennettCounterpart` | yes | `2026-10-25-historical-handoff-source/bennett-counterpart/lean/Snuffy/BennettCounterpart.lean` |
 | `Bridge` | yes | `(canon only)` |
 | `BridgeD1` | yes | `2026-10-23-gemini-bridge-dynamics/lean/BridgeD1.lean` |
 | `BridgeE9` | yes | `2026-10-23-gemini-bridge-dynamics/lean/BridgeE9.lean` |

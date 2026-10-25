@@ -156,6 +156,7 @@ import Snuffy.TheoremEightLyapunov
 import Snuffy.SmearingIntegral
 import Snuffy.ChannelExtension
 import Snuffy.PureStateDistance
+import Snuffy.BennettCounterpart
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1299,3 +1300,11 @@ import Snuffy.PureStateDistance
 -- PureStateDistance
 #print axioms Snuffy.PureStateDistance.pure_infidelity_le
 #print axioms Snuffy.PureStateDistance.pure_fidelity_ge
+-- BennettCounterpart
+#print axioms Snuffy.BennettCounterpart.counterpart_heat_zero
+#print axioms Snuffy.BennettCounterpart.merging_heat_pos
+#print axioms Snuffy.BennettCounterpart.counterpart_same
+#print axioms Snuffy.BennettCounterpart.counterpart_feasible
+#print axioms Snuffy.BennettCounterpart.counterpart_more_slack
+#print axioms Snuffy.BennettCounterpart.premise5_constructed
+#print axioms Snuffy.BennettCounterpart.bennett_counterpart_computes

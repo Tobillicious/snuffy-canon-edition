@@ -297,6 +297,7 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `SmearingIntegral` | `smeared_reconstruction`, `smeared_boundary_reconstruction` |
 | `ChannelExtension` | `ext_recovers`, `kron_isometry`, `ext_recovers_reference`, `ext_trace`, `ext_posSemidef` |
 | `PureStateDistance` | `pure_infidelity_le`, `pure_fidelity_ge` |
+| `BennettCounterpart` | `counterpart_heat_zero`, `merging_heat_pos`, `counterpart_same`, `counterpart_feasible`, `counterpart_more_slack`, `premise5_constructed`, `bennett_counterpart_computes` |
 <!-- END THEOREM INDEX -->
 
 ---
