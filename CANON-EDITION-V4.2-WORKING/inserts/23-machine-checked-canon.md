@@ -290,6 +290,7 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `G1Held` | `good_cover`, `held_source_protection`, `held_source_qsl` |
 | `G1E9` | `alarm_or_subthreshold`, `held_source_e9` |
 | `G2Held` | `active_authorised_free`, `held_realises_top`, `held_source_top` |
+| `G3Sweep` | `sweep_recovers`, `sweep_visits`, `waves_from_spread`, `sweep_bill` |
 <!-- END THEOREM INDEX -->
 
 ---

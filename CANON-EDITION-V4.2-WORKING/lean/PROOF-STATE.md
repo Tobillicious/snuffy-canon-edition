@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 149. Corpus module names: 64. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
+Canon modules: 150. Corpus module names: 65. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 149. Audit imports: 149.
+Build modules: 150. Audit imports: 150.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -169,6 +169,7 @@ Build modules: 149. Audit imports: 149.
 | `G2Splice` | yes | `2026-10-25-historical-handoff-source/g2-splice/lean/Snuffy/G2Splice.lean` |
 | `G2WholeOutcome` | yes | `2026-10-25-historical-handoff-source/working/lean/Snuffy/G2WholeOutcome.lean` |
 | `G3CompleteBill` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/G3CompleteBill.lean` |
+| `G3Sweep` | yes | `2026-10-25-historical-handoff-source/g3-sweep/lean/Snuffy/G3Sweep.lean` |
 | `G3WorkBill` | yes | `(canon only)` |
 | `GateSupport` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/GateSupport.lean` |
 | `GaussianChannel` | yes | `(canon only)` |

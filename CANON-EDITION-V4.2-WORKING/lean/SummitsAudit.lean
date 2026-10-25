@@ -149,6 +149,7 @@ import Snuffy.CorrelatedCeiling
 import Snuffy.G1Held
 import Snuffy.G1E9
 import Snuffy.G2Held
+import Snuffy.G3Sweep
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1265,3 +1266,8 @@ import Snuffy.G2Held
 #print axioms Snuffy.G2Held.active_authorised_free
 #print axioms Snuffy.G2Held.held_realises_top
 #print axioms Snuffy.G2Held.held_source_top
+-- G3Sweep
+#print axioms Snuffy.G3Sweep.sweep_recovers
+#print axioms Snuffy.G3Sweep.sweep_visits
+#print axioms Snuffy.G3Sweep.waves_from_spread
+#print axioms Snuffy.G3Sweep.sweep_bill
