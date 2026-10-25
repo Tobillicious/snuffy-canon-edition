@@ -1,0 +1,12 @@
+# Part III-C — Joined supports being incorporated
+
+The proposition remains protection of all things from any digital mind, especially a pure optimiser. X3, P1 and P2 retain their established gauntlet arguments. These are the same three support requests being supplied by the author and Gemini, with no additional objection introduced by this incorporation.
+
+**G1 — combined full-domain physical certificate.** Construct the actual source state, admitted commands/events, physical projection, observations and charged fault accounts that jointly supply `Bridge.universal_protection_held`. Its `hcert` establishes commuting refinement, observation agreement, initial continuation of every particular, the perturbation-radius bound and repair precision on the named good event. Also join the event cover and conditional fault bounds. Part II incorporates the law-derived scope, code decoder, physical cycle, controller-derived tracking, E9 branches, H5 care-preserving mediation, R14/R16 source refinements and timely R17 effect construction. The requested result joins these for the complete claimed physical domain.
+
+**G2 — realisability of the whole greatest outcome.** Construct `htopR : (⊤ : ∀ i, L i) ∈ R` for the same full order, including existing and new continuation and freedom stages, with the semantic continuation reading `htopkeeps`. Keep it distinct from `hsolv : c ⊤ ≤ B`. Part II.10 supplies the algebra from those inputs to equality of every aligned option with the top and dominance over every rival. The construction retains the full tuple.
+
+**G3 — supplied wavefront/TIWA protocol: success and the complete work certificate.** The author has supplied the single-shot feedforward wavefront construction and the TIWA guard-ring proposal. Section 21.7.4 and `TIWA-PATCH-REQUIREMENTS.md` specify the latter’s source, physical and work obligations. Section 21.7 proves its processing count exactly by disjoint shells: \(\sum_{k=0}^N|S_k|=|B_{vN}|\), hence bounded work per processed vertex gives \(O(N^{d_G})\). The same construction must now supply its actual recovery success and retained-state/quiescence witness, the age-to-wave-count bound, and the complete physical bill including routing, reset, holding and controller export. Those establish \(W_{\min}(t)\le W(\pi_{\mathrm{ff}},t)\le Ct^{d_G}\) in the original permitted class. The shell exponent is established and is not requested again. This is the remaining certificate for the supplied construction, with the full \(\Theta(t^{d_G})\) target unchanged.
+
+---
+

@@ -1,0 +1,66 @@
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun
+import Mathlib.Analysis.SpecialFunctions.Pow.Deriv
+import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+
+open MeasureTheory Set Filter
+
+namespace Snuffy.RecoveryWork
+
+theorem frontier_work_bound {r P : ℝ → ℝ} {T r0 v p' W d : ℝ}
+    (hT : 0 ≤ T) (hd : 1 ≤ d) (hv : 0 < v) (hp : 0 < p')
+    (hac : AbsolutelyContinuousOnInterval r 0 T)
+    (hnonneg : ∀ s ∈ Icc 0 T, 0 ≤ r s)
+    (hr0 : r 0 = r0)
+    (hspeed : ∀ᵐ s, s ∈ Icc 0 T → deriv r s ≤ v)
+    (hpow : ∀ᵐ s, s ∈ Icc 0 T → p' * r s ^ (d - 1) ≤ P s)
+    (hPint : IntervalIntegrable P volume 0 T)
+    (hW : ∫ s in (0:ℝ)..T, P s ≤ W) :
+    r T ^ d - r0 ^ d ≤ v * d / p' * W  := [proof body omitted in statement view]
+
+structure RecoveryProtocol (r0 v p' d : ℝ) where
+  T : ℝ
+  frontier : ℝ → ℝ
+  power : ℝ → ℝ
+  work : ℝ
+  T_nonneg : 0 ≤ T
+  ac : AbsolutelyContinuousOnInterval frontier 0 T
+  nonneg : ∀ s ∈ Icc 0 T, 0 ≤ frontier s
+  start : frontier 0 = r0
+  speed : ∀ᵐ s, s ∈ Icc 0 T → deriv frontier s ≤ v
+  area_power : ∀ᵐ s, s ∈ Icc 0 T → p' * frontier s ^ (d - 1) ≤ power s
+  power_integrable : IntervalIntegrable power volume 0 T
+  charged : ∫ s in (0:ℝ)..T, power s ≤ work
+
+def RecoveryProtocol.Succeeds {r0 v p' d : ℝ} (π : RecoveryProtocol r0 v p' d) (R : ℝ) :
+    Prop :=
+  R ≤ π.frontier π.T
+
+theorem Wmin_lower_bound {r0 v p' d : ℝ} (hd : 1 ≤ d) (hv : 0 < v) (hp : 0 < p')
+    {R : ℝ} (hR0 : 0 ≤ R) (π : RecoveryProtocol r0 v p' d) (hsucc : π.Succeeds R) :
+    p' / (v * d) * (R ^ d - r0 ^ d) ≤ π.work  := [proof body omitted in statement view]
+
+theorem necessary_radius {I0 It D u t r : ℝ} (hD : 0 < D) (ht : 0 < t) (hIt : 0 < It)
+    (hItI0 : It ≤ I0)
+    (htail : r < u * t → It ≤ I0 * Real.exp (-(u * t - r) ^ 2 / (4 * D * t))) :
+    u * t - 2 * Real.sqrt (D * Real.log (I0 / It)) * Real.sqrt t ≤ r  := [proof body omitted in statement view]
+
+theorem completing_square {u w c t : ℝ} (hw : 0 < w) (hwu : w < u) (ht : 0 ≤ t) :
+    u * t - c * Real.sqrt t - w * (t - c ^ 2 / (4 * w * (u - w)))
+      = (u - w) * (Real.sqrt t - c / (2 * (u - w))) ^ 2  := [proof body omitted in statement view]
+
+theorem carrier_radius {u w c t r : ℝ} (hw : 0 < w) (hwu : w < u) (ht : 0 ≤ t)
+    (hr : u * t - c * Real.sqrt t ≤ r) :
+    w * (t - c ^ 2 / (4 * w * (u - w))) ≤ r  := [proof body omitted in statement view]
+
+theorem x3_delayed_recovery_work {r0 v p' d w tc t R : ℝ} (hd : 1 ≤ d) (hv : 0 < v)
+    (hp : 0 < p') (hw : 0 < w) (ht : tc ≤ t) (hR : w * (t - tc) ≤ R)
+    (π : RecoveryProtocol r0 v p' d) (hsucc : π.Succeeds R) :
+    p' / (v * d) * ((w * (t - tc)) ^ d - r0 ^ d) ≤ π.work  := [proof body omitted in statement view]
+
+theorem delayed_work_diverges {r0 v p' d w tc : ℝ} (hd : 1 ≤ d) (hv : 0 < v) (hp : 0 < p')
+    (hw : 0 < w) :
+    Tendsto (fun t => p' / (v * d) * ((w * (t - tc)) ^ d - r0 ^ d)) atTop atTop  := [proof body omitted in statement view]
+
+end Snuffy.RecoveryWork

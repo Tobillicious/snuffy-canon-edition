@@ -1,0 +1,56 @@
+import Mathlib.Data.Finset.Basic
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+
+namespace UPTGenerativeClosure
+open scoped BigOperators
+
+structure Allocation (Id : Type) where
+  funded : Finset Id
+  active : Finset Id
+
+def Valid {Id : Type} [DecidableEq Id] (cost : Id → Nat) (capacity : Nat)
+    (s : Allocation Id) : Prop :=
+  (∑ i ∈ s.funded, cost i) ≤ capacity ∧ s.active ⊆ s.funded
+
+inductive Step {Id : Type} [DecidableEq Id] (cost : Id → Nat) (capacity : Nat) :
+    Allocation Id → Allocation Id → Prop
+  | reserve (s : Allocation Id) (child : Id) (fresh : child ∉ s.funded)
+      (paid : cost child + (∑ i ∈ s.funded, cost i) ≤ capacity) :
+      Step cost capacity s ⟨insert child s.funded, s.active⟩
+  | activate (s : Allocation Id) (child : Id) (paid : child ∈ s.funded) :
+      Step cost capacity s ⟨s.funded, insert child s.active⟩
+  | retire (s : Allocation Id) (child : Id) :
+      Step cost capacity s ⟨s.funded, s.active.erase child⟩
+  | release (s : Allocation Id) (child : Id) (inactive : child ∉ s.active) :
+      Step cost capacity s ⟨s.funded.erase child, s.active⟩
+
+theorem step_preserves_paid_activation {Id : Type} [DecidableEq Id]
+    (cost : Id → Nat) (capacity : Nat) {s t : Allocation Id}
+    (valid : Valid cost capacity s) (step : Step cost capacity s t) :
+    Valid cost capacity t  := [proof body omitted in statement view]
+
+inductive Trace {Id : Type} [DecidableEq Id] (cost : Id → Nat) (capacity : Nat) :
+    Allocation Id → Allocation Id → Prop
+  | initial (s) : Trace cost capacity s s
+  | next {s t u} : Trace cost capacity s t → Step cost capacity t u → Trace cost capacity s u
+
+theorem every_generated_active_is_funded {Id : Type} [DecidableEq Id]
+    (cost : Id → Nat) (capacity : Nat) {s t : Allocation Id}
+    (initial : Valid cost capacity s) (trace : Trace cost capacity s t) :
+    Valid cost capacity t  := [proof body omitted in statement view]
+
+theorem reserve_does_not_displace_existing_agents {Id : Type} [DecidableEq Id]
+    (s : Allocation Id) (child : Id) :
+    s.active = (Allocation.mk (insert child s.funded) s.active).active  := [proof body omitted in statement view]
+
+inductive Delegated {Id Effect : Type} [DecidableEq Effect]
+    (rights : Id → Finset Effect) : Id → Id → Prop
+  | self (root : Id) : Delegated rights root root
+  | grant {root parent child : Id} : Delegated rights root parent →
+      rights child ⊆ rights parent → Delegated rights root child
+
+theorem generated_authority_stays_within_root {Id Effect : Type} [DecidableEq Effect]
+    (rights : Id → Finset Effect) {root child : Id}
+    (chain : Delegated rights root child) : rights child ⊆ rights root  := [proof body omitted in statement view]
+
+end UPTGenerativeClosure

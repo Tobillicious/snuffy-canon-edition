@@ -1,0 +1,47 @@
+import Mathlib.Basic.Real.Basic
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Tactic.Linarith
+
+namespace UPTCascadeCore
+open scoped BigOperators
+
+theorem workload_deadline (work rate deadline : ℝ) (hw : 0 ≤ work)
+    (hr : 0 < rate) (paid : work ≤ rate*deadline) :
+    0 ≤ work/rate ∧ work/rate ≤ deadline  := [proof body omitted in statement view]
+
+def queue (initial : ℝ) (net : Nat → ℝ) : Nat → ℝ
+  | 0 => initial
+  | n+1 => max 0 (queue initial net n + net n)
+
+theorem recursive_queue_bound (initial burst : ℝ) (net : Nat → ℝ)
+    (hi : 0 ≤ initial) (hb : initial ≤ burst) :
+    ∀ n, (∀ k < n, net k ≤ 0) → 0 ≤ queue initial net n ∧ queue initial net n ≤ burst  := [proof body omitted in statement view]
+
+def entropy (initial : ℝ) (net : Nat → ℝ) : Nat → ℝ
+  | 0 => initial
+  | n+1 => entropy initial net n + net n
+
+theorem multi_epoch_entropy_bound (initial drift : ℝ) (net : Nat → ℝ) :
+    ∀ n, (∀ k < n, net k ≤ drift) → entropy initial net n ≤ initial+n*drift  := [proof body omitted in statement view]
+
+theorem spectrum_expectation_floor {n : Nat} (energy weight : Fin n → ℝ) (floor : ℝ)
+    (positive : ∀ i, 0 ≤ weight i) (normalized : ∑ i, weight i = 1)
+    (ground : ∀ i, floor ≤ energy i) :
+    floor ≤ ∑ i, weight i*energy i  := [proof body omitted in statement view]
+
+theorem atomic_headroom (used cost capacity : Nat)
+    (valid : used ≤ capacity) (fits : cost ≤ capacity-used) : used+cost ≤ capacity  := [proof body omitted in statement view]
+
+theorem defection_deficit (base penalty production margin : ℝ)
+    (shortage : base-penalty < production-margin) :
+    margin < production-(base-penalty)  := [proof body omitted in statement view]
+
+theorem sustained_deficit_crosses_buffer (initial _ceiling deficit : ℝ) (net : Nat → ℝ) :
+    ∀ n, (∀ k < n, deficit ≤ net k) → initial+n*deficit ≤ entropy initial net n  := [proof body omitted in statement view]
+
+theorem buffer_threshold_crossed (initial ceiling deficit : ℝ) (net : Nat → ℝ)
+    (n : Nat) (lower : ∀ k < n, deficit ≤ net k)
+    (duration : ceiling < initial+n*deficit) : ceiling < entropy initial net n  := [proof body omitted in statement view]
+
+end UPTCascadeCore

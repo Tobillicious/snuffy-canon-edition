@@ -1,0 +1,26 @@
+import Mathlib.Topology.MetricSpace.Contracting
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+
+open Function NNReal
+
+namespace Snuffy.Reflection
+
+variable {X : Type*} [MetricSpace X] {k : ℝ≥0} {R : X → X}
+
+theorem residual_certificate [CompleteSpace X] [Nonempty X] (hR : ContractingWith k R)
+    (s₀ : X) (n : ℕ) :
+    dist (R^[n + 1] s₀) (ContractingWith.fixedPoint R hR)
+      ≤ k / (1 - k) * dist (R^[n] s₀) (R^[n + 1] s₀)  := [proof body omitted in statement view]
+
+theorem apriori_error [CompleteSpace X] [Nonempty X] (hR : ContractingWith k R) (s₀ : X)
+    (n : ℕ) :
+    dist (R^[n] s₀) (ContractingWith.fixedPoint R hR) ≤ (k : ℝ) ^ n * dist s₀ (R s₀) / (1 - k)  := [proof body omitted in statement view]
+
+theorem stopping_count [CompleteSpace X] [Nonempty X] (hR : ContractingWith k R)
+    (hk0 : 0 < (k : ℝ)) (s₀ : X) {ε : ℝ} (hε : 0 < ε) (ha : 0 < dist s₀ (R s₀)) :
+    ∀ n ≥ max 1 ⌈Real.log (ε * (1 - k) / dist s₀ (R s₀)) / Real.log k⌉₊,
+      dist (R^[n] s₀) (ContractingWith.fixedPoint R hR) ≤ ε  := [proof body omitted in statement view]
+
+theorem zero_constant_fixed (hR : ContractingWith 0 R) (s₀ : X) : IsFixedPt R (R s₀)  := [proof body omitted in statement view]
+
+end Snuffy.Reflection

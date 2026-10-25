@@ -1,0 +1,6 @@
+/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/WorkBilling.lean:137:2: error: Type mismatch
+  add_le_add_left (hcap k) ?m.59
+has type
+  influx k + ?m.59 ≤ cap + ?m.59
+but is expected to have type
+  (1 - α) * q k + influx k ≤ (1 - α) * q k + cap

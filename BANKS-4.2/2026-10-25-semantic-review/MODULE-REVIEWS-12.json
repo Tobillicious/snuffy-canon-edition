@@ -1,0 +1,85 @@
+{
+  "modules": {
+    "Workload": {
+      "role": "Real-valued FIFO/serial deadline certificates and finite-range variance",
+      "assessment": "Reviewed all statements and the explicit finish/serial recurrences. The completion bound follows actual initial/release/service inequalities and work<=budget; equality gives tightness. Serial stages use both preceding job and preceding stage. range_variance_bound gives the sum-of-variances estimate for measurable bounded coordinates on a probability space without independent input assumptions.",
+      "obligations": [
+        "Construct actual complete work and service, including all blocking/carry-in; represent the calibrated input coordinates and units."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "FIFOWorkload": {
+      "role": "Natural-clock finite-list FIFO model",
+      "assessment": "Reviewed all statements and Job/finish. Work below each budget bounds recursive completion, and a certified prefix yields its last job's deadline.",
+      "obligations": [
+        "Actual job/work correspondence and live authority at application are supplied by later modules."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "FIFOAdmission": {
+      "role": "Executable admission/completion/cancellation certificate preservation",
+      "assessment": "Reviewed all statements with Certified/checks/admit/cancel/queueStep. The Boolean checker is equivalent to the recursive certificate. Tail admission, bounded completion and cancellation preserve all admitted deadlines, and an actual source commuting with queueStep inherits that invariant.",
+      "obligations": [
+        "Unaccounted runtime or blocking cannot be represented as a harmless ignored completion; the physical source must establish the budget bound or charge the actual failure."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "FIFOInstance": {
+      "role": "Exact controller workload instances",
+      "assessment": "Reviewed all ten exact-rational statements and finishQ. Explicit job lists establish completion values for the three/four cases, veto envelopes, the charged allocation totals and each job's deadline. These link the cost formula to an actual FIFO workload instance.",
+      "obligations": [
+        "Use the correct capacity/price rows and source timing correspondence."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ControllerCertificate": {
+      "role": "Exact rational sizing, capacity and cost arithmetic",
+      "assessment": "Reviewed every named statement with deltaQ, rateQ, debtQ, allocFIFOQ, totalQ and stableQ. Minimal and robust parameter rows meet their stated deadline/stability arithmetic; exact pool bills are 2,294,400 and 2,409,600, and the baseline bill ratios are 688/239 and 688/251. Two examples show the older allocation undercharge.",
+      "obligations": [
+        "These exact instances do not establish arbitrary workload or hardware performance. Trace whether the manuscript's word 'utilisations' for the bill ratios should be 'cost ratios'."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "IntegrationCertificate": {
+      "role": "Typed gate algebra, interval FIFO certificate and routing-model examples",
+      "assessment": "Reviewed the four named statements, the concrete intervalOK/finish bound and two additional unnamed examples. The typed gate decomposition preserves support under its gate input. The two-node psi2 inequality holds in that explicit family. The three-node examples retain failures of the older unconserved generalisation and demonstrate that arbitrary unconserved transport need not prefer the uniform allocation.",
+      "obligations": [
+        "Use ConservedRouting's corrected model for the current exact HHI claim. The two unnamed examples are compiled source proofs, not part of the 831 named audit entries."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ConservedRouting": {
+      "role": "Corrected conserved-demand transport and exact dimension-n concentration identity",
+      "assessment": "Reviewed every named statement with row-normalised RoutingDemand, conservedFlow, rowProfile and Regular. Row conservation yields a quadratic share cost, regular rows make it proportional to HHI, and the exact expression includes the n-1 factor. Monopoly is strictly more costly in that regular positive-cost family. Thermal positivity and the final exponential<=1 inequality retain their explicit numerical inputs.",
+      "obligations": [
+        "The actual demand/geometry must satisfy the chosen conserved regular family. jarzynski_bound_valid is the algebraic exponential bound from W>=deltaF, not a separately constructed stochastic fluctuation theorem."
+      ],
+      "settled_result": "The earlier H8 counterexamples are answered by this corrected conserved model; do not resurrect the old formula.",
+      "status": "statements_and_definitions_reviewed"
+    },
+    "P2P3": {
+      "role": "Scalar scaling, work/TV composition and escrow inequalities",
+      "assessment": "Reviewed all statements. Range sensitivity, scaling sums, telescoping and derivative rescaling are algebra/calculus. work_tv_floor composes an entropy/work floor with the supplied TV relation. liquidation_triggers uses an explicit disjunctive enforcement premise; zero_breach_bound is a positive exponential upper bound, not zero unconditional risk. The corrected canon handles zero breach on G and charged failure outside G.",
+      "obligations": [
+        "The physical concentration law, work inequality and liquidation/enforcement premise must be independently supported; the lemma names do not construct them."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "TransportLaw": {
+      "role": "Earlier unconserved transport model and local HHI floor",
+      "assessment": "Reviewed all statements and the quartic transportPsi. Nonnegative squared transport gives a local alpha*HHI lower bound. hhi_ge_uniform follows normalisation. monopoly_penalty's left side simplifies to that same local floor; its physical comparison is sharpened by the later conserved model.",
+      "obligations": [
+        "Do not infer universal uniform optimality for every quartic transport geometry from this local lower bound."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ClosedCohold": {
+      "role": "Dependency closure, factorised hold and a delayed coupling counterexample",
+      "assessment": "Reviewed all statements with Reach/Closed and the explicit product run/trace. Reachability gives the least closed set. In the factorised source, pausing interior f leaves the outside g trace unchanged, with elapsed length retained. The coupled example shows a cross-boundary dependency can change the outside later.",
+      "obligations": [
+        "Construct the actual closure/factorisation, including pending dependencies and physical holding cost; a product definition alone is not physical isolation."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    }
+  }
+}

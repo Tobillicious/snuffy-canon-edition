@@ -1,0 +1,3 @@
+## completeness: canon 144, corpus names 59, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 105
+## build/audit coverage: canon 144, build 136, audit 144, errors 1
+##   MANIFEST ERROR build omits canon modules: DecoderRetraction, G1FullDomain, G2WholeOutcome, G3CompleteBill, GuardOperator, GuardSignature, HamiltonianDecomposition, WorkBilling

@@ -1,0 +1,87 @@
+import Snuffy.FIFOWorkload
+import Snuffy.R16Feedback
+
+namespace SnuffyFIFO
+
+def Certified : Nat → List Job → Prop
+  | _, [] => True
+  | base, j :: tail =>
+      max base j.release + j.budget ≤ j.deadline ∧
+      Certified (max base j.release + j.budget) tail
+
+def checks : Nat → List Job → Bool
+  | _, [] => true
+  | base, j :: tail =>
+      decide (max base j.release + j.budget ≤ j.deadline) &&
+      checks (max base j.release + j.budget) tail
+
+theorem checks_iff (base : Nat) (jobs : List Job) :
+    checks base jobs = true ↔ Certified base jobs  := [proof body omitted in statement view]
+
+theorem certified_mono (jobs : List Job) (a b : Nat) (hab : a ≤ b)
+    (h : Certified b jobs) : Certified a jobs  := [proof body omitted in statement view]
+
+theorem certified_append (base : Nat) (first rest : List Job) :
+    Certified base (first ++ rest) ↔
+      Certified base first ∧ Certified (finish base first (fun j => j.budget)) rest  := [proof body omitted in statement view]
+
+def admit (base : Nat) (jobs : List Job) (j : Job) : List Job :=
+  if checks base (jobs ++ [j]) then jobs ++ [j] else jobs
+
+theorem admission_preserves (base : Nat) (jobs : List Job) (j : Job)
+    (h : Certified base jobs) : Certified base (admit base jobs j)  := [proof body omitted in statement view]
+
+theorem completion_preserves (base : Nat) (j : Job) (tail : List Job)
+    (actual : Nat) (bounded : actual ≤ j.budget) (h : Certified base (j :: tail)) :
+    max base j.release + actual ≤ j.deadline ∧
+      Certified (max base j.release + actual) tail  := [proof body omitted in statement view]
+
+def cancel : Nat → List Job → List Job
+  | _, [] => []
+  | 0, _ :: tail => tail
+  | n+1, j :: tail => j :: cancel n tail
+
+theorem cancellation_preserves (index base : Nat) (jobs : List Job)
+    (h : Certified base jobs) : Certified base (cancel index jobs)  := [proof body omitted in statement view]
+
+def ActualTimely : Nat → List (Job × Nat) → Prop
+  | _, [] => True
+  | base, (j, actual) :: tail =>
+      max base j.release + actual ≤ j.deadline ∧
+      ActualTimely (max base j.release + actual) tail
+
+theorem all_occurrences_timely (base : Nat) (execution : List (Job × Nat))
+    (h : Certified base (execution.map Prod.fst))
+    (bounds : ∀ item ∈ execution, item.2 ≤ item.1.budget) :
+    ActualTimely base execution  := [proof body omitted in statement view]
+
+structure Queue where
+  base : Nat
+  jobs : List Job
+
+inductive QueueEvent where
+  | admission (job : Job)
+  | cancellation (index : Nat)
+  | completion (actual : Nat)
+
+def queueStep (s : Queue) : QueueEvent → Queue
+  | .admission j => {s with jobs := admit s.base s.jobs j}
+  | .cancellation i => {s with jobs := cancel i s.jobs}
+  | .completion actual =>
+      match s.jobs with
+      | [] => s
+      | j :: tail =>
+          if actual ≤ j.budget then ⟨max s.base j.release + actual, tail⟩ else s
+
+theorem queue_step_preserves (s : Queue) (e : QueueEvent)
+    (h : Certified s.base s.jobs) :
+    Certified (queueStep s e).base (queueStep s e).jobs  := [proof body omitted in statement view]
+
+theorem refinement_preserves_queue {S : Type} (p : S → Queue)
+    (sourceTick : S → S) (choose : Queue → QueueEvent)
+    (square : ∀ s, p (sourceTick s) = queueStep (p s) (choose (p s)))
+    (s : S) (initial : Certified (p s).base (p s).jobs) (n : Nat) :
+    Certified (p (UPTR16.iterate sourceTick n s)).base
+      (p (UPTR16.iterate sourceTick n s)).jobs  := [proof body omitted in statement view]
+
+end SnuffyFIFO

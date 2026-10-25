@@ -1,0 +1,56 @@
+--- 2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/FIFOWorkload.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/FIFOWorkload.lean
+@@ -1,4 +1,3 @@
+-import Mathlib
+ 
+ /-!
+ Snuffy R17-FIFO (candidate, 23 October 2026).
+@@ -19,7 +18,7 @@
+   deadline : Nat
+   deriving Repr
+ 
+-/-- Last completion time for the FIFO prefix when service time of each job is `work j`.
++/-- Last completion time for the FIFO priorJobs when service time of each job is `work j`.
+     `base` is the time the lane becomes free after inherited, unpreemptible work. -/
+ def finish (base : Nat) (jobs : List Job) (work : Job → Nat) : Nat :=
+   match jobs with
+@@ -30,9 +29,9 @@
+     reduce the completion bound for the next FIFO job. -/
+ theorem fifo_step (a b r w u : Nat) (hab : a ≤ b) (hwu : w ≤ u) :
+     max a r + w ≤ max b r + u := by
+-  exact Nat.add_le_add (max_le_max hab (le_refl _)) hwu
++  omega
+ 
+-/-- Every actual FIFO prefix finishes by its budgeted prefix time,
++/-- Every actual FIFO priorJobs finishes by its budgeted priorJobs time,
+     provided the physical execution is continuously serviced without
+     uncharged blocking, and actual work ≤ the independently warranted bound. -/
+ theorem finish_le_upper (work : Job → Nat) :
+@@ -55,14 +54,14 @@
+         (ih ht (max a j.release + work j)
+             (max b j.release + j.budget) hstep)
+ 
+-/-- A certified bound on the completion of any FIFO prefix proves its
++/-- A certified bound on the completion of any FIFO priorJobs proves its
+     actual deadline, not just the final job's deadline. -/
+ theorem certified_prefix_meets_deadline
+-    (base : Nat) (prefix : List Job) (j : Job) (work : Job → Nat)
+-    (hwork : ∀ k ∈ (prefix ++ [j]), work k ≤ k.budget)
+-    (hcert : finish base (prefix ++ [j]) (fun k => k.budget) ≤ j.deadline) :
+-    finish base (prefix ++ [j]) work ≤ j.deadline := by
+-  exact (finish_le_upper work (prefix ++ [j]) hwork base base (le_refl _)).trans hcert
++    (base : Nat) (priorJobs : List Job) (j : Job) (work : Job → Nat)
++    (hwork : ∀ k ∈ (priorJobs ++ [j]), work k ≤ k.budget)
++    (hcert : finish base (priorJobs ++ [j]) (fun k => k.budget) ≤ j.deadline) :
++    finish base (priorJobs ++ [j]) work ≤ j.deadline := by
++  exact Nat.le_trans (finish_le_upper work (priorJobs ++ [j]) hwork base base (Nat.le_refl _)) hcert
+ 
+ /-- The 1.1-unit demand against a 1-unit deadline counterexample,
+     expressed in tenths to keep arithmetic exact. -/
+@@ -70,6 +69,3 @@
+ 
+ end SnuffyFIFO
+ 
+-#print axioms SnuffyFIFO.fifo_step
+-#print axioms SnuffyFIFO.finish_le_upper
+-#print axioms SnuffyFIFO.certified_prefix_meets_deadline

@@ -1,0 +1,10 @@
+--- 2026-10-23-gemini-thirteen-bridges 2/inputs/prior/GenerativeClosure.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/GenerativeClosure.lean
+@@ -83,7 +83,3 @@
+ 
+ end UPTGenerativeClosure
+ 
+-#print axioms UPTGenerativeClosure.step_preserves_paid_activation
+-#print axioms UPTGenerativeClosure.every_generated_active_is_funded
+-#print axioms UPTGenerativeClosure.reserve_does_not_displace_existing_agents
+-#print axioms UPTGenerativeClosure.generated_authority_stays_within_root

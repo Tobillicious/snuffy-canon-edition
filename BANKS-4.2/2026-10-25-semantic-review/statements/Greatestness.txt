@@ -1,0 +1,47 @@
+import Mathlib.Order.Lattice
+import Mathlib.Order.Basic
+import Mathlib.Data.Fintype.Basic
+import Mathlib.Data.Nat.Find
+
+namespace Snuffy.Greatestness
+
+variable {n : ℕ} {L : Fin n → Type*} [∀ i, SemilatticeSup (L i)]
+
+def LexLt (o q : ∀ i, L i) : Prop :=
+  ∃ j, (∀ i, i < j → o i = q i) ∧ o j < q j
+
+def LexLe (o q : ∀ i, L i) : Prop := o = q ∨ LexLt o q
+
+theorem lexLt_irrefl (o : ∀ i, L i) : ¬ LexLt o o  := [proof body omitted in statement view]
+
+theorem lexLt_trans {o p q : ∀ i, L i} (h₁ : LexLt o p) (h₂ : LexLt p q) : LexLt o q  := [proof body omitted in statement view]
+
+def Aligned (F : Set (∀ i, L i)) (o : ∀ i, L i) : Prop :=
+  o ∈ F ∧ ∀ q ∈ F, ¬ LexLt o q
+
+def NeedlessLoss (F : Set (∀ i, L i)) (o : ∀ i, L i) (j : Fin n) : Prop :=
+  ∃ q ∈ F, (∀ i, i < j → o i = q i) ∧ o j < q j
+
+theorem aligned_iff_no_needless_loss (F : Set (∀ i, L i)) {o : ∀ i, L i} (ho : o ∈ F) :
+    Aligned F o ↔ ∀ j, ¬ NeedlessLoss F o j  := [proof body omitted in statement view]
+
+omit [∀ i, SemilatticeSup (L i)] in
+                                                           
+private theorem exists_first_diff {o q : ∀ i, L i} (hne : o ≠ q) :
+    ∃ j, (∀ i, i < j → o i = q i) ∧ o j ≠ q j  := [proof body omitted in statement view]
+
+theorem lexLe_of_le {o q : ∀ i, L i} (h : o ≤ q) : LexLe o q  := [proof body omitted in statement view]
+
+theorem greatest_of_union_closed {F : Set (∀ i, L i)}
+    (hF : ∀ x ∈ F, ∀ y ∈ F, x ⊔ y ∈ F) {o : ∀ i, L i} (ho : Aligned F o) :
+    ∀ q ∈ F, q ≤ o  := [proof body omitted in statement view]
+
+theorem strict_except_mirrors {F : Set (∀ i, L i)}
+    (hF : ∀ x ∈ F, ∀ y ∈ F, x ⊔ y ∈ F) {o : ∀ i, L i} (ho : Aligned F o) :
+    ∀ q ∈ F, q = o ∨ LexLt q o  := [proof body omitted in statement view]
+
+theorem aligned_unique {F : Set (∀ i, L i)}
+    (hF : ∀ x ∈ F, ∀ y ∈ F, x ⊔ y ∈ F) {o o' : ∀ i, L i} (ho : Aligned F o)
+    (ho' : Aligned F o') : o = o'  := [proof body omitted in statement view]
+
+end Snuffy.Greatestness

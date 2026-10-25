@@ -1,0 +1,53 @@
+import Snuffy.QuantumLandauer
+
+open Matrix Finset
+open scoped ComplexOrder
+
+namespace Snuffy.StrokeBookkeeping
+
+open Snuffy.QuantumLandauer
+
+variable {α β : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq β]
+
+def controlled (W : β → Matrix α α ℂ) : Matrix (α × β) (α × β) ℂ :=
+  fun z w => if z.2 = w.2 then W z.2 z.1 w.1 else 0
+
+omit [DecidableEq α] [Fintype β] [DecidableEq β] in
+theorem ptrB_isHermitian {ρ : Matrix (α × β) (α × β) ℂ} (hρ : ρ.IsHermitian) :
+    (ptrB ρ).IsHermitian  := [proof body omitted in statement view]
+
+omit [DecidableEq α] in
+theorem controlled_mul_apply (W : β → Matrix α α ℂ) (M : Matrix (α × β) (α × β) ℂ)
+    (i : α) (m : β) (z : α × β) :
+    (controlled W * M) (i, m) z = ∑ k, W m i k * M (k, m) z  := [proof body omitted in statement view]
+
+omit [DecidableEq α] in
+theorem mul_star_controlled_apply (W : β → Matrix α α ℂ) (M : Matrix (α × β) (α × β) ℂ)
+    (z : α × β) (j : α) (m' : β) :
+    (M * star (controlled W)) z (j, m') = ∑ k, M z (k, m') * star (W m' j k)  := [proof body omitted in statement view]
+
+theorem controlled_unitary (W : β → Matrix α α ℂ) (hW : ∀ m, W m ∈ unitaryGroup α ℂ) :
+    controlled W ∈ unitaryGroup (α × β) ℂ  := [proof body omitted in statement view]
+
+theorem ptrB_controlled (W : β → Matrix α α ℂ) (hW : ∀ m, W m ∈ unitaryGroup α ℂ)
+    (ρ : Matrix (α × β) (α × β) ℂ) (hblock : ∀ i j m m', m ≠ m' → ρ (i, m) (j, m') = 0) :
+    ptrB (controlled W * ρ * star (controlled W)) = ptrB ρ  := [proof body omitted in statement view]
+
+noncomputable def qmi {ρ : Matrix (α × β) (α × β) ℂ} (hρ : ρ.IsHermitian) : ℝ :=
+  vnEnt (ptrA_isHermitian hρ) + vnEnt (ptrB_isHermitian hρ) - vnEnt hρ
+
+theorem stroke_entropy_change (W : β → Matrix α α ℂ) (hW : ∀ m, W m ∈ unitaryGroup α ℂ)
+    {ρ : Matrix (α × β) (α × β) ℂ} (hρ : ρ.IsHermitian)
+    (hblock : ∀ i j m m', m ≠ m' → ρ (i, m) (j, m') = 0)
+    (hρ' : (controlled W * ρ * star (controlled W)).IsHermitian) :
+    vnEnt (ptrA_isHermitian hρ') - vnEnt (ptrA_isHermitian hρ) = qmi hρ' - qmi hρ  := [proof body omitted in statement view]
+
+theorem stroke_identity_derived (W : β → Matrix α α ℂ) (hW : ∀ m, W m ∈ unitaryGroup α ℂ)
+    {ρ : Matrix (α × β) (α × β) ℂ} (hρ : ρ.IsHermitian)
+    (hblock : ∀ i j m m', m ≠ m' → ρ (i, m) (j, m') = 0)
+    (hρ' : (controlled W * ρ * star (controlled W)).IsHermitian)
+    {β' lnZ U₁ U₂ Wk Q : ℝ} (hfirst : U₂ - U₁ = Wk - Q) :
+    (-vnEnt (ptrA_isHermitian hρ') + β' * U₂ + lnZ) - (-vnEnt (ptrA_isHermitian hρ) + β' * U₁ + lnZ)
+      = β' * Wk - β' * Q + qmi hρ - qmi hρ'  := [proof body omitted in statement view]
+
+end Snuffy.StrokeBookkeeping

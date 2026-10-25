@@ -1,0 +1,42 @@
+import Mathlib.Probability.Moments.Variance
+import Mathlib.Algebra.Order.Group.MinMax
+
+open MeasureTheory ProbabilityTheory Finset
+
+namespace Snuffy.Workload
+
+def finish (F₀ : ℝ) (r b : ℕ → ℝ) : ℕ → ℝ
+  | 0 => F₀
+  | i + 1 => max (r (i + 1)) (finish F₀ r b i) + b (i + 1)
+
+theorem fifo_certificate {F₀ : ℝ} {r a b C : ℕ → ℝ} (h0 : C 0 ≤ F₀)
+    (hlaw : ∀ i, C (i + 1) ≤ max (r (i + 1)) (C i) + a (i + 1)) (hab : ∀ i, a i ≤ b i) :
+    ∀ i, C i ≤ finish F₀ r b i  := [proof body omitted in statement view]
+
+theorem fifo_deadlines {F₀ : ℝ} {r a b C d : ℕ → ℝ} (h0 : C 0 ≤ F₀)
+    (hlaw : ∀ i, C (i + 1) ≤ max (r (i + 1)) (C i) + a (i + 1)) (hab : ∀ i, a i ≤ b i)
+    (hd : ∀ i, finish F₀ r b i ≤ d i) : ∀ i, C i ≤ d i  := [proof body omitted in statement view]
+
+theorem fifo_tight {F₀ : ℝ} {r b C : ℕ → ℝ} (h0 : C 0 = F₀)
+    (hlaw : ∀ i, C (i + 1) = max (r (i + 1)) (C i) + b (i + 1)) :
+    ∀ i, C i = finish F₀ r b i  := [proof body omitted in statement view]
+
+def serial (start lead : ℕ → ℝ) (τ : ℕ → ℕ → ℝ) : ℕ → ℕ → ℝ
+  | i, 0 => start i
+  | 0, k + 1 => lead (k + 1)
+  | i + 1, k + 1 => max (serial start lead τ (i + 1) k) (serial start lead τ i (k + 1))
+      + τ (i + 1) (k + 1)
+
+theorem serial_certificate {start lead : ℕ → ℝ} {τ σ : ℕ → ℕ → ℝ} {C : ℕ → ℕ → ℝ}
+    (hstart : ∀ i, C i 0 ≤ start i) (hlead : ∀ k, C 0 (k + 1) ≤ lead (k + 1))
+    (hlaw : ∀ i k, C (i + 1) (k + 1) ≤ max (C (i + 1) k) (C i (k + 1)) + σ (i + 1) (k + 1))
+    (hσ : ∀ i k, σ i k ≤ τ i k) :
+    ∀ i k, C i k ≤ serial start lead τ i k  := [proof body omitted in statement view]
+
+theorem range_variance_bound {Ω ι : Type*} [MeasurableSpace Ω] {μ : Measure Ω}
+    [IsProbabilityMeasure μ] (active : Finset ι) (X : ι → Ω → ℝ) (lo : ι → ℝ) {Λ n : ℝ}
+    (hn : 0 < n) (hmeas : ∀ i ∈ active, AEMeasurable (X i) μ)
+    (hrange : ∀ i ∈ active, ∀ᵐ ω ∂μ, X i ω ∈ Set.Icc (lo i) (lo i + Λ / n)) :
+    ∑ i ∈ active, variance (X i) μ ≤ active.card * (Λ ^ 2 / (4 * n ^ 2))  := [proof body omitted in statement view]
+
+end Snuffy.Workload

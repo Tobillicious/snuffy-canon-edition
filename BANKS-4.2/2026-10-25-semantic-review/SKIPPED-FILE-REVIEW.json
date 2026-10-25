@@ -1,0 +1,1034 @@
+{
+  "files": [
+    {
+      "path": "2026-10-23-adoption-contracts/inputs/ReadoutJoint.lean",
+      "sha256": "6b09b5d03e6506e9cddc0affdf866ca8c5c3ca85d727f89e3c50b2b379ebafda",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-gemini-bridge-dynamics/inputs/prior/ReadoutJoint.lean",
+      "sha256": "6b09b5d03e6506e9cddc0affdf866ca8c5c3ca85d727f89e3c50b2b379ebafda",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-gemini-bridge-dynamics/inputs/prior/OriginalD1.lean",
+      "sha256": "b2d3de59cf221103f61bad6463a330660233af4a06d70b3b84855263396daff6",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-gemini-bridge-dynamics/inputs/prior/OriginalH6.lean",
+      "sha256": "e729169b5a08c5f074661dc6e91c4481d6f1db36a5419dfc9b471f8dd053a7a7",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-gemini-bridge-dynamics/inputs/prior/ReflectionContraction.lean",
+      "sha256": "2a6916d38ce0605035445332e58a2bfff6d775c30162143e83b681246aeb2620",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-gemini-bridge-dynamics/inputs/prior/ReflectionFuel.lean",
+      "sha256": "c372a6645f4145a08716438034c14dbd76cb07aa8d939b3840205ffa4582d436",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-gemini-thirteen-bridges 2/inputs/prior/FIFOAdmission.lean",
+      "sha256": "ed7a3aa403c1c1d294c26e99a477ddbacae185abac169340329911c55cc1d364",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-gemini-thirteen-bridges/inputs/prior/FIFOAdmission.lean",
+      "sha256": "ed7a3aa403c1c1d294c26e99a477ddbacae185abac169340329911c55cc1d364",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-gemini-thirteen-bridges 2/inputs/prior/FIFOWorkload.lean",
+      "sha256": "35f1fa7b87d461a4e6eb493931cce6135ceb5c841ae5bd9fac10ceeff784d78b",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-gemini-thirteen-bridges/inputs/prior/FIFOWorkload.lean",
+      "sha256": "35f1fa7b87d461a4e6eb493931cce6135ceb5c841ae5bd9fac10ceeff784d78b",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-gemini-thirteen-bridges 2/inputs/prior/GenerativeClosure.lean",
+      "sha256": "7fd8fc2d97711b57d301459561e2700c94669a17f0cf0ec3159ff1e6b4b668f0",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-gemini-thirteen-bridges/inputs/prior/GenerativeClosure.lean",
+      "sha256": "7fd8fc2d97711b57d301459561e2700c94669a17f0cf0ec3159ff1e6b4b668f0",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-eight-answer-joins/inputs/GenerativeClosure.lean",
+      "sha256": "7fd8fc2d97711b57d301459561e2700c94669a17f0cf0ec3159ff1e6b4b668f0",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-gemini-deep-read/inputs/reference/2026-10-23-adoption-contracts/GenerativeClosure.lean",
+      "sha256": "7fd8fc2d97711b57d301459561e2700c94669a17f0cf0ec3159ff1e6b4b668f0",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-eight-answer-joins/inputs/GenerativeClosure.lean",
+      "sha256": "7fd8fc2d97711b57d301459561e2700c94669a17f0cf0ec3159ff1e6b4b668f0",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-gemini-deep-read/inputs/reference/2026-10-23-adoption-contracts/GenerativeClosure.lean",
+      "sha256": "7fd8fc2d97711b57d301459561e2700c94669a17f0cf0ec3159ff1e6b4b668f0",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-register-responses-review/prior/GenerativeClosure.lean",
+      "sha256": "7fd8fc2d97711b57d301459561e2700c94669a17f0cf0ec3159ff1e6b4b668f0",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r16-verification/inputs/ClosedCohold.lean",
+      "sha256": "9e9b555a06db945e9c081736e6402878214dd333c602ddddb41e734389ea8b17",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r16-verification/inputs/received-cut/R16-CUT/source/ClosedCohold.lean",
+      "sha256": "9e9b555a06db945e9c081736e6402878214dd333c602ddddb41e734389ea8b17",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r16-verification/inputs/R14Boundary.lean",
+      "sha256": "92725addfbe437acd7d927b4a5f95c711f15607811733b361e8d0996872d2acc",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r16-verification/inputs/received-cut/R16-CUT/source/R14Boundary.lean",
+      "sha256": "92725addfbe437acd7d927b4a5f95c711f15607811733b361e8d0996872d2acc",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r16-verification/inputs/received-cut/R16-CUT/R16CUT-R14.lean",
+      "sha256": "bb7a2f13e278f3012cc1b6f1ee4a37b3b2974b7b0bf135f1f626d4509e25cdd7",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r16-verification/inputs/received-cut/R16-CUT/R16CUT.lean",
+      "sha256": "a29c62e239914c55dfdd010122229f2a9fab8910f911b5ff78f5fb23ffbd986a",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r16-verification/inputs/received-cut/R16-CUT/source/R12A.lean",
+      "sha256": "899ebcaed927b145d4b86eb22ecb793e9a2090cb46e368882152300d3556fde6",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [
+        "UPTR12A"
+      ],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/UPTR12A.lean",
+      "sha256": "899ebcaed927b145d4b86eb22ecb793e9a2090cb46e368882152300d3556fde6",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [
+        "UPTR12A"
+      ],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r16-verification/inputs/received-cut/R16-CUT/source/R15CausalGluing.lean",
+      "sha256": "fbfe6b6de7edde9ed0d7b6380f3601ba3c8d98d49126b3198e2963ef84175f94",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/R15CausalGluing.lean",
+      "sha256": "fbfe6b6de7edde9ed0d7b6380f3601ba3c8d98d49126b3198e2963ef84175f94",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/dependencies/ControllerFence.lean",
+      "sha256": "0d83e506a9b7afe992489be98e612c17a50b16a287805417248d797d91f445cb",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [
+        "ControllerFence"
+      ],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/dependencies/ControllerFinality.lean",
+      "sha256": "e5cfdacff59c22ff7c9447c308faa09e3822d5ad7531f2e8435e535c4432dca7",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "ControllerFinality"
+      ],
+      "code_normalisation_candidates": [
+        "ControllerFinality"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/dependencies/R16Feedback.lean",
+      "sha256": "9f263c0977c7f08f191fed9157e5a1d8b2f6f03181abafd367d683e498cd7730",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/dependencies/UPTFence.lean",
+      "sha256": "efeeb4e9074c463eb308f598a588116e32744e0645289837da2d5dcd42a4999c",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "UPTFence"
+      ],
+      "code_normalisation_candidates": [
+        "UPTFence"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/UPTFence.lean",
+      "sha256": "efeeb4e9074c463eb308f598a588116e32744e0645289837da2d5dcd42a4999c",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "UPTFence"
+      ],
+      "code_normalisation_candidates": [
+        "UPTFence"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/dependencies/UPTLawLife.lean",
+      "sha256": "0387bb2b2fee8e4c29820ed7fcb2518010f988729350e3f1a69f5c0d442ee14c",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "UPTLawLife"
+      ],
+      "code_normalisation_candidates": [
+        "UPTLawLife"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/FIFOWorkload.lean",
+      "sha256": "d39af3b868d8096c571529c993e99d0ed1476596721c823ee86ceccf1011c888",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/R17FIFOR17A.lean",
+      "sha256": "6629b5d730f6f26cb8f6b6fba5c98e81527e2f932d014b88b6c0c35f711816d4",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/DeadlineDemand.lean",
+      "sha256": "94986db39c2cd3a4d7b332c8e8d2fbf0729f485b56b55d308eba9ea54066b3d8",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/DecisionPermit.lean",
+      "sha256": "edb3d26a44142d24446c43a80283ee179b35eec81065e108cf17e3e00c1df779",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/ObservationWinning.lean",
+      "sha256": "f4da317b899f1f0d0c3f83f7d1e851f0a6e66f3e3f8f9502c78bcb7619b481e4",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/R17AQueueFinality.lean",
+      "sha256": "3469f74a0a244f960f546ac410287f2c1a0d51a37bf054a6bf5b8d540bf47dab",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-r17-fifo-verification/inputs/received/r17fifo_work/sources/TimelyCare.lean",
+      "sha256": "7227dcc8f57a717d798fcef1b2d160322627bea3fba3cc8c42a1031e57ed8b21",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-23-workconcrete-readout-r17/inputs/ReadoutBounds.lean",
+      "sha256": "2d4d373b57a63993b13db7e1ee8ac718fc79358dc6b9d73ca09f80046333b54c",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/AreaBridge.lean",
+      "sha256": "f69c4a382be9c0144463ccaacea960d01fb400b2ef1775e150c5edee429bcd38",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "AreaBridge"
+      ],
+      "code_normalisation_candidates": [
+        "AreaBridge"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/CanonVonNeumann.lean",
+      "sha256": "6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "CanonVonNeumann"
+      ],
+      "code_normalisation_candidates": [
+        "CanonVonNeumann"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/lean/Snuffy/CanonVonNeumann.lean",
+      "sha256": "6edeeac96792eee313bcd814f1f7e0a41e2284b1ce4da61a6c3e6dc71d94ad14",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "CanonVonNeumann"
+      ],
+      "code_normalisation_candidates": [
+        "CanonVonNeumann"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/CanonVonNeumannAudit.lean",
+      "sha256": "be9e9002bf8ddd9689fe533ad9751d7967e890b4208842ca8612b1f7c9eff7e9",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/lean/Snuffy/CanonVonNeumannAudit.lean",
+      "sha256": "be9e9002bf8ddd9689fe533ad9751d7967e890b4208842ca8612b1f7c9eff7e9",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/Composition.lean",
+      "sha256": "2524e8c846408e622bb8a31e89a8888ab07cade9f99f56aa700be3970c870bd5",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "Composition"
+      ],
+      "code_normalisation_candidates": [
+        "Composition"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/CyclicProjections.lean",
+      "sha256": "aa67f92c0cd71d1d246576d47dda71e819e6bec52e3ec3633ce9de1b54d87414",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "CyclicProjections"
+      ],
+      "code_normalisation_candidates": [
+        "CyclicProjections"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/DataProcessing.lean",
+      "sha256": "c59d5eac1b24cca21a2581f64fbb37c74d6517c5a91d03b7866469d6c6c19172",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "DataProcessing"
+      ],
+      "code_normalisation_candidates": [
+        "DataProcessing"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/DeductionBoundary.lean",
+      "sha256": "7564d8e303e2832617e52d597c0affd33bf9dd96b96541f0c62257b885dd1e6e",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "DeductionBoundary"
+      ],
+      "code_normalisation_candidates": [
+        "DeductionBoundary"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/E9SelfHealing.lean",
+      "sha256": "a5e8804486c94667262516d164cebaac3a5063108864f261a3583547e2ad09f2",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "E9SelfHealing"
+      ],
+      "code_normalisation_candidates": [
+        "E9SelfHealing"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/Fano.lean",
+      "sha256": "0a8889d629d81e4aa27b4d627b4fe009d3c1901d27a7b9b86e4a45e3ee560bc1",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "Fano"
+      ],
+      "code_normalisation_candidates": [
+        "Fano"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/FiniteInformation.lean",
+      "sha256": "2a7120678dfd22e9eaa9420621bab301099b9022ba59b20dbe5eeba4b7e70f87",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "FiniteInformation"
+      ],
+      "code_normalisation_candidates": [
+        "FiniteInformation"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/GaussianChannel.lean",
+      "sha256": "058dd64dd7f47621403bed64f2df232e9ac113e91d927293725c4d6709c9de9c",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "GaussianChannel"
+      ],
+      "code_normalisation_candidates": [
+        "GaussianChannel"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/GaussianChannelGen.lean",
+      "sha256": "cb047325001c7872fb83df5b57ffe3bce192cd3c9c78b856a76f3a837b50fe74",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "GaussianChannelGen"
+      ],
+      "code_normalisation_candidates": [
+        "GaussianChannelGen"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/GaussianKL.lean",
+      "sha256": "1e2848810f40ad0f1e8c0071ddccbc268960c8c49707bb00e4a32fa238150a32",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "GaussianKL"
+      ],
+      "code_normalisation_candidates": [
+        "GaussianKL"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/GaussianTail.lean",
+      "sha256": "adb88719fc0a4d583b725b234e0e21ec4b500ed5166eedea1917f4d4e63b9c6e",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "GaussianTail"
+      ],
+      "code_normalisation_candidates": [
+        "GaussianTail"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/GaussianVector.lean",
+      "sha256": "1b88e2f9f079cef062bf749a96f4ff69ca749775e534b0fbc510250b048a06af",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "GaussianVector"
+      ],
+      "code_normalisation_candidates": [
+        "GaussianVector"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/GoldenFormula.lean",
+      "sha256": "1dcb27d5a4fcc2da54355430b6f5d9cfda2ac1fa9680d21b4cf175db2f672525",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "GoldenFormula"
+      ],
+      "code_normalisation_candidates": [
+        "GoldenFormula"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/Greatestness.lean",
+      "sha256": "d21be5cb40a8a4d07e91bdaef149a7b61174ae7bc545c62562b3ce9c46f6613d",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "Greatestness"
+      ],
+      "code_normalisation_candidates": [
+        "Greatestness"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/H5Closure.lean",
+      "sha256": "d39dfc51423b0f9eb9aef9674eaa0abfd5426ee18845539004e1f91312dcc88d",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "H5Closure"
+      ],
+      "code_normalisation_candidates": [
+        "H5Closure"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/HalperinDecay.lean",
+      "sha256": "c6a9d6f150f2096d096084507ae940e2198c7bf8a16b8f2d06a42a07fea593ff",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "HalperinDecay"
+      ],
+      "code_normalisation_candidates": [
+        "HalperinDecay"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/lean/Snuffy/HalperinDecay.lean",
+      "sha256": "c6a9d6f150f2096d096084507ae940e2198c7bf8a16b8f2d06a42a07fea593ff",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "HalperinDecay"
+      ],
+      "code_normalisation_candidates": [
+        "HalperinDecay"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-25-canon-v4.1-pre-foldin-snapshot/CANON-EDITION-V4.1-REASONS-ROUTE-2026-10-25/lean/HalperinDecay.lean",
+      "sha256": "c6a9d6f150f2096d096084507ae940e2198c7bf8a16b8f2d06a42a07fea593ff",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "HalperinDecay"
+      ],
+      "code_normalisation_candidates": [
+        "HalperinDecay"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/Irreplaceability.lean",
+      "sha256": "b0922dbbf603d6f62ff3e9a00d9d29644531767b8538f5bb184e33deb5fbea6e",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "Irreplaceability"
+      ],
+      "code_normalisation_candidates": [
+        "Irreplaceability"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/KLAdditivity.lean",
+      "sha256": "1e700a2d627206ab9896d3a883e1d6b2714e1c5eff2d5f8391dc1e07d2b8268d",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "KLAdditivity"
+      ],
+      "code_normalisation_candidates": [
+        "KLAdditivity"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/LogDet.lean",
+      "sha256": "43ed67efec9f5c381e2101ec8562ccf6d07bf8b58a872d316b338657dc2a251f",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "LogDet"
+      ],
+      "code_normalisation_candidates": [
+        "LogDet"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/MathlibAnalyticBridge.lean",
+      "sha256": "67ce6b974cb46dab4dc8743bcb1908393bda307db25b56134b62cd1894b5abdd",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "MathlibAnalyticBridge"
+      ],
+      "code_normalisation_candidates": [
+        "MathlibAnalyticBridge"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/lean/Snuffy/MathlibAnalyticBridge.lean",
+      "sha256": "67ce6b974cb46dab4dc8743bcb1908393bda307db25b56134b62cd1894b5abdd",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "MathlibAnalyticBridge"
+      ],
+      "code_normalisation_candidates": [
+        "MathlibAnalyticBridge"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/MeetAlgebra.lean",
+      "sha256": "ce746eb7bab2d68153205fd4f2ea5725b5769a614271184ef105a815ef69809d",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "MeetAlgebra"
+      ],
+      "code_normalisation_candidates": [
+        "MeetAlgebra"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/MeetHilbert.lean",
+      "sha256": "62bf22d842fbd0c0cad2f3b87d0481089cbd5afa2c730f5bf3293fb9883581f8",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "MeetHilbert"
+      ],
+      "code_normalisation_candidates": [
+        "MeetHilbert"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/OpialBridge.lean",
+      "sha256": "b3c74eba3d40bcd9c2422c53309d7975335e33fccdf0a160ac4657eb4bbb7871",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "OpialBridge"
+      ],
+      "code_normalisation_candidates": [
+        "OpialBridge"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/lean/Snuffy/OpialBridge.lean",
+      "sha256": "b3c74eba3d40bcd9c2422c53309d7975335e33fccdf0a160ac4657eb4bbb7871",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "OpialBridge"
+      ],
+      "code_normalisation_candidates": [
+        "OpialBridge"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-25-canon-v4.1-pre-foldin-snapshot/CANON-EDITION-V4.1-REASONS-ROUTE-2026-10-25/lean/OpialBridge.lean",
+      "sha256": "b3c74eba3d40bcd9c2422c53309d7975335e33fccdf0a160ac4657eb4bbb7871",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "OpialBridge"
+      ],
+      "code_normalisation_candidates": [
+        "OpialBridge"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/PremiseFloor.lean",
+      "sha256": "5c6e13296b1dd2ed9dfbc5008369ded813a2830a4d10dc3988f5dadb2492a93d",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "PremiseFloor"
+      ],
+      "code_normalisation_candidates": [
+        "PremiseFloor"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/ReciprocityCeiling.lean",
+      "sha256": "352b83df636a2e16165c4cd78c7a784ca689353a59a2e27eae58d6da4fc096f2",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "ReciprocityCeiling"
+      ],
+      "code_normalisation_candidates": [
+        "ReciprocityCeiling"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/RecoveryWork.lean",
+      "sha256": "ae54c335b663b2e9167e972a2f70df8dcdedc1236a4b107b1ae11862b04018bc",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "RecoveryWork"
+      ],
+      "code_normalisation_candidates": [
+        "RecoveryWork"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/ReflectionCertificate.lean",
+      "sha256": "87983d7ce3f9af2d1f3790e45e91fdb450eb346e75068542077eb755ba7ac7b0",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "ReflectionCertificate"
+      ],
+      "code_normalisation_candidates": [
+        "ReflectionCertificate"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/Rotation.lean",
+      "sha256": "4e6c32de3088efebd3bc32d69ea6a7770e231af6605fe0bd4fcf09d7c66d09e2",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "Rotation"
+      ],
+      "code_normalisation_candidates": [
+        "Rotation"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/ThermoLedger.lean",
+      "sha256": "ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "ThermoLedger"
+      ],
+      "code_normalisation_candidates": [
+        "ThermoLedger"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/Trotter.lean",
+      "sha256": "e2eb62081f7753a5ee4cc594c6d45f6be93da2d54e654f5613a0761677bc920d",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "Trotter"
+      ],
+      "code_normalisation_candidates": [
+        "Trotter"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/UniversalProtection.lean",
+      "sha256": "ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "UniversalProtection"
+      ],
+      "code_normalisation_candidates": [
+        "UniversalProtection"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/Whitening.lean",
+      "sha256": "97796ec3be890378195fa42cfd4ae9e12494235f556e4d4679beea1dea75e7fc",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "Whitening"
+      ],
+      "code_normalisation_candidates": [
+        "Whitening"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/Snuffy/Workload.lean",
+      "sha256": "506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "Workload"
+      ],
+      "code_normalisation_candidates": [
+        "Workload"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-24-claude-summit-1-von-neumann/canon-v4.1-summits/lean/SummitsAudit.lean",
+      "sha256": "aea722b6054c449fb0dec5533012bb18acc7219efb1a0dfd7a2b876469432a40",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-25-canon-v4.1-pre-law-snapshot/lean/SummitsAudit.lean",
+      "sha256": "aea722b6054c449fb0dec5533012bb18acc7219efb1a0dfd7a2b876469432a40",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-eight-answer-joins/inputs/BandwidthReflection.lean",
+      "sha256": "52dd5c86e3382be05bb90399beaf589718adf71852c40d24b26171690f60c2ae",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-eight-answer-joins/inputs/BandwidthReflection.lean",
+      "sha256": "52dd5c86e3382be05bb90399beaf589718adf71852c40d24b26171690f60c2ae",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-eight-answer-joins/inputs/GateSupport.lean",
+      "sha256": "3f7c1db6426af3a122b0626fb782a573fdc9bdaf46a643e5498c1fcdb8095fa5",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-gemini-deep-read/inputs/reference/2026-10-23-gemini-thirteen-bridges/GateSupport.lean",
+      "sha256": "3f7c1db6426af3a122b0626fb782a573fdc9bdaf46a643e5498c1fcdb8095fa5",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-eight-answer-joins/inputs/GateSupport.lean",
+      "sha256": "3f7c1db6426af3a122b0626fb782a573fdc9bdaf46a643e5498c1fcdb8095fa5",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-gemini-deep-read/inputs/reference/2026-10-23-gemini-thirteen-bridges/GateSupport.lean",
+      "sha256": "3f7c1db6426af3a122b0626fb782a573fdc9bdaf46a643e5498c1fcdb8095fa5",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-eight-answer-joins/inputs/R17AQueueFinality.lean",
+      "sha256": "4f3227618d3488b0c838a02b23698e020334a56aa4356e50473b5880cbf6bb34",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-gemini-deep-read/inputs/reference/2026-10-23-r17-fifo-verification/R17AQueueFinality.lean",
+      "sha256": "4f3227618d3488b0c838a02b23698e020334a56aa4356e50473b5880cbf6bb34",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-eight-answer-joins/inputs/R17AQueueFinality.lean",
+      "sha256": "4f3227618d3488b0c838a02b23698e020334a56aa4356e50473b5880cbf6bb34",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-codex-gemini-deep-read/inputs/reference/2026-10-23-r17-fifo-verification/R17AQueueFinality.lean",
+      "sha256": "4f3227618d3488b0c838a02b23698e020334a56aa4356e50473b5880cbf6bb34",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/ConservedRouting.lean",
+      "sha256": "6accad18f351700e8c79be1553edbf3c947b9cf793c9dbeff87dad63c2ec617b",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/ControllerCertificate.lean",
+      "sha256": "6889906410f8282352033d21199fd7dff54df7b41da3a3846660e5c0732e99de",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/FIFOInstance.lean",
+      "sha256": "c22a0f4a47226f12dc335df34218b1d8594d5de8593bdcfdd817f585c1b335df",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/IntegrationCertificate.lean",
+      "sha256": "b7c434e3cdf83ea90342eedb82e089897d705d89fe0916854b9d35b80f5400d5",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/P2P3.lean",
+      "sha256": "cef6ca97ed4039abe7e068d9c97eb50c1ecbadb53318468fd6cadcfd71c4c770",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/TransportLaw.lean",
+      "sha256": "f48a8ccc1a12c68c723572a02d5ee043853363702a6c3f9f73afd0579c3dc5b6",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-25-canon-v4.1-pre-foldin-snapshot/CANON-EDITION-V4.1-REASONS-ROUTE-2026-10-25/lean/ReasonsRoute.lean",
+      "sha256": "6ac4ba0d3e30f5508e2d784f3aec640661ab4e67a85f99919f798a05e4466573",
+      "status": "reviewed_content_identical_to_reviewed_canon",
+      "canonical_exact": [
+        "ReasonsRoute"
+      ],
+      "code_normalisation_candidates": [
+        "ReasonsRoute"
+      ],
+      "reason": "Complete source bytes match a reviewed canon source; no reliance on directory label."
+    },
+    {
+      "path": "2026-10-25-canon-v4.1-pre-landauer-snapshot/lean/SummitsAudit.lean",
+      "sha256": "0a3bcd8632155468cfd7c161b3e6067e67ff347633a4bb8a49d2bfd1d98280fc",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    },
+    {
+      "path": "2026-10-25-canon-v4.1-pre-speedlimit-snapshot/lean/SummitsAudit.lean",
+      "sha256": "090b9b1285232b0e99840efd267362d91bc628885cf31dd339e50614ba0c5443",
+      "status": "content_comparison_pending",
+      "canonical_exact": [],
+      "code_normalisation_candidates": [],
+      "reason": "No disposition inferred from folder name or basename."
+    }
+  ]
+}

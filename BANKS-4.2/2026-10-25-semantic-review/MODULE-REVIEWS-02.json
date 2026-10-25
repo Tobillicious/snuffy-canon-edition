@@ -1,0 +1,57 @@
+{
+  "modules": {
+    "Bridge": {
+      "role": "Derived scope, decoding and physical holding assembly",
+      "assessment": "all statements reviewed with Continues and ContinuesP. Scope is derived from a supplied law guarantee over all feasible subset families. Unique decoding follows separation and nearestness; finite nonempty Code constructs a decoder. holding_preserves derives the invariant from actual pre/step radius and repair inputs. QSL growth uses a stationary record, self-adjoint dynamics, bounded perturbation and a normalised solution; code headroom supplies the discrete radius. holding_cycle_physical combines the error-frame and vector parts, including between-step bounds. universal_protection_held constructs preservation from those ingredients and composes the reactive source; it still receives the source/initial/observation/radius/repair certificate and named fault cover.",
+      "obligations": [
+        "G1 full physical interpretation and complete source construction, including initial continuation and actual record semantics.",
+        "Do not describe this as merely the abstract bridge: real decoding and dynamics derivations are present."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "Instruments": {
+      "role": "Controller derivation, complete logical-attack split, lattice geometry",
+      "assessment": "Exact exponential reset, reset coefficient, contraction, moving-record recursion and envelope follow the explicit update. branchC_complete obtains support at least d, then splits all sites below threshold versus one threshold-reaching site whose honest sensors force any robust estimate above threshold. The honest-sensor response is an explicit input. Box/boundary cardinalities and boundary power are for the stated integer lattice, with d>=1 and radius>=1 on the boundary theorem.",
+      "obligations": [
+        "Bind reset precision/injection/record drift to actual dynamics and charge control.",
+        "Supply honest-sensor calibration and distinguish geometry from compulsory activation; AreaBridge supplies the latter argument."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "Composition": {
+      "role": "Reactive source refinement and invariant/risk transfer",
+      "assessment": "run uses history-dependent controller and environment after the command; run2 also reveals the intermediate post-command observation. Commuting transitions plus observation agreement preserve both projected state and observation history by induction. theorem8_composition transfers supplied init/preservation on G and uses a supplied named-event cover with marginal event bounds; tower-to-marginal construction is supplied separately.",
+      "obligations": [
+        "G1 must construct T,U,p, observations, initial state, named source faults and their kernels. No fixed event transcript replaces the reactive environment."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "H5Closure": {
+      "role": "Funded authority/effect ledger and two-subspace consistency detector",
+      "assessment": "all statements and two private helpers reviewed against the actual Step constructors. Spawn is guarded by authority attenuation and escrow funding; spend/fund/income preserve explicit conservation. Harmful effects are excluded by the effect constructor's he input, so physical enforcement requires source refinement. effect_preserves_care proves an allowed effect-log append leaves status/auth/escrow unchanged; it does not itself model a refused harmful physical command or a resident's full physical continuation. The separate consistency_detector derives the all-input zero-limit iff the meet is bottom from alternating projections.",
+      "obligations": [
+        "G1 binds effect mediation and care fields to actual source behaviour; use R14/R17 and the nine-channel boundary, not the log theorem alone.",
+        "A concrete faithful logical encoding supplies the meaning of the Hilbert meet."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "UniversalProtection": {
+      "role": "Abstract assembly",
+      "assessment": "coverage_invariant combines supplied R/H coverage and route-preservation inputs. universal_protection packages finite-horizon continuation/risk with independent lexicographic greatestness and keeps monotonicity. Its order branch still uses union closure. Bridge supplies a more constructive continuation route; UnionClosure/SolventReciprocity supply the later solvent order route.",
+      "obligations": [
+        "The packaged abstract branches are not automatically one common physical outcome model. G1/G2 supply their joining interpretation.",
+        "Do not present hcert, hcover or hF as consequences of this theorem itself."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ThermoLedger": {
+      "role": "Thermodynamic algebra, escrow recursion, joint risk and tracking envelopes",
+      "assessment": "all statements reviewed. stroke_identity is algebra from first-law and entropy/correlation inputs. cycle_work_floor composes the export guard with gross charge. funded_repair_certificate uses every cumulative prefix solvency; quarantine_zero_debt requires holding cost no larger than each income. tower_bound uses an actual mixture identity; canon_invariant uses breach subset of G complement and named-event cover. Tracking is a geometric recursion with positive correction coefficient <=1, and requires initial/gain bounds to meet resolution.",
+      "obligations": [
+        "Trace stroke-specific entropy inputs and gross charge through StrokeBookkeeping/Landauer.",
+        "No zero-cost quarantine or erased leakage; actual kernel/cover construction and full funding are G1 obligations."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    }
+  }
+}

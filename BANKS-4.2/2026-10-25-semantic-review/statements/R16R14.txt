@@ -1,0 +1,41 @@
+import Snuffy.R14Boundary
+import Snuffy.R16TwoPhase
+
+namespace UPTR16R14
+open UPTR14Boundary
+open UPTR16
+
+structure PortState where
+  journal : J
+  sink : J
+  outside : Outside
+  compromised : Bool
+  deriving DecidableEq, Repr
+
+def project (s : St) : PortState :=
+  ⟨projectJ s, projectK s, projectOutside s, s.compromised⟩
+
+def breachFlag : Ev → Bool
+  | .breach => true
+  | _ => false
+
+def portStep (a : PortState) (e : Ev) : PortState :=
+  ⟨jStep a.journal e, kStep a.sink e, outsideStep a.outside e,
+    a.compromised || breachFlag e⟩
+
+theorem compromise_commutes (s : St) (e : Ev) :
+    (step s e).compromised = (s.compromised || breachFlag e)  := [proof body omitted in statement view]
+
+theorem project_step (s : St) (e : Ev) :
+    project (step s e) = portStep (project s) e  := [proof body omitted in statement view]
+
+theorem reference_two_phase_lockstep {O : Type} (observe : PortState → O)
+    (controller : History O (Ev × O × O) → Ev)
+    (environment : History O (Ev × O × O) → Ev → O → Ev)
+    (n : Nat) (s : St) :
+    mapState project (iterate (phaseTick step step (fun s => observe (project s))
+      controller environment) n ⟨s, ⟨observe (project s), []⟩⟩) =
+    iterate (phaseTick portStep portStep observe controller environment) n
+      ⟨project s, ⟨observe (project s), []⟩⟩  := [proof body omitted in statement view]
+
+end UPTR16R14

@@ -1,0 +1,14 @@
+/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/DecoderRetraction.lean:242:59: error: unsolved goals
+H : Type u
+inst✝³ : NormedAddCommGroup H
+inst✝² : InnerProductSpace ℂ H
+inst✝¹ : CompleteSpace H
+ι : Type u_1
+inst✝ : Fintype ι
+b : Module.Basis ι ℂ (H →L[ℂ] H)
+G A : H →L[ℂ] H
+z : ℂ
+⊢ ∑ i, (b.repr (historicalFlow G A (-z))) i • historicalFlow G (b i) z =
+    ∑ x,
+      (b.repr (historicalFlow G A (-z))) x •
+        { toFun := fun A => historicalFlow G A z, map_add' := ⋯, map_smul' := ⋯ } (b x)

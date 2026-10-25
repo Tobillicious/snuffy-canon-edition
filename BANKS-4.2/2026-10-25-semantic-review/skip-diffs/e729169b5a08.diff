@@ -1,0 +1,12 @@
+--- 2026-10-23-gemini-bridge-dynamics/inputs/prior/OriginalH6.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/OriginalH6.lean
+@@ -85,9 +85,3 @@
+ end
+ end GeminiOriginalH6
+ 
+-#print axioms GeminiOriginalH6.original_thermal_depth_ceiling
+-#print axioms GeminiOriginalH6.banked_rate_is_contractive
+-#print axioms GeminiOriginalH6.banked_step_error
+-#print axioms GeminiOriginalH6.banked_exact_error
+-#print axioms GeminiOriginalH6.banked_paid_epsilon_accuracy
+-#print axioms GeminiOriginalH6.original_thermal_premises_allow_cycle

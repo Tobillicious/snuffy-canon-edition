@@ -1,0 +1,60 @@
+--- 2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/P2P3.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/P2P3.lean
+@@ -24,7 +24,7 @@
+   instrument for it.
+ -/
+ 
+-import TransportLaw
++import Snuffy.TransportLaw
+ import Mathlib.Analysis.Calculus.Deriv.Comp
+ import Mathlib.Analysis.Calculus.Deriv.Mul
+ 
+@@ -35,14 +35,14 @@
+   Real.exp_pos _
+ 
+ /-- Exact dimensional scaling: Σ_{k<n} (Λ/n)² = Λ²/n. -/
+-theorem scaling_sum (n : ℕ) (Λ : ℝ) (hn : 0 < n) :
++theorem scaling_sum (n : ℕ) (Λ : ℝ) (_hn : 0 < n) :
+     ∑ _k ∈ Finset.range n, (Λ/(n:ℝ))^2 = Λ^2/(n:ℝ) := by
+   rw [Finset.sum_const, Finset.card_range, nsmul_eq_mul]
+   field_simp
+ 
+ /-- The Azuma bound at scaling c_k = Λ/n is exactly 2·exp(−n·ε²/(2Λ²)): the exponential
+ formulas coincide, so the scaling substitution is exact. -/
+-theorem azuma_scaling (n : ℕ) (Λ ε : ℝ) (hn : 0 < n) :
++theorem azuma_scaling (n : ℕ) (Λ ε : ℝ) (_hn : 0 < n) :
+     (2:ℝ)*Real.exp (-(ε^2)/(2*(Λ^2/(n:ℝ))))
+       = 2*Real.exp (-(n:ℝ)*ε^2/(2*Λ^2)) := by
+   congr 1
+@@ -115,9 +115,9 @@
+ /-- Escrow liquidation: with the source-confirmed threshold E_escrow ≥ W_min, every
+ attack that reaches the displacement threshold (work ≥ W_min by the P2 chain) also
+ reaches the liquidation trigger (work ≥ E_escrow). -/
+-theorem liquidation_triggers (E Wadv Wmin : ℝ) (hE : Wmin ≤ E) (hW : Wmin ≤ Wadv)
+-    (hE' : E ≤ Wadv ∨ Wadv < Wmin) : True := trivial
+--- (kept as documentation of the case split; the substantive content is the two lemmas below)
++theorem liquidation_triggers (E Wadv Wmin : ℝ) (_hE : Wmin ≤ E) (hW : Wmin ≤ Wadv)
++    (hE' : E ≤ Wadv ∨ Wadv < Wmin) : E ≤ Wadv :=
++  hE'.resolve_right (not_lt.mpr hW)
+ 
+ /-- THE ZERO-BREACH BOUND. Premises, each supplied by a compiled or banked result:
+ `hfloor` — any displacement ≥ δ* costs at least the work floor (the P2 chain:
+@@ -167,18 +167,5 @@
+ 
+ /-! ## Axiom reports -/
+ 
+-#print axioms fluctuation_bound_le_two
+-#print axioms work_floor_positive
+-#print axioms zero_breach_bound
+-#print axioms bound_decays
+-#print axioms escrow_ordering
+ 
+-#print axioms semigroup_time_rescaling
+-#print axioms ness_work_linear
+ 
+-#print axioms coordinate_sensitivity
+-#print axioms telescoping_drop
+-#print axioms sensor_exp_positivity
+-#print axioms scaling_sum
+-#print axioms azuma_scaling
+-#print axioms work_tv_floor

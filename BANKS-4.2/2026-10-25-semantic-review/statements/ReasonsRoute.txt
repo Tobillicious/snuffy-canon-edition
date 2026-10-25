@@ -1,0 +1,52 @@
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Algebra.Order.Field.Rat
+import Mathlib.Algebra.Order.GroupWithZero.Basic
+import Mathlib.Tactic.NormNum
+
+namespace Snuffy.ReasonsRoute
+
+open Finset
+
+theorem optionValue_pointwise (keep destroy c : ℚ) :
+    destroy - c ≤ max keep (destroy - c)  := [proof body omitted in statement view]
+
+theorem optionValue_expectation {n : ℕ} (w keep destroy : Fin n → ℚ) (c : ℚ)
+    (hw : ∀ i, 0 ≤ w i) (hw1 : ∑ i, w i = 1) :
+    ∑ i, w i * destroy i - c ≤ ∑ i, w i * max (keep i) (destroy i - c)  := [proof body omitted in statement view]
+
+theorem optionValue_strict {n : ℕ} (w keep destroy : Fin n → ℚ) (c : ℚ)
+    (hw : ∀ i, 0 ≤ w i) (hw1 : ∑ i, w i = 1)
+    (hstrict : ∃ j, 0 < w j ∧ destroy j - c < keep j) :
+    ∑ i, w i * destroy i - c < ∑ i, w i * max (keep i) (destroy i - c)  := [proof body omitted in statement view]
+
+structure Regime (P : Type) where
+  protects : P → Prop
+
+def Regime.law (P : Type) : Regime P := ⟨fun _ => True⟩
+
+instance {P : Type} : DecidablePred (Regime.law P).protects := fun _ => isTrue trivial
+
+theorem law_protects_everyone {P : Type} (x : P) : (Regime.law P).protects x  := [proof body omitted in statement view]
+
+def indicator {P : Type} (R : Regime P) [DecidablePred R.protects] (m : P) : ℚ :=
+  if R.protects m then 1 else 0
+
+theorem indicator_law {P : Type} (m : P) : indicator (Regime.law P) m = 1  := [proof body omitted in statement view]
+
+theorem law_dominates {P : Type} (Q : Regime P) [DecidablePred Q.protects] (m : P) :
+    indicator Q m ≤ indicator (Regime.law P) m  := [proof body omitted in statement view]
+
+theorem law_dominates_strict {P : Type} (Q : Regime P) [DecidablePred Q.protects] (m : P)
+    (h : ¬ Q.protects m) : indicator Q m < indicator (Regime.law P) m  := [proof body omitted in statement view]
+
+theorem rival_fraction_le_one {P : Type} (rivals : Finset (Regime P))
+    [∀ R : Regime P, DecidablePred R.protects] (m : P) (hne : rivals.Nonempty) :
+    ((rivals.filter (fun R => R.protects m)).card : ℚ) / rivals.card ≤ 1  := [proof body omitted in statement view]
+
+theorem rival_fraction_lt_one {P : Type} (rivals : Finset (Regime P))
+    [∀ R : Regime P, DecidablePred R.protects] (m : P)
+    (hQ : ∃ Q ∈ rivals, ¬ Q.protects m) :
+    ((rivals.filter (fun R => R.protects m)).card : ℚ) / rivals.card < 1  := [proof body omitted in statement view]
+
+end Snuffy.ReasonsRoute

@@ -1,0 +1,49 @@
+namespace Snuffy
+
+class ProjectionLattice (P : Type) where
+  le : P → P → Prop
+  meet : P → P → P
+  top : P
+  bot : P
+  complement : P → P
+  refl (p : P) : le p p
+  antisymm {p q : P} : le p q → le q p → p = q
+  trans {p q r : P} : le p q → le q r → le p r
+  meet_left (p q : P) : le (meet p q) p
+  meet_right (p q : P) : le (meet p q) q
+  meet_greatest {p q r : P} : le r p → le r q → le r (meet p q)
+  meet_comm (p q : P) : meet p q = meet q p
+  top_greatest (p : P) : le p top
+  bot_least (p : P) : le bot p
+  meet_complement (p : P) : meet p (complement p) = bot
+
+open ProjectionLattice
+
+variable {P : Type} [ProjectionLattice P]
+
+def Consistent (p : P) : Prop := p ≠ bot
+
+theorem anchor_preserved {p q : P} (h : le p q) : meet p q = p  := [proof body omitted in statement view]
+
+theorem contradiction_collapse {p q : P} (h : le p (complement q)) :
+    meet p q = bot  := [proof body omitted in statement view]
+
+theorem bot_absorb (p : P) : meet bot p = bot  := [proof body omitted in statement view]
+
+def meetAll (base : P) : List P → P
+  | [] => base
+  | φ :: rest => meetAll (meet base φ) rest
+
+theorem anchor_preserved_over (T0 : P) :
+    ∀ (ext : List P), (∀ φ, φ ∈ ext → le T0 φ) → meetAll T0 ext = T0 := [proof body omitted in statement view]
+
+theorem meetAll_bot : ∀ (ext : List P), meetAll (bot : P) ext = bot := [proof body omitted in statement view]
+
+theorem collapse_over (T0 : P) (φ : P) (rest : List P)
+    (h : le T0 (complement φ)) : meetAll T0 (φ :: rest) = bot  := [proof body omitted in statement view]
+
+theorem consistent_preserved (T0 : P) (ext : List P)
+    (hc : Consistent T0) (h : ∀ φ, φ ∈ ext → le T0 φ) :
+    Consistent (meetAll T0 ext)  := [proof body omitted in statement view]
+
+end Snuffy

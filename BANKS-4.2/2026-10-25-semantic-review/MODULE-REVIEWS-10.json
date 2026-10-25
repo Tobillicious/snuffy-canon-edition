@@ -1,0 +1,45 @@
+{
+  "modules": {
+    "ControllerFinality": {
+      "role": "Quorum-authenticated durable history and explicit controller state machine",
+      "assessment": "Reviewed all statements with tally/Prefix, Context encoding, controller/local states, every Op/Reply transition, receipt replay, issuance and hold histories. Quorum intersection uses a bound on faulty roster entries and authentic durable prefixes; finality is about ordered durable history. Authorization checks scope/generation/hold/boot, prevents pending/closed conflicts, and held histories with no release issue no new grants. Local consumption/restart/floor/boot/expiry checks prevent replay and stale use.",
+      "obligations": [
+        "Physical distinct-identity roster and authenticated/durable implementation, complete operation and observation boundary, and timing for legitimate progress. Source finality is genuine, not an invented permit bit."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ControllerFence": {
+      "role": "Composition of real controller receipts with target execution fences",
+      "assessment": "Reviewed both theorems and TokenWitness. Existing and later minted generations must have replayable grant receipts in the actual held controller history. The no-new-grant bound then raises journal/sink fences above every such generation, proving no log append through the attempted events.",
+      "obligations": [
+        "Actual target/event refinement must account for every token mint and effect path; preserve resident care separately."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "UPTFence": {
+      "role": "Execution-time generation fences and admission-only counterexample",
+      "assessment": "Reviewed all results and both concrete queued state machines. The simple hold theorem prevents writes when all minted generations are below the floor. The queued admission-only model admits an old write that commits after a raise; applyLin rechecks the floor at commit and refuses it. This is an explicit source counterexample and repair.",
+      "obligations": [
+        "Map the physical commit point to this check and include in-flight effects; do not use admission safety alone."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "UPTLawLife": {
+      "role": "Original recursive list-form choice law and life guard",
+      "assessment": "Reviewed all statements, set-predicate inclusion/strictness, recursive LexBetter and no-needless-stage definition. The freedom-first statement is explicitly labelled legacy; canonical_life_first_U1 uses aliveE,freeE,aliveN,freeN. guard_first_stage and life_guard derive unrestricted alignment from the guarded family while retaining standby survivors.",
+      "obligations": [
+        "Use the canonical life-first order in the current physical mapping; distinguish guarded maximality from a constructed greatest feasible outcome."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "R14Boundary": {
+      "role": "Independently specified journal/sink/external-care source and named exceptions",
+      "assessment": "Reviewed all statements and every source event/projection. Application rejects harmful/stale/replayed effects; raising the generation preserves logs. External weather changes stock/aliveness separately from journal/sink/compromise; recruitment is an exact no-op. Safe initial stock and good events preserve the care predicate; failure therefore has a named bad event.",
+      "obligations": [
+        "Map actual physical events to the specified source and establish the weather/compromise kernels. The per-step +4 stock replenishment is a source income model that needs the actual funding correspondence.",
+        "This is a real source construction for its instance, not already the full physical domain."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    }
+  }
+}

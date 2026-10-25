@@ -1,0 +1,16 @@
+--- 2026-10-23-adoption-contracts/inputs/ReadoutJoint.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/ReadoutJoint.lean
+@@ -223,13 +223,3 @@
+ 
+ end UPTReadoutJoint
+ 
+-#print axioms UPTReadoutJoint.block_det_identity
+-#print axioms UPTReadoutJoint.shifted_det_identity
+-#print axioms UPTReadoutJoint.cp_coeff_pos
+-#print axioms UPTReadoutJoint.quad_form_nonneg
+-#print axioms UPTReadoutJoint.choi_form_nonneg
+-#print axioms UPTReadoutJoint.positive_constant_not_cp
+-#print axioms UPTReadoutJoint.cp_constant_at_half_half
+-#print axioms UPTReadoutJoint.joint_record_lower
+-#print axioms UPTReadoutJoint.chain_ge_pow
+-#print axioms UPTReadoutJoint.hard_count_floor

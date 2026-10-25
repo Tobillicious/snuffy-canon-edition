@@ -1,0 +1,48 @@
+import Snuffy.Composition
+import Snuffy.ReciprocityCeiling
+
+open MeasureTheory Finset
+
+namespace Snuffy.UniversalProtection
+
+open Snuffy.Composition Snuffy.Greatestness
+
+variable {S A C Ev O Part : Type*}
+
+theorem coverage_invariant (U : A → C → Ev → A) (continues : A → Part → Prop)
+    (R H : Part → Prop) (hcover : ∀ x, R x ∨ H x)
+    (hR : ∀ x, R x → ∀ a c e, continues a x → continues (U a c e) x)
+    (hH : ∀ x, H x → ∀ a c e, continues a x → continues (U a c e) x) :
+    ∀ a c e, (∀ x, continues a x) → ∀ x, continues (U a c e) x  := [proof body omitted in statement view]
+
+theorem universal_protection {Ω ι : Type*} [MeasurableSpace Ω] (μ : Measure Ω)
+                             
+    (accounts : Finset ι) (E : ι → Set Ω) (δ : ι → ENNReal) (G : Set Ω)
+    (hG : Gᶜ ⊆ ⋃ i ∈ accounts, E i) (hδ : ∀ i ∈ accounts, μ (E i) ≤ δ i)
+                                                                     
+    (p : S → A) (T : Ω → S → C → Ev → S) (U : Ω → A → C → Ev → A)
+    (obsS : S → O) (obsA : A → O) (ctrl : Ω → List O → C) (env : Ω → List O → C → Ev)
+    (s₀ : Ω → S)
+                                                                     
+    (continues : A → Part → Prop) (R H : Part → Prop) (hcover : ∀ x, R x ∨ H x)
+    (hcert : ∀ ω ∈ G, (∀ s c e, p (T ω s c e) = U ω (p s) c e) ∧
+      (∀ s, obsS s = obsA (p s)) ∧ (∀ x, continues (p (s₀ ω)) x) ∧
+      (∀ x, R x → ∀ a c e, continues a x → continues (U ω a c e) x) ∧
+      (∀ x, H x → ∀ a c e, continues a x → continues (U ω a c e) x))
+    (horizon : ℕ)
+                               
+    {n : ℕ} {L : Fin n → Type*} [∀ i, SemilatticeSup (L i)] {F : Set (∀ i, L i)}
+    (hF : ∀ x ∈ F, ∀ y ∈ F, x ⊔ y ∈ F) {o : ∀ i, L i} (ho : Aligned F o)
+    (hn : 0 < n) (keeps : L ⟨0, hn⟩ → Part → Prop)
+    (hkeeps : ∀ x y, x ≤ y → ∀ m, keeps x m → keeps y m) :
+                                                         
+    (∀ ω ∈ G, ∀ k ≤ horizon, ∀ x, continues (p (run (T ω) obsS (ctrl ω) (env ω) (s₀ ω) k).1) x) ∧
+                             
+    μ {ω | ∃ k ≤ horizon, ¬ ∀ x, continues (p (run (T ω) obsS (ctrl ω) (env ω) (s₀ ω) k).1) x}
+      ≤ ∑ i ∈ accounts, δ i ∧
+                                                
+    (∀ q ∈ F, q = o ∨ LexLt q o) ∧
+                  
+    (∀ q ∈ F, ∀ m, keeps (q ⟨0, hn⟩) m → keeps (o ⟨0, hn⟩) m)  := [proof body omitted in statement view]
+
+end Snuffy.UniversalProtection

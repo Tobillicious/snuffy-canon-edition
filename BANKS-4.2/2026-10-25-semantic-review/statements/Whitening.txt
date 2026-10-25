@@ -1,0 +1,98 @@
+import Snuffy.GaussianVector
+import Mathlib.Probability.Distributions.Gaussian.Multivariate
+
+open MeasureTheory ProbabilityTheory InformationTheory Matrix WithLp Finset
+open scoped ENNReal NNReal MatrixOrder
+
+namespace Snuffy.Whitening
+
+open Snuffy.GaussianVector Snuffy.GaussianChannelGen
+
+section Invariance
+
+variable {α β γ : Type*} [MeasurableSpace α] [MeasurableSpace β] [MeasurableSpace γ]
+
+theorem mutualInfo_map_snd_equiv (J : Measure (α × β)) [IsFiniteMeasure J] (e : β ≃ᵐ γ) :
+    Snuffy.Information.mutualInfo (J.map (Prod.map id e)) = Snuffy.Information.mutualInfo J  := [proof body omitted in statement view]
+
+theorem mutualInfo_kernel_map_equiv (P : Measure α) [IsFiniteMeasure P] (κ : Kernel α β)
+    [IsMarkovKernel κ] (e : β ≃ᵐ γ) :
+    Snuffy.Information.mutualInfo (P ⊗ₘ κ.map e) = Snuffy.Information.mutualInfo (P ⊗ₘ κ)  := [proof body omitted in statement view]
+
+end Invariance
+
+theorem pi_eq_map_eSucc {n : ℕ} (μ : Fin (n + 1) → Measure ℝ) [∀ i, SigmaFinite (μ i)] :
+    Measure.pi μ = ((μ 0).prod (Measure.pi fun i : Fin n => μ i.succ)).map (eSucc n).symm  := [proof body omitted in statement view]
+
+theorem vecChan_apply {α : Type*} [MeasurableSpace α] (v : ℝ≥0) :
+    ∀ (n : ℕ) (w : Fin n → α → ℝ) (hw : ∀ i, Measurable (w i)) (x : α),
+    vecChan v n w hw x = Measure.pi (fun i => gaussianReal (w i x) v) := [proof body omitted in statement view]
+
+section Gaussian
+
+variable {n : ℕ}
+
+theorem multivariateGaussian_one_eq_pi (m : EuclideanSpace ℝ (Fin n)) :
+    multivariateGaussian m 1
+      = (Measure.pi fun i => gaussianReal (ofLp m i) 1).map (toLp 2)  := [proof body omitted in statement view]
+
+variable {S : Matrix (Fin n) (Fin n) ℝ}
+
+noncomputable def wht (S : Matrix (Fin n) (Fin n) ℝ) : Matrix (Fin n) (Fin n) ℝ := (CFC.sqrt S)⁻¹
+
+theorem isUnit_det_sqrt (hS : S.PosDef) : IsUnit (CFC.sqrt S).det  := [proof body omitted in statement view]
+
+theorem wht_mul_sqrt (hS : S.PosDef) : wht S * CFC.sqrt S = 1  := [proof body omitted in statement view]
+
+theorem sqrt_mul_wht (hS : S.PosDef) : CFC.sqrt S * wht S = 1  := [proof body omitted in statement view]
+
+theorem toEuclideanCLM_mul_apply (A C : Matrix (Fin n) (Fin n) ℝ) (x : EuclideanSpace ℝ (Fin n)) :
+    toEuclideanCLM (𝕜 := ℝ) A (toEuclideanCLM (𝕜 := ℝ) C x) = toEuclideanCLM (𝕜 := ℝ) (A * C) x  := [proof body omitted in statement view]
+
+theorem whiten (hS : S.PosDef) (μ : EuclideanSpace ℝ (Fin n)) :
+    (multivariateGaussian μ S).map (toEuclideanCLM (𝕜 := ℝ) (wht S))
+      = multivariateGaussian (toEuclideanCLM (𝕜 := ℝ) (wht S) μ) 1  := [proof body omitted in statement view]
+
+noncomputable def whtEquiv (hS : S.PosDef) : EuclideanSpace ℝ (Fin n) ≃ᵐ EuclideanSpace ℝ (Fin n) where
+  toFun := toEuclideanCLM (𝕜 := ℝ) (wht S)
+  invFun := toEuclideanCLM (𝕜 := ℝ) (CFC.sqrt S)
+  left_inv x := by
+    show toEuclideanCLM (𝕜 := ℝ) (CFC.sqrt S) (toEuclideanCLM (𝕜 := ℝ) (wht S) x) = x
+    rw [toEuclideanCLM_mul_apply, sqrt_mul_wht hS, map_one]; rfl
+  right_inv x := by
+    show toEuclideanCLM (𝕜 := ℝ) (wht S) (toEuclideanCLM (𝕜 := ℝ) (CFC.sqrt S) x) = x
+    rw [toEuclideanCLM_mul_apply, wht_mul_sqrt hS, map_one]; rfl
+  measurable_toFun := (toEuclideanCLM (𝕜 := ℝ) (wht S)).continuous.measurable
+  measurable_invFun := (toEuclideanCLM (𝕜 := ℝ) (CFC.sqrt S)).continuous.measurable
+
+end Gaussian
+
+section Channel
+
+variable {α : Type*} [MeasurableSpace α] {n : ℕ}
+
+noncomputable def corrChan (s : α → EuclideanSpace ℝ (Fin n)) (hs : Measurable s)
+    (S : Matrix (Fin n) (Fin n) ℝ) : Kernel α (EuclideanSpace ℝ (Fin n)) where
+  toFun x := multivariateGaussian (s x) S
+  measurable' := measurable_multivariateGaussian.comp (hs.prodMk measurable_const)
+
+theorem corrChan_apply (s : α → EuclideanSpace ℝ (Fin n)) (hs : Measurable s)
+    (S : Matrix (Fin n) (Fin n) ℝ) (x : α) : corrChan s hs S x = multivariateGaussian (s x) S  := [proof body omitted in statement view]
+
+noncomputable def whtSignal (s : α → EuclideanSpace ℝ (Fin n)) (S : Matrix (Fin n) (Fin n) ℝ)
+    (i : Fin n) (x : α) : ℝ :=
+  ofLp (toEuclideanCLM (𝕜 := ℝ) (wht S) (s x)) i
+
+theorem measurable_whtSignal (s : α → EuclideanSpace ℝ (Fin n)) (hs : Measurable s)
+    (S : Matrix (Fin n) (Fin n) ℝ) (i : Fin n) : Measurable (whtSignal s S i)  := [proof body omitted in statement view]
+
+theorem correlated_channel_bound [StandardBorelSpace α] [Nonempty α] (P : Measure α)
+    [IsProbabilityMeasure P] (s : α → EuclideanSpace ℝ (Fin n)) (hs : Measurable s)
+    {S : Matrix (Fin n) (Fin n) ℝ} (hS : S.PosDef)
+    (hX : ∀ i, MemLp (whtSignal s S i) 2 P) :
+    Snuffy.Information.mutualInfo (P ⊗ₘ corrChan s hs S)
+      ≤ ENNReal.ofReal (∑ i, Real.log (1 + varW P (whtSignal s S) i) / 2)  := [proof body omitted in statement view]
+
+end Channel
+
+end Snuffy.Whitening

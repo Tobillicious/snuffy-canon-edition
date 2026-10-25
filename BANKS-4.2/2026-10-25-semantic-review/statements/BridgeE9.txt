@@ -1,0 +1,41 @@
+import Mathlib.Basic.Real.Basic
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
+
+namespace GeminiBridgeE9
+noncomputable section
+
+theorem reaction_before_damage (distance signalSpeed harmSpeed reroute : ℝ)
+    (positiveSignal : 0 < signalSpeed) (positiveHarm : 0 < harmSpeed) :
+    distance/signalSpeed+reroute < distance/harmSpeed ↔
+      reroute < distance*(signalSpeed-harmSpeed)/(harmSpeed*signalSpeed)  := [proof body omitted in statement view]
+
+theorem positive_propagation_margin (distance signalSpeed harmSpeed : ℝ)
+    (positiveDistance : 0 < distance) (positiveHarm : 0 < harmSpeed)
+    (faster : harmSpeed < signalSpeed) :
+    0 < distance*(signalSpeed-harmSpeed)/(harmSpeed*signalSpeed)  := [proof body omitted in statement view]
+
+theorem local_buffer_covers_entire_reaction
+    (buffer production detect reroute elapsed : ℝ)
+    (productionNonnegative : 0 ≤ production)
+    (covered : production*(detect+reroute) ≤ buffer)
+    (beforeReaction : elapsed ≤ detect+reroute) :
+    0 ≤ buffer-production*elapsed  := [proof body omitted in statement view]
+
+theorem escrow_prevents_pre_detection_application (detect commit applied : ℝ)
+    (escrow : detect ≤ commit) (afterCommit : commit ≤ applied) : detect ≤ applied  := [proof body omitted in statement view]
+
+def boundary (f01 f12 f20 : ℝ) : ℝ × ℝ × ℝ :=
+  (f01-f20,f12-f01,f20-f12)
+
+theorem incidence_has_circulation_kernel (circulation : ℝ) :
+    boundary circulation circulation circulation=(0,0,0)  := [proof body omitted in statement view]
+
+theorem lost_circulation_need_not_change_divergence :
+    boundary 1 1 1=boundary 0 0 0 ∧
+    ((1,1,1) : ℝ × ℝ × ℝ) ≠ (0,0,0)  := [proof body omitted in statement view]
+
+end
+end GeminiBridgeE9

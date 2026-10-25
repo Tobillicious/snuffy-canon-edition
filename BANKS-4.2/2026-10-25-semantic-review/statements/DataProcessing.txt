@@ -1,0 +1,28 @@
+import Mathlib.InformationTheory.KullbackLeibler.DataProcessing
+import Mathlib.Probability.Kernel.Composition.Lemmas
+
+open MeasureTheory ProbabilityTheory
+open scoped ENNReal
+
+namespace Snuffy.Information
+
+variable {α β γ : Type*} [MeasurableSpace α] [MeasurableSpace β] [MeasurableSpace γ]
+
+noncomputable def mutualInfo (J : Measure (α × β)) : ℝ≥0∞ := InformationTheory.klDiv J (J.fst.prod J.snd)
+
+noncomputable def process (κ : Kernel β γ) (J : Measure (α × β)) : Measure (α × γ) :=
+  (Kernel.id ∥ₖ κ) ∘ₘ J
+
+theorem fst_process (κ : Kernel β γ) [IsMarkovKernel κ] (J : Measure (α × β)) :
+    (process κ J).fst = J.fst  := [proof body omitted in statement view]
+
+theorem snd_process (κ : Kernel β γ) [IsMarkovKernel κ] (J : Measure (α × β)) :
+    (process κ J).snd = κ ∘ₘ J.snd  := [proof body omitted in statement view]
+
+theorem data_processing (κ : Kernel β γ) [IsMarkovKernel κ] (J : Measure (α × β))
+    [IsFiniteMeasure J] : mutualInfo (process κ J) ≤ mutualInfo J  := [proof body omitted in statement view]
+
+theorem data_processing_map {g : β → γ} (hg : Measurable g) (J : Measure (α × β))
+    [IsFiniteMeasure J] : mutualInfo (process (Kernel.deterministic g hg) J) ≤ mutualInfo J  := [proof body omitted in statement view]
+
+end Snuffy.Information

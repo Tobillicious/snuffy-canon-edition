@@ -1,0 +1,30 @@
+import Mathlib.Analysis.Normed.Ring.Basic
+import Mathlib.Tactic.Linarith
+
+open List
+
+set_option linter.unusedSectionVars false                                                                
+
+namespace Snuffy.ErrorBudget
+
+variable {E : Type*} [NormedRing E] [NormOneClass E]
+
+theorem prod_norm_le_one (l : List E) (h : ∀ x ∈ l, ‖x‖ ≤ 1) : ‖l.prod‖ ≤ 1  := [proof body omitted in statement view]
+
+theorem map_prod_norm_le_one {m : ℕ} (U : ℕ → E) (h : ∀ i < m, ‖U i‖ ≤ 1) :
+    ‖((List.range m).map U).prod‖ ≤ 1  := [proof body omitted in statement view]
+
+theorem two_factor_step (A B P Q : E) (hB : ‖B‖ ≤ 1) (hP : ‖P‖ ≤ 1) :
+    ‖A * P - B * Q‖ ≤ ‖A - B‖ + ‖P - Q‖  := [proof body omitted in statement view]
+
+theorem telescoping_delta {m : ℕ} (U V : ℕ → E)
+    (hU : ∀ i < m, ‖U i‖ ≤ 1) (hV : ∀ i < m, ‖V i‖ ≤ 1) {δ : ℝ} (_hδ : 0 ≤ δ)
+    (hclose : ∀ i < m, ‖U i - V i‖ ≤ δ) :
+    ‖((List.range m).map U).prod - ((List.range m).map V).prod‖ ≤ m * δ  := [proof body omitted in statement view]
+
+theorem error_budget {m : ℕ} {ε : ℝ} (hε : 0 < ε) (U V : ℕ → E)
+    (hU : ∀ i < m, ‖U i‖ ≤ 1) (hV : ∀ i < m, ‖V i‖ ≤ 1)
+    (hclose : ∀ i < m, ‖U i - V i‖ ≤ ε / m) :
+    ‖((List.range m).map U).prod - ((List.range m).map V).prod‖ ≤ ε  := [proof body omitted in statement view]
+
+end Snuffy.ErrorBudget

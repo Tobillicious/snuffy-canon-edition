@@ -1,0 +1,31 @@
+import Mathlib.Basic.Real.Basic
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+
+namespace GeminiThirteenBandwidth
+noncomputable section
+
+theorem normalized_susceptibility (peer sensory : ℝ)
+    (peerNonnegative : 0 ≤ peer) (sensoryPositive : 0 < sensory) :
+    0 ≤ peer/(peer+sensory) ∧ peer/(peer+sensory)<1  := [proof body omitted in statement view]
+
+theorem exact_bandwidth_sensitivity (peer sensory anchorAccess : ℝ)
+    (peerNonnegative : 0 ≤ peer) (sensoryPositive : 0 < sensory)
+    (anchorPositive : 0 < anchorAccess) :
+    (1-peer/(peer+sensory))/(1-peer/(peer+sensory)+peer/(peer+sensory)*anchorAccess)=
+      sensory/(sensory+anchorAccess*peer)  := [proof body omitted in statement view]
+
+theorem finite_positive_sensory_access_remains (peer sensory anchorAccess : ℝ)
+    (peerNonnegative : 0 ≤ peer) (sensoryPositive : 0 < sensory)
+    (anchorNonnegative : 0 ≤ anchorAccess) :
+    0 < sensory/(sensory+anchorAccess*peer)  := [proof body omitted in statement view]
+
+theorem bandwidth_bias_threshold (peer sensory anchorAccess tolerance : ℝ)
+    (peerNonnegative : 0 ≤ peer) (sensoryPositive : 0 < sensory)
+    (anchorPositive : 0 < anchorAccess) (toleranceBelowOne : tolerance < 1) :
+    tolerance ≤ anchorAccess*peer/(sensory+anchorAccess*peer) ↔
+      tolerance/(anchorAccess*(1-tolerance)) ≤ peer/sensory  := [proof body omitted in statement view]
+
+end
+end GeminiThirteenBandwidth

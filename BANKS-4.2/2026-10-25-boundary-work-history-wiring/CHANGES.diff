@@ -1,0 +1,1227 @@
+--- before/lean/Snuffy/DecoderRetraction.lean
++++ after/lean/Snuffy/DecoderRetraction.lean
+@@ -1,4 +1,9 @@
+ import Snuffy.Bridge
++import Mathlib.Analysis.InnerProductSpace.Adjoint
++import Mathlib.Analysis.InnerProductSpace.PiL2
++import Mathlib.Analysis.InnerProductSpace.GramMatrix
++import Mathlib.Analysis.Normed.Algebra.Exponential
++import Mathlib.LinearAlgebra.Basis.Defs
+ 
+ namespace Snuffy.DecoderRetraction
+ 
+@@ -77,4 +82,227 @@
+   rw [hfixed]
+   exact hnonbot
+ 
++section BoundaryOperators
++
++variable {H : Type u} {B : Type v}
++variable [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
++variable [NormedAddCommGroup B] [InnerProductSpace ℂ B] [CompleteSpace B]
++
++omit [CompleteSpace H] [CompleteSpace B] in
++/-- Complex linearity and preservation of the symplectic flux determine both
++parts of the Hilbert inner product. This supplies the isometry step from the
++stated flux identity, without postulating an isometry field. -/
++theorem inner_preserved_from_symplectic_flux (E : H →ₗ[ℂ] B)
++    (hflux : ∀ x y, (inner ℂ (E x) (E y)).im = (inner ℂ x y).im) (x y : H) :
++    inner ℂ (E x) (E y) = inner ℂ x y := by
++  apply Complex.ext
++  · have h := hflux x (Complex.I • y)
++    simpa [inner_smul_right] using h
++  · exact hflux x y
++
++/-- The encoder is built from the complex-linear source map and its proven
++symplectic-flux identity. -/
++def boundaryIsometry (E : H →ₗ[ℂ] B)
++    (hflux : ∀ x y, (inner ℂ (E x) (E y)).im = (inner ℂ x y).im) : H →ₗᵢ[ℂ] B :=
++  { toLinearMap := E
++    norm_map' := (LinearMap.norm_map_iff_inner_map_map E).mpr
++      (inner_preserved_from_symplectic_flux E hflux) }
++
++theorem adjoint_decodes_isometry (E : H →ₗᵢ[ℂ] B) (x : H) :
++    E.toContinuousLinearMap.adjoint (E x) = x := by
++  exact congrArg (fun A : H →L[ℂ] H => A x) E.adjoint_comp_self
++
++/-- The work/historical encoder's adjoint now populates the same decoder
++interface used by the finite-record construction. -/
++noncomputable def decoderFromSymplecticFlux (E : H →ₗ[ℂ] B)
++    (hflux : ∀ x y, (inner ℂ (E x) (E y)).im = (inner ℂ x y).im) :
++    DecoderPair H B :=
++  { encode := boundaryIsometry E hflux
++    decode := (boundaryIsometry E hflux).toContinuousLinearMap.adjoint
++    retraction := adjoint_decodes_isometry (boundaryIsometry E hflux) }
++
++/-- Transport a complete bulk-code observable to the boundary code range. -/
++noncomputable def boundaryObservable (E : H →ₗᵢ[ℂ] B) (A : H →L[ℂ] H) : B →L[ℂ] B :=
++  E.toContinuousLinearMap ∘L A ∘L E.toContinuousLinearMap.adjoint
++
++theorem boundary_observable_on_code (E : H →ₗᵢ[ℂ] B) (A : H →L[ℂ] H) (x : H) :
++    boundaryObservable E A (E x) = E (A x) := by
++  simp [boundaryObservable, adjoint_decodes_isometry]
++
++/-- Every code observable, including an observable of the stored historical
++record, has its original expectation after the boundary transport. -/
++theorem historical_query_preserved (E : H →ₗᵢ[ℂ] B) (A : H →L[ℂ] H) (x : H) :
++    inner ℂ (E x) (boundaryObservable E A (E x)) = inner ℂ x (A x) := by
++  rw [boundary_observable_on_code]
++  exact E.inner_map_map x (A x)
++
++/-- Transport preserves ordered operator words on the code. No commutation or
++reordering of historical operations is used. -/
++theorem historical_word_on_code (E : H →ₗᵢ[ℂ] B) (word : List (H →L[ℂ] H)) (x : H) :
++    (word.map (boundaryObservable E)).prod (E x) = E (word.prod x) := by
++  induction word with
++  | nil => simp
++  | cons A word ih =>
++      simp only [List.map_cons, List.prod_cons, mul_apply_eq_comp]
++      rw [ih, boundary_observable_on_code]
++
++theorem historical_word_expectation (E : H →ₗᵢ[ℂ] B)
++    (word : List (H →L[ℂ] H)) (x : H) :
++    inner ℂ (E x) ((word.map (boundaryObservable E)).prod (E x)) =
++      inner ℂ x (word.prod x) := by
++  rw [historical_word_on_code]
++  exact E.inner_map_map x (word.prod x)
++
++/-- The boundary observable map preserves products, hence commutators, on
++the represented code algebra. Its ambient identity is the code projector. -/
++theorem boundary_observable_mul (E : H →ₗᵢ[ℂ] B) (A C : H →L[ℂ] H) :
++    boundaryObservable E (A * C) =
++      boundaryObservable E A * boundaryObservable E C := by
++  ext y
++  simp [boundaryObservable, adjoint_decodes_isometry]
++
++theorem boundary_observable_commutator (E : H →ₗᵢ[ℂ] B) (A Q : H →L[ℂ] H) :
++    boundaryObservable E (A * Q - Q * A) =
++      boundaryObservable E A * boundaryObservable E Q -
++        boundaryObservable E Q * boundaryObservable E A := by
++  rw [show boundaryObservable E (A * Q - Q * A) =
++      boundaryObservable E (A * Q) - boundaryObservable E (Q * A) by
++        ext y
++        simp [boundaryObservable]]
++  rw [boundary_observable_mul, boundary_observable_mul]
++
++omit [CompleteSpace H] [CompleteSpace B] in
++/-- The source and boundary evolutions agree at every power, before taking
++the convergent exponential series. -/
++theorem powers_intertwine (E : H →L[ℂ] B) (F : B →L[ℂ] B) (G : H →L[ℂ] H)
++    (h : ∀ x, F (E x) = E (G x)) (n : ℕ) (x : H) :
++    (F ^ n) (E x) = E ((G ^ n) x) := by
++  induction n with
++  | zero => simp
++  | succ n ih =>
++      simp only [pow_succ', mul_apply_eq_comp]
++      rw [ih, h]
++
++/-- Exact bounded-operator exponential transport, obtained from the
++norm-convergent power series. No infinite-work limiting decoder is used. -/
++theorem exponential_intertwines (E : H →L[ℂ] B) (F : B →L[ℂ] B)
++    (G : H →L[ℂ] H) (h : ∀ x, F (E x) = E (G x)) (x : H) :
++    NormedSpace.exp F (E x) = E (NormedSpace.exp G x) := by
++  have hb := (NormedSpace.exp_series_hasSum_exp' (𝕂 := ℂ) F).mapL
++    (ContinuousLinearMap.apply ℂ B (E x))
++  have hh := ((NormedSpace.exp_series_hasSum_exp' (𝕂 := ℂ) G).mapL
++    (ContinuousLinearMap.apply ℂ H x)).mapL E
++  apply HasSum.unique hb
++  simpa only [ContinuousLinearMap.apply_apply, smul_apply,
++    map_smul, powers_intertwine E F G h] using hh
++
++/-- Analytic conjugation by the effective bounded generator. The physical
++modular parameter is the imaginary value `z = I*s`; self-adjointness supplies
++unitarity there. The algebraic transport is valid for every complex `z`. -/
++noncomputable def historicalFlow (G A : H →L[ℂ] H) (z : ℂ) : H →L[ℂ] H :=
++  NormedSpace.exp (z • G) * A * NormedSpace.exp ((-z) • G)
++
++/-- Conjugation is a linear map of the complete operator algebra. -/
++noncomputable def historicalFlowLinear (G : H →L[ℂ] H) (z : ℂ) :
++    (H →L[ℂ] H) →ₗ[ℂ] (H →L[ℂ] H) where
++  toFun := fun A => historicalFlow G A z
++  map_add' A C := by simp [historicalFlow, mul_add, add_mul]
++  map_smul' c A := by simp [historicalFlow]
++
++theorem historical_flow_roundtrip (G A : H →L[ℂ] H) (z : ℂ) :
++    historicalFlow G (historicalFlow G A (-z)) z = A := by
++  have hexp : NormedSpace.exp (z • G) * NormedSpace.exp ((-z) • G) = 1 := by
++    have hall (F : H →L[ℂ] H) :
++        F ∈ Metric.eball (0 : H →L[ℂ] H)
++          (NormedSpace.expSeries ℂ (H →L[ℂ] H)).radius := by
++      rw [NormedSpace.expSeries_radius_eq_top]
++      exact Metric.mem_eball.mpr (edist_lt_top _ _)
++    rw [neg_smul, ← NormedSpace.exp_add_of_commute_of_mem_ball (𝕂 := ℂ)
++      (Commute.refl (z • G)).neg_right (hall _) (hall _),
++      add_neg_cancel, NormedSpace.exp_zero]
++  change NormedSpace.exp (z • G) *
++      (NormedSpace.exp ((-z) • G) * A * NormedSpace.exp ((-(-z)) • G)) *
++      NormedSpace.exp ((-z) • G) = A
++  rw [neg_neg]
++  calc
++    _ = (NormedSpace.exp (z • G) * NormedSpace.exp ((-z) • G)) * A *
++        (NormedSpace.exp (z • G) * NormedSpace.exp ((-z) • G)) := by
++      simp only [mul_assoc]
++    _ = A := by rw [hexp, one_mul, mul_one]
++
++/-- A derived dual smearing kernel for a complete finite operator basis.
++At every flow parameter it reconstructs the original operator exactly.
++A normalized integrable average of this identity gives the continuous
++modular smearing formula without a regularization error. -/
++theorem historical_dual_kernel {ι : Type*} [Fintype ι]
++    (b : Module.Basis ι ℂ (H →L[ℂ] H)) (G A : H →L[ℂ] H) (z : ℂ) :
++    ∑ i, b.repr (historicalFlow G A (-z)) i • historicalFlow G (b i) z = A := by
++  calc
++    _ = historicalFlowLinear G z
++        (∑ i, b.repr (historicalFlow G A (-z)) i • b i) := by
++      rw [map_sum]
++      simp only [map_smul]
++      rfl
++    _ = A := by
++      rw [b.sum_repr]
++      exact historical_flow_roundtrip G A z
++
++theorem work_shifted_flow_on_code (E : H →ₗᵢ[ℂ] B)
++    (K W A : H →L[ℂ] H) (β z : ℂ) (x : H) :
++    historicalFlow (boundaryObservable E K + β • boundaryObservable E W)
++      (boundaryObservable E A) z (E x) =
++    E (historicalFlow (K + β • W) A z x) := by
++  have hinter (c : ℂ) (y : H) :
++      (c • (boundaryObservable E K + β • boundaryObservable E W)) (E y) =
++      E ((c • (K + β • W)) y) := by
++    simp [boundary_observable_on_code]
++  have hexp (c : ℂ) (y : H) :
++      NormedSpace.exp (c • (boundaryObservable E K + β • boundaryObservable E W))
++          (E y) = E (NormedSpace.exp (c • (K + β • W)) y) :=
++    exponential_intertwines E.toContinuousLinearMap _ _ (hinter c) y
++  change NormedSpace.exp (z • (boundaryObservable E K + β • boundaryObservable E W))
++      (boundaryObservable E A
++        (NormedSpace.exp ((-z) •
++          (boundaryObservable E K + β • boundaryObservable E W)) (E x))) = _
++  rw [hexp (-z), boundary_observable_on_code, hexp z]
++  rfl
++
++/-- Ordered historical words form a genuine Gram kernel after acting on the
++state. Time ordering stays inside each word; it is not moved through the
++inner product as an unjustified positivity step. -/
++theorem historical_gram_preserved {ι : Type*} (E : H →ₗᵢ[ℂ] B)
++    (words : ι → List (H →L[ℂ] H)) (x : H) :
++    Matrix.gram ℂ (fun i => ((words i).map (boundaryObservable E)).prod (E x)) =
++      Matrix.gram ℂ (fun i => (words i).prod x) := by
++  ext i j
++  simp only [Matrix.gram_apply, historical_word_on_code, E.inner_map_map]
++
++theorem historical_gram_nondegenerate {ι : Type*} [Fintype ι] [DecidableEq ι]
++    (E : H →ₗᵢ[ℂ] B) (words : ι → List (H →L[ℂ] H)) (x : H)
++    (h : LinearIndependent ℂ (fun i => (words i).prod x)) :
++    (Matrix.gram ℂ
++      (fun i => ((words i).map (boundaryObservable E)).prod (E x))).det ≠ 0 := by
++  rw [historical_gram_preserved]
++  exact Matrix.det_gram_ne_zero_iff_linearIndependent.mpr h
++
++end BoundaryOperators
++
++/-- An explicit encoder for a finite historical code: move every code
++coordinate to its assigned boundary coordinate and set unused coordinates to
++zero. Capacity is met by an actual embedding, not a hash or homology quotient. -/
++noncomputable def coordinateBoundaryEncoder {m n : ℕ} (hcapacity : m ≤ n) :
++    EuclideanSpace ℂ (Fin m) →ₗᵢ[ℂ] EuclideanSpace ℂ (Fin n) :=
++  LinearIsometry.piLpExtendByZero 2 ℂ ℂ (Fin.castLEEmb hcapacity)
++
++theorem coordinate_boundary_roundtrip {m n : ℕ} (hcapacity : m ≤ n)
++    (x : EuclideanSpace ℂ (Fin m)) :
++    (coordinateBoundaryEncoder hcapacity).toContinuousLinearMap.adjoint
++      (coordinateBoundaryEncoder hcapacity x) = x :=
++  adjoint_decodes_isometry (coordinateBoundaryEncoder hcapacity) x
++
++theorem boundary_capacity_necessary {m n : ℕ}
++    (E : EuclideanSpace ℂ (Fin m) →ₗᵢ[ℂ] EuclideanSpace ℂ (Fin n)) : m ≤ n := by
++  have h := LinearMap.finrank_le_finrank_of_injective E.injective
++  simpa using h
++
+ end Snuffy.DecoderRetraction
+--- before/lean/Snuffy/HamiltonianDecomposition.lean
++++ after/lean/Snuffy/HamiltonianDecomposition.lean
+@@ -1,3 +1,9 @@
++import Mathlib.LinearAlgebra.Matrix.Hermitian
++import Mathlib.Basic.Complex.Basic
++import Mathlib.LinearAlgebra.Matrix.Notation
++import Mathlib.Tactic.FinCases
++import Mathlib.Tactic.NormNum
++
+ namespace Snuffy.HamiltonianDecomposition
+ 
+ structure Hamiltonian where
+@@ -18,4 +24,56 @@
+ theorem boundary_confinement_positive (V : Nat) (h : V > 0) :
+     confinementWell V > 0 := h
+ 
+-end Snuffy.HamiltonianDecomposition+/-- A concrete boundary/reservoir exchange on the ordered basis
++|00>, |01>, |10>, |11>. The off-diagonal coupling transfers one charge. -/
++def exchangeHamiltonian : Matrix (Fin 4) (Fin 4) ℂ :=
++  !![0, 0, 0, 0; 0, 0, 1, 0; 0, 1, 0, 0; 0, 0, 0, 0]
++
++def boundaryCharge : Matrix (Fin 4) (Fin 4) ℂ :=
++  !![0, 0, 0, 0; 0, 0, 0, 0; 0, 0, 1, 0; 0, 0, 0, 1]
++
++def reservoirCharge : Matrix (Fin 4) (Fin 4) ℂ :=
++  !![0, 0, 0, 0; 0, 1, 0, 0; 0, 0, 0, 0; 0, 0, 0, 1]
++
++def exchangeSwap : Matrix (Fin 4) (Fin 4) ℂ :=
++  !![1, 0, 0, 0; 0, 0, 1, 0; 0, 1, 0, 0; 0, 0, 0, 1]
++
++theorem exchange_hamiltonian_hermitian : exchangeHamiltonian.IsHermitian := by
++  ext i j
++  fin_cases i <;> fin_cases j <;> norm_num [exchangeHamiltonian]
++
++theorem exchange_conserves_total_charge :
++    exchangeHamiltonian * (boundaryCharge + reservoirCharge) =
++      (boundaryCharge + reservoirCharge) * exchangeHamiltonian := by
++  ext i j
++  fin_cases i <;> fin_cases j <;>
++    norm_num [exchangeHamiltonian, boundaryCharge, reservoirCharge,
++      Matrix.mul_apply, Fin.sum_univ_succ]
++
++theorem exchange_pumps_boundary :
++    boundaryCharge * exchangeHamiltonian ≠ exchangeHamiltonian * boundaryCharge := by
++  intro heq
++  have h := congrArg (fun M : Matrix (Fin 4) (Fin 4) ℂ => M 1 2) heq
++  norm_num [exchangeHamiltonian, boundaryCharge, Matrix.mul_apply, Fin.sum_univ_succ] at h
++
++theorem exchange_swap_unitary : star exchangeSwap * exchangeSwap = 1 := by
++  ext i j
++  fin_cases i <;> fin_cases j <;>
++    norm_num [exchangeSwap, Matrix.mul_apply, Fin.sum_univ_succ]
++
++theorem exchange_swap_charge :
++    star exchangeSwap * boundaryCharge * exchangeSwap = reservoirCharge := by
++  ext i j
++  fin_cases i <;> fin_cases j <;>
++    norm_num [exchangeSwap, boundaryCharge, reservoirCharge,
++      Matrix.mul_apply, Fin.sum_univ_succ]
++
++theorem exchange_swap_total :
++    star exchangeSwap * (boundaryCharge + reservoirCharge) * exchangeSwap =
++      boundaryCharge + reservoirCharge := by
++  ext i j
++  fin_cases i <;> fin_cases j <;>
++    norm_num [exchangeSwap, boundaryCharge, reservoirCharge,
++      Matrix.mul_apply, Fin.sum_univ_succ]
++
++end Snuffy.HamiltonianDecomposition
+--- before/lean/Snuffy/WorkBilling.lean
++++ after/lean/Snuffy/WorkBilling.lean
+@@ -1,3 +1,8 @@
++import Snuffy.ThermoLedger
++import Snuffy.QuantumLandauer
++
++open scoped ComplexOrder
++
+ namespace Snuffy.WorkBilling
+ 
+ structure WorkBill where
+@@ -16,4 +21,60 @@
+ theorem work_bound_preserved (bill : WorkBill) (h : workBound bill) :
+     workBound bill := h
+ 
+-end Snuffy.WorkBilling+/-- At a fixed Hamiltonian and Gibbs reference, the complete first-law
++ledger gives beta*work = relative-free-energy change + entropy production.
++Historical degrees of freedom are included in U and S. -/
++theorem decoder_work_balance {β lnZ S₁ S₂ U₁ U₂ W Q : ℝ}
++    (hfirst : U₂ - U₁ = W - Q) :
++    β * W =
++      ((-S₂ + β * U₂ + lnZ) - (-S₁ + β * U₁ + lnZ)) +
++      (S₂ - S₁ + β * Q) := by
++  have h := Snuffy.ThermoLedger.stroke_identity
++    (β := β) (lnZ := lnZ) (I₁ := S₁) (I₂ := S₂) hfirst rfl
++  linarith
++
++/-- The work floor uses output minus input relative free energy. -/
++theorem decoder_work_floor {β lnZ S₁ S₂ U₁ U₂ W Q : ℝ}
++    (hβ : 0 < β) (hfirst : U₂ - U₁ = W - Q)
++    (hsecond : 0 ≤ S₂ - S₁ + β * Q) :
++    ((-S₂ + β * U₂ + lnZ) - (-S₁ + β * U₁ + lnZ)) / β ≤ W := by
++  apply (div_le_iff₀ hβ).mpr
++  have h := decoder_work_balance (β := β) (lnZ := lnZ) (S₁ := S₁) (S₂ := S₂) hfirst
++  nlinarith
++
++/-- Saturation of that floor is exactly zero entropy production in this
++ledger. Joint unitarity alone is not substituted for this condition. -/
++theorem decoder_work_floor_saturation {β lnZ S₁ S₂ U₁ U₂ W Q : ℝ}
++    (hβ : 0 < β) (hfirst : U₂ - U₁ = W - Q) :
++    W = ((-S₂ + β * U₂ + lnZ) - (-S₁ + β * U₁ + lnZ)) / β ↔
++      S₂ - S₁ + β * Q = 0 := by
++  have h := decoder_work_balance (β := β) (lnZ := lnZ) (S₁ := S₁) (S₂ := S₂) hfirst
++  rw [eq_div_iff hβ.ne']
++  constructor <;> intro heq <;> nlinarith
++
++/-- A Gibbs entropy bound joined to the decoder's metered energy budget.
++The partition term is retained; entropy is measured per prepared state,
++not silently equated with a channel rate. -/
++theorem funded_decoder_entropy_bound {n : Type*} [Fintype n] [DecidableEq n] [Nonempty n]
++    {H ρ : Matrix n n ℂ} (hH : H.IsHermitian) (hρ : ρ.PosSemidef)
++    (htr : (Matrix.trace ρ).re = 1) {β E₀ budget : ℝ}
++    (hβ : 0 ≤ β) (henergy : (Matrix.trace (ρ * H)).re ≤ E₀ + budget) :
++    Snuffy.QuantumLandauer.vnEnt hρ.1 ≤
++      β * (E₀ + budget) + Real.log (Snuffy.Landauer.partition β hH.eigenvalues) := by
++  have h := Snuffy.QuantumLandauer.vnEnt_le_energy hH β hρ htr
++  have hm := mul_le_mul_of_nonneg_left henergy hβ
++  linarith
++
++/-- Local income covering the complete decoder demand supplies the existing
++escrow theorem at every cycle, including the minimal-hold account. -/
++theorem funded_decoder_cycles {E₀ : ℝ} {r w h : ℕ → ℝ}
++    (hE : 0 ≤ E₀) (hcover : ∀ k, w k ≤ r k) :
++    ∀ k, Snuffy.ThermoLedger.escrow E₀ r w h k =
++        E₀ + ∑ j ∈ Finset.range k, (r j - w j) ∧
++      0 ≤ Snuffy.ThermoLedger.escrow E₀ r w h k ∧
++      w k ≤ Snuffy.ThermoLedger.escrow E₀ r w h k + r k := by
++  apply Snuffy.ThermoLedger.funded_repair_certificate hE
++  intro k
++  exact add_nonneg hE (Finset.sum_nonneg fun j _ => sub_nonneg.mpr (hcover j))
++
++end Snuffy.WorkBilling
+--- before/lean/SummitsAudit.lean
++++ after/lean/SummitsAudit.lean
+@@ -1175,13 +1175,41 @@
+ -- HamiltonianDecomposition
+ #print axioms Snuffy.HamiltonianDecomposition.total_is_sum
+ #print axioms Snuffy.HamiltonianDecomposition.boundary_confinement_positive
++#print axioms Snuffy.HamiltonianDecomposition.exchange_hamiltonian_hermitian
++#print axioms Snuffy.HamiltonianDecomposition.exchange_conserves_total_charge
++#print axioms Snuffy.HamiltonianDecomposition.exchange_pumps_boundary
++#print axioms Snuffy.HamiltonianDecomposition.exchange_swap_unitary
++#print axioms Snuffy.HamiltonianDecomposition.exchange_swap_charge
++#print axioms Snuffy.HamiltonianDecomposition.exchange_swap_total
+ -- GuardSignature
+ #print axioms Snuffy.GuardSignature.guard_idempotent
+ -- WorkBilling
+ #print axioms Snuffy.WorkBilling.work_nonnegative
+ #print axioms Snuffy.WorkBilling.work_bound_preserved
++#print axioms Snuffy.WorkBilling.decoder_work_balance
++#print axioms Snuffy.WorkBilling.decoder_work_floor
++#print axioms Snuffy.WorkBilling.decoder_work_floor_saturation
++#print axioms Snuffy.WorkBilling.funded_decoder_entropy_bound
++#print axioms Snuffy.WorkBilling.funded_decoder_cycles
+ -- DecoderRetraction
+ #print axioms Snuffy.DecoderRetraction.decode_encode
+ #print axioms Snuffy.DecoderRetraction.finite_code_recovery
+ #print axioms Snuffy.DecoderRetraction.nonvanishing_of_continuation
+ #print axioms Snuffy.DecoderRetraction.finite_code_self_grounding
++#print axioms Snuffy.DecoderRetraction.inner_preserved_from_symplectic_flux
++#print axioms Snuffy.DecoderRetraction.adjoint_decodes_isometry
++#print axioms Snuffy.DecoderRetraction.boundary_observable_on_code
++#print axioms Snuffy.DecoderRetraction.historical_query_preserved
++#print axioms Snuffy.DecoderRetraction.historical_word_on_code
++#print axioms Snuffy.DecoderRetraction.historical_word_expectation
++#print axioms Snuffy.DecoderRetraction.boundary_observable_mul
++#print axioms Snuffy.DecoderRetraction.boundary_observable_commutator
++#print axioms Snuffy.DecoderRetraction.powers_intertwine
++#print axioms Snuffy.DecoderRetraction.exponential_intertwines
++#print axioms Snuffy.DecoderRetraction.historical_flow_roundtrip
++#print axioms Snuffy.DecoderRetraction.historical_dual_kernel
++#print axioms Snuffy.DecoderRetraction.work_shifted_flow_on_code
++#print axioms Snuffy.DecoderRetraction.historical_gram_preserved
++#print axioms Snuffy.DecoderRetraction.historical_gram_nondegenerate
++#print axioms Snuffy.DecoderRetraction.coordinate_boundary_roundtrip
++#print axioms Snuffy.DecoderRetraction.boundary_capacity_necessary
+--- before/lean/RECEIPT.txt
++++ after/lean/RECEIPT.txt
+@@ -1,4 +1,4 @@
+-# Canon Edition 4.2 — combined verification receipt (2026-10-25T08:44:29+00:00)
++# Canon Edition 4.2 — combined verification receipt (2026-10-25T09:38:18+00:00)
+ # 136 compilation/kernel results reused from the preserved Beam run; eight fresh.
+ # Prior receipt sha256: f629c41e4074379b2188fce82761c4f31f60544f650e30d729c0555b26c73412
+ # Reuse checked against recorded source and .olean hashes.
+@@ -1202,18 +1202,52 @@
+ ##   'Snuffy.GuardOperator.guard_exceeds_tolerance' depends on axioms: [propext]
+ ##   'Snuffy.HamiltonianDecomposition.total_is_sum' does not depend on any axioms
+ ##   'Snuffy.HamiltonianDecomposition.boundary_confinement_positive' does not depend on any axioms
++##   'Snuffy.HamiltonianDecomposition.exchange_hamiltonian_hermitian' depends on axioms: [propext,
++##    Classical.choice,
++##    Quot.sound]
++##   'Snuffy.HamiltonianDecomposition.exchange_conserves_total_charge' depends on axioms: [propext,
++##    Classical.choice,
++##    Quot.sound]
++##   'Snuffy.HamiltonianDecomposition.exchange_pumps_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.HamiltonianDecomposition.exchange_swap_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.HamiltonianDecomposition.exchange_swap_charge' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.HamiltonianDecomposition.exchange_swap_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+ ##   'Snuffy.GuardSignature.guard_idempotent' does not depend on any axioms
+ ##   'Snuffy.WorkBilling.work_nonnegative' does not depend on any axioms
+-##   'Snuffy.WorkBilling.work_bound_preserved' does not depend on any axioms
++##   'Snuffy.WorkBilling.work_bound_preserved' depends on axioms: [propext]
++##   'Snuffy.WorkBilling.decoder_work_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.WorkBilling.decoder_work_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.WorkBilling.decoder_work_floor_saturation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.WorkBilling.funded_decoder_entropy_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.WorkBilling.funded_decoder_cycles' depends on axioms: [propext, Classical.choice, Quot.sound]
+ ##   'Snuffy.DecoderRetraction.decode_encode' does not depend on any axioms
+ ##   'Snuffy.DecoderRetraction.finite_code_recovery' depends on axioms: [propext, Classical.choice, Quot.sound]
+ ##   'Snuffy.DecoderRetraction.nonvanishing_of_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+ ##   'Snuffy.DecoderRetraction.finite_code_self_grounding' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.inner_preserved_from_symplectic_flux' depends on axioms: [propext,
++##    Classical.choice,
++##    Quot.sound]
++##   'Snuffy.DecoderRetraction.adjoint_decodes_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.boundary_observable_on_code' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.historical_query_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.historical_word_on_code' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.historical_word_expectation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.boundary_observable_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.boundary_observable_commutator' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.powers_intertwine' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.exponential_intertwines' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.historical_flow_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.historical_dual_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.work_shifted_flow_on_code' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.historical_gram_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.historical_gram_nondegenerate' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.coordinate_boundary_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.boundary_capacity_necessary' depends on axioms: [propext, Classical.choice, Quot.sound]
+ ## axiom audit exit=0
+-## theorems/lemmas audited: 896; expected: 896; non-standard axiom dependencies: none
++## theorems/lemmas audited: 924; expected: 924; non-standard axiom dependencies: none
+ ##   ## completeness: canon 144, corpus names 59, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 105
+ ##   ## build/audit coverage: canon 144, build 144, audit 144, errors 0
+-##   ## claims: audited theorems 896, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
++##   ## claims: audited theorems 924, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
+ ## source changes during verification: none
+ ## source sha256:
+ ##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
+@@ -1242,7 +1276,7 @@
+ ##   aa67f92c0cd71d1d246576d47dda71e819e6bec52e3ec3633ce9de1b54d87414  Snuffy/CyclicProjections.lean
+ ##   c59d5eac1b24cca21a2581f64fbb37c74d6517c5a91d03b7866469d6c6c19172  Snuffy/DataProcessing.lean
+ ##   c91607cc89eb3bcb6be6a3c546816bf69f336f0246c57cca685aa189df5d6507  Snuffy/DecisionAndScale.lean
+-##   139718482987644252addfed7178efb60755bea65d66ea9987050721c967b523  Snuffy/DecoderRetraction.lean
++##   25dcac240ca79842f80d7c3774661f6180ed33d0113774427f0d475da8557049  Snuffy/DecoderRetraction.lean
+ ##   7564d8e303e2832617e52d597c0affd33bf9dd96b96541f0c62257b885dd1e6e  Snuffy/DeductionBoundary.lean
+ ##   980c8b3c290ad8298a5efccb85f66564195679daa59802a1bb47782ae9ae9d1f  Snuffy/E9Routes.lean
+ ##   a5e8804486c94667262516d164cebaac3a5063108864f261a3583547e2ad09f2  Snuffy/E9SelfHealing.lean
+@@ -1278,7 +1312,7 @@
+ ##   d39dfc51423b0f9eb9aef9674eaa0abfd5426ee18845539004e1f91312dcc88d  Snuffy/H5Closure.lean
+ ##   e5bd4636e808952a30e22b9d8512a21b6f7c7c2c4bb00e794027a22d16516a91  Snuffy/H8Bound.lean
+ ##   c6a9d6f150f2096d096084507ae940e2198c7bf8a16b8f2d06a42a07fea593ff  Snuffy/HalperinDecay.lean
+-##   9e9b0dfd50964d070ce35b9330494cac1434a2e3f300be7a8cfb4f51ab2610ee  Snuffy/HamiltonianDecomposition.lean
++##   fe447f1c5467550dcc2296c167739d827da3ec2b3e55aa07f4506cb930cb5339  Snuffy/HamiltonianDecomposition.lean
+ ##   e559ec229b24e3af38d023a4eec5d29525e6b756cb7a0eb47ee68ab3948d6f43  Snuffy/Htopkeeps.lean
+ ##   55751cd8393856b86b937090231718dc7225386f21ebc04152fbd2a27ca9995a  Snuffy/Instruments.lean
+ ##   47079cf63add2d1665f109bbfdd98b3a339e84c753d754ae07ea4c1613c01edd  Snuffy/IntegrationCertificate.lean
+@@ -1357,8 +1391,8 @@
+ ##   7216f2e6d50a96bbc3b07ec8103e7e333d1d54a1f0793d81807590b0f2d520f4  Snuffy/UnionClosure.lean
+ ##   ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1  Snuffy/UniversalProtection.lean
+ ##   97796ec3be890378195fa42cfd4ae9e12494235f556e4d4679beea1dea75e7fc  Snuffy/Whitening.lean
+-##   22a3adc81fd363e424b2add032d4141bf34ae27ccb10839774f2b6690a0d61a5  Snuffy/WorkBilling.lean
++##   10a4e1ed7e1eeb178fa9916d5e09ce597928b530d355786a3989559c3287ba61  Snuffy/WorkBilling.lean
+ ##   a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1  Snuffy/WorkIntegration.lean
+ ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
+-##   8e6eb5b59359166b377be1662ff743edaeca46c2888639608a7a26e4c0473e16  SummitsAudit.lean
++##   6ecca2ed6a110a8d90dabff7ef2e5a39b06f08b972a8612043e39de95052bf6b  SummitsAudit.lean
+ ## overall: PASS
+--- before/inserts/23-machine-checked-canon.md
++++ after/inserts/23-machine-checked-canon.md
+@@ -281,10 +281,10 @@
+ | `G2WholeOutcome` | `g2_authorized_implies_closed`, `g2_authorized_implies_positive_work`, `g2_compose_valid` |
+ | `G3CompleteBill` | `g3_success_implies_bound`, `g3_compose_valid`, `g3_wave_count_nonnegative`, `cumulative_charge_bound`, `valid_work_bill_from_complete_ledger`, `valid_bill_bound_in_age` |
+ | `GuardOperator` | `guard_within_tolerance`, `guard_exceeds_tolerance` |
+-| `HamiltonianDecomposition` | `total_is_sum`, `boundary_confinement_positive` |
++| `HamiltonianDecomposition` | `total_is_sum`, `boundary_confinement_positive`, `exchange_hamiltonian_hermitian`, `exchange_conserves_total_charge`, `exchange_pumps_boundary`, `exchange_swap_unitary`, `exchange_swap_charge`, `exchange_swap_total` |
+ | `GuardSignature` | `guard_idempotent` |
+-| `WorkBilling` | `work_nonnegative`, `work_bound_preserved` |
+-| `DecoderRetraction` | `decode_encode`, `finite_code_recovery`, `nonvanishing_of_continuation`, `finite_code_self_grounding` |
++| `WorkBilling` | `work_nonnegative`, `work_bound_preserved`, `decoder_work_balance`, `decoder_work_floor`, `decoder_work_floor_saturation`, `funded_decoder_entropy_bound`, `funded_decoder_cycles` |
++| `DecoderRetraction` | `decode_encode`, `finite_code_recovery`, `nonvanishing_of_continuation`, `finite_code_self_grounding`, `inner_preserved_from_symplectic_flux`, `adjoint_decodes_isometry`, `boundary_observable_on_code`, `historical_query_preserved`, `historical_word_on_code`, `historical_word_expectation`, `boundary_observable_mul`, `boundary_observable_commutator`, `powers_intertwine`, `exponential_intertwines`, `historical_flow_roundtrip`, `historical_dual_kernel`, `work_shifted_flow_on_code`, `historical_gram_preserved`, `historical_gram_nondegenerate`, `coordinate_boundary_roundtrip`, `boundary_capacity_necessary` |
+ <!-- END THEOREM INDEX -->
+ 
+ ---
+--- before/SNUFFY-CANON-EDITION-4.2-MASTER.md
++++ after/SNUFFY-CANON-EDITION-4.2-MASTER.md
+@@ -8,7 +8,7 @@
+ 
+ The same three joined supports being supplied by the author and Gemini remain visible in Part III-C: the combined full-domain physical certificate (G1), the realisability of the whole greatest outcome tuple (G2), and the supplied X3 wavefront protocol's success and complete-work certificate (G3). Their targets are unchanged. Naming an input or relabelling a conclusion does not supply its construction.
+ 
+-The current Lean tree contains 144 modules and 896 audited public theorem/lemma names. The combined receipt reuses Beam's 136 clean compilation/kernel results after source and object hash checks, adds eight freshly compiled and kernel-checked modules, and records a fresh full axiom audit, completeness and claims gates with overall PASS. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
++The current Lean tree contains 144 modules and 924 audited public theorem/lemma names. The combined receipt reuses Beam's 136 clean compilation/kernel results after source and object hash checks, adds eight freshly compiled and kernel-checked modules, and records a fresh full axiom audit, completeness and claims gates with overall PASS. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
+ 
+ **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports in progress. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
+ 
+@@ -1430,7 +1430,7 @@
+ 
+ ## Section 23 — The machine-checked canon
+ 
+-*This section maps the edition's compiled results and their actual hypotheses. The current source contains 144 modules and 896 audited public theorem/lemma names. The combined receipt records 136 reused clean compilation/kernel results, eight fresh compilation/kernel checks, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. The reused results are tied to the preserved Beam receipt and source/object hashes. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
++*This section maps the edition's compiled results and their actual hypotheses. The current source contains 144 modules and 924 audited public theorem/lemma names. The combined receipt records 136 reused clean compilation/kernel results, eight fresh compilation/kernel checks, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. The reused results are tied to the preserved Beam receipt and source/object hashes. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
+ 
+ *Evidence convention (unchanged from the edition header): a compiled theorem is cited by its name; a statement carried as a hypothesis of a compiled theorem is named as such; a prose derivation keeps its stated premises. A prose proof does not acquire a compiler certificate by association.*
+ 
+@@ -1573,10 +1573,10 @@
+ | `G2WholeOutcome` | Authorized transaction records are closed and record positive work; the whole continuation/freedom tuple and its realisability remain the G2 construction |
+ | `G3CompleteBill` | `cumulative_charge_bound`, `valid_work_bill_from_complete_ledger` and `valid_bill_bound_in_age` derive the bill from complete metered local charges and the wave schedule |
+ | `GuardOperator` | The threshold cases select the supplied projection or penalty map |
+-| `HamiltonianDecomposition` | The natural-valued bookkeeping terms sum to their defined total; an actual operator/Hamiltonian correspondence remains explicit |
++| `HamiltonianDecomposition` | Explicit Hermitian boundary/reservoir exchange, total-charge conservation, nonzero boundary pumping and a unitary charge-transfer gate; the full physical source correspondence remains explicit |
+ | `GuardSignature` | The supplied guard record carries idempotence and monotonicity; its physical instance and fault nullification must be constructed |
+-| `WorkBilling` | Nonnegative natural work and the scalar bound interface; the complete source-event cost correspondence is specified in Section 21.7.5 |
+-| `DecoderRetraction` | `finite_code_recovery` fills the interface from the existing nearest-codeword construction and proves the radius guarantee; `nonvanishing_of_continuation` preserves separation from null; `finite_code_self_grounding` constructs the non-bottom fixed-point witness |
++| `WorkBilling` | The first-law decoder work identity, free-energy floor and its saturation condition; a Gibbs entropy/energy allocation bound and funded decoder cycles; the complete physical source cost remains in Section 21.7.5 and Part III-G |
++| `DecoderRetraction` | Finite-code recovery and fixed-point witnesses; flux-derived isometry and adjoint decoder; explicit finite encoder/capacity bound; historical queries, ordered words, commutators and Gram preservation; exact exponential transport, work-shifted flow and a derived finite dual smearing kernel |
+ 
+ The earlier `G1Certificate.universal_protection_held` has conclusion `True`; it is a placeholder and is not the protection theorem `Bridge.universal_protection_held`. The latter's full source certificate remains the unchanged G1 target. The exact integration history and dependency trace accompany this working edition.
+ 
+@@ -1727,10 +1727,10 @@
+ | `G2WholeOutcome` | `g2_authorized_implies_closed`, `g2_authorized_implies_positive_work`, `g2_compose_valid` |
+ | `G3CompleteBill` | `g3_success_implies_bound`, `g3_compose_valid`, `g3_wave_count_nonnegative`, `cumulative_charge_bound`, `valid_work_bill_from_complete_ledger`, `valid_bill_bound_in_age` |
+ | `GuardOperator` | `guard_within_tolerance`, `guard_exceeds_tolerance` |
+-| `HamiltonianDecomposition` | `total_is_sum`, `boundary_confinement_positive` |
++| `HamiltonianDecomposition` | `total_is_sum`, `boundary_confinement_positive`, `exchange_hamiltonian_hermitian`, `exchange_conserves_total_charge`, `exchange_pumps_boundary`, `exchange_swap_unitary`, `exchange_swap_charge`, `exchange_swap_total` |
+ | `GuardSignature` | `guard_idempotent` |
+-| `WorkBilling` | `work_nonnegative`, `work_bound_preserved` |
+-| `DecoderRetraction` | `decode_encode`, `finite_code_recovery`, `nonvanishing_of_continuation`, `finite_code_self_grounding` |
++| `WorkBilling` | `work_nonnegative`, `work_bound_preserved`, `decoder_work_balance`, `decoder_work_floor`, `decoder_work_floor_saturation`, `funded_decoder_entropy_bound`, `funded_decoder_cycles` |
++| `DecoderRetraction` | `decode_encode`, `finite_code_recovery`, `nonvanishing_of_continuation`, `finite_code_self_grounding`, `inner_preserved_from_symplectic_flux`, `adjoint_decodes_isometry`, `boundary_observable_on_code`, `historical_query_preserved`, `historical_word_on_code`, `historical_word_expectation`, `boundary_observable_mul`, `boundary_observable_commutator`, `powers_intertwine`, `exponential_intertwines`, `historical_flow_roundtrip`, `historical_dual_kernel`, `work_shifted_flow_on_code`, `historical_gram_preserved`, `historical_gram_nondegenerate`, `coordinate_boundary_roundtrip`, `boundary_capacity_necessary` |
+ <!-- END THEOREM INDEX -->
+ 
+ ---
+@@ -1824,8 +1824,7 @@
+ 
+ # Part III-E — Outstanding construction work (not yet discharged)
+ 
+-The following items are required for the full G1–G3 construction. They are not
+-discharged by the compiled support modules, which provide scaffolding only.
++The following source correspondences are required for the full G1–G3 construction. The compiled modules now include derived decoder, history, flow, charge and work components; the correspondences below join those components to the complete physical source and outcome.
+ 
+ ## E.1 G1 full-domain source/event/fault certificate
+ Construct the actual source state, admitted commands/events, physical projection,
+@@ -1857,7 +1856,7 @@
+ take the desired cumulative bound as an input. Section 21.7.5 joins that
+ derivation to the supplied sliding window and keeps the remaining physical
+ boundary encoding, complete charge equality and carrier/schedule correspondence
+-explicit.
++explicit. Part III-G now constructs a finite coordinate encoder and adjoint decoder, transports the full represented historical algebra and work-shifted flow, and derives its finite dual kernel. The source must instantiate their capacity assignment on the actual historical record and meter its physical retirement/handoff, retained memory and query operations in that complete bill.
+ 
+ ## E.4 Existing analytic support and its source correspondence
+ 
+@@ -1878,6 +1877,8 @@
+ The transaction invariant supports the source implementation of G2; its connection to the whole greatest outcome, including all continuation and freedom stages, remains explicit. The work derivation in 21.7.5 now supplies `G3_ValidWorkBill` from its complete local ledger. Guard operation, transduction, boundary encoding, retirement and preserved history belong to that same charged execution.
+ 
+ ## F.2 Historical boundary encoding and recovery
++
++Part III-G supplies the explicit operator/coordinate encoder, adjoint recovery and historical query transport developed from the later three-pillar submission. The topological route below retains its faithful source correspondence.
+ 
+ The supplied history is a causal labelled graph \(\mathcal H=(V,E,\phi)\). Its full preservation target is
+ 
+@@ -1970,6 +1971,247 @@
+ For per-epoch failure bounds \(\sigma_k\), the probability of any failure through epoch \(n\) is bounded by the prefix sum \(\sum_{k\le n}\sigma_k\). The bound on a future failure from \(n\) onward is the tail \(\sum_{k\ge n}\sigma_k\). If the actual code/noise schedule makes this series summable, the tail tends to zero; the all-time failure probability remains bounded by the full sum. The existing declared fault standard is retained.
+ 
+ This completes the unified working presentation of the supplied gates, bill derivation, decoder, historical-boundary route and self-grounding capstone. The full source, semantic-capacity and physical work correspondences remain the same construction task; the new axiom wording is not used as a replacement for their derivation.
++
++---
++
++# Part III-G — The boundary decoder, complete history and work-shifted flow
++
++The three supplied pillars are joined here by a constructed encoder, its adjoint decoder, transport of the full historical operator algebra, a derived smearing kernel and the complete work ledger. These are components of the same all-particular protection construction in Parts I–II. The maximal outcome, rival domain, continuation, freedom, historical fidelity and charged fault standard remain fixed.
++
++## G.1 From the source flux to an encoder and decoder
++
++Let \(\mathcal C_{\mathrm{hist}}\) contain the protected historical registers, their labels and relational observables at the original fidelity standard. On a local finite physical code, let \(E:\mathcal C_{\mathrm{hist}}\to\mathcal H_\partial\) be complex linear and preserve the full symplectic form:
++
++\[
++\operatorname{Im}\langle Ex,Ey\rangle
++=\operatorname{Im}\langle x,y\rangle\qquad\text{for every }x,y.
++\]
++
++Applying this identity to \(x,iy\) also preserves the real part. Hence
++
++\[
++\langle Ex,Ey\rangle=\langle x,y\rangle,\qquad
++E^\dagger E=I,\qquad D=E^\dagger,\qquad DE=I.
++\]
++
++`inner_preserved_from_symplectic_flux`, `boundaryIsometry`, `adjoint_decodes_isometry` and `decoderFromSymplecticFlux` implement these steps. The source flux identity is an identity for the whole encoded phase space. Its derivation must use the actual source-to-boundary map and boundary observations; the scalar Gauss charge balance supplies its charge component.
++
++There is also an explicit finite encoder. For an injection \(j:\{1,\ldots,m\}\hookrightarrow\{1,\ldots,n\}\), assign
++
++\[
++(E_jx)_{j(a)}=x_a,\qquad (E_jx)_b=0\quad(b\notin\operatorname{im}j).
++\]
++
++Its adjoint reads those same coordinates. `coordinateBoundaryEncoder` constructs this map; `coordinate_boundary_roundtrip` proves its exact inverse on the code. `boundary_capacity_necessary` proves that every such linear isometry requires \(m\le n\). These numbers are Hilbert-space dimensions: an \(n=2^b\) boundary register contains \(b\) qubits. At every retirement, the source assignment must include all protected history coordinates and the records supporting their relations, and charge their storage and movement.
++
++For a density operator \(\rho\) on the code, the encoded state is \(E\rho E^\dagger\), and
++
++\[
++D(E\rho E^\dagger)D^\dagger=\rho.
++\]
++
++The same calculation holds with \(E\otimes I_R\) for every reference register \(R\); it therefore retains reference correlations. The adjoint is the decoder on the encoded range. A channel on all boundary inputs can be completed, for a fixed code state \(\rho_0\), by
++
++\[
++\mathcal D(\sigma)=E^\dagger\sigma E+
++ \operatorname{Tr}((I-EE^\dagger)\sigma)\rho_0.
++\]
++
++Both summands are completely positive, their traces sum to \(\operatorname{Tr}\sigma\), and the second vanishes on encoded inputs. This channel extension and the reference-register calculation are prose derivations here. The existing finite-code correction theorem supplies the noisy-radius guarantee when the physical perturbation satisfies that certificate.
++
++## G.2 Charge and the complete historical algebra
++
++Define the boundary representative of every code observable by
++
++\[
++\alpha(A)=EAE^\dagger,\qquad P=EE^\dagger.
++\]
++
++Then \(\alpha(A)Ex=EAx\), \(\alpha(A)\alpha(B)=\alpha(AB)\), and
++
++\[
++\langle Ex,\alpha(A)Ex\rangle=\langle x,Ax\rangle.
++\]
++
++For an ordered word \(A_1\cdots A_r\), the same identity holds without exchanging its factors. `boundary_observable_on_code`, `historical_query_preserved`, `historical_word_on_code`, `historical_word_expectation` and `boundary_observable_mul` prove these statements. Thus the decoder preserves the historical queries and their ordered relations represented on the code. The identity of this represented algebra is \(P\).
++
++In particular,
++
++\[
++Q_\partial E=EQ_{\mathrm{src}},\qquad
++[\alpha(A),\alpha(Q_{\mathrm{src}})]=\alpha([A,Q_{\mathrm{src}}]).
++\]
++
++`boundary_observable_commutator` proves the commutator transport. An ambient physical boundary charge may have an additional action on the orthogonal complement; the displayed source correspondence concerns the encoded range. Connecting that representative to the actual gauge field and readout remains part of the source construction.
++
++For history words \(W_i\), use the genuine Gram kernel
++
++\[
++G_{ij}=\langle W_i x,W_j x\rangle.
++\]
++
++It is positive semidefinite by its squared-norm quadratic form. Its encoded value is identical, and it is nonsingular when the history vectors \(W_i x\) are linearly independent. `historical_gram_preserved` and `historical_gram_nondegenerate` prove the latter two conclusions using Mathlib's Gram results. Time ordering is retained inside each \(W_i\). A time-ordered two-point Green function requires its own analytic properties; the squared-norm proof applies to the displayed Gram kernel.
++
++## G.3 The effective modular state and its transported flow
++
++Work on the support of a faithful finite-code state \(\rho\), and put
++
++\[
++K=-\log\rho,\qquad G=K+\beta H_W,\qquad
++\widetilde\rho=\frac{e^{-G}}{\operatorname{Tr}e^{-G}}.
++\]
++
++For self-adjoint \(H_W\), \(G\) is self-adjoint and \(U_s=e^{isG}\) is unitary. The additive normalisation in \(-\log\widetilde\rho=G+\log Z\,I\) cancels in conjugation. With the sign convention in the supplied proposal,
++
++\[
++\widetilde\sigma_s(A)=U_sAU_s^\dagger
++=\widetilde\rho^{-is}A\widetilde\rho^{is}.
++\]
++
++This identifies the state whose modular flow is being used. \(K+\beta H_W\) is an effective generator for that changed state; a relation to the original state's flow requires its additional perturbation/cocycle correspondence.
++
++Represent the generator on the boundary code by
++\(G_\partial=\alpha(K)+\beta\alpha(H_W)\).
++An arbitrary self-adjoint block on \(P^\perp\) gives an ambient block-diagonal extension. Since \(G_\partial E=EG\), induction gives \(G_\partial^rE=EG^r\). The norm-convergent exponential series yields
++
++\[
++e^{zG_\partial}Ex=E e^{zG}x.
++\]
++
++Consequently,
++
++\[
++\widetilde\sigma_s^\partial(\alpha(A))Ex
++=E\widetilde\sigma_s(A)x.
++\]
++
++`powers_intertwine`, `exponential_intertwines` and `work_shifted_flow_on_code` prove this transport for bounded operators, including the sum \(K+\beta H_W\). The proof uses the exponential of that sum directly and needs no commutation between its two terms. Finite local codes supply bounded operators. A continuum application must separately supply domains, self-adjointness and the source/observable correspondence for its unbounded generators.
++
++## G.4 Construct the smearing weight
++
++Let \(B_1,\ldots,B_M\) be a complete basis of the local historical code's operator algebra, with dual coordinates \(b^j\). For \(A=\Phi_{\mathrm{bulk}}(\tau)\), define
++
++\[
++c_j(\tau,s)=b^j\!\left(\widetilde\sigma_{-s}(A)\right).
++\]
++
++Expanding the inverse-flowed operator and applying \(\widetilde\sigma_s\) gives, at every \(s\),
++
++\[
++A=\sum_{j=1}^M c_j(\tau,s)\widetilde\sigma_s(B_j).
++\]
++
++`historical_flow_roundtrip` and `historical_dual_kernel` prove this exact finite-basis identity. It constructs the dual coefficients from a complete operator family.
++
++Choose an integrable compactly supported weight \(w\) with \(\int_\mathbb R w(s)\,ds=1\). Unitarity bounds the flowed operators, finite-dimensional coordinate functionals are bounded, and there are finitely many basis terms. The Bochner integral therefore exists in operator norm and
++
++\[
++\alpha(A)=\int_{\mathbb R}ds\,w(s)
++ \sum_j c_j(\tau,s)\widetilde\sigma_s^\partial(\alpha(B_j)).
++\]
++
++For the proposal's temporal form, partition \([0,\tau]\), for \(\tau>0\), into \(M\) intervals \(I_j\) of positive lengths \(\ell_j\). A boundary probe schedule representing this complete family uses
++
++\[
++\mathcal O_\partial(t')=\alpha(B_j),\qquad
++f(\tau,s,t')=\frac{w(s)c_j(\tau,s)}{\ell_j}
++\quad(t'\in I_j).
++\]
++
++Integration over each interval returns its basis term. Thus
++
++\[
++\alpha(\Phi_{\mathrm{bulk}}(\tau))
++=\int_{\mathbb R}ds\int_0^\tau dt'\,
++ f(\tau,s,t')e^{isG_\partial}\mathcal O_\partial(t')e^{-isG_\partial}.
++\]
++
++Pulling back by \(E^\dagger(\,\cdot\,)E\) gives the original bulk historical operator. At \(\tau=0\), use the finite-basis formula directly. The continuous-integral and probe-schedule steps are proved in prose here; the exact finite-basis reconstruction and exponential transport are machine checked.
++
++For an independently specified continuous probe family, construct its analysis/synthesis frame operator \(\mathsf S\). On the full represented historical operator space, a lower frame bound \(aI\le\mathsf S\), \(a>0\), supplies the dual \(\mathsf S^{-1}\) and inverse bound \(1/a\). This is the quantitative observability connection needed to derive that family's smearing weight. The finite complete basis above supplies a concrete local route. A local Fisher metric by itself does not establish the required global frame correspondence.
++
++This exact local reconstruction uses finite dual coefficients and a normalized compactly supported average. A Tikhonov inverse with positive parameter instead has mode response \(\lambda^2/(\lambda^2+\epsilon)\); its residual error must enter the original fidelity allowance whenever that implementation is used. Its spectral bounds and parameter/work relation must be derived from the actual implementation. The finite-basis derivation does not require infinite work or a conjectured modular spectral gap.
++
++## G.5 The complete work algebra and capacity account
++
++Use the complete decoder, memory, controller and reservoir ledger. At fixed Hamiltonian with Gibbs reference \(\gamma_\beta\), write dimensionless relative free energy as \(D=-S+\beta U+\log Z\). The first law and entropy production are
++
++\[
++U_2-U_1=W_{\mathrm{on}}-Q_B,\qquad
++\Sigma=S_2-S_1+\beta Q_B\ge0.
++\]
++
++They give the exact identity and lower bound
++
++\[
++\beta W_{\mathrm{on}}=D_2-D_1+\Sigma,\qquad
++W_{\mathrm{on}}\ge\frac{D_2-D_1}{\beta}.
++\]
++
++`decoder_work_balance` derives the identity from the existing `ThermoLedger.stroke_identity`; `decoder_work_floor` proves the bound. `decoder_work_floor_saturation` identifies equality with \(\Sigma=0\) in this ledger. Historical energy belongs in \(U_1,U_2\); any separately charged historical term must denote a component not already counted there. The Gibbs reference in this calculation is distinct from the protected constrained reference \(\tau\) in the preservation functional.
++
++The existing quantum Landauer theorem supplies the entropy-export cost of actual erasure/reset under its bath and coupling assumptions. Reads and reversible inversions are charged by their implemented operations and full thermodynamic account. Joint unitarity supplies a model for both reversible and dissipative processes; entropy production determines saturation of the work floor.
++
++For the prepared decoder state, the existing quantum Gibbs bound retains its partition term:
++
++\[
++S(\rho)\le \beta\operatorname{Tr}(\rho H_W)+\log Z.
++\]
++
++`funded_decoder_entropy_bound` joins this bound to an actual energy allocation \(\operatorname{Tr}(\rho H_W)\le E_0+\mathrm{budget}\). Entropy is measured per state; a channel rate must be multiplied by its operating duration before comparison with a total information demand. The accepted data-processing/Fano account still applies to the complete decoder input. Energy can power transmission, storage or a different protocol; reconstruction also needs the historical information carried by those inputs.
++
++The work floor and the complete \(O(t^{d_G})\) ceiling are joined to the same execution. The ceiling remains the gross bill of Section 21.7.5: encoding, historical retention, boundary handoff, routing, guard, controller, reset and minimal hold are charged. `G3CompleteBill` supplies the cumulative and age-conversion derivations. `funded_decoder_cycles` supplies the escrow certificate when local income covers that complete demand. Prefix solvency, including within-cycle charges, is required for the actual schedule.
++
++The operator-basis formula proves a reconstruction identity. Executing every basis query as tomography is a separate workload. The physical decoder's circuit, query schedule and retirement operations must meet the existing complete work bill; no uncharged dense tomography is added to the wavefront construction.
++
++## G.6 A charged exchange with an accounted reservoir
++
++On the basis \(|00\rangle,|01\rangle,|10\rangle,|11\rangle\), take
++
++\[
++Q_\partial=\operatorname{diag}(0,0,1,1),\quad
++Q_R=\operatorname{diag}(0,1,0,1),\quad
++H_{\mathrm{ex}}=|01\rangle\langle10|+|10\rangle\langle01|.
++\]
++
++Then
++
++\[
++[H_{\mathrm{ex}},Q_\partial+Q_R]=0,\qquad
++[Q_\partial,H_{\mathrm{ex}}]\ne0.
++\]
++
++`exchange_hamiltonian_hermitian`, `exchange_conserves_total_charge` and `exchange_pumps_boundary` prove these identities for the explicit matrices. The unitary exchange gate \(S\) swaps \(|01\rangle\) and \(|10\rangle\), fixes \(|00\rangle,|11\rangle\), and satisfies
++
++\[
++S^\dagger S=I,\quad S^\dagger Q_\partial S=Q_R,\quad
++S^\dagger(Q_\partial+Q_R)S=Q_\partial+Q_R.
++\]
++
++`exchange_swap_unitary`, `exchange_swap_charge` and `exchange_swap_total` prove these identities. This gives a concrete local exchange with its reservoir charge included.
++
++For the full Hamiltonian, the Heisenberg convention is
++
++\[
++\frac{d}{dt}\langle Q\rangle
++=\frac{i}{\hbar}\langle[H,Q]\rangle
++=\frac{1}{i\hbar}\langle[Q,H]\rangle.
++\]
++
++Thus a constructed \(H_{\mathrm{tot}}\) commuting with the bulk-boundary-reservoir total charge gives its conservation. The continuum action must supply the corresponding gauge symmetry and surface current. Scalar Lagrange multipliers enforce equality constraints of a specified action; work inequalities require the corresponding admissibility or complementary-slackness treatment. Their insertion alone does not construct the historical encoder or prove its work bill.
++
++## G.7 Unified proposition and its source correspondence
++
++For the constructed code encoder, adjoint decoder, represented historical algebra, effective generator and dual operator family, the following conclusions now join:
++
++1. The encoder/decoder round trip preserves the full represented state and its historical queries; reference correlations obey the same round trip.
++2. Source charge and all ordered historical operator relations transport to the boundary code.
++3. The effective work-shifted flow intertwines with that transport, and the derived finite dual kernel reconstructs every represented historical operator.
++4. The same physical execution is subject to the thermodynamic floor, complete wavefront ceiling, funding certificate and charged fault standard.
++
++The first three operator components have the native results named above, alongside the explicitly identified prose channel/integral derivations. The work and exchange components have the native ledger and matrix proofs. Application to the full protection theorem still joins these maps to the actual full-domain source, complete historical capacity/physical handoff and the whole continuation/freedom outcome. Those are the existing source-construction correspondences in Part III-E; this component theorem does not replace the maximal conclusion with an isometry or work premise.
++
++The research precedents have their stated domains: [JLMS](https://arxiv.org/abs/1512.06431) relates relative entropy and modular flow in holographic entanglement wedges; [Faulkner–Lewkowycz](https://arxiv.org/abs/1704.05464) constructs modular reconstruction using the relevant bulk flow. Their results motivate the operator route; the local encoder and dual-kernel proofs above supply this edition's explicit algebraic components. [Reeb–Wolf](https://arxiv.org/abs/1306.4352) gives a precise Landauer account including finite-reservoir corrections, while [Jakšić–Pillet](https://arxiv.org/abs/1406.0034) treats saturation under its quantum statistical-mechanical assumptions.
+ 
+ ---
+ 
+@@ -2005,9 +2247,9 @@
+ 
+ # Appendix — Verification provenance of this working draft
+ 
+-The original published baseline contains 115 modules and 831 audited names. The current working tree contains 144 modules and 896 audited public theorem/lemma names. The combined verification preserves Beam's completed 136 compilation/kernel results with source/object hashes, freshly verifies the eight later modules, and freshly runs the full axiom, completeness and claims gates. The receipt states exactly which results are reused. The original failed run is preserved in the integration bank.
+-
+-This increment integrates the eight, adds the derived finite-code recovery, complete-ledger and non-vanishing/fixed-point connections, repairs verification coverage and updates the author's supplied boundary and ontological proposals. Its exact changes and verification evidence accompany the working draft. No published edition or release is changed.
++The original published baseline contains 115 modules and 831 audited names. The current working tree contains 144 modules and 924 audited public theorem/lemma names. The combined verification preserves Beam's completed 136 compilation/kernel results with source/object hashes, freshly verifies the eight later modules, and freshly runs the full axiom, completeness and claims gates. The receipt states exactly which results are reused. The original failed run is preserved in the integration bank.
++
++The eight-module integration and its 896-statement receipt remain preserved. This increment adds 28 checked statements in the existing DecoderRetraction, HamiltonianDecomposition and WorkBilling modules, integrates the three-pillar operator/history/work construction in Part III-G, and keeps the continuous integral/channel derivations and physical source correspondences explicit. Its exact changes and verification evidence accompany the working draft. No published edition or release is changed.
+ 
+ **The analytic bridge.** In the Canon Edition, the strong-operator convergence of alternating projections was carried as an explicit structure (`VonNeumannConvergence`) and not claimed. In 4.1 it is discharged: `CanonVonNeumann.canon_von_neumann_convergence` fills both limit fields in Hilbert space, so the meet algebra's analytic bridge is a theorem.
+ 
+--- before/README.md
++++ after/README.md
+@@ -10,10 +10,12 @@
+ 
+ Part II includes the law, nearest decoding, holding cycle, controller-derived tracking, complete attack split, reactive refinement, timing, paid generation/reflection, conserved allocation and greatestness proofs. Section 21 contains the complete-input, calibrated-channel, Fano deficit, required-traffic, carrier-tail, recovery-work and one-pass wavefront arguments.
+ 
+-The current verification covers 144 modules and 896 public theorem/lemma names. Its combined receipt reuses 136 verified compilation/kernel results from Beam and freshly compiles and checks the eight later modules; the complete axiom audit, strict coverage, corpus completeness and claims gates pass. Seven previously omitted public helpers are included.
++The current verification covers 144 modules and 924 public theorem/lemma names. Its combined receipt reuses 136 verified compilation/kernel results from Beam and freshly compiles and checks the eight later modules; the complete axiom audit, strict coverage, corpus completeness and claims gates pass. Seven previously omitted public helpers are included.
+ 
+ The new derived connections construct Beam's finite-code decoder, derive the complete metered bill and age bound, and prove the non-vanishing/fixed-point witnesses. The historical boundary encoder and self-grounding proposal are integrated in Part III-F with their actual source and semantic correspondences visible.
+ 
+ [Current integration, before/after and dependency trace](../BANKS/2026-10-25-beam-late-eight-integration/DEPENDENCY-TRACE.md).
+ 
+ The published 4.1 tree is preserved. This is an author-side working draft awaiting the remaining joined supports and review.
++
++The operator/history/work continuation adds 28 checked statements in the existing three modules. [Part III-G](inserts/25-boundary-work-history.md) constructs the encoder/adjoint decoder, historical operator transport, work-shifted flow, dual kernel, work floor and reservoir charge exchange. [Verification and before/after](../BANKS/2026-10-25-boundary-work-history-wiring/BEFORE-AFTER.md) record exactly what was checked and the remaining source correspondences.
+--- before/PUBLICATION-CHECKLIST.md
++++ after/PUBLICATION-CHECKLIST.md
+@@ -3,20 +3,21 @@
+ ## Verified and integrated
+ 
+ - All eight late Beam modules are in the 144-module build and audit.
+-- 896 public statements pass the fresh axiom audit; only standard Lean axioms.
++- 924 public statements pass the fresh axiom audit; only standard Lean axioms.
+ - The combined receipt identifies 136 reused compilation/kernel results and
+   eight fresh checks, with original receipt/source/object hashes.
+ - Build/audit parity, corpus completeness and claims gates pass.
+-- The complete master index matches all 144 modules and 896 statements.
++- The complete master index matches all 144 modules and 924 statements.
+ - Six derived connections supply finite-code recovery, non-vanishing and
+   fixed-point witnesses, a complete metered bill and its age conversion.
+ - The supplied homological and self-grounding proposals are in the full
+   working master. Original attachments and before/after evidence are preserved.
+ 
++- The 28 new operator/history/work statements pass compilation, kernel and axiom checks in the existing late modules; Part III-G contains their construction and identifies the prose integral/channel derivations.
++
+ ## Proof construction and review to finish
+ 
+-- Join the actual historical boundary encoder to the full query/relational
+-  fidelity, code capacity, physical handoff and complete local charges.
++- Instantiate the constructed coordinate/flux encoder on the actual full historical query/relational record, with its boundary capacity assignment, physical handoff, retained memory and complete local charges.
+ - Join the actual full-domain source and named fault accounts to the existing
+   Bridge protection theorem.
+ - Construct the whole continuation/freedom outcome in the same realisable
+--- before/@root/AGENTS.md
++++ after/@root/AGENTS.md
+@@ -45,13 +45,28 @@
+ ## Read the current argument
+ 
+ - Current 4.2 integration evidence:
++  `BANKS/2026-10-25-boundary-work-history-wiring/`.
++  The prior eight-module integration remains preserved in
+   `BANKS/2026-10-25-beam-late-eight-integration/`.
+   All eight late Beam modules are incorporated. The combined receipt covers
+-  144 modules and 896 public theorem/lemma names, reusing Beam's 136 clean
++  144 modules and 924 public theorem/lemma names, reusing Beam's 136 clean
+   compilation/kernel results with source/object hashes and freshly checking
+   the eight. The full axiom, strict build/audit coverage, corpus completeness
+   and claims gates pass. Reuse is explicit; do not describe all 144 as freshly
+   recompiled in this session.
++- The three-pillar continuation adds 28 checked statements in the existing
++  DecoderRetraction, HamiltonianDecomposition and WorkBilling modules.
++  Part III-G constructs flux-derived/coordinate encoding, adjoint decoding,
++  preservation of historical queries and ordered words, commutator and Gram
++  transport, bounded exponential/work-shifted flow and exact finite dual
++  smearing coefficients. The same increment proves the work/entropy balance,
++  correct free-energy floor and saturation condition, energy-allocation
++  entropy bound, funded cycles and a concrete charge-exchange reservoir.
++  Continuous integral/channel extensions are prose derivations, identified
++  explicitly. The remaining application is the actual full-history source,
++  capacity assignment, physical handoff and complete bill, joined to the
++  full G1 certificate and whole-outcome G2. Do not request the new component
++  derivations again or equate their verification with global completion.
+ - Six derived connections are now in the existing late modules:
+   `DecoderRetraction.finite_code_recovery`,
+   `nonvanishing_of_continuation`, `finite_code_self_grounding`;
+--- before/@root/NEXT-PROOF-REGISTER-2026-10-25.md
++++ after/@root/NEXT-PROOF-REGISTER-2026-10-25.md
+@@ -1,6 +1,12 @@
+ # Next-proof register — 25 October 2026 (evening)
+ 
+-*The open Lean tasks, stated precisely against the current 113-module canon. Companion to `BANKS/2026-10-24-next-proof-register/REGISTER.md`.*
++*Historical queue recorded against the then 113-module canon. Current 4.2 working state: 144 modules / 924 audited statements; the older entries below retain their dated context. Companion to `BANKS/2026-10-24-next-proof-register/REGISTER.md`.*
++
++## Current 4.2 checkpoint
++
++Solvent and affordable reciprocity are incorporated in the checked canon. `ErrorBudget.telescoping_delta` and `error_budget` now supply the compiled product-error engine. Their older waiting/registered labels below are superseded by this checkpoint.
++
++The boundary/work/history continuation adds 28 checked statements in the existing late modules and Part III-G of the working master. Current work is the actual full-history source/capacity/physical handoff and complete charge correspondence, full G1 source/fault certificate, whole continuation/freedom G2 outcome, and the remaining semantic review. Shell counting, finite-code recovery, cumulative billing, operator flow and finite dual-kernel derivations are established component results. Verification evidence: `BANKS/2026-10-25-boundary-work-history-wiring/RESULT.json`.
+ 
+ ## 1. Solvent reciprocity (from PĀTAI 2, P2b) — **FOLDED INTO THE CANON (25 Oct, late): `SolventReciprocity` module, §23.1**
+ 
+--- before/SUPPORTS-FOR-GEMINI.md
++++ after/SUPPORTS-FOR-GEMINI.md
+@@ -21,7 +21,7 @@
+ 
+ The finite-code decoder, noisy-input guarantee, metered cumulative bill,
+ wave-to-age bound and non-vanishing/fixed-point witnesses are derived in the
+-current source. The combined audit is 144 modules/896 public statements with
++current source. The combined audit is 144 modules/924 public statements with
+ overall PASS. The shell exponent remains settled.
+ 
+ The source connection is the actual chain contraction/encoder and recovery
+@@ -32,3 +32,9 @@
+ preservation at the original fidelity, with the complete cumulative work bill.
+ The general mean-ergodic theorem and topological entropy are already available
+ in the pinned Mathlib.
++
++## Three-pillar continuation incorporated
++
++Part III-G now derives the complex-linear flux-to-isometry step, constructs a finite coordinate encoder and its adjoint decoder, preserves historical queries and ordered operator words, transports the work-shifted exponential flow and constructs exact dual smearing coefficients from a complete finite operator basis. The work/entropy balance, saturation condition, energy allocation bound, funded cycles and explicit reservoir charge exchange are also checked. The present receipt is 144 modules/924 public statements.
++
++The source construction now instantiates these maps on the actual full historical record and metered physical handoff, supplies its capacity assignment and complete work equality, and joins the full-domain G1 certificate and whole continuation/freedom G2 outcome. No repeat of the shell exponent, finite decoder, or derived operator/ledger lemmas is requested. The continuous smearing integral and channel extension are prose derivations identified separately from the native Lean results.
+--- /dev/null
++++ after/inserts/25-boundary-work-history.md
+@@ -0,0 +1,240 @@
++# Part III-G — The boundary decoder, complete history and work-shifted flow
++
++The three supplied pillars are joined here by a constructed encoder, its adjoint decoder, transport of the full historical operator algebra, a derived smearing kernel and the complete work ledger. These are components of the same all-particular protection construction in Parts I–II. The maximal outcome, rival domain, continuation, freedom, historical fidelity and charged fault standard remain fixed.
++
++## G.1 From the source flux to an encoder and decoder
++
++Let \(\mathcal C_{\mathrm{hist}}\) contain the protected historical registers, their labels and relational observables at the original fidelity standard. On a local finite physical code, let \(E:\mathcal C_{\mathrm{hist}}\to\mathcal H_\partial\) be complex linear and preserve the full symplectic form:
++
++\[
++\operatorname{Im}\langle Ex,Ey\rangle
++=\operatorname{Im}\langle x,y\rangle\qquad\text{for every }x,y.
++\]
++
++Applying this identity to \(x,iy\) also preserves the real part. Hence
++
++\[
++\langle Ex,Ey\rangle=\langle x,y\rangle,\qquad
++E^\dagger E=I,\qquad D=E^\dagger,\qquad DE=I.
++\]
++
++`inner_preserved_from_symplectic_flux`, `boundaryIsometry`, `adjoint_decodes_isometry` and `decoderFromSymplecticFlux` implement these steps. The source flux identity is an identity for the whole encoded phase space. Its derivation must use the actual source-to-boundary map and boundary observations; the scalar Gauss charge balance supplies its charge component.
++
++There is also an explicit finite encoder. For an injection \(j:\{1,\ldots,m\}\hookrightarrow\{1,\ldots,n\}\), assign
++
++\[
++(E_jx)_{j(a)}=x_a,\qquad (E_jx)_b=0\quad(b\notin\operatorname{im}j).
++\]
++
++Its adjoint reads those same coordinates. `coordinateBoundaryEncoder` constructs this map; `coordinate_boundary_roundtrip` proves its exact inverse on the code. `boundary_capacity_necessary` proves that every such linear isometry requires \(m\le n\). These numbers are Hilbert-space dimensions: an \(n=2^b\) boundary register contains \(b\) qubits. At every retirement, the source assignment must include all protected history coordinates and the records supporting their relations, and charge their storage and movement.
++
++For a density operator \(\rho\) on the code, the encoded state is \(E\rho E^\dagger\), and
++
++\[
++D(E\rho E^\dagger)D^\dagger=\rho.
++\]
++
++The same calculation holds with \(E\otimes I_R\) for every reference register \(R\); it therefore retains reference correlations. The adjoint is the decoder on the encoded range. A channel on all boundary inputs can be completed, for a fixed code state \(\rho_0\), by
++
++\[
++\mathcal D(\sigma)=E^\dagger\sigma E+
++ \operatorname{Tr}((I-EE^\dagger)\sigma)\rho_0.
++\]
++
++Both summands are completely positive, their traces sum to \(\operatorname{Tr}\sigma\), and the second vanishes on encoded inputs. This channel extension and the reference-register calculation are prose derivations here. The existing finite-code correction theorem supplies the noisy-radius guarantee when the physical perturbation satisfies that certificate.
++
++## G.2 Charge and the complete historical algebra
++
++Define the boundary representative of every code observable by
++
++\[
++\alpha(A)=EAE^\dagger,\qquad P=EE^\dagger.
++\]
++
++Then \(\alpha(A)Ex=EAx\), \(\alpha(A)\alpha(B)=\alpha(AB)\), and
++
++\[
++\langle Ex,\alpha(A)Ex\rangle=\langle x,Ax\rangle.
++\]
++
++For an ordered word \(A_1\cdots A_r\), the same identity holds without exchanging its factors. `boundary_observable_on_code`, `historical_query_preserved`, `historical_word_on_code`, `historical_word_expectation` and `boundary_observable_mul` prove these statements. Thus the decoder preserves the historical queries and their ordered relations represented on the code. The identity of this represented algebra is \(P\).
++
++In particular,
++
++\[
++Q_\partial E=EQ_{\mathrm{src}},\qquad
++[\alpha(A),\alpha(Q_{\mathrm{src}})]=\alpha([A,Q_{\mathrm{src}}]).
++\]
++
++`boundary_observable_commutator` proves the commutator transport. An ambient physical boundary charge may have an additional action on the orthogonal complement; the displayed source correspondence concerns the encoded range. Connecting that representative to the actual gauge field and readout remains part of the source construction.
++
++For history words \(W_i\), use the genuine Gram kernel
++
++\[
++G_{ij}=\langle W_i x,W_j x\rangle.
++\]
++
++It is positive semidefinite by its squared-norm quadratic form. Its encoded value is identical, and it is nonsingular when the history vectors \(W_i x\) are linearly independent. `historical_gram_preserved` and `historical_gram_nondegenerate` prove the latter two conclusions using Mathlib's Gram results. Time ordering is retained inside each \(W_i\). A time-ordered two-point Green function requires its own analytic properties; the squared-norm proof applies to the displayed Gram kernel.
++
++## G.3 The effective modular state and its transported flow
++
++Work on the support of a faithful finite-code state \(\rho\), and put
++
++\[
++K=-\log\rho,\qquad G=K+\beta H_W,\qquad
++\widetilde\rho=\frac{e^{-G}}{\operatorname{Tr}e^{-G}}.
++\]
++
++For self-adjoint \(H_W\), \(G\) is self-adjoint and \(U_s=e^{isG}\) is unitary. The additive normalisation in \(-\log\widetilde\rho=G+\log Z\,I\) cancels in conjugation. With the sign convention in the supplied proposal,
++
++\[
++\widetilde\sigma_s(A)=U_sAU_s^\dagger
++=\widetilde\rho^{-is}A\widetilde\rho^{is}.
++\]
++
++This identifies the state whose modular flow is being used. \(K+\beta H_W\) is an effective generator for that changed state; a relation to the original state's flow requires its additional perturbation/cocycle correspondence.
++
++Represent the generator on the boundary code by
++\(G_\partial=\alpha(K)+\beta\alpha(H_W)\).
++An arbitrary self-adjoint block on \(P^\perp\) gives an ambient block-diagonal extension. Since \(G_\partial E=EG\), induction gives \(G_\partial^rE=EG^r\). The norm-convergent exponential series yields
++
++\[
++e^{zG_\partial}Ex=E e^{zG}x.
++\]
++
++Consequently,
++
++\[
++\widetilde\sigma_s^\partial(\alpha(A))Ex
++=E\widetilde\sigma_s(A)x.
++\]
++
++`powers_intertwine`, `exponential_intertwines` and `work_shifted_flow_on_code` prove this transport for bounded operators, including the sum \(K+\beta H_W\). The proof uses the exponential of that sum directly and needs no commutation between its two terms. Finite local codes supply bounded operators. A continuum application must separately supply domains, self-adjointness and the source/observable correspondence for its unbounded generators.
++
++## G.4 Construct the smearing weight
++
++Let \(B_1,\ldots,B_M\) be a complete basis of the local historical code's operator algebra, with dual coordinates \(b^j\). For \(A=\Phi_{\mathrm{bulk}}(\tau)\), define
++
++\[
++c_j(\tau,s)=b^j\!\left(\widetilde\sigma_{-s}(A)\right).
++\]
++
++Expanding the inverse-flowed operator and applying \(\widetilde\sigma_s\) gives, at every \(s\),
++
++\[
++A=\sum_{j=1}^M c_j(\tau,s)\widetilde\sigma_s(B_j).
++\]
++
++`historical_flow_roundtrip` and `historical_dual_kernel` prove this exact finite-basis identity. It constructs the dual coefficients from a complete operator family.
++
++Choose an integrable compactly supported weight \(w\) with \(\int_\mathbb R w(s)\,ds=1\). Unitarity bounds the flowed operators, finite-dimensional coordinate functionals are bounded, and there are finitely many basis terms. The Bochner integral therefore exists in operator norm and
++
++\[
++\alpha(A)=\int_{\mathbb R}ds\,w(s)
++ \sum_j c_j(\tau,s)\widetilde\sigma_s^\partial(\alpha(B_j)).
++\]
++
++For the proposal's temporal form, partition \([0,\tau]\), for \(\tau>0\), into \(M\) intervals \(I_j\) of positive lengths \(\ell_j\). A boundary probe schedule representing this complete family uses
++
++\[
++\mathcal O_\partial(t')=\alpha(B_j),\qquad
++f(\tau,s,t')=\frac{w(s)c_j(\tau,s)}{\ell_j}
++\quad(t'\in I_j).
++\]
++
++Integration over each interval returns its basis term. Thus
++
++\[
++\alpha(\Phi_{\mathrm{bulk}}(\tau))
++=\int_{\mathbb R}ds\int_0^\tau dt'\,
++ f(\tau,s,t')e^{isG_\partial}\mathcal O_\partial(t')e^{-isG_\partial}.
++\]
++
++Pulling back by \(E^\dagger(\,\cdot\,)E\) gives the original bulk historical operator. At \(\tau=0\), use the finite-basis formula directly. The continuous-integral and probe-schedule steps are proved in prose here; the exact finite-basis reconstruction and exponential transport are machine checked.
++
++For an independently specified continuous probe family, construct its analysis/synthesis frame operator \(\mathsf S\). On the full represented historical operator space, a lower frame bound \(aI\le\mathsf S\), \(a>0\), supplies the dual \(\mathsf S^{-1}\) and inverse bound \(1/a\). This is the quantitative observability connection needed to derive that family's smearing weight. The finite complete basis above supplies a concrete local route. A local Fisher metric by itself does not establish the required global frame correspondence.
++
++This exact local reconstruction uses finite dual coefficients and a normalized compactly supported average. A Tikhonov inverse with positive parameter instead has mode response \(\lambda^2/(\lambda^2+\epsilon)\); its residual error must enter the original fidelity allowance whenever that implementation is used. Its spectral bounds and parameter/work relation must be derived from the actual implementation. The finite-basis derivation does not require infinite work or a conjectured modular spectral gap.
++
++## G.5 The complete work algebra and capacity account
++
++Use the complete decoder, memory, controller and reservoir ledger. At fixed Hamiltonian with Gibbs reference \(\gamma_\beta\), write dimensionless relative free energy as \(D=-S+\beta U+\log Z\). The first law and entropy production are
++
++\[
++U_2-U_1=W_{\mathrm{on}}-Q_B,\qquad
++\Sigma=S_2-S_1+\beta Q_B\ge0.
++\]
++
++They give the exact identity and lower bound
++
++\[
++\beta W_{\mathrm{on}}=D_2-D_1+\Sigma,\qquad
++W_{\mathrm{on}}\ge\frac{D_2-D_1}{\beta}.
++\]
++
++`decoder_work_balance` derives the identity from the existing `ThermoLedger.stroke_identity`; `decoder_work_floor` proves the bound. `decoder_work_floor_saturation` identifies equality with \(\Sigma=0\) in this ledger. Historical energy belongs in \(U_1,U_2\); any separately charged historical term must denote a component not already counted there. The Gibbs reference in this calculation is distinct from the protected constrained reference \(\tau\) in the preservation functional.
++
++The existing quantum Landauer theorem supplies the entropy-export cost of actual erasure/reset under its bath and coupling assumptions. Reads and reversible inversions are charged by their implemented operations and full thermodynamic account. Joint unitarity supplies a model for both reversible and dissipative processes; entropy production determines saturation of the work floor.
++
++For the prepared decoder state, the existing quantum Gibbs bound retains its partition term:
++
++\[
++S(\rho)\le \beta\operatorname{Tr}(\rho H_W)+\log Z.
++\]
++
++`funded_decoder_entropy_bound` joins this bound to an actual energy allocation \(\operatorname{Tr}(\rho H_W)\le E_0+\mathrm{budget}\). Entropy is measured per state; a channel rate must be multiplied by its operating duration before comparison with a total information demand. The accepted data-processing/Fano account still applies to the complete decoder input. Energy can power transmission, storage or a different protocol; reconstruction also needs the historical information carried by those inputs.
++
++The work floor and the complete \(O(t^{d_G})\) ceiling are joined to the same execution. The ceiling remains the gross bill of Section 21.7.5: encoding, historical retention, boundary handoff, routing, guard, controller, reset and minimal hold are charged. `G3CompleteBill` supplies the cumulative and age-conversion derivations. `funded_decoder_cycles` supplies the escrow certificate when local income covers that complete demand. Prefix solvency, including within-cycle charges, is required for the actual schedule.
++
++The operator-basis formula proves a reconstruction identity. Executing every basis query as tomography is a separate workload. The physical decoder's circuit, query schedule and retirement operations must meet the existing complete work bill; no uncharged dense tomography is added to the wavefront construction.
++
++## G.6 A charged exchange with an accounted reservoir
++
++On the basis \(|00\rangle,|01\rangle,|10\rangle,|11\rangle\), take
++
++\[
++Q_\partial=\operatorname{diag}(0,0,1,1),\quad
++Q_R=\operatorname{diag}(0,1,0,1),\quad
++H_{\mathrm{ex}}=|01\rangle\langle10|+|10\rangle\langle01|.
++\]
++
++Then
++
++\[
++[H_{\mathrm{ex}},Q_\partial+Q_R]=0,\qquad
++[Q_\partial,H_{\mathrm{ex}}]\ne0.
++\]
++
++`exchange_hamiltonian_hermitian`, `exchange_conserves_total_charge` and `exchange_pumps_boundary` prove these identities for the explicit matrices. The unitary exchange gate \(S\) swaps \(|01\rangle\) and \(|10\rangle\), fixes \(|00\rangle,|11\rangle\), and satisfies
++
++\[
++S^\dagger S=I,\quad S^\dagger Q_\partial S=Q_R,\quad
++S^\dagger(Q_\partial+Q_R)S=Q_\partial+Q_R.
++\]
++
++`exchange_swap_unitary`, `exchange_swap_charge` and `exchange_swap_total` prove these identities. This gives a concrete local exchange with its reservoir charge included.
++
++For the full Hamiltonian, the Heisenberg convention is
++
++\[
++\frac{d}{dt}\langle Q\rangle
++=\frac{i}{\hbar}\langle[H,Q]\rangle
++=\frac{1}{i\hbar}\langle[Q,H]\rangle.
++\]
++
++Thus a constructed \(H_{\mathrm{tot}}\) commuting with the bulk-boundary-reservoir total charge gives its conservation. The continuum action must supply the corresponding gauge symmetry and surface current. Scalar Lagrange multipliers enforce equality constraints of a specified action; work inequalities require the corresponding admissibility or complementary-slackness treatment. Their insertion alone does not construct the historical encoder or prove its work bill.
++
++## G.7 Unified proposition and its source correspondence
++
++For the constructed code encoder, adjoint decoder, represented historical algebra, effective generator and dual operator family, the following conclusions now join:
++
++1. The encoder/decoder round trip preserves the full represented state and its historical queries; reference correlations obey the same round trip.
++2. Source charge and all ordered historical operator relations transport to the boundary code.
++3. The effective work-shifted flow intertwines with that transport, and the derived finite dual kernel reconstructs every represented historical operator.
++4. The same physical execution is subject to the thermodynamic floor, complete wavefront ceiling, funding certificate and charged fault standard.
++
++The first three operator components have the native results named above, alongside the explicitly identified prose channel/integral derivations. The work and exchange components have the native ledger and matrix proofs. Application to the full protection theorem still joins these maps to the actual full-domain source, complete historical capacity/physical handoff and the whole continuation/freedom outcome. Those are the existing source-construction correspondences in Part III-E; this component theorem does not replace the maximal conclusion with an isometry or work premise.
++
++The research precedents have their stated domains: [JLMS](https://arxiv.org/abs/1512.06431) relates relative entropy and modular flow in holographic entanglement wedges; [Faulkner–Lewkowycz](https://arxiv.org/abs/1704.05464) constructs modular reconstruction using the relevant bulk flow. Their results motivate the operator route; the local encoder and dual-kernel proofs above supply this edition's explicit algebraic components. [Reeb–Wolf](https://arxiv.org/abs/1306.4352) gives a precise Landauer account including finite-reservoir corrections, while [Jakšić–Pillet](https://arxiv.org/abs/1406.0034) treats saturation under its quantum statistical-mechanical assumptions.
++
++---

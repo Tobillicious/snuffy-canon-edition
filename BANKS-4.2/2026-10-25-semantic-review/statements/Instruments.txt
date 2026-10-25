@@ -1,0 +1,77 @@
+import Snuffy.ThermoLedger
+import Snuffy.E9SelfHealing
+import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+import Mathlib.Analysis.Normed.Module.Basic
+import Mathlib.Data.Fintype.Pi
+import Mathlib.Data.Int.Interval
+import Mathlib.Algebra.Ring.GeomSum
+import Mathlib.Tactic.Module
+
+open Finset
+
+namespace Snuffy.Instruments
+
+section Tracking
+
+variable {F : Type*} [NormedAddCommGroup F] [NormedSpace ℝ F]
+
+theorem lindblad_reset_flow (κ : ℝ) (r x₀ : F) (t : ℝ) :
+    HasDerivAt (fun s => r + Real.exp (-κ * s) • (x₀ - r))
+      (-κ • ((r + Real.exp (-κ * t) • (x₀ - r)) - r)) t  := [proof body omitted in statement view]
+
+theorem lindblad_step (κ Δ : ℝ) (r x₀ : F) :
+    r + Real.exp (-κ * Δ) • (x₀ - r)
+      = (1 - (1 - Real.exp (-κ * Δ))) • x₀ + (1 - Real.exp (-κ * Δ)) • r  := [proof body omitted in statement view]
+
+theorem reset_contracts {lam : ℝ} (h1 : lam ≤ 1) (σ r : F) :
+    ‖((1 - lam) • σ + lam • r) - r‖ = (1 - lam) * ‖σ - r‖  := [proof body omitted in statement view]
+
+theorem tracking_recursion_derived {lam b : ℝ} (h0 : 0 ≤ lam) (h1 : lam ≤ 1)
+    (x rec Δ : ℕ → F)
+    (hstep : ∀ k, x (k + 1) = (1 - lam) • (x k + Δ k) + lam • rec (k + 1))
+    (hinj : ∀ k, ‖Δ k‖ + ‖rec (k + 1) - rec k‖ ≤ b) :
+    ∀ k, ‖x (k + 1) - rec (k + 1)‖ ≤ (1 - lam) * ‖x k - rec k‖ + b  := [proof body omitted in statement view]
+
+theorem tracking_envelope_derived {lam b : ℝ} (h0 : 0 < lam) (h1 : lam ≤ 1)
+    (x rec Δ : ℕ → F)
+    (hstep : ∀ k, x (k + 1) = (1 - lam) • (x k + Δ k) + lam • rec (k + 1))
+    (hinj : ∀ k, ‖Δ k‖ + ‖rec (k + 1) - rec k‖ ≤ b) :
+    ∀ k, ‖x k - rec k‖ ≤ (1 - lam) ^ k * ‖x 0 - rec 0‖ + b / lam * (1 - (1 - lam) ^ k)  := [proof body omitted in statement view]
+
+end Tracking
+
+section BranchC
+
+variable {Site ι : Type*} [Fintype ι] [DecidableEq ι]
+
+theorem branchC_complete {V : Type*} {wt : V → ℕ} {d : ℕ} {Logical : V → Prop}
+    (hdist : ∀ P, Logical P → d ≤ wt P) {P : V} (hP : Logical P)
+    (supp : Finset Site) (hsupp : wt P ≤ supp.card) (pow : Site → ℝ) (θ : ℝ)
+    (y : Site → ι → ℝ) (faulty : Site → Finset ι) {f : ℕ}
+    (hf : ∀ i, (faulty i).card ≤ f)
+    (hhonest : ∀ i ∈ supp, θ ≤ pow i → ∀ j ∉ faulty i, θ < y i j) :
+    d ≤ supp.card ∧
+      ((∀ i ∈ supp, pow i < θ) ∨
+        ∃ i ∈ supp, θ ≤ pow i ∧ ∀ m, Snuffy.E9.Robust (y i) f m → θ < m)  := [proof body omitted in statement view]
+
+end BranchC
+
+section Frontier
+
+def box (d : ℕ) (r : ℤ) : Finset (Fin d → ℤ) := Fintype.piFinset fun _ => Icc (-r) r
+
+theorem card_box (d : ℕ) {r : ℤ} (hr : 0 ≤ r) : ((box d r).card : ℤ) = (2 * r + 1) ^ d  := [proof body omitted in statement view]
+
+theorem box_mono (d : ℕ) {r s : ℤ} (h : s ≤ r) : box d s ⊆ box d r  := [proof body omitted in statement view]
+
+def boundary (d : ℕ) (r : ℤ) : Finset (Fin d → ℤ) := box d r \ box d (r - 1)
+
+theorem card_boundary {d : ℕ} (hd : 1 ≤ d) {r : ℤ} (hr : 1 ≤ r) :
+    2 * (2 * r + 1) ^ (d - 1) ≤ ((boundary d r).card : ℤ)  := [proof body omitted in statement view]
+
+theorem boundary_power {d : ℕ} (hd : 1 ≤ d) {r : ℤ} (hr : 1 ≤ r) {p₀ P : ℝ} (hp : 0 ≤ p₀)
+    (hP : p₀ * (boundary d r).card ≤ P) : p₀ * (r : ℝ) ^ (d - 1) ≤ P  := [proof body omitted in statement view]
+
+end Frontier
+
+end Snuffy.Instruments

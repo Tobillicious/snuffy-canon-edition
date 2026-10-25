@@ -1,0 +1,44 @@
+--- 2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/ControllerCertificate.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/ControllerCertificate.lean
+@@ -165,41 +165,3 @@
+ 
+ /-! ## Axiom reports -/
+ 
+-#print axioms stable_min_three
+-#print axioms delta_min_three
+-#print axioms rate_min_three
+-#print axioms debt_min_three
+-#print axioms alloc_min_three
+-#print axioms total_min_three
+-#print axioms total_min_three_le
+-#print axioms band_min_three
+-#print axioms stable_min_four
+-#print axioms delta_min_four
+-#print axioms rate_min_four
+-#print axioms debt_min_four
+-#print axioms alloc_min_four
+-#print axioms total_min_four
+-#print axioms total_min_four_le
+-#print axioms band_min_four
+-#print axioms stable_rob_three_two
+-#print axioms stable_rob_three_four
+-#print axioms total_rob_three_two
+-#print axioms total_rob_three_three
+-#print axioms total_rob_three_four
+-#print axioms total_rob_three_two_le
+-#print axioms total_rob_three_three_le
+-#print axioms total_rob_three_four_le
+-#print axioms band_rob_three
+-#print axioms stable_rob_four_two
+-#print axioms stable_rob_four_four
+-#print axioms total_rob_four_two
+-#print axioms total_rob_four_three
+-#print axioms total_rob_four_four
+-#print axioms total_rob_four_two_le
+-#print axioms total_rob_four_three_le
+-#print axioms total_rob_four_four_le
+-#print axioms band_rob_four
+-#print axioms pool_bills
+-#print axioms corrected_bill_saving
+-#print axioms allocation_undercharge_three
+-#print axioms allocation_undercharge_four

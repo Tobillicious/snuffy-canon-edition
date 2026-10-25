@@ -1,0 +1,74 @@
+{
+  "lean/Snuffy/DecoderRetraction.lean": {
+    "sha256": "25dcac240ca79842f80d7c3774661f6180ed33d0113774427f0d475da8557049",
+    "archive": "before/lean/Snuffy/DecoderRetraction.lean"
+  },
+  "lean/Snuffy/WorkBilling.lean": {
+    "sha256": "10a4e1ed7e1eeb178fa9916d5e09ce597928b530d355786a3989559c3287ba61",
+    "archive": "before/lean/Snuffy/WorkBilling.lean"
+  },
+  "lean/Snuffy/G1FullDomain.lean": {
+    "sha256": "50b3b8fbe7f0696bb16ee1688646d5e50e8f3f9e02545bd1de527f6893b10f20",
+    "archive": "before/lean/Snuffy/G1FullDomain.lean"
+  },
+  "lean/Snuffy/G2WholeOutcome.lean": {
+    "sha256": "103220c7cad4c69a5c3170a3b5be9d14ad447d895ebafc39bb6b553428ae84d5",
+    "archive": "before/lean/Snuffy/G2WholeOutcome.lean"
+  },
+  "lean/Snuffy/HamiltonianDecomposition.lean": {
+    "sha256": "fe447f1c5467550dcc2296c167739d827da3ec2b3e55aa07f4506cb930cb5339",
+    "archive": "before/lean/Snuffy/HamiltonianDecomposition.lean"
+  },
+  "lean/SummitsAudit.lean": {
+    "sha256": "6ecca2ed6a110a8d90dabff7ef2e5a39b06f08b972a8612043e39de95052bf6b",
+    "archive": "before/lean/SummitsAudit.lean.txt"
+  },
+  "lean/RECEIPT.txt": {
+    "sha256": "cca40072c50373baf340c59ec755b61e41d75f94556cf6316da0bd182bcb0437",
+    "archive": "before/lean/RECEIPT.txt"
+  },
+  "lean/PROOF-STATE.md": {
+    "sha256": "b5148a3e2feb4b8cd0e9291208521072a1de298fff8c1842092ab02e1a52d708",
+    "archive": "before/lean/PROOF-STATE.md"
+  },
+  "lean/build-and-audit.sh": {
+    "sha256": "49f45c31bbd93747ee2b26b253e8bc278ac80569a6fd799dfd5c5e0bd6103acf",
+    "archive": "before/lean/build-and-audit.sh"
+  },
+  "inserts/23-machine-checked-canon.md": {
+    "sha256": "7a98846e3961b89f019aa7933bce94459e7a300b20b016094fac30a0366979cd",
+    "archive": "before/inserts/23-machine-checked-canon.md"
+  },
+  "inserts/25-boundary-work-history.md": {
+    "sha256": "48e87549823d2e94d99139c2600e15e90058103d808def2e57c41f4296eed4a0",
+    "archive": "before/inserts/25-boundary-work-history.md"
+  },
+  "SNUFFY-CANON-EDITION-4.2-MASTER.md": {
+    "sha256": "86e6a1ea918761000c5cda5da0ae66e5f201f9abd31f6af11b5cdfa145a3a620",
+    "archive": "before/SNUFFY-CANON-EDITION-4.2-MASTER.md"
+  },
+  "README.md": {
+    "sha256": "0d83180378d36556f72dd5211e850aabe040dd14034c38a464739468fe3f1ed3",
+    "archive": "before/README.md"
+  },
+  "PUBLICATION-CHECKLIST.md": {
+    "sha256": "66956dee614a4e419fc6ec4b148d0b2dccaedf1429fdfdda648367c5a320eb9a",
+    "archive": "before/PUBLICATION-CHECKLIST.md"
+  },
+  "SUPPORTS-FOR-GEMINI.md": {
+    "sha256": "0ecc951ff26dee30bcaba97fd58e8e6511aa8e35f63bbab3c4bd8fb04b8a2e68",
+    "archive": "before/SUPPORTS-FOR-GEMINI.md"
+  },
+  "TIWA-PATCH-REQUIREMENTS.md": {
+    "sha256": "050046dba30b3b8f7df2d9ea308976908a365e903e2bea9ce2a5323eaa2e973d",
+    "archive": "before/TIWA-PATCH-REQUIREMENTS.md"
+  },
+  "@root/AGENTS.md": {
+    "sha256": "e60293750c3dd90f637ec29abd3c26a3f74b35c04f38fb5dd5ce9f139394b025",
+    "archive": "before/root/AGENTS.md"
+  },
+  "@root/NEXT-PROOF-REGISTER-2026-10-25.md": {
+    "sha256": "f5953743b3a965938b59b1e5d596afd728cdf21a344b10be1820981911042c9a",
+    "archive": "before/root/NEXT-PROOF-REGISTER-2026-10-25.md"
+  }
+}

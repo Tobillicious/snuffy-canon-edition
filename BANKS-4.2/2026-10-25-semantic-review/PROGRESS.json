@@ -1,0 +1,13 @@
+{
+  "baseline_modules_reviewed": 115,
+  "existing_audited_statements_reviewed": 831,
+  "additional_named_source_declarations_reviewed": 23,
+  "additional_public_helpers_not_individually_printed": 7,
+  "skipped_files_total": 105,
+  "skipped_files_content_reviewed_via_exact_identity": 46,
+  "skipped_files_content_comparison_pending": 59,
+  "full_physical_UPT_demonstration_complete": false,
+  "new_lean_compilation": false,
+  "native_TIWA_proof_by_this_reviewer": false,
+  "review_exhaustive_of_all_possible_argument_gaps": false
+}

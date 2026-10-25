@@ -1,0 +1,23 @@
+--- 2026-10-23-gemini-thirteen-bridges 2/inputs/prior/FIFOAdmission.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/FIFOAdmission.lean
+@@ -1,5 +1,5 @@
+-import FIFOWorkload
+-import R16Feedback
++import Snuffy.FIFOWorkload
++import Snuffy.R16Feedback
+ 
+ /-! Source-level continuation of the received FIFO proof. Certificates concern
+ one continuously serviced lane and unstarted pending jobs. The current running
+@@ -143,12 +143,3 @@
+ 
+ end SnuffyFIFO
+ 
+-#print axioms SnuffyFIFO.checks_iff
+-#print axioms SnuffyFIFO.certified_mono
+-#print axioms SnuffyFIFO.certified_append
+-#print axioms SnuffyFIFO.admission_preserves
+-#print axioms SnuffyFIFO.completion_preserves
+-#print axioms SnuffyFIFO.cancellation_preserves
+-#print axioms SnuffyFIFO.all_occurrences_timely
+-#print axioms SnuffyFIFO.queue_step_preserves
+-#print axioms SnuffyFIFO.refinement_preserves_queue

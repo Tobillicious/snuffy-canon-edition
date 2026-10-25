@@ -1,0 +1,42 @@
+import Mathlib.Basic.Real.Basic
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+
+namespace UPTAdaptiveConsensus
+open scoped BigOperators
+
+theorem weighted_error_bound {I : Type} [Fintype I]
+    (weight error : I → ℝ) (bound : ℝ)
+    (positive : ∀ i, 0 ≤ weight i) (normalized : ∑ i, weight i = 1)
+    (bounded : ∀ i, |error i| ≤ bound) :
+    |∑ i, weight i * error i| ≤ bound  := [proof body omitted in statement view]
+
+theorem anchored_update_error {I : Type} [Fintype I]
+    (weight error : I → ℝ) (alpha measurementError bound sensorBound : ℝ)
+    (ha : 0 ≤ alpha) (ha1 : alpha ≤ 1)
+    (positive : ∀ i, 0 ≤ weight i) (normalized : ∑ i, weight i = 1)
+    (bounded : ∀ i, |error i| ≤ bound) (sensor : |measurementError| ≤ sensorBound) :
+    |(1-alpha)*(∑ i, weight i*error i) + alpha*measurementError| ≤
+      (1-alpha)*bound+alpha*sensorBound  := [proof body omitted in statement view]
+
+def evolution {I : Type} [Fintype I]
+    (weights : Nat → I → I → ℝ) (measurement : Nat → I → ℝ)
+    (alpha : ℝ) (initial : I → ℝ) : Nat → I → ℝ
+  | 0, i => initial i
+  | n+1, i => (1-alpha)*(∑ j, weights n i j * evolution weights measurement alpha initial n j)
+      +alpha*measurement n i
+
+theorem adaptive_history_error_bound {I : Type} [Fintype I]
+    (weights : Nat → I → I → ℝ) (measurement : Nat → I → ℝ)
+    (alpha initialBound sensorBound : ℝ) (initial : I → ℝ)
+    (ha : 0 ≤ alpha) (ha1 : alpha ≤ 1)
+    (positive : ∀ n i j, 0 ≤ weights n i j)
+    (normalized : ∀ n i, ∑ j, weights n i j = 1)
+    (sensor : ∀ n i, |measurement n i| ≤ sensorBound)
+    (start : ∀ i, |initial i| ≤ initialBound) :
+    ∀ n i, |evolution weights measurement alpha initial n i| ≤
+      (1-alpha)^n * initialBound+sensorBound*(1-(1-alpha)^n)  := [proof body omitted in statement view]
+
+end UPTAdaptiveConsensus

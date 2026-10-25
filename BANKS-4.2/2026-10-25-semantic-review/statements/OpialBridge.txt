@@ -1,0 +1,76 @@
+import Mathlib.Analysis.InnerProductSpace.Projection.Basic
+import Mathlib.Analysis.InnerProductSpace.Orthogonal
+import Mathlib.Order.Filter.AtTopBot.Basic
+
+open Submodule InnerProductSpace Filter
+
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℂ E]
+
+namespace Snuffy.Opial
+
+def WeaklyConvergesTo (u : ℕ → E) (xs : E) : Prop :=
+  ∀ y : E, Tendsto (fun k => ⟪u k, y⟫_ℂ) atTop (nhds ⟪xs, y⟫_ℂ)
+
+noncomputable def tIterate (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection] (x : E) : ℕ → E
+  | 0 => x
+  | k + 1 => A.starProjection (B.starProjection (tIterate A B x k))
+
+theorem tIterate_succ_mem (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection] (x : E) (k : ℕ) :
+    tIterate A B x (k + 1) ∈ A  := [proof body omitted in statement view]
+
+theorem weakCluster_mem_exact (K : Submodule ℂ E) [K.HasOrthogonalProjection]
+    {u : ℕ → E} {xs : E} (hmem : ∀ k, u (k + 1) ∈ K) (hw : WeaklyConvergesTo u xs) :
+    xs ∈ K  := [proof body omitted in statement view]
+
+theorem weakCluster_mem (K : Submodule ℂ E) [K.HasOrthogonalProjection]
+    {u : ℕ → E} {xs : E} (hw : WeaklyConvergesTo u xs)
+    (hreg : Tendsto (fun k => ‖u k - K.starProjection (u k)‖) atTop (nhds 0)) :
+    xs ∈ K  := [proof body omitted in statement view]
+
+theorem iterate_inner_const (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    (x w : E) (hw : w ∈ A ⊓ B) (k : ℕ) :
+    ⟪tIterate A B x k, w⟫_ℂ = ⟪x, w⟫_ℂ  := [proof body omitted in statement view]
+
+theorem weakCluster_eq_starProjection (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    [(A ⊓ B).HasOrthogonalProjection] (x : E) {xs : E}
+    (hw : WeaklyConvergesTo (tIterate A B x) xs)
+    (hregB : Tendsto (fun k => ‖tIterate A B x k
+      - B.starProjection (tIterate A B x k)‖) atTop (nhds 0)) :
+    xs = (A ⊓ B).starProjection x  := [proof body omitted in statement view]
+
+theorem iterate_sub_starProjection_sq_eq (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    [(A ⊓ B).HasOrthogonalProjection] (x : E) (k : ℕ) :
+    ‖tIterate A B x k - (A ⊓ B).starProjection x‖ ^ 2
+      = ‖tIterate A B x k‖ ^ 2 - ‖(A ⊓ B).starProjection x‖ ^ 2  := [proof body omitted in statement view]
+
+theorem tendsto_starProjection_of_norm_sq_tendsto (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    [(A ⊓ B).HasOrthogonalProjection] (x : E)
+    (hlim : Tendsto (fun k => ‖tIterate A B x k‖ ^ 2) atTop
+      (nhds (‖(A ⊓ B).starProjection x‖ ^ 2))) :
+    Tendsto (fun k => tIterate A B x k) atTop (nhds ((A ⊓ B).starProjection x))  := [proof body omitted in statement view]
+
+noncomputable def mirrorTIterate (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection] (x : E) : ℕ → E :=
+  tIterate B A x
+
+structure VonNeumannConvergence (A B AB : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    [AB.HasOrthogonalProjection] where
+  limit : ∀ x : E, Tendsto (fun n => tIterate A B x n) atTop (nhds (AB.starProjection x))
+  limit_mirror : ∀ x : E, Tendsto (fun n => mirrorTIterate A B x n) atTop
+    (nhds (AB.starProjection x))
+
+theorem makeVonNeumannConvergence (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    [(A ⊓ B).HasOrthogonalProjection]
+    (hlim : ∀ x : E, Tendsto (fun n => tIterate A B x n) atTop (nhds ((A ⊓ B).starProjection x)))
+    (hmirror : ∀ x : E, Tendsto (fun n => mirrorTIterate A B x n) atTop (nhds ((A ⊓ B).starProjection x))) :
+    VonNeumannConvergence A B (A ⊓ B)  := [proof body omitted in statement view]
+
+end Snuffy.Opial

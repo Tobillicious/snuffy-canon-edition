@@ -1,0 +1,10 @@
+--- 2026-10-23-r16-verification/inputs/received-cut/R16-CUT/source/R12A.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/UPTR12A.lean
+@@ -1,5 +1,5 @@
+-import UPTLawLife
+-import ControllerFence
++import Snuffy.UPTLawLife
++import Snuffy.ControllerFence
+ 
+ /-!
+ Snuffy R12-A: source-level, proof-carrying decision-to-effect adapter.

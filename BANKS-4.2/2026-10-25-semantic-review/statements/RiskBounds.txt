@@ -1,0 +1,40 @@
+import Mathlib.Basic.Real.Basic
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.NormNum
+
+namespace GeminiThirteenRisk
+noncomputable section
+open scoped BigOperators
+
+theorem weighted_markov {I : Type*} [Fintype I] (event : Finset I)
+    (p z : I → ℝ) (threshold : ℝ)
+    (positive : 0 < threshold) (pNonnegative : ∀ i, 0 ≤ p i)
+    (zNonnegative : ∀ i, 0 ≤ z i)
+    (moment : ∑ i, p i*z i=1)
+    (largeOnEvent : ∀ i ∈ event, threshold ≤ z i) :
+    ∑ i ∈ event, p i ≤ 1/threshold  := [proof body omitted in statement view]
+
+theorem event_mass_mono {I : Type*} (small large : Finset I) (p : I → ℝ)
+    (subset : small ⊆ large) (nonnegative : ∀ i, 0 ≤ p i) :
+    (∑ i ∈ small, p i) ≤ ∑ i ∈ large, p i  := [proof body omitted in statement view]
+
+theorem intersection_mass_le_each {I : Type*} [DecidableEq I]
+    (first second : Finset I) (p : I → ℝ) (nonnegative : ∀ i, 0 ≤ p i) :
+    (∑ i ∈ first∩second, p i) ≤
+      min (∑ i ∈ first, p i) (∑ i ∈ second, p i)  := [proof body omitted in statement view]
+
+theorem positive_work_tail_control :
+    (3/4:ℝ)+1/4=1 ∧
+    (3/4:ℝ)*(1/2)+(1/4)*(5/2)=1 ∧
+    (1/2:ℝ)<3/4  := [proof body omitted in statement view]
+
+theorem dependent_chain_bound (joint bound : Nat → ℝ)
+    (initial : joint 0 ≤ 1) (nonnegative : ∀ i, 0 ≤ bound i)
+    (localBound : ∀ i, joint (i+1) ≤ bound i*joint i) (n : Nat) :
+    joint n ≤ ∏ i ∈ Finset.range n, bound i  := [proof body omitted in statement view]
+
+end
+end GeminiThirteenRisk

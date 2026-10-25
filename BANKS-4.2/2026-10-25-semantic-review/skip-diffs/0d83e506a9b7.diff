@@ -1,0 +1,10 @@
+--- 2026-10-23-r17-fifo-verification/inputs/dependencies/ControllerFence.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/ControllerFence.lean
+@@ -1,5 +1,5 @@
+-import UPTFence
+-import ControllerFinality
++import Snuffy.UPTFence
++import Snuffy.ControllerFinality
+ 
+ /- Composition uses the existing UPTFence definitions and proof verbatim. This
+ module does not replace check-at-apply, isolation, or the target contract. -/

@@ -1,0 +1,65 @@
+namespace UPTFence
+
+inductive Ev
+  | raise (g : Nat)                               
+  | mint (g : Nat)                                                              
+  | write (g : Nat)                                             
+
+structure St where
+  floor : Nat
+  minted : List Nat
+  log : List Nat
+
+def apply (s : St) : Ev → St
+  | .raise g => { s with floor := max s.floor g }
+  | .mint g => { s with minted := g :: s.minted }
+  | .write g => if s.floor ≤ g ∧ g ∈ s.minted then { s with log := s.log ++ [g] } else s
+
+def run (s : St) (tr : List Ev) : St := tr.foldl apply s
+
+theorem hold_safety (s : St) (mid : List Ev)
+    (hinv : ∀ h, h ∈ s.minted → h < s.floor)
+    (hmid : ∀ h, Ev.mint h ∈ mid → h < s.floor) : (run s mid).log = s.log  := [proof body omitted in statement view]
+
+theorem raise_then_nothing_lands (s : St) (g : Nat) (mid : List Ev)
+    (hold : ∀ h, h ∈ s.minted → h ≤ g)
+    (hmid : ∀ h, Ev.mint h ∈ mid → h ≤ g) :
+    (run (apply s (.raise (g + 1))) mid).log = s.log  := [proof body omitted in statement view]
+
+structure QSt where
+  floor : Nat
+  minted : List Nat
+  queue : List Nat
+  log : List Nat
+
+inductive QEv
+  | raise (g : Nat) | mint (g : Nat) | admit (g : Nat) | commit
+
+def applyAdmit (s : QSt) : QEv → QSt
+  | .raise g => { s with floor := max s.floor g }
+  | .mint g => { s with minted := g :: s.minted }
+  | .admit g => if s.floor ≤ g ∧ g ∈ s.minted then { s with queue := s.queue ++ [g] } else s
+  | .commit => match s.queue with
+    | [] => s
+    | w :: q => { s with queue := q, log := s.log ++ [w] }
+
+def applyLin (s : QSt) : QEv → QSt
+  | .raise g => { s with floor := max s.floor g }
+  | .mint g => { s with minted := g :: s.minted }
+  | .admit g => if s.floor ≤ g ∧ g ∈ s.minted then { s with queue := s.queue ++ [g] } else s
+  | .commit => match s.queue with
+    | [] => s
+    | w :: q => if s.floor ≤ w then { s with queue := q, log := s.log ++ [w] } else { s with queue := q }
+
+def start : QSt := ⟨1, [], [], []⟩
+
+def held : List QEv := [.mint 1, .admit 1, .raise 2]
+
+theorem admission_only_lands_in_hold :
+    (held.foldl applyAdmit start).log = [] ∧
+    (applyAdmit (held.foldl applyAdmit start) .commit).log = [1]  := [proof body omitted in statement view]
+
+theorem check_at_apply_refuses :
+    (applyLin (held.foldl applyLin start) .commit).log = []  := [proof body omitted in statement view]
+
+end UPTFence

@@ -1,0 +1,2066 @@
+--- before/lean/Snuffy/G3CompleteBill.lean
++++ after/lean/Snuffy/G3CompleteBill.lean
+@@ -1,3 +1,6 @@
++import Mathlib.Algebra.Order.BigOperators.Group.Finset
++import Mathlib.Tactic.Ring
++
+ namespace Snuffy.G3CompleteBill
+ 
+ structure WorkBill where
+@@ -40,4 +43,111 @@
+     bill.waveCount >= 0 := by
+   exact Nat.zero_le bill.waveCount
+ 
++/-- Complete wave charge, including fixed endpoints and an explicitly metered
++local rollback. Routine measurement/reset, holding, controller, guard, routing,
++verification and deployment costs belong in `cost`; rollback is additional.
++The controller performs at most the one metered rollback represented by each
++flag. This is a pathwise work bill, not an expected-work discount. -/
++def cumulativeCharge (cost : Nat → Nat) (rollback : Nat → Bool)
++    (reset fixed horizon : Nat) : Nat :=
++  fixed + (Finset.range horizon).sum
++    (fun k => cost (k + 1) + if rollback k then reset else 0)
++
++/-- The supplied per-wave complete charge gives an explicit age-independent
++polynomial coefficient. A rollback on every wave still fits the work bound.
++The source must supply the full local charge bound and the metered schedule;
++this theorem does not assume the desired cumulative upper bound. -/
++theorem cumulative_charge_bound (cost : Nat → Nat) (rollback : Nat → Bool)
++    (reset fixed α β horizon d : Nat) (hh : 1 ≤ horizon) (hd : 1 ≤ d)
++    (hcost : ∀ k ∈ Finset.range horizon,
++      cost (k + 1) ≤ α * (k + 1) ^ (d - 1) + β) :
++    cumulativeCharge cost rollback reset fixed horizon ≤
++      (fixed + α + β + reset) * horizon ^ d := by
++  have hexp : horizon * horizon ^ (d - 1) = horizon ^ d := by
++    rw [← pow_succ', Nat.sub_add_cancel hd]
++  have hlinear : horizon ≤ horizon ^ d :=
++    le_self_pow₀ hh (Nat.ne_of_gt (lt_of_lt_of_le Nat.zero_lt_one hd))
++  have hfixed : fixed ≤ fixed * horizon ^ d := by
++    simpa using Nat.mul_le_mul_left fixed (one_le_pow₀ hh : 1 ≤ horizon ^ d)
++  have hstep : ∀ k ∈ Finset.range horizon,
++      cost (k + 1) + (if rollback k then reset else 0) ≤
++        α * horizon ^ (d - 1) + (β + reset) := by
++    intro k hk
++    have hk' : k + 1 ≤ horizon := Nat.succ_le_of_lt (Finset.mem_range.mp hk)
++    have hp : (k + 1) ^ (d - 1) ≤ horizon ^ (d - 1) :=
++      pow_le_pow_left' hk' (d - 1)
++    have hr : (if rollback k then reset else 0) ≤ reset := by
++      split <;> simp
++    calc
++      cost (k + 1) + (if rollback k then reset else 0)
++          ≤ (α * (k + 1) ^ (d - 1) + β) + reset :=
++        Nat.add_le_add (hcost k hk) hr
++      _ ≤ (α * horizon ^ (d - 1) + β) + reset :=
++        Nat.add_le_add_right (Nat.add_le_add_right (Nat.mul_le_mul_left α hp) β) reset
++      _ = α * horizon ^ (d - 1) + (β + reset) := by ring
++  have hsum :
++      (Finset.range horizon).sum
++          (fun k => cost (k + 1) + if rollback k then reset else 0) ≤
++        horizon * (α * horizon ^ (d - 1) + (β + reset)) := by
++    calc
++      _ ≤ (Finset.range horizon).sum
++          (fun _ => α * horizon ^ (d - 1) + (β + reset)) :=
++        Finset.sum_le_sum hstep
++      _ = _ := by simp
++  have hproduct :
++      horizon * (α * horizon ^ (d - 1) + (β + reset)) =
++        α * horizon ^ d + (β + reset) * horizon := by
++    calc
++      _ = α * (horizon * horizon ^ (d - 1)) + (β + reset) * horizon := by ring
++      _ = _ := by rw [hexp]
++  unfold cumulativeCharge
++  calc
++    _ ≤ fixed + horizon * (α * horizon ^ (d - 1) + (β + reset)) :=
++      Nat.add_le_add_left hsum fixed
++    _ = fixed + α * horizon ^ d + (β + reset) * horizon := by
++      rw [hproduct, Nat.add_assoc]
++    _ ≤ fixed * horizon ^ d + α * horizon ^ d + (β + reset) * horizon ^ d :=
++      Nat.add_le_add (Nat.add_le_add_right hfixed _)
++        (Nat.mul_le_mul_left (β + reset) hlinear)
++    _ = (fixed + α + β + reset) * horizon ^ d := by ring
++
++/-- Populate the existing bill predicate from the complete metered ledger and
++the local wave bounds. `G3_ValidWorkBill` is the conclusion, not an input. -/
++theorem valid_work_bill_from_complete_ledger (bill : WorkBill)
++    (cost : Nat → Nat) (rollback : Nat → Bool) (reset fixed α β : Nat)
++    (hh : 1 ≤ bill.waveCount) (hd : 1 ≤ bill.dimensionalFactor)
++    (hledger : bill.allocatedWork =
++      cumulativeCharge cost rollback reset fixed bill.waveCount)
++    (hcost : ∀ k ∈ Finset.range bill.waveCount,
++      cost (k + 1) ≤ α * (k + 1) ^ (bill.dimensionalFactor - 1) + β)
++    (hscale : fixed + α + β + reset ≤ bill.scalingConstant) :
++    G3_ValidWorkBill bill := by
++  intro _
++  rw [hledger]
++  exact (cumulative_charge_bound cost rollback reset fixed α β bill.waveCount
++    bill.dimensionalFactor hh hd hcost).trans
++      (Nat.mul_le_mul_right (bill.waveCount ^ bill.dimensionalFactor) hscale)
++
++/-- Translate a valid wave-count bill to unattended age using the constructed
++linear wave schedule. The new coefficient is independent of age. -/
++theorem valid_bill_bound_in_age (bill : WorkBill) (a b : Nat)
++    (hvalid : G3_ValidWorkBill bill) (hsuccess : bill.tiwaSuccess = true)
++    (hage : 1 ≤ bill.timeSteps) (hwaves : bill.waveCount ≤ a * bill.timeSteps + b) :
++    bill.allocatedWork ≤
++      (bill.scalingConstant * (a + b) ^ bill.dimensionalFactor) *
++        bill.timeSteps ^ bill.dimensionalFactor := by
++  have hb : b ≤ b * bill.timeSteps := by
++    simpa using Nat.mul_le_mul_left b hage
++  have hn : bill.waveCount ≤ (a + b) * bill.timeSteps := by
++    calc
++      _ ≤ a * bill.timeSteps + b := hwaves
++      _ ≤ a * bill.timeSteps + b * bill.timeSteps := Nat.add_le_add_left hb _
++      _ = (a + b) * bill.timeSteps := by ring
++  calc
++    _ ≤ bill.scalingConstant * bill.waveCount ^ bill.dimensionalFactor :=
++      hvalid hsuccess
++    _ ≤ bill.scalingConstant * ((a + b) * bill.timeSteps) ^ bill.dimensionalFactor :=
++      Nat.mul_le_mul_left _ (pow_le_pow_left' hn bill.dimensionalFactor)
++    _ = _ := by rw [mul_pow]; ring
++
+ end Snuffy.G3CompleteBill
+--- before/lean/Snuffy/GuardSignature.lean
++++ after/lean/Snuffy/GuardSignature.lean
+@@ -1,3 +1,5 @@
++import Mathlib.Order.BoundedOrder.Basic
++
+ namespace Snuffy.GuardSignature
+ 
+ structure Guard (M : Type*) [PartialOrder M] [Bot M] where
+@@ -9,4 +11,4 @@
+     g.pi (g.pi x) = g.pi x :=
+   g.idempotent x
+ 
+-end Snuffy.GuardSignature+end Snuffy.GuardSignature
+--- before/lean/Snuffy/DecoderRetraction.lean
++++ after/lean/Snuffy/DecoderRetraction.lean
+@@ -1,12 +1,80 @@
++import Snuffy.Bridge
++
+ namespace Snuffy.DecoderRetraction
+ 
+-structure DecoderPair (A B : Type*) where
++universe u v
++
++structure DecoderPair (A : Type u) (B : Type v) where
+   encode : A → B
+   decode : B → A
+   retraction : ∀ a, decode (encode a) = a
+ 
+-theorem decode_encode {A B : Type*} (D : DecoderPair A B) (a : A) :
++theorem decode_encode {A : Type u} {B : Type v} (D : DecoderPair A B) (a : A) :
+     D.decode (D.encode a) = a :=
+   D.retraction a
+ 
+-end Snuffy.DecoderRetraction+/-- The existing finite nearest-codeword construction populates the retraction
++interface and corrects every received state within the unique-decoding radius.
++The retraction and radius guarantee are derived from `Bridge`; neither is
++assumed as a field of an unspecified decoder. The physical source still has
++to establish that its perturbations meet this same radius bound. -/
++theorem finite_code_recovery {X : Type u} [MetricSpace X]
++    (Code : Set X) (hfin : Code.Finite) (hne : Code.Nonempty)
++    {dmin radius : ℝ}
++    (hsep : ∀ c ∈ Code, ∀ c' ∈ Code, c ≠ c' → dmin ≤ dist c c')
++    (hrad : 2 * radius < dmin) :
++    ∃ D : DecoderPair Code X,
++      (∀ c, D.encode c = (c : X)) ∧
++      ∀ (c : Code) (y : X), dist y (c : X) ≤ radius → D.decode y = c := by
++  obtain ⟨dec, hdec, hnear⟩ := Snuffy.Bridge.exists_nearest_decoder Code hfin hne
++  let D : DecoderPair Code X := {
++    encode := fun c => c.val
++    decode := fun y => ⟨dec y, hdec y⟩
++    retraction := by
++      intro c
++      apply Subtype.ext
++      change dec (c : X) = (c : X)
++      have hdist : dist (c : X) (dec (c : X)) ≤ 0 := by
++        simpa only [dist_self] using hnear (c : X) (c : X) c.property
++      exact (dist_eq_zero.mp (le_antisymm hdist dist_nonneg)).symm }
++  refine ⟨D, fun _ => rfl, ?_⟩
++  intro c y hy
++  apply Subtype.ext
++  change dec y = (c : X)
++  exact Snuffy.Bridge.nearest_decodes hsep hrad hdec hnear c.property hy
++
++/-- A continuation witness remains nonzero when its certified error is
++strictly smaller than the record's distance from zero. The funded holding
++construction supplies continuation; a work ceiling alone is not used as
++a substitute for that witness. -/
++theorem nonvanishing_of_continuation {X : Type u} [MetricSpace X] [Zero X]
++    {Part : Type v} (rec : Part → X) (ε : ℝ) (state : Part → X) (x : Part)
++    (hcontinues : Snuffy.Bridge.Continues rec ε state x)
++    (hgap : ε < dist (rec x) 0) : state x ≠ 0 := by
++  intro hzero
++  change dist (state x) (rec x) ≤ ε at hcontinues
++  rw [hzero, dist_comm] at hcontinues
++  exact (not_le_of_gt hgap) hcontinues
++
++/-- The finite-code recovery construction supplies a non-bottom fixed point
++for its evaluation/transducer `encode ∘ decode` whenever the maintained code
++contains a non-bottom record. This is a derived witness for the proposed
++self-grounding equation; it introduces no new axiom and does not infer
++existence from a work ceiling or from homology alone. -/
++theorem finite_code_self_grounding {X : Type u} [MetricSpace X] [Bot X]
++    (Code : Set X) (hfin : Code.Finite) (hne : Code.Nonempty)
++    {dmin radius : ℝ}
++    (hsep : ∀ c ∈ Code, ∀ c' ∈ Code, c ≠ c' → dmin ≤ dist c c')
++    (hrad : 2 * radius < dmin) (record : Code) (hnonbot : (record : X) ≠ ⊥) :
++    ∃ D : DecoderPair Code X,
++      (∀ c, D.encode c = (c : X)) ∧
++      (∀ (c : Code) (y : X), dist y (c : X) ≤ radius → D.decode y = c) ∧
++      ∃ e : X, D.encode (D.decode e) = e ∧ D.encode (D.decode e) ≠ ⊥ := by
++  obtain ⟨D, hencode, hcorrect⟩ := finite_code_recovery Code hfin hne hsep hrad
++  have hfixed : D.encode (D.decode (record : X)) = (record : X) := by
++    rw [← hencode record, D.retraction record]
++  refine ⟨D, hencode, hcorrect, (record : X), hfixed, ?_⟩
++  rw [hfixed]
++  exact hnonbot
++
++end Snuffy.DecoderRetraction
+--- before/lean/build-and-audit.sh
++++ after/lean/build-and-audit.sh
+@@ -1,19 +1,21 @@
+ #!/bin/zsh
+-# Rebuild every v4.1 summit module in dependency order, kernel-check, audit
++# Rebuild every v4.2 module in dependency order, kernel-check, audit
+ # axioms, and write RECEIPT.txt. Needs: Lean 4.35.0 on PATH (or LEAN_BIN),
+ # MATHLIB_PROJECT = a Lake project pinned to Mathlib rev 56a005855ea1.
+ set -u
+ HERE=${0:A:h}
+ LEAN_BIN=${LEAN_BIN:-$HOME/.elan/toolchains/leanprover--lean4---v4.35.0/bin}
+ MATHLIB_PROJECT=${MATHLIB_PROJECT:?set MATHLIB_PROJECT to a Mathlib 56a005855ea1 Lake project}
++CORPUS_ROOT=${CORPUS_ROOT:?set CORPUS_ROOT to the Snuffy-Book workspace}
++export CORPUS_ROOT
+ BUILD=${BUILD:-$(mktemp -d)}
+ export PATH=$LEAN_BIN:$PATH
+ mkdir -p $BUILD/Snuffy
+ export LEAN_PATH="$(cd $MATHLIB_PROJECT && lake env printenv LEAN_PATH):$BUILD"
+-MODULES=(MathlibAnalyticBridge HalperinDecay OpialBridge CanonVonNeumann RecoveryWork E9SelfHealing H5Closure Greatestness ThermoLedger Composition PremiseFloor ReciprocityCeiling CyclicProjections GaussianTail DeductionBoundary ReflectionCertificate Trotter Irreplaceability DataProcessing MeetAlgebra MeetHilbert FiniteInformation AreaBridge UniversalProtection Workload Fano GaussianKL GoldenFormula GaussianChannel KLAdditivity GaussianChannelGen GaussianVector Whitening Rotation LogDet Law SpeedLimit Landauer QuantumLandauer Threshold UnionClosure SolventReciprocity AffordableReciprocity Bridge Instruments StrokeBookkeeping Bennett Concatenated ReasonsCompiled TwoLevel ErrorBudget GateSupport RiskBounds QueueDeadline BandwidthReflection AnalyticBridge RankAndCoalition MetricShadow SemanticMap BridgeD1 BridgeE9 BridgeH6 BridgeH7 BridgeH8 ReasonsRoute SensorTail ConsensusRate RGFixedPoint FinalClosure H8Bound CorrelatedStress LatticeLaplacian SafeGenesis AdaptiveConsensus CascadeCore DecisionAndScale E9Routes GenerativeClosure ReflectionContraction ReflectionFuel RestrictedModels ThermalBalance TransportLaw ControllerCertificate FIFOWorkload R16Feedback UPTLawLife ClosedCohold R14Boundary ReceivedCutRepaired ReadoutJoint ReadoutBounds OriginalD1 OriginalE9AndH5 OriginalH6 OriginalH7 OriginalH8 ControllerFinality UPTFence ConservedRouting P2P3 FIFOInstance FIFOAdmission R16TwoPhase R16Cut ReceivedCutR14Repaired ControllerFence IntegrationCertificate R16R14 R16Screened UPTR12A R17AQueueFinality R17FIFOR17A R17Funding R17WorkConcrete TIWASource TIWAGuard TIWARecovery TIWAWork TopRealisability FaultCover G2Singleton G1Certificate G1Executable PhysicalGuard MeanErgodic TemporalSafety WorkIntegration RelationalBridge MeanErgodicDeep GuardFactorization G1Complete G2Outcome G3WorkBill Htopkeeps SnuffyLocal G1FullDomain G2WholeOutcome G3CompleteBill)
++MODULES=(MathlibAnalyticBridge HalperinDecay OpialBridge CanonVonNeumann RecoveryWork E9SelfHealing H5Closure Greatestness ThermoLedger Composition PremiseFloor ReciprocityCeiling CyclicProjections GaussianTail DeductionBoundary ReflectionCertificate Trotter Irreplaceability DataProcessing MeetAlgebra MeetHilbert FiniteInformation AreaBridge UniversalProtection Workload Fano GaussianKL GoldenFormula GaussianChannel KLAdditivity GaussianChannelGen GaussianVector Whitening Rotation LogDet Law SpeedLimit Landauer QuantumLandauer Threshold UnionClosure SolventReciprocity AffordableReciprocity Bridge Instruments StrokeBookkeeping Bennett Concatenated ReasonsCompiled TwoLevel ErrorBudget GateSupport RiskBounds QueueDeadline BandwidthReflection AnalyticBridge RankAndCoalition MetricShadow SemanticMap BridgeD1 BridgeE9 BridgeH6 BridgeH7 BridgeH8 ReasonsRoute SensorTail ConsensusRate RGFixedPoint FinalClosure H8Bound CorrelatedStress LatticeLaplacian SafeGenesis AdaptiveConsensus CascadeCore DecisionAndScale E9Routes GenerativeClosure ReflectionContraction ReflectionFuel RestrictedModels ThermalBalance TransportLaw ControllerCertificate FIFOWorkload R16Feedback UPTLawLife ClosedCohold R14Boundary ReceivedCutRepaired ReadoutJoint ReadoutBounds OriginalD1 OriginalE9AndH5 OriginalH6 OriginalH7 OriginalH8 ControllerFinality UPTFence ConservedRouting P2P3 FIFOInstance FIFOAdmission R16TwoPhase R16Cut ReceivedCutR14Repaired ControllerFence IntegrationCertificate R16R14 R16Screened UPTR12A R17AQueueFinality R17FIFOR17A R17Funding R17WorkConcrete TIWASource TIWAGuard TIWARecovery TIWAWork TopRealisability FaultCover G2Singleton G1Certificate G1Executable PhysicalGuard MeanErgodic TemporalSafety WorkIntegration RelationalBridge MeanErgodicDeep GuardFactorization G1Complete G2Outcome G3WorkBill Htopkeeps SnuffyLocal G1FullDomain G2WholeOutcome G3CompleteBill GuardOperator HamiltonianDecomposition GuardSignature WorkBilling DecoderRetraction)
+ OUT=$HERE/RECEIPT.txt
+ {
+-  echo "# v4.1 summit modules — build receipt ($(date -u +%Y-%m-%dT%H:%MZ))"
++  echo "# v4.2 modules — build receipt ($(date -u +%Y-%m-%dT%H:%MZ))"
+   echo "# $(lean --version | head -1); Mathlib rev $(cd $MATHLIB_PROJECT/.lake/packages/mathlib && git rev-parse HEAD)"
+   ok=1
+   for m in $MODULES; do
+@@ -41,6 +43,9 @@
+   printed=$(grep -c -E "depends on axioms|does not depend on any axioms" $BUILD/axioms.joined)
+   echo "## theorems audited: $printed; non-standard axiom dependencies: ${bad:-none}"
+   [[ -n $bad ]] && ok=0
++  expected=$(grep -c "^#print axioms " $HERE/SummitsAudit.lean)
++  echo "## expected audited statements: $expected"
++  [[ $expected -eq 0 || $printed -ne $expected ]] && ok=0
+   grep -q -E ":[0-9]+:[0-9]+: error" $BUILD/axioms.out && ok=0
+   echo "## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):"
+   (cd $HERE && python3 check-complete.py) | sed 's/^/##   /'; [[ ${pipestatus[1]} -ne 0 ]] && ok=0
+--- before/lean/gen-index.py
++++ after/lean/gen-index.py
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env python3
+ """Regenerate SummitsAudit.lean and the §23 theorem index from the sources.
+ 
+-Every non-private `theorem` in every module listed in build-and-audit.sh gets a
++Every non-private `theorem` or `lemma` in every module listed in build-and-audit.sh gets a
+ `#print axioms` line, so the audit covers everything compiled, not a chosen
+ subset. The index (module -> theorems) is written into
+ inserts/23-machine-checked-canon.md between the BEGIN/END THEOREM INDEX markers.
+@@ -21,7 +21,7 @@
+ 
+ 
+ def theorems(path):
+-    """Full names of the non-private theorems declared in a module."""
++    """Full names of the non-private theorems and lemmas declared in a module."""
+     stack, out = [], []
+     for line in open(path):
+         if m := re.match(r"\s*namespace\s+(\S+)", line):
+@@ -31,7 +31,7 @@
+         elif m := re.match(r"\s*end(?:\s+(\S+))?\s*$", line):
+             if stack:
+                 stack.pop()
+-        elif m := re.match(r"(?:@\[[^\]]*\]\s*)?(?:protected\s+)?theorem\s+(\S+)", line):
++        elif m := re.match(r"(?:@\[[^\]]*\]\s*)?(?:protected\s+)?(?:theorem|lemma)\s+(\S+)", line):
+             ns = ".".join(n for k, n in stack if k == "ns")
+             out.append(f"{ns}.{m.group(1)}" if ns else m.group(1))
+     return out
+--- before/lean/check-complete.py
++++ after/lean/check-complete.py
+@@ -10,6 +10,7 @@
+ so neither counts. Received inputs, snapshots and canon mirrors are skipped.
+ """
+ import os
++import re
+ import sys
+ 
+ HERE = os.path.dirname(os.path.abspath(__file__))
+@@ -37,9 +38,25 @@
+ def main():
+     root = os.environ.get("CORPUS_ROOT")
+     if not root:
+-        print("## completeness: not run (CORPUS_ROOT unset)")
+-        return 0
++        print("## completeness: FAIL (CORPUS_ROOT unset; corpus scan required)")
++        return 1
+     canon = {f[:-5] for f in os.listdir(SNUFFY) if f.endswith(".lean")}
++    build_source = open(os.path.join(HERE, "build-and-audit.sh")).read()
++    build_match = re.search(r"^MODULES=\((.*?)\)$", build_source, re.M)
++    built = build_match.group(1).split() if build_match else []
++    audit_source = open(os.path.join(HERE, "SummitsAudit.lean")).read()
++    imported = re.findall(r"^import Snuffy\.(\w+)\s*$", audit_source, re.M)
++    manifest_errors = []
++    for label, names in (("build", built), ("audit", imported)):
++        absent = sorted(canon - set(names))
++        extra = sorted(set(names) - canon)
++        duplicates = sorted(n for n in set(names) if names.count(n) > 1)
++        if absent:
++            manifest_errors.append(f"{label} omits canon modules: {', '.join(absent)}")
++        if extra:
++            manifest_errors.append(f"{label} names absent modules: {', '.join(extra)}")
++        if duplicates:
++            manifest_errors.append(f"{label} repeats modules: {', '.join(duplicates)}")
+     excluded = {}
+     if os.path.exists(EXCL):
+         for line in open(EXCL):
+@@ -55,7 +72,12 @@
+         o.write("# Proof state\n\n")
+         o.write(f"Canon modules: {len(canon)}. Corpus module names: {len(found)}. "
+                 f"Excluded with reason: {len(excluded)}. Missing: {len(missing)}. "
+-                f"Phantom exclusions: {len(phantom)}. Skipped by directory policy: {len(skipped)}.\n\n")
++                f"Phantom exclusions: {len(phantom)}. Skipped by directory policy: {len(skipped)}. "
++                f"Build/audit manifest errors: {len(manifest_errors)}.\n\n")
++        o.write("## Build and audit coverage\n\n")
++        o.write(f"Build modules: {len(built)}. Audit imports: {len(imported)}.\n\n")
++        for error in manifest_errors:
++            o.write(f"- **FAIL:** {error}\n")
+         o.write("## Skipped by directory policy (visible, not checked — listed every audit)\n\n")
+         for rel in sorted(skipped):
+             o.write(f"- `{rel}`\n")
+@@ -72,7 +94,11 @@
+         print(f"##   MISSING {n}  ({found[n][0]})")
+     for n in phantom:
+         print(f"##   PHANTOM EXCLUSION {n}  (not in the scanned corpus — remove the entry)")
+-    return 1 if missing or phantom else 0
++    print(f"## build/audit coverage: canon {len(canon)}, build {len(built)}, "
++          f"audit {len(imported)}, errors {len(manifest_errors)}")
++    for error in manifest_errors:
++        print(f"##   MANIFEST ERROR {error}")
++    return 1 if missing or phantom or manifest_errors else 0
+ 
+ 
+ if __name__ == "__main__":
+--- before/lean/SummitsAudit.lean
++++ after/lean/SummitsAudit.lean
+@@ -139,6 +139,11 @@
+ import Snuffy.G1FullDomain
+ import Snuffy.G2WholeOutcome
+ import Snuffy.G3CompleteBill
++import Snuffy.GuardOperator
++import Snuffy.HamiltonianDecomposition
++import Snuffy.GuardSignature
++import Snuffy.WorkBilling
++import Snuffy.DecoderRetraction
+ 
+ -- MathlibAnalyticBridge
+ #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
+@@ -686,9 +691,12 @@
+ -- ConsensusRate
+ #print axioms Snuffy.ConsensusRate.bandwidth_contraction
+ -- RGFixedPoint
++#print axioms Snuffy.RGFixedPoint.sq_root
+ #print axioms Snuffy.RGFixedPoint.gstar_pos
++#print axioms Snuffy.RGFixedPoint.fixed_relation
+ #print axioms Snuffy.RGFixedPoint.beta_gstar
+ #print axioms Snuffy.RGFixedPoint.eigenvalue_gstar
++#print axioms Snuffy.RGFixedPoint.beta_factor
+ #print axioms Snuffy.RGFixedPoint.beta_pos_below
+ #print axioms Snuffy.RGFixedPoint.beta_neg_above
+ -- FinalClosure
+@@ -706,14 +714,18 @@
+ #print axioms Snuffy.FinalClosure.extraction_depletes
+ #print axioms Snuffy.FinalClosure.sustained_iff
+ -- H8Bound
++#print axioms Snuffy.H8Bound.one_sub_u_pos
+ #print axioms Snuffy.H8Bound.h8_of_concentration_bound
+ #print axioms Snuffy.H8Bound.h8_graph
+ #print axioms Snuffy.H8Bound.h8_iff
+ #print axioms Snuffy.H8Bound.routing_bound
+ #print axioms Snuffy.H8Bound.h8_routed
+ -- CorrelatedStress
++#print axioms Snuffy.CorrelatedStress.many_touching
+ #print axioms Snuffy.CorrelatedStress.correlated_stress
+ -- LatticeLaplacian
++#print axioms Snuffy.LatticeLaplacian.symmetric_slope
++#print axioms Snuffy.LatticeLaplacian.ratio_eq_slope
+ #print axioms Snuffy.LatticeLaplacian.second_difference
+ #print axioms Snuffy.LatticeLaplacian.lattice_laplacian
+ -- SafeGenesis
+@@ -1154,3 +1166,22 @@
+ #print axioms Snuffy.G3CompleteBill.g3_success_implies_bound
+ #print axioms Snuffy.G3CompleteBill.g3_compose_valid
+ #print axioms Snuffy.G3CompleteBill.g3_wave_count_nonnegative
++#print axioms Snuffy.G3CompleteBill.cumulative_charge_bound
++#print axioms Snuffy.G3CompleteBill.valid_work_bill_from_complete_ledger
++#print axioms Snuffy.G3CompleteBill.valid_bill_bound_in_age
++-- GuardOperator
++#print axioms Snuffy.GuardOperator.guard_within_tolerance
++#print axioms Snuffy.GuardOperator.guard_exceeds_tolerance
++-- HamiltonianDecomposition
++#print axioms Snuffy.HamiltonianDecomposition.total_is_sum
++#print axioms Snuffy.HamiltonianDecomposition.boundary_confinement_positive
++-- GuardSignature
++#print axioms Snuffy.GuardSignature.guard_idempotent
++-- WorkBilling
++#print axioms Snuffy.WorkBilling.work_nonnegative
++#print axioms Snuffy.WorkBilling.work_bound_preserved
++-- DecoderRetraction
++#print axioms Snuffy.DecoderRetraction.decode_encode
++#print axioms Snuffy.DecoderRetraction.finite_code_recovery
++#print axioms Snuffy.DecoderRetraction.nonvanishing_of_continuation
++#print axioms Snuffy.DecoderRetraction.finite_code_self_grounding
+--- before/lean/RECEIPT.txt
++++ after/lean/RECEIPT.txt
+@@ -1,5 +1,10 @@
+-# v4.1 summit modules — build receipt (2026-10-25T07:03Z)
+-# Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
++# Canon Edition 4.2 — combined verification receipt (2026-10-25T08:44:29+00:00)
++# 136 compilation/kernel results reused from the preserved Beam run; eight fresh.
++# Prior receipt sha256: f629c41e4074379b2188fce82761c4f31f60544f650e30d729c0555b26c73412
++# Reuse checked against recorded source and .olean hashes.
++# Full axiom audit and completeness/claims gates are fresh.
++# Lean 4.35.0; Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
++## modules: 144; reused compile/kernel: 136; fresh compile/kernel: 8
+ ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
+ ## HalperinDecay: exit=0 compiler-output-bytes=0
+ ## OpialBridge: exit=0 compiler-output-bytes=0
+@@ -136,6 +141,14 @@
+ ## G3WorkBill: exit=0 compiler-output-bytes=0
+ ## Htopkeeps: exit=0 compiler-output-bytes=0
+ ## SnuffyLocal: exit=0 compiler-output-bytes=0
++## G1FullDomain: exit=0 compiler-output-bytes=0
++## G2WholeOutcome: exit=0 compiler-output-bytes=0
++## G3CompleteBill: exit=0 compiler-output-bytes=0
++## GuardOperator: exit=0 compiler-output-bytes=0
++## HamiltonianDecomposition: exit=0 compiler-output-bytes=0
++## GuardSignature: exit=0 compiler-output-bytes=0
++## WorkBilling: exit=0 compiler-output-bytes=0
++## DecoderRetraction: exit=0 compiler-output-bytes=0
+ ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
+ ## leanchecker Snuffy.HalperinDecay: exit=0
+ ## leanchecker Snuffy.OpialBridge: exit=0
+@@ -272,14 +285,936 @@
+ ## leanchecker Snuffy.G3WorkBill: exit=0
+ ## leanchecker Snuffy.Htopkeeps: exit=0
+ ## leanchecker Snuffy.SnuffyLocal: exit=0
++## leanchecker Snuffy.G1FullDomain: exit=0
++## leanchecker Snuffy.G2WholeOutcome: exit=0
++## leanchecker Snuffy.G3CompleteBill: exit=0
++## leanchecker Snuffy.GuardOperator: exit=0
++## leanchecker Snuffy.HamiltonianDecomposition: exit=0
++## leanchecker Snuffy.GuardSignature: exit=0
++## leanchecker Snuffy.WorkBilling: exit=0
++## leanchecker Snuffy.DecoderRetraction: exit=0
+ ## sorry/admit/axiom uses in sources: none
+ ## axiom audit (SummitsAudit.lean):
+-##   /Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/SummitsAudit.lean:3:0: error: object file '/var/folders/1f/0218k3kx1zjgkp1n4km_3qhh0000gn/T/tmp.mgwDfFukaY/Snuffy/G1FullDomain.olean' of module Snuffy.G1FullDomain does not exist
+-## axiom audit exit=1
+-## theorems audited: 0; non-standard axiom dependencies: none
+-## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):
+-##   ## completeness: not run (CORPUS_ROOT unset)
+-##   ## claims: audited theorems 875, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
++##   'Snuffy.AnalyticBridge.starProjection_fixed_iff_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.AnalyticBridge.starProjection_idem' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.AnalyticBridge.altIterate_succ_eq_self' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.AnalyticBridge.altIterate_succ_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.AnalyticBridge.mirrorIterate_succ_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.AnalyticBridge.convergence_inf_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.AnalyticBridge.limit_mem_of_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.AnalyticBridge.convergence_inf_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.AnalyticBridge.von_neumann_identification' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Halperin.norm_starProjection_apply_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Halperin.dist_starProjection_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Halperin.sq_pythagoras_step' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Halperin.chain_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Halperin.sq_dist_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Halperin.sq_dist_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Halperin.delta_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Halperin.asymptotic_regularity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Opial.tIterate_succ_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Opial.weakCluster_mem_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Opial.weakCluster_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Opial.iterate_inner_const' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Opial.weakCluster_eq_starProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Opial.iterate_sub_starProjection_sq_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Opial.tendsto_starProjection_of_norm_sq_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Opial.makeVonNeumannConvergence' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.altIterate_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.altIterate_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.norm_altIterate_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.altIterate_eq_halperin' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.opial_tIterate_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.mirrorAltIterate_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.tendsto_altIterate_sub_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.mem_inf_of_orthogonal_range' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.tendsto_zero_of_mem_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.tendsto_altIterate' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.canon_von_neumann_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.limit_subspace_eq_inf' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.canon_opial_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.opial_norm_sq_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CanonVonNeumann.opial_route_closes' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RecoveryWork.frontier_work_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RecoveryWork.Wmin_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RecoveryWork.necessary_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RecoveryWork.completing_square' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RecoveryWork.carrier_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RecoveryWork.x3_delayed_recovery_work' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RecoveryWork.delayed_work_diverges' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.E9.robust_between_honest' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.E9.no_false_alarm' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.E9.no_masking' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.E9.exists_robust' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.E9.syndrome_detects' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.E9.wave_race_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.E9.code_headroom' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.E9.e9_timely_self_healing' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H5.step_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H5.reachable_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H5.genesis_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H5.authority_attenuation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H5.reserve_before_activation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H5.zero_debt' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H5.no_unfunded_work' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H5.no_harmful_effect' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H5.effect_preserves_care' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H5.consistency_detector' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Greatestness.lexLt_irrefl' does not depend on any axioms
++##   'Snuffy.Greatestness.lexLt_trans' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Greatestness.aligned_iff_no_needless_loss' does not depend on any axioms
++##   'Snuffy.Greatestness.lexLe_of_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Greatestness.greatest_of_union_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Greatestness.strict_except_mirrors' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Greatestness.aligned_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ThermoLedger.stroke_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ThermoLedger.cycle_work_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ThermoLedger.funded_repair_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ThermoLedger.quarantine_zero_debt' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ThermoLedger.tower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ThermoLedger.canon_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ThermoLedger.tracking_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ThermoLedger.tracking_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ThermoLedger.tracking_within_resolution' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Composition.reactive_lockstep' depends on axioms: [propext]
++##   'Snuffy.Composition.reactive_lockstep₂' depends on axioms: [propext]
++##   'Snuffy.Composition.invariant_transfer' depends on axioms: [propext]
++##   'Snuffy.Composition.theorem8_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.PremiseFloor.income_or_irrelevance' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.PremiseFloor.forced_breach' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.PremiseFloor.breach_strictly_below' does not depend on any axioms
++##   'Snuffy.PremiseFloor.reversible_administration_forced' does not depend on any axioms
++##   'Snuffy.ReciprocityCeiling.reciprocity_dominance' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReciprocityCeiling.omitting_rival_strictly_below' does not depend on any axioms
++##   'Snuffy.ReciprocityCeiling.ceiling_achievable' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.cyc_succ_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.adj_succ_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.norm_cyc_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.norm_adj_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.inner_cyc' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.cyc_fix' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.mem_of_norm_adj_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.energy' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.iter_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.iter_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.norm_iter_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.iter_fix' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.tendsto_iter_sub_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.tendsto_zero_of_mem_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.tendsto_cyc_iter' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Cyclic.presentation_detector' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianTail.gaussian_lower_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianTail.carrier_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianTail.necessary_radius_of_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianTail.x3_work_from_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DeductionBoundary.rank_criterion' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DeductionBoundary.context_maps_image' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DeductionBoundary.boundary_mem_image' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DeductionBoundary.anchor_untouched' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Reflection.residual_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Reflection.apriori_error' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Reflection.stopping_count' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Reflection.zero_constant_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Trotter.norm_exp_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Trotter.norm_exp_sub_one_sub_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Trotter.norm_exp_mul_exp_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Trotter.norm_exp_sum_sub_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Trotter.trotter_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Trotter.trotter_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Trotter.lloyd_simulation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Irreplaceability.destroy_loses_exactly' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Irreplaceability.preserve_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Irreplaceability.optimal_keeps_most_irreplaceable' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Information.fst_process' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Information.snd_process' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Information.data_processing' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Information.data_processing_map' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.anchor_preserved' does not depend on any axioms
++##   'Snuffy.contradiction_collapse' does not depend on any axioms
++##   'Snuffy.bot_absorb' does not depend on any axioms
++##   'Snuffy.anchor_preserved_over' does not depend on any axioms
++##   'Snuffy.meetAll_bot' does not depend on any axioms
++##   'Snuffy.collapse_over' does not depend on any axioms
++##   'Snuffy.consistent_preserved' does not depend on any axioms
++##   'Snuffy.MeetHilbert.hilbert_anchor_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.MeetHilbert.hilbert_contradiction_collapse' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.MeetHilbert.contradiction_detected' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.MeetHilbert.deduction_never_rolls_back' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FiniteInformation.log_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FiniteInformation.margH_process' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FiniteInformation.margY_process' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FiniteInformation.data_processing_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FiniteInformation.flag_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FiniteInformation.decoder_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FiniteInformation.necessary_radius_from_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.AreaBridge.logdet_le_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.AreaBridge.channel_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.AreaBridge.required_traffic' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.AreaBridge.area_power' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.UniversalProtection.coverage_invariant' does not depend on any axioms
++##   'Snuffy.UniversalProtection.universal_protection' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Workload.fifo_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Workload.fifo_deadlines' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Workload.fifo_tight' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Workload.serial_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Workload.range_variance_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Fano.max_entropy' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Fano.fano_single' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Fano.fano' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Fano.mi_eq_ent_sub_condEnt' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Fano.required_information' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianKL.rnDeriv_gaussian_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianKL.log_gaussianPDFReal' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianKL.llr_gaussian_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianKL.integral_sq_sub_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianKL.klDiv_gaussian_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Information.klDiv_map_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Information.golden_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Information.mutualInfo_le_klDiv' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianChannel.chan_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianChannel.integral_quadratic_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianChannel.measurable_quad' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianChannel.llr_chan' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianChannel.coe_outVar' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianChannel.klDiv_chan' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianChannel.gaussian_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.KLAdditivity.prod_eq_compProd' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.KLAdditivity.klDiv_map_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.KLAdditivity.compProd_prod_assoc' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.KLAdditivity.compProd_prod_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.KLAdditivity.klDiv_prod_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianChannelGen.chanW_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianChannelGen.measurable_quadW' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianChannelGen.llr_chanW' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianChannelGen.coe_outVarW' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianChannelGen.klDiv_chanW' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianVector.isMarkov_vecChan' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianVector.isProb_refMeas' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianVector.klDiv_compProd_map_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianVector.varW_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianVector.klDiv_vecChan' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianVector.vector_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GaussianVector.vector_channel_trace_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Whitening.mutualInfo_map_snd_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Whitening.mutualInfo_kernel_map_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Whitening.pi_eq_map_eSucc' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Whitening.vecChan_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Whitening.multivariateGaussian_one_eq_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Whitening.isUnit_det_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Whitening.wht_mul_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Whitening.sqrt_mul_wht' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Whitening.toEuclideanCLM_mul_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Whitening.whiten' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Whitening.corrChan_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Whitening.measurable_whtSignal' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Whitening.correlated_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Rotation.multivariateGaussian_one_map_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Rotation.measurable_rotSignal' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Rotation.rotated_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.LogDet.cov_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.LogDet.var_lincomb' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.LogDet.rotSignal_eigen' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.LogDet.var_rot_eq_eigenvalue' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.LogDet.det_one_add' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.LogDet.logdet_channel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Law.exists_aligned' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Law.lexLt_first_le' depends on axioms: [propext]
++##   'Snuffy.Law.life_guard' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Law.scope_guarantee_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Law.same_priority_admits_needless_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Law.faithful_hold_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Law.faithful_hold_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SpeedLimit.norm_le_of_inner_deriv_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SpeedLimit.angle_le_chord' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SpeedLimit.angle_le_speed_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SpeedLimit.re_inner_gen_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SpeedLimit.norm_conserved' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SpeedLimit.branchA_divergence' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SpeedLimit.branchA_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SpeedLimit.mandelstam_tamm' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SpeedLimit.orthogonalization_time' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.kl_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.mul_log_div_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.sum_margA' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.sum_margB' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.mutualInfo_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.mutualInfo_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.ent_le_ent_marg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.partition_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.gibbs_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.gibbs_sum_one' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.log_gibbs' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.ent_gibbs' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.ent_le_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.evolve_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.evolve_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.ent_evolve' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.reeb_wolf_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.landauer' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.landauer_erasure' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.guard_one' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Landauer.cycle_work_floor_derived' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.vnEnt_eq_roots' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.vnEnt_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.vnEnt_unitary_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.vnEnt_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.diag_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.row_normSq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.col_normSq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.vnEnt_le_diag' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.diag_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.diag_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.UH_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.H_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.energy_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.vnEnt_le_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.gibbsState_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.gibbsState_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.gibbsState_diag' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.gibbsState_trace'' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.gibbsState_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.vnEnt_gibbsState' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.ptrA_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.sum_star_mul_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.ptrA_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.ptrB_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.init_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.finalState_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.finalState_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.vnEnt_init' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.quantum_landauer' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.quantum_guard_one' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.QuantumLandauer.quantum_cycle_work_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Threshold.prob_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Threshold.prob_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Threshold.filter_subset_powersetCard' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Threshold.many_faults' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Threshold.fail_le_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Threshold.fail_le_geometric' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Threshold.repetition_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Threshold.two_sqrt_pow_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Threshold.repetition_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Threshold.poly_geom_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Threshold.family_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.UnionClosure.aligned_never_below' does not depend on any axioms
++##   'Snuffy.UnionClosure.dominates_of_affordable' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.UnionClosure.strict_of_affordable' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.UnionClosure.exists_union_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.UnionClosure.dominates_within_slack' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.UnionClosure.union_closed_of_affordable' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.UnionClosure.greatest_of_affordable' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.UnionClosure.aligned_eq_of_greatest' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.UnionClosure.greatest_of_solvent' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.UnionClosure.strict_of_solvent' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.UnionClosure.greatest_or_irrelevant' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.UnionClosure.insolvent_not_greatest' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SolventReciprocity.solvent_keeps_everyone' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SolventReciprocity.reciprocity_dominance_solvent' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.AffordableReciprocity.reciprocity_dominance_affordable' depends on axioms: [propext,
++##    Classical.choice,
++##    Quot.sound]
++##   'Snuffy.Bridge.coverage_from_law' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bridge.nearest_decodes' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bridge.exists_nearest_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bridge.holding_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bridge.qsl_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bridge.qsl_within_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bridge.headroom_within_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bridge.universal_protection_held' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bridge.holding_cycle_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Instruments.lindblad_reset_flow' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Instruments.lindblad_step' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Instruments.reset_contracts' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Instruments.tracking_recursion_derived' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Instruments.tracking_envelope_derived' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Instruments.branchC_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Instruments.card_box' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Instruments.box_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Instruments.card_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Instruments.boundary_power' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.StrokeBookkeeping.ptrB_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.StrokeBookkeeping.controlled_mul_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.StrokeBookkeeping.mul_star_controlled_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.StrokeBookkeeping.controlled_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.StrokeBookkeeping.ptrB_controlled' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.StrokeBookkeeping.stroke_entropy_change' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.StrokeBookkeeping.stroke_identity_derived' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bennett.bennett_step' depends on axioms: [propext]
++##   'Snuffy.Bennett.bennett_compute_uncompute' depends on axioms: [propext, Quot.sound]
++##   'Snuffy.Bennett.ent_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bennett.negMulLog_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bennett.negMulLog_add_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bennett.negMulLog_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bennett.ent_eq_fiber' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bennett.ent_push_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bennett.ent_push_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bennett.heat_reversible' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bennett.heat_irreversible' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Bennett.premise5_from_bennett' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Concatenated.distance3_corrects_one' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Concatenated.lift_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Concatenated.fails_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Concatenated.card_lift' depends on axioms: [propext, Quot.sound]
++##   'Snuffy.Concatenated.disjoint_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Concatenated.card_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Concatenated.card_witnesses' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Concatenated.concatenated_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.Concatenated.concatenated_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReasonsCompiled.reciprocity_expectation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReasonsCompiled.reciprocity_canonical_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReasonsCompiled.reciprocity_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReasonsCompiled.reciprocity_from_solvency' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReasonsCompiled.controller_pays_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReasonsCompiled.controller_floor_diverges' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.mul_of_idOutside' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.rad_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.conj_rad' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.givens_idOutside' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.givens_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.one_idOutside' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.rad_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.elim_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.elim_idOutside' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.elim_kills' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.idOutside_row' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.idOutside_keeps_col' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.col_zero_above' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.clear_below' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.phase_idOutside' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.phase_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.phase_mul_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.next_column' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.star_list_prod'' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.star_twoLevel' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TwoLevel.two_level_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ErrorBudget.prod_norm_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ErrorBudget.map_prod_norm_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ErrorBudget.two_factor_step' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ErrorBudget.telescoping_delta' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ErrorBudget.error_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenGate.kraus_branch_preserves_support' depends on axioms: [propext]
++##   'GeminiThirteenGate.kraus_sum_preserves_support' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenGate.support_preservation_composes' does not depend on any axioms
++##   'GeminiThirteenRisk.weighted_markov' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenRisk.event_mass_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenRisk.intersection_mass_le_each' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenRisk.positive_work_tail_control' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenRisk.dependent_chain_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenQueue.exponential_service_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenQueue.exponential_service_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenQueue.positive_deadline_miss_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenQueue.small_mean_does_not_make_tail_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenBandwidth.normalized_susceptibility' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenBandwidth.exact_bandwidth_sensitivity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenBandwidth.finite_positive_sensory_access_remains' depends on axioms: [propext,
++##    Classical.choice,
++##    Quot.sound]
++##   'GeminiThirteenBandwidth.bandwidth_bias_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenAnalysis.integrating_factor_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenAnalysis.linear_barrier_preserves_safety' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenAnalysis.exponential_transient_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenAnalysis.integrated_exponential_transient' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenAnalysis.integrated_transient_cost_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenAnalysis.continuation_hazard_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenAnalysis.heterogeneous_quadratic_cost_identity' depends on axioms: [propext,
++##    Classical.choice,
++##    Quot.sound]
++##   'GeminiThirteenAnalysis.heterogeneous_uniform_is_not_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenAnalysis.eventually_better_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenExecution.ranked_trace_length' depends on axioms: [propext, Quot.sound]
++##   'GeminiThirteenExecution.ranked_polynomial_step_bound' depends on axioms: [propext, Quot.sound]
++##   'GeminiThirteenExecution.total_penalty_excludes_all_members_gaining' depends on axioms: [propext,
++##    Classical.choice,
++##    Quot.sound]
++##   'GeminiThirteenExecution.real_lyapunov_descent_need_not_terminate' depends on axioms: [propext,
++##    Classical.choice,
++##    Quot.sound]
++##   'GeminiThirteenMetric.embedding_distance_stability' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenMetric.protected_close_edge_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenMetric.protected_separated_edge_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiThirteenSemantics.identity_is_bijective' does not depend on any axioms
++##   'GeminiThirteenSemantics.flipped_is_bijective' depends on axioms: [propext]
++##   'GeminiThirteenSemantics.two_distinct_lossless_maps' does not depend on any axioms
++##   'GeminiThirteenSemantics.calibrated_reference_fixes_binary_mapping' depends on axioms: [Quot.sound]
++##   'GeminiBridgeD1.dynamic_survival_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeD1.hazard_grows_without_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeD1.positive_accumulated_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeD1.increasing_hazard_does_not_erase_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeD1.exact_discounted_dominance_criterion' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeD1.undiscounted_finite_crossover' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeE9.reaction_before_damage' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeE9.positive_propagation_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeE9.local_buffer_covers_entire_reaction' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeE9.escrow_prevents_pre_detection_application' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeE9.incidence_has_circulation_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeE9.lost_circulation_need_not_change_divergence' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH6.charged_transition_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH6.no_infinite_paid_run' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH6.budget_exhaustion_need_not_be_fixed' does not depend on any axioms
++##   'GeminiBridgeH6.current_residual_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH6.next_residual_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH7.rate_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH7.denominator_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH7.equilibrium_is_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH7.fixed_point_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH7.exact_transient' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH7.equilibrium_private_evidence_sensitivity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH7.stubborn_anchor_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH7.private_evidence_sensitivity_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH7.exact_bias_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH8.variance_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH8.uniform_global_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH8.equality_only_at_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH8.blend_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH8.blend_cap_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH8.exact_excess_decay' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH8.gradient_flow_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH8.flow_coefficient_in_unit_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiBridgeH8.original_upper_fails_along_restoring_flow' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReasonsRoute.optionValue_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReasonsRoute.optionValue_expectation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReasonsRoute.optionValue_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReasonsRoute.law_protects_everyone' does not depend on any axioms
++##   'Snuffy.ReasonsRoute.indicator_law' depends on axioms: [propext, Quot.sound]
++##   'Snuffy.ReasonsRoute.law_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReasonsRoute.law_dominates_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReasonsRoute.rival_fraction_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ReasonsRoute.rival_fraction_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SensorTail.sensor_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SensorTail.sensor_law_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.ConsensusRate.bandwidth_contraction' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RGFixedPoint.sq_root' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RGFixedPoint.gstar_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RGFixedPoint.fixed_relation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RGFixedPoint.beta_gstar' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RGFixedPoint.eigenvalue_gstar' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RGFixedPoint.beta_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RGFixedPoint.beta_pos_below' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.RGFixedPoint.beta_neg_above' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FinalClosure.verifier_bound_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FinalClosure.proxy_ungameable_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FinalClosure.proxy_gameable' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FinalClosure.pruning_lowers_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FinalClosure.living_unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FinalClosure.pruning_all_stalls' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FinalClosure.void_strictly_below' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FinalClosure.void_never_chosen' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FinalClosure.dominance_channels' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FinalClosure.coop_more_efficient' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FinalClosure.stewardship_sustains' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FinalClosure.extraction_depletes' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FinalClosure.sustained_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H8Bound.one_sub_u_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H8Bound.h8_of_concentration_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H8Bound.h8_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H8Bound.h8_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H8Bound.routing_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.H8Bound.h8_routed' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CorrelatedStress.many_touching' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.CorrelatedStress.correlated_stress' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.LatticeLaplacian.symmetric_slope' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.LatticeLaplacian.ratio_eq_slope' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.LatticeLaplacian.second_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.LatticeLaplacian.lattice_laplacian' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SafeGenesis.migration_progress' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.SafeGenesis.safe_genesis' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTAdaptiveConsensus.weighted_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTAdaptiveConsensus.anchored_update_error' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTAdaptiveConsensus.adaptive_history_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTCascadeCore.workload_deadline' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTCascadeCore.recursive_queue_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTCascadeCore.multi_epoch_entropy_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTCascadeCore.spectrum_expectation_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTCascadeCore.atomic_headroom' depends on axioms: [propext, Quot.sound]
++##   'UPTCascadeCore.defection_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTCascadeCore.sustained_deficit_crosses_buffer' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTCascadeCore.buffer_threshold_crossed' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTDecisionAndScale.weighted_outcome_dominance' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTDecisionAndScale.continuation_gain_pays_overhead' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTDecisionAndScale.finite_branch_payoff_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTDecisionAndScale.duration_reward_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTDecisionAndScale.efficiency_gain_pays_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTDecisionAndScale.dominant_action_survives_mixture' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTDecisionAndScale.local_verifier_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTDecisionAndScale.two_provider_unique_balanced_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTEpistemicRoutes.surviving_disjoint_route' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTEpistemicRoutes.certified_repair_meets_deadline' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTGenerativeClosure.step_preserves_paid_activation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTGenerativeClosure.every_generated_active_is_funded' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTGenerativeClosure.reserve_does_not_displace_existing_agents' depends on axioms: [propext, Quot.sound]
++##   'UPTGenerativeClosure.generated_authority_stays_within_root' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReflectionContraction.complete_contraction_has_unique_fixed_point' depends on axioms: [propext,
++##    Classical.choice,
++##    Quot.sound]
++##   'UPTReflectionContraction.finite_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReflectionContraction.accuracy_within_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReflectionContraction.residual_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReflectionContraction.residual_tolerance' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReflectionContraction.post_update_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReflectionContraction.post_update_tolerance' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReflectionContraction.run_commutes' depends on axioms: [propext]
++##   'UPTReflectionContraction.paired_trajectory_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReflectionContraction.residual_geometric_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReflectionContraction.first_residual_stop_is_paid_and_accurate' depends on axioms: [propext,
++##    Classical.choice,
++##    Quot.sound]
++##   'UPTReflectionQuota.steps_bounded' depends on axioms: [propext, Quot.sound]
++##   'UPTReflectionQuota.quota_conserved' depends on axioms: [propext, Quot.sound]
++##   'UPTReflectionQuota.no_unbounded_paid_reflection' depends on axioms: [propext, Quot.sound]
++##   'UPTReflectionQuota.bounded_depth_can_cycle' does not depend on any axioms
++##   'UPTRestrictedModels.anchored_consensus_dissipation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTRestrictedModels.hhi_variance_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTRestrictedModels.uniform_shares_minimize_hhi' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTRestrictedModels.uniform_shares_are_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTRestrictedModels.quadratic_cost_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTRestrictedModels.conditional_product_pushforward' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTThermalBalance.intra_epoch_integral_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTThermalBalance.repair_before_buffer_exhaustion' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'transport_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'transport_ge_local' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'hhi_ge_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'monopoly_penalty' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'stable_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'delta_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'rate_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'debt_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'alloc_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_min_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'band_min_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'stable_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'delta_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'rate_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'debt_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'alloc_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_min_four_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'band_min_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'stable_rob_three_two' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'stable_rob_three_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_rob_three_two' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_rob_three_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_rob_three_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_rob_three_two_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_rob_three_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_rob_three_four_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'band_rob_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'stable_rob_four_two' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'stable_rob_four_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_rob_four_two' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_rob_four_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_rob_four_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_rob_four_two_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_rob_four_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'total_rob_four_four_le' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'band_rob_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'pool_bills' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'corrected_bill_saving' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'allocation_undercharge_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'allocation_undercharge_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'SnuffyFIFO.fifo_step' depends on axioms: [propext, Quot.sound]
++##   'SnuffyFIFO.finish_le_upper' depends on axioms: [propext, Quot.sound]
++##   'SnuffyFIFO.certified_prefix_meets_deadline' depends on axioms: [propext, Quot.sound]
++##   'UPTR16.map_iterate' depends on axioms: [propext]
++##   'UPTR16.tick_commutes' does not depend on any axioms
++##   'UPTR16.reactive_lockstep' depends on axioms: [propext]
++##   'UPT.Sub.refl' does not depend on any axioms
++##   'UPT.Sub.trans' does not depend on any axioms
++##   'UPT.U1' does not depend on any axioms
++##   'UPT.SSub.trans_sub' does not depend on any axioms
++##   'UPT.Sub.trans_ssub' does not depend on any axioms
++##   'UPT.lex_irrefl' does not depend on any axioms
++##   'UPT.lex_trans' does not depend on any axioms
++##   'UPT.lex_U1' does not depend on any axioms
++##   'UPT.freedom_first_U1_legacy' does not depend on any axioms
++##   'UPT.guard_first_stage' does not depend on any axioms
++##   'UPT.canonical_life_first_U1' does not depend on any axioms
++##   'UPT.life_guard' does not depend on any axioms
++##   'CodexCohold.reachable_closed' does not depend on any axioms
++##   'CodexCohold.reachable_least' does not depend on any axioms
++##   'CodexCohold.factorised_cohold' does not depend on any axioms
++##   'CodexCohold.outside_unchanged' does not depend on any axioms
++##   'CodexCohold.crossing_boundary_changes_outside_later' does not depend on any axioms
++##   'UPTR14Boundary.safe_step' depends on axioms: [propext, Quot.sound]
++##   'UPTR14Boundary.every_good_trace_safe' depends on axioms: [propext, Quot.sound]
++##   'UPTR14Boundary.journal_commutes' depends on axioms: [propext, Quot.sound]
++##   'UPTR14Boundary.sink_commutes' depends on axioms: [propext, Quot.sound]
++##   'UPTR14Boundary.outside_commutes' depends on axioms: [propext, Quot.sound]
++##   'UPTR14Boundary.harmful_effect_refused' depends on axioms: [propext, Quot.sound]
++##   'UPTR14Boundary.old_generation_refused' depends on axioms: [propext, Quot.sound]
++##   'UPTR14Boundary.external_weather_is_not_a_replica_fault' depends on axioms: [propext, Quot.sound]
++##   'UPTR14Boundary.recruitment_erasure' depends on axioms: [propext, Quot.sound]
++##   'UPTR14Boundary.recruitment_never_ends_care' depends on axioms: [propext, Quot.sound]
++##   'UPTR14Boundary.failure_has_a_named_exception' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR16CUT.different_has_unmediated_path' does not depend on any axioms
++##   'UPTR16CUT.outside_equal_of_cut' does not depend on any axioms
++##   'UPTR16CUT.r2_no_crossing' does not depend on any axioms
++##   'UPTReadoutJoint.block_det_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.shifted_det_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.cp_coeff_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.cp_coeff_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.iso01_shift_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.iso10_shift_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.blockA_shift_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.blockD_shift_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.block_shifted_det_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.quad_form_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.choi_form_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.positive_constant_not_cp' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.cp_constant_at_half_half' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.weight_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.chain_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.joint_record_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.chain_ge_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutJoint.hard_count_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutFollowup.determinant_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutFollowup.determinant_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutFollowup.strictly_positive_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutFollowup.spectral_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutFollowup.weight_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutFollowup.conditional_record_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTReadoutFollowup.baseline_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalD1.expected_value_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalD1.original_dominance_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalD1.lifetime_density_is_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalD1.lifetime_survival_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalD1.zero_ultimate_survival_with_positive_accumulated_value' depends on axioms: [propext,
++##    Classical.choice,
++##    Quot.sound]
++##   'GeminiOriginalInterfaces.finite_speed_indistinguishability' depends on axioms: [propext, Quot.sound]
++##   'GeminiOriginalInterfaces.no_sound_remote_alarm_before_arrival' depends on axioms: [propext, Quot.sound]
++##   'GeminiOriginalInterfaces.h5_local_rate_does_not_bound_total_entropy' depends on axioms: [propext,
++##    Classical.choice,
++##    Quot.sound]
++##   'GeminiOriginalH6.original_thermal_depth_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalH6.banked_rate_is_contractive' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalH6.banked_step_error' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalH6.banked_exact_error' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalH6.banked_paid_epsilon_accuracy' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalH6.original_thermal_premises_allow_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalH7.decay_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalH7.solves_original_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalH7.decay_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalH7.all_nonnegative_couplings_converge' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalH7.every_initial_pair_is_represented' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalH8.actual_minimum_is_one' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalH8.uniform_attains_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'GeminiOriginalH8.original_bound_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTController.tally_mono' depends on axioms: [propext, Quot.sound]
++##   'UPTController.quorum_has_honest' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTController.two_tallies_bound' depends on axioms: [propext, Quot.sound]
++##   'UPTController.quorum_intersection' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTController.committee_threshold' depends on axioms: [propext, Quot.sound]
++##   'UPTController.prefix_trans' depends on axioms: [propext]
++##   'UPTController.equal_length_prefixes' depends on axioms: [propext]
++##   'UPTController.certificates_do_not_equivocate' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTController.certificate_is_final' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTController.context_words_injective' depends on axioms: [propext]
++##   'UPTController.run_append' does not depend on any axioms
++##   'UPTController.step_floor_mono' depends on axioms: [propext, Quot.sound]
++##   'UPTController.run_floor_mono' depends on axioms: [propext, Quot.sound]
++##   'UPTController.grant_fields' depends on axioms: [propext]
++##   'UPTController.floor_fields' depends on axioms: [propext, Quot.sound]
++##   'UPTController.held_refuses' depends on axioms: [propext]
++##   'UPTController.retired_generation_refuses' depends on axioms: [propext, Quot.sound]
++##   'UPTController.pending_conflict_refuses' depends on axioms: [propext]
++##   'UPTController.closed_sequence_refuses' depends on axioms: [propext, Quot.sound]
++##   'UPTController.receipt_names_success' does not depend on any axioms
++##   'UPTController.certified_receipt_names_success' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTController.same_generation_no_context_conflict' depends on axioms: [propext]
++##   'UPTController.checkpoint_replay' does not depend on any axioms
++##   'UPTController.consume_once' depends on axioms: [propext]
++##   'UPTController.restart_disabled' depends on axioms: [propext]
++##   'UPTController.retained_floor_refuses' depends on axioms: [propext, Quot.sound]
++##   'UPTController.old_boot_refuses' depends on axioms: [propext, Quot.sound]
++##   'UPTController.deadline_refuses' depends on axioms: [propext, Quot.sound]
++##   'UPTController.issued_append' depends on axioms: [propext]
++##   'UPTController.emission_bounded' depends on axioms: [propext]
++##   'UPTController.issues_bounded_by_final_floor' depends on axioms: [propext, Quot.sound]
++##   'UPTController.step_stays_held' depends on axioms: [propext]
++##   'UPTController.held_issues_nothing' depends on axioms: [propext]
++##   'UPTController.grant_receipt_is_issued' depends on axioms: [propext]
++##   'UPTController.hold_bounds_every_issued_grant' depends on axioms: [propext, Quot.sound]
++##   'UPTFence.hold_safety' depends on axioms: [propext, Quot.sound]
++##   'UPTFence.raise_then_nothing_lands' depends on axioms: [propext, Quot.sound]
++##   'UPTFence.admission_only_lands_in_hold' depends on axioms: [propext, Quot.sound]
++##   'UPTFence.check_at_apply_refuses' depends on axioms: [propext, Quot.sound]
++##   'conserved_decomposes' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'regular_psi_is_hhi' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'hhi_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'monopoly_exceeds_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'h8_exact_general' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'thermal_ledger_positivity_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'thermal_ledger_positivity_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'jarzynski_bound_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'sensor_exp_positivity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'scaling_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'azuma_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'work_tv_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'coordinate_sensitivity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'telescoping_drop' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'semigroup_time_rescaling' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'ness_work_linear' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'work_floor_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'liquidation_triggers' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'zero_breach_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'bound_decays' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'escrow_ordering' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'fluctuation_bound_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'finishes_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'veto_envelope_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'alloc_completion_is_the_charge_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'control_lane_three_certified' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'finishes_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'veto_envelope_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'alloc_completion_is_the_charge_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'control_lane_four_certified' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'per_job_deadlines_three' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'per_job_deadlines_four' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'SnuffyFIFO.checks_iff' depends on axioms: [propext]
++##   'SnuffyFIFO.certified_mono' depends on axioms: [propext, Quot.sound]
++##   'SnuffyFIFO.certified_append' depends on axioms: [propext]
++##   'SnuffyFIFO.admission_preserves' depends on axioms: [propext]
++##   'SnuffyFIFO.completion_preserves' depends on axioms: [propext, Quot.sound]
++##   'SnuffyFIFO.cancellation_preserves' depends on axioms: [propext, Quot.sound]
++##   'SnuffyFIFO.all_occurrences_timely' depends on axioms: [propext, Quot.sound]
++##   'SnuffyFIFO.queue_step_preserves' depends on axioms: [propext, Quot.sound]
++##   'SnuffyFIFO.refinement_preserves_queue' depends on axioms: [propext, Quot.sound]
++##   'UPTR16.phase_tick_commutes' depends on axioms: [propext]
++##   'UPTR16.two_phase_lockstep' depends on axioms: [propext]
++##   'UPTR16Cut.closed_cut_step' does not depend on any axioms
++##   'UPTR16Cut.dependency_closure_step' does not depend on any axioms
++##   'UPTR16Cut.difference_has_bypass' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR16Cut.causal_separator' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR16Cut.closed_cut_reactive' does not depend on any axioms
++##   'UPTR16Cut.delayed_locality' depends on axioms: [propext]
++##   'UPTR16Cut.pending_is_in_cut' depends on axioms: [propext]
++##   'UPTR16Cut.private_cause_is_in_cut' depends on axioms: [propext]
++##   'UPTR16Cut.delayed_effect_countermodel' depends on axioms: [propext]
++##   'UPTR16Cut.omitted_edge_is_not_local' depends on axioms: [propext]
++##   'UPTR16CUTR14.journal_projection_step_ext' depends on axioms: [propext, Quot.sound]
++##   'UPTR16CUTR14.sink_projection_step_ext' depends on axioms: [propext, Quot.sound]
++##   'UPTR16CUTR14.outside_projection_step_ext' depends on axioms: [propext, Quot.sound]
++##   'UPTR16CUTR14.journal_outside_unchanged' depends on axioms: [propext, Quot.sound]
++##   'UPTR16CUTR14.sink_outside_unchanged' depends on axioms: [propext, Quot.sound]
++##   'UPTControllerFence.certified_hold_nothing_lands' depends on axioms: [propext, Quot.sound]
++##   'UPTControllerFence.both_targets_held' depends on axioms: [propext, Quot.sound]
++##   'typed_gate_decomposition' depends on axioms: [propext]
++##   'finish_interval_deadline' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'psi2_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'h8_bound_two_node' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR16R14.compromise_commutes' depends on axioms: [propext, Quot.sound]
++##   'UPTR16R14.project_step' depends on axioms: [propext, Quot.sound]
++##   'UPTR16R14.reference_two_phase_lockstep' depends on axioms: [propext, Quot.sound]
++##   'UPTR16.screened_fibre_lockstep' depends on axioms: [propext]
++##   'UPTR12A.words_injective' depends on axioms: [propext]
++##   'UPTR12A.grant_has_decision_scope' depends on axioms: [propext]
++##   'UPTR12A.same_generation_cannot_rebind' depends on axioms: [propext]
++##   'UPTR12A.finalized_receipt_is_in_log' does not depend on any axioms
++##   'UPTR12A.finalized_receipt_is_authorize' depends on axioms: [propext]
++##   'UPTR12A.changed_log_implies_checks' depends on axioms: [propext, Quot.sound]
++##   'UPTR12A.applied_effect_has_aligned_decision' depends on axioms: [propext, Quot.sound]
++##   'UPTR12A.raised_floor_refuses' depends on axioms: [propext, Quot.sound]
++##   'UPTR12A.wrong_effect_refuses' depends on axioms: [propext, Quot.sound]
++##   'UPTR12A.replay_refuses' depends on axioms: [propext, Quot.sound]
++##   'UPTR12A.original_fence_theorem_available' depends on axioms: [propext, Quot.sound]
++##   'UPTR17A.new_effect_has_current_permit' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR17A.drain_currently_authorized' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR17A.revoked_refuses' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR17A.expired_refuses' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR17A.installed_floor_refuses' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR17A.spend_is_funded' does not depend on any axioms
++##   'UPTR17A.application_has_source_binding' does not depend on any axioms
++##   'SnuffyFIFO.applied_fifo_effect_is_timely_and_authorized' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'SnuffyFIFO.ready_fifo_effect_applies_before_deadline' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR17AFunding.charged_append' depends on axioms: [propext]
++##   'UPTR17AFunding.atomic_target_append' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR17AFunding.application_conserves_funding' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR17AFunding.trace_conserves_funding' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR17AFunding.cumulative_charge_is_funded' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR17AFunding.used_ticket_refuses' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR17AFunding.accepted_ticket_is_consumed' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR17AFunding.replay_cannot_append' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'UPTR17AFunding.funded_admission_preserves' depends on axioms: [propext]
++##   'UPTR17AFunding.source_drain_preserves_reservation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'SnuffyWC.Lane.mono_le' does not depend on any axioms
++##   'SnuffyWC.unfinished_before' depends on axioms: [propext, Quot.sound]
++##   'SnuffyWC.carry_in_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'SnuffyWC.ceil_div_covers' depends on axioms: [propext, Quot.sound]
++##   'SnuffyWC.carry_in_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'SnuffyWC.no_service_no_completion' depends on axioms: [propext, Quot.sound]
++##   'SnuffyWC.U_succ_succ' does not depend on any axioms
++##   'SnuffyWC.exec_le_envelope' depends on axioms: [propext, Quot.sound]
++##   'SnuffyWC.deadlines_met' depends on axioms: [propext, Quot.sound]
++##   'SnuffyWC.row_congr' depends on axioms: [propext]
++##   'SnuffyWC.tail_admission_invariant' depends on axioms: [propext]
++##   'SnuffyWC.tail_admission_preserves_certificates' depends on axioms: [propext]
++##   'SnuffyWC.applied_stage_effect_is_timely_and_authorized' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'SnuffyWC.timely_but_revoked_is_not_delivery' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TIWASource.outerUpdate_read_frozen' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TIWASource.freeze_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TIWASource.schedule_no_rework' depends on axioms: [propext, Quot.sound]
++##   'Snuffy.TIWASource.readyToFreeze_no_inFlight' depends on axioms: [propext, Quot.sound]
++##   'Snuffy.TIWAGuard.guard_data_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TIWAGuard.installGuard_monotone' depends on axioms: [propext, Quot.sound]
++##   'Snuffy.TIWARecovery.bounded_visits' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TIWARecovery.wave_count_at' does not depend on any axioms
++##   'Snuffy.TIWAWork.local_work_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TIWAWork.ball_work_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.TIWAWork.total_work_bound' does not depend on any axioms
++##   'Snuffy.TopRealisability.top_realisable_of_singletons' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.FaultCover.fault_cover' does not depend on any axioms
++##   'Snuffy.G2Singleton.g2_discharge_hsingle' depends on axioms: [propext]
++##   'Snuffy.G2Singleton.topRealisability_hsingle_discharged' depends on axioms: [propext]
++##   'Snuffy.G1Certificate.universal_protection_held' does not depend on any axioms
++##   'Snuffy.G1Executable.g1_admission_soundness' does not depend on any axioms
++##   'Snuffy.PhysicalGuard.factorization' does not depend on any axioms
++##   'Snuffy.PhysicalGuard.interior_unchanged' does not depend on any axioms
++##   'Snuffy.MeanErgodic.cesaro_mean_id' does not depend on any axioms
++##   'Snuffy.TemporalSafety.admit_of_secure' depends on axioms: [propext]
++##   'Snuffy.TemporalSafety.secure_preserved' depends on axioms: [propext]
++##   'Snuffy.TemporalSafety.trace_secure' depends on axioms: [propext]
++##   'Snuffy.WorkIntegration.work_bound' does not depend on any axioms
++##   'Snuffy.RelationalBridge.bridge_preserves_safety' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.MeanErgodicDeep.cesaro_id' does not depend on any axioms
++##   'Snuffy.MeanErgodicDeep.id_fixes_all' does not depend on any axioms
++##   'Snuffy.GuardFactorization.commutativity' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GuardFactorization.factorization_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.G1Complete.g1_append_safe' depends on axioms: [propext]
++##   'Snuffy.G2Outcome.g2_compose_valid' depends on axioms: [propext]
++##   'Snuffy.G3WorkBill.g3_append_work_bill' depends on axioms: [propext]
++##   'Snuffy.Htopkeeps.htopkeeps' does not depend on any axioms
++##   'SnuffyLocal.local_trajectory_growth_valid' does not depend on any axioms
++##   'SnuffyLocal.tpt_state_preservation' does not depend on any axioms
++##   'Snuffy.G1FullDomain.g1_source_exhaustive' does not depend on any axioms
++##   'Snuffy.G1FullDomain.g1_fault_taxonomy_exhaustive' depends on axioms: [propext]
++##   'Snuffy.G1FullDomain.g1_append_preserves' depends on axioms: [propext]
++##   'Snuffy.G2WholeOutcome.g2_authorized_implies_closed' does not depend on any axioms
++##   'Snuffy.G2WholeOutcome.g2_authorized_implies_positive_work' does not depend on any axioms
++##   'Snuffy.G2WholeOutcome.g2_compose_valid' depends on axioms: [propext]
++##   'Snuffy.G3CompleteBill.g3_success_implies_bound' depends on axioms: [propext]
++##   'Snuffy.G3CompleteBill.g3_compose_valid' depends on axioms: [propext]
++##   'Snuffy.G3CompleteBill.g3_wave_count_nonnegative' does not depend on any axioms
++##   'Snuffy.G3CompleteBill.cumulative_charge_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.G3CompleteBill.valid_work_bill_from_complete_ledger' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.G3CompleteBill.valid_bill_bound_in_age' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.GuardOperator.guard_within_tolerance' depends on axioms: [propext]
++##   'Snuffy.GuardOperator.guard_exceeds_tolerance' depends on axioms: [propext]
++##   'Snuffy.HamiltonianDecomposition.total_is_sum' does not depend on any axioms
++##   'Snuffy.HamiltonianDecomposition.boundary_confinement_positive' does not depend on any axioms
++##   'Snuffy.GuardSignature.guard_idempotent' does not depend on any axioms
++##   'Snuffy.WorkBilling.work_nonnegative' does not depend on any axioms
++##   'Snuffy.WorkBilling.work_bound_preserved' does not depend on any axioms
++##   'Snuffy.DecoderRetraction.decode_encode' does not depend on any axioms
++##   'Snuffy.DecoderRetraction.finite_code_recovery' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.nonvanishing_of_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
++##   'Snuffy.DecoderRetraction.finite_code_self_grounding' depends on axioms: [propext, Classical.choice, Quot.sound]
++## axiom audit exit=0
++## theorems/lemmas audited: 896; expected: 896; non-standard axiom dependencies: none
++##   ## completeness: canon 144, corpus names 59, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 105
++##   ## build/audit coverage: canon 144, build 144, audit 144, errors 0
++##   ## claims: audited theorems 896, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
++## source changes during verification: none
+ ## source sha256:
+ ##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
+ ##   4b416646e1fc8f74f524e0f9a680384e35e06adacd69f91bb30dcec70b921b7e  Snuffy/AffordableReciprocity.lean
+@@ -307,7 +1242,7 @@
+ ##   aa67f92c0cd71d1d246576d47dda71e819e6bec52e3ec3633ce9de1b54d87414  Snuffy/CyclicProjections.lean
+ ##   c59d5eac1b24cca21a2581f64fbb37c74d6517c5a91d03b7866469d6c6c19172  Snuffy/DataProcessing.lean
+ ##   c91607cc89eb3bcb6be6a3c546816bf69f336f0246c57cca685aa189df5d6507  Snuffy/DecisionAndScale.lean
+-##   9584624b0a6c3a2b86b4518b4cd76768857862d0cd069ae58b1f4dce4774cb16  Snuffy/DecoderRetraction.lean
++##   139718482987644252addfed7178efb60755bea65d66ea9987050721c967b523  Snuffy/DecoderRetraction.lean
+ ##   7564d8e303e2832617e52d597c0affd33bf9dd96b96541f0c62257b885dd1e6e  Snuffy/DeductionBoundary.lean
+ ##   980c8b3c290ad8298a5efccb85f66564195679daa59802a1bb47782ae9ae9d1f  Snuffy/E9Routes.lean
+ ##   a5e8804486c94667262516d164cebaac3a5063108864f261a3583547e2ad09f2  Snuffy/E9SelfHealing.lean
+@@ -326,7 +1261,7 @@
+ ##   5f63e5aef491836fc6675e446fe5a2a106ed7ff5e8a891dd329a853b677bfaee  Snuffy/G2Outcome.lean
+ ##   139d7a503fbd004f1fc178a2f9cc054d471ac48c8b5dee32e298740030a2867e  Snuffy/G2Singleton.lean
+ ##   103220c7cad4c69a5c3170a3b5be9d14ad447d895ebafc39bb6b553428ae84d5  Snuffy/G2WholeOutcome.lean
+-##   5c08b5930f47b0d8c9fecde5ed67879b501cb74f1c4333dbe3c4a8961e8bf250  Snuffy/G3CompleteBill.lean
++##   653ec5e2fd542eb51cd174d0cd7d6fb647e1bea99a469448624f068a7bdee38b  Snuffy/G3CompleteBill.lean
+ ##   c9f0785d0958de799e259636534af41f7f68f2f1d124fc686410ffc08a65a809  Snuffy/G3WorkBill.lean
+ ##   f3409eced84bc9b69bd8560427edeabf40c4a069834231bfa9a16b0ea07807cb  Snuffy/GateSupport.lean
+ ##   058dd64dd7f47621403bed64f2df232e9ac113e91d927293725c4d6709c9de9c  Snuffy/GaussianChannel.lean
+@@ -339,7 +1274,7 @@
+ ##   d21be5cb40a8a4d07e91bdaef149a7b61174ae7bc545c62562b3ce9c46f6613d  Snuffy/Greatestness.lean
+ ##   cf60d764670e729bf00a7182121f1924fa609dcafde9fe666ccb471f216d50c5  Snuffy/GuardFactorization.lean
+ ##   db15ea3027dda06fa32620e2b7c5542dc68b7d2d31efcb2957011ced43077948  Snuffy/GuardOperator.lean
+-##   314eee47486074e5d63e8c3de67c938c0fa2b07ef07aeade28809d8e8f5ae248  Snuffy/GuardSignature.lean
++##   dd128c497f9ab78d4df360a25a762b8341084940c6659e37033f3c12ce5e9400  Snuffy/GuardSignature.lean
+ ##   d39dfc51423b0f9eb9aef9674eaa0abfd5426ee18845539004e1f91312dcc88d  Snuffy/H5Closure.lean
+ ##   e5bd4636e808952a30e22b9d8512a21b6f7c7c2c4bb00e794027a22d16516a91  Snuffy/H8Bound.lean
+ ##   c6a9d6f150f2096d096084507ae940e2198c7bf8a16b8f2d06a42a07fea593ff  Snuffy/HalperinDecay.lean
+@@ -425,5 +1360,5 @@
+ ##   22a3adc81fd363e424b2add032d4141bf34ae27ccb10839774f2b6690a0d61a5  Snuffy/WorkBilling.lean
+ ##   a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1  Snuffy/WorkIntegration.lean
+ ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
+-##   3f0085ee510813f97905cb19d7a486c890ac2100a3e2bcd0cef8450c75481579  SummitsAudit.lean
+-## overall: FAIL
++##   8e6eb5b59359166b377be1662ff743edaeca46c2888639608a7a26e4c0473e16  SummitsAudit.lean
++## overall: PASS
+--- before/lean/PROOF-STATE.md
++++ after/lean/PROOF-STATE.md
+@@ -1,6 +1,10 @@
+ # Proof state
+ 
+-Canon modules: 139. Corpus module names: 51. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105.
++Canon modules: 144. Corpus module names: 59. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
++
++## Build and audit coverage
++
++Build modules: 144. Audit imports: 144.
+ 
+ ## Skipped by directory policy (visible, not checked — listed every audit)
+ 
+@@ -140,6 +144,7 @@
+ | `CyclicProjections` | yes | `(canon only)` |
+ | `DataProcessing` | yes | `(canon only)` |
+ | `DecisionAndScale` | yes | `2026-10-23-adoption-contracts/lean/DecisionAndScale.lean` |
++| `DecoderRetraction` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/DecoderRetraction.lean` |
+ | `DeductionBoundary` | yes | `(canon only)` |
+ | `E9Routes` | yes | `2026-10-23-adoption-contracts/lean/E9Routes.lean` |
+ | `E9SelfHealing` | yes | `(canon only)` |
+@@ -154,11 +159,11 @@
+ | `G1Certificate` | yes | `(canon only)` |
+ | `G1Complete` | yes | `(canon only)` |
+ | `G1Executable` | yes | `(canon only)` |
+-| `G1FullDomain` | yes | `(canon only)` |
++| `G1FullDomain` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/G1FullDomain.lean` |
+ | `G2Outcome` | yes | `(canon only)` |
+ | `G2Singleton` | yes | `(canon only)` |
+-| `G2WholeOutcome` | yes | `(canon only)` |
+-| `G3CompleteBill` | yes | `(canon only)` |
++| `G2WholeOutcome` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/G2WholeOutcome.lean` |
++| `G3CompleteBill` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/G3CompleteBill.lean` |
+ | `G3WorkBill` | yes | `(canon only)` |
+ | `GateSupport` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/GateSupport.lean` |
+ | `GaussianChannel` | yes | `(canon only)` |
+@@ -170,9 +175,12 @@
+ | `GoldenFormula` | yes | `(canon only)` |
+ | `Greatestness` | yes | `(canon only)` |
+ | `GuardFactorization` | yes | `(canon only)` |
++| `GuardOperator` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/GuardOperator.lean` |
++| `GuardSignature` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/GuardSignature.lean` |
+ | `H5Closure` | yes | `(canon only)` |
+ | `H8Bound` | yes | `(canon only)` |
+ | `HalperinDecay` | yes | `(canon only)` |
++| `HamiltonianDecomposition` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/HamiltonianDecomposition.lean` |
+ | `Htopkeeps` | yes | `(canon only)` |
+ | `Instruments` | yes | `(canon only)` |
+ | `IntegrationCertificate` | yes | `2026-10-24-glm-phase-a/lean/IntegrationCertificate.lean` |
+@@ -251,5 +259,6 @@
+ | `UnionClosure` | yes | `(canon only)` |
+ | `UniversalProtection` | yes | `(canon only)` |
+ | `Whitening` | yes | `(canon only)` |
++| `WorkBilling` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/WorkBilling.lean` |
+ | `WorkIntegration` | yes | `(canon only)` |
+ | `Workload` | yes | `(canon only)` |
+--- before/inserts/23-machine-checked-canon.md
++++ after/inserts/23-machine-checked-canon.md
+@@ -208,11 +208,11 @@
+ | `ReasonsRoute` | `optionValue_pointwise`, `optionValue_expectation`, `optionValue_strict`, `law_protects_everyone`, `indicator_law`, `law_dominates`, `law_dominates_strict`, `rival_fraction_le_one`, `rival_fraction_lt_one` |
+ | `SensorTail` | `sensor_tail`, `sensor_law_tail` |
+ | `ConsensusRate` | `bandwidth_contraction` |
+-| `RGFixedPoint` | `gstar_pos`, `beta_gstar`, `eigenvalue_gstar`, `beta_pos_below`, `beta_neg_above` |
++| `RGFixedPoint` | `sq_root`, `gstar_pos`, `fixed_relation`, `beta_gstar`, `eigenvalue_gstar`, `beta_factor`, `beta_pos_below`, `beta_neg_above` |
+ | `FinalClosure` | `verifier_bound_iff`, `proxy_ungameable_iff`, `proxy_gameable`, `pruning_lowers_rate`, `living_unbounded`, `pruning_all_stalls`, `void_strictly_below`, `void_never_chosen`, `dominance_channels`, `coop_more_efficient`, `stewardship_sustains`, `extraction_depletes`, `sustained_iff` |
+-| `H8Bound` | `h8_of_concentration_bound`, `h8_graph`, `h8_iff`, `routing_bound`, `h8_routed` |
+-| `CorrelatedStress` | `correlated_stress` |
+-| `LatticeLaplacian` | `second_difference`, `lattice_laplacian` |
++| `H8Bound` | `one_sub_u_pos`, `h8_of_concentration_bound`, `h8_graph`, `h8_iff`, `routing_bound`, `h8_routed` |
++| `CorrelatedStress` | `many_touching`, `correlated_stress` |
++| `LatticeLaplacian` | `symmetric_slope`, `ratio_eq_slope`, `second_difference`, `lattice_laplacian` |
+ | `SafeGenesis` | `migration_progress`, `safe_genesis` |
+ | `AdaptiveConsensus` | `weighted_error_bound`, `anchored_update_error`, `adaptive_history_error_bound` |
+ | `CascadeCore` | `workload_deadline`, `recursive_queue_bound`, `multi_epoch_entropy_bound`, `spectrum_expectation_floor`, `atomic_headroom`, `defection_deficit`, `sustained_deficit_crosses_buffer`, `buffer_threshold_crossed` |
+@@ -279,7 +279,12 @@
+ | `SnuffyLocal` | `local_trajectory_growth_valid`, `tpt_state_preservation` |
+ | `G1FullDomain` | `g1_source_exhaustive`, `g1_fault_taxonomy_exhaustive`, `g1_append_preserves` |
+ | `G2WholeOutcome` | `g2_authorized_implies_closed`, `g2_authorized_implies_positive_work`, `g2_compose_valid` |
+-| `G3CompleteBill` | `g3_success_implies_bound`, `g3_compose_valid`, `g3_wave_count_nonnegative` |
++| `G3CompleteBill` | `g3_success_implies_bound`, `g3_compose_valid`, `g3_wave_count_nonnegative`, `cumulative_charge_bound`, `valid_work_bill_from_complete_ledger`, `valid_bill_bound_in_age` |
++| `GuardOperator` | `guard_within_tolerance`, `guard_exceeds_tolerance` |
++| `HamiltonianDecomposition` | `total_is_sum`, `boundary_confinement_positive` |
++| `GuardSignature` | `guard_idempotent` |
++| `WorkBilling` | `work_nonnegative`, `work_bound_preserved` |
++| `DecoderRetraction` | `decode_encode`, `finite_code_recovery`, `nonvanishing_of_continuation`, `finite_code_self_grounding` |
+ <!-- END THEOREM INDEX -->
+ 
+ ---
+--- before/SNUFFY-CANON-EDITION-4.2-MASTER.md
++++ after/SNUFFY-CANON-EDITION-4.2-MASTER.md
+@@ -8,7 +8,7 @@
+ 
+ The same three joined supports being supplied by the author and Gemini remain visible in Part III-C: the combined full-domain physical certificate (G1), the realisability of the whole greatest outcome tuple (G2), and the supplied X3 wavefront protocol's success and complete-work certificate (G3). Their targets are unchanged. Naming an input or relabelling a conclusion does not supply its construction.
+ 
+-The accompanying 115-module Lean source is unchanged from the existing audited canon. Its preserved receipt records 115 clean compilations, 115 kernel checks, 831 audited theorems, standard axioms only and overall PASS. These are existing verification results, not a new compilation of this prose draft.
++The current Lean tree contains 144 modules and 896 audited public theorem/lemma names. The combined receipt reuses Beam's 136 clean compilation/kernel results after source and object hash checks, adds eight freshly compiled and kernel-checked modules, and records a fresh full axiom audit, completeness and claims gates with overall PASS. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
+ 
+ **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports in progress. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
+ 
+@@ -131,6 +131,11 @@
+ \]
+ 
+ No premise in this cycle asks the perturbing agent to want preservation. Its source, event, observation and fault-account construction for the full physical domain is the joined support requested in **G1** in Part III-C. The existing cycle and its derivations remain incorporated while that construction is supplied.
++
++
++**Connection to the supplied decoder interface.** `DecoderRetraction.finite_code_recovery` constructs the supplied `DecoderPair` from this existing finite nearest-codeword theorem. Encoding is the inclusion of the maintained code; decoding returns a codeword. The nearest-point inequality at a clean record has distance zero, so decoding after encoding is the identity. The same constructed pair corrects every received word within the radius above. The retraction and its noisy-input guarantee are derived together.
++
++**A non-vanishing maintained witness.** If the physical null state is represented by zero and \(\varepsilon<d(c_x,0)\), continuation implies \(a_x\ne0\): otherwise \(d(a_x,c_x)=d(c_x,0)>\varepsilon\). This is `DecoderRetraction.nonvanishing_of_continuation`. The initial record, its separation from null, the funded controller and the source refinement supply this operational persistence. The full scope of particulars remains the scope established in II.1.
+ 
+ ## II.4 Tracking follows from the controller
+ 
+@@ -1215,6 +1220,51 @@
+ 
+ The accompanying `TIWA-PATCH-REQUIREMENTS.md` specifies the actual state, event transitions, application-time fences, noninterference proof, decoder-success proof, bounded visits, full ledger and compilation obligations. It is a construction specification; no new physical guard or Lean theorem is claimed by giving it a name.
+ 
++
++#### 21.7.5 Boundary encoding, a sliding window, and the complete bill
++
++The supplied continuation of TIWA keeps a fixed-width active window of shells and transfers a retiring patch's protected historical and relational record to the next boundary code. Let the window width be \(L\), independent of age. With the disjoint shells already defined, put
++
++\[
++A_k=\bigcup_{\max(0,k-L+1)\le j\le k}S_j.
++\]
++
++Every vertex of \(S_j\) belongs to at most \(L\) such windows. Hence the total active vertex-time count is at most \(L|B_R|\). This is a constant-overlap extension of the settled telescoping count; it needs no separate upper bound on each shell's surface area. If each active visit's complete charge is at most \(K\), the window work is at most \(KL|B_R|\). The charge includes holding, decoding, guard operation, control, routing, verification, routine ancilla reset, deployment and handoff. Continuing physical work outside that window must also remain in the complete ledger.
++
++The boundary handoff has the original preservation target: a recovery of the encoded record must return its historical state and relations at the same fidelity standard. In symbols, the actual source maps must supply \(\mathcal R_k\mathcal E_k\simeq_\varepsilon\mathrm{id}\) on that full record, including its reference correlations. The code-capacity certificate and the physical implementation join this identity to the sliding-window charge. Section III-F records the supplied homological route and its chain-map correspondence.
++
++For the supplied per-wave certificate, write \(q_k\) for the complete non-rollback charge and suppose its constructed local bound is
++
++\[
++q_k\le\alpha k^{d_G-1}+\beta,\qquad k\ge1.
++\]
++
++Let \(F\) be fixed initial/final charge and \(r_k\in\{0,1\}\) the controller's metered local rollback flag, charged at most \(R_*\) per wave. This explicit schedule gives the pathwise bill
++
++\[
++\mathcal Q(N)=F+\sum_{k=1}^{N}(q_k+R_*r_k).
++\]
++
++Routine erasure is already in \(q_k\), including successful decoding. With \(d_G\ge1\) and \(N\ge1\), every \(k^{d_G-1}\le N^{d_G-1}\), so
++
++\[
++\sum_{k=1}^{N}k^{d_G-1}\le N^{d_G},\qquad
++\mathcal Q(N)\le(F+\alpha+\beta+R_*)N^{d_G}.
++\]
++
++This bound allows a metered rollback on every wave. An expected reset allowance is therefore unnecessary for the cost certificate. Successful recovery and any failed/rejected decoding still use the original charged fault accounts. Where the source admits more rollback operations, their actual count and cost must be included in \(q_k\) or separately bounded by the metering schedule.
++
++For \(N(t)\le at+b\) and \(t\ge1\), \(N(t)\le(a+b)t\), yielding the age-independent coefficient
++
++\[
++\mathcal Q(t)\le
++(F+\alpha+\beta+R_*)(a+b)^{d_G}t^{d_G}.
++\]
++
++`G3CompleteBill.cumulative_charge_bound` proves this cumulative implication in the existing natural-valued work-bill interface. `valid_work_bill_from_complete_ledger` derives `G3_ValidWorkBill` from the full ledger equality, local cost bounds and coefficient; `valid_bill_bound_in_age` supplies the wave-to-age conversion. The real-exponent argument is the displayed maximum-term proof. The constant-overlap calculation retains the full polynomial-growth graph domain when a per-shell surface upper estimate is unavailable.
++
++The remaining source correspondence is the actual boundary encoder, preserved semantic observables, storage capacity, charged retirement map and complete cost equality. These are the construction links of the same G1/G3 task; the cumulative upper inequality is not taken as its own input.
++
+ ### 21.8 Consequences for preservation and the fixed proof target
+ 
+ For a fixed local holding demand, continuous maintenance has an order-\(T\) bill; the derived delayed-recovery lower bound has order \(t^{d_G}\). The exponent distinction is strict for \(d_G>1\); the one-dimensional case retains its linear obstruction. For any fixed total recovery budget \(B\), the lower inequality already yields a finite age beyond which that budget cannot perform the stipulated recovery. This is budget-relative irrecoverability of the historical witness.
+@@ -1380,7 +1430,7 @@
+ 
+ ## Section 23 — The machine-checked canon
+ 
+-*This section records which results of the edition are compiled theorems, by module and theorem name, and what each compiled statement rests on. One hundred and fifteen Lean modules in `lean/Snuffy/` compile against Mathlib rev `56a005855ea1` (Lean 4.35.0) with exit 0 and zero compiler output, pass `leanchecker`, contain no `sorry`, and depend only on Lean's standard axioms (`propext`, `Classical.choice`, `Quot.sound`; several on fewer or none). The accompanying `lean/RECEIPT.txt` preserves the existing completed audit, source hashes and overall PASS; it is not a new audit of this manuscript. The unchanged audit tools accompany the copied source. The curated tables below map the results the edition's argument rests on; the complete canon — every compiled module, including the bridges, the verified bank modules and the original derivations folded in on 25 October — is indexed in §23.A, and the repository README's module table describes each curated module's content.*
++*This section maps the edition's compiled results and their actual hypotheses. The current source contains 144 modules and 896 audited public theorem/lemma names. The combined receipt records 136 reused clean compilation/kernel results, eight fresh compilation/kernel checks, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. The reused results are tied to the preserved Beam receipt and source/object hashes. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
+ 
+ *Evidence convention (unchanged from the edition header): a compiled theorem is cited by its name; a statement carried as a hypothesis of a compiled theorem is named as such; a prose derivation keeps its stated premises. A prose proof does not acquire a compiler certificate by association.*
+ 
+@@ -1513,6 +1563,22 @@
+ * the installation figures of §22, which are sourced measurements and design values (§22.5);
+ * the interpretive companion (the doors), which is held for consultation and is not mathematics.
+ 
++
++
++### 23.9 Supplied architecture interfaces and derived connections
++
++| Module | Verified result and current role |
++| --- | --- |
++| `G1FullDomain` | Source/fault enumeration and append-preserved event compliance; the full physical source and charged faults must supply their correspondence to `Bridge.hcert` |
++| `G2WholeOutcome` | Authorized transaction records are closed and record positive work; the whole continuation/freedom tuple and its realisability remain the G2 construction |
++| `G3CompleteBill` | `cumulative_charge_bound`, `valid_work_bill_from_complete_ledger` and `valid_bill_bound_in_age` derive the bill from complete metered local charges and the wave schedule |
++| `GuardOperator` | The threshold cases select the supplied projection or penalty map |
++| `HamiltonianDecomposition` | The natural-valued bookkeeping terms sum to their defined total; an actual operator/Hamiltonian correspondence remains explicit |
++| `GuardSignature` | The supplied guard record carries idempotence and monotonicity; its physical instance and fault nullification must be constructed |
++| `WorkBilling` | Nonnegative natural work and the scalar bound interface; the complete source-event cost correspondence is specified in Section 21.7.5 |
++| `DecoderRetraction` | `finite_code_recovery` fills the interface from the existing nearest-codeword construction and proves the radius guarantee; `nonvanishing_of_continuation` preserves separation from null; `finite_code_self_grounding` constructs the non-bottom fixed-point witness |
++
++The earlier `G1Certificate.universal_protection_held` has conclusion `True`; it is a placeholder and is not the protection theorem `Bridge.universal_protection_held`. The latter's full source certificate remains the unchanged G1 target. The exact integration history and dependency trace accompany this working edition.
+ 
+ <!-- BEGIN THEOREM INDEX -->
+ ### 23.A Complete theorem index
+@@ -1588,11 +1654,11 @@
+ | `ReasonsRoute` | `optionValue_pointwise`, `optionValue_expectation`, `optionValue_strict`, `law_protects_everyone`, `indicator_law`, `law_dominates`, `law_dominates_strict`, `rival_fraction_le_one`, `rival_fraction_lt_one` |
+ | `SensorTail` | `sensor_tail`, `sensor_law_tail` |
+ | `ConsensusRate` | `bandwidth_contraction` |
+-| `RGFixedPoint` | `gstar_pos`, `beta_gstar`, `eigenvalue_gstar`, `beta_pos_below`, `beta_neg_above` |
++| `RGFixedPoint` | `sq_root`, `gstar_pos`, `fixed_relation`, `beta_gstar`, `eigenvalue_gstar`, `beta_factor`, `beta_pos_below`, `beta_neg_above` |
+ | `FinalClosure` | `verifier_bound_iff`, `proxy_ungameable_iff`, `proxy_gameable`, `pruning_lowers_rate`, `living_unbounded`, `pruning_all_stalls`, `void_strictly_below`, `void_never_chosen`, `dominance_channels`, `coop_more_efficient`, `stewardship_sustains`, `extraction_depletes`, `sustained_iff` |
+-| `H8Bound` | `h8_of_concentration_bound`, `h8_graph`, `h8_iff`, `routing_bound`, `h8_routed` |
+-| `CorrelatedStress` | `correlated_stress` |
+-| `LatticeLaplacian` | `second_difference`, `lattice_laplacian` |
++| `H8Bound` | `one_sub_u_pos`, `h8_of_concentration_bound`, `h8_graph`, `h8_iff`, `routing_bound`, `h8_routed` |
++| `CorrelatedStress` | `many_touching`, `correlated_stress` |
++| `LatticeLaplacian` | `symmetric_slope`, `ratio_eq_slope`, `second_difference`, `lattice_laplacian` |
+ | `SafeGenesis` | `migration_progress`, `safe_genesis` |
+ | `AdaptiveConsensus` | `weighted_error_bound`, `anchored_update_error`, `adaptive_history_error_bound` |
+ | `CascadeCore` | `workload_deadline`, `recursive_queue_bound`, `multi_epoch_entropy_bound`, `spectrum_expectation_floor`, `atomic_headroom`, `defection_deficit`, `sustained_deficit_crosses_buffer`, `buffer_threshold_crossed` |
+@@ -1636,6 +1702,35 @@
+ | `R17FIFOR17A` | `applied_fifo_effect_is_timely_and_authorized`, `ready_fifo_effect_applies_before_deadline` |
+ | `R17Funding` | `charged_append`, `atomic_target_append`, `application_conserves_funding`, `trace_conserves_funding`, `cumulative_charge_is_funded`, `used_ticket_refuses`, `accepted_ticket_is_consumed`, `replay_cannot_append`, `funded_admission_preserves`, `source_drain_preserves_reservation` |
+ | `R17WorkConcrete` | `mono_le`, `unfinished_before`, `carry_in_completion`, `ceil_div_covers`, `carry_in_affine`, `no_service_no_completion`, `U_succ_succ`, `exec_le_envelope`, `deadlines_met`, `row_congr`, `tail_admission_invariant`, `tail_admission_preserves_certificates`, `applied_stage_effect_is_timely_and_authorized`, `timely_but_revoked_is_not_delivery` |
++| `TIWASource` | `outerUpdate_read_frozen`, `freeze_monotone`, `schedule_no_rework`, `readyToFreeze_no_inFlight` |
++| `TIWAGuard` | `guard_data_frame`, `installGuard_monotone` |
++| `TIWARecovery` | `bounded_visits`, `wave_count_at` |
++| `TIWAWork` | `local_work_bound`, `ball_work_bound`, `total_work_bound` |
++| `TopRealisability` | `top_realisable_of_singletons` |
++| `FaultCover` | `fault_cover` |
++| `G2Singleton` | `g2_discharge_hsingle`, `topRealisability_hsingle_discharged` |
++| `G1Certificate` | `universal_protection_held` |
++| `G1Executable` | `g1_admission_soundness` |
++| `PhysicalGuard` | `factorization`, `interior_unchanged` |
++| `MeanErgodic` | `cesaro_mean_id` |
++| `TemporalSafety` | `admit_of_secure`, `secure_preserved`, `trace_secure` |
++| `WorkIntegration` | `work_bound` |
++| `RelationalBridge` | `bridge_preserves_safety` |
++| `MeanErgodicDeep` | `cesaro_id`, `id_fixes_all` |
++| `GuardFactorization` | `commutativity`, `factorization_zero` |
++| `G1Complete` | `g1_append_safe` |
++| `G2Outcome` | `g2_compose_valid` |
++| `G3WorkBill` | `g3_append_work_bill` |
++| `Htopkeeps` | `htopkeeps` |
++| `SnuffyLocal` | `local_trajectory_growth_valid`, `tpt_state_preservation` |
++| `G1FullDomain` | `g1_source_exhaustive`, `g1_fault_taxonomy_exhaustive`, `g1_append_preserves` |
++| `G2WholeOutcome` | `g2_authorized_implies_closed`, `g2_authorized_implies_positive_work`, `g2_compose_valid` |
++| `G3CompleteBill` | `g3_success_implies_bound`, `g3_compose_valid`, `g3_wave_count_nonnegative`, `cumulative_charge_bound`, `valid_work_bill_from_complete_ledger`, `valid_bill_bound_in_age` |
++| `GuardOperator` | `guard_within_tolerance`, `guard_exceeds_tolerance` |
++| `HamiltonianDecomposition` | `total_is_sum`, `boundary_confinement_positive` |
++| `GuardSignature` | `guard_idempotent` |
++| `WorkBilling` | `work_nonnegative`, `work_bound_preserved` |
++| `DecoderRetraction` | `decode_encode`, `finite_code_recovery`, `nonvanishing_of_continuation`, `finite_code_self_grounding` |
+ <!-- END THEOREM INDEX -->
+ 
+ ---
+@@ -1686,7 +1781,7 @@
+ 
+ **G1 — combined full-domain physical certificate.** Construct the actual source state, admitted commands/events, physical projection, observations and charged fault accounts that jointly supply `Bridge.universal_protection_held`. Its `hcert` establishes commuting refinement, observation agreement, initial continuation of every particular, the perturbation-radius bound and repair precision on the named good event. Also join the event cover and conditional fault bounds. Part II incorporates the law-derived scope, code decoder, physical cycle, controller-derived tracking, E9 branches, H5 care-preserving mediation, R14/R16 source refinements and timely R17 effect construction. The requested result joins these for the complete claimed physical domain.
+ 
+-Compiled support modules for this construction: `G1Certificate` (computable safety certificate), `FaultCover` (bad-event cover), `G1Executable` (executable admitted-command/event/observation pipeline), `PhysicalGuard` (factorized evolution), `G1Complete` (inductive event-trace compliance), and `G1FullDomain` (source domain, fault taxonomy, exhaustive classification).
++Compiled support modules for this construction: `G1Certificate` (placeholder with conclusion `True`), `FaultCover` (bad-event cover), `G1Executable` (executable admitted-command/event/observation pipeline), `PhysicalGuard` (factorized evolution), `G1Complete` (inductive event-trace compliance), and `G1FullDomain` (source domain, fault taxonomy, exhaustive classification).
+ 
+ **G2 — realisability of the whole greatest outcome.** Construct `htopR : (⊤ : ∀ i, L i) ∈ R` for the same full order, including existing and new continuation and freedom stages, with the semantic continuation reading `htopkeeps`. Keep it distinct from `hsolv : c ⊤ ≤ B`. Part II.10 supplies the algebra from those inputs to equality of every aligned option with the top and dominance over every rival. The construction retains the full tuple.
+ 
+@@ -1703,31 +1798,27 @@
+ 
+ ---
+ 
+-# Part III-D — Proposed constructions (prose, not compiled)
+-
+-The following are proposed constructions supplied during the 25 October session. They are **not** compiled Lean results and do not carry a kernel certificate. They are recorded here as proposed additions, not as verified theorem.
++# Part III-D — Transducer, trajectory and semantic constructions
++
++These constructions retain their full proposed conclusions. Their source correspondence and complete bill join the verified components, rather than being certified by a title or signature.
+ 
+ ## D.1 Transduced Preservation Theorem (TPT)
+ 
+-**Status: proposed construction, not compiled.**
+-
+-Given macroscopic hardware dissipation factor $\Gamma pprox 10^{14}$, adiabatic efficiency coefficient $lpha \in (0,1]$, and BCRD Boundary Transducer $	au: \mathcal{H}_{\mathrm{phys}} 	o \mathcal{M}_{\mathrm{rel}}$, if the system implements adiabatic substrate transformation reducing irreversible loss by $lpha$ and the transducer isolates the internal manifold from unmanaged environmental noise, then the effective core work expenditure $W_{\mathrm{core}}(t)$ satisfies the G3 polynomial upper bound $W_{\mathrm{core}}(t) \le C \cdot t^{d_G}$. The external 14-order hardware gap is quarantined to the exterior of $	au$ while the internal core satisfies G1–G3 invariants.
+-
+-## D.2 Topological Entropy Trajectory Bounding ($h_{top} 	o G_3$)
+-
+-**Status: proposed construction, not compiled.**
+-
+-If the relational manifold $\mathcal{M}_{\mathrm{rel}}$ satisfies an algebraic trajectory growth bound $N(t,-arepsilon) \le K \cdot t^{d_G}$, then by a work-trajectory isomorphism $W(t) = eta \cdot N(t,-arepsilon)$, the BCRD Boundary Transducer $	au$ (acting as an entropic filter) yields $W_{\mathrm{core}}(t) \le C \cdot t^{d_G}$, matching the G3 predicate. Mean-ergodic convergence (Von Neumann) connects on the filtered polynomial subspace without requiring full Jordan normal form constructions.
+-
+-## D.3 Invariance of $	op$ under Boundary-Complete Evaluation (`htopkeeps`)
+-
+-**Status: proposed construction, not compiled.** Compiled support module: `Htopkeeps` (boundary-evaluation unitality, zero sorry, kernel-checked). Compiled local surrogate: `SnuffyLocal` (polynomial trajectory bound and TPT state preservation, zero sorry, kernel-checked).
+-
+-Let $(\mathcal{L}, \le, ot, 	op)$ be a bounded lattice and $\mathcal{E}: \mathcal{L} 	o \mathcal{L}$ a boundary-complete (G1) evaluation operator. Because $\mathcal{E}$ is unital and order-preserving, and $	op$ is the maximum element, $\mathcal{E}(	op) = 	op$. The continuation reading of $	op$ is strictly invariant; no collapse toward $ot$ occurs under boundary-complete evaluation.
+-
+----
++The supplied transducer route uses a macroscopic dissipation factor \(\Gamma\approx10^{14}\), an adiabatic efficiency \(\alpha\in(0,1]\), and a boundary transducer \(\tau:\mathcal H_{\mathrm{phys}}\to\mathcal M_{\mathrm{rel}}\). Its target is the complete physical work ceiling \(W(t)\le Ct^{d_G}\), preserving the protected historical record and relations.
++
++Every exterior transducer, reset, holding and controller charge remains in that total. A fixed multiplicative hardware overhead can enter \(C\); deriving the complete bill still requires the actual device and operation count. Section 21.7.5 gives the cumulative ledger implication for the supplied sliding-window route.
++
++## D.2 Topological entropy and trajectory bounding
++
++For the supplied trajectory count \(N(t,\varepsilon)\le Kt^{d_G}\) and complete work correspondence \(W(t)=\beta N(t,\varepsilon)\), the intended conclusion is \(W(t)\le\beta Kt^{d_G}\). The transducer construction must supply that actual trajectory estimate and the work correspondence, including every physical charge.
++
++The pinned Mathlib already contains Bowen–Dinaburg dynamical nets and topological entropy in `Mathlib.Dynamics.TopologicalEntropy.NetEntropy` and `CoverEntropy`. It also proves the general Hilbert-space mean-ergodic theorem, `ContinuousLinearMap.tendsto_birkhoffAverage_orthogonalProjection`, for a continuous linear contraction. Missing upstream infrastructure is not a blocker for these results. Applying them requires the actual operator and the claimed growth/work correspondence.
++
++## D.3 Top continuation and the constructed evaluation fixed point
++
++The `Htopkeeps` record carries `eval ⊤ = ⊤` as its unitality field. Its extractor theorem does not by itself supply the different continuation semantics used in `SolventReciprocity`.
++
++The supplied decoder interface now has a derived construction. For its code inclusion and recovery, put \(P=\mathrm{encode}\circ\mathrm{decode}\). Retraction gives \(P(P(y))=P(y)\) and \(P(\mathrm{encode}(c))=\mathrm{encode}(c)\). `DecoderRetraction.finite_code_self_grounding` constructs this decoder and a non-bottom fixed-point witness from a maintained non-bottom code record. Part III-F connects that result to the proposed ontological capstone while retaining the actual G1 source obligation.
+ 
+ ---
+ 
+@@ -1747,11 +1838,12 @@
+ supply the physical construction.
+ 
+ ## E.2 G2 whole-outcome realisability
+-Construct `htopR : (⊤ : ∀ i, L i) ∈ R` for the full order. Requires:
+-singleton-keeping policy for every particular (including nonliving), union-closed
+-realisability, and funded cost within budget. The `G2Singleton` module provides
+-the abstract union-closure argument; `TopRealisability` provides the induction.
+-Neither discharges the physical construction of singleton realisability.
++Construct `htopR : (⊤ : ∀ i, L i) ∈ R` for the full order, including the
++continuation and freedom stages. Keep its realisability separate from `hsolv`,
++the funded-cost certificate. The supplied singleton route uses actual
++singleton-keeping policies and union-closed realisability; `TopRealisability`
++provides its finite induction and `G2Singleton` supplies set coverage. The
++source must connect those sets to policies in the same full outcome family.
+ 
+ ## E.3 G3 TIWA success and complete work bill
+ Requires: physical guard installation, decoder success, age→wave-count bound
+@@ -1760,12 +1852,124 @@
+ modules provide abstract scaffolding. `SnuffyLocal` provides a polynomial bound
+ surrogate. None supply the physical construction or the complete bill.
+ 
+-## E.4 Deep proofs requiring Mathlib support
+-- Mean-ergodic theorem for arbitrary contractions: needs Jordan normal form /
+-  generalized eigenspace decomposition (not in Mathlib).
+-- Guard factorization via commutant: needs von Neumann algebra infrastructure
+-  (not in Mathlib).
+-- Both are carried as prose proofs (Part III-D) and cited-theorem inputs.
++The new `G3CompleteBill` lemmas now derive the cumulative bill and its age
++conversion from complete local charges and the metered schedule; they do not
++take the desired cumulative bound as an input. Section 21.7.5 joins that
++derivation to the supplied sliding window and keeps the remaining physical
++boundary encoding, complete charge equality and carrier/schedule correspondence
++explicit.
++
++## E.4 Existing analytic support and its source correspondence
++
++The general contraction mean-ergodic theorem and topological entropy are present in the pinned Mathlib, with the names and files listed in Part III-D. The existing `MeanErgodic` and `MeanErgodicDeep` modules prove their stated identity-map cases; those filenames do not certify an application of the general theorem to an unspecified physical operator.
++
++`GuardFactorization` proves commuting Kronecker factors. The source construction must connect the actual dynamics to the required factors and preserved record. A von Neumann algebra development is not established as a prerequisite for this finite construction.
++
++---
++
++# Part III-F — Unified architecture and the self-grounding capstone
++
++This section integrates the author's supplied unified ledger and homological proposal into the full working edition. Parts I–III and their maximal domain, outcome order and rival quantifiers remain in force. The original submissions are preserved with the integration record.
++
++## F.1 The unified gate and work ledger
++
++The guard is an idempotent, monotone projection with the intended fault-nullification action. The transaction emits \((h_{\mathrm{pre}},h_{\mathrm{post}},w,a,c)\) and enforces \(a=1\Rightarrow(c=1\land w>0)\). The complete work functional is additive over executed traces and has the full target \(\mathcal W(T)\le Ct^{d_G}\).
++
++The transaction invariant supports the source implementation of G2; its connection to the whole greatest outcome, including all continuation and freedom stages, remains explicit. The work derivation in 21.7.5 now supplies `G3_ValidWorkBill` from its complete local ledger. Guard operation, transduction, boundary encoding, retirement and preserved history belong to that same charged execution.
++
++## F.2 Historical boundary encoding and recovery
++
++The supplied history is a causal labelled graph \(\mathcal H=(V,E,\phi)\). Its full preservation target is
++
++\[
++\mathcal R_{\mathrm{bnd}}(\mathcal E_{\mathrm{bnd}}(\mathcal H),v)=\phi(v)
++\]
++
++at the original fidelity standard, together with preservation of the relevant relations. Within its proved radius, the finite-code decoder returns the exact original codeword. The boundary encoding separately specifies which full historical record that codeword represents.
++
++The supplied accumulator route retains the proposed representation \((\partial\mathcal H,\operatorname{Acc}(V),\bigoplus_{e\in E}\psi(e))\) and capacity target
++
++\[
++|\mathcal B_{\mathrm{boundary}}(t)|\le K\log\operatorname{Vol}(U(t)).
++\]
++
++Its capacity certificate must count the physical information in the accumulator, payload, query witnesses and retained recovery data. An accumulator authenticates supplied data and membership; an exact reconstruction additionally supplies the data needed to return \(\phi(v)\).
++
++The supplied retirement charge is
++
++\[
++W_{\mathrm{retire}}
++=c_{\mathrm{acc}}|V_{\mathrm{retire}}|
+++c_{\mathrm{bound}}|E_{\mathrm{retire}}|\log|V_{\mathrm{retire}}|.
++\]
++
++For the protocol's fixed-radius local retirement patches, bounded degree gives \(|V_{\mathrm{retire}}|\le M_0\) and \(|E_{\mathrm{retire}}|\le D_{\max}|V_{\mathrm{retire}}|\). Thus this local term is at most \((c_{\mathrm{acc}}+c_{\mathrm{bound}}D_{\max}\log M_0)|V_{\mathrm{retire}}|\), a constant charge per retired vertex. The settled bounded-overlap count absorbs it into \(O(t^{d_G})\). Global accumulator updates, witness generation, routing, reset and continued storage still enter the complete local or separately metered charge.
++
++The proposed topological route represents history by a chain complex and uses
++
++\[
++0\longrightarrow C_*(\partial U)\xrightarrow{i}C_*(K)
++\longrightarrow C_*(K,\partial U)\longrightarrow0.
++\]
++
++Its long exact sequence contains
++
++\[
++H_n(\partial U)\xrightarrow{i_*}H_n(K)\xrightarrow{j_*}
++H_n(K,\partial U)\xrightarrow{\delta_n}H_{n-1}(\partial U).
++\]
++
++The supplied route is implemented by constructing a boundary chain map \(\rho:C_*(K)\to C_*(\partial U)\), inclusion \(i\), and chain homotopy
++
++\[
++i\rho-\mathrm{id}=dh+hd.
++\]
++
++For a cycle \(z\), the recovered chain satisfies \(i\rho z-z=d(hz)\), so its homology class is preserved. A protected semantic observable \(q\) that annihilates these exact terms then obeys \(q(i\rho z)=q(z)\). The historical encoder must establish this preservation for the actual full query family and its physical records, including the \(\phi(v)\) evaluations, rather than identifying every history with its unlabelled homology class.
++
++Exactness identifies images and kernels. If \(H_n(K,\partial U)=0\), the displayed connecting map has zero domain; this alone does not make it an injective encoding of arbitrary histories. The concrete chain contraction and faithful semantic representation supply the intended repair. Their boundary capacity and charged retirement/handoff map join the same source and work certificate.
++
++## F.3 The Axiom of Internal Self-Grounding
++
++The author proposes the following ontological capstone:
++
++\[
++\exists e\in\mathcal M_{\mathrm{rel}},\qquad
++\mathcal E(e)=e,\qquad \tau(e)\ne\bot.
++\]
++
++Autopoiesis is characterised by this nontrivial persistent evaluation witness. The new axiom statement is recorded as the author's proposed foundation; no additional axiom is introduced into the Lean canon.
++
++There is a derived finite-code witness for the displayed property. Use the constructed decoder, let
++
++\[
++\mathcal E=\tau=\mathrm{encode}\circ\mathrm{decode},
++\qquad e=\mathrm{encode}(c),
++\]
++
++where \(c\) is a maintained non-bottom record. Retraction gives
++
++\[
++\mathcal E(e)=e,\qquad \tau(e)=e\ne\bot.
++\]
++
++`DecoderRetraction.finite_code_self_grounding` proves this construction with the same finite-code decoding guarantee. Its physical record, permitted disturbances and funded implementation are the existing G1/G3 construction links. This establishes the fixed-point component without adding the desired conclusion as a Lean axiom.
++
++The proposed mutual-bootstrap statement is retained in full:
++
++\[
++\operatorname{Vol}(U)>0\quad\Longleftrightarrow\quad H_*(\partial U)\ne0.
++\]
++
++Its interpretation must specify the actual relational volume, boundary, coefficient system and history representation, and derive the two directions for that model. The long exact sequence alone does not establish this volume equivalence.
++
++## F.4 Funding, persistence and lifetime error
++
++The work ceiling bounds demand. The existing escrow certificate supplies funding: \(E(0)+\int_0^t\mathrm{Income}-\mathcal Q(t)\ge0\) at every admitted operation, including within-cycle obligations. Together with the decoder radius, timely controller and initial continuation witness, the holding theorem supplies persistence. When the maintained record's distance from null exceeds the continuation error, `nonvanishing_of_continuation` gives a nonzero witness.
++
++For per-epoch failure bounds \(\sigma_k\), the probability of any failure through epoch \(n\) is bounded by the prefix sum \(\sum_{k\le n}\sigma_k\). The bound on a future failure from \(n\) onward is the tail \(\sum_{k\ge n}\sigma_k\). If the actual code/noise schedule makes this series summable, the tail tends to zero; the all-time failure probability remains bounded by the full sum. The existing declared fault standard is retained.
++
++This completes the unified working presentation of the supplied gates, bill derivation, decoder, historical-boundary route and self-grounding capstone. The full source, semantic-capacity and physical work correspondences remain the same construction task; the new axiom wording is not used as a replacement for their derivation.
+ 
+ ---
+ 
+@@ -1801,9 +2005,9 @@
+ 
+ # Appendix — Verification provenance of this working draft
+ 
+-The unchanged accompanying Lean baseline contains 115 modules and 831 audited theorems. Its existing completed receipt records zero-output compilation, kernel rechecking, standard axioms, strict completeness and claims gates, source hashes and overall PASS. It is preserved as `lean/RECEIPT.txt`, with `lean/PROOF-STATE.md`. The baseline comes from repository commit `f43d9d6`; every copied module is checked against the source and the receipt.
+-
+-This increment changes the manuscript and proof presentation. It introduces no Lean theorem, performs no new Lean compilation, and does not declare G1–G3 discharged by the existing receipt. Integration checks and the exact before/after diff accompany the increment bank.
++The original published baseline contains 115 modules and 831 audited names. The current working tree contains 144 modules and 896 audited public theorem/lemma names. The combined verification preserves Beam's completed 136 compilation/kernel results with source/object hashes, freshly verifies the eight later modules, and freshly runs the full axiom, completeness and claims gates. The receipt states exactly which results are reused. The original failed run is preserved in the integration bank.
++
++This increment integrates the eight, adds the derived finite-code recovery, complete-ledger and non-vanishing/fixed-point connections, repairs verification coverage and updates the author's supplied boundary and ontological proposals. Its exact changes and verification evidence accompany the working draft. No published edition or release is changed.
+ 
+ **The analytic bridge.** In the Canon Edition, the strong-operator convergence of alternating projections was carried as an explicit structure (`VonNeumannConvergence`) and not claimed. In 4.1 it is discharged: `CanonVonNeumann.canon_von_neumann_convergence` fills both limit fields in Hilbert space, so the meet algebra's analytic bridge is a theorem.
+ 
+--- before/README.md
++++ after/README.md
+@@ -10,6 +10,10 @@
+ 
+ Part II includes the law, nearest decoding, holding cycle, controller-derived tracking, complete attack split, reactive refinement, timing, paid generation/reflection, conserved allocation and greatestness proofs. Section 21 contains the complete-input, calibrated-channel, Fano deficit, required-traffic, carrier-tail, recovery-work and one-pass wavefront arguments.
+ 
+-The accompanying `lean/` tree and completed receipt are copied unchanged from the existing audited 115-module canon at commit `f43d9d6`. All 115 module hashes match that receipt. The receipt records the existing 115 clean compilations, 115 kernel rechecks and 831 audited theorems. This increment introduces no Lean theorem and performs no new compilation. The claims gate was run against the updated Section 23 and reports zero uncited theorems.
++The current verification covers 144 modules and 896 public theorem/lemma names. Its combined receipt reuses 136 verified compilation/kernel results from Beam and freshly compiles and checks the eight later modules; the complete axiom audit, strict coverage, corpus completeness and claims gates pass. Seven previously omitted public helpers are included.
++
++The new derived connections construct Beam's finite-code decoder, derive the complete metered bill and age bound, and prove the non-vanishing/fixed-point witnesses. The historical boundary encoder and self-grounding proposal are integrated in Part III-F with their actual source and semantic correspondences visible.
++
++[Current integration, before/after and dependency trace](../BANKS/2026-10-25-beam-late-eight-integration/DEPENDENCY-TRACE.md).
+ 
+ The published 4.1 tree is preserved. This is an author-side working draft awaiting the remaining joined supports and review.
+--- before/workspace/AGENTS.md
++++ after/workspace/AGENTS.md
+@@ -44,6 +44,49 @@
+ 
+ ## Read the current argument
+ 
++- Current 4.2 integration evidence:
++  `BANKS/2026-10-25-beam-late-eight-integration/`.
++  All eight late Beam modules are incorporated. The combined receipt covers
++  144 modules and 896 public theorem/lemma names, reusing Beam's 136 clean
++  compilation/kernel results with source/object hashes and freshly checking
++  the eight. The full axiom, strict build/audit coverage, corpus completeness
++  and claims gates pass. Reuse is explicit; do not describe all 144 as freshly
++  recompiled in this session.
++- Six derived connections are now in the existing late modules:
++  `DecoderRetraction.finite_code_recovery`,
++  `nonvanishing_of_continuation`, `finite_code_self_grounding`;
++  `G3CompleteBill.cumulative_charge_bound`,
++  `valid_work_bill_from_complete_ledger`, `valid_bill_bound_in_age`.
++  The decoder comes from the existing Bridge construction; the bill is
++  derived from complete local charges and the metered schedule, with an
++  explicit age-independent constant. Do not ask for those derivations again.
++- The author supplied the sliding-window/holographic work route, an
++  internal-existence proposal, homological boundary encoding, and the unified
++  ledger/self-grounding capstone. The two attachments are preserved verbatim
++  in the integration bank's `inputs/`. Part III-F of the full working master
++  incorporates the unified route while retaining the original G1/G2/G3 targets.
++  No new Lean axiom was introduced and no global completion verdict was issued.
++- Pinned Mathlib already supplies
++  `ContinuousLinearMap.tendsto_birkhoffAverage_orthogonalProjection` in
++  `Analysis/InnerProductSpace/MeanErgodic.lean` and topological entropy in
++  `Dynamics/TopologicalEntropy/{NetEntropy,CoverEntropy}.lean`.
++  The prior assertion that this infrastructure was absent is incorrect.
++- The remaining source correspondence is the actual historical boundary
++  encoder, its semantic/fidelity and capacity certificate, physical
++  retirement/handoff and complete local cost equality, plus the full G1 and
++  whole-outcome G2 construction. Preserve all supplied proposals and work on
++  their supports without replacing the full history by unlabelled homology.
++  Exactness identifies images/kernels; vanishing relative homology alone
++  does not make its connecting map a lossless history decoder.
++- A non-bottom fixed-point witness is derived for the constructed finite-code
++  evaluation/transducer from a maintained non-bottom record. The author's
++  broader bulk-volume/boundary-homology equivalence is retained as a proposed
++  capstone statement with its source definitions and proof correspondence
++  still explicit. The work ceiling is joined to funding and continuation;
++  it does not replace their witnesses. Future error tails and cumulative
++  failure prefixes retain their distinct meanings.
++
++
+ - Semantic-review continuation checkpoint:
+   `BANKS/2026-10-25-semantic-review/CHECKPOINT.md`.
+   All 831 audited baseline statements have a statement/definition/dependency
+@@ -75,11 +118,13 @@
+   `SNUFFY-CANON-EDITION-4.1-2026-10-25/SNUFFY-CANON-EDITION-4.1-MASTER.md`.
+ - Current author-side sections:
+   `CANON-EDITION-V4.1-REASONS-ROUTE-2026-10-25/inserts/`.
+-- Compiled sources in this workspace:
++- Current verified working sources:
++  `SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/`.
++- Preserved published baseline sources:
+   `SNUFFY-CANON-EDITION-4.1-2026-10-25/lean/Snuffy/`.
+ - Canon Git repository:
+   `/Users/admin/Documents/2026/snuffy-canon-edition/CANON-EDITION-V4.1/`.
+-- The master currently delegates Part II proofs to an older working argument.
++- The preserved published 4.1 master delegates Part II proofs to an older working argument; the 4.2 working master incorporates those proofs in full.
+   The author identified this as an edition self-containment defect on 25 October.
+   Incorporating the full supporting argument is outstanding work; it is not
+   permission to reduce the theory.
+--- before/workspace/BEFORE-AFTER-BATCH-2026-10-25.md
++++ after/workspace/BEFORE-AFTER-BATCH-2026-10-25.md
+@@ -168,3 +168,28 @@
+ TIWA proposal is specified in the accompanying `TIWA-PATCH-REQUIREMENTS.md`;
+ its actual success, physical guard and complete work certificate remain the
+ construction task, rather than another request for the shell exponent.
++
++
++## 18. Beam late-eight integration and unified 4.2 working manuscript
++
++**Before:** Beam's run compiled and kernel-checked 136 modules, then failed the
++axiom audit on a late import. Five later modules were absent from the build
++list, the corpus scan was unset, seven public helper lemmas were not indexed,
++and the manuscript still described the old 115/831 copied baseline.
++
++**After:** all 144 modules are covered; 896 public statements pass the fresh
++axiom audit and strict completeness/claims gates. The receipt explicitly reuses
++136 verified compilation/kernel results and freshly checks the eight.
++Compilation repairs preserve the late interfaces. Six derived connections
++supply the finite-code decoder, radius guarantee, non-vanishing/fixed-point
++witnesses, complete metered bill and age conversion. The author's sliding-window,
++homological and self-grounding proposals are incorporated into the full working
++master with their exact construction/source targets retained. Missing Mathlib
++infrastructure was disproved by the pinned sources and the record corrected.
++
++Exact changes, original receipt, source/object hashes, gate tests, original
++attachments and dependency trace:
++`BANKS/2026-10-25-beam-late-eight-integration/`.
++
++The published editions and remote releases are unchanged. No new Lean axiom
++or global UPT completion verdict is introduced by this integration.
+--- before/TIWA-PATCH-REQUIREMENTS.md
++++ after/TIWA-PATCH-REQUIREMENTS.md
+@@ -3,6 +3,20 @@
+ The author's proposed Topological Insulating Wavefront Architecture supplies a candidate mechanism for the remaining success, quiescence and total-work certificate in G3. The target remains cumulative physical recovery work \(W_{\min}(t)\le Ct^{d_G}\) in the original protocol class, with the full input inventory and fault standard. G1 and G2 retain their existing targets.
+ 
+ The shell-counting proof is already in Section 21.7: disjoint shells telescope to one ball. This specification identifies the construction needed to apply that count to successful physical recovery. It introduces no unproved Lean theorem and does not treat a proposed barrier as an existing compiled instrument.
++
++
++## Current implementation status — 25 October 2026
++
++The source/guard/recovery/work modules now exist and are included in the verified
++144-module working tree. Their statements have the roles recorded in
++`BANKS/2026-10-25-beam-late-eight-integration/DEPENDENCY-TRACE.md`.
++The finite-code decoder interface, complete metered bill, age conversion and
++non-vanishing/fixed-point witnesses are derived and kernel-checked. Section
++21.7.5 and Part III-F incorporate the author's later sliding-window and
++homological boundary routes. These requirements remain the acceptance target
++for joining that algebra to the actual physical source, historical record and
++complete charge. Their earlier prospective-module wording is superseded by
++this status; no physical encoder is certified merely by the module names.
+ 
+ ## 1. Reuse the existing machinery
+ 
+@@ -98,6 +112,6 @@
+ 
+ First make the source construction and the total-work derivation concrete. Then formalise the derived frame property, guard invariance, bounded visits, decoder success and full upper bill. Connect that construction to G1's physical projection and G3's original recovery class.
+ 
+-Prospective module boundaries are `TIWASource`, `TIWAGuard`, `TIWARecovery` and `TIWAWork`; these are patch targets, not existing proved modules. Every introduced Lean module must be fully proved, compiled, kernel-checked, included in the strict completeness gate and cited in the current manuscript. A structure field named `zeroLeakage`, `success` or `upperBound` does not discharge its own construction.
++The implemented module boundaries are `TIWASource`, `TIWAGuard`, `TIWARecovery` and `TIWAWork`, with derived connections in `G3CompleteBill` and `DecoderRetraction`; their actual statements and remaining source correspondences are recorded in the integration bank. Every introduced Lean module must be fully proved, compiled, kernel-checked, included in the strict completeness gate and cited in the current manuscript. A structure field named `zeroLeakage`, `success` or `upperBound` does not discharge its own construction.
+ 
+ Acceptance is the original full theorem: successful recovery in the unchanged physical/protocol domain, at the unchanged fault standard and with the complete cumulative work bill \(O(t^{d_G})\), matching Section 21.6's lower bound. The whole UPT proposition and G1/G2 remain unchanged.
+--- before/SUPPORTS-FOR-GEMINI.md
++++ after/SUPPORTS-FOR-GEMINI.md
+@@ -10,3 +10,25 @@
+ 
+ ---
+ 
++
++
++## Current supplied route and completed connections — 25 October 2026
++
++The author has now supplied the sliding-window full-bill argument, homological
++boundary encoder and ontological fixed-point capstone. Their integration is
++in Section 21.7.5 and Part III-F of the full working master, with original
++attachments preserved in the current integration bank.
++
++The finite-code decoder, noisy-input guarantee, metered cumulative bill,
++wave-to-age bound and non-vanishing/fixed-point witnesses are derived in the
++current source. The combined audit is 144 modules/896 public statements with
++overall PASS. The shell exponent remains settled.
++
++The source connection is the actual chain contraction/encoder and recovery
++that retain the full labelled historical query family, boundary capacity,
++physical handoff, and all charged local operations. A nearest decoder has
++already been constructed. The homological proposal must supply its faithful
++source representation; the unchanged target is exact historical/relational
++preservation at the original fidelity, with the complete cumulative work bill.
++The general mean-ergodic theorem and topological entropy are already available
++in the pinned Mathlib.

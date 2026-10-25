@@ -1,0 +1,15 @@
+{
+  "modules_in_master": 144,
+  "public_statements_in_master": 896,
+  "module_index_mismatches": [],
+  "nonprinting_control_characters": [],
+  "verified_sources_changed": [],
+  "prior_load_bearing_heading_anchors_missing": [],
+  "current_receipt": "PASS",
+  "current_native_statements": 896,
+  "master_characters": 205647,
+  "intentional_heading_renames": {
+    "# Part III-D \u2014 Proposed constructions (prose, not compiled)": "# Part III-D \u2014 Transducer, trajectory and semantic constructions"
+  },
+  "status": "PASS"
+}

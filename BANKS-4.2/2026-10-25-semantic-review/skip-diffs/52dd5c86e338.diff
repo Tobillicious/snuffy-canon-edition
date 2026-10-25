@@ -1,0 +1,10 @@
+--- 2026-10-24-codex-eight-answer-joins/inputs/BandwidthReflection.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/BandwidthReflection.lean
+@@ -52,7 +52,3 @@
+ end
+ end GeminiThirteenBandwidth
+ 
+-#print axioms GeminiThirteenBandwidth.normalized_susceptibility
+-#print axioms GeminiThirteenBandwidth.exact_bandwidth_sensitivity
+-#print axioms GeminiThirteenBandwidth.finite_positive_sensory_access_remains
+-#print axioms GeminiThirteenBandwidth.bandwidth_bias_threshold

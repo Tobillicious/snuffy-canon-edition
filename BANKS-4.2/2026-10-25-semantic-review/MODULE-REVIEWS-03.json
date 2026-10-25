@@ -1,0 +1,79 @@
+{
+  "modules": {
+    "E9SelfHealing": {
+      "role": "Robust quorum, syndrome visibility, response window and integer code headroom",
+      "assessment": "Robust means at least f+1 readings on each side. With at most f faulty identities, each side has an honest witness; existence needs K>=2f+1. Syndrome detection follows the supplied distance/centraliser property for errors outside the stabilizer with weight<d. The assembled theorem concludes alarm existence, honest alarm witness, timing inequality and correction-radius headroom.",
+      "obligations": [
+        "Actual honest-sensor calibration, code-distance model, error accumulation and response service instantiate these inputs; the alarm theorem itself is not the whole physical trichotomy."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "SpeedLimit": {
+      "role": "Derived unitary speed bounds",
+      "assessment": "all statements reviewed with Solves, meanE and spreadE. A self-adjoint generator preserves the norm. branchA_divergence compares H0+V and H0 solutions using an operator-norm perturbation bound and normalised actual state. branchA_rate substitutes the explicit coupling bound. Mandelstam–Tamm is a time-independent self-adjoint Hamiltonian statement with energy spread and a normalised solution; the orthogonalisation inequality follows without adding a faster-than-causal signal premise.",
+      "obligations": [
+        "Bind actual physical coupling, evolution and norm interpretation; do not turn a propagation upper limit into an achievable speed or a lower spreading rate."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "BridgeE9": {
+      "role": "Timing algebra, buffering and divergence-free circulation counterexample",
+      "assessment": "The timing equivalence requires positive signal/harm speeds; positive margin further needs signal faster than harm. Buffer safety needs funded coverage of the full reaction interval. Applied>=commit>=detect establishes application after detection. The triangle incidence example has a nonzero circulation in the divergence kernel, so unchanged divergence is not preservation of the entire flow.",
+      "obligations": [
+        "Actual distances, delays, signal paths, stored buffer and execution fencing.",
+        "TIWA conservation alone does not establish complete state preservation; this existing counterexample already illustrates the distinction."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "BridgeD1": {
+      "role": "Survival/reward examples and exact preservation-cost criteria",
+      "assessment": "The explicit hazard 1+t grows without bound while its accumulated positive reward prefix persists. Discounted protective dominance has the exact cost criterion cost<reward*hazard/(discount+hazard). Undiscounted finite crossover needs positive net continuing reward and a sufficiently large horizon.",
+      "obligations": [
+        "These results do not imply every terminal objective adopts preservation; the accepted H route remains essential.",
+        "This module does not remove the charged-event allowance in ReasonsCompiled; continue tracing the common-history comparison."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "E9Routes": {
+      "role": "Finite disjoint-route survival and deadline composition",
+      "assessment": "f+1 pairwise disjoint route vertex sets and at most f faulty vertices imply at least one clean route. The repair deadline theorem combines that witness with supplied clean-route detection, repair and service bounds.",
+      "obligations": [
+        "Construct actual independent routes and their funded timing; numerical route count alone is not a physical network certificate."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "SensorTail": {
+      "role": "MGF-based sensor tail with bounded adversarial bias",
+      "assessment": "Chernoff bounds are stated for a probability measure, positive sigma, threshold beyond the bias, exponential integrability and the MGF bound. sensor_law_tail transfers an a.s.-strong pointwise adversarial bias cap into the tail statement.",
+      "obligations": [
+        "Actual conditional sensor law and bias bound across admitted histories. The code does not infer subgaussianity from a sensor label."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ConsensusRate": {
+      "role": "Bandwidth-dependent affine consensus contraction",
+      "assessment": "Substitutes theta=R/(R+B) with nonnegative R, positive B and anchor weight 0<a<=1. Gives the exact contraction coefficient, unique scalar equilibrium and geometric error at every n.",
+      "obligations": [
+        "Physical bandwidth, evidence law and private-evidence weighting are model bindings; a scalar contraction is not universal social consensus."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "CorrelatedStress": {
+      "role": "Bounded-footprint correlated-shock probability reduction",
+      "assessment": "many_touching extracts a shock subset from a cover of faulty locations. correlated_stress assumes local stochasticity on shocks and a per-shock cover cardinality bound k, and derives the combinatorial q^(|S|/k) bound. The result allows dependence through bounded shock footprints, not arbitrary unbounded common causes.",
+      "obligations": [
+        "Actual shock law and footprint bound; this is a possible source for fault accounts rather than an empirical assertion that all real noise satisfies it."
+      ],
+      "audit_note": "Public helper many_touching is not individually printed in the 831-name audit. It is used by the audited correlated_stress theorem, so its dependencies are included transitively; add an explicit public-statement entry when reconciling the audit.",
+      "status": "statements_and_definitions_reviewed"
+    },
+    "SafeGenesis": {
+      "role": "Barrier, progress and funded-stock composition",
+      "assessment": "migration_progress integrates a supplied derivative progress bound. safe_genesis combines an existing barrier inequality with finite progress and nonnegative stock increments; it gives nonnegative h, progress by V0/c and nondecreasing resource stock.",
+      "obligations": [
+        "Construct actual migration coordinates and establish those differential/resource inequalities. The conjunction alone does not construct an installed protector."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    }
+  }
+}

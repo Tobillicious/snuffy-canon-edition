@@ -1,0 +1,58 @@
+import Mathlib.Analysis.InnerProductSpace.Projection.Basic
+import Mathlib.Topology.Order.MonotoneConvergence
+import Mathlib.Analysis.Real.Sqrt
+import Mathlib.Order.ConditionallyCompleteLattice.Indexed
+import Mathlib.Order.Filter.AtTopBot.Basic
+
+open Submodule InnerProductSpace Filter
+
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℂ E]
+
+namespace Snuffy.Halperin
+
+theorem norm_starProjection_apply_le (K : Submodule ℂ E) [K.HasOrthogonalProjection] (u : E) :
+    ‖K.starProjection u‖ ≤ ‖u‖  := [proof body omitted in statement view]
+
+theorem dist_starProjection_le (K : Submodule ℂ E) [K.HasOrthogonalProjection] (u : E) {z : E}
+    (hz : z ∈ K) : ‖K.starProjection u - z‖ ≤ ‖u - z‖  := [proof body omitted in statement view]
+
+theorem sq_pythagoras_step (K : Submodule ℂ E) [K.HasOrthogonalProjection] (u : E) {z : E}
+    (hz : z ∈ K) :
+    ‖u - z‖ ^ 2 = ‖u - K.starProjection u‖ ^ 2 + ‖K.starProjection u - z‖ ^ 2  := [proof body omitted in statement view]
+
+noncomputable def tIterate (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection] (x : E) : ℕ → E
+  | 0 => x
+  | k + 1 => A.starProjection (B.starProjection (tIterate A B x k))
+
+theorem chain_identity (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    (x : E) {z : E} (hz : z ∈ A ⊓ B) (k : ℕ) :
+    ‖tIterate A B x k - z‖ ^ 2 = ‖tIterate A B x (k + 1) - z‖ ^ 2
+      + ‖tIterate A B x k - B.starProjection (tIterate A B x k)‖ ^ 2
+      + ‖B.starProjection (tIterate A B x k)
+          - A.starProjection (B.starProjection (tIterate A B x k))‖ ^ 2  := [proof body omitted in statement view]
+
+theorem sq_dist_antitone (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    (x : E) {z : E} (hz : z ∈ A ⊓ B) :
+    Antitone (fun k => ‖tIterate A B x k - z‖ ^ 2)  := [proof body omitted in statement view]
+
+theorem sq_dist_tendsto (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    (x : E) {z : E} (hz : z ∈ A ⊓ B) :
+    ∃ L : ℝ, Tendsto (fun k => ‖tIterate A B x k - z‖ ^ 2) atTop (nhds L)  := [proof body omitted in statement view]
+
+theorem delta_tendsto_zero (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection]
+    (x : E) {z : E} (hz : z ∈ A ⊓ B) :
+    Tendsto (fun k => ‖tIterate A B x k - z‖ ^ 2 - ‖tIterate A B x (k + 1) - z‖ ^ 2)
+      atTop (nhds 0)  := [proof body omitted in statement view]
+
+theorem asymptotic_regularity (A B : Submodule ℂ E)
+    [A.HasOrthogonalProjection] [B.HasOrthogonalProjection] (x : E) :
+    Tendsto (fun k => ‖tIterate A B x k - B.starProjection (tIterate A B x k)‖) atTop (nhds 0) ∧
+    Tendsto (fun k => ‖B.starProjection (tIterate A B x k)
+        - A.starProjection (B.starProjection (tIterate A B x k))‖) atTop (nhds 0)  := [proof body omitted in statement view]
+
+end Snuffy.Halperin

@@ -1,0 +1,53 @@
+import Snuffy.GaussianChannel
+
+open MeasureTheory ProbabilityTheory InformationTheory Real
+open scoped ENNReal NNReal
+
+namespace Snuffy.GaussianChannelGen
+
+open Snuffy.GaussianChannel
+
+variable {α : Type*} [MeasurableSpace α]
+
+noncomputable def chanW (w : α → ℝ) (hw : Measurable w) (v : ℝ≥0) : Kernel α ℝ where
+  toFun x := gaussianReal (w x) v
+  measurable' := measurable_gaussianReal.comp (Measurable.prodMk hw measurable_const)
+
+theorem chanW_apply (w : α → ℝ) (hw : Measurable w) (v : ℝ≥0) (x : α) :
+    chanW w hw v x = gaussianReal (w x) v  := [proof body omitted in statement view]
+
+section Bound
+
+variable (w : α → ℝ) (hw : Measurable w) {v : ℝ≥0} (hv : v ≠ 0) (P : Measure α)
+  [IsProbabilityMeasure P]
+
+noncomputable def quadW (v : ℝ≥0) (m : ℝ) (s : ℝ≥0) (p : α × ℝ) : ℝ :=
+  Real.log ((s : ℝ) / v) / 2 - (p.2 - w p.1) ^ 2 / (2 * v) + (p.2 - m) ^ 2 / (2 * s)
+
+include hw in
+theorem measurable_quadW (v : ℝ≥0) (m : ℝ) (s : ℝ≥0) : Measurable (quadW w v m s)  := [proof body omitted in statement view]
+
+include hv in
+                                                   
+theorem llr_chanW (m : ℝ) {s : ℝ≥0} (hs : s ≠ 0) :
+    llr (P ⊗ₘ chanW w hw v) (P ⊗ₘ Kernel.const α (gaussianReal m s))
+      =ᵐ[P ⊗ₘ chanW w hw v] quadW w v m s  := [proof body omitted in statement view]
+
+noncomputable def outVarW (v : ℝ≥0) : ℝ≥0 :=
+  ⟨∫ x, (w x - ∫ y, w y ∂P) ^ 2 ∂P + v,
+    add_nonneg (integral_nonneg (f := fun x => (w x - ∫ y, w y ∂P) ^ 2) fun _ => sq_nonneg _) v.2⟩
+
+omit [IsProbabilityMeasure P] in
+theorem coe_outVarW (v : ℝ≥0) :
+    (outVarW w P v : ℝ) = ∫ x, (w x - ∫ y, w y ∂P) ^ 2 ∂P + v  := [proof body omitted in statement view]
+
+include hv in
+                                                                   
+theorem klDiv_chanW (hX : MemLp w 2 P) :
+    klDiv (P ⊗ₘ chanW w hw v)
+      (P ⊗ₘ Kernel.const α (gaussianReal (∫ y, w y ∂P) (outVarW w P v)))
+      = ENNReal.ofReal (Real.log ((outVarW w P v : ℝ) / v) / 2)  := [proof body omitted in statement view]
+
+end Bound
+
+end Snuffy.GaussianChannelGen

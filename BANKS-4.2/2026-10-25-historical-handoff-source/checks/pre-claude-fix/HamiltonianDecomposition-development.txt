@@ -1,0 +1,19 @@
+/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/HamiltonianDecomposition.lean:139:32: error: expected token
+/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/HamiltonianDecomposition.lean:156:6: error: Type mismatch: After simplification, term
+  Matrix.trace_mul_cycle exchangeSwap (ρ * star exchangeSwap) boundaryCharge
+ has type
+  (exchangeSwap * (ρ * (star exchangeSwap * boundaryCharge))).trace =
+    (boundaryCharge * (exchangeSwap * (ρ * star exchangeSwap))).trace
+but is expected to have type
+  (exchangeSwap * (ρ * (star exchangeSwap * boundaryCharge))).trace =
+    (ρ * (star exchangeSwap * (boundaryCharge * exchangeSwap))).trace
+/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/HamiltonianDecomposition.lean:158:13: error: unsolved goals
+ρ : Matrix (Fin 4) (Fin 4) ℂ
+⊢ (ρ * (star exchangeSwap * (boundaryCharge * exchangeSwap))).trace = (ρ * reservoirCharge).trace
+/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/HamiltonianDecomposition.lean:159:35: warning: This simp argument is unused:
+  exchange_swap_charge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

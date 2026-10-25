@@ -1,0 +1,24 @@
+import Mathlib.Data.Fintype.Card
+import Mathlib.Data.Finset.Card
+import Mathlib.Tactic.Choose
+
+namespace UPTEpistemicRoutes
+
+theorem surviving_disjoint_route {V : Type} [DecidableEq V] (faultBudget : Nat)
+    (routes : Fin (faultBudget+1) → Finset V) (faults : Finset V)
+    (separate : ∀ i j, i ≠ j → Disjoint (routes i) (routes j))
+    (bounded : faults.card ≤ faultBudget) :
+    ∃ i, Disjoint (routes i) faults  := [proof body omitted in statement view]
+
+theorem certified_repair_meets_deadline {V : Type} [DecidableEq V] (faultBudget : Nat)
+    (routes : Fin (faultBudget+1) → Finset V) (faults : Finset V)
+    (separate : ∀ i j, i ≠ j → Disjoint (routes i) (routes j))
+    (bounded : faults.card ≤ faultBudget)
+    (detection repair service : Fin (faultBudget+1) → Nat)
+    (detectBound repairBound serviceBound deadline : Nat)
+    (timing : ∀ i, Disjoint (routes i) faults →
+      detection i ≤ detectBound ∧ repair i ≤ repairBound ∧ service i ≤ serviceBound)
+    (fits : detectBound+repairBound+serviceBound ≤ deadline) :
+    ∃ i, Disjoint (routes i) faults ∧ detection i+repair i+service i ≤ deadline  := [proof body omitted in statement view]
+
+end UPTEpistemicRoutes

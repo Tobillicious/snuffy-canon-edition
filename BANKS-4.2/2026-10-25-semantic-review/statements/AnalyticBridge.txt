@@ -1,0 +1,61 @@
+import Mathlib.Analysis.Calculus.Deriv.MeanValue
+import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.FunProp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+
+namespace GeminiThirteenAnalysis
+noncomputable section
+open Set Filter MeasureTheory
+
+theorem integrating_factor_monotone (f derivative : ℝ → ℝ) (rate : ℝ)
+    (differentiable : ∀ t ∈ Ici (0:ℝ), HasDerivAt f (derivative t) t)
+    (barrier : ∀ t ∈ Ici (0:ℝ), 0 ≤ derivative t+rate*f t) :
+    MonotoneOn (fun t => Real.exp (rate*t)*f t) (Ici 0)  := [proof body omitted in statement view]
+
+theorem linear_barrier_preserves_safety (f derivative : ℝ → ℝ) (rate : ℝ)
+    (differentiable : ∀ t ∈ Ici (0:ℝ), HasDerivAt f (derivative t) t)
+    (barrier : ∀ t ∈ Ici (0:ℝ), 0 ≤ derivative t+rate*f t)
+    (initial : 0 ≤ f 0) (t : ℝ) (elapsed : 0 ≤ t) : 0 ≤ f t  := [proof body omitted in statement view]
+
+theorem exponential_transient_bound (f derivative : ℝ → ℝ) (rate : ℝ)
+    (differentiable : ∀ t ∈ Ici (0:ℝ), HasDerivAt f (derivative t) t)
+    (decay : ∀ t ∈ Ici (0:ℝ), derivative t+rate*f t ≤ 0)
+    (t : ℝ) (elapsed : 0 ≤ t) : f t ≤ f 0*Real.exp (-rate*t)  := [proof body omitted in statement view]
+
+theorem integrated_exponential_transient (rate horizon : ℝ) (positive : 0 < rate) :
+    (∫ t in (0:ℝ)..horizon, Real.exp (-rate*t))=(1-Real.exp (-rate*horizon))/rate  := [proof body omitted in statement view]
+
+theorem integrated_transient_cost_bound (cost : ℝ → ℝ)
+    (base initialExcess rate horizon : ℝ) (elapsed : 0 ≤ horizon) (positive : 0 < rate)
+    (integrable : IntervalIntegrable cost volume 0 horizon)
+    (envelope : ∀ t ∈ Icc 0 horizon, cost t ≤ base+initialExcess*Real.exp (-rate*t)) :
+    (∫ t in (0:ℝ)..horizon, cost t) ≤
+      base*horizon+initialExcess*(1-Real.exp (-rate*horizon))/rate  := [proof body omitted in statement view]
+
+theorem continuation_hazard_threshold (reward cost discount protectedHazard defectHazard : ℝ)
+    (protectedDenominator : 0 < discount+protectedHazard)
+    (defectDenominator : 0 < discount+defectHazard)
+    (netPositive : 0 < reward-cost) :
+    reward/(discount+defectHazard) < (reward-cost)/(discount+protectedHazard) ↔
+      reward*(discount+protectedHazard)/(reward-cost)-discount < defectHazard  := [proof body omitted in statement view]
+
+theorem heterogeneous_quadratic_cost_identity (first : ℝ) :
+    first^2+4*(1-first)^2=4/5+5*(first-4/5)^2  := [proof body omitted in statement view]
+
+theorem heterogeneous_uniform_is_not_minimum :
+    (4/5:ℝ)^2+4*(1/5)^2 < (1/2)^2+4*(1/2)^2  := [proof body omitted in statement view]
+
+theorem eventually_better_continuation
+    (reward cost discount protectedHazard : ℝ) (neglectedHazard : ℝ → ℝ)
+    (discountPositive : 0 < discount) (protectedNonnegative : 0 ≤ protectedHazard)
+    (hazardNonnegative : ∀ t ∈ Ici (0:ℝ), 0 ≤ neglectedHazard t)
+    (netPositive : 0 < reward-cost)
+    (diverges : Tendsto neglectedHazard atTop atTop) :
+    ∃ start : ℝ, ∀ t ≥ start,
+      reward/(discount+neglectedHazard t) < (reward-cost)/(discount+protectedHazard)  := [proof body omitted in statement view]
+
+end
+end GeminiThirteenAnalysis

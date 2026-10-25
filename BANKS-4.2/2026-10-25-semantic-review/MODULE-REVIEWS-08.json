@@ -1,0 +1,85 @@
+{
+  "modules": {
+    "AnalyticBridge": {
+      "role": "Continuous barrier and transient-cost calculus; payoff and heterogeneous-cost examples",
+      "assessment": "Reviewed the integrating-factor safety/decay proofs, exact exponential integral, transient work upper bound, continuation hazard criterion and eventual crossover. The same module explicitly exhibits nonuniform optimum for heterogeneous quadratic costs. Its eventually_better_continuation compares parameterised instantaneous value expressions; it does not erase the accumulated reward prefix from BridgeD1.",
+      "obligations": [
+        "Construct the actual barrier/progress/cost envelopes; do not infer a universal optimum for heterogeneous costs from the uniform homogeneous identity."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "FinalClosure": {
+      "role": "Verifier sufficiency, additive innovation examples, terminal-value convention, channel-count and stock identities",
+      "assessment": "Reviewed all statements and definitions Sound, Complete, rate, objective, value and stock. Verifier soundness/completeness is equivalent to the exact threshold predicate; proxy sufficiency is constancy of that predicate on proxy fibres. Innovation/pruning results assume every contribution positive. value none=bottom is an explicit convention, not a theorem about arbitrary terminal preferences. Cooperative efficiency uses the stated quadratic-versus-linear channel-cost model. Stock results follow actual signed increments.",
+      "obligations": [
+        "Bind verifier fibres to the physical full state, and keep the explicit payoff/terminal convention separate from arbitrary mind objectives. The H route supplies the accepted universal protection mechanism."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ThermalBalance": {
+      "role": "Within-epoch integral headroom",
+      "assessment": "Reviewed both statements. A supplied entropy balance and rate bound control the actual interval integral; a nonnegative rate, time horizon and starting headroom keep the entropy within its ceiling throughout the stated response interval.",
+      "obligations": [
+        "Actual entropy trajectory, injected rate and headroom are physical certificate inputs."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "AdaptiveConsensus": {
+      "role": "Adaptive stochastic-weight consensus error envelope",
+      "assessment": "Reviewed the complete absolute-value conclusions after correcting the statement extraction aid. Nonnegative normalised weights preserve a uniform error bound. An anchor weight in [0,1] combines consensus and measurement errors, and induction yields the exact geometric envelope despite history-varying weights.",
+      "obligations": [
+        "Physical sensor error, weights and evidence semantics; row-stochastic averaging alone does not establish truth."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "CascadeCore": {
+      "role": "Deadline algebra, recursive queue/entropy bookkeeping and capacity gating",
+      "assessment": "Reviewed all results. Work/rate meets deadline when explicitly funded; nonpositive net arrivals preserve the queue burst bound; entropy accumulates bounded signed increments. Spectral expectation is bounded by the supplied ground floor. Atomic capacity uses cost<=remaining capacity. Deficit/threshold statements integrate supplied lower rates.",
+      "obligations": [
+        "Actual workloads, deficit rates, service and capacity gate enforcement."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "DecisionAndScale": {
+      "role": "Finite outcome mixtures, overhead criteria, sparse verifier cost and homogeneous cost minimum",
+      "assessment": "Reviewed all results. Mixtures preserve supplied pointwise dominance/margins; continuation or efficiency gains pay overhead only when the stated quantitative inequality holds. Sparse local verification is linear in nodes if edge count is degree-bounded. The two-provider quadratic model uniquely minimises at equal share.",
+      "obligations": [
+        "Derive the physical inequalities before using them as an optimiser's reason; no universal objective conversion follows from weighted algebra."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "RestrictedModels": {
+      "role": "Anchored dissipation, HHI identities and conditional-product pushforward",
+      "assessment": "Reviewed all results and the actual outputMass/jointOutputMass definitions. HHI variance gives the unique uniform minimum under the stated normalisation/homogeneous quadratic model. Product pushforward factors because the joint source mass is explicitly p(u)q(v), rather than because arbitrary physical outputs are independent.",
+      "obligations": [
+        "The source conditional product factorisation and homogeneous cost family must be established at the application."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "SemanticMap": {
+      "role": "Lossless-map semantic calibration counterexample",
+      "assessment": "Reviewed all four Bool statements. Identity and bit flip are distinct bijections; information-losslessness alone does not choose the intended labelling. Injectivity plus a fixed calibrated false reference forces identity on Bool.",
+      "obligations": [
+        "G1's maintained records and source observations supply actual semantic calibration; codeword identification is stronger than mere distinguishability."
+      ],
+      "settled_result": "This existing result explains why the retained record/decoder is part of the bridge; do not misdescribe a record as sufficient merely because it is lossless.",
+      "status": "statements_and_definitions_reviewed"
+    },
+    "MetricShadow": {
+      "role": "Embedding-distance robustness",
+      "assessment": "Reviewed the full absolute-value conclusion after repairing the extraction aid. Pointwise epsilon-close embeddings change any pairwise distance by at most 2epsilon. Protected close/separated edge classifications survive supplied strict margins.",
+      "obligations": [
+        "Actual embedding calibration and strict physical margins."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "RiskBounds": {
+      "role": "Finite weighted bounds and dependent-chain composition",
+      "assessment": "Reviewed all statements. Weighted Markov uses a normalised first moment and nonnegative weights/observable; event inclusion and intersections are monotone. The exact finite positive-work example is a numerical witness. dependent_chain_bound needs conditional-product-style local recurrence bounds but does not assume independence.",
+      "obligations": [
+        "Derive the actual local risk recurrence or conditional kernels; numerical examples do not certify every physical installation."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    }
+  }
+}

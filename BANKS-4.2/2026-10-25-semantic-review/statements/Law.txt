@@ -1,0 +1,58 @@
+import Snuffy.Greatestness
+import Mathlib.Data.Set.Finite.Basic
+import Mathlib.Order.WellFounded
+import Mathlib.MeasureTheory.Measure.Typeclasses.Finite
+
+open Snuffy.Greatestness
+
+namespace Snuffy.Law
+
+variable {n : ℕ} {L : Fin n → Type*} [∀ i, SemilatticeSup (L i)]
+
+theorem exists_aligned (F : Set (∀ i, L i)) (hfin : F.Finite) (hne : F.Nonempty) :
+    ∃ o, Aligned F o  := [proof body omitted in statement view]
+
+theorem lexLt_first_le (hn : 0 < n) {o q : ∀ i, L i} (h : LexLt o q) :
+    o ⟨0, hn⟩ ≤ q ⟨0, hn⟩  := [proof body omitted in statement view]
+
+theorem life_guard (hn : 0 < n) (F : Set (∀ i, L i)) (hfin : F.Finite) {b : ∀ i, L i}
+    (hb : b ∈ F) : ∃ g, Aligned F g ∧ b ⟨0, hn⟩ ≤ g ⟨0, hn⟩  := [proof body omitted in statement view]
+
+section Scope
+
+variable {P : Type*}
+
+def NeedlessLoss₁ (F : Set (Set P)) (o : Set P) : Prop := ∃ q ∈ F, o ⊂ q
+
+def ProjMax (S : Set P) (F : Set (Set P)) (o : Set P) : Prop :=
+  o ∈ F ∧ ∀ q ∈ F, ¬ (o ∩ S ⊂ q ∩ S)
+
+theorem scope_guarantee_iff (S : Set P) :
+    (∀ (F : Set (Set P)) (o : Set P), ProjMax S F o → ¬ NeedlessLoss₁ F o) ↔ S = Set.univ  := [proof body omitted in statement view]
+
+theorem same_priority_admits_needless_loss {x y : P} (hxy : x ≠ y) :
+    (∀ q ∈ ({{x}, {y}} : Set (Set P)), ¬ (({y} : Set P) ⊂ q)) ∧
+      ({y} : Set P) ∩ {x} ⊂ ({x} : Set P) ∩ {x}  := [proof body omitted in statement view]
+
+end Scope
+
+section Holds
+
+open MeasureTheory
+
+def UpwardClosed (U : Set (∀ i, L i)) : Prop := ∀ a b, LexLe a b → a ∈ U → b ∈ U
+
+theorem faithful_hold_dominates {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω)
+    (Oπ Oh : Ω → ∀ i, L i) (hdom : ∀ w, LexLe (Oπ w) (Oh w)) (U : Set (∀ i, L i))
+    (hU : UpwardClosed U) : μ (Oπ ⁻¹' U) ≤ μ (Oh ⁻¹' U)  := [proof body omitted in statement view]
+
+omit [∀ i, SemilatticeSup (L i)] in
+
+theorem faithful_hold_strict {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω) [IsFiniteMeasure μ]
+    (Oπ Oh : Ω → ∀ i, L i) (U : Set (∀ i, L i)) (hkeep : ∀ w, Oh w ∈ U)
+    (hmeas : MeasurableSet (Oπ ⁻¹' U)) (hmiss : 0 < μ (Oπ ⁻¹' U)ᶜ) :
+    μ (Oπ ⁻¹' U) < μ (Oh ⁻¹' U)  := [proof body omitted in statement view]
+
+end Holds
+
+end Snuffy.Law

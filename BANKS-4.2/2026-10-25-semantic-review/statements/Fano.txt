@@ -1,0 +1,42 @@
+import Snuffy.FiniteInformation
+import Mathlib.Analysis.SpecialFunctions.BinaryEntropy
+
+open Finset Real
+
+namespace Snuffy.Fano
+
+open Snuffy.FiniteInformation
+
+theorem max_entropy {ι : Type*} (S : Finset ι) (hS : S.Nonempty) (a : ι → ℝ)
+    (ha : ∀ i ∈ S, 0 ≤ a i) (hsum : ∑ i ∈ S, a i = 1) :
+    ∑ i ∈ S, negMulLog (a i) ≤ Real.log S.card  := [proof body omitted in statement view]
+
+variable {W : Type*} [Fintype W] [DecidableEq W]
+
+theorem fano_single (q : W → ℝ) (hq : ∀ w, 0 ≤ q w) (hsum : ∑ w, q w = 1) (w₀ : W)
+    (hM : 2 ≤ Fintype.card W) :
+    ∑ w, negMulLog (q w) ≤ binEntropy (1 - q w₀) + (1 - q w₀) * Real.log (Fintype.card W - 1)  := [proof body omitted in statement view]
+
+variable {Y : Type*} [Fintype Y]
+
+noncomputable def condEnt (p : W → Y → ℝ) : ℝ :=
+  ∑ y, margY p y * ∑ w, negMulLog (p w y / margY p y)
+
+noncomputable def entW (p : W → Y → ℝ) : ℝ := ∑ w, negMulLog (margH p w)
+
+theorem fano (p : W → Y → ℝ) (hp : ∀ w y, 0 ≤ p w y) (hp1 : ∑ w, ∑ y, p w y = 1)
+    (g : Y → W) (hM : 2 ≤ Fintype.card W) :
+    condEnt p ≤ binEntropy (1 - ∑ y, p (g y) y)
+      + (1 - ∑ y, p (g y) y) * Real.log (Fintype.card W - 1)  := [proof body omitted in statement view]
+
+omit [DecidableEq W] in
+                                      
+theorem mi_eq_ent_sub_condEnt (p : W → Y → ℝ) (hp : ∀ w y, 0 ≤ p w y) :
+    mi p = entW p - condEnt p  := [proof body omitted in statement view]
+
+theorem required_information (p : W → Y → ℝ) (hp : ∀ w y, 0 ≤ p w y)
+    (hp1 : ∑ w, ∑ y, p w y = 1) (g : Y → W) (hM : 2 ≤ Fintype.card W) :
+    entW p - binEntropy (1 - ∑ y, p (g y) y)
+      - (1 - ∑ y, p (g y) y) * Real.log (Fintype.card W - 1) ≤ mi p  := [proof body omitted in statement view]
+
+end Snuffy.Fano

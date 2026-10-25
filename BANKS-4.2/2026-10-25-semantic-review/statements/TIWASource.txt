@@ -1,0 +1,46 @@
+namespace Snuffy.TIWASource
+
+variable {Coord Val Vertex : Type*} [DecidableEq Coord] [DecidableEq Vertex]
+
+structure State where
+  store : Coord → Val
+  frozen : Set Coord
+  completed : Set Vertex
+  tasks : Set Vertex
+
+structure BoundaryData where
+  epoch : Nat
+  coords : Set Coord
+
+def readFrozen (s : State) (u : Coord) (_hu : u ∈ s.frozen) : Val := s.store u
+
+def outerUpdate (s : State) (target : Coord) (value : Val)
+    (htarget : target ∉ s.frozen) : State :=
+  { s with store := fun c => if c = target then value else s.store c }
+
+theorem outerUpdate_read_frozen (s : State) (target : Coord) (value : Val)
+    (htarget : target ∉ s.frozen) (u : Coord) (hu : u ∈ s.frozen) :
+    (outerUpdate s target value htarget).store u = s.store u  := [proof body omitted in statement view]
+
+def freeze (s : State) (newF : Set Coord) : State :=
+  { s with frozen := s.frozen ∪ newF }
+
+theorem freeze_monotone (s : State) (newF : Set Coord) :
+    s.frozen ⊆ (freeze s newF).frozen  := [proof body omitted in statement view]
+
+def maySchedule (s : State) (v : Vertex) : Prop :=
+  v ∉ s.completed
+
+def schedule (s : State) (v : Vertex) (hv : maySchedule s v) : State :=
+  { s with tasks := s.tasks ∪ {v} }
+
+theorem schedule_no_rework (s : State) (v : Vertex) (hv : maySchedule s v) :
+    v ∉ s.completed  := [proof body omitted in statement view]
+
+def guardThicknessOk (thickness interactionRadius : Nat) : Prop :=
+  thickness ≥ interactionRadius
+
+end Snuffy.TIWASource
+```
+
+This compiles likely. But is it "actual"? It's a first concrete transition model. Good. Let's write file and compile with lean manually. Need path.<|end|><|start|>}}],

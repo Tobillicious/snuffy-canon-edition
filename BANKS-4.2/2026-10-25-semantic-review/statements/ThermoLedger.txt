@@ -1,0 +1,58 @@
+import Mathlib.MeasureTheory.Measure.Basic
+import Mathlib.MeasureTheory.Measure.Typeclasses.Probability
+import Mathlib.MeasureTheory.Integral.Lebesgue.Basic
+import Mathlib.Algebra.BigOperators.Intervals
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.FieldSimp
+
+open MeasureTheory Finset
+
+namespace Snuffy.ThermoLedger
+
+theorem stroke_identity {β lnZ S₁ S₂ U₁ U₂ W Q I₁ I₂ : ℝ}
+    (hfirst : U₂ - U₁ = W - Q) (hcorr : S₂ - S₁ = I₂ - I₁) :
+    (-S₂ + β * U₂ + lnZ) - (-S₁ + β * U₁ + lnZ) = β * W - β * Q + I₁ - I₂  := [proof body omitted in statement view]
+
+theorem cycle_work_floor {kT Q W IM Derr δI η C : ℝ} (hkT : 0 < kT)
+    (hguard : Q / kT ≥ IM + Derr + δI) (hcharge : W ≥ Q + (1 - η) * C) :
+    W ≥ kT * (IM + Derr + δI) + (1 - η) * C  := [proof body omitted in statement view]
+
+noncomputable def escrowStep (E r w h : ℝ) : ℝ := if w ≤ E + r then E + r - w else E + r - h
+
+noncomputable def escrow (E₀ : ℝ) (r w h : ℕ → ℝ) : ℕ → ℝ
+  | 0 => E₀
+  | k + 1 => escrowStep (escrow E₀ r w h k) (r k) (w k) (h k)
+
+theorem funded_repair_certificate {E₀ : ℝ} {r w h : ℕ → ℝ} (hE : 0 ≤ E₀)
+    (hsolv : ∀ k, 0 ≤ E₀ + ∑ j ∈ range (k + 1), (r j - w j)) :
+    ∀ k, escrow E₀ r w h k = E₀ + ∑ j ∈ range k, (r j - w j) ∧
+      0 ≤ escrow E₀ r w h k ∧ w k ≤ escrow E₀ r w h k + r k  := [proof body omitted in statement view]
+
+theorem quarantine_zero_debt {E₀ : ℝ} {r w h : ℕ → ℝ} (hE : 0 ≤ E₀)
+    (hhold : ∀ k, h k ≤ r k) : ∀ k, 0 ≤ escrow E₀ r w h k  := [proof body omitted in statement view]
+
+theorem tower_bound {Ω H : Type*} [MeasurableSpace Ω] [MeasurableSpace H]
+    (μ : Measure Ω) (ν : Measure H) [IsProbabilityMeasure ν] (κ : H → Measure Ω)
+    (E : Set Ω) (δ : ENNReal) (hmix : μ E = ∫⁻ x, κ x E ∂ν) (hk : ∀ x, κ x E ≤ δ) :
+    μ E ≤ δ  := [proof body omitted in statement view]
+
+theorem canon_invariant {Ω ι : Type*} [MeasurableSpace Ω] (μ : Measure Ω)
+    (accounts : Finset ι) (E : ι → Set Ω) (δ : ι → ENNReal) (G breach : Set Ω)
+    (hbreach : breach ⊆ Gᶜ) (hG : Gᶜ ⊆ ⋃ i ∈ accounts, E i)
+    (hδ : ∀ i ∈ accounts, μ (E i) ≤ δ i) :
+    μ breach ≤ μ Gᶜ ∧ μ Gᶜ ≤ ∑ i ∈ accounts, δ i  := [proof body omitted in statement view]
+
+theorem tracking_envelope {e : ℕ → ℝ} {a b : ℝ} (ha0 : 0 < a) (ha1 : a ≤ 1)
+    (hrec : ∀ k, e (k + 1) ≤ (1 - a) * e k + b) :
+    ∀ k, e k ≤ (1 - a) ^ k * e 0 + b / a * (1 - (1 - a) ^ k)  := [proof body omitted in statement view]
+
+theorem tracking_bounded {e : ℕ → ℝ} {a b : ℝ} (ha0 : 0 < a) (ha1 : a ≤ 1)
+    (hrec : ∀ k, e (k + 1) ≤ (1 - a) * e k + b) :
+    ∀ k, e k ≤ max (e 0) (b / a)  := [proof body omitted in statement view]
+
+theorem tracking_within_resolution {e : ℕ → ℝ} {a b ε₀ : ℝ} (ha0 : 0 < a) (ha1 : a ≤ 1)
+    (hrec : ∀ k, e (k + 1) ≤ (1 - a) * e k + b) (he0 : e 0 ≤ ε₀) (hgain : b / a ≤ ε₀) :
+    ∀ k, e k ≤ ε₀  := [proof body omitted in statement view]
+
+end Snuffy.ThermoLedger

@@ -1,0 +1,53 @@
+{
+  "modules": {
+    "Landauer": {
+      "role": "Finite classical entropy, Gibbs state and actual reversible joint reset",
+      "assessment": "Reviewed all results with ent, marginals, Gibbs partition, evolve, heat and entDrop. The register/bath dynamics is an actual permutation of an initially independent register and Gibbs bath. Reeb–Wolf decomposes beta*heat minus entropy drop into mutual information plus bath KL; nonnegativity yields Landauer. guard_one and cycle_work_floor_derived then use the instance's stated entropy-export amount and gross charge.",
+      "obligations": [
+        "The entropy removed as IM+Derr+deltaI and gross cycle charge are physical stroke inputs, not outputs of the entropy inequality alone."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "QuantumLandauer": {
+      "role": "Finite-dimensional quantum entropy and Landauer derivation",
+      "assessment": "Reviewed all results, spectral vnEnt, partial traces, Gibbs state, tensor-product initial state, unitary finalState and qheat. Entropy invariance, pinching and the Gibbs energy bound are derived from spectral and finite entropy calculations. quantum_landauer holds for PSD trace-one register, initially independent Gibbs bath and actual unitary joint W. Guard/cycle statements then use the export and gross-charge inputs.",
+      "obligations": [
+        "Use the finite-dimensional physical/register/bath construction and actual heat accounting; no assertion that hardware reaches the reversible limit follows from the lower bound."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "Bennett": {
+      "role": "Compute/uncompute construction, strict erasure entropy and administration comparison",
+      "assessment": "Reviewed all statements, including the full let-bound bennett_step after correcting the extraction aid. bennettEquiv explicitly computes h(g(x)) while restoring the scratch group register. Entropy is invariant under a bijection and decreases strictly under a positive-mass many-to-one pushforward. Reversible register-only evolution leaves the bath heat zero. premise5_from_bennett forces the reversible choice using a realisable counterpart, equal base cost, zero counterpart heat, positive irreversible heat and a slack-order interpretation.",
+      "obligations": [
+        "Construct the feasible physical counterpart with its timing/base-cost correspondence. The algebraic bijection itself does not price hardware, memory or speed."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "StrokeBookkeeping": {
+      "role": "Derived correction-stroke entropy/correlation identity",
+      "assessment": "Reviewed all results with the controlled unitary and qmi definitions. For an actual control-block-diagonal joint record state, controlled correction preserves the memory marginal. Unitary entropy invariance then gives subsystem entropy change equal to mutual-information change, and the first law yields the stroke identity with +consumed correlation. This supplies the hcorr input carried in the simpler ThermoLedger identity.",
+      "obligations": [
+        "Use the actual QND/classical-control block structure, endpoint Hamiltonian/reference and gross reset accounting; do not apply the block statement to arbitrary coherent control records."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "Threshold": {
+      "role": "Actual finite stochastic law and witness-counting threshold",
+      "assessment": "Reviewed all results and FaultLaw, prob, LocalStochastic, MajorityFails. Failure-event bounds require explicit witnesses with at least half faulty locations, their minimum length and geometric count. Repetition majority failure is explicitly defined and its ceiling proved end to end for that finite model. family_ceiling handles polynomial witness overhead by geometric domination. Local stochasticity does not require independent leaf failures.",
+      "obligations": [
+        "A physical code's actual failure must imply the witness property. DKLP supplies the cited surface-code route; identify code/gadget correspondence when applying the concatenated alternative."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "Concatenated": {
+      "role": "Seven-child recursive failure/witness model and suppression bound",
+      "assessment": "Reviewed all results with Loc, sub, Fails, lift and witnesses. A generic distance-three metric code corrects one error. Fails recursively means two distinct bad children, yielding witnesses of size 2^k and at most 21^(2^k-1) candidates. This gives (21p)^(2^k)/21 and every positive ceiling for p<1/21.",
+      "obligations": [
+        "Trace the actual code/gadget failure to the recursively defined Fails predicate. The module constructs the counting/failure recursion; its statements alone do not instantiate an arbitrary quantum device."
+      ],
+      "trace_status": "Check the cited AGP/code construction before treating the presentation's end-to-end wording as a discharged physical binding.",
+      "status": "statements_and_definitions_reviewed"
+    }
+  }
+}

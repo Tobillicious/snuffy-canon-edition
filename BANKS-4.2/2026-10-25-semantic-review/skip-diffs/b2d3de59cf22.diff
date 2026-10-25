@@ -1,0 +1,11 @@
+--- 2026-10-23-gemini-bridge-dynamics/inputs/prior/OriginalD1.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/OriginalD1.lean
+@@ -48,8 +48,3 @@
+ end
+ end GeminiOriginalD1
+ 
+-#print axioms GeminiOriginalD1.expected_value_formula
+-#print axioms GeminiOriginalD1.original_dominance_counterexample
+-#print axioms GeminiOriginalD1.lifetime_density_is_normalized
+-#print axioms GeminiOriginalD1.lifetime_survival_tail
+-#print axioms GeminiOriginalD1.zero_ultimate_survival_with_positive_accumulated_value

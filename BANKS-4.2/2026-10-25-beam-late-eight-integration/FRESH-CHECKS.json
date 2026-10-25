@@ -1,0 +1,16 @@
+{
+  "G1FullDomain": {
+    "compile_exit": 0,
+    "compiler_output_bytes": 0,
+    "kernel_exit": 0
+  },
+  "G2WholeOutcome": {
+    "compile_exit": 0,
+    "compiler_output_bytes": 0,
+    "kernel_exit": 0
+  },
+  "G3CompleteBill": {
+    "compile_exit": 0,
+    "compiler_output_bytes": 317
+  }
+}

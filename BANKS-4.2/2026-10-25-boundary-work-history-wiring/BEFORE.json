@@ -1,0 +1,58 @@
+{
+  "lean/Snuffy/DecoderRetraction.lean": {
+    "sha256": "139718482987644252addfed7178efb60755bea65d66ea9987050721c967b523",
+    "archive": "before/lean/Snuffy/DecoderRetraction.lean"
+  },
+  "lean/Snuffy/HamiltonianDecomposition.lean": {
+    "sha256": "9e9b0dfd50964d070ce35b9330494cac1434a2e3f300be7a8cfb4f51ab2610ee",
+    "archive": "before/lean/Snuffy/HamiltonianDecomposition.lean"
+  },
+  "lean/Snuffy/WorkBilling.lean": {
+    "sha256": "22a3adc81fd363e424b2add032d4141bf34ae27ccb10839774f2b6690a0d61a5",
+    "archive": "before/lean/Snuffy/WorkBilling.lean"
+  },
+  "lean/SummitsAudit.lean": {
+    "sha256": "8e6eb5b59359166b377be1662ff743edaeca46c2888639608a7a26e4c0473e16",
+    "archive": "before/lean/SummitsAudit.lean.txt"
+  },
+  "lean/RECEIPT.txt": {
+    "sha256": "b237f80993823a06a52f07558f5618ad9d40cbd464d81f2a88e9e1c49d89ee2e",
+    "archive": "before/lean/RECEIPT.txt"
+  },
+  "lean/PROOF-STATE.md": {
+    "sha256": "b5148a3e2feb4b8cd0e9291208521072a1de298fff8c1842092ab02e1a52d708",
+    "archive": "before/lean/PROOF-STATE.md"
+  },
+  "lean/build-and-audit.sh": {
+    "sha256": "49f45c31bbd93747ee2b26b253e8bc278ac80569a6fd799dfd5c5e0bd6103acf",
+    "archive": "before/lean/build-and-audit.sh"
+  },
+  "inserts/23-machine-checked-canon.md": {
+    "sha256": "e30c894e996a29641b0aa3dceb4d1ed7659e4a539065e4f2d9ea3bc7291efa72",
+    "archive": "before/inserts/23-machine-checked-canon.md"
+  },
+  "SNUFFY-CANON-EDITION-4.2-MASTER.md": {
+    "sha256": "b9f65a951978efca4d36deae1a1d4441b3be3abbc6d7c66a0293aac64e558b80",
+    "archive": "before/SNUFFY-CANON-EDITION-4.2-MASTER.md"
+  },
+  "README.md": {
+    "sha256": "1f54288dbb589b34e83fd57597e3f05c5038cd792ed6ac9b3a48d65e4e87b213",
+    "archive": "before/README.md"
+  },
+  "PUBLICATION-CHECKLIST.md": {
+    "sha256": "27ed6a47a3af699479e0a6aa87acde363f72c99392710334a61c7fb1718dbb2f",
+    "archive": "before/PUBLICATION-CHECKLIST.md"
+  },
+  "@root/AGENTS.md": {
+    "sha256": "551886abe59a2899caa738f55b4d67378bf0cd180cb46adfda72d5369915559f",
+    "archive": "before/root/AGENTS.md"
+  },
+  "@root/NEXT-PROOF-REGISTER-2026-10-25.md": {
+    "sha256": "64953261f56a51de42102c503fac6654a52b051ed7601104aaf26aaf59009ad1",
+    "archive": "before/root/NEXT-PROOF-REGISTER-2026-10-25.md"
+  },
+  "SUPPORTS-FOR-GEMINI.md": {
+    "sha256": "d62238da0b64063031b8133b49a7ea08105af1cd412ab6d820990dc043f28647",
+    "archive": "before/SUPPORTS-FOR-GEMINI.md"
+  }
+}

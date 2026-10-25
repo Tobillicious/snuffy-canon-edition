@@ -1,0 +1,44 @@
+import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.FunProp
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+
+namespace GeminiBridgeD1
+noncomputable section
+open Set Filter
+open scoped Topology
+
+def dynamicSurvival (t : ℝ) : ℝ := Real.exp (-t-t^2/2)
+def dynamicReward (discount t : ℝ) : ℝ :=
+  Real.exp (-discount*t)*dynamicSurvival t
+def dynamicValue (discount horizon : ℝ) : ℝ :=
+  ∫ t in (0:ℝ)..horizon, dynamicReward discount t
+
+theorem dynamic_survival_equation (t : ℝ) :
+    HasDerivAt dynamicSurvival (-(1+t)*dynamicSurvival t) t  := [proof body omitted in statement view]
+
+theorem hazard_grows_without_bound :
+    Tendsto (fun t : ℝ => 1+t) atTop atTop  := [proof body omitted in statement view]
+
+theorem positive_accumulated_prefix (discount : ℝ) : 0 < dynamicValue discount 1  := [proof body omitted in statement view]
+
+theorem increasing_hazard_does_not_erase_prefix (discount horizon : ℝ)
+    (late : 1 ≤ horizon) :
+    0 < dynamicValue discount 1 ∧ dynamicValue discount 1 ≤ dynamicValue discount horizon  := [proof body omitted in statement view]
+
+theorem exact_discounted_dominance_criterion
+    (reward cost discount hazard : ℝ) (positiveDiscount : 0 < discount)
+    (positiveHazard : 0 < hazard) :
+    reward/(discount+hazard) < (reward-cost)/discount ↔
+      cost < reward*hazard/(discount+hazard)  := [proof body omitted in statement view]
+
+theorem undiscounted_finite_crossover
+    (reward cost hazard horizon : ℝ) (positiveHazard : 0 < hazard)
+    (netPositive : 0 < reward-cost)
+    (adequate : reward/(hazard*(reward-cost)) < horizon) :
+    reward/hazard < (reward-cost)*horizon  := [proof body omitted in statement view]
+
+end
+end GeminiBridgeD1

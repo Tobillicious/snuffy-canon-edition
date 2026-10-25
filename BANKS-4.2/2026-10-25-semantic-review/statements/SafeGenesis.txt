@@ -1,0 +1,17 @@
+import Snuffy.AnalyticBridge
+import Snuffy.FinalClosure
+
+open Set
+
+namespace Snuffy.SafeGenesis
+
+theorem migration_progress (V V' : ℝ → ℝ) {c : ℝ} (hV : ∀ t, HasDerivAt V (V' t) t)
+    (hprog : ∀ t, V' t ≤ -c) (t : ℝ) (ht : 0 ≤ t) : V t ≤ V 0 - c * t  := [proof body omitted in statement view]
+
+theorem safe_genesis (h h' V V' : ℝ → ℝ) {κ c : ℝ} (hc : 0 < c)
+    (hh : ∀ t ∈ Ici (0 : ℝ), HasDerivAt h (h' t) t) (hbar : ∀ t ∈ Ici (0 : ℝ), 0 ≤ h' t + κ * h t)
+    (h0 : 0 ≤ h 0) (hV : ∀ t, HasDerivAt V (V' t) t) (hprog : ∀ t, V' t ≤ -c) (hV0 : 0 ≤ V 0)
+    (S₀ : ℝ) (k : ℕ → ℝ) (hk : ∀ i, 0 ≤ k i) :
+    (∀ t, 0 ≤ t → 0 ≤ h t) ∧ V (V 0 / c) ≤ 0 ∧ ∀ n, S₀ ≤ Snuffy.FinalClosure.stock S₀ k n  := [proof body omitted in statement view]
+
+end Snuffy.SafeGenesis

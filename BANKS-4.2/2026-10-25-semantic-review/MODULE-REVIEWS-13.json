@@ -1,0 +1,70 @@
+{
+  "modules": {
+    "ErrorBudget": {
+      "role": "Ordered noncommutative product approximation",
+      "assessment": "Reviewed the five statements. Norm-at-most-one factors bound product norms. The two-factor identity and ordered telescoping control product error by the sum of factor errors; epsilon/m allocation gives the stated total tolerance, including the empty product case.",
+      "obligations": [
+        "Actual finite gate approximants are supplied by the accepted two-level plus cited Solovay–Kitaev route; no commutativity is assumed."
+      ],
+      "settled_result": "The telescoping error-budget proof is already present and must not remain marked merely registered.",
+      "status": "statements_and_definitions_reviewed"
+    },
+    "GenerativeClosure": {
+      "role": "Concrete reserve-before-activation allocation and delegated capability inclusion",
+      "assessment": "Reviewed all statements and Allocation, Valid, Step, Trace and Delegated. Reserve requires fresh funded capacity, activation requires prior funding, and release requires inactivity. Every reachable active identity stays funded and generation leaves the existing active set unchanged. Delegated rights remain included in the root rights.",
+      "obligations": [
+        "Actual complete maintenance costs and capacity/source refinement.",
+        "Capability inclusion and removal of meta-capabilities in H5 are not by themselves a quantitative strict decrease at every delegation hop; trace the separate authority-tax/rank interpretation where used."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ReadoutBounds": {
+      "role": "Thermal readout spectral margin and adaptive record lower bound",
+      "assessment": "Reviewed all statements and outDiag/outDet, weight and total. The determinant decomposes into nonnegative terms under the physical parameter bounds; strict finite occupation and positive coupling yield a positive determinant. Trace-one eigenvalue arithmetic gives a spectral floor. Conditional record minorisation composes along adaptive histories, and a normalised Boolean baseline has total mass one.",
+      "obligations": [
+        "Bind actual readout states/instrument parameters and complete conditional history to the supplied inequalities."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ReadoutJoint": {
+      "role": "Joint common-component Choi-form and adaptive minorisation",
+      "assessment": "Reviewed all statements with cpCoeff, Choi block entries, path weight and chain. The corrected positive common coefficient is N*g^2*(1-N); the older larger positive candidate fails the explicit determinant example. Shifted block positivity and a quadratic-form argument establish the specified real Choi form. History-dependent minorisation composes multiplicatively and yields the hard-count lower bound.",
+      "obligations": [
+        "Actual physical instrument and its Choi/complete-positivity interpretation, full side information and same-record history; do not replace the joint construction with marginal readout bounds."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ReflectionContraction": {
+      "role": "Actual contraction convergence, paid accuracy and first stopping time",
+      "assessment": "Reviewed all statements and run. Completeness provides a unique fixed point; actual iterate and paired-trajectory errors decay geometrically. Residual certificates are correctly distinguished for current and post-update states. The first positive residual stopping index exists within a supplied funded N and returns an epsilon-accurate state with paid cost.",
+      "obligations": [
+        "Construct the actual reflection map, contraction and complete cost/adequacy certificate; a fuel/depth cap alone is not convergence."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "ReflectionFuel": {
+      "role": "Explicit paid trace and nontermination distinction",
+      "assessment": "Reviewed all statements and PaidTrace. Positive funded integer charges bound trace length and conserve fuel exactly. A fixed finite endowment cannot fund arbitrarily long traces. The bounded-depth Boolean flip demonstrates that a depth bound alone need not reach a fixed point.",
+      "obligations": [
+        "Combine with the actual contraction/accuracy certificate before calling the paid output a converged reflection."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "Trotter": {
+      "role": "Constructed Lie–Trotter approximation with explicit error",
+      "assessment": "Reviewed all public results and twelve private helpers. The Banach-algebra exponential estimates, list-product error and power telescoping yield an explicit O(1/n) approximation bound. The natural ceiling choice constructs a finite n for every positive epsilon. Its displayed constant depends on list length and exponential norm sum; this statement alone is not a uniform polynomial-complexity theorem.",
+      "obligations": [
+        "The actual local Hamiltonian list and gate implementation/paid resource overhead instantiate the simulation route; preserve the accepted cited SK support."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    },
+    "TwoLevel": {
+      "role": "Constructed finite decomposition of an actual unitary",
+      "assessment": "Reviewed all statements, IdOutside/IsTwoLevel, complex Givens elimination, standard columns and phase correction. The construction zeros successive column entries without disturbing earlier standard columns, corrects the phase and reverses/star-conjugates the elimination list. Every unitary in dimension n>=2 is a finite product of actual two-level unitary matrices.",
+      "obligations": [
+        "The simulator's gate-set approximation implements those factors. State the n>=2 clause accurately; trivial lower-dimensional systems can be embedded with an ancilla instead of changing the physical target."
+      ],
+      "status": "statements_and_definitions_reviewed"
+    }
+  }
+}

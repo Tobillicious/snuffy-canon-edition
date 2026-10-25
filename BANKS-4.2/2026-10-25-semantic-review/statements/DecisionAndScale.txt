@@ -1,0 +1,48 @@
+import Mathlib.Basic.Real.Basic
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+
+namespace UPTDecisionAndScale
+open scoped BigOperators
+
+theorem weighted_outcome_dominance {I : Type} [Fintype I]
+    (weight kept rival : I → ℝ) (positive : ∀ i, 0 ≤ weight i)
+    (dominates : ∀ i, rival i ≤ kept i) :
+    (∑ i, weight i*rival i) ≤ ∑ i, weight i*kept i  := [proof body omitted in statement view]
+
+theorem continuation_gain_pays_overhead
+    (survivalKept survivalRival continuation overhead : ℝ)
+    (_positiveValue : 0 < continuation)
+    (advantage : overhead < (survivalKept-survivalRival)*continuation) :
+    survivalRival*continuation < survivalKept*continuation-overhead  := [proof body omitted in statement view]
+
+theorem finite_branch_payoff_bound {I : Type} [Fintype I]
+    (probability payoff : I → ℝ) (ceiling : ℝ)
+    (positive : ∀ i, 0 ≤ probability i) (normalized : ∑ i, probability i = 1)
+    (bounded : ∀ i, payoff i ≤ ceiling) :
+    (∑ i, probability i*payoff i) ≤ ceiling  := [proof body omitted in statement view]
+
+theorem duration_reward_bound (duration rate epsilon reward : ℝ)
+    (ratePositive : 0 < rate) (durationSmall : duration ≤ epsilon/rate)
+    (metered : reward ≤ rate*duration) : reward ≤ epsilon  := [proof body omitted in statement view]
+
+theorem efficiency_gain_pays_cost (saved overhead legacyYield : ℝ)
+    (gains : overhead < saved) : legacyYield < legacyYield+saved-overhead  := [proof body omitted in statement view]
+
+theorem dominant_action_survives_mixture {I : Type} [Fintype I]
+    (probability preferred rival : I → ℝ) (margin : ℝ)
+    (positive : ∀ i, 0 ≤ probability i) (normalized : ∑ i, probability i = 1)
+    (gap : ∀ i, rival i+margin ≤ preferred i) :
+    (∑ i, probability i*rival i)+margin ≤ ∑ i, probability i*preferred i  := [proof body omitted in statement view]
+
+theorem local_verifier_cost (nodes edges degree nodeCost edgeCost : Nat)
+    (sparse : edges ≤ degree*nodes) :
+    nodes*nodeCost+edges*edgeCost ≤ nodes*(nodeCost+degree*edgeCost)  := [proof body omitted in statement view]
+
+theorem two_provider_unique_balanced_cost (x total base scale : ℝ) (hs : 0 < scale) :
+    base+scale*(total^2/2) ≤ base+scale*(x^2+(total-x)^2) ∧
+    (base+scale*(x^2+(total-x)^2)=base+scale*(total^2/2) ↔ x=total/2)  := [proof body omitted in statement view]
+
+end UPTDecisionAndScale

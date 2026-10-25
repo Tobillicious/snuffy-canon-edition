@@ -1,0 +1,38 @@
+import Snuffy.Whitening
+
+open MeasureTheory ProbabilityTheory InformationTheory Matrix WithLp Finset
+open scoped ENNReal NNReal MatrixOrder
+
+namespace Snuffy.Rotation
+
+open Snuffy.GaussianVector Snuffy.Whitening
+
+variable {n : ℕ}
+
+theorem multivariateGaussian_one_map_isometry
+    (U : EuclideanSpace ℝ (Fin n) ≃ₗᵢ[ℝ] EuclideanSpace ℝ (Fin n)) (m : EuclideanSpace ℝ (Fin n)) :
+    (multivariateGaussian m 1).map U = multivariateGaussian (U m) 1  := [proof body omitted in statement view]
+
+noncomputable def rotEquiv (U : EuclideanSpace ℝ (Fin n) ≃ₗᵢ[ℝ] EuclideanSpace ℝ (Fin n)) :
+    EuclideanSpace ℝ (Fin n) ≃ᵐ EuclideanSpace ℝ (Fin n) :=
+  U.toContinuousLinearEquiv.toHomeomorph.toMeasurableEquiv
+
+variable {α : Type*} [MeasurableSpace α]
+
+noncomputable def rotSignal (U : EuclideanSpace ℝ (Fin n) ≃ₗᵢ[ℝ] EuclideanSpace ℝ (Fin n))
+    (s : α → EuclideanSpace ℝ (Fin n)) (S : Matrix (Fin n) (Fin n) ℝ) (i : Fin n) (x : α) : ℝ :=
+  ofLp (U (toEuclideanCLM (𝕜 := ℝ) (wht S) (s x))) i
+
+theorem measurable_rotSignal (U : EuclideanSpace ℝ (Fin n) ≃ₗᵢ[ℝ] EuclideanSpace ℝ (Fin n))
+    (s : α → EuclideanSpace ℝ (Fin n)) (hs : Measurable s) (S : Matrix (Fin n) (Fin n) ℝ)
+    (i : Fin n) : Measurable (rotSignal U s S i)  := [proof body omitted in statement view]
+
+theorem rotated_channel_bound [StandardBorelSpace α] [Nonempty α] (P : Measure α)
+    [IsProbabilityMeasure P] (s : α → EuclideanSpace ℝ (Fin n)) (hs : Measurable s)
+    {S : Matrix (Fin n) (Fin n) ℝ} (hS : S.PosDef)
+    (U : EuclideanSpace ℝ (Fin n) ≃ₗᵢ[ℝ] EuclideanSpace ℝ (Fin n))
+    (hX : ∀ i, MemLp (rotSignal U s S i) 2 P) :
+    Snuffy.Information.mutualInfo (P ⊗ₘ corrChan s hs S)
+      ≤ ENNReal.ofReal (∑ i, Real.log (1 + varW P (rotSignal U s S) i) / 2)  := [proof body omitted in statement view]
+
+end Snuffy.Rotation

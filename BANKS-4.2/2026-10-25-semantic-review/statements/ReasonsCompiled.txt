@@ -1,0 +1,48 @@
+import Snuffy.UnionClosure
+import Snuffy.RecoveryWork
+
+open MeasureTheory Set Filter
+
+namespace Snuffy.ReasonsCompiled
+
+open Snuffy.Greatestness
+
+variable {n : ℕ} {L : Fin n → Type*} [∀ i, SemilatticeSup (L i)]
+
+section Reciprocity
+
+variable {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
+
+def UpClosed (U : Set (∀ i, L i)) : Prop := ∀ a b, a ≤ b → a ∈ U → b ∈ U
+
+theorem reciprocity_expectation (oL oQ : Ω → ∀ i, L i) (G : Set Ω)
+    (hdom : ∀ w ∈ G, oQ w ≤ oL w) (U : Set (∀ i, L i)) (hU : UpClosed U) :
+    μ.real (oQ ⁻¹' U) ≤ μ.real (oL ⁻¹' U) + μ.real Gᶜ  := [proof body omitted in statement view]
+
+theorem reciprocity_canonical_floor [∀ i, OrderTop (L i)] (oL : Ω → ∀ i, L i) (G : Set Ω)
+    (hG : MeasurableSet G) (htop : ∀ w ∈ G, oL w = ⊤) (U : Set (∀ i, L i)) (hU : ⊤ ∈ U) :
+    1 - μ.real Gᶜ ≤ μ.real (oL ⁻¹' U)  := [proof body omitted in statement view]
+
+theorem reciprocity_strict [∀ i, OrderTop (L i)] (oL oQ : Ω → ∀ i, L i) (G : Set Ω)
+    (hG : MeasurableSet G) (htop : ∀ w ∈ G, oL w = ⊤) (U : Set (∀ i, L i)) (hU : ⊤ ∈ U)
+    (hmeas : MeasurableSet (oQ ⁻¹' U)) (hmiss : μ.real Gᶜ < μ.real (oQ ⁻¹' U)ᶜ) :
+    μ.real (oQ ⁻¹' U) < μ.real (oL ⁻¹' U)  := [proof body omitted in statement view]
+
+theorem reciprocity_from_solvency [∀ i, OrderTop (L i)] (oL oQ : Ω → ∀ i, L i) (G : Set Ω)
+    (R : Ω → Set (∀ i, L i)) (c : Ω → (∀ i, L i) → ℝ) (B : Ω → ℝ)
+    (htopR : ∀ w ∈ G, (⊤ : ∀ i, L i) ∈ R w) (hsolv : ∀ w ∈ G, c w ⊤ ≤ B w)
+    (haligned : ∀ w ∈ G, Aligned (Snuffy.UnionClosure.budgetFamily (R w) (c w) (B w)) (oL w))
+    (U : Set (∀ i, L i)) (hU : UpClosed U) :
+    (∀ w ∈ G, oL w = ⊤) ∧ μ.real (oQ ⁻¹' U) ≤ μ.real (oL ⁻¹' U) + μ.real Gᶜ  := [proof body omitted in statement view]
+
+end Reciprocity
+
+theorem controller_pays_floor {r0 v p' d : ℝ} (hd : 1 ≤ d) (hv : 0 < v) (hp : 0 < p')
+    {R : ℝ} (hR0 : 0 ≤ R) (π : Snuffy.RecoveryWork.RecoveryProtocol r0 v p' d)
+    (hsucc : π.Succeeds R) : p' / (v * d) * (R ^ d - r0 ^ d) ≤ π.work  := [proof body omitted in statement view]
+
+theorem controller_floor_diverges {r0 v p' d w tc : ℝ} (hd : 1 ≤ d) (hv : 0 < v) (hp : 0 < p')
+    (hw : 0 < w) :
+    Tendsto (fun t => p' / (v * d) * ((w * (t - tc)) ^ d - r0 ^ d)) atTop atTop  := [proof body omitted in statement view]
+
+end Snuffy.ReasonsCompiled

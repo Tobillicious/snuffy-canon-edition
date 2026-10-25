@@ -1,0 +1,27 @@
+import Snuffy.Greatestness
+import Mathlib.Analysis.SpecificLimits.Basic
+import Mathlib.Algebra.BigOperators.Ring.Finset
+
+open Finset
+
+namespace Snuffy.ReciprocityCeiling
+
+open Snuffy.Greatestness
+
+variable {n : ℕ} {L : Fin n → Type*} [∀ i, SemilatticeSup (L i)]
+
+theorem reciprocity_dominance {P : Type*} (hn : 0 < n) (keeps : L ⟨0, hn⟩ → P → Prop)
+    (hmono : ∀ x y, x ≤ y → ∀ m, keeps x m → keeps y m)
+    {F : Set (∀ i, L i)} (hF : ∀ x ∈ F, ∀ y ∈ F, x ⊔ y ∈ F) {o : ∀ i, L i}
+    (ho : Aligned F o) {q : ∀ i, L i} (hq : q ∈ F) (m : P) (hm : keeps (q ⟨0, hn⟩) m) :
+    keeps (o ⟨0, hn⟩) m  := [proof body omitted in statement view]
+
+theorem omitting_rival_strictly_below (hn : 0 < n) {q o : ∀ i, L i}
+    (hle : q ⟨0, hn⟩ ≤ o ⟨0, hn⟩) (hne : q ⟨0, hn⟩ ≠ o ⟨0, hn⟩) : LexLt q o  := [proof body omitted in statement view]
+
+theorem ceiling_achievable {ι : Type*} (accounts : Finset ι) (δ : ι → ℕ → ℝ)
+    (A : ι → ℝ) {r : ℝ} (hr0 : 0 ≤ r) (hr1 : r < 1) (hA : ∀ i ∈ accounts, 0 ≤ A i)
+    (hδ : ∀ i ∈ accounts, ∀ d, δ i d ≤ A i * r ^ d) {ε : ℝ} (hε : 0 < ε) :
+    ∃ d₀, ∀ d ≥ d₀, ∑ i ∈ accounts, δ i d < ε  := [proof body omitted in statement view]
+
+end Snuffy.ReciprocityCeiling

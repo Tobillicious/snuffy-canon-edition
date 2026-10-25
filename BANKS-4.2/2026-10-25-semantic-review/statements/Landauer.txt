@@ -1,0 +1,121 @@
+import Snuffy.FiniteInformation
+import Snuffy.ThermoLedger
+
+open Finset Real
+
+namespace Snuffy.Landauer
+
+noncomputable def ent {ι : Type*} [Fintype ι] (f : ι → ℝ) : ℝ := ∑ i, negMulLog (f i)
+
+theorem kl_nonneg {ι : Type*} [Fintype ι] (a b : ι → ℝ) (ha : ∀ i, 0 ≤ a i)
+    (hb : ∀ i, 0 ≤ b i) (hab : ∀ i, b i = 0 → a i = 0) (ha1 : ∑ i, a i = 1)
+    (hb1 : ∑ i, b i = 1) : 0 ≤ ∑ i, a i * log (a i / b i)  := [proof body omitted in statement view]
+
+theorem mul_log_div_eq {a b : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b) (hab : b = 0 → a = 0) :
+    a * log (a / b) = -negMulLog a - a * log b  := [proof body omitted in statement view]
+
+section Joint
+
+variable {α β : Type*} [Fintype α] [Fintype β]
+
+def margA (q : α × β → ℝ) (x : α) : ℝ := ∑ y, q (x, y)
+
+def margB (q : α × β → ℝ) (y : β) : ℝ := ∑ x, q (x, y)
+
+theorem sum_margA (q : α × β → ℝ) : ∑ x, margA q x = ∑ z, q z  := [proof body omitted in statement view]
+
+theorem sum_margB (q : α × β → ℝ) : ∑ y, margB q y = ∑ z, q z  := [proof body omitted in statement view]
+
+noncomputable def mutualInfo (q : α × β → ℝ) : ℝ :=
+  ∑ z, q z * log (q z / (margA q z.1 * margB q z.2))
+
+theorem mutualInfo_eq (q : α × β → ℝ) (hq : ∀ z, 0 ≤ q z) :
+    mutualInfo q = ent (margA q) + ent (margB q) - ent q  := [proof body omitted in statement view]
+
+theorem mutualInfo_nonneg (q : α × β → ℝ) (hq : ∀ z, 0 ≤ q z) (hq1 : ∑ z, q z = 1) :
+    0 ≤ mutualInfo q  := [proof body omitted in statement view]
+
+theorem ent_le_ent_marg (q : α × β → ℝ) (hq : ∀ z, 0 ≤ q z) (hq1 : ∑ z, q z = 1) :
+    ent q ≤ ent (margA q) + ent (margB q)  := [proof body omitted in statement view]
+
+end Joint
+
+section Gibbs
+
+variable {β : Type*} [Fintype β] [Nonempty β] (b : ℝ) (E : β → ℝ)
+
+noncomputable def partition : ℝ := ∑ y, exp (-b * E y)
+
+noncomputable def gibbs (y : β) : ℝ := exp (-b * E y) / partition b E
+
+theorem partition_pos : 0 < partition b E  := [proof body omitted in statement view]
+
+theorem gibbs_pos (y : β) : 0 < gibbs b E y  := [proof body omitted in statement view]
+
+theorem gibbs_sum_one : ∑ y, gibbs b E y = 1  := [proof body omitted in statement view]
+
+theorem log_gibbs (y : β) : log (gibbs b E y) = -b * E y - log (partition b E)  := [proof body omitted in statement view]
+
+theorem ent_gibbs : ent (gibbs b E) = b * ∑ y, gibbs b E y * E y + log (partition b E)  := [proof body omitted in statement view]
+
+theorem ent_le_energy (a : β → ℝ) (ha : ∀ y, 0 ≤ a y) (ha1 : ∑ y, a y = 1) :
+    ent a ≤ b * ∑ y, a y * E y + log (partition b E)  := [proof body omitted in statement view]
+
+end Gibbs
+
+section Reset
+
+variable {α β : Type*} [Fintype α] [Fintype β] [Nonempty β]
+
+noncomputable def evolve (p : α → ℝ) (b : ℝ) (E : β → ℝ) (σ : α × β ≃ α × β) (z : α × β) : ℝ :=
+  p (σ.symm z).1 * gibbs b E (σ.symm z).2
+
+variable (p : α → ℝ) (hp : ∀ x, 0 ≤ p x) (hp1 : ∑ x, p x = 1) (b : ℝ) (E : β → ℝ)
+  (σ : α × β ≃ α × β)
+
+omit [Fintype α] in
+include hp in
+theorem evolve_nonneg (z : α × β) : 0 ≤ evolve p b E σ z  := [proof body omitted in statement view]
+
+include hp1 in
+theorem evolve_sum : ∑ z, evolve p b E σ z = 1  := [proof body omitted in statement view]
+
+include hp1 in
+
+theorem ent_evolve : ent (evolve p b E σ) = ent p + ent (gibbs b E)  := [proof body omitted in statement view]
+
+noncomputable def heat : ℝ :=
+  ∑ y, margB (evolve p b E σ) y * E y - ∑ y, gibbs b E y * E y
+
+noncomputable def entDrop : ℝ := ent p - ent (margA (evolve p b E σ))
+
+include hp hp1 in
+                                                                             
+theorem reeb_wolf_identity :
+    b * heat p b E σ - entDrop p b E σ
+      = mutualInfo (evolve p b E σ)
+        + ∑ y, margB (evolve p b E σ) y * log (margB (evolve p b E σ) y / gibbs b E y)  := [proof body omitted in statement view]
+
+include hp hp1 in
+                                             
+theorem landauer : entDrop p b E σ ≤ b * heat p b E σ  := [proof body omitted in statement view]
+
+include hp hp1 in
+
+theorem landauer_erasure {kT : ℝ} (hkT : 0 < kT) (hb : b = 1 / kT)
+    (hreset : ent (margA (evolve p b E σ)) = 0) : kT * ent p ≤ heat p b E σ  := [proof body omitted in statement view]
+
+include hp hp1 in
+
+theorem guard_one {kT IM Derr δI : ℝ} (hb : b = 1 / kT)
+    (hexport : IM + Derr + δI ≤ entDrop p b E σ) : heat p b E σ / kT ≥ IM + Derr + δI  := [proof body omitted in statement view]
+
+include hp hp1 in
+
+theorem cycle_work_floor_derived {kT IM Derr δI η C W : ℝ} (hkT : 0 < kT) (hb : b = 1 / kT)
+    (hexport : IM + Derr + δI ≤ entDrop p b E σ) (hcharge : W ≥ heat p b E σ + (1 - η) * C) :
+    W ≥ kT * (IM + Derr + δI) + (1 - η) * C  := [proof body omitted in statement view]
+
+end Reset
+
+end Snuffy.Landauer

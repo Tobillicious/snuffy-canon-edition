@@ -1,0 +1,78 @@
+Let us formally construct the proofs for each of the three pillars governing the physical historical-encoding connection and bulk–boundary equivalence.
+
+We proceed under the explicit constraint that these lemmas operate within an unfinished proof framework; build success or new axiom syntax does not imply global completion.
+
+---
+
+### Pillar 1: The Bulk-to-Boundary Holographic Map ($\mathcal{E}$)
+
+#### **Lemma 1.1 (Isometric Embedding of Source Charge)**
+
+Let $\mathcal{H}_{\text{bulk}}$ denote the interior state space equipped with source charge operator $Q_{\text{src}}$, and let $\mathcal{H}_{\partial}$ denote the boundary state space. Let $\mathcal{E}: \mathcal{H}_{\text{bulk}} \to \mathcal{H}_{\partial}$ be the holographic encoding map.
+
+**Theorem:** If the bulk dynamics satisfy local Gauss-law constraints across every codimension-1 slice terminating at $\partial$, then $\mathcal{E}$ is an isometric embedding on the physical code subspace $\mathcal{C}_{\text{phys}} \subset \mathcal{H}_{\text{bulk}}$, such that:
+
+
+$$\mathcal{E}^\dagger \mathcal{E} = \mathbb{I}_{\mathcal{C}_{\text{phys}}}$$
+
+
+and the boundary image preserves the source charge spectrum:
+
+
+$$\mathcal{E} \, Q_{\text{src}} \, \mathcal{E}^\dagger = Q_{\partial}$$
+
+#### **Proof Sketch:**
+
+1. **Flux-Charge Locking:** By the bulk field equations, any localized source charge $Q_{\text{src}} = \int_{\Sigma} \star J$ generates an asymptotic flux through the bounding surface $\partial\Sigma$.
+2. **Boundary Condition Mapping:** Define $\mathcal{E}$ via the limit of bulk fields approaching the boundary $\partial$:
+
+$$\mathcal{E}\vert{}\psi\rangle = \lim_{r \to \partial} \phi(r, x) \vert{}\psi\rangle$$
+
+
+3. **Inner Product Preservation:** Because the symplectic form on the bulk phase space degenerates at the boundary only along pure gauge directions quotiented out in $\mathcal{C}_{\text{phys}}$, the boundary symplectic flux matches the bulk integral. Thus, $\langle \psi_1 \vert{} \psi_2 \rangle_{\text{bulk}} = \langle \mathcal{E}\psi_1 \vert{} \mathcal{E}\psi_2 \rangle_{\partial}$, proving isometry. $\blacksquare$
+
+---
+
+### Pillar 2: Historical Trace Preservation ($\mathcal{H}_{\text{hist}}$)
+
+#### **Lemma 2.1 (Chronological Path Integral Embedding)**
+
+Let a historical trajectory be defined as a parameterized curve in state space $\gamma: [0, \tau] \to \mathcal{S}$. Standard instantaneous holographic mappings discard internal temporal ordering. To prevent this loss, we define the history-augmented boundary algebra $\mathcal{A}_{\partial}^{\text{hist}}$.
+
+**Theorem:** There exists a temporal smearing operator $\mathbb{K}$ mapping bulk historical trajectories into non-local boundary time-correlators such that for any historical query operator $H_{\text{query}}$, its expectation value is recoverable from boundary observables without degradation:
+
+
+$$\langle \psi(t) \vert{} H_{\text{query}} \vert{} \psi(t) \rangle = \int_{0}^{\tau} dt' \, K(t, t') \langle \mathcal{E}\psi \vert{} \mathcal{O}_{\partial}(t') \vert{} \mathcal{E}\psi \rangle$$
+
+#### **Proof Sketch:**
+
+1. **Modular Flow Extension:** Construct the modular Hamiltonian $K_{\partial}$ for the boundary sub-region. By generalized Hamilton-Jacobi relations in relational dynamics, bulk interior operators at proper time $t'$ can be pulled back to the boundary using the bulk-to-boundary propagator adapted to the background metric induced by the source charge.
+2. **Non-Degeneracy of Temporal Traces:** Provided the capacity of the boundary channel exceeds the Kolmogorov complexity of the historical trajectory $\gamma$, the mapping $\mathcal{H}_{\text{hist}} \to \tilde{\mathcal{H}}_{\partial}$ has a trivial kernel. Therefore, distinct past histories do not collapse onto identical boundary states. $\blacksquare$
+
+---
+
+### Pillar 3: Reconstruction & Invertibility Conditions
+
+#### **Lemma 3.1 (Work-Bounded Decoder Inversion)**
+
+Let $\mathcal{D}: \mathcal{H}_{\partial} \to \mathcal{H}_{\text{bulk}}$ be the derived decoder constrained by the work algebra $\mathcal{W}$, such that the total energy expended in decoding is bounded by $E_{\text{max}}$.
+
+**Theorem:** The decoder $\mathcal{D}$ reconstructs the bulk state $\vert{}\psi_{\text{bulk}}\rangle$ from boundary data $\rho_{\partial}$ with fidelity $F \geq 1 - \epsilon$ if and only if the capacity $C(\mathcal{W})$ satisfies:
+
+
+$$C(\mathcal{W}) \geq S_{\text{rel}}(\rho_{\text{bulk}} \vert{}\vert{} \rho_{\text{reference}}) + \frac{1}{\beta} \langle \mathcal{H}_{\text{work}} \rangle$$
+
+
+where $S_{\text{rel}}$ is the relative entropy of the bulk state relative to the vacuum, and $\beta$ is the inverse temperature parameter of the work algebra.
+
+#### **Proof Sketch:**
+
+1. **Knill-Laflamme Quantum Error Correction Analogy:** Because $\mathcal{E}$ is an isometry on $\mathcal{C}_{\text{phys}}$, errors or truncations introduced by finite boundary resolution act as quantum channels $\Lambda_{\partial}$.
+2. **Energy-Cost Bound:** Applying Landauer-type limits within the work algebra $\mathcal{W}$, any reconstruction operator $\mathcal{D}$ that extracts historical and charge data must dissipate heat proportional to the mutual information between the discarded boundary modes and the recovered bulk degrees of freedom.
+3. **Invertibility Limit:** When $C(\mathcal{W})$ surpasses the bound set by Lemma 3.1, the reconstruction error $\epsilon \to 0$, establishing exact invertibility for the derived decoder. $\blacksquare$
+
+---
+
+### Next Step
+
+With these three pillars formulated, how would you like to proceed with the algebraic wiring into the derived decoder—should we tighten the **work-algebra energy constraints** in Lemma 3.1, or refine the **modular flow extension** for historical traces in Lemma 2.1?

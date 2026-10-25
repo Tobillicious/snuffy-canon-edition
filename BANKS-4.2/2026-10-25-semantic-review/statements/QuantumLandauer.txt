@@ -1,0 +1,175 @@
+import Snuffy.Landauer
+import Mathlib.Analysis.Matrix.Spectrum
+import Mathlib.Analysis.Matrix.PosDef
+import Mathlib.Analysis.Matrix.Order
+import Mathlib.Analysis.Convex.Jensen
+import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
+
+open Matrix Finset Real
+open scoped ComplexOrder
+
+namespace Snuffy.QuantumLandauer
+
+open Snuffy.Landauer
+
+variable {n : Type*} [Fintype n] [DecidableEq n]
+
+noncomputable def vnEnt {A : Matrix n n ℂ} (hA : A.IsHermitian) : ℝ :=
+  ∑ i, negMulLog (hA.eigenvalues i)
+
+theorem vnEnt_eq_roots {A : Matrix n n ℂ} (hA : A.IsHermitian) :
+    vnEnt hA = (A.charpoly.roots.map fun z : ℂ => negMulLog z.re).sum  := [proof body omitted in statement view]
+
+theorem vnEnt_congr {A B : Matrix n n ℂ} (hA : A.IsHermitian) (hB : B.IsHermitian)
+    (h : A.charpoly = B.charpoly) : vnEnt hA = vnEnt hB  := [proof body omitted in statement view]
+
+theorem vnEnt_unitary_conj {A U : Matrix n n ℂ} (hA : A.IsHermitian)
+    (hU : U ∈ unitaryGroup n ℂ) (h' : (U * A * star U).IsHermitian) : vnEnt h' = vnEnt hA  := [proof body omitted in statement view]
+
+theorem vnEnt_diagonal (d : n → ℝ) (h : (diagonal fun i => (d i : ℂ)).IsHermitian) :
+    vnEnt h = ∑ i, negMulLog (d i)  := [proof body omitted in statement view]
+
+theorem diag_conj (W : Matrix n n ℂ) (μ : n → ℝ) (k : n) :
+    ((W * diagonal (fun j => (μ j : ℂ)) * star W) k k).re = ∑ j, Complex.normSq (W k j) * μ j  := [proof body omitted in statement view]
+
+theorem row_normSq_sum {W : Matrix n n ℂ} (hW : W ∈ unitaryGroup n ℂ) (k : n) :
+    ∑ j, Complex.normSq (W k j) = 1  := [proof body omitted in statement view]
+
+theorem col_normSq_sum {W : Matrix n n ℂ} (hW : W ∈ unitaryGroup n ℂ) (j : n) :
+    ∑ k, Complex.normSq (W k j) = 1  := [proof body omitted in statement view]
+
+theorem vnEnt_le_diag {ρ : Matrix n n ℂ} (hρ : ρ.PosSemidef) {V : Matrix n n ℂ}
+    (hV : V ∈ unitaryGroup n ℂ) :
+    vnEnt hρ.1 ≤ ∑ k, negMulLog ((star V * ρ * V) k k).re  := [proof body omitted in statement view]
+
+omit [DecidableEq n] in
+                                                                 
+theorem diag_nonneg {ρ : Matrix n n ℂ} (hρ : ρ.PosSemidef) (V : Matrix n n ℂ) (k : n) : 0 ≤ ((star V * ρ * V) k k).re  := [proof body omitted in statement view]
+
+theorem diag_sum {ρ : Matrix n n ℂ} {V : Matrix n n ℂ} (hV : V ∈ unitaryGroup n ℂ) :
+    ∑ k, ((star V * ρ * V) k k).re = (trace ρ).re  := [proof body omitted in statement view]
+
+section Gibbs
+
+variable {H : Matrix n n ℂ} (hH : H.IsHermitian) (b : ℝ)
+
+noncomputable abbrev UH : Matrix n n ℂ := (hH.eigenvectorUnitary : Matrix n n ℂ)
+
+theorem UH_mem : UH hH ∈ unitaryGroup n ℂ  := [proof body omitted in statement view]
+
+theorem H_spec : H = UH hH * diagonal (fun j => (hH.eigenvalues j : ℂ)) * star (UH hH)  := [proof body omitted in statement view]
+
+theorem energy_eq (ρ : Matrix n n ℂ) :
+    (trace (ρ * H)).re = ∑ k, ((star (UH hH) * ρ * UH hH) k k).re * hH.eigenvalues k  := [proof body omitted in statement view]
+
+variable [Nonempty n]
+
+theorem vnEnt_le_energy {ρ : Matrix n n ℂ} (hρ : ρ.PosSemidef) (htr : (trace ρ).re = 1) :
+    vnEnt hρ.1 ≤ b * (trace (ρ * H)).re + log (partition b hH.eigenvalues)  := [proof body omitted in statement view]
+
+noncomputable def gibbsState : Matrix n n ℂ :=
+  UH hH * diagonal (fun j => (gibbs b hH.eigenvalues j : ℂ)) * star (UH hH)
+
+theorem gibbsState_posSemidef : (gibbsState hH b).PosSemidef  := [proof body omitted in statement view]
+
+theorem gibbsState_trace : (trace (gibbsState hH b)).re = 1  := [proof body omitted in statement view]
+
+omit [Nonempty n] in
+theorem gibbsState_diag :
+    star (UH hH) * gibbsState hH b * UH hH = diagonal fun j => (gibbs b hH.eigenvalues j : ℂ)  := [proof body omitted in statement view]
+
+theorem gibbsState_trace' : trace (gibbsState hH b) = 1  := [proof body omitted in statement view]
+
+omit [Nonempty n] in
+                                                        
+theorem gibbsState_energy :
+    (trace (gibbsState hH b * H)).re = ∑ k, gibbs b hH.eigenvalues k * hH.eigenvalues k  := [proof body omitted in statement view]
+
+theorem vnEnt_gibbsState :
+    vnEnt (gibbsState_posSemidef hH b).1
+      = b * (trace (gibbsState hH b * H)).re + log (partition b hH.eigenvalues)  := [proof body omitted in statement view]
+
+end Gibbs
+
+section Bipartite
+
+open scoped Kronecker
+
+variable {α β : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq β]
+
+def ptrA (ρ : Matrix (α × β) (α × β) ℂ) : Matrix α α ℂ := fun i i' => ∑ k, ρ (i, k) (i', k)
+
+def ptrB (ρ : Matrix (α × β) (α × β) ℂ) : Matrix β β ℂ := fun k k' => ∑ i, ρ (i, k) (i, k')
+
+omit [Fintype α] [DecidableEq α] [DecidableEq β] in
+theorem ptrA_isHermitian {ρ : Matrix (α × β) (α × β) ℂ} (hρ : ρ.IsHermitian) :
+    (ptrA ρ).IsHermitian  := [proof body omitted in statement view]
+
+omit [Fintype α] [DecidableEq α] in
+theorem sum_star_mul_eq {Q : Matrix β β ℂ} (hQ : Q * star Q = 1) (c c' : β) :
+    ∑ k, star (Q c k) * Q c' k = if c' = c then 1 else 0  := [proof body omitted in statement view]
+
+omit [DecidableEq α] in
+
+theorem ptrA_conj (ρ : Matrix (α × β) (α × β) ℂ) (P : Matrix α α ℂ) {Q : Matrix β β ℂ}
+    (hQ : Q * star Q = 1) (i : α) :
+    ∑ k, (star (P ⊗ₖ Q) * ρ * (P ⊗ₖ Q)) (i, k) (i, k) = (star P * ptrA ρ * P) i i  := [proof body omitted in statement view]
+
+omit [DecidableEq β] in
+
+theorem ptrB_conj (ρ : Matrix (α × β) (α × β) ℂ) {P : Matrix α α ℂ} (Q : Matrix β β ℂ)
+    (hP : P * star P = 1) (k : β) :
+    ∑ i, (star (P ⊗ₖ Q) * ρ * (P ⊗ₖ Q)) (i, k) (i, k) = (star Q * ptrB ρ * Q) k k  := [proof body omitted in statement view]
+
+variable [Nonempty β] {H : Matrix β β ℂ} (hH : H.IsHermitian) (b : ℝ)
+
+noncomputable def finalState (ρA : Matrix α α ℂ) (W : Matrix (α × β) (α × β) ℂ) :
+    Matrix (α × β) (α × β) ℂ :=
+  W * (ρA ⊗ₖ gibbsState hH b) * star W
+
+variable {ρA : Matrix α α ℂ} (hρA : ρA.PosSemidef) (htrA : trace ρA = 1)
+  {W : Matrix (α × β) (α × β) ℂ} (hW : W ∈ unitaryGroup (α × β) ℂ)
+
+omit [DecidableEq α] in
+include hρA in
+theorem init_posSemidef : (ρA ⊗ₖ gibbsState hH b).PosSemidef  := [proof body omitted in statement view]
+
+omit [DecidableEq α] in
+include hρA in
+theorem finalState_posSemidef : (finalState hH b ρA W).PosSemidef  := [proof body omitted in statement view]
+
+include htrA hW in
+theorem finalState_trace : trace (finalState hH b ρA W) = 1  := [proof body omitted in statement view]
+
+include hρA htrA in
+                                                                              
+theorem vnEnt_init :
+    vnEnt (init_posSemidef hH b hρA).1 = vnEnt hρA.1 + ent (gibbs b hH.eigenvalues)  := [proof body omitted in statement view]
+
+noncomputable def qheat (ρA : Matrix α α ℂ) (W : Matrix (α × β) (α × β) ℂ) : ℝ :=
+  (trace (ptrB (finalState hH b ρA W) * H)).re - (trace (gibbsState hH b * H)).re
+
+include hρA htrA hW in
+
+theorem quantum_landauer :
+    vnEnt hρA.1 - vnEnt (ptrA_isHermitian (finalState_posSemidef hH b hρA (W := W)).1)
+      ≤ b * qheat hH b ρA W  := [proof body omitted in statement view]
+
+include hρA htrA hW in
+
+theorem quantum_guard_one {kT IM Derr δI : ℝ} (hb : b = 1 / kT)
+    (hexport : IM + Derr + δI ≤ vnEnt hρA.1
+      - vnEnt (ptrA_isHermitian (finalState_posSemidef hH b hρA (W := W)).1)) :
+    qheat hH b ρA W / kT ≥ IM + Derr + δI  := [proof body omitted in statement view]
+
+include hρA htrA hW in
+                                                         
+theorem quantum_cycle_work_floor {kT IM Derr δI η C Wc : ℝ} (hkT : 0 < kT) (hb : b = 1 / kT)
+    (hexport : IM + Derr + δI ≤ vnEnt hρA.1
+      - vnEnt (ptrA_isHermitian (finalState_posSemidef hH b hρA (W := W)).1))
+    (hcharge : Wc ≥ qheat hH b ρA W + (1 - η) * C) :
+    Wc ≥ kT * (IM + Derr + δI) + (1 - η) * C  := [proof body omitted in statement view]
+
+end Bipartite
+
+end Snuffy.QuantumLandauer

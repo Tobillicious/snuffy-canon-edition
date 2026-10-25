@@ -1,0 +1,86 @@
+import Mathlib
+
+namespace UPTReadoutJoint
+
+def iso01 (g N : ℝ) : ℝ := N*g
+def iso10 (g N : ℝ) : ℝ := (1-N)*g
+def blockA (g N : ℝ) : ℝ := 1 - N*g
+def blockD (g N : ℝ) : ℝ := 1 - g + N*g
+
+def cpCoeff (g N : ℝ) : ℝ := N*g^2*(1-N)
+
+theorem block_det_identity (g N : ℝ) :
+    blockA g N * blockD g N - (1-g) = cpCoeff g N  := [proof body omitted in statement view]
+
+theorem shifted_det_identity (g N : ℝ) :
+    (blockA g N - cpCoeff g N/2)*(blockD g N - cpCoeff g N/2) - (1-g)
+      = cpCoeff g N * g/2 + (cpCoeff g N)^2/4  := [proof body omitted in statement view]
+
+theorem cp_coeff_nonneg (g N : ℝ) (_hg : 0 ≤ g) (hN0 : 0 ≤ N) (hN1 : N ≤ 1) :
+    0 ≤ cpCoeff g N  := [proof body omitted in statement view]
+
+theorem cp_coeff_pos (g N : ℝ) (hg : 0 < g) (hN0 : 0 < N) (hN1 : N < 1) :
+    0 < cpCoeff g N  := [proof body omitted in statement view]
+
+theorem iso01_shift_nonneg (g N : ℝ) (hg0 : 0 ≤ g) (hg1 : g ≤ 1) (hN0 : 0 ≤ N)
+    (_hN1 : N ≤ 1) : 0 ≤ iso01 g N - cpCoeff g N/2  := [proof body omitted in statement view]
+
+theorem iso10_shift_nonneg (g N : ℝ) (hg0 : 0 ≤ g) (hg1 : g ≤ 1) (_hN0 : 0 ≤ N)
+    (hN1 : N ≤ 1) : 0 ≤ iso10 g N - cpCoeff g N/2  := [proof body omitted in statement view]
+
+theorem blockA_shift_nonneg (g N : ℝ) (hg0 : 0 ≤ g) (hg1 : g ≤ 1) (hN0 : 0 ≤ N)
+    (hN1 : N ≤ 1) : 0 ≤ blockA g N - cpCoeff g N/2  := [proof body omitted in statement view]
+
+theorem blockD_shift_nonneg (g N : ℝ) (hg0 : 0 ≤ g) (hg1 : g ≤ 1) (hN0 : 0 ≤ N)
+    (hN1 : N ≤ 1) : 0 ≤ blockD g N - cpCoeff g N/2  := [proof body omitted in statement view]
+
+theorem block_shifted_det_nonneg (g N : ℝ) (hg0 : 0 ≤ g) (hN0 : 0 ≤ N) (hN1 : N ≤ 1) :
+    0 ≤ (blockA g N - cpCoeff g N/2)*(blockD g N - cpCoeff g N/2) - (1-g)  := [proof body omitted in statement view]
+
+theorem quad_form_nonneg (a c d x y : ℝ) (ha : 0 ≤ a) (hd : 0 ≤ d) (hdet : c*c ≤ a*d) :
+    0 ≤ a*x^2 + 2*c*x*y + d*y^2  := [proof body omitted in statement view]
+
+theorem choi_form_nonneg (g N c v00 v01 v10 v11 : ℝ) (hg0 : 0 ≤ g) (hg1 : g ≤ 1)
+    (hN0 : 0 ≤ N) (hN1 : N ≤ 1) (hc : c*c = 1 - g) :
+    0 ≤ (iso01 g N - cpCoeff g N/2)*v01^2 + (iso10 g N - cpCoeff g N/2)*v10^2 +
+      ((blockA g N - cpCoeff g N/2)*v00^2 + 2*c*v00*v11 +
+        (blockD g N - cpCoeff g N/2)*v11^2)  := [proof body omitted in statement view]
+
+theorem positive_constant_not_cp :
+    (blockA (1/2) (1/2) - (2*(1/2)*(1/2)*(1-(1/2)))/2) *
+      (blockD (1/2) (1/2) - (2*(1/2)*(1/2)*(1-(1/2)))/2) - (1-(1/2)) = -7/64  := [proof body omitted in statement view]
+
+theorem cp_constant_at_half_half : cpCoeff (1/2) (1/2) = 1/16  := [proof body omitted in statement view]
+
+variable {Y : Type}
+
+def weight (K : List Y → Y → ℝ) : List Y → List Y → ℝ
+  | _, [] => 1
+  | h, y :: rest => K h y * weight K (h ++ [y]) rest
+
+def chain (eta : List Y → ℝ) : List Y → List Y → ℝ
+  | _, [] => 1
+  | h, y :: rest => eta h * chain eta (h ++ [y]) rest
+
+theorem weight_nonneg (G : List Y → Y → ℝ) (hG : ∀ h y, 0 ≤ G h y) (h path : List Y) :
+    0 ≤ weight G h path  := [proof body omitted in statement view]
+
+theorem chain_nonneg (eta : List Y → ℝ) (he : ∀ h, 0 ≤ eta h) (h path : List Y) :
+    0 ≤ chain eta h path  := [proof body omitted in statement view]
+
+theorem joint_record_lower (K G : List Y → Y → ℝ) (eta : List Y → ℝ)
+    (he : ∀ h, 0 ≤ eta h) (hG : ∀ h y, 0 ≤ G h y)
+    (minor : ∀ h y, eta h * G h y ≤ K h y) (h path : List Y) :
+    chain eta h path * weight G h path ≤ weight K h path  := [proof body omitted in statement view]
+
+theorem chain_ge_pow (eta : List Y → ℝ) (etaMin : ℝ) (h0 : 0 ≤ etaMin)
+    (hmin : ∀ h, etaMin ≤ eta h) (h path : List Y) :
+    etaMin ^ path.length ≤ chain eta h path  := [proof body omitted in statement view]
+
+theorem hard_count_floor (K G : List Y → Y → ℝ) (eta : List Y → ℝ) (etaMin : ℝ)
+    (h0 : 0 ≤ etaMin) (h1 : etaMin ≤ 1) (hmin : ∀ h, etaMin ≤ eta h)
+    (hG : ∀ h y, 0 ≤ G h y) (minor : ∀ h y, eta h * G h y ≤ K h y)
+    (H : ℕ) (h path : List Y) (hlen : path.length ≤ H) :
+    etaMin ^ H * weight G h path ≤ weight K h path  := [proof body omitted in statement view]
+
+end UPTReadoutJoint

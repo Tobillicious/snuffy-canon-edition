@@ -1,0 +1,43 @@
+import Snuffy.Rotation
+import Mathlib.Analysis.Matrix.Spectrum
+import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
+
+open MeasureTheory ProbabilityTheory InformationTheory Matrix WithLp Finset Polynomial
+open scoped ENNReal NNReal MatrixOrder RealInnerProductSpace
+
+namespace Snuffy.LogDet
+
+open Snuffy.GaussianVector Snuffy.Whitening Snuffy.Rotation
+
+variable {α : Type*} [MeasurableSpace α] {n : ℕ} (P : Measure α) [IsProbabilityMeasure P]
+
+noncomputable def cov (w : Fin n → α → ℝ) : Matrix (Fin n) (Fin n) ℝ :=
+  fun j k => ∫ x, (w j x - ∫ y, w j y ∂P) * (w k x - ∫ y, w k y ∂P) ∂P
+
+omit [IsProbabilityMeasure P] in
+theorem cov_isHermitian (w : Fin n → α → ℝ) : (cov P w).IsHermitian  := [proof body omitted in statement view]
+
+theorem var_lincomb (w : Fin n → α → ℝ) (hX : ∀ j, MemLp (w j) 2 P) (c : Fin n → ℝ) :
+    ∫ x, ((∑ j, c j * w j x) - ∫ y, (∑ j, c j * w j y) ∂P) ^ 2 ∂P = c ⬝ᵥ (cov P w *ᵥ c)  := [proof body omitted in statement view]
+
+variable {s : α → EuclideanSpace ℝ (Fin n)} {S : Matrix (Fin n) (Fin n) ℝ}
+
+omit [MeasurableSpace α] in
+                                                                             
+theorem rotSignal_eigen (s : α → EuclideanSpace ℝ (Fin n)) (S : Matrix (Fin n) (Fin n) ℝ)
+    (b : OrthonormalBasis (Fin n) ℝ (EuclideanSpace ℝ (Fin n))) (i : Fin n) (x : α) :
+    rotSignal b.repr s S i x = ∑ j, b i j * whtSignal s S j x  := [proof body omitted in statement view]
+
+theorem var_rot_eq_eigenvalue (hX : ∀ j, MemLp (whtSignal s S j) 2 P) (i : Fin n) :
+    varW P (rotSignal (cov_isHermitian P (whtSignal s S)).eigenvectorBasis.repr s S) i
+      = (cov_isHermitian P (whtSignal s S)).eigenvalues i  := [proof body omitted in statement view]
+
+theorem det_one_add (C : Matrix (Fin n) (Fin n) ℝ) (hC : C.IsHermitian) :
+    (1 + C).det = ∏ i, (1 + hC.eigenvalues i)  := [proof body omitted in statement view]
+
+theorem logdet_channel_bound [StandardBorelSpace α] [Nonempty α] (hs : Measurable s)
+    (hS : S.PosDef) (hX : ∀ j, MemLp (whtSignal s S j) 2 P) :
+    Snuffy.Information.mutualInfo (P ⊗ₘ corrChan s hs S)
+      ≤ ENNReal.ofReal (Real.log (1 + cov P (whtSignal s S)).det / 2)  := [proof body omitted in statement view]
+
+end Snuffy.LogDet

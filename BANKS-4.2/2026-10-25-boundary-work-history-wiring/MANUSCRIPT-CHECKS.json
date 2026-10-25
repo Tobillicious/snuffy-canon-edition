@@ -1,0 +1,11 @@
+{
+  "overall": "PASS",
+  "audit_statements": 924,
+  "index_modules": 144,
+  "index_matches": true,
+  "source_hashes_match_receipt": true,
+  "control_characters": 0,
+  "part_III_G_copies": 1,
+  "changed_paths": 13,
+  "master_sha256": "86e6a1ea918761000c5cda5da0ae66e5f201f9abd31f6af11b5cdfa145a3a620"
+}

@@ -1,0 +1,69 @@
+{
+  "last_combined_verified_statements": 924,
+  "working_source_is_unverified": true,
+  "changed": [
+    {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/DecoderRetraction.lean",
+      "sha256": "4275cfc98e301674eddb2316861fa6f6d85f21e72e0b0000262ca1c9b2c15d07",
+      "snapshot": "working/lean/Snuffy/DecoderRetraction.lean"
+    },
+    {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/WorkBilling.lean",
+      "sha256": "2859cc8296d155edd5815162a394667d38f3b39a6d7ceff5f96d41a4017df707",
+      "snapshot": "working/lean/Snuffy/WorkBilling.lean"
+    },
+    {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/G1FullDomain.lean",
+      "sha256": "c788dfccee71414a16e33cbf98896f2c114e4891a12f54f21ed43c5344de39b1",
+      "snapshot": "working/lean/Snuffy/G1FullDomain.lean"
+    },
+    {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/G2WholeOutcome.lean",
+      "sha256": "0fc2373ff37836a251cb278154165ce737eb305be6707b0ca88d602140307fc6",
+      "snapshot": "working/lean/Snuffy/G2WholeOutcome.lean"
+    },
+    {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/HamiltonianDecomposition.lean",
+      "sha256": "612520e9c955ae79b781abe7c5f0f6bd4f9487eeebe4469cf0ea8def5bfadf07",
+      "snapshot": "working/lean/Snuffy/HamiltonianDecomposition.lean"
+    }
+  ],
+  "fresh_full_audit_run": false,
+  "working_public_names_unverified": 942,
+  "handoff": "/Users/admin/Documents/2026/Snuffy-Book/00-HANDOFF-CLAUDE-4.2-2026-10-25.md",
+  "standing_down": true,
+  "active_codex_builds_or_monitors": false,
+  "latest_submission": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-25-historical-handoff-source/inputs/AGE-INDEPENDENT-HOLDING-SUBMISSION.md",
+  "targeted_checks": {
+    "G1FullDomain": {
+      "output_bytes": 0,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-25-historical-handoff-source/checks/G1FullDomain-development.txt",
+      "source_sha256": "c788dfccee71414a16e33cbf98896f2c114e4891a12f54f21ed43c5344de39b1",
+      "status": "clean-targeted-compile"
+    },
+    "G2WholeOutcome": {
+      "output_bytes": 0,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-25-historical-handoff-source/checks/G2WholeOutcome-development.txt",
+      "source_sha256": "0fc2373ff37836a251cb278154165ce737eb305be6707b0ca88d602140307fc6",
+      "status": "clean-targeted-compile"
+    },
+    "DecoderRetraction": {
+      "output_bytes": 0,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-25-historical-handoff-source/checks/DecoderRetraction-development.txt",
+      "source_sha256": "4275cfc98e301674eddb2316861fa6f6d85f21e72e0b0000262ca1c9b2c15d07",
+      "status": "clean-targeted-compile"
+    },
+    "WorkBilling": {
+      "output_bytes": 300,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-25-historical-handoff-source/checks/WorkBilling-development.txt",
+      "source_sha256": "2859cc8296d155edd5815162a394667d38f3b39a6d7ceff5f96d41a4017df707",
+      "status": "compiler-errors-see-log"
+    },
+    "HamiltonianDecomposition": {
+      "output_bytes": 1389,
+      "log": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-25-historical-handoff-source/checks/HamiltonianDecomposition-development.txt",
+      "source_sha256": "612520e9c955ae79b781abe7c5f0f6bd4f9487eeebe4469cf0ea8def5bfadf07",
+      "status": "compiler-errors-see-log"
+    }
+  }
+}

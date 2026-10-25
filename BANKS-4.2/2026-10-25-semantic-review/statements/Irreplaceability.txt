@@ -1,0 +1,26 @@
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Basic.Real.Basic
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.Linarith
+
+open Finset
+
+namespace Snuffy.Irreplaceability
+
+variable {ι : Type*} [DecidableEq ι]
+
+def value (info : ι → ℝ) (S : Finset ι) : ℝ := ∑ x ∈ S, info x
+
+theorem destroy_loses_exactly (info : ι → ℝ) {S : Finset ι} {W : ι} (hW : W ∈ S) :
+    value info S - value info (S.erase W) = info W  := [proof body omitted in statement view]
+
+theorem preserve_dominates (info : ι → ℝ) {S : Finset ι} {W : ι} (hW : W ∈ S)
+    (hpos : 0 < info W) : value info (S.erase W) < value info S  := [proof body omitted in statement view]
+
+theorem optimal_keeps_most_irreplaceable (info : ι → ℝ) {U S : Finset ι} {B : ℕ}
+    (hSU : S ⊆ U) (hSB : S.card ≤ B)
+    (hopt : ∀ T ⊆ U, T.card ≤ B → value info T ≤ value info S)
+    {x y : ι} (hxU : x ∈ U) (hxS : x ∉ S) (hyS : y ∈ S) : info x ≤ info y  := [proof body omitted in statement view]
+
+end Snuffy.Irreplaceability

@@ -1,0 +1,61 @@
+{
+  "working_edition": "/Users/admin/Documents/2026/Snuffy-Book/SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25",
+  "modules": 144,
+  "public_statements": 896,
+  "verification": "PASS",
+  "compilation_kernel_provenance": {
+    "reused_Beam": 136,
+    "fresh_late_modules": 8
+  },
+  "fresh_full_axiom_audit": 896,
+  "nonstandard_axioms": 0,
+  "new_Lean_axioms": 0,
+  "manuscript_checks": {
+    "modules_in_master": 144,
+    "public_statements_in_master": 896,
+    "module_index_mismatches": [],
+    "nonprinting_control_characters": [],
+    "verified_sources_changed": [],
+    "prior_load_bearing_heading_anchors_missing": [],
+    "current_receipt": "PASS",
+    "current_native_statements": 896,
+    "master_characters": 205647,
+    "intentional_heading_renames": {
+      "# Part III-D \u2014 Proposed constructions (prose, not compiled)": "# Part III-D \u2014 Transducer, trajectory and semantic constructions"
+    },
+    "status": "PASS"
+  },
+  "semantic_review_complete": false,
+  "published": false,
+  "global_UPT_completion_verdict": false,
+  "changed_before_after_paths": [
+    "lean/Snuffy/G3CompleteBill.lean",
+    "lean/Snuffy/GuardSignature.lean",
+    "lean/Snuffy/DecoderRetraction.lean",
+    "lean/build-and-audit.sh",
+    "lean/gen-index.py",
+    "lean/check-complete.py",
+    "lean/SummitsAudit.lean",
+    "lean/RECEIPT.txt",
+    "lean/PROOF-STATE.md",
+    "inserts/23-machine-checked-canon.md",
+    "SNUFFY-CANON-EDITION-4.2-MASTER.md",
+    "README.md",
+    "workspace/AGENTS.md",
+    "workspace/BEFORE-AFTER-BATCH-2026-10-25.md",
+    "TIWA-PATCH-REQUIREMENTS.md",
+    "SUPPORTS-FOR-GEMINI.md"
+  ],
+  "current_artifact_sha256": {
+    "SNUFFY-CANON-EDITION-4.2-MASTER.md": "b9f65a951978efca4d36deae1a1d4441b3be3abbc6d7c66a0293aac64e558b80",
+    "README.md": "1f54288dbb589b34e83fd57597e3f05c5038cd792ed6ac9b3a48d65e4e87b213",
+    "SUPPORTS-FOR-GEMINI.md": "d62238da0b64063031b8133b49a7ea08105af1cd412ab6d820990dc043f28647",
+    "TIWA-PATCH-REQUIREMENTS.md": "050046dba30b3b8f7df2d9ea308976908a365e903e2bea9ce2a5323eaa2e973d",
+    "lean/RECEIPT.txt": "b237f80993823a06a52f07558f5618ad9d40cbd464d81f2a88e9e1c49d89ee2e",
+    "lean/PROOF-STATE.md": "b5148a3e2feb4b8cd0e9291208521072a1de298fff8c1842092ab02e1a52d708",
+    "lean/SummitsAudit.lean": "8e6eb5b59359166b377be1662ff743edaeca46c2888639608a7a26e4c0473e16",
+    "inserts/23-machine-checked-canon.md": "e30c894e996a29641b0aa3dceb4d1ed7659e4a539065e4f2d9ea3bc7291efa72",
+    "PUBLICATION-CHECKLIST.md": "27ed6a47a3af699479e0a6aa87acde363f72c99392710334a61c7fb1718dbb2f"
+  },
+  "reused_sources_match_original_Beam_receipt": true
+}

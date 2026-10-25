@@ -1,0 +1,23 @@
+namespace UPTReflectionQuota
+
+inductive PaidTrace : Nat → List Nat → Nat → Prop
+  | done (fuel) : PaidTrace fuel [] fuel
+  | step (fuel cost rest remaining)
+      (positive : 0 < cost) (funded : cost ≤ fuel)
+      (tail : PaidTrace (fuel-cost) rest remaining) :
+      PaidTrace fuel (cost :: rest) remaining
+
+theorem steps_bounded {fuel remaining : Nat} {costs : List Nat}
+    (trace : PaidTrace fuel costs remaining) : costs.length ≤ fuel  := [proof body omitted in statement view]
+
+theorem quota_conserved {fuel remaining : Nat} {costs : List Nat}
+    (trace : PaidTrace fuel costs remaining) : costs.sum + remaining = fuel  := [proof body omitted in statement view]
+
+theorem no_unbounded_paid_reflection (fuel : Nat) :
+    ¬ (∀ n, ∃ costs remaining, PaidTrace fuel costs remaining ∧ costs.length = n)  := [proof body omitted in statement view]
+
+theorem bounded_depth_can_cycle :
+    (∀ depth : Bool, (if depth then 1 else 0 : Nat)^2 ≤ 1) ∧
+    (∀ depth : Bool, (!depth) ≠ depth)  := [proof body omitted in statement view]
+
+end UPTReflectionQuota

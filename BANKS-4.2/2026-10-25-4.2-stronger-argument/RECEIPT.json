@@ -1,0 +1,49 @@
+{
+  "task": "Incorporate existing stronger arguments into the 4.2 working manuscript",
+  "evidence_status": "Prose integration; existing audit preserved, no new compilation",
+  "baseline_master_sha256": "dc0e25a3699e1b1d3333f76b32263478403c71c75c168a1961a73c9bee25837a",
+  "working_master_sha256": "935429155f0d00bfed4d75762eda63ebf26884f211b7baad5f755ea6d5be30e7",
+  "published_baseline_files_checked_unchanged": 147,
+  "copied_lean_modules_identical_to_audited_source": 115,
+  "copied_modules_matching_receipt_hashes": 115,
+  "existing_receipt_sha256": "07df9c4a1c586d977e024ec04cef13ee2ea12984d32f057513cabd4dc11b20c0",
+  "existing_audit_commit": "f43d9d6",
+  "existing_receipt_overall": "PASS",
+  "new_lean_compilation": false,
+  "new_publication": false,
+  "joined_supports_retained": [
+    "G1",
+    "G2",
+    "G3"
+  ],
+  "change_count": 29,
+  "sealed_baseline_manifest_entries_verified": 146,
+  "integration_math_delimiters": "PASS",
+  "integration_navigation_links": "PASS",
+  "claims_gate": {
+    "audited": 831,
+    "uncited": 0,
+    "ledger_rows": 27,
+    "ledger_theorems_not_audited": 0
+  },
+  "completeness_gate": {
+    "canon": 115,
+    "corpus_names": 51,
+    "excluded": 0,
+    "missing": 0,
+    "phantom": 0,
+    "skipped_by_policy": 105,
+    "exit": 0
+  },
+  "gemini_upper_bound_input_sha256": "c40881195cf831f11999e4113d0b8787a04c4c69d674768803bbdaa0dea4953d",
+  "gemini_upper_bound_disposition": "Shell telescoping incorporated and established; full protocol success/quiescence/work certificate remains G3",
+  "tiwa_requirements_sha256": "59e9aae5f379cd1f59fc556aa21b96700cbe447a965d8bd45f26d0e1e41051f6",
+  "tiwa_status": "Proposed architecture made concrete as patch requirements; no new physical or Lean proof claimed",
+  "new_files": [
+    "SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/README.md",
+    "SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/SNUFFY-CANON-EDITION-4.2-MASTER.md",
+    "SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/SUPPORTS-FOR-GEMINI.md",
+    "SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/TIWA-PATCH-REQUIREMENTS.md"
+  ],
+  "all_integration_checks_pass": true
+}

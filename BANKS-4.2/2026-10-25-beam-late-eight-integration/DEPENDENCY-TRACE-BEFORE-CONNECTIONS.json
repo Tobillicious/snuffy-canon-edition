@@ -1,0 +1,74 @@
+[
+  {
+    "module": "G1FullDomain",
+    "role": "Source/event interface",
+    "current_result": "An exhaustive enum case split and trace append preserve the supplied compliance predicate.",
+    "connection_to_trace_or_construct": "A mapping into the physical source and the five Bridge.hcert components; provenance authenticity and charged physical fault bounds.",
+    "source_imports": [],
+    "imported_by_proof_modules": [],
+    "named_in_other_sources": []
+  },
+  {
+    "module": "G2WholeOutcome",
+    "role": "Transaction-record interface",
+    "current_result": "Validity yields closure and positive recorded work; validity composes across lists.",
+    "connection_to_trace_or_construct": "A correspondence from transaction records to the full continuation/freedom outcome and realisability in the same R.",
+    "source_imports": [],
+    "imported_by_proof_modules": [],
+    "named_in_other_sources": []
+  },
+  {
+    "module": "G3CompleteBill",
+    "role": "Work-bill interface",
+    "current_result": "A validity hypothesis plus the success flag gives the inequality stored in that hypothesis.",
+    "connection_to_trace_or_construct": "An actual successful TIWA execution whose complete gross cost supplies that validity, with age-independent constants.",
+    "source_imports": [],
+    "imported_by_proof_modules": [],
+    "named_in_other_sources": []
+  },
+  {
+    "module": "GuardOperator",
+    "role": "Threshold dispatch",
+    "current_result": "The two threshold cases select the corresponding supplied state map.",
+    "connection_to_trace_or_construct": "Properties of those maps that preserve protected information and nullify the admitted fault operators.",
+    "source_imports": [],
+    "imported_by_proof_modules": [],
+    "named_in_other_sources": []
+  },
+  {
+    "module": "HamiltonianDecomposition",
+    "role": "Scalar bookkeeping signature",
+    "current_result": "The three natural-valued terms sum to the defined total.",
+    "connection_to_trace_or_construct": "A correspondence to the actual self-adjoint dynamics, coupling bounds and complete work/heat ledger.",
+    "source_imports": [],
+    "imported_by_proof_modules": [],
+    "named_in_other_sources": []
+  },
+  {
+    "module": "GuardSignature",
+    "role": "Algebraic guard interface",
+    "current_result": "Idempotence is extracted from the supplied guard record.",
+    "connection_to_trace_or_construct": "A guard instance for the actual source, fault nullification and preservation of the protected record and relations.",
+    "source_imports": [],
+    "imported_by_proof_modules": [],
+    "named_in_other_sources": []
+  },
+  {
+    "module": "WorkBilling",
+    "role": "Scalar cost interface",
+    "current_result": "Natural work is nonnegative; a supplied workBound remains itself.",
+    "connection_to_trace_or_construct": "The additive cost of actual event traces, all charged accounts, and a derived uniform full-work ceiling.",
+    "source_imports": [],
+    "imported_by_proof_modules": [],
+    "named_in_other_sources": []
+  },
+  {
+    "module": "DecoderRetraction",
+    "role": "Encoding/recovery interface",
+    "current_result": "Clean decode-after-encode follows from the supplied retraction field.",
+    "connection_to_trace_or_construct": "An instance and its perturbation-radius guarantee. Bridge.exists_nearest_decoder and nearest_decodes already supply a concrete route for the existing finite-code model.",
+    "source_imports": [],
+    "imported_by_proof_modules": [],
+    "named_in_other_sources": []
+  }
+]

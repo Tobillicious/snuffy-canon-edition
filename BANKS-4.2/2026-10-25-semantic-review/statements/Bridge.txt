@@ -1,0 +1,123 @@
+import Snuffy.Law
+import Snuffy.SpeedLimit
+import Snuffy.Composition
+import Snuffy.E9SelfHealing
+import Mathlib.Data.Set.Finite.Lemmas
+
+open MeasureTheory Finset
+
+namespace Snuffy.Bridge
+
+theorem coverage_from_law {Part : Type*} (S : Set Part)
+    (hlaw : ∀ (F : Set (Set Part)) (o : Set Part),
+      Snuffy.Law.ProjMax S F o → ¬ Snuffy.Law.NeedlessLoss₁ F o) :
+    ∀ x, x ∈ S  := [proof body omitted in statement view]
+
+section Decoding
+
+variable {X : Type*} [MetricSpace X]
+
+theorem nearest_decodes {Code : Set X} {dmin t : ℝ}
+    (hsep : ∀ c ∈ Code, ∀ c' ∈ Code, c ≠ c' → dmin ≤ dist c c') (ht : 2 * t < dmin)
+    {dec : X → X} (hdecC : ∀ y, dec y ∈ Code) (hnear : ∀ y, ∀ c ∈ Code, dist y (dec y) ≤ dist y c)
+    {c y : X} (hc : c ∈ Code) (hy : dist y c ≤ t) : dec y = c  := [proof body omitted in statement view]
+
+theorem exists_nearest_decoder (Code : Set X) (hfin : Code.Finite) (hne : Code.Nonempty) :
+    ∃ dec : X → X, (∀ y, dec y ∈ Code) ∧ ∀ y, ∀ c ∈ Code, dist y (dec y) ≤ dist y c  := [proof body omitted in statement view]
+
+def Continues {Part : Type*} (rec : Part → X) (ε : ℝ) (a : Part → X) (x : Part) : Prop :=
+  dist (a x) (rec x) ≤ ε
+
+theorem holding_preserves {Part : Type*} {rec : Part → X} {ε εf t dmin : ℝ} {Code : Set X}
+    (hrec : ∀ x, rec x ∈ Code)
+    (hsep : ∀ c ∈ Code, ∀ c' ∈ Code, c ≠ c' → dmin ≤ dist c c') (ht : 2 * t < dmin)
+    {dec : X → X} (hdecC : ∀ y, dec y ∈ Code) (hnear : ∀ y, ∀ c ∈ Code, dist y (dec y) ≤ dist y c)
+    (hεf : εf ≤ ε) {S : Set Part} {pre step : (Part → X) → Part → X}
+    (hgrow : ∀ a x, x ∈ S → Continues rec ε a x → dist (pre a x) (rec x) ≤ t)
+    (hrep : ∀ a x, x ∈ S → dist (step a x) (dec (pre a x)) ≤ εf) :
+    ∀ a x, x ∈ S → Continues rec ε a x → Continues rec ε (step a) x  := [proof body omitted in statement view]
+
+end Decoding
+
+section QSL
+
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℂ E] [CompleteSpace E]
+
+theorem qsl_growth {ħ : ℝ} (hħ : 0 < ħ) {H₀ V : ℝ → E →L[ℂ] E}
+    (hH₀ : ∀ s, IsSelfAdjoint (H₀ s)) (hHV : ∀ s, IsSelfAdjoint (H₀ s + V s))
+    {W : ℝ} (hW : ∀ s, ‖V s‖ ≤ W) {rec : E} (hzero : ∀ s, H₀ s rec = 0) {ψ : ℝ → E}
+    (hψ : Snuffy.SpeedLimit.Solves ħ (fun s => H₀ s + V s) ψ) (hψ1 : ‖ψ 0‖ = 1)
+    {s₁ s₂ : ℝ} (h12 : s₁ ≤ s₂) :
+    ‖ψ s₂ - rec‖ ≤ ‖ψ s₁ - rec‖ + W / ħ * (s₂ - s₁)  := [proof body omitted in statement view]
+
+theorem qsl_within_radius {ħ : ℝ} (hħ : 0 < ħ) {H₀ V : ℝ → E →L[ℂ] E}
+    (hH₀ : ∀ s, IsSelfAdjoint (H₀ s)) (hHV : ∀ s, IsSelfAdjoint (H₀ s + V s))
+    {W : ℝ} (hW : ∀ s, ‖V s‖ ≤ W) {rec : E} (hzero : ∀ s, H₀ s rec = 0) {ψ : ℝ → E}
+    (hψ : Snuffy.SpeedLimit.Solves ħ (fun s => H₀ s + V s) ψ) (hψ1 : ‖ψ 0‖ = 1)
+    {s₀ Δ ε t : ℝ} (hstart : ‖ψ s₀ - rec‖ ≤ ε) (hbudget : ε + W / ħ * Δ ≤ t) :
+    ∀ s ∈ Set.Icc s₀ (s₀ + Δ), dist (ψ s) rec ≤ t  := [proof body omitted in statement view]
+
+end QSL
+
+theorem headroom_within_radius {N d : ℕ} {lt : ℝ} (hN : (N : ℝ) ≤ lt) (hd : 2 * lt < d) :
+    (N : ℝ) ≤ ((d : ℝ) - 1) / 2 ∧ 2 * (((d : ℝ) - 1) / 2) < d  := [proof body omitted in statement view]
+
+section Assembly
+
+variable {S A C Ev O : Type*}
+
+theorem universal_protection_held {X Part : Type*} [MetricSpace X] {Ω ι : Type*}
+    [MeasurableSpace Ω] (μ : Measure Ω)
+    (accounts : Finset ι) (Ev' : ι → Set Ω) (δ : ι → ENNReal) (G : Set Ω)
+    (hG : Gᶜ ⊆ ⋃ i ∈ accounts, Ev' i) (hδ : ∀ i ∈ accounts, μ (Ev' i) ≤ δ i)
+    (p : S → Part → X) (T : Ω → S → C → Ev → S) (U : Ω → (Part → X) → C → Ev → Part → X)
+    (obsS : S → O) (obsA : (Part → X) → O) (ctrl : Ω → List O → C)
+    (env : Ω → List O → C → Ev) (s₀ : Ω → S)
+                                
+    {rec : Part → X} {ε εf t dmin : ℝ} {Code : Set X} (hrec : ∀ x, rec x ∈ Code)
+    (hsep : ∀ c ∈ Code, ∀ c' ∈ Code, c ≠ c' → dmin ≤ dist c c') (ht : 2 * t < dmin)
+    {dec : X → X} (hdecC : ∀ y, dec y ∈ Code) (hnear : ∀ y, ∀ c ∈ Code, dist y (dec y) ≤ dist y c)
+    (hεf : εf ≤ ε)
+                                           
+    (scope : Set Part)
+    (hlaw : ∀ (F : Set (Set Part)) (o : Set Part),
+      Snuffy.Law.ProjMax scope F o → ¬ Snuffy.Law.NeedlessLoss₁ F o)
+                                                 
+    (pre : Ω → (Part → X) → C → Ev → Part → X)
+    (hcert : ∀ ω ∈ G, (∀ s c e, p (T ω s c e) = U ω (p s) c e) ∧
+      (∀ s, obsS s = obsA (p s)) ∧ (∀ x, Continues rec ε (p (s₀ ω)) x) ∧
+      (∀ a c e x, x ∈ scope → Continues rec ε a x → dist (pre ω a c e x) (rec x) ≤ t) ∧
+      (∀ a c e x, x ∈ scope → dist (U ω a c e x) (dec (pre ω a c e x)) ≤ εf))
+    (horizon : ℕ) :
+    (∀ ω ∈ G, ∀ k ≤ horizon, ∀ x,
+      Continues rec ε (p (Snuffy.Composition.run (T ω) obsS (ctrl ω) (env ω) (s₀ ω) k).1) x) ∧
+    μ {ω | ∃ k ≤ horizon, ¬ ∀ x,
+      Continues rec ε (p (Snuffy.Composition.run (T ω) obsS (ctrl ω) (env ω) (s₀ ω) k).1) x}
+      ≤ ∑ i ∈ accounts, δ i  := [proof body omitted in statement view]
+
+def ContinuesP {Y E Part : Type*} [NormedAddCommGroup E] (recY : Part → Y) (recE : Part → E)
+    (ε : ℝ) (a : Part → Y × E) (x : Part) : Prop :=
+  (a x).1 = recY x ∧ ‖(a x).2 - recE x‖ ≤ ε
+
+theorem holding_cycle_physical {Y E Part : Type*} [MetricSpace Y]
+    [NormedAddCommGroup E] [InnerProductSpace ℂ E] [CompleteSpace E]
+    {recY : Part → Y} {recE : Part → E} {ε εf Δ : ℝ} {d N : ℕ} {lt : ℝ} {Code : Set Y}
+    (hrecY : ∀ x, recY x ∈ Code)
+    (hsep : ∀ c ∈ Code, ∀ c' ∈ Code, c ≠ c' → (d : ℝ) ≤ dist c c')
+    {dec : Y → Y} (hdecC : ∀ y, dec y ∈ Code) (hnear : ∀ y, ∀ c ∈ Code, dist y (dec y) ≤ dist y c)
+    (hN : (N : ℝ) ≤ lt) (hd : 2 * lt < d) (hεf : εf ≤ ε)
+    {ħ : ℝ} (hħ : 0 < ħ) {H₀ V : ℝ → E →L[ℂ] E}
+    (hH₀ : ∀ s, IsSelfAdjoint (H₀ s)) (hHV : ∀ s, IsSelfAdjoint (H₀ s + V s))
+    {W : ℝ} (hW : ∀ s, ‖V s‖ ≤ W) (hzero : ∀ x s, H₀ s (recE x) = 0)
+    {a : Part → Y × E} {x : Part} (hc : ContinuesP recY recE ε a x)
+                                                                                        
+    {yPre : Y} (hfault : dist yPre (recY x) ≤ N)
+    {ψ : ℝ → E} (hψ : Snuffy.SpeedLimit.Solves ħ (fun s => H₀ s + V s) ψ) (hψ1 : ‖ψ 0‖ = 1)
+    (hψ0 : ψ 0 = (a x).2)
+    {next : Y × E} (hcorr : next.1 = dec yPre) (hrefresh : ‖next.2 - recE x‖ ≤ εf) :
+    (next.1 = recY x ∧ ‖next.2 - recE x‖ ≤ ε) ∧
+      ∀ s ∈ Set.Icc 0 Δ, ‖ψ s - recE x‖ ≤ ε + W / ħ * Δ  := [proof body omitted in statement view]
+
+end Assembly
+
+end Snuffy.Bridge

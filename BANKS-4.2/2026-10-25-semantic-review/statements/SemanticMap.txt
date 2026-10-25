@@ -1,0 +1,18 @@
+import Mathlib.Basic.Real.Basic
+import Mathlib.Tactic.Ring
+
+namespace GeminiThirteenSemantics
+
+def flipped (b : Bool) : Bool := !b
+
+theorem identity_is_bijective : Function.Bijective (fun b : Bool => b)  := [proof body omitted in statement view]
+
+theorem flipped_is_bijective : Function.Bijective flipped  := [proof body omitted in statement view]
+
+theorem two_distinct_lossless_maps : (fun b : Bool => b) ≠ flipped  := [proof body omitted in statement view]
+
+theorem calibrated_reference_fixes_binary_mapping (mapping : Bool → Bool)
+    (injective : Function.Injective mapping) (calibrated : mapping false=false) :
+    mapping=(fun b => b)  := [proof body omitted in statement view]
+
+end GeminiThirteenSemantics

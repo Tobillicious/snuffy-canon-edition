@@ -1,0 +1,28 @@
+namespace SnuffyFIFO
+
+structure Job where
+  release : Nat
+  budget : Nat
+  deadline : Nat
+  deriving Repr
+
+def finish (base : Nat) (jobs : List Job) (work : Job → Nat) : Nat :=
+  match jobs with
+  | [] => base
+  | j :: tail => finish (max base j.release + work j) tail work
+
+theorem fifo_step (a b r w u : Nat) (hab : a ≤ b) (hwu : w ≤ u) :
+    max a r + w ≤ max b r + u  := [proof body omitted in statement view]
+
+theorem finish_le_upper (work : Job → Nat) :
+    ∀ jobs : List Job, (∀ j ∈ jobs, work j ≤ j.budget) →
+    ∀ a b : Nat, a ≤ b →
+      finish a jobs work ≤ finish b jobs (fun j => j.budget)  := [proof body omitted in statement view]
+
+theorem certified_prefix_meets_deadline
+    (base : Nat) (priorJobs : List Job) (j : Job) (work : Job → Nat)
+    (hwork : ∀ k ∈ (priorJobs ++ [j]), work k ≤ k.budget)
+    (hcert : finish base (priorJobs ++ [j]) (fun k => k.budget) ≤ j.deadline) :
+    finish base (priorJobs ++ [j]) work ≤ j.deadline  := [proof body omitted in statement view]
+
+end SnuffyFIFO

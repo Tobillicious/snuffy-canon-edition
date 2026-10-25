@@ -1,0 +1,40 @@
+import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+import Mathlib.LinearAlgebra.Dimension.Finrank
+
+open Module
+
+namespace Snuffy.DeductionBoundary
+
+variable {K W : Type*} [Field K] [AddCommGroup W] [Module K W]
+
+theorem rank_criterion [FiniteDimensional K W] (A G : Submodule K W) :
+    A ⊓ G = ⊥ ↔ finrank K ↥(A ⊔ G) = finrank K ↥A + finrank K ↥G  := [proof body omitted in statement view]
+
+variable {U : Type*} [AddCommGroup U] [Module K U]
+
+theorem context_maps_image (A : U →ₗ[K] W) (C : W →ₗ[K] W) (M : U →ₗ[K] U)
+    (hCA : C.comp A = A.comp M) {b : W} (hb : b ∈ LinearMap.range A) :
+    C b ∈ LinearMap.range A  := [proof body omitted in statement view]
+
+inductive Deduction (J P : Type*)
+  | prim : P → Deduction J P
+  | ctx : J → Deduction J P → Deduction J P
+  | sum : Deduction J P → Deduction J P → Deduction J P
+
+def boundary {J P : Type*} (prim : P → W) (C : J → W →ₗ[K] W) : Deduction J P → W
+  | .prim p => prim p
+  | .ctx j t => C j (boundary prim C t)
+  | .sum t₁ t₂ => boundary prim C t₁ + boundary prim C t₂
+
+theorem boundary_mem_image {J P : Type*} (A : U →ₗ[K] W) (prim : P → W)
+    (C : J → W →ₗ[K] W) (M : J → U →ₗ[K] U)
+    (hprim : ∀ p, prim p ∈ LinearMap.range A) (hctx : ∀ j, (C j).comp A = A.comp (M j)) :
+    ∀ t : Deduction J P, boundary prim C t ∈ LinearMap.range A := [proof body omitted in statement view]
+
+theorem anchor_untouched {J P : Type*} (A : U →ₗ[K] W) (G : Submodule K W) (prim : P → W)
+    (C : J → W →ₗ[K] W) (M : J → U →ₗ[K] U)
+    (hprim : ∀ p, prim p ∈ LinearMap.range A) (hctx : ∀ j, (C j).comp A = A.comp (M j))
+    (hdisj : LinearMap.range A ⊓ G = ⊥) (t : Deduction J P)
+    (hG : boundary prim C t ∈ G) : boundary prim C t = 0  := [proof body omitted in statement view]
+
+end Snuffy.DeductionBoundary

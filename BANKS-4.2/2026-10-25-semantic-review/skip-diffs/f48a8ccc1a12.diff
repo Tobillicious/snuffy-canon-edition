@@ -1,0 +1,10 @@
+--- 2026-10-24-codex-x3-korero-preservation/snapshots/2026-10-24-glm-phase-a/lean/TransportLaw.lean
++++ SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25/lean/Snuffy/TransportLaw.lean
+@@ -90,7 +90,3 @@
+ 
+ /-! ## Axiom reports -/
+ 
+-#print axioms transport_nonneg
+-#print axioms transport_ge_local
+-#print axioms hhi_ge_uniform
+-#print axioms monopoly_penalty

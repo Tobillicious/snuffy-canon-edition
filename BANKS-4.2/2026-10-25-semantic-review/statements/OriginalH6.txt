@@ -1,0 +1,45 @@
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Algebra.Order.Floor.Ring
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Ring
+
+namespace GeminiOriginalH6
+noncomputable section
+
+theorem original_thermal_depth_ceiling
+    (sigma0 cost alpha flux fluxMax drift : ℝ) (depth : Nat)
+    (costPositive : 0 < cost) (superlinear : 1 < alpha)
+    (available : flux ≤ fluxMax)
+    (sustainable : sigma0+cost*(depth:ℝ)^alpha-flux ≤ drift) :
+    depth ≤ Nat.floor (((fluxMax+drift-sigma0)/cost)^(1/alpha))  := [proof body omitted in statement view]
+
+def bankedStep (target tau state : ℝ) : ℝ := (target+tau*state)/(1+tau)
+def rate (tau : ℝ) : ℝ := tau/(1+tau)
+
+def bankedRun (target tau initial : ℝ) : Nat → ℝ
+  | 0 => initial
+  | n+1 => bankedStep target tau (bankedRun target tau initial n)
+
+theorem banked_rate_is_contractive (tau : ℝ) (nonnegative : 0 ≤ tau) :
+    0 ≤ rate tau ∧ rate tau < 1  := [proof body omitted in statement view]
+
+theorem banked_step_error (target tau state : ℝ) (nonnegative : 0 ≤ tau) :
+    bankedStep target tau state-target = rate tau*(state-target)  := [proof body omitted in statement view]
+
+theorem banked_exact_error (target tau initial : ℝ) (nonnegative : 0 ≤ tau) (n : Nat) :
+    bankedRun target tau initial n-target = rate tau^n*(initial-target)  := [proof body omitted in statement view]
+
+theorem banked_paid_epsilon_accuracy
+    (target tau initial epsilon energy price : ℝ) (nonnegative : 0 ≤ tau)
+    (n : Nat) (paid : (n:ℝ)*price ≤ energy)
+    (adequate : rate tau^n*|initial-target| ≤ epsilon) :
+    |bankedRun target tau initial n-target| ≤ epsilon ∧ (n:ℝ)*price ≤ energy  := [proof body omitted in statement view]
+
+theorem original_thermal_premises_allow_cycle :
+    (0:ℝ)+1*(1:ℝ)^(2:ℝ)-1≤0 ∧
+    Nat.floor ((((1:ℝ)+0-0)/1)^(1/(2:ℝ)))=1 ∧
+    ∀ state : Bool, (!state)≠state  := [proof body omitted in statement view]
+
+end
+end GeminiOriginalH6
