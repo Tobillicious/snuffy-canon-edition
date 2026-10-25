@@ -42,6 +42,7 @@ import Snuffy.QuantumLandauer
 import Snuffy.Threshold
 import Snuffy.UnionClosure
 import Snuffy.SolventReciprocity
+import Snuffy.AffordableReciprocity
 import Snuffy.Bridge
 import Snuffy.Instruments
 import Snuffy.StrokeBookkeeping
@@ -49,6 +50,7 @@ import Snuffy.Bennett
 import Snuffy.Concatenated
 import Snuffy.ReasonsCompiled
 import Snuffy.TwoLevel
+import Snuffy.ErrorBudget
 import Snuffy.GateSupport
 import Snuffy.RiskBounds
 import Snuffy.QueueDeadline
@@ -471,6 +473,8 @@ import Snuffy.R17WorkConcrete
 -- SolventReciprocity
 #print axioms Snuffy.SolventReciprocity.solvent_keeps_everyone
 #print axioms Snuffy.SolventReciprocity.reciprocity_dominance_solvent
+-- AffordableReciprocity
+#print axioms Snuffy.AffordableReciprocity.reciprocity_dominance_affordable
 -- Bridge
 #print axioms Snuffy.Bridge.coverage_from_law
 #print axioms Snuffy.Bridge.nearest_decodes
@@ -552,6 +556,12 @@ import Snuffy.R17WorkConcrete
 #print axioms Snuffy.TwoLevel.star_list_prod'
 #print axioms Snuffy.TwoLevel.star_twoLevel
 #print axioms Snuffy.TwoLevel.two_level_decomposition
+-- ErrorBudget
+#print axioms Snuffy.ErrorBudget.prod_norm_le_one
+#print axioms Snuffy.ErrorBudget.map_prod_norm_le_one
+#print axioms Snuffy.ErrorBudget.two_factor_step
+#print axioms Snuffy.ErrorBudget.telescoping_delta
+#print axioms Snuffy.ErrorBudget.error_budget
 -- GateSupport
 #print axioms GeminiThirteenGate.kraus_branch_preserves_support
 #print axioms GeminiThirteenGate.kraus_sum_preserves_support
