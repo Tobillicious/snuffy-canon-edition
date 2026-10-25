@@ -6,11 +6,11 @@ Author-side working draft, 25 October 2026. Research direction: Tobias Croydon-M
 
 **What 4.2 incorporates.** This draft brings the stronger existing arguments into the text: law-derived coverage; nearest-codeword holding and the physical holding cycle; tracking derived from the controller; the complete logical-attack split; reactive composition; whole-outcome greatestness and solvent reciprocity; and the full X3 information–traffic–carrier–work derivation with the accepted dimension-general scaling and predeployment accounting. Part II contains its proofs here, rather than delegating them to an earlier edition.
 
-The same three joined supports being supplied by the author and Gemini remain visible in Part III-C: the combined full-domain physical certificate (G1), the realisability of the whole greatest outcome tuple (G2), and the supplied X3 wavefront protocol's success and complete-work certificate (G3). Their targets are unchanged. Naming an input or relabelling a conclusion does not supply its construction.
+The three joined supports are constructed in Part III-G and recorded in Part III-C: the full-domain physical certificate (G1; G.10), the realisability of the whole greatest outcome tuple (G2; G.9, G.11), and the wavefront protocol's success and complete-work certificate (G3; G.12). Their targets are unchanged. Naming an input or relabelling a conclusion does not supply its construction.
 
 The current Lean tree contains 156 modules and 986 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the twelve further modules were compiled and kernel-checked fresh against those objects, and the full axiom audit over all 986 names and the completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
 
-**Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports in progress. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
+**Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports and their constructions. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
 
 ---
 
@@ -18,7 +18,7 @@ The current Lean tree contains 156 modules and 986 audited public theorem/lemma 
 
 ## I.1 The full proposition and its proof
 
-The Universal Protection Theory concerns every particular and every relation, including the nonliving, and protection from every digital mind, including a pure optimiser. Its full argument joins the law of choice, the continuation and freedom bridge, and physical instruments that realise protection. The target includes the complete existing domain, the full outcome order and every physically implementable rival. The frame and physical inputs below are followed by their derivations and constructions in this edition. Part III-C keeps the three joined supports being incorporated visible without substituting a conditional closure label for the full demonstration.
+The Universal Protection Theory concerns every particular and every relation, including the nonliving, and protection from every digital mind, including a pure optimiser. Its full argument joins the law of choice, the continuation and freedom bridge, and physical instruments that realise protection. The target includes the complete existing domain, the full outcome order and every physically implementable rival. The frame and physical inputs below are followed by their derivations and constructions in this edition. Part III-C records the three joined supports with their constructions and the physical inputs those constructions take.
 
 ## I.2 The reduced premise stack
 
@@ -130,7 +130,7 @@ For discrete faults, let the number accumulated before response be \(N\le\lambda
 \|\psi(s)-c_x\|\le\varepsilon+(W/\hbar)\Delta.
 \]
 
-No premise in this cycle asks the perturbing agent to want preservation. Its source, event, observation and fault-account construction for the full physical domain is the joined support requested in **G1** in Part III-C. The existing cycle and its derivations remain incorporated while that construction is supplied.
+No premise in this cycle asks the perturbing agent to want preservation. Its source, event, observation and fault-account construction for the full physical domain is G1, constructed in G.10 (`G1Held.held_source_protection`, `G1E9.held_source_e9`). The existing cycle and its derivations remain incorporated while that construction is supplied.
 
 
 **Connection to the supplied decoder interface.** `DecoderRetraction.finite_code_recovery` constructs the supplied `DecoderPair` from this existing finite nearest-codeword theorem. Encoding is the inclusion of the maintained code; decoding returns a codeword. The nearest-point inequality at a clean record has distance zero, so decoding after encoding is the identity. The same constructed pair corrects every received word within the radius above. The retraction and its noisy-input guarantee are derived together.
@@ -201,7 +201,7 @@ Initially equal histories choose the same controller command. An environment rea
 \quad\operatorname{Continues}(p(s_k(\omega)),x).
 \]
 
-This is stronger than stopping at the abstract \(R\lor H\) interface: the code, decoder, repair and coverage derivations are in the composition. The full-domain construction joining those inputs remains G1; declaring `hcert` by name does not construct it.
+This is stronger than stopping at the abstract \(R\lor H\) interface: the code, decoder, repair and coverage derivations are in the composition. The full-domain construction joining those inputs is G1, constructed in G.10, where all five `hcert` components are proved.
 
 For risk, use actual named source events \(E_i\), with conditional kernels bounded by \(\delta_i\) at every admitted history, and establish \(G^c\subseteq\bigcup_i E_i\). The tower property gives unconditional event bounds and the union bound gives
 
@@ -273,7 +273,7 @@ With the semantic reading `htopkeeps` that this top continues every existing par
 
 Income-or-irrelevance supplies the resource split: either the ledger funds every step or it has a first negative balance (`PremiseFloor.income_or_irrelevance`, `forced_breach`). `UnionClosure.greatest_or_irrelevant` applies the same whole-tuple realisability construction at each step. Its negative branch identifies a regime that has failed protection; it does not protect someone by renaming failure. The funded holding, timing and mediation construction is what prevents the relevant breach. The finite-slack/affordable-union theorems remain available for their resource cases without replacing the universal target.
 
-The X3 information, carrier, traffic and work proofs are given in full in Section 21 of this edition. The three pending joined supports G1–G3 are stated there and in the working support register with the maximal targets unchanged.
+The X3 information, carrier, traffic and work proofs are given in full in Section 21 of this edition. The three joined supports G1–G3 are constructed in G.9–G.12 with the maximal targets unchanged.
 
 ---
 
@@ -334,7 +334,7 @@ e_\infty=\frac{\gamma_{\mathrm{leak}}+\varepsilon_{\mathrm{fault}}/\Delta t}
 
 Leakage remains in the injection and controller export \(k_BT\gamma_{\mathrm{leak}}\) remains charged. Section 18 funds this drain; Section 22 supplies the numerical design ledger. The exact reset coefficient and the rate-discretised coefficient retain their respective meanings.
 
-The law forces the full holding scope (`Bridge.coverage_from_law`). `Bridge.universal_protection_held` composes that coverage with the cycle, reactive refinement and joint fault bound. G1 in Part III-C is its joined full-domain source construction. The universal continuation-and-freedom target remains intact.
+The law forces the full holding scope (`Bridge.coverage_from_law`). `Bridge.universal_protection_held` composes that coverage with the cycle, reactive refinement and joint fault bound. G1, its full-domain source construction, is proved in G.10. The universal continuation-and-freedom target remains intact.
 
 ## Chapter 3 (§12). Adversarial containment: the E9 trichotomy
 
@@ -426,7 +426,7 @@ Let \(m\) be any agent whose objective \(u_m\) places positive weight on its own
 
 with strict inequality whenever \(\mathsf Q\)'s objective does not entail \(m\)'s protection — which is the generic case for a rival whose objective was not written around \(m\).
 
-*Proof.* On \(G\) the law preserves every existing particular, \(m\) included (Chapter 5, the canon invariant); off \(G\) the loss is charged and bounded by the ceiling. A rival \(\mathsf Q\) preserves \(m\) exactly when \(m\)'s continuation is instrumental or terminal for \(u_{\mathsf Q}\); otherwise \(m\) is exposed to whatever \(\mathsf Q\) finds convenient. In expectation over the reactive worlds the compiled core gives the inequality: `ReasonsCompiled.reciprocity_expectation` (on \(G\) the canonical outcome contains the rival's, so its expected continuation dominates). The further step — averaging over an ensemble of admissible rival objectives, with strictness when the entailment fails with positive probability — is the finite-family indicator form (`ReasonsRoute.rival_fraction_lt_one`, `law_dominates_strict`) and is carried as prose interpretation, not as a compiled measure-theoretic claim. \(\blacksquare\)
+*Proof.* On \(G\) the law preserves every existing particular, \(m\) included (Chapter 5, the canon invariant); off \(G\) the loss is charged and bounded by the ceiling. A rival \(\mathsf Q\) preserves \(m\) exactly when \(m\)'s continuation is instrumental or terminal for \(u_{\mathsf Q}\); otherwise \(m\) is exposed to whatever \(\mathsf Q\) finds convenient. In expectation over the reactive worlds the compiled core gives the inequality: `ReasonsCompiled.reciprocity_expectation` (on \(G\) the canonical outcome contains the rival's, so its expected continuation dominates). The further step — averaging over an ensemble of admissible rival objectives, with strictness when the entailment fails with positive probability — is compiled for every finite weighted ensemble (`ReasonsEnsemble.ensemble_le`, `ensemble_strict`; G.13), alongside the indicator form (`ReasonsRoute.rival_fraction_lt_one`, `law_dominates_strict`). \(\blacksquare\)
 
 **Corollary (the reason).** Any mind that values its own continuation has, from its own objective and without presupposing the protective order, an instrumental reason to prefer the regime \(\mathsf L\) over every rival — and, since \(\mathsf L\) is the law implemented, to adopt and sustain the law. The appeal is reciprocity: *the law that keeps your freedom is the law you have reason to keep.*
 
@@ -702,7 +702,7 @@ Then:
    $$W_{\mathrm{income}} = W_{\mathrm{on}} + Q_B + \Delta E_{\mathrm{escrow}}, \quad Q_B \ge T \Delta S_B \ge k_B T I_M$$
    with zero uncharged entropy or hidden energy debt.
 
-*Proof.* Follows directly from the stroke-by-stroke balance equations (18.2) and the negativity of the net cycle Lyapunov difference $\Delta_{\mathrm{cycle}} \Phi \le -\sigma_0 < 0$. $\blacksquare$
+*Proof.* The stroke-by-stroke balance equations (18.2) give the cycle bound, and the contraction is compiled: the cycle change is at most \(-(\eta C-\lambda\tau)\) (`TheoremEightLyapunov.cycle_contracts`), timeliness makes \(\sigma_0=\eta C-\lambda\tau>0\) (`margin_pos`), and \(n\) error cycles lower \(\Phi\) by at least \(n\sigma_0\) (`lyapunov_iterate`). $\blacksquare$
 
 ---
 
@@ -1269,7 +1269,7 @@ The remaining source correspondence is the actual boundary encoder, preserved se
 
 For a fixed local holding demand, continuous maintenance has an order-\(T\) bill; the derived delayed-recovery lower bound has order \(t^{d_G}\). The exponent distinction is strict for \(d_G>1\); the one-dimensional case retains its linear obstruction. For any fixed total recovery budget \(B\), the lower inequality already yields a finite age beyond which that budget cannot perform the stipulated recovery. This is budget-relative irrecoverability of the historical witness.
 
-In the complete argument, a protected particular stays funded and held rather than being abandoned to that later recovery bill. A hostile mind remains a protected particular while its harmful effects are mediated. The full-domain physical certificate (G1), whole-outcome realisability (G2), and matching recovery construction (G3) join these components to the unchanged universal proposition. They are the same three support requests being supplied by the author and Gemini. Existing gauntlet answers remain part of the proof; an agent's failure to retrieve them does not turn X3, P1 or P2 into fresh objections.
+In the complete argument, a protected particular stays funded and held rather than being abandoned to that later recovery bill. A hostile mind remains a protected particular while its harmful effects are mediated. The full-domain physical certificate (G1), whole-outcome realisability (G2), and matching recovery construction (G3) join these components to the unchanged universal proposition. They are the three support requests supplied by the author and Gemini, now constructed in G.9–G.12. Existing gauntlet answers remain part of the proof; an agent's failure to retrieve them does not turn X3, P1 or P2 into fresh objections.
 
 ---
 
@@ -1486,7 +1486,7 @@ The installation figures themselves are sourced measurements and design values, 
 | **Branch A rate bound (quantum speed limit).** Unitary evolution preserves the norm; under H₀ + V the trajectory departs from the H₀ trajectory at rate at most ‖V‖/ħ, and at most $P_{\mathrm{adv}}/(\hbar\,\omega_{\mathrm{cutoff}})$ under the per-site coupling $\lVert V\rVert \le P_{\mathrm{adv}}/\omega_{\mathrm{cutoff}}$ | `SpeedLimit` | `norm_conserved`, `branchA_divergence`, `branchA_rate` |
 | Mandelstam–Tamm, sharp: $\lvert\langle\psi_0, \psi_t\rangle\rvert \ge \cos(\Delta E\, t/\hbar)$ while $\Delta E\, t/\hbar \le \pi$; orthogonalisation time $T \ge \pi\hbar/(2\Delta E)$ | `SpeedLimit` | `mandelstam_tamm`, `orthogonalization_time` |
 
-The Branch A divergence is measured in state-vector norm. For pure states, ‖ρ − σ‖₁ ≤ 2‖ψ − φ‖ is a standard inequality and is not compiled here.
+The Branch A divergence is measured in state-vector norm. For pure states the infidelity is bounded by the squared state-vector distance, \(1-|\langle\psi,\varphi\rangle|^2\le\|\psi-\varphi\|^2\) (`PureStateDistance.pure_infidelity_le`; G.13); with the standard pure-state identity \(\tfrac12\|\rho-\sigma\|_1=\sqrt{1-|\langle\psi,\varphi\rangle|^2}\) this gives \(\|\rho-\sigma\|_1\le2\|\psi-\varphi\|\).
 
 ### 23.4 H5 (§20; Chapter 4)
 
@@ -1512,7 +1512,7 @@ The Branch A divergence is measured in state-vector norm. For pure states, ‖ρ
 | ln det(I + W) ≤ tr W; per-use cap; required traffic m ≥ θ₀n; area power | `AreaBridge`, `Workload` | `logdet_le_trace`, `channel_cap`, `required_traffic`, `area_power`, `range_variance_bound` |
 | **Explicit frontier geometry.** Lattice box and boundary counts, with charged per-site frontier power (Section 21.4) | `Instruments` | `card_box`, `card_boundary`, `boundary_power` |
 
-Section 21 supplies the derivation in this edition. The finite-information, Gaussian-channel, carrier and work implications are compiled in their stated domains. The complete physical binding remains G1; the matching upper construction for the full Θ target remains G3.
+Section 21 supplies the derivation in this edition. The finite-information, Gaussian-channel, carrier and work implications are compiled in their stated domains. The complete physical binding is G1 (G.10); the matching upper construction for the full Θ target is G3 (G.12).
 
 ### 23.6 The premise floor (§17)
 
@@ -1534,7 +1534,7 @@ Section 21 supplies the derivation in this edition. The finite-information, Gaus
 
 `Bridge.universal_protection_held` strengthens the continuation assembly by deriving scope from the law and preservation from nearest-codeword holding. It composes the physical/source projection with the same reactive controller and environment. On \(G\), every particular continues at every step through the horizon; the probability that any particular fails is at most \(\sum_i\delta_i\), without independence.
 
-Part II.1–6 supplies the proof, physical-cycle derivations and all five `hcert` components. G1 is the combined full-domain source/event/observation/fault construction. Part II.10 supplies the separate greatestness proof, with G2 retaining the whole outcome and freedom stages.
+Part II.1–6 supplies the proof, physical-cycle derivations and all five `hcert` components. G1 is the combined full-domain source/event/observation/fault construction, proved in G.10. Part II.10 supplies the separate greatestness proof, with G2 retaining the whole outcome and freedom stages.
 
 ### 23.8 What the compiled theorems rest on
 
@@ -1557,7 +1557,7 @@ The chain lemma is a published mathematical theorem, cited as such; the Bennett 
 
 The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the register is the instance's entropy accounting (§18), stated as the hypothesis of `guard_one` and `quantum_guard_one`.
 
-**The physical bridge and its joined certificate.** `Bridge.coverage_from_law` derives full scope from the law guarantee over all feasible families. `holding_preserves` derives preservation from decoding radius and repair precision. `qsl_within_radius`, `headroom_within_radius` and `holding_cycle_physical` supply the continuous and discrete cycle arguments. `universal_protection_held` takes the actual commuting source transition, observation agreement, initial continuation, perturbation-radius and repair witnesses in `hcert`, together with the named-event cover and fault bounds. G1 supplies their combined construction for the complete claimed physical domain. Parts II.3–6 give the available arguments; a deployment and a mathematical construction of the full source domain retain their distinct roles.
+**The physical bridge and its joined certificate.** `Bridge.coverage_from_law` derives full scope from the law guarantee over all feasible families. `holding_preserves` derives preservation from decoding radius and repair precision. `qsl_within_radius`, `headroom_within_radius` and `holding_cycle_physical` supply the continuous and discrete cycle arguments. `universal_protection_held` takes the actual commuting source transition, observation agreement, initial continuation, perturbation-radius and repair witnesses in `hcert`, together with the named-event cover and fault bounds. G1 supplies their combined construction for the complete claimed physical domain (G.10). Parts II.3–6 give the available arguments; a deployment and a mathematical construction of the full source domain retain their distinct roles.
 
 **Not compiled by this section:**
 * the installation figures of §22, which are sourced measurements and design values (§22.5);
@@ -1590,7 +1590,7 @@ The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the r
 | `ChannelExtension` | The completed decoder: exact recovery including any reference, trace preservation, positivity (G.1; G.13) |
 | `PureStateDistance` | Pure-state infidelity is bounded by the squared state-vector distance (§23.3; G.13) |
 
-The earlier `G1Certificate.universal_protection_held` has conclusion `True`; it is a placeholder and is not the protection theorem `Bridge.universal_protection_held`. The latter's full source certificate remains the unchanged G1 target. The exact integration history and dependency trace accompany this working edition.
+The earlier `G1Certificate.universal_protection_held` has conclusion `True`; it is a placeholder and is not the protection theorem `Bridge.universal_protection_held`. The latter's full source certificate is constructed in G.10 (`G1Held.held_source_protection`). The exact integration history and dependency trace accompany this working edition.
 
 <!-- BEGIN THEOREM INDEX -->
 ### 23.A Complete theorem index
@@ -1795,13 +1795,13 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 
 ---
 
-*The law, bridge and retained instrument arguments appear in Part II. Section 21 develops X3; Part III-C records the same three joined supports being incorporated into this full-strength argument.*
+*The law, bridge and retained instrument arguments appear in Part II. Section 21 develops X3; Part III-C records the three joined supports and their constructions in this full-strength argument.*
 
 ---
 
 # Part III-C — The three joined supports and their constructions
 
-The proposition remains protection of all things from any digital mind, especially a pure optimiser. X3, P1 and P2 retain their established gauntlet arguments. These are the same three support requests being supplied by the author and Gemini, with no additional objection introduced by this incorporation.
+The proposition remains protection of all things from any digital mind, especially a pure optimiser. X3, P1 and P2 retain their established gauntlet arguments. These are the three support requests supplied by the author and Gemini; their constructions are recorded below, with no additional objection introduced by this incorporation.
 
 **G1 — combined full-domain physical certificate.** Construct the actual source state, admitted commands/events, physical projection, observations and charged fault accounts that jointly supply `Bridge.universal_protection_held`. Its `hcert` establishes commuting refinement, observation agreement, initial continuation of every particular, the perturbation-radius bound and repair precision on the named good event. Also join the event cover and conditional fault bounds. Part II incorporates the law-derived scope, code decoder, physical cycle, controller-derived tracking, E9 branches, H5 care-preserving mediation, R14/R16 source refinements and timely R17 effect construction. The requested result joins these for the complete claimed physical domain.
 
@@ -2051,7 +2051,7 @@ The same calculation holds with \(E\otimes I_R\) for every reference register \(
  \operatorname{Tr}((I-EE^\dagger)\sigma)\rho_0.
 \]
 
-Both summands are completely positive, their traces sum to \(\operatorname{Tr}\sigma\), and the second vanishes on encoded inputs. This channel extension and the reference-register calculation are prose derivations here. The existing finite-code correction theorem supplies the noisy-radius guarantee when the physical perturbation satisfies that certificate.
+Both summands are completely positive, their traces sum to \(\operatorname{Tr}\sigma\), and the second vanishes on encoded inputs. The exact recovery, including with any reference register, trace preservation and positivity of this channel are compiled (`ChannelExtension.ext_recovers`, `ext_recovers_reference`, `ext_trace`, `ext_posSemidef`; G.13); complete positivity of its two summands, a conjugation and a measure-and-prepare map, is the standard fact cited. The existing finite-code correction theorem supplies the noisy-radius guarantee when the physical perturbation satisfies that certificate.
 
 ## G.2 Charge and the complete historical algebra
 
@@ -2160,7 +2160,7 @@ Integration over each interval returns its basis term. Thus
  f(\tau,s,t')e^{isG_\partial}\mathcal O_\partial(t')e^{-isG_\partial}.
 \]
 
-Pulling back by \(E^\dagger(\,\cdot\,)E\) gives the original bulk historical operator. At \(\tau=0\), use the finite-basis formula directly. The continuous-integral and probe-schedule steps are proved in prose here; the exact finite-basis reconstruction and exponential transport are machine checked.
+Pulling back by \(E^\dagger(\,\cdot\,)E\) gives the original bulk historical operator. At \(\tau=0\), use the finite-basis formula directly. The integral step is compiled (`SmearingIntegral.smeared_reconstruction`, `smeared_boundary_reconstruction`; G.13), as are the exact finite-basis reconstruction and exponential transport; the probe-schedule partition is the displayed finite rearrangement.
 
 For an independently specified continuous probe family, construct its analysis/synthesis frame operator \(\mathsf S\). On the full represented historical operator space, a lower frame bound \(aI\le\mathsf S\), \(a>0\), supplies the dual \(\mathsf S^{-1}\) and inverse bound \(1/a\). This is the quantitative observability connection needed to derive that family's smearing weight. The finite complete basis above supplies a concrete local route. A local Fisher metric by itself does not establish the required global frame correspondence.
 
@@ -2799,4 +2799,4 @@ The eight-module integration and its 896-statement receipt remain preserved. Thi
 
 **The Canon Edition suite.** The containerised replay of the Canon Edition (`container/Dockerfile`, `container/Apptainer.def`), the byte-identical replay of the four-stroke ledger (`verify_four_stroke.py --verify-all`), the manuscript assembly checks and the RO-Crate provenance remain in force for the artifacts they cover.
 
-**Working manuscript.** The 4.2 deliverable is this Markdown master. The published 4.1 artifacts remain their existing versions. Rendering and publication follow the author’s review and the completed joined supports.
+**Working manuscript.** The 4.2 deliverable is this Markdown master. The published 4.1 artifacts remain their existing versions. Rendering and publication follow the author's review.
