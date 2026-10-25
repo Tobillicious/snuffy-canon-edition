@@ -150,6 +150,12 @@ import Snuffy.G1Held
 import Snuffy.G1E9
 import Snuffy.G2Held
 import Snuffy.G3Sweep
+import Snuffy.G3PatchDecode
+import Snuffy.ReasonsEnsemble
+import Snuffy.TheoremEightLyapunov
+import Snuffy.SmearingIntegral
+import Snuffy.ChannelExtension
+import Snuffy.PureStateDistance
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1271,3 +1277,25 @@ import Snuffy.G3Sweep
 #print axioms Snuffy.G3Sweep.sweep_visits
 #print axioms Snuffy.G3Sweep.waves_from_spread
 #print axioms Snuffy.G3Sweep.sweep_bill
+-- G3PatchDecode
+#print axioms Snuffy.G3PatchDecode.patch_correction_succeeds
+#print axioms Snuffy.G3PatchDecode.patch_sweep_bill
+-- ReasonsEnsemble
+#print axioms Snuffy.ReasonsEnsemble.ensemble_le
+#print axioms Snuffy.ReasonsEnsemble.ensemble_strict
+-- TheoremEightLyapunov
+#print axioms Snuffy.TheoremEightLyapunov.cycle_contracts
+#print axioms Snuffy.TheoremEightLyapunov.margin_pos
+#print axioms Snuffy.TheoremEightLyapunov.lyapunov_iterate
+-- SmearingIntegral
+#print axioms Snuffy.SmearingIntegral.smeared_reconstruction
+#print axioms Snuffy.SmearingIntegral.smeared_boundary_reconstruction
+-- ChannelExtension
+#print axioms Snuffy.ChannelExtension.ext_recovers
+#print axioms Snuffy.ChannelExtension.kron_isometry
+#print axioms Snuffy.ChannelExtension.ext_recovers_reference
+#print axioms Snuffy.ChannelExtension.ext_trace
+#print axioms Snuffy.ChannelExtension.ext_posSemidef
+-- PureStateDistance
+#print axioms Snuffy.PureStateDistance.pure_infidelity_le
+#print axioms Snuffy.PureStateDistance.pure_fidelity_ge

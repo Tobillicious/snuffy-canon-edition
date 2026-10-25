@@ -291,6 +291,12 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `G1E9` | `alarm_or_subthreshold`, `held_source_e9` |
 | `G2Held` | `active_authorised_free`, `held_realises_top`, `held_source_top` |
 | `G3Sweep` | `sweep_recovers`, `sweep_visits`, `waves_from_spread`, `sweep_bill` |
+| `G3PatchDecode` | `patch_correction_succeeds`, `patch_sweep_bill` |
+| `ReasonsEnsemble` | `ensemble_le`, `ensemble_strict` |
+| `TheoremEightLyapunov` | `cycle_contracts`, `margin_pos`, `lyapunov_iterate` |
+| `SmearingIntegral` | `smeared_reconstruction`, `smeared_boundary_reconstruction` |
+| `ChannelExtension` | `ext_recovers`, `kron_isometry`, `ext_recovers_reference`, `ext_trace`, `ext_posSemidef` |
+| `PureStateDistance` | `pure_infidelity_le`, `pure_fidelity_ge` |
 <!-- END THEOREM INDEX -->
 
 ---

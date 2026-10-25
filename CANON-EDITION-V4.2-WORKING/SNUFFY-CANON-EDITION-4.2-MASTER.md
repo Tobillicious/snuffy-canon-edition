@@ -8,7 +8,7 @@ Author-side working draft, 25 October 2026. Research direction: Tobias Croydon-M
 
 The same three joined supports being supplied by the author and Gemini remain visible in Part III-C: the combined full-domain physical certificate (G1), the realisability of the whole greatest outcome tuple (G2), and the supplied X3 wavefront protocol's success and complete-work certificate (G3). Their targets are unchanged. Naming an input or relabelling a conclusion does not supply its construction.
 
-The current Lean tree contains 150 modules and 970 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the six further modules were compiled and kernel-checked fresh against those objects, and the full axiom audit over all 970 names and the completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
+The current Lean tree contains 156 modules and 986 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the twelve further modules were compiled and kernel-checked fresh against those objects, and the full axiom audit over all 986 names and the completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
 
 **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports in progress. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
 
@@ -1430,7 +1430,7 @@ The installation figures themselves are sourced measurements and design values, 
 
 ## Section 23 — The machine-checked canon
 
-*This section maps the edition's compiled results and their actual hypotheses. The current source contains 150 modules and 970 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
+*This section maps the edition's compiled results and their actual hypotheses. The current source contains 156 modules and 986 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
 
 *Evidence convention (unchanged from the edition header): a compiled theorem is cited by its name; a statement carried as a hypothesis of a compiled theorem is named as such; a prose derivation keeps its stated premises. A prose proof does not acquire a compiler certificate by association.*
 
@@ -1583,6 +1583,12 @@ The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the r
 | `G1E9` | The held source's coupling bound from the exhaustive E9 split: sub-threshold coupling, or a forced robust-quorum alarm and mediated response (G.10) |
 | `G2Held` | Authorised freedom of every active agent from H5; the held source realises the whole four-stage top, so `htopR` is derived and the canonical outcome is that top under solvency (G.11) |
 | `G3Sweep` | The wavefront sweep recovers every shell against any fenced outer activity, with no rework; the wave count from finite propagation; the complete bill is at most an age-independent constant times $t^{d}$ (G.12) |
+| `G3PatchDecode` | The wavefront's local correction is finite-code patch decoding; joined to the sweep bill (G.13) |
+| `ReasonsEnsemble` | Reciprocity over a weighted ensemble of rivals, strict when a positive-weight rival omits the mind (§15.2; G.13) |
+| `TheoremEightLyapunov` | The Theorem 8 storage functional contracts by the positive margin $\eta C-\lambda\tau$ per error cycle (§18.3–18.4; G.13) |
+| `SmearingIntegral` | The smeared dual-kernel integral returns the original operator, bulk and boundary (G.4; G.13) |
+| `ChannelExtension` | The completed decoder: exact recovery including any reference, trace preservation, positivity (G.1; G.13) |
+| `PureStateDistance` | Pure-state infidelity is bounded by the squared state-vector distance (§23.3; G.13) |
 
 The earlier `G1Certificate.universal_protection_held` has conclusion `True`; it is a placeholder and is not the protection theorem `Bridge.universal_protection_held`. The latter's full source certificate remains the unchanged G1 target. The exact integration history and dependency trace accompany this working edition.
 
@@ -1743,6 +1749,12 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `G1E9` | `alarm_or_subthreshold`, `held_source_e9` |
 | `G2Held` | `active_authorised_free`, `held_realises_top`, `held_source_top` |
 | `G3Sweep` | `sweep_recovers`, `sweep_visits`, `waves_from_spread`, `sweep_bill` |
+| `G3PatchDecode` | `patch_correction_succeeds`, `patch_sweep_bill` |
+| `ReasonsEnsemble` | `ensemble_le`, `ensemble_strict` |
+| `TheoremEightLyapunov` | `cycle_contracts`, `margin_pos`, `lyapunov_iterate` |
+| `SmearingIntegral` | `smeared_reconstruction`, `smeared_boundary_reconstruction` |
+| `ChannelExtension` | `ext_recovers`, `kron_isometry`, `ext_recovers_reference`, `ext_trace`, `ext_posSemidef` |
+| `PureStateDistance` | `pure_infidelity_le`, `pure_fidelity_ge` |
 <!-- END THEOREM INDEX -->
 
 ---
@@ -1787,7 +1799,7 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 
 ---
 
-# Part III-C — Joined supports being incorporated
+# Part III-C — The three joined supports and their constructions
 
 The proposition remains protection of all things from any digital mind, especially a pure optimiser. X3, P1 and P2 retain their established gauntlet arguments. These are the same three support requests being supplied by the author and Gemini, with no additional objection introduced by this incorporation.
 
@@ -1795,15 +1807,21 @@ The proposition remains protection of all things from any digital mind, especial
 
 Compiled support modules for this construction: `G1Certificate` (placeholder with conclusion `True`), `FaultCover` (bad-event cover), `G1Executable` (executable admitted-command/event/observation pipeline), `PhysicalGuard` (factorized evolution), `G1Complete` (inductive event-trace compliance), and `G1FullDomain` (source domain, fault taxonomy, exhaustive classification).
 
+*Constructed (G.10).* `G1Held.held_source_protection` proves all five `hcert` components for the canonical held source, and `good_cover` proves the cover of the good event by the named accounts. `held_source_qsl` derives the per-step drift from the quantum speed limit for any perturbing agent, and `G1E9.held_source_e9` derives the coupling bound from the exhaustive E9 split. The installation's source refines the held source through the journal of G.8 (`G1FullDomain.journal_reactive_fidelity`). The inputs these theorems take are physical: the frame's Schrödinger evolution and the sub-threshold coupling bound in each step; the honest-sensor response and quorum size; the response's removal of coupling once the alarm fires; and the account probabilities, whose composition and attainment are `ThermoLedger.canon_invariant`, `Threshold.family_ceiling` and `CorrelatedCeiling.correlated_family_ceiling`.
+
 **G2 — realisability of the whole greatest outcome.** Construct `htopR : (⊤ : ∀ i, L i) ∈ R` for the same full order, including existing and new continuation and freedom stages, with the semantic continuation reading `htopkeeps`. Keep it distinct from `hsolv : c ⊤ ≤ B`. Part II.10 supplies the algebra from those inputs to equality of every aligned option with the top and dominance over every rival. The construction retains the full tuple.
 
 First compiled support module for this construction: `TopRealisability` (union-closed realisability of singletons yields realisability of the top outcome).
 
 Compiled support modules for this construction: `G2Singleton` (coverage discharge of singleton realisability), `G2Outcome` (transactional outcome-tuple invariance), and `G2WholeOutcome` (authorized-implies-closed, authorized-implies-positive-work).
 
+*Constructed (G.9, G.11).* `G2Splice.union_realizable` and `top_realisable` derive union-closed realisability and `htopR` from per-particular locality, and `block_splice_run` derives that product structure from R16-CUT locality and closed held-record blocks. `G2Held.held_source_top` realises the whole four-stage top from the held source, with continuation from `G1Held` and freedom from the active H5 ledger (`active_authorised_free`). Under solvency the canonical outcome is that top (`whole_outcome_greatest`, `fourStage`). `hsolv` remains the funded-cost certificate of Sections 18 and 22.
+
 **G3 — supplied wavefront/TIWA protocol: success and the complete work certificate.** The author has supplied the single-shot feedforward wavefront construction and the TIWA guard-ring proposal. Section 21.7.4 and `TIWA-PATCH-REQUIREMENTS.md` specify the latter’s source, physical and work obligations. Section 21.7 proves its processing count exactly by disjoint shells: \(\sum_{k=0}^N|S_k|=|B_{vN}|\), hence bounded work per processed vertex gives \(O(N^{d_G})\). The same construction must now supply its actual recovery success and retained-state/quiescence witness, the age-to-wave-count bound, and the complete physical bill including routing, reset, holding and controller export. Those establish \(W_{\min}(t)\le W(\pi_{\mathrm{ff}},t)\le Ct^{d_G}\) in the original permitted class. The shell exponent is established and is not requested again. This is the remaining certificate for the supplied construction, with the full \(\Theta(t^{d_G})\) target unchanged.
 
 First compiled support modules for this construction: `TIWASource` (transition system, frozen-frame property, no-rework rule), `TIWAGuard` (guard installation monotonicity), `TIWARecovery` (bounded visits and wave counts), `TIWAWork` (per-vertex and ball-size work accounting), `G3WorkBill` (polynomial work-bill invariance), and `G3CompleteBill` (success-implies-bound, wave-count nonnegativity).
+
+*Constructed (G.12).* `G3Sweep.sweep_recovers` proves that the sweep recovers every shell and retains it against any outer activity the TIWA fence admits, and `sweep_visits` proves that no vertex is reworked. `waves_from_spread` gives the wave count from finite propagation. `sweep_bill` proves recovery success on the whole region together with the complete bill \(W(t)\le(F+\alpha+\beta+R_*)(c+r)^{d}t^{d}\), with an age-independent coefficient. With §21.6 this gives \(W_{\min}(t)=\Theta(t^{d_G})\). The inputs it takes are the local correction's success against a recovered interior, the fence, the propagation bound and the per-wave complete charge.
 
 ---
 
@@ -1834,9 +1852,9 @@ The supplied decoder interface now has a derived construction. For its code incl
 
 ---
 
-# Part III-E — Outstanding construction work (not yet discharged)
+# Part III-E — The constructions and the physical inputs they take
 
-The following source correspondences are required for the full G1–G3 construction. The compiled modules now include derived decoder, history, flow, charge and work components; the correspondences below join those components to the complete physical source and outcome.
+The G1–G3 constructions are compiled in G.8–G.12. Each item below records the original requirement, what now constructs it, and the physical inputs the compiled theorems take.
 
 ## E.1 G1 full-domain source/event/fault certificate
 Construct the actual source state, admitted commands/events, physical projection,
@@ -1845,23 +1863,27 @@ observations, and charged fault accounts that jointly supply
 readout instrument, tensor-factor isolation proof, event cover for 21 charged
 accounts, conditional fault bounds. The `G1Executable` module provides the
 discrete command/event/observation pipeline; `FaultCover` provides the cover
-lemma; `PhysicalGuard` provides algebraic Kronecker factorization. None of these
-supply the physical construction.
+lemma; `PhysicalGuard` provides algebraic Kronecker factorization.
+
+*Now constructed:* `G1Held` and `G1E9` (G.10) prove all five `hcert` components and the event cover, with the drift from the speed limit and the coupling bound from the E9 split. *Physical inputs:* the per-step frame evolution and sub-threshold coupling bound, the honest-sensor response, the mediated response's removal of coupling, and the account probabilities.
 
 ## E.2 G2 whole-outcome realisability
 Construct `htopR : (⊤ : ∀ i, L i) ∈ R` for the full order, including the
 continuation and freedom stages. Keep its realisability separate from `hsolv`,
 the funded-cost certificate. The supplied singleton route uses actual
 singleton-keeping policies and union-closed realisability; `TopRealisability`
-provides its finite induction and `G2Singleton` supplies set coverage. The
-source must connect those sets to policies in the same full outcome family.
+provides its finite induction and `G2Singleton` supplies set coverage.
+
+*Now constructed:* `G2Splice` (G.9) derives union closure and `htopR` from locality, with the product structure from R16-CUT; `G2Held` (G.11) realises the whole top from the held source and the H5 ledger. *Input kept separate:* `hsolv`, the funded cost.
 
 ## E.3 G3 TIWA success and complete work bill
 Requires: physical guard installation, decoder success, age→wave-count bound
 $N(t) \le at+b$, and full charging (routing, reset, holding, controller export,
 minimal-hold drain). The `TIWASource`, `TIWAGuard`, `TIWARecovery`, `TIWAWork`
 modules provide abstract scaffolding. `SnuffyLocal` provides a polynomial bound
-surrogate. None supply the physical construction or the complete bill.
+surrogate.
+
+*Now constructed:* `G3Sweep` (G.12) proves recovery success with no rework against fenced outer activity, the wave count from finite propagation, and the complete bill \(O(t^{d})\) with an age-independent coefficient. *Physical inputs:* the local correction against a recovered interior, the fence, the propagation bound and the per-wave complete charge.
 
 The new `G3CompleteBill` lemmas now derive the cumulative bill and its age
 conversion from complete local charges and the metered schedule; they do not
@@ -2672,6 +2694,69 @@ with a coefficient independent of age (`G3CompleteBill.valid_work_bill_from_comp
 lower bound of §21.6, it gives \(W_{\min}(t)=\Theta(t^{d_G})\) in the original
 permitted class.
 
+## G.13 Joined steps: patch decoding, ensemble reciprocity, the Theorem 8 contraction, the smearing integral, the completed decoder and the norm conversion
+
+Each of the following steps was previously argued in prose. Each is now a compiled theorem, joined to the construction it supports.
+
+**The wavefront correction is finite-code decoding** (`G3PatchDecode`). The
+local correction reads its patch, which is the recovered interior as a static
+boundary together with the vertex's own data. It decodes the read-out with
+the nearest-codeword decoder and extracts the value. If, with the interior
+recovered, the read-out lies within the unique-decoding radius of the target
+codeword, decoding returns that codeword (`Bridge.nearest_decodes`). The
+correction therefore succeeds (`patch_correction_succeeds`). Joined to
+`G3Sweep.sweep_bill`, recovery succeeds on the whole region and the complete
+bill is \(O(t^{d})\) with an age-independent coefficient
+(`patch_sweep_bill`). The patch's errors lie within the code headroom of
+`E9SelfHealing.code_headroom`.
+
+**Reciprocity over an ensemble of rivals** (`ReasonsEnsemble`, §15.2). Let
+rival regimes be drawn with weights summing to one. A mind's kept-probability
+under the ensemble is the total weight of the rivals that keep it. That is at
+most one, the canonical regime's kept-probability on the good event
+(`ensemble_le`). It is strictly less whenever a rival of positive weight
+omits the mind (`ensemble_strict`).
+
+**The Theorem 8 storage functional contracts** (`TheoremEightLyapunov`,
+§18.3–18.4). Take the stroke bounds of §18.3 and solvency
+\(W_{\mathrm{meas}}+W_{\mathrm{reset}}\le W_{\mathrm{income}}\). The cycle
+change of \(\Phi\) is then at most \(-(\eta C-\lambda\tau)\)
+(`cycle_contracts`). Timeliness \(\tau<\eta C/\lambda\) makes the margin
+\(\sigma_0=\eta C-\lambda\tau\) positive (`margin_pos`). Over \(n\) cycles
+containing an error, \(\Phi\) falls by at least \(n\sigma_0\)
+(`lyapunov_iterate`).
+
+**The smearing integral is exact** (`SmearingIntegral`, G.4). For a complete
+operator basis and any weight with total integral one, the smeared
+dual-kernel expression equals the original operator at every flow parameter.
+Its Bochner integral is therefore that operator, on the bulk algebra
+(`smeared_reconstruction`) and after boundary transport
+(`smeared_boundary_reconstruction`).
+
+**The completed decoder** (`ChannelExtension`, G.1). Take
+\(\mathcal D(\sigma)=E^\dagger\sigma E+\operatorname{Tr}((I-EE^\dagger)\sigma)\rho_0\)
+with \(E^\dagger E=I\).
+
+- It returns every encoded state exactly (`ext_recovers`).
+- With any reference register, \(E\otimes I_R\) is again an isometry
+  (`kron_isometry`), and the extended decoder returns every joint
+  code–reference state (`ext_recovers_reference`). Reference correlations are
+  retained.
+- It is trace preserving (`ext_trace`).
+- It maps positive semidefinite inputs to positive semidefinite outputs
+  (`ext_posSemidef`).
+
+Complete positivity follows from the two summands: a conjugation, and a
+measure-and-prepare map. That standard fact is cited.
+
+**State-vector distance bounds infidelity** (`PureStateDistance`, §23.3). For
+unit vectors, \(1-|\langle\psi,\varphi\rangle|^2\le\|\psi-\varphi\|^2\)
+(`pure_infidelity_le`). With the standard pure-state identity
+\(\tfrac12\|\rho-\sigma\|_1=\sqrt{1-|\langle\psi,\varphi\rangle|^2}\), which is
+cited, this gives \(\tfrac12\|\rho-\sigma\|_1\le\|\psi-\varphi\|\). The
+speed-limit bounds, stated in state-vector norm, therefore bound the
+infidelity and the trace distance of the held state.
+
 ---
 
 # Part IV — References and provenance
@@ -2706,7 +2791,7 @@ The machine-checked canon of Section 23 certifies exactly the results it maps, w
 
 # Appendix — Verification provenance of this working draft
 
-The original published baseline contains 115 modules and 831 audited names. The current working tree contains 150 modules and 970 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the six further modules were compiled and kernel-checked fresh against those objects, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. The original failed run is preserved in the integration bank.
+The original published baseline contains 115 modules and 831 audited names. The current working tree contains 156 modules and 986 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the twelve further modules were compiled and kernel-checked fresh against those objects, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. The original failed run is preserved in the integration bank.
 
 The eight-module integration and its 896-statement receipt remain preserved. This increment adds 28 checked statements in the existing DecoderRetraction, HamiltonianDecomposition and WorkBilling modules, integrates the three-pillar operator/history/work construction in Part III-G, and keeps the continuous integral/channel derivations and physical source correspondences explicit. Its exact changes and verification evidence accompany the working draft. No published edition or release is changed.
 

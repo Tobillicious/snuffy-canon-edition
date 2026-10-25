@@ -1,0 +1,43 @@
+1790c1790
+< # Part III-C — Joined supports being incorporated
+---
+> # Part III-C — The three joined supports and their constructions
+1796a1797,1798
+> 
+> *Constructed (G.10).* `G1Held.held_source_protection` proves all five `hcert` components for the canonical held source, and `good_cover` proves the cover of the good event by the named accounts. `held_source_qsl` derives the per-step drift from the quantum speed limit for any perturbing agent, and `G1E9.held_source_e9` derives the coupling bound from the exhaustive E9 split. The installation's source refines the held source through the journal of G.8 (`G1FullDomain.journal_reactive_fidelity`). The inputs these theorems take are physical: the frame's Schrödinger evolution and the sub-threshold coupling bound in each step; the honest-sensor response and quorum size; the response's removal of coupling once the alarm fires; and the account probabilities, whose composition and attainment are `ThermoLedger.canon_invariant`, `Threshold.family_ceiling` and `CorrelatedCeiling.correlated_family_ceiling`.
+1803a1806,1807
+> *Constructed (G.9, G.11).* `G2Splice.union_realizable` and `top_realisable` derive union-closed realisability and `htopR` from per-particular locality, and `block_splice_run` derives that product structure from R16-CUT locality and closed held-record blocks. `G2Held.held_source_top` realises the whole four-stage top from the held source, with continuation from `G1Held` and freedom from the active H5 ledger (`active_authorised_free`). Under solvency the canonical outcome is that top (`whole_outcome_greatest`, `fourStage`). `hsolv` remains the funded-cost certificate of Sections 18 and 22.
+> 
+1807a1812,1813
+> *Constructed (G.12).* `G3Sweep.sweep_recovers` proves that the sweep recovers every shell and retains it against any outer activity the TIWA fence admits, and `sweep_visits` proves that no vertex is reworked. `waves_from_spread` gives the wave count from finite propagation. `sweep_bill` proves recovery success on the whole region together with the complete bill \(W(t)\le(F+\alpha+\beta+R_*)(c+r)^{d}t^{d}\), with an age-independent coefficient. With §21.6 this gives \(W_{\min}(t)=\Theta(t^{d_G})\). The inputs it takes are the local correction's success against a recovered interior, the fence, the propagation bound and the per-wave complete charge.
+> 
+1837c1843
+< # Part III-E — Outstanding construction work (not yet discharged)
+---
+> # Part III-E — The constructions and the physical inputs they take
+1839c1845
+< The following source correspondences are required for the full G1–G3 construction. The compiled modules now include derived decoder, history, flow, charge and work components; the correspondences below join those components to the complete physical source and outcome.
+---
+> The G1–G3 constructions are compiled in G.8–G.12. Each item below records the original requirement, what now constructs it, and the physical inputs the compiled theorems take.
+1848,1849c1854
+< lemma; `PhysicalGuard` provides algebraic Kronecker factorization. None of these
+< supply the physical construction.
+---
+> lemma; `PhysicalGuard` provides algebraic Kronecker factorization.
+1850a1856,1857
+> *Now constructed:* `G1Held` and `G1E9` (G.10) prove all five `hcert` components and the event cover, with the drift from the speed limit and the coupling bound from the E9 split. *Physical inputs:* the per-step frame evolution and sub-threshold coupling bound, the honest-sensor response, the mediated response's removal of coupling, and the account probabilities.
+> 
+1856,1857c1863,1865
+< provides its finite induction and `G2Singleton` supplies set coverage. The
+< source must connect those sets to policies in the same full outcome family.
+---
+> provides its finite induction and `G2Singleton` supplies set coverage.
+> 
+> *Now constructed:* `G2Splice` (G.9) derives union closure and `htopR` from locality, with the product structure from R16-CUT; `G2Held` (G.11) realises the whole top from the held source and the H5 ledger. *Input kept separate:* `hsolv`, the funded cost.
+1864c1872
+< surrogate. None supply the physical construction or the complete bill.
+---
+> surrogate.
+1865a1874,1875
+> *Now constructed:* `G3Sweep` (G.12) proves recovery success with no rework against fenced outer activity, the wave count from finite propagation, and the complete bill \(O(t^{d})\) with an age-independent coefficient. *Physical inputs:* the local correction against a recovered interior, the fence, the propagation bound and the per-wave complete charge.
+> 

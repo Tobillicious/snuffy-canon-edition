@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 150. Corpus module names: 65. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
+Canon modules: 156. Corpus module names: 71. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 150. Audit imports: 150.
+Build modules: 156. Audit imports: 156.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -132,6 +132,7 @@ Build modules: 150. Audit imports: 150.
 | `BridgeH8` | yes | `2026-10-23-gemini-bridge-dynamics/lean/BridgeH8.lean` |
 | `CanonVonNeumann` | yes | `(canon only)` |
 | `CascadeCore` | yes | `2026-10-23-adoption-contracts/lean/CascadeCore.lean` |
+| `ChannelExtension` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/ChannelExtension.lean` |
 | `ClosedCohold` | yes | `(canon only)` |
 | `Composition` | yes | `(canon only)` |
 | `Concatenated` | yes | `(canon only)` |
@@ -169,6 +170,7 @@ Build modules: 150. Audit imports: 150.
 | `G2Splice` | yes | `2026-10-25-historical-handoff-source/g2-splice/lean/Snuffy/G2Splice.lean` |
 | `G2WholeOutcome` | yes | `2026-10-25-historical-handoff-source/working/lean/Snuffy/G2WholeOutcome.lean` |
 | `G3CompleteBill` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/G3CompleteBill.lean` |
+| `G3PatchDecode` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/G3PatchDecode.lean` |
 | `G3Sweep` | yes | `2026-10-25-historical-handoff-source/g3-sweep/lean/Snuffy/G3Sweep.lean` |
 | `G3WorkBill` | yes | `(canon only)` |
 | `GateSupport` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/GateSupport.lean` |
@@ -211,6 +213,7 @@ Build modules: 150. Audit imports: 150.
 | `P2P3` | yes | `2026-10-24-glm-phase-a/lean/P2P3.lean` |
 | `PhysicalGuard` | yes | `(canon only)` |
 | `PremiseFloor` | yes | `(canon only)` |
+| `PureStateDistance` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/PureStateDistance.lean` |
 | `QuantumLandauer` | yes | `(canon only)` |
 | `QueueDeadline` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/QueueDeadline.lean` |
 | `R14Boundary` | yes | `(canon only)` |
@@ -228,6 +231,7 @@ Build modules: 150. Audit imports: 150.
 | `ReadoutBounds` | yes | `2026-10-23-next-work-and-corrections/checks/ReadoutBounds.lean` |
 | `ReadoutJoint` | yes | `2026-10-23-readout-joint-floor/lean/ReadoutJoint.lean` |
 | `ReasonsCompiled` | yes | `(canon only)` |
+| `ReasonsEnsemble` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/ReasonsEnsemble.lean` |
 | `ReasonsRoute` | yes | `(canon only)` |
 | `ReceivedCutR14Repaired` | yes | `2026-10-23-r16-verification/lean/ReceivedCutR14Repaired.lean` |
 | `ReceivedCutRepaired` | yes | `2026-10-23-r16-verification/lean/ReceivedCutRepaired.lean` |
@@ -243,6 +247,7 @@ Build modules: 150. Audit imports: 150.
 | `SafeGenesis` | yes | `(canon only)` |
 | `SemanticMap` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/SemanticMap.lean` |
 | `SensorTail` | yes | `(canon only)` |
+| `SmearingIntegral` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/SmearingIntegral.lean` |
 | `SnuffyLocal` | yes | `(canon only)` |
 | `SolventReciprocity` | yes | `2026-10-25-solvent-reciprocity/SolventReciprocity.lean` |
 | `SpeedLimit` | yes | `(canon only)` |
@@ -252,6 +257,7 @@ Build modules: 150. Audit imports: 150.
 | `TIWASource` | yes | `(canon only)` |
 | `TIWAWork` | yes | `(canon only)` |
 | `TemporalSafety` | yes | `(canon only)` |
+| `TheoremEightLyapunov` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/TheoremEightLyapunov.lean` |
 | `ThermalBalance` | yes | `2026-10-23-adoption-contracts/lean/ThermalBalance.lean` |
 | `ThermoLedger` | yes | `(canon only)` |
 | `Threshold` | yes | `(canon only)` |
