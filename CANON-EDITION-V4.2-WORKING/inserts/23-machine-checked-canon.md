@@ -277,14 +277,14 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `G3WorkBill` | `g3_append_work_bill` |
 | `Htopkeeps` | `htopkeeps` |
 | `SnuffyLocal` | `local_trajectory_growth_valid`, `tpt_state_preservation` |
-| `G1FullDomain` | `g1_source_exhaustive`, `g1_fault_taxonomy_exhaustive`, `g1_append_preserves` |
-| `G2WholeOutcome` | `g2_authorized_implies_closed`, `g2_authorized_implies_positive_work`, `g2_compose_valid` |
+| `G1FullDomain` | `g1_source_exhaustive`, `g1_fault_taxonomy_exhaustive`, `g1_append_preserves`, `replay_journal_step`, `journal_reactive_fidelity`, `transcript_capacity` |
+| `G2WholeOutcome` | `g2_authorized_implies_closed`, `g2_authorized_implies_positive_work`, `g2_compose_valid`, `journal_whole_outcome`, `journal_outcome_family` |
 | `G3CompleteBill` | `g3_success_implies_bound`, `g3_compose_valid`, `g3_wave_count_nonnegative`, `cumulative_charge_bound`, `valid_work_bill_from_complete_ledger`, `valid_bill_bound_in_age` |
 | `GuardOperator` | `guard_within_tolerance`, `guard_exceeds_tolerance` |
-| `HamiltonianDecomposition` | `total_is_sum`, `boundary_confinement_positive`, `exchange_hamiltonian_hermitian`, `exchange_conserves_total_charge`, `exchange_pumps_boundary`, `exchange_swap_unitary`, `exchange_swap_charge`, `exchange_swap_total` |
+| `HamiltonianDecomposition` | `total_is_sum`, `boundary_confinement_positive`, `exchange_hamiltonian_hermitian`, `exchange_conserves_total_charge`, `exchange_pumps_boundary`, `exchange_swap_unitary`, `exchange_swap_charge`, `exchange_swap_total`, `partial_trace_local_conjugation`, `guarded_history_reduced_state`, `syndrome_exchange_preserves_history`, `syndrome_exchange_charge` |
 | `GuardSignature` | `guard_idempotent` |
-| `WorkBilling` | `work_nonnegative`, `work_bound_preserved`, `decoder_work_balance`, `decoder_work_floor`, `decoder_work_floor_saturation`, `funded_decoder_entropy_bound`, `funded_decoder_cycles` |
-| `DecoderRetraction` | `decode_encode`, `finite_code_recovery`, `nonvanishing_of_continuation`, `finite_code_self_grounding`, `inner_preserved_from_symplectic_flux`, `adjoint_decodes_isometry`, `boundary_observable_on_code`, `historical_query_preserved`, `historical_word_on_code`, `historical_word_expectation`, `boundary_observable_mul`, `boundary_observable_commutator`, `powers_intertwine`, `exponential_intertwines`, `historical_flow_roundtrip`, `historical_dual_kernel`, `work_shifted_flow_on_code`, `historical_gram_preserved`, `historical_gram_nondegenerate`, `coordinate_boundary_roundtrip`, `boundary_capacity_necessary` |
+| `WorkBilling` | `work_nonnegative`, `work_bound_preserved`, `decoder_work_balance`, `decoder_work_floor`, `decoder_work_floor_saturation`, `funded_decoder_entropy_bound`, `funded_decoder_cycles`, `charged_attempt_accounting`, `syndrome_stock_bound`, `syndrome_flux_balance`, `cumulative_maintenance_bound` |
+| `DecoderRetraction` | `decode_encode`, `finite_code_recovery`, `nonvanishing_of_continuation`, `finite_code_self_grounding`, `inner_preserved_from_symplectic_flux`, `adjoint_decodes_isometry`, `boundary_observable_on_code`, `historical_query_preserved`, `historical_word_on_code`, `historical_word_expectation`, `boundary_observable_mul`, `boundary_observable_commutator`, `powers_intertwine`, `exponential_intertwines`, `historical_flow_roundtrip`, `historical_dual_kernel`, `work_shifted_flow_on_code`, `historical_gram_preserved`, `historical_gram_nondegenerate`, `coordinate_boundary_roundtrip`, `boundary_capacity_necessary`, `handoff_moves_reference_payload`, `handoff_preserves_norm`, `handoff_roundtrip`, `parallel_cnot_handoff`, `charged_archive_handoff` |
 <!-- END THEOREM INDEX -->
 
 ---

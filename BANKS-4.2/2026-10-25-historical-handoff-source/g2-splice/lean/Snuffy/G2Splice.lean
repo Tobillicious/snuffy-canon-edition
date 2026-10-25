@@ -20,12 +20,19 @@ assumption on the particulars.
     outcome tuple.
   * fourStage — the four-stage order (L_E, F_E, L_N, F_N) of Part II.1 as an
     instance, with grades lost < continues < continues-and-free.
+  * block_splice_run, block_splice_keeps — the product structure from the
+    actual dynamics: when each particular's held record occupies a closed
+    block of the dependency graph and every policy's closed-loop transition is
+    local to it (`UPTR16Cut.LocalTo`), the spliced run reproduces each chosen
+    policy's run on that particular's block at every step, so each particular
+    receives exactly the outcome of the policy chosen for it.
 
 Zero `sorry`. Mathlib rev 56a005855ea1.
 -/
 
 import Snuffy.UnionClosure
 import Snuffy.SolventReciprocity
+import Snuffy.R16Cut
 import Mathlib.Data.Fin.VecNotation
 import Mathlib.Tactic.FinCases
 
@@ -151,5 +158,62 @@ theorem fourStage (Rloc : ∀ x, Set (Local x)) (g : ∀ x, Local x → Fin 3)
   exact ⟨top_realisable Rloc g fourθ (fourCat E N) hbest,
     union_realizable Rloc g fourθ (fourCat E N),
     whole_outcome_greatest Rloc g fourθ (fourCat E N) hbest hsolv ho⟩
+
+section Dynamics
+
+open CodexCohold UPTR16Cut
+
+variable {N V E Part Pol : Type}
+
+/-- The run of a closed-loop transition against the world's input sequence. -/
+def runIn (T : (N → V) → E → (N → V)) (s₀ : N → V) (env : ℕ → E) : ℕ → (N → V)
+  | 0 => s₀
+  | k + 1 => T (runIn T s₀ env k) (env k)
+
+/-- Each node in a particular's block follows that particular's chosen policy;
+nodes in no block follow a default policy. -/
+noncomputable def blockSplice (B : Part → N → Prop) (T : Pol → (N → V) → E → (N → V))
+    (choice : Part → Pol) (p₀ : Pol) : (N → V) → E → (N → V) := by
+  classical
+  exact fun s e n => if h : ∃ x, B x n then T (choice h.choose) s e n else T p₀ s e n
+
+/-- **The spliced dynamics reproduce every chosen policy on its block.** With
+closed, pairwise disjoint blocks and local closed-loop transitions, the
+spliced run agrees on each particular's block with the run of the policy
+chosen for that particular, at every step, against the same world. -/
+theorem block_splice_run (D : N → N → Prop) (B : Part → N → Prop)
+    (hclosed : ∀ x, Closed D (B x)) (hdisj : ∀ x y n, B x n → B y n → x = y)
+    (T : Pol → (N → V) → E → (N → V)) (hloc : ∀ p, LocalTo D (T p))
+    (choice : Part → Pol) (p₀ : Pol) (s₀ : N → V) (env : ℕ → E) :
+    ∀ k x, AgreeOn (B x) (runIn (blockSplice B T choice p₀) s₀ env k)
+      (runIn (T (choice x)) s₀ env k) := by
+  classical
+  intro k
+  induction k with
+  | zero => intro x n _; rfl
+  | succ k ih =>
+      intro x n hn
+      have hex : ∃ y, B y n := ⟨x, hn⟩
+      have hch : hex.choose = x := hdisj _ _ n hex.choose_spec hn
+      show blockSplice B T choice p₀ (runIn (blockSplice B T choice p₀) s₀ env k) (env k) n =
+        T (choice x) (runIn (T (choice x)) s₀ env k) (env k) n
+      simp only [blockSplice, dite_eq_left hex, hch]
+      exact closed_cut_step D (B x) (T (choice x)) (hclosed x) (hloc (choice x))
+        _ _ (ih x) (env k) n hn
+
+/-- **Each particular receives its chosen policy's outcome.** If whether `x`
+is kept is read from its own block, the spliced run keeps `x` at step `k`
+exactly when the policy chosen for `x` does. -/
+theorem block_splice_keeps (D : N → N → Prop) (B : Part → N → Prop)
+    (hclosed : ∀ x, Closed D (B x)) (hdisj : ∀ x y n, B x n → B y n → x = y)
+    (T : Pol → (N → V) → E → (N → V)) (hloc : ∀ p, LocalTo D (T p))
+    (choice : Part → Pol) (p₀ : Pol) (s₀ : N → V) (env : ℕ → E)
+    (keeps : Part → (N → V) → Prop)
+    (hread : ∀ x s t, AgreeOn (B x) s t → (keeps x s ↔ keeps x t)) (k : ℕ) (x : Part) :
+    keeps x (runIn (blockSplice B T choice p₀) s₀ env k) ↔
+      keeps x (runIn (T (choice x)) s₀ env k) :=
+  hread x _ _ (block_splice_run D B hclosed hdisj T hloc choice p₀ s₀ env k x)
+
+end Dynamics
 
 end Snuffy.G2Splice

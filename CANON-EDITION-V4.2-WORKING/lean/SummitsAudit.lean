@@ -1158,10 +1158,15 @@ import Snuffy.DecoderRetraction
 #print axioms Snuffy.G1FullDomain.g1_source_exhaustive
 #print axioms Snuffy.G1FullDomain.g1_fault_taxonomy_exhaustive
 #print axioms Snuffy.G1FullDomain.g1_append_preserves
+#print axioms Snuffy.G1FullDomain.replay_journal_step
+#print axioms Snuffy.G1FullDomain.journal_reactive_fidelity
+#print axioms Snuffy.G1FullDomain.transcript_capacity
 -- G2WholeOutcome
 #print axioms Snuffy.G2WholeOutcome.g2_authorized_implies_closed
 #print axioms Snuffy.G2WholeOutcome.g2_authorized_implies_positive_work
 #print axioms Snuffy.G2WholeOutcome.g2_compose_valid
+#print axioms Snuffy.G2WholeOutcome.journal_whole_outcome
+#print axioms Snuffy.G2WholeOutcome.journal_outcome_family
 -- G3CompleteBill
 #print axioms Snuffy.G3CompleteBill.g3_success_implies_bound
 #print axioms Snuffy.G3CompleteBill.g3_compose_valid
@@ -1181,6 +1186,10 @@ import Snuffy.DecoderRetraction
 #print axioms Snuffy.HamiltonianDecomposition.exchange_swap_unitary
 #print axioms Snuffy.HamiltonianDecomposition.exchange_swap_charge
 #print axioms Snuffy.HamiltonianDecomposition.exchange_swap_total
+#print axioms Snuffy.HamiltonianDecomposition.partial_trace_local_conjugation
+#print axioms Snuffy.HamiltonianDecomposition.guarded_history_reduced_state
+#print axioms Snuffy.HamiltonianDecomposition.syndrome_exchange_preserves_history
+#print axioms Snuffy.HamiltonianDecomposition.syndrome_exchange_charge
 -- GuardSignature
 #print axioms Snuffy.GuardSignature.guard_idempotent
 -- WorkBilling
@@ -1191,6 +1200,10 @@ import Snuffy.DecoderRetraction
 #print axioms Snuffy.WorkBilling.decoder_work_floor_saturation
 #print axioms Snuffy.WorkBilling.funded_decoder_entropy_bound
 #print axioms Snuffy.WorkBilling.funded_decoder_cycles
+#print axioms Snuffy.WorkBilling.charged_attempt_accounting
+#print axioms Snuffy.WorkBilling.syndrome_stock_bound
+#print axioms Snuffy.WorkBilling.syndrome_flux_balance
+#print axioms Snuffy.WorkBilling.cumulative_maintenance_bound
 -- DecoderRetraction
 #print axioms Snuffy.DecoderRetraction.decode_encode
 #print axioms Snuffy.DecoderRetraction.finite_code_recovery
@@ -1213,3 +1226,8 @@ import Snuffy.DecoderRetraction
 #print axioms Snuffy.DecoderRetraction.historical_gram_nondegenerate
 #print axioms Snuffy.DecoderRetraction.coordinate_boundary_roundtrip
 #print axioms Snuffy.DecoderRetraction.boundary_capacity_necessary
+#print axioms Snuffy.DecoderRetraction.handoff_moves_reference_payload
+#print axioms Snuffy.DecoderRetraction.handoff_preserves_norm
+#print axioms Snuffy.DecoderRetraction.handoff_roundtrip
+#print axioms Snuffy.DecoderRetraction.parallel_cnot_handoff
+#print axioms Snuffy.DecoderRetraction.charged_archive_handoff

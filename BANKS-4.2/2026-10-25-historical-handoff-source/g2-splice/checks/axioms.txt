@@ -5,3 +5,5 @@
 'Snuffy.G2Splice.top_realisable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Snuffy.G2Splice.whole_outcome_greatest' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Snuffy.G2Splice.fourStage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Snuffy.G2Splice.block_splice_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Snuffy.G2Splice.block_splice_keeps' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -6,3 +6,5 @@ import Snuffy.G2Splice
 #print axioms Snuffy.G2Splice.top_realisable
 #print axioms Snuffy.G2Splice.whole_outcome_greatest
 #print axioms Snuffy.G2Splice.fourStage
+#print axioms Snuffy.G2Splice.block_splice_run
+#print axioms Snuffy.G2Splice.block_splice_keeps

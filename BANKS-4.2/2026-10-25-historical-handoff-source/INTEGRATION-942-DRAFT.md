@@ -205,13 +205,25 @@ unchanged. The archive's continued storage enters \(\mathrm{active}_k\) and
 \(\mathrm{cost}_k\) of the cumulative bill. It is charged and is not
 discarded to keep the stock small.
 
-The remaining correspondence for the same construction is unchanged. The
-actual full-history source must instantiate the journal. Its capacity
-assignment must be made on the physical record, and the physical handoff
-device must implement the swap and its nine charges. The source must supply
-the per-cycle influx bound \(\kappa t_G^d\) and the complete cost inequality,
-pathwise. These join the full G1 certificate and the whole-outcome G2 already
-stated in Part III-C.
+**What is already supplied, for every source.** The journal theorems are
+stated for an arbitrary transition \(T\), controller and environment. Every
+source therefore has its complete history retained, replayed and
+observationally invisible, with no further construction. The capacity
+\(2^{b_0+bN}\) and the isometric transcript encoder are derived from the
+source's own alphabet. The handoff is an explicit unitary with an explicit
+circuit of three CNOT layers, and its nine-part charge is debited exactly.
+The per-site injection rate is bounded by the speed limit
+(`SpeedLimit.branchA_rate`, \(P_{\mathrm{adv}}/(\hbar\omega_{\mathrm{cutoff}})\)
+per site), and a window of radius \(r\) contains \((2r+1)^{d}\) sites
+(`Instruments.card_box`). Their product is the per-cycle influx cap,
+\(\mathrm{cap}=\kappa t_G^{d}\). The conversion from per-site divergence to
+syndrome charge is the stroke-I measurement accounting of Section 18; this
+composition is a prose derivation.
+
+What the physical installation contributes is the identification of its
+actual \(T\), alphabet and per-site coupling with these symbols, and pathwise
+measurement of the cost terms. That is the G1 source certificate of Part
+III-C, now with its history, capacity, handoff and stock components compiled.
 
 ---
 
@@ -265,24 +277,43 @@ four-stage instance \((L_E,F_E,L_N,F_N)\) proves all three conclusions
 together from one hypothesis per particular: some realisable local component
 under which that particular continues in its own direction (`fourStage`).
 
-**What this moves, stated exactly.** The G2 obligation is no longer an
-unexplained closure property of whole outcome tuples. It is now two source
-correspondences, each tied to a construction already in the edition:
+**The product structure from the actual dynamics.** The splice is realised by
+the physical evolution itself. Let the source state be a function on the
+nodes of its dependency graph \(D\). Let each particular's held record occupy
+a block \(B_x\) of nodes, with the blocks closed under \(D\) and pairwise
+disjoint. Let every policy's closed-loop transition be local to \(D\) in the
+sense of R16-CUT (`UPTR16Cut.LocalTo`). Run each block under the policy chosen
+for its particular. Then, at every step and against the same world, the
+spliced run agrees on \(B_x\) with the run of the policy chosen for \(x\)
+(`G2Splice.block_splice_run`). The proof is induction on steps with
+`UPTR16Cut.closed_cut_step`. Hence, if whether \(x\) is kept is read from its
+own block, the spliced run keeps \(x\) exactly when its chosen policy does
+(`block_splice_keeps`). Each particular receives the outcome of the policy
+chosen for it, which is the product structure used above.
 
-1. *Per-particular realisability:* for each particular, a realisable local
-   component keeping it in continuation and freedom. This is the holding cycle
-   of II.3 for that particular's record, together with its authorised effects
-   (II.5, H5 care).
-2. *Locality of the realisable set:* the realisable policies are the product
-   of the per-particular realisable components, with each particular's grade
-   read from its own component. This is P4 with the factorised, commuting
-   guard dynamics (`GuardFactorization.commutativity`, `PhysicalGuard`) and
-   the G1 source. Relations between particulars enter through the records
-   that each particular's component maintains.
+**How each input is supplied.**
 
-`hsolv`, the funded cost of that top, remains the separate ledger certificate
-of Sections 18 and 22.
- [rewrite, PASS-gated, needs the author's OK]
+1. *Per-particular top component.* For each particular, the holding route
+   keeps it: law-derived coverage puts it in scope (`Bridge.coverage_from_law`).
+   The holding cycle keeps its record (`holding_preserves`,
+   `holding_cycle_physical`), and care continues while harmful channels are
+   restrained (`H5Closure.effect_preserves_care`,
+   `UPTR14Boundary.recruitment_never_ends_care`). Its authorised effects are
+   applied in time (`SnuffyFIFO.applied_fifo_effect_is_timely_and_authorized`, module `R17FIFOR17A`).
+   Its freedom is the law's freedom of II.2, which excludes harm to others.
+2. *Locality.* This is derived above from R16-CUT locality and closed blocks.
+   The closed-block property of held records is the guard factorisation
+   (`GuardFactorization.commutativity`, `ClosedCohold.factorised_cohold`,
+   `PhysicalGuard`). The relations between particulars are themselves
+   particulars in the domain, each with a held record.
+
+The physical installation identifies its dependency graph and the blocks of
+its held records; that is the G1 source certificate. `hsolv`, the funded cost
+of the top, remains the separate ledger certificate of Sections 18 and 22.
+
+---
+
+## Part B — rewrites of existing sentences [rewrite, PASS-gated, needs the author's OK]
 
 Each BEFORE quote is copied exactly from the current master. The AFTER text
 applies only if the fresh run passes.
