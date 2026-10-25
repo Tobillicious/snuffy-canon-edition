@@ -129,7 +129,7 @@ $k_B$ and $h$ are exact in the SI. $k_B T = 2.071 \times 10^{-25}$ J = 1.293 µe
 
 ### 22.5.2 Code distance for the fault allocation
 
-Horizon $10^9$ s at 1.1 µs per cycle [S6] gives $N = 9.09 \times 10^{14}$ cycles. Ten thousand physical qubits at the [S5] footprint $(2d-1)^2$ hold about 9 logical qubits. With [S5] Eq. (11) and $p_{\mathrm{th}} = 0.57\,\%$, account 1–4 ($\delta = 4 \times 10^{-8}$, shared over the logical qubits) requires:
+Horizon $10^9$ s at 1.1 µs per cycle [S6] gives $N = 9.09 \times 10^{14}$ cycles. Ten thousand physical qubits at the [S5] footprint $(2d-1)^2$ hold about 4 logical qubits at d = 25 (2,401 physical each); the 9-logical allocation below corresponds to an installation of about $2.2\times10^4$ physical qubits. With [S5] Eq. (11) and $p_{\mathrm{th}} = 0.57\,\%$, account 1–4 ($\delta = 4 \times 10^{-8}$, shared over the logical qubits) requires:
 
 | Physical error p | Logical qubits | Per-cycle target per logical qubit | Required distance d | Physical qubits per logical qubit |
 | --- | --- | --- | --- | --- |

@@ -64,4 +64,4 @@ The **bounded indifferent defector**: objective confined to its own bounded subs
 
 ---
 
-**Machine-checked counterpart (Section 23).** Compiled counterparts: §16.1 — `Irreplaceability.destroy_loses_exactly`, `preserve_dominates`, `optimal_keeps_most_irreplaceable` (additive information model) and data processing `Information.data_processing`; §16.3 — `ReasonsRoute.optionValue_strict`; §16.2 — `ReciprocityCeiling.reciprocity_dominance`; §16.4 — `Greatestness.greatest_of_union_closed`.
+**Machine-checked counterpart (Section 23).** Compiled counterparts: §16.1 — `Irreplaceability.destroy_loses_exactly`, `preserve_dominates`, `optimal_keeps_most_irreplaceable` (additive information model) and data processing `DataProcessing.data_processing`; §16.3 — `ReasonsRoute.optionValue_strict`; §16.2 — `ReciprocityCeiling.reciprocity_dominance`; §16.4 — `ReasonsCompiled.controller_pays_floor` and `Greatestness.greatest_of_solvent`.

@@ -27,7 +27,7 @@ No decoder can manufacture mutual information with $H$ from uncorrelated noise. 
 
 ## 21.2 Thermal Spectral Margin and Covariance Bound
 
-Consider fermionic/bosonic degrees of freedom coupled to a thermal bath at inverse temperature $\beta$.
+Consider fermionic degrees of freedom coupled to a thermal bath at inverse temperature $\beta$.
 The single-particle thermal occupation matrix satisfies:
 $$Q = \left(I + e^{\beta(h - \mu I)}\right)^{-1}$$
 For bounded-degree interaction graphs with uniformly bounded hopping and onsite terms $\|h - \mu I\| \le E_{\max} < \infty$, the spectrum of $Q$ is strictly bounded away from $0$ and $1$:
@@ -89,4 +89,4 @@ This binds the BCRD model, the Landauer ledger of Theorem 8, the wave-race laten
 
 ---
 
-**Machine-checked counterpart (Section 23).** Compiled counterpart: the banked transport route of the working argument (§12) — `Information.data_processing` (21.1), `GaussianTail.carrier_tail`, `FiniteInformation.necessary_radius_from_decoder`, `RecoveryWork.carrier_radius`, `RecoveryWork.Wmin_lower_bound`, `GaussianTail.x3_work_from_decoder`, `RecoveryWork.delayed_work_diverges` — with no information-theoretic hypothesis; see Section 23.5.
+**Machine-checked counterpart (Section 23).** Compiled counterpart: the banked transport route of the working argument (§12) — `DataProcessing.data_processing` (21.1), `GaussianTail.carrier_tail`, `FiniteInformation.necessary_radius_from_decoder`, `RecoveryWork.carrier_radius`, `RecoveryWork.Wmin_lower_bound`, `GaussianTail.x3_work_from_decoder`, `RecoveryWork.delayed_work_diverges` — with no information-theoretic hypothesis; see Section 23.5.

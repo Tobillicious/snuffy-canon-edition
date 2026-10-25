@@ -1,6 +1,6 @@
 # Proof state
 
-Canon modules: 112. Corpus module names: 48. Excluded with reason: 5. Missing: 0.
+Canon modules: 113. Corpus module names: 48. Excluded with reason: 5. Missing: 0.
 
 | Module | In canon | Corpus copies (first) |
 | --- | --- | --- |
@@ -88,6 +88,7 @@ Canon modules: 112. Corpus module names: 48. Excluded with reason: 5. Missing: 0
 | `ReadoutBounds` | yes | `2026-10-23-next-work-and-corrections/checks/ReadoutBounds.lean` |
 | `ReadoutJoint` | yes | `2026-10-23-readout-joint-floor/lean/ReadoutJoint.lean` |
 | `ReasonsCompiled` | yes | `(canon only)` |
+| `ReasonsRoute` | yes | `(canon only)` |
 | `ReceivedCutR14Repaired` | yes | `2026-10-23-r16-verification/lean/ReceivedCutR14Repaired.lean` |
 | `ReceivedCutRepaired` | yes | `2026-10-23-r16-verification/lean/ReceivedCutRepaired.lean` |
 | `ReciprocityCeiling` | yes | `(canon only)` |

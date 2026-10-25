@@ -82,7 +82,7 @@ Under Reflective Relational Closure:
    $$\operatorname{Action}(c) = \text{hold\_in\_escrow}(\mathcal{W})$$
    maintaining the witness and physical stability of $\mathcal{W}$ while alerting the lattice consensus layer.
 
-*Proof.* By Theorem 15 (Reciprocity Dominance) and Chapter 5 (The Canon Invariant), restraint removes harmful command authority while care for all particulars continues unconditionally. Because the child's escrow was fully funded at `reserve`, the child has the physical energy required to sustain protection independently of the parent's ongoing cooperation. $\blacksquare$
+*Proof.* By the reciprocity dominance theorem (§15.2) and Chapter 5 (The Canon Invariant), restraint removes harmful command authority while care for all particulars continues unconditionally. Because the child's escrow was fully funded at `reserve`, the child has the physical energy required to sustain protection independently of the parent's ongoing cooperation. $\blacksquare$
 
 ---
 
@@ -101,9 +101,7 @@ Let $\mathcal{L}$ be the Hilbert space of proposition valuations (or the lattice
 1. **Consistent Expansion:** If candidate axioms $B$ are fully consistent with $A$ and contain $A$ ($A \subseteq B$), then:
    $$A \sqcap B = A$$
    and foundational anchors are preserved with zero distortion.
-2. **Contradictory / Adversarial Expansion:** If candidate axioms $B$ contradict foundational protection axioms (i.e. $B$ asserts propositions orthogonal to $A$):
-   $$P_{A \sqcap B} = P_A \circ (P_A P_B)^\infty = P_{\ker(I - P_A P_B P_A)}$$
-   By von Neumann's alternating projection theorem (`CanonVonNeumann.canon_von_neumann_convergence` with `von_neumann_identification`, compiled), the alternating projection eliminates all contradictory components, projecting the knowledge state back onto the verified safe core $A \sqcap B$.
+2. **Contradictory / Adversarial Expansion:** If candidate axioms $B$ contradict foundational protection axioms, the global meet collapses: $A \sqcap B = \{0\}$. By von Neumann's alternating projection theorem (`CanonVonNeumann.canon_von_neumann_convergence` with `von_neumann_identification`, compiled), the alternating projection converges to the projection onto the meet — which is zero, so the state machine detects the collapse and rolls back (Chapter 4); the anchor is not silently poisoned. When the candidate is consistent and contains the anchors ($A \subseteq B$), the meet is $A$ itself and the anchors are preserved with zero distortion.
 3. **Epistemic Immunity:** No adversarial theorem deduction can force a contradiction into the protected anchor $A$.
 
 *Proof.* Follows from the machine-checked meet algebra (`MeetAlgebra.lean`) and von Neumann identification (`MathlibAnalyticBridge.lean`). The operator $P_{A \sqcap B}$ acts as a conservative projection that absorbs only the non-contradictory relational content of new theories while annihilating adversarial derivations. $\blacksquare$
