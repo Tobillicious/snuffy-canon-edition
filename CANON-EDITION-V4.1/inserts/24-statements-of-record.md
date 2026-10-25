@@ -1,6 +1,6 @@
 # Section 24 — Statements of record for the retained core
 
-*Part II carries the retained core condensed, with "proofs and precise premises at the source". This section carries into the edition the specifics the assembled argument actually leans on, each at its evidence tier: compiled, exact replay receipt, or stated definition with source. Where a Part II statement and a Section 23 compiled statement differ in scope or precision, the compiled statement governs.*
+*Part II carries the retained core condensed, with "proofs and precise premises at the source". This section carries into the edition the specifics the assembled argument actually leans on, each at its evidence tier: compiled, exact replay receipt, or stated definition with source. Where a Part II statement and a Section 23 compiled statement differ in scope or precision, the compiled statement governs. The holding-law and deadline-certificate machinery has a published, immutable home — the parent mathematical core, DOI 10.5281/zenodo.23599528 (*A Lattice Preservation Calculus*, 23 October 2026; 77 kernel-verified Lean statements with reproducibility receipts) — which is the record of provenance for the items below wherever the working argument is cited.*
 
 ## 24.1 The nine-row A1 register (effect mediation)
 
@@ -12,7 +12,7 @@
 
 **Statement of record.** The workload pool bill is compiled: capacity rows 17 and 22 at 48,000 and 67,200 per cycle give \(48000 \times 17 + 67200 \times 22 = 2{,}294{,}400\) — the per-cycle pool bill against which the FIFO completion certificate (Proposition 6) is issued (`ControllerCertificate`, exact rationals; the same module derives the utilisations \(6{,}604{,}800/2{,}294{,}400 = 688/239\) and \(6{,}604{,}800/2{,}409{,}600 = 688/251\)).
 
-*Tier:* compiled.
+*Tier:* compiled. The deadline-certificate machinery of which this is the workload instance is published in the parent core (DOI 10.5281/zenodo.23599528, exact FIFO deadline certificates with application-time finality and funding conservation).
 
 ## 24.3 The causal boundary (reactive refinement)
 
