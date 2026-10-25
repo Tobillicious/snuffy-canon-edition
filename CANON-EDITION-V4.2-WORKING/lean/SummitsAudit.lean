@@ -148,6 +148,7 @@ import Snuffy.G2Splice
 import Snuffy.CorrelatedCeiling
 import Snuffy.G1Held
 import Snuffy.G1E9
+import Snuffy.G2Held
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1260,3 +1261,7 @@ import Snuffy.G1E9
 -- G1E9
 #print axioms Snuffy.G1E9.alarm_or_subthreshold
 #print axioms Snuffy.G1E9.held_source_e9
+-- G2Held
+#print axioms Snuffy.G2Held.active_authorised_free
+#print axioms Snuffy.G2Held.held_realises_top
+#print axioms Snuffy.G2Held.held_source_top

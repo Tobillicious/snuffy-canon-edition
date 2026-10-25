@@ -289,6 +289,7 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `CorrelatedCeiling` | `ceil_touching`, `correlated_stress_ceil`, `prob_damage`, `near_card_le`, `choose_pow_le`, `damage_local_stochastic`, `correlated_family_ceiling` |
 | `G1Held` | `good_cover`, `held_source_protection`, `held_source_qsl` |
 | `G1E9` | `alarm_or_subthreshold`, `held_source_e9` |
+| `G2Held` | `active_authorised_free`, `held_realises_top`, `held_source_top` |
 <!-- END THEOREM INDEX -->
 
 ---

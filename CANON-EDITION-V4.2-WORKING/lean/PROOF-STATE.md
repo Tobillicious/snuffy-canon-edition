@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 148. Corpus module names: 63. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
+Canon modules: 149. Corpus module names: 64. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 105. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 148. Audit imports: 148.
+Build modules: 149. Audit imports: 149.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -163,6 +163,7 @@ Build modules: 148. Audit imports: 148.
 | `G1Executable` | yes | `(canon only)` |
 | `G1FullDomain` | yes | `2026-10-25-historical-handoff-source/working/lean/Snuffy/G1FullDomain.lean` |
 | `G1Held` | yes | `2026-10-25-historical-handoff-source/g1-held/lean/Snuffy/G1Held.lean` |
+| `G2Held` | yes | `2026-10-25-historical-handoff-source/g2-held/lean/Snuffy/G2Held.lean` |
 | `G2Outcome` | yes | `(canon only)` |
 | `G2Singleton` | yes | `(canon only)` |
 | `G2Splice` | yes | `2026-10-25-historical-handoff-source/g2-splice/lean/Snuffy/G2Splice.lean` |

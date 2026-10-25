@@ -8,7 +8,7 @@ Author-side working draft, 25 October 2026. Research direction: Tobias Croydon-M
 
 The same three joined supports being supplied by the author and Gemini remain visible in Part III-C: the combined full-domain physical certificate (G1), the realisability of the whole greatest outcome tuple (G2), and the supplied X3 wavefront protocol's success and complete-work certificate (G3). Their targets are unchanged. Naming an input or relabelling a conclusion does not supply its construction.
 
-The current Lean tree contains 148 modules and 963 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the four further modules were compiled and kernel-checked fresh against those objects, and the full axiom audit over all 963 names and the completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
+The current Lean tree contains 149 modules and 966 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the five further modules were compiled and kernel-checked fresh against those objects, and the full axiom audit over all 966 names and the completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. Seven previously omitted public helper lemmas are included. The original published 115-module/831-name baseline remains preserved. The architecture interfaces and their construction links are distinguished in Section 23.9.
 
 **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports in progress. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
 
@@ -1430,7 +1430,7 @@ The installation figures themselves are sourced measurements and design values, 
 
 ## Section 23 — The machine-checked canon
 
-*This section maps the edition's compiled results and their actual hypotheses. The current source contains 148 modules and 963 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
+*This section maps the edition's compiled results and their actual hypotheses. The current source contains 149 modules and 966 audited public theorem/lemma names. The receipt records a fresh compilation and kernel check of every module, a fresh full axiom audit with only `propext`, `Classical.choice` and `Quot.sound`, and fresh completeness/claims gates with overall PASS. Section 23.9 gives the new interfaces and derived adapters; their verification does not substitute their names for the full source construction.*
 
 *Evidence convention (unchanged from the edition header): a compiled theorem is cited by its name; a statement carried as a hypothesis of a compiled theorem is named as such; a prose derivation keeps its stated premises. A prose proof does not acquire a compiler certificate by association.*
 
@@ -1581,6 +1581,7 @@ The amount $I_M + D_{\mathrm{err}} + \delta_I$ that the reset removes from the r
 | `CorrelatedCeiling` | Bounded-footprint correlated bursts make the damaged locations local stochastic at rate $(e\,m\,k\,q)^{1/k}$; every target ceiling is attained at a sufficient code distance (§22.3) |
 | `G1Held` | The held source with all five `hcert` components of `Bridge.universal_protection_held` proved; the per-step drift from the quantum speed limit (G.10) |
 | `G1E9` | The held source's coupling bound from the exhaustive E9 split: sub-threshold coupling, or a forced robust-quorum alarm and mediated response (G.10) |
+| `G2Held` | Authorised freedom of every active agent from H5; the held source realises the whole four-stage top, so `htopR` is derived and the canonical outcome is that top under solvency (G.11) |
 
 The earlier `G1Certificate.universal_protection_held` has conclusion `True`; it is a placeholder and is not the protection theorem `Bridge.universal_protection_held`. The latter's full source certificate remains the unchanged G1 target. The exact integration history and dependency trace accompany this working edition.
 
@@ -1739,6 +1740,7 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `CorrelatedCeiling` | `ceil_touching`, `correlated_stress_ceil`, `prob_damage`, `near_card_le`, `choose_pow_le`, `damage_local_stochastic`, `correlated_family_ceiling` |
 | `G1Held` | `good_cover`, `held_source_protection`, `held_source_qsl` |
 | `G1E9` | `alarm_or_subthreshold`, `held_source_e9` |
+| `G2Held` | `active_authorised_free`, `held_realises_top`, `held_source_top` |
 <!-- END THEOREM INDEX -->
 
 ---
@@ -2598,6 +2600,31 @@ supply its concrete safe transitions, causal cuts and timely authorised
 effects. The domain is every particular; coverage is forced by the law
 (`Bridge.coverage_from_law`).
 
+## G.11 The held source realises the whole top outcome (G2 from G1)
+
+Freedom in the canonical order is continuation in the particular's own
+direction, together with its authorised opportunities (II.1–II.2). For an
+agent in the H5 ledger, every non-harmful effect it issues is an admissible
+step. That step applies the effect and leaves every agent's status,
+authority and escrow unchanged (`H5Closure.effect_preserves_care`). Every
+active agent is therefore free in this sense
+(`G2Held.active_authorised_free`): all of its authorised opportunities are
+open, and restraint removes only harmful channels. A particular with no
+command channel has no opportunity beyond continuing under its own dynamics.
+The held source keeps exactly that, since each record is stationary under the
+particular's own Hamiltonian (G.10).
+
+Grade each particular 2 when it continues on the held source and is free.
+`G2Held.held_realises_top` then applies `G2Splice.fourStage` with three
+conclusions. The whole four-stage top \((L_E,F_E,L_N,F_N)\) is in the
+realised family. The family is union-closed. Every aligned option of the
+funded family is that top and contains every outcome tuple.
+`G2Held.held_source_top` supplies continuation from
+`G1Held.held_source_protection`, on the good event at every step through the
+horizon, and agent freedom from the active H5 ledger. The G2 input `htopR` is
+thereby derived from the held source, and `hsolv` remains its funded-cost
+certificate (Sections 18 and 22).
+
 ---
 
 # Part IV — References and provenance
@@ -2632,7 +2659,7 @@ The machine-checked canon of Section 23 certifies exactly the results it maps, w
 
 # Appendix — Verification provenance of this working draft
 
-The original published baseline contains 115 modules and 831 audited names. The current working tree contains 148 modules and 963 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the four further modules were compiled and kernel-checked fresh against those objects, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. The original failed run is preserved in the integration bank.
+The original published baseline contains 115 modules and 831 audited names. The current working tree contains 149 modules and 966 audited public theorem/lemma names. All 144 modules of the 942-name tree were freshly compiled and kernel-checked in one run, the five further modules were compiled and kernel-checked fresh against those objects, and the full axiom, completeness and claims gates were freshly run, overall PASS. The earlier 924-name combined receipt, which reused Beam's 136 results, is preserved with its bank. The original failed run is preserved in the integration bank.
 
 The eight-module integration and its 896-statement receipt remain preserved. This increment adds 28 checked statements in the existing DecoderRetraction, HamiltonianDecomposition and WorkBilling modules, integrates the three-pillar operator/history/work construction in Part III-G, and keeps the continuous integral/channel derivations and physical source correspondences explicit. Its exact changes and verification evidence accompany the working draft. No published edition or release is changed.
 
