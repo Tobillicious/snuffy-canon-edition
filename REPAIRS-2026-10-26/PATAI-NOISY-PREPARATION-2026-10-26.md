@@ -545,3 +545,25 @@ FREE-HOP-MERGE):
 4. The required output is closeness to C·π, with a remainder at most the stage budget
    ε/2^{j+2}.
 5. Free hops merge history polymers: one move took the largest polymer from 14 to 28.
+
+## Disposition: pasted "path-space cluster expansion" with a bridge activity
+
+Not adopted.
+
+1. **It charges free bridges.** It puts e^{−2βm} on each bridge of size m. But the merging bridge
+   in constraint 5 is made of zero-energy hops (FREE-HOP-MERGE: 14 → 28 with ΔH = 0), so its
+   energy factor is 1. Free hops pay no e^{−2β}. Removing the factor leaves the base 18^k·B·Θ(1)·q,
+   which exceeds 1 at high levels.
+2. **Its own conclusion is an n-dependent temperature.** It requires β > ½ ln(18^k B Θ(1) q), so β
+   must grow linearly in the level k, that is like log n. The device temperature would then have to
+   fall like 1/log n as the code grows. This is not a fixed device inequality; it is the escape
+   already ruled out above. Adopting it would add a condition the target does not permit.
+3. **It assumes what it proves.** It defines the polymer weight as w(Γ) = q^{|Γ|}, which is the
+   claim, and asserts the composition rule w(Γ₁ ∪ Δ ∪ Γ₂) ≤ w(Γ₁) w(Γ₂) ψ(Δ) for path-space
+   polymers without derivation.
+
+It is, however, the first attempt to name the quantity that must be controlled. That quantity is
+the entropy of zero-energy bridges, about 18^k per level, against what suppresses them. With free
+bridges, suppression cannot come from energy. It must come from the rarity of the defects that do
+the bridging: the residual fault density inside a region, and its decay by pair annihilation. This
+is the same mechanism as before, now isolated.
