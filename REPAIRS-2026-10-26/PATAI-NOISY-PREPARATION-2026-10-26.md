@@ -727,3 +727,45 @@ the G.21/Chesi bound with stationarity then hold for the whole exponential stage
 
 H is now the only open statement. It is a scaling law that can be tested on the constructed codes:
 `RESIDUE-DECAY-LEVEL3.jsonl` measures the level-1 case (trapped-charge decay against β).
+
+## Pātai to the author (AGENTS rule 3), 26 October evening — after following the named sources
+
+**Correction to this note's direction.** The dynamics and relaxation routes above repeat the
+Markov-chain mixing investigation that Codex set aside, at the author's direction, earlier on
+26 October (`codex 26 Oct.txt`, 14:26–14:53). They are kept as computations, not as the route.
+Lemma C restates the morning's extension of Chesi et al. The route is feed-forward.
+
+**Sources followed:**
+- G.8: the charged handoff, the syndrome exchange, the stock envelope and the gross bill.
+- G.10 and G.16: G1Held, G1E9 and G1Refinement.
+- G.18: KnillLaflamme, MatchingWitness, EdgeLaw, ExRecBound and AgeReliability.
+- G.19–G.21: StageSchedule, WarmStart, HistoryPolymer and ThermalEncoding.
+- BDL §1.3 and Theorems 1.1 and 2.6; BGL arXiv:2507.10976.
+
+**The feed-forward stage transfer composes as follows:**
+1. Exact classical sampling of the full decoding history (μ ≤ 16π).
+2. Fault-tolerant gadget transfer of the logical qubit with its references (swap handoff,
+   parallel CNOT layers, `exrec_pair_bound`; `EdgeLaw` for the residual).
+3. The branch Pauli (`recovers_reference`).
+4. Full charging, stage by stage (`charged_attempt_accounting`, `StageSchedule`).
+
+On the gadgets' good event, the output is the G.21 state with a sparse local stochastic residual
+layer of rate O(p) on top. No gate-level construction can do better, because every qubit's last
+gate can fault (N1).
+
+**The missing support.** No existing source proves the stage's holding bound for this input.
+- Passive BDL holding requires domination by C·π, which the residual layer excludes (N1, N3).
+- Active G1/G.16 holding reintroduces the log t reliability factor that
+  `AgeReliability.log_factor_not_absorbed` excludes from the age-independent bill.
+
+**Pātai.** Which support should the full argument use for the transferred quantum state?
+- **(a) The BCRD bridge** (author, earlier on 26 October; Claude's analysis at 7382). Under
+  P2/P3 a particular's identity is carried by its relations and historically continuous
+  processes, which are objectively and redundantly recorded. The holding target for every
+  particular is then met by the classical branch, already compiled. Claude would state this as a
+  premise derived from P2/P3 and wire it into the holding theorems.
+- **(b) A holding theorem for the residual input.** For the BDL family below a fixed temperature,
+  passive holding from ρ_μ with a local stochastic Pauli layer of rate p ≤ p₀ keeps the bad
+  weight Tr(P^⊥ ρ_t) ≤ poly(n) e^{−c n^{η′}} for t ≤ e^{c n^{η′}}. This is statement (R).
+- **(c) Another construction** of the author's that meets the same stage budget at
+  polynomial pathwise work with an age-independent constant.
