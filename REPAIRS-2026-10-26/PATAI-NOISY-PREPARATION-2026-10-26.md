@@ -196,3 +196,21 @@ polymer that the bad event needs", rather than as complete healing.
 
 Status: N1 and N2 are proved above, in elementary form. (R) is open; its literature status is
 recorded, and the history-lift route is the next construction. The target is unchanged.
+
+## Disposition: pasted "Local Warm-Start Exponential Decay" proof (26 October, evening)
+
+The paste claims ‖ρ_R^prep − ρ_R^thermal‖₁ ≤ C K^{|∂R|} f(p). It is not adopted, for four reasons.
+
+1. **The bound is false at time zero.** For a single qubit, the fault layer moves the marginal by
+   order p, with no decay. For larger R the two marginals differ at constant density over |R|
+   sites, so their trace distance rises towards 1 with |R| (N3 applied locally). It does not fall
+   like K^{|∂R|}.
+2. **Step 2 assumes the open statement.** It posits that a local recovery channel contracts to the
+   thermal marginal with K < 1, which is (R) itself. It also uses active recovery, not the passive
+   holding dynamics.
+3. **Lieb–Robinson lightcones do not localise anything here.** At the exponentially long holding
+   times in question, they cover the whole system.
+4. **It targets the wrong quantity.** The local warm-start lemma needed is a *multiplicative*
+   bound ν_t|_R ≤ K^{|R|} π|_R, preserved for all t ≤ e^{c n^{η′}}. At t = 0 it holds with
+   K = 1 + p(e^{βw} − 1). The open content is its preservation in time, which the paste does not
+   address.
