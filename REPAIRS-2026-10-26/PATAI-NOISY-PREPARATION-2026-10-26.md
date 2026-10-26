@@ -448,3 +448,48 @@ quantity is the rate at which zero-energy hops join two polymers, weighted by th
 it requires that the encounter rate of free-wandering defects with other polymers be small, which
 depends on defect density inside the macroscopic hop components. That density is the residual
 fault density, not e^{−β}. This interplay is the precise mathematical content still open.
+
+## Lemma D (validity depends only on component parities) — proved
+
+Let d be any dependency among the Z-checks, so that Σ_k d_k (row k of D1) = 0. Then every qubit
+column meets d in an even number of checks.
+- For a weight-2 qubit with δq = {k, k′}, either both k and k′ lie in d or neither does. So d is a
+  union of whole hop components.
+- For a weight-1 qubit (a sink) with δq = {k}, the check k is not in d. So no dependency meets a
+  component that has a sink.
+
+Hence a fine syndrome s is valid iff the parity vector P(s) of its sink-free components satisfies
+the dependencies. ∎
+
+**Consequence for the thermal law.** The energy is Σ_components |s ∩ component|. Since validity
+depends only on P(s), the thermal law conditioned on the parity pattern is a *product over
+components* of independent single-component gases, each with fixed parity:
+
+    π(· | P = P₀) = ⊗_components π_C(· | parity_C = P₀(C)).
+
+## The pattern route to (R): a candidate proof plan, not a proof
+
+Let K_n be the number of sink-free hop components. It was 62 at both levels 1 and 2, out of 90
+components in all; level 3 is still being computed.
+
+1. **Pattern level.** The parity pattern takes at most 2^{K_n} values. If every valid pattern has
+   π(P₀) ≥ c^{K_n}, then any law on patterns is at most c^{−K_n} times π's pattern marginal. The
+   Chesi/G.21 holding bound tolerates C = e^{γ K_n} provided γ K_n < c n^{η}. So this step needs
+   only K_n = o(n^{η}), and K_n is constant at the levels computed.
+2. **Inside a component.** For a fixed pattern, the weight-2 (free) moves act independently on
+   each component and are reversible with respect to π_C. Every hop cycle is a stabilizer
+   (HOP-CYCLES), so the defect configuration inside a component determines the error modulo
+   stabilizers. The component chain is then a non-frustrated parity system with no energy barrier
+   above 2. Its relaxation from the faulted density to π_C should be polynomial; this is the
+   statement to prove, a far simpler one than (R).
+3. **Coupling.** Weight-3 and weight-4 flips move parity between components, some downhill at rate
+   Θ(1). A proof must show that they do not obstruct step 2, for example by a two-time-scale
+   argument, or by including them in the component chain together with the pattern.
+4. **Logical safety during relaxation.** Inside components this is covered by the path-independence
+   lemma. Across components it reduces to the coarse decoding of the fault set, below threshold.
+
+If steps 1–4 hold, then after a polynomial relaxation the faulted state is ε-close to a law at most
+C π with C = e^{O(K_n)}. That is a warm start, and (R) follows through N2, G.21 and Lemma T.
+
+Open in this plan: the growth of K_n with level, the mixing time in step 2, and the coupling in
+step 3. All three are concrete and can be tested on the constructed code.
