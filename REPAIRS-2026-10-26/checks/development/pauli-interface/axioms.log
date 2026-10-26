@@ -1,0 +1,6 @@
+'PauliInterfacePrototype.fourier_inverse_coefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PauliInterfacePrototype.weighted_pauli_compose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PauliInterfacePrototype.weighted_pauli_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PauliInterfacePrototype.weighted_pauli_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PauliInterfacePrototype.weighted_pauli_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PauliInterfacePrototype.anisotropic_compensated_output' depends on axioms: [propext, Classical.choice, Quot.sound]

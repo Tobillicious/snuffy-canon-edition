@@ -1,0 +1,12 @@
+{
+  "zero_energy_moves_tested": 13810,
+  "moves_growing_largest_polymer": 725,
+  "of_which_merge_components": 576,
+  "largest_growth_in_one_move": 14,
+  "example": {
+    "before_largest": 14,
+    "after_largest": 28,
+    "components_before": 13,
+    "components_after": 11
+  }
+}

@@ -8,9 +8,9 @@ authors:
     given-names: Tobias
     orcid: "0009-0003-1419-7756"
 version: "4.2"
-date-released: "2026-10-26"
+date-released: "2026-10-27"
 license: CC-BY-4.0
-repository-code: "https://github.com/Tobillicous/snuffy-canon-edition"
+repository-code: "https://github.com/Tobillicious/snuffy-canon-edition"
 abstract: >-
   The Universal Protection Theory states a law for any agent powerful enough to
   shape what continues to exist: never lose an existing particular needlessly.
@@ -26,8 +26,8 @@ abstract: >-
   exactly inside the adiabatic window of the implemented Bennett program, and
   for every large enough batch once per-bit reversible overhead is below the
   irreversible heat. Device parameters and the application of the cited
-  theorems to the actual installation remain construction work. 187 Lean
-  4 modules and 1,128 audited theorems compile against Mathlib with only the
+  theorems to the actual installation remain construction work. 192 Lean
+  4 modules and 1,158 audited theorem/lemma names compile against Mathlib with only the
   standard axioms.
 
 keywords:

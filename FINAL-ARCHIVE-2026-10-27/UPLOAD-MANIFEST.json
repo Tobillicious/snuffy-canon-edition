@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-27",
+  "all_package_checks_pass": true,
+  "files": [
+    {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-FINAL-ARCHIVE-2026-10-27/Snuffy-Canon-Edition-4.2-Deposit.zip",
+      "name": "Snuffy-Canon-Edition-4.2-Deposit.zip",
+      "sha256": "ab02ae38afa156e22020c58a2053235a48a9568087fcd734d8ee9e102efe4971",
+      "md5": "b591f5695e4db96d5e030cb109aa0b93",
+      "bytes": 22581871
+    },
+    {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-FINAL-ARCHIVE-2026-10-27/Snuffy-Canon-Edition-4.2-Deposit.zip.sha256",
+      "name": "Snuffy-Canon-Edition-4.2-Deposit.zip.sha256",
+      "sha256": "2cdafa74a7bc473e895ffd856eed1a0796e437fde3b3c030c1e736cf51eff8da",
+      "md5": "af6185e2f3a582d57223a26d217a49fd",
+      "bytes": 103
+    },
+    {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/render/Snuffy-Canon-Edition-4.2.pdf",
+      "name": "Snuffy-Canon-Edition-4.2.pdf",
+      "sha256": "a9d8e6d0e1dca35462f94b6e98f145eb96e5bef2d012225701b1943f9e746399",
+      "md5": "e153c1890364d3796fd16363067bdf43",
+      "bytes": 567101
+    },
+    {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/render/Snuffy-Canon-Edition-4.2.epub",
+      "name": "Snuffy-Canon-Edition-4.2.epub",
+      "sha256": "e9ef1caf1ee7090db5f04588196dee22e1bc37bd199d84213384400fd5222c03",
+      "md5": "311a01e3e9b5f8fa690430c503df752d",
+      "bytes": 208248
+    },
+    {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/render/Snuffy-Canon-Edition-4.2.html",
+      "name": "Snuffy-Canon-Edition-4.2.html",
+      "sha256": "ac06b92d2c446ed8388c5eb7edf1d8033e84d22b71e9f7a392c1e5e40c8f071f",
+      "md5": "96daeefd500bf25867dc00d6ee34f943",
+      "bytes": 965516
+    },
+    {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/FINAL-ARCHIVE-2026-10-27/FINAL-VERIFICATION.json",
+      "name": "FINAL-VERIFICATION.json",
+      "sha256": "71fa72c93b3c5db307a29ada5acd6efd24127935f7d022d5c4844811cc1c9f75",
+      "md5": "895c94bc2041100be8007dc6dbcf6daf",
+      "bytes": 6108
+    },
+    {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/FINAL-ARCHIVE-2026-10-27/FILE-MANIFEST.json",
+      "name": "FILE-MANIFEST.json",
+      "sha256": "79ba06144d9a439b8ebfc2c94ea12ed73c8e297d2290a47d1042e487d2bbef70",
+      "md5": "37103377607bb91012b69e304a3d6f1e",
+      "bytes": 245228
+    },
+    {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/FINAL-ARCHIVE-2026-10-27/PACKAGE-REPLAY.json",
+      "name": "PACKAGE-REPLAY.json",
+      "sha256": "eac408c4abca8ca088020170cfaef815612751639ae4328fc34bbf1d49492523",
+      "md5": "9fc259757a35715e9b02b336efb754d9",
+      "bytes": 763
+    }
+  ],
+  "metadata_path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/zenodo.json",
+  "metadata_sha256": "03a1553ee116a13d4c780b4c22fccbf087f80d98bc5c7e9e34d839320a5704b0"
+}

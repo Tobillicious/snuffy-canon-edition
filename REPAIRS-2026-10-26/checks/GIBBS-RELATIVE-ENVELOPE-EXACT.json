@@ -1,0 +1,11 @@
+{
+  "scope": "exact diagonal-state countercheck of an additive-to-relative inference; not a BDL lifetime or UPT counterexample",
+  "incorrect_I_le_condition_number_times_rho_fails": true,
+  "correct_min_eigenvalue_conversion_verified": true,
+  "thermal_excitation_probability": "1/1048576",
+  "bit_flip_probability": "1/4096",
+  "operator_norm_change": "524287/2147483648",
+  "required_multiplicative_factor": "526335/2048",
+  "product_Gibbs_condition_number_example": "3^n for n independent checks at beta=ln 3",
+  "all_assertions_pass": true
+}

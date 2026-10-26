@@ -1,0 +1,2 @@
+{"seed": [3, 2], "level": 1, "qubits": 206, "zchecks": 136, "fundamental_cycles": 4, "cycles_not_stabilizers": 0, "least_escape_cost_histogram": {"1": 136}}
+{"seed": [3, 2], "level": 2, "qubits": 5116, "zchecks": 2256, "fundamental_cycles": 2062, "cycles_not_stabilizers": 0, "least_escape_cost_histogram": {"1": 1520, "2": 128, "None": 608}}

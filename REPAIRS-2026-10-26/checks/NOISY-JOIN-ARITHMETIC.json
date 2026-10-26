@@ -1,0 +1,43 @@
+{
+  "recurrence_submission": {
+    "first_failing_level": 2,
+    "actual_error": "1/4",
+    "claimed_bound": "1/8",
+    "exact_solution": "e_j = j epsilon / 2^(j+1)"
+  },
+  "conditional_repaired_budget": "K<=1/4 and delta_j<=epsilon/2^(j+3) preserve the claimed bound; physical estimates still required",
+  "geometric_work_examples": [
+    {
+      "n": 16,
+      "depth": 4,
+      "work": 98,
+      "work_per_fine_node": "49/8"
+    },
+    {
+      "n": 256,
+      "depth": 8,
+      "work": 3586,
+      "work_per_fine_node": "1793/128"
+    },
+    {
+      "n": 65536,
+      "depth": 16,
+      "work": 1966082,
+      "work_per_fine_node": "983041/32768"
+    }
+  ],
+  "known_product_noise_example": {
+    "noise_p": "1/16",
+    "target_q": "1/4",
+    "input_r": "3/14",
+    "output_q": "1/4",
+    "density_factor": "1 for every product size"
+  },
+  "fault_footprint_example": {
+    "footprint": 3,
+    "probability_all_occupied": "498501549/50000000000",
+    "naive_rate_to_footprint_power": "1331/1000000000"
+  },
+  "all_exact_checks_pass": true,
+  "scope": "finite arithmetic and examples; no physical BDL closure claimed"
+}

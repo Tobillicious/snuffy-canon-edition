@@ -1,0 +1,19 @@
+{
+  "scope": "Candidate proofs, preserved separately from their verification status.",
+  "inputs": [
+    {
+      "source_session": "/Users/admin/.codex/sessions/2026/10/26/rollout-2026-10-26T13-54-36-01a175b3-bfdb-71c1-afa3-108ed94c2b24.jsonl",
+      "source_line": 3120,
+      "timestamp": "2026-10-26T08:26:33.057Z",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-RESIDUAL-NOISE-CORRECTION-CANDIDATE-2026-10-26.txt",
+      "sha256": "6b367e8c27a31c8840141e6562fce529c770e76f819d1873bb2398eb08189372"
+    },
+    {
+      "source_session": "/Users/admin/.codex/sessions/2026/10/26/rollout-2026-10-26T13-54-36-01a175b3-bfdb-71c1-afa3-108ed94c2b24.jsonl",
+      "source_line": 3140,
+      "timestamp": "2026-10-26T08:28:29.413Z",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-RELATIVE-GIBBS-ENVELOPE-CANDIDATE-2026-10-26.txt",
+      "sha256": "67c8e1c62be063111c7c6a6893ce7facea26eaeb94a68d28785bcc106657ac40"
+    }
+  ]
+}

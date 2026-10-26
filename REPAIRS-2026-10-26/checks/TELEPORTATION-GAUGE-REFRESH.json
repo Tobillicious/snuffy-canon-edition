@@ -1,0 +1,57 @@
+{
+  "scope": "Finite complete-channel validation; not the physical FT compiler, a general noise-model reduction, or a Lean receipt.",
+  "cases": [
+    {
+      "resource_gauge": "entangled_Bell_gauge",
+      "matrix_units_checked": 16,
+      "max_branch_identity_error": 5.551115123125783e-17,
+      "max_refresh_identity_error": 2.220446049250313e-16,
+      "max_private_decoder_identity_error": 3.3306690738754696e-16,
+      "max_Pauli_Choi_off_diagonal": 3.129990438797398e-17,
+      "effective_Pauli_probabilities_I_X_Y_Z": [
+        0.2539644970414201,
+        0.4733727810650887,
+        -4.6752957288080896e-35,
+        0.27266272189349117
+      ],
+      "all_assertions_pass": true
+    },
+    {
+      "resource_gauge": "unequal_coherent_gauge",
+      "matrix_units_checked": 16,
+      "max_branch_identity_error": 8.326672684688674e-17,
+      "max_refresh_identity_error": 3.3306690738754696e-16,
+      "max_private_decoder_identity_error": 2.220446049250313e-16,
+      "max_Pauli_Choi_off_diagonal": 1.2675393772017485e-17,
+      "effective_Pauli_probabilities_I_X_Y_Z": [
+        0.2994082840236686,
+        0.5447844463229077,
+        -4.3523196445535043e-35,
+        0.1558072696534235
+      ],
+      "all_assertions_pass": true
+    },
+    {
+      "resource_gauge": "classically_correlated_gauge",
+      "matrix_units_checked": 16,
+      "max_branch_identity_error": 5.551115123125783e-17,
+      "max_refresh_identity_error": 2.220446049250313e-16,
+      "max_private_decoder_identity_error": 1.1102230246251565e-16,
+      "max_Pauli_Choi_off_diagonal": 2.689178347460336e-17,
+      "effective_Pauli_probabilities_I_X_Y_Z": [
+        0.296378698224852,
+        0.540023668639053,
+        5.1102981744494806e-34,
+        0.16359763313609468
+      ],
+      "all_assertions_pass": true
+    }
+  ],
+  "unrefreshed_correlated_gauge_control_trace_distance": 1.0,
+  "arbitrary_reference_basis_coverage": "All matrix units of the full S tensor G_S input; equality extends linearly and completely.",
+  "final_Pauli_correction_assumption": "Ideal or independent Pauli-covariant correction noise. Arbitrary label-dependent faulty corrections are not certified.",
+  "floating_point_tolerance": 1e-13,
+  "numpy_version": "2.0.2",
+  "source_sha256": "adbfb26c453e1959ced3d06dd75f2e98f0ed4cc6acf3df33a7bee4ae09e18ae6",
+  "all_assertions_pass": true
+}

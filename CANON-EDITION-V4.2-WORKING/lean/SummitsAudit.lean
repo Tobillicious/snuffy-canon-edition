@@ -187,6 +187,11 @@ import Snuffy.RedundantRecord
 import Snuffy.BennettBatch
 import Snuffy.WeightedEdgeLaw
 import Snuffy.StageSchedule
+import Snuffy.WarmStart
+import Snuffy.WalkBound9
+import Snuffy.HistoryPolymer
+import Snuffy.ThermalEncoding
+import Snuffy.TransferRate
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1503,3 +1508,38 @@ import Snuffy.StageSchedule
 -- StageSchedule
 #print axioms Snuffy.StageSchedule.total_with_transfers
 #print axioms Snuffy.StageSchedule.stage_cost_le
+-- WarmStart
+#print axioms Snuffy.WarmStart.warm_start
+#print axioms Snuffy.WarmStart.warm_start_event
+#print axioms Snuffy.WarmStart.fibre_mass_pos
+#print axioms Snuffy.WarmStart.fibre_reassembly
+#print axioms Snuffy.WarmStart.reverse_sampler_bound
+#print axioms Snuffy.WarmStart.heat_bath_normalized
+#print axioms Snuffy.WarmStart.heat_bath_stationary
+#print axioms Snuffy.WarmStart.pointwise_from_absolute
+#print axioms Snuffy.WarmStart.warm_start_from_mixing
+-- WalkBound9
+#print axioms Snuffy.WalkBound9.walk_bound_9
+#print axioms Snuffy.WalkBound9.threshold_9
+#print axioms Snuffy.WalkBound9.threshold_9_value
+-- HistoryPolymer
+#print axioms Snuffy.HistoryPolymer.halving_prefix
+#print axioms Snuffy.HistoryPolymer.paired_history_bound
+#print axioms Snuffy.HistoryPolymer.component_valid
+#print axioms Snuffy.HistoryPolymer.truncation_bound
+#print axioms Snuffy.HistoryPolymer.sampled_truncation_bound
+#print axioms Snuffy.HistoryPolymer.branch_path_bound
+-- ThermalEncoding
+#print axioms Snuffy.ThermalEncoding.branch_compression
+#print axioms Snuffy.ThermalEncoding.recovers
+#print axioms Snuffy.ThermalEncoding.kron_orthogonal
+#print axioms Snuffy.ThermalEncoding.recovers_reference
+-- TransferRate
+#print axioms Snuffy.TransferRate.poly_le_two_pow
+#print axioms Snuffy.TransferRate.transfer_bill_le
+#print axioms Snuffy.TransferRate.transfer_bill_linear_in_age
+#print axioms Snuffy.TransferRate.retained_prefix_bound
+#print axioms Snuffy.TransferRate.attempt_stage_bound
+#print axioms Snuffy.TransferRate.polynomial_stage_bill
+#print axioms Snuffy.TransferRate.complete_attempt_bill
+#print axioms Snuffy.TransferRate.join_complete_bill

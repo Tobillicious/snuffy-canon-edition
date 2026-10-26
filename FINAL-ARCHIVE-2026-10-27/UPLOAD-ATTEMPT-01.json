@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-27",
+  "status": "Large-file urllib TLS write timed out before publication",
+  "same_draft_retained": true,
+  "original_package_sha256": "1ae7402347a093a30124d26a586e00271908f141eaaac62a20451b5100f73608",
+  "scientific_sources_and_checkpoint12_changed": false,
+  "recovery": "Streaming curl upload with the same draft and verified file checksums; no credential in command arguments."
+}

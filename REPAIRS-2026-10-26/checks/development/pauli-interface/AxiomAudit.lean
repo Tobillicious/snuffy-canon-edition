@@ -1,0 +1,7 @@
+import PauliInterface
+#print axioms PauliInterfacePrototype.fourier_inverse_coefficients
+#print axioms PauliInterfacePrototype.weighted_pauli_compose
+#print axioms PauliInterfacePrototype.weighted_pauli_inverse
+#print axioms PauliInterfacePrototype.weighted_pauli_sum
+#print axioms PauliInterfacePrototype.weighted_pauli_upper
+#print axioms PauliInterfacePrototype.anisotropic_compensated_output

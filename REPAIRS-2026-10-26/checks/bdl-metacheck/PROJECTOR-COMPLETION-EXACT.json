@@ -1,0 +1,40 @@
+{
+  "reset_branch_reference_test": {
+    "input": "Bell state of reference R and logical L, syndrome ancilla |1>",
+    "default": "|0>_L tensor |0>_ancilla",
+    "XX_before": "1",
+    "XX_after": "0",
+    "Bell_overlap_after": "1/4"
+  },
+  "commuting_disjoint_completion_density_test": [
+    {
+      "checks": 1,
+      "parallel_depth": 1,
+      "pi_empty": "3/4",
+      "output_mass_at_empty": "1",
+      "necessary_warm_start_factor": "4/3"
+    },
+    {
+      "checks": 8,
+      "parallel_depth": 1,
+      "pi_empty": "6561/65536",
+      "output_mass_at_empty": "1",
+      "necessary_warm_start_factor": "65536/6561"
+    },
+    {
+      "checks": 32,
+      "parallel_depth": 1,
+      "pi_empty": "1853020188851841/18446744073709551616",
+      "output_mass_at_empty": "1",
+      "necessary_warm_start_factor": "18446744073709551616/1853020188851841"
+    },
+    {
+      "checks": 64,
+      "parallel_depth": 1,
+      "pi_empty": "3433683820292512484657849089281/340282366920938463463374607431768211456",
+      "output_mass_at_empty": "1",
+      "necessary_warm_start_factor": "340282366920938463463374607431768211456/3433683820292512484657849089281"
+    }
+  ],
+  "scope": "checks the stated implications; not a no-go theorem for other feed-forward samplers"
+}

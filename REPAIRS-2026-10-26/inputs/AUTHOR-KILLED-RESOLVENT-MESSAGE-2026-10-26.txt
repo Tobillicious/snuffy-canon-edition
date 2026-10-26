@@ -1,0 +1,67 @@
+
+# Files pasted by the user:
+
+## "Here is the complete, formal proof using the **killed transient resolvent (abso…": /Users/admin/.codex/attachments/e9e73a50-38f8-452e-ba38-7b9a7b0fcbb8/Pasted text.txt
+
+## My request:
+You have precisely caught the singularity: on the full space, a generator $L_0$ with a stationary invariant measure possesses a zero eigenvalue (the stationary state), causing $\int_0^\infty e^{tL_0} \, dt$ to diverge due to the non-decaying projection onto the zero mode.
+
+To resolve this without breaking the resolvent bound, we define a **killed transient process** on the modified state space where excursions away from the local domain or into absorbing bad states are explicitly damped.
+
+---
+
+### The Killed Resolvent & Transient Process Construction
+
+#### 1. The Absorbing / Killed Generator $\tilde{L}_0$
+
+Let $\mathcal{H}_0$ be the good syndrome subspace within a bounded region or local patch $R_m$. The unperturbed generator $L_0$ has a stationary state $\pi_0$ such that $L_0 \pi_0 = 0$.
+
+* To eliminate the zero-mode divergence, we introduce an **absorbing trap state $\Delta$** (representing transition into the bad syndrome sector or boundary escape).
+* We define the killed generator $\tilde{L}_0$ acting on functions vanishing at the trap:
+
+$$\tilde{L}_0 f = L_0 f - \gamma_{\text{trap}} \mathbb{I}_{\partial R_m} f$$
+
+
+
+where $\gamma_{\text{trap}} > 0$ is the killing rate upon hitting the boundary $\partial R_m$.
+
+#### 2. Spectral Gap of the Killed Process
+
+Because every trajectory starting inside $R_m$ must either relax locally or hit the absorbing boundary $\partial R_m$ within a finite time bounded by the local mixing time, the killed semigroup $e^{t \tilde{L}_0}$ has **no zero mode**.
+
+* Its spectrum is strictly bounded away from zero by a gap $\tilde{\lambda}_0 > 0$:
+
+$$\Vert{}e^{t \tilde{L}_0}\Vert{}_{\text{op}} \le M e^{-\tilde{\lambda}_0 t}$$
+
+
+
+where $\tilde{\lambda}_0 = \lambda_0 + \gamma_{\text{trap}} = \Theta(1)$, independent of $n$.
+
+#### 3. Convergence of the Transient Resolvent
+
+We now define the **transient Green's operator** (killed resolvent) as:
+
+
+$$\tilde{G}_0 = \int_0^\infty e^{t \tilde{L}_0} dt = (-\tilde{L}_0)^{-1}$$
+
+Because the zero mode is removed by the killing rate $\gamma_{\text{trap}}$, the integral converges uniformly and analytically:
+
+
+$$\Vert{}\tilde{G}_0\Vert{}_{\text{op}} \le \int_0^\infty \Vert{}e^{t \tilde{L}_0}\Vert{}_{\text{op}} dt \le \int_0^\infty M e^{-\tilde{\lambda}_0 t} dt = \frac{M}{\tilde{\lambda}_0} = \mathcal{O}(1)$$
+
+---
+
+### Replacing the Unkilled Propagator in the Polymer Expansion
+
+When evaluating the time-integrated bad-projector weight $I_N(T) = \int_0^T \text{Tr}(\Pi_{\text{bad}} \Phi_s(\mathcal{N}\rho_\beta)) ds$:
+
+1. We replace the unkilled evolution between creation events with the **killed transient propagator** $\tilde{G}_0$.
+2. Whenever a trajectory attempts to wander indefinitely without a creation event, the killing term $\gamma_{\text{trap}}$ exponentially suppresses its weight, exactly accounting for the probability that the path successfully exits or triggers a bad witness.
+3. The resolvent norm $\Vert{}\tilde{G}_0\Vert{}_{\text{op}} \le \frac{M}{\tilde{\lambda}_0}$ replaces the divergent $\int_0^\infty e^{tL_0} dt$, ensuring that the spacetime polymer cluster series converges with the explicit decay factor $\exp(-c' n^{\eta'})$.
+
+---
+
+Does this killed transient resolvent construction rigorously eliminate the zero-mode divergence for your Lean verification audit?
+
+
+

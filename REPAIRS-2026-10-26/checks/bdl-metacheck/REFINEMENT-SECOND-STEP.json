@@ -1,0 +1,20 @@
+{
+  "scope": "Exact finite second replacement replay; no all-level or full noisy-preparation claim.",
+  "coarse_qubits": 206,
+  "fine_qubits": 5116,
+  "CNOTs": 16292,
+  "x_cell_colours": 6,
+  "x_cell_max_CNOTs": 207,
+  "q_cell_max_CNOTs": 5,
+  "depth_upper_bound": 1247,
+  "full_stabilizer_replay_verified": true,
+  "circuit_file": "refinement-circuits/3x2-RX-then-RZ.json",
+  "circuit_file_sha256": "405b89caf6d4111d559228e4bbc917dea35600bf6fe2b86d5372a0df241131a3",
+  "source_sha256": {
+    "refinement_circuit.py": "5835432cf5c5e92a14279098589ffc1a88599c3a2cb86fc5d5b8ae6732ded479",
+    "bdl.py": "ab051dddd99c344026c42bc9767b78c5dcb9645d693734fc6957187ec6cc7419",
+    "fastbuild.py": "9f40971a039e369e2dcd45a0a1c09082ec01803ab88ea35d940770204ab1eff4"
+  },
+  "elapsed_seconds": 22.563741666,
+  "all_assertions_pass": true
+}

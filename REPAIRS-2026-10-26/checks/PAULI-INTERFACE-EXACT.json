@@ -1,0 +1,56 @@
+{
+  "scope": "Exact finite algebra and syndrome-law tests, not a physical FT application or lifetime certificate.",
+  "cases": [
+    {
+      "seed": [
+        2,
+        1
+      ],
+      "physical_qubits": 5,
+      "valid_joint_syndromes": 16,
+      "unequal_X_Z_Y_rates": true,
+      "spatially_varying_channels": true,
+      "exact_inverse_nonnegative": true,
+      "exact_inverse_mass_one": true,
+      "exact_noise_inverse_identity": true,
+      "perturbed_output_mass_one": true,
+      "pointwise_rate_perturbation_bound_verified_exactly": true,
+      "max_perturbed_density_ratio_decimal": 1.000000011734765,
+      "proved_finite_product_bound_decimal": 1.0000016257349484,
+      "all_assertions_pass": true
+    },
+    {
+      "seed": [
+        3,
+        2
+      ],
+      "physical_qubits": 13,
+      "valid_joint_syndromes": 4096,
+      "unequal_X_Z_Y_rates": true,
+      "spatially_varying_channels": true,
+      "exact_inverse_nonnegative": true,
+      "exact_inverse_mass_one": true,
+      "exact_noise_inverse_identity": true,
+      "perturbed_output_mass_one": true,
+      "pointwise_rate_perturbation_bound_verified_exactly": true,
+      "max_perturbed_density_ratio_decimal": 1.0000000134147187,
+      "proved_finite_product_bound_decimal": 1.0000032723774945,
+      "all_assertions_pass": true
+    }
+  ],
+  "joint_occupation_control": {
+    "scope": "Exact eight-check global-parity control of the covering bound; not an all-level BDL verification.",
+    "valid_syndromes": 128,
+    "partial_output_layers": 9,
+    "joint_subset_occupation_checks": 2304,
+    "conservative_complete_augmented_graph_vertices": 56,
+    "occupation_parameter_upper_bound_decimal": 5.52952542626804e-35,
+    "all_assertions_pass": true
+  },
+  "all_assertions_pass": true,
+  "source_sha256": {
+    "pauli-interface-exact.py": "16db4d01c4b013266718b9bf597e503af3c9e153ad4b625ce36ed955b257d09f",
+    "bdl.py": "ab051dddd99c344026c42bc9767b78c5dcb9645d693734fc6957187ec6cc7419",
+    "fastbuild.py": "9f40971a039e369e2dcd45a0a1c09082ec01803ab88ea35d940770204ab1eff4"
+  }
+}

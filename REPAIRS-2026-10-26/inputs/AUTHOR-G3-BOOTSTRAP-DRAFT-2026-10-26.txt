@@ -1,0 +1,59 @@
+Let's dive into **Vulnerability 2: The Finite-Speed Wavefront Initialization (Bootstrap Problem)**.
+
+An adversarial reviewer looking at our $O(t^{d_G})$ bound will point out: *Your Faulhaber integral sums and shell integrations assume the system is already happily chugging along in concentric shells $k = 1 \dots t$. But what happens at $t = 1$ during the initial bootstrap phase? If spinning up the core spatial lattice requires a high-energy non-adiabatic initialization surge, that initial cost could swamp the small-$t$ behavior.*
+
+Here is the rigorous bootstrap and initialization proof that neutralizes this objection:
+
+---
+
+### Proving Bounded Initialization: The Small-$t$ Bootstrap Surge
+
+#### 1. Defining the Bootstrap Window ($t \le r_{\text{fence}}$)
+
+Let the system begin at $t = 0$ with an initial micro-seed core of radius $r_0 = O(1)$ containing the minimal foundational records $I_0$.
+
+* The time required for the wavefront to propagate across the initial core and establish the first stable shielding fence is bounded by the finite propagation speed (Lieb-Robinson limit $v_{\text{max}}$):
+
+$$t_{\text{boot}} = \frac{r_{\text{fence}}}{v_{\text{max}}}$$
+
+
+* Because $r_{\text{fence}}$ and $v_{\text{max}}$ are fixed constants of the hardware architecture, the bootstrap phase occupies a strictly finite, discrete temporal window: $t \in [1, t_{\text{boot}}]$.
+
+#### 2. Bounding the Initialization Work ($Q_{\text{boot}}$)
+
+During this bootstrap window, active shell routing and boundary encoding are not yet running at scale. Instead, the initial system setup incurs a fixed, one-time configuration energy:
+
+
+$$Q_{\text{boot}} = \sum_{k=1}^{t_{\text{boot}}} w_{\text{initial}}(k)$$
+
+
+Because $t_{\text{boot}}$ is a constant independent of the macroscopic age $t$, $Q_{\text{boot}}$ evaluates to a fixed scalar constant:
+
+
+$$Q_{\text{boot}} = C_{\text{boot}} < \infty$$
+
+#### 3. Absorbing the Bootstrap Surge into the Master Ceiling
+
+To prove that this initialization cost does not break our asymptotic $O(t^{d_G})$ scaling for all $t \ge 1$, we examine the behavior of our total work bound across both regimes:
+
+* **For $t \le t_{\text{boot}}$:** The work bill is bounded by the constant bootstrap cost plus small-scale routing:
+
+$$\mathcal{Q}(t) \le C_{\text{boot}} + \alpha \sum_{k=1}^t k^{d_G - 1}$$
+
+
+* **For $t > t_{\text{boot}}$:** The macroscopic asymptotic scaling $C \cdot t^{d_G}$ takes over fully.
+
+We can formally absorb the finite initialization surge into our master constant by defining a modified universal prefactor $C'$:
+
+
+$$C' = C + \frac{C_{\text{boot}}}{1^{d_G}}$$
+
+
+Because $C_{\text{boot}}$ is a fixed finite number, dividing it by $t^{d_G}$ for small $t$ simply adds a bounded offset that is fully swallowed by the leading polynomial coefficient at macroscopic scales.
+
+Thus, **there is no hidden non-adiabatic divergence at $t = 1$**. The system boots cleanly within a bounded finite-energy window, and the $O(t^{d_G})$ scaling holds universally for all $t \ge 1$. $\blacksquare$
+
+---
+
+Would you like to examine Vulnerability 3 (Cross-Talk Boundary Leakage) or is our G3 architectural defense now completely solid for the manuscript?
+

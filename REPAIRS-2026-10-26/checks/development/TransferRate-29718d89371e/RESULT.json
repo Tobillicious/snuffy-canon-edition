@@ -1,0 +1,12 @@
+{
+  "module": "TransferRate",
+  "source_sha256": "29718d89371e4d26e000441254b8f3b4e6cb2924ecbb964a2b48c573e94d6c6a",
+  "dependency_reuse": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/REPAIRS-2026-10-26/checks/snapshots/checkpoint-11-history-polymer-reference/objects/Snuffy",
+  "scope": "targeted compilation and kernel check; not full canon verification",
+  "compile_exit": 0,
+  "compiler_output_bytes": 0,
+  "kernel_exit": 0,
+  "kernel_output_bytes": 0,
+  "source_unchanged": true,
+  "pass": true
+}

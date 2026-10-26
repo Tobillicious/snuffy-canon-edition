@@ -1,0 +1,151 @@
+{
+  "date": "2026-10-27",
+  "timezone": "Pacific/Auckland",
+  "all_final_checks_pass": true,
+  "durable_core_commit": "551d385",
+  "checks": {
+    "checkpoint12": {
+      "receipt": "REPAIRS-2026-10-26/checks/snapshots/checkpoint-12-complete-transfer-bill/RESULT.json",
+      "modules": 192,
+      "statements": 1158,
+      "fresh_compilation_this_session": false,
+      "preservation": {
+        "canonical_modules": 192,
+        "canonical_public_names": 1158,
+        "checkpoint12_snapshot_files_unchanged": 791,
+        "canonical_lean_source_files_unchanged": 194,
+        "all_192_module_hashes_match_checkpoint12": true,
+        "batch09_and_batch10_preserved": true,
+        "previous_endpoint_receipt_preserved_sha256": "b52030d181f63c0104ac2ee3b66a494e24d639d589809321998f5861cf38efcb",
+        "preserved_file_set_sha256": "1db66e72a817605c58f5d63ce9b3a867a09f748ca95545a35bf672f632996e6e"
+      }
+    },
+    "endpoint_checks": {
+      "receipt": "REPAIRS-2026-10-26/checks/ENDPOINT-FINAL-INTEGRATION-2026-10-27.json",
+      "receipt_sha256": "b52030d181f63c0104ac2ee3b66a494e24d639d589809321998f5861cf38efcb",
+      "finite_checks": 6,
+      "feedback_patterns": 1024
+    },
+    "delta_joint": {
+      "receipt": "REPAIRS-2026-10-26/checks/DELTA-JOINT-VERIFICATION-2026-10-27.json",
+      "receipt_sha256": "21283b11eae64fbf278d1a4037436a1e178c75951048a23ea4faa4a09fd57b34",
+      "script": "REPAIRS-2026-10-26/checks/verify-delta-joint.py",
+      "proof": "REPAIRS-2026-10-26/DELTA-JOINT-CERTIFICATES-PROOF-2026-10-27.md",
+      "exact_certificate_decisions": 18130,
+      "stages": 259,
+      "tolerances": 7,
+      "numerical_discrete_cases": 6,
+      "numerical_continuous_reference_cases": 15
+    },
+    "assembly": {
+      "master_sha256": "83b62bd9ece8d35ba6ab221c6edd286b753f4a4093c8e322eb1f836cd8e6f933",
+      "author_insert_sha256": "f6c45299c807c5a2806ebb1eca9c643d2ea5119f2d7e448962c7782662881f40",
+      "G21_identical": true,
+      "Batch10_and_new_supports_present": true
+    },
+    "references": {
+      "master_links_checked": 6,
+      "heading_identifiers": 178,
+      "unresolved_master_links": [],
+      "unresolved_equation_labels": [],
+      "parameter_source_markers_defined": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "html_fragment_links_checked": 146,
+      "epub_internal_links_checked": 162,
+      "unresolved_render_links": [],
+      "external_source_scope": "URI targets retained; this audit does not re-review published external theorems."
+    },
+    "renders": {
+      "all_pass": true,
+      "epub": {
+        "bounded_common_causes": true,
+        "bytes": 208248,
+        "canon_sentence": true,
+        "chain_head_charged": true,
+        "chain_head_quarantine": true,
+        "chain_head_solvent": true,
+        "doi_canon_edition": true,
+        "doi_core": true,
+        "gross_reset_cap": true,
+        "joint_kernel_certificate": true,
+        "module_count": true,
+        "no_door_content": true
+      },
+      "html": {
+        "bounded_common_causes": true,
+        "bytes": 965516,
+        "canon_sentence": true,
+        "chain_head_charged": true,
+        "chain_head_quarantine": true,
+        "chain_head_solvent": true,
+        "doi_canon_edition": true,
+        "doi_core": true,
+        "gross_reset_cap": true,
+        "joint_kernel_certificate": true,
+        "module_count": true,
+        "no_door_content": true
+      },
+      "master_sha256": "83b62bd9ece8d35ba6ab221c6edd286b753f4a4093c8e322eb1f836cd8e6f933",
+      "method_note": "Unicode and whitespace normalization; markup stripped only for HTML/EPUB, never from PDF inequality text",
+      "pdf": {
+        "bounded_common_causes": true,
+        "bytes": 567101,
+        "canon_sentence": true,
+        "chain_head_charged": true,
+        "chain_head_quarantine": true,
+        "chain_head_solvent": true,
+        "doi_canon_edition": true,
+        "doi_core": true,
+        "gross_reset_cap": true,
+        "joint_kernel_certificate": true,
+        "module_count": true,
+        "no_door_content": true,
+        "pages": 103
+      },
+      "render_sha256": {
+        "epub": "e9ef1caf1ee7090db5f04588196dee22e1bc37bd199d84213384400fd5222c03",
+        "html": "ac06b92d2c446ed8388c5eb7edf1d8033e84d22b71e9f7a392c1e5e40c8f071f",
+        "pdf": "a9d8e6d0e1dca35462f94b6e98f145eb96e5bef2d012225701b1943f9e746399",
+        "tex": "a5f2212eff83cda9959b4a79fdc9f9a0773dcc676071b164b07e1b74fb438dce"
+      }
+    },
+    "visual_review": {
+      "date": "2026-10-27",
+      "visual_review_pass": true,
+      "pdf_sha256": "a9d8e6d0e1dca35462f94b6e98f145eb96e5bef2d012225701b1943f9e746399",
+      "pages": 103,
+      "inspected_latest_raster_pages": [
+        91,
+        97,
+        100
+      ],
+      "cover_and_controller_page_reviewed": true,
+      "word_boxes_outside_page": [],
+      "missing_glyphs": 0,
+      "overfull_lines": 0,
+      "method": "Poppler page bounds for every page; direct inspection of rasterized title, G.21, feedback, invoice and residual-certificate pages. Literal threshold stars preserved."
+    },
+    "edition_seal": {
+      "file": "CANON-EDITION-V4.2-WORKING/SHA256SUMS",
+      "sha256": "d6242c51c1110cdb10dd6853bca5c93fc08bb3dbdbe5a21fc909dea4ee7faf3e",
+      "sealed_files": 224
+    }
+  },
+  "physical_installation_certificate_complete": false,
+  "remaining_external_boundary": "Identify/validate the actual complete joint instrument (including common causes, retained memory and capped-controller binding), and establish the values/bounds for K_act and v_a. The manuscript retains its other stated physical source/device application correspondences.",
+  "full_holding_condition": "v_a <= epsilon/2^(2a+5) only when the residual persists for 2^a",
+  "short_exposure_condition": "tau_a*v_a <= epsilon/2^(a+5)",
+  "maximal_UPT_target_unchanged": true,
+  "full_history_and_arbitrary_references_retained": true,
+  "held_doors_and_companion_included": false,
+  "publication_status": "Prepared; actual publication is recorded separately after remote confirmation."
+}

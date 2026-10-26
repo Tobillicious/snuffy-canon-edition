@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-27",
+  "published": true,
+  "url": "https://github.com/Tobillicious/snuffy-canon-edition/releases/tag/v4.2",
+  "tag": "v4.2",
+  "release_id": 424684203,
+  "published_at": "2026-10-26T19:42:20Z",
+  "source_tag_commit": "9e26dbb9b2b3cc1a107a786f4935eef4cb813a28",
+  "assets": [
+    {
+      "name": "FILE-MANIFEST.json",
+      "sha256": "79ba06144d9a439b8ebfc2c94ea12ed73c8e297d2290a47d1042e487d2bbef70",
+      "bytes": 245228,
+      "url": "https://github.com/Tobillicious/snuffy-canon-edition/releases/download/v4.2/FILE-MANIFEST.json",
+      "state": "uploaded"
+    },
+    {
+      "name": "FINAL-VERIFICATION.json",
+      "sha256": "71fa72c93b3c5db307a29ada5acd6efd24127935f7d022d5c4844811cc1c9f75",
+      "bytes": 6108,
+      "url": "https://github.com/Tobillicious/snuffy-canon-edition/releases/download/v4.2/FINAL-VERIFICATION.json",
+      "state": "uploaded"
+    },
+    {
+      "name": "PACKAGE-REPLAY.json",
+      "sha256": "eac408c4abca8ca088020170cfaef815612751639ae4328fc34bbf1d49492523",
+      "bytes": 763,
+      "url": "https://github.com/Tobillicious/snuffy-canon-edition/releases/download/v4.2/PACKAGE-REPLAY.json",
+      "state": "uploaded"
+    },
+    {
+      "name": "PUBLICATION-RECEIPT.json",
+      "sha256": "1b94f8f74345550a5ecc19fc0c6bb44b34b043fd5332ac22f58fab921409982d",
+      "bytes": 3551,
+      "url": "https://github.com/Tobillicious/snuffy-canon-edition/releases/download/v4.2/PUBLICATION-RECEIPT.json",
+      "state": "uploaded"
+    },
+    {
+      "name": "Snuffy-Canon-Edition-4.2-Deposit.zip",
+      "sha256": "ab02ae38afa156e22020c58a2053235a48a9568087fcd734d8ee9e102efe4971",
+      "bytes": 22581871,
+      "url": "https://github.com/Tobillicious/snuffy-canon-edition/releases/download/v4.2/Snuffy-Canon-Edition-4.2-Deposit.zip",
+      "state": "uploaded"
+    },
+    {
+      "name": "Snuffy-Canon-Edition-4.2-Deposit.zip.sha256",
+      "sha256": "2cdafa74a7bc473e895ffd856eed1a0796e437fde3b3c030c1e736cf51eff8da",
+      "bytes": 103,
+      "url": "https://github.com/Tobillicious/snuffy-canon-edition/releases/download/v4.2/Snuffy-Canon-Edition-4.2-Deposit.zip.sha256",
+      "state": "uploaded"
+    },
+    {
+      "name": "Snuffy-Canon-Edition-4.2.epub",
+      "sha256": "e9ef1caf1ee7090db5f04588196dee22e1bc37bd199d84213384400fd5222c03",
+      "bytes": 208248,
+      "url": "https://github.com/Tobillicious/snuffy-canon-edition/releases/download/v4.2/Snuffy-Canon-Edition-4.2.epub",
+      "state": "uploaded"
+    },
+    {
+      "name": "Snuffy-Canon-Edition-4.2.html",
+      "sha256": "ac06b92d2c446ed8388c5eb7edf1d8033e84d22b71e9f7a392c1e5e40c8f071f",
+      "bytes": 965516,
+      "url": "https://github.com/Tobillicious/snuffy-canon-edition/releases/download/v4.2/Snuffy-Canon-Edition-4.2.html",
+      "state": "uploaded"
+    },
+    {
+      "name": "Snuffy-Canon-Edition-4.2.pdf",
+      "sha256": "a9d8e6d0e1dca35462f94b6e98f145eb96e5bef2d012225701b1943f9e746399",
+      "bytes": 567101,
+      "url": "https://github.com/Tobillicious/snuffy-canon-edition/releases/download/v4.2/Snuffy-Canon-Edition-4.2.pdf",
+      "state": "uploaded"
+    }
+  ],
+  "remote_assets_verified_against_local": true,
+  "verified_assets": 9,
+  "actual_installation_residual_certified": false
+}

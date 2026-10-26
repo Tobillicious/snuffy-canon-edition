@@ -1,0 +1,41 @@
+{
+  "status": "local author-review draft; checkpoint12 PASS; actual noisy physical holding certificate unfinished",
+  "changes": [
+    {
+      "file": "SNUFFY-CANON-EDITION-4.2-MASTER.md",
+      "before_sha256": "184c2ad2d60fd51c091b0d8cf9c4901710e4b480e0d8994a81c374cbfb3e4b6a",
+      "after_sha256": "f6d47facf3a54e9d688a25cc80a5087f722362966171ee1b59ab8fa9e4ba737e"
+    },
+    {
+      "file": "inserts/25-boundary-work-history.md",
+      "before_sha256": "efb2b7ddf17e60658acd64918294e25155c6bfd4cd9c21afae28c0c19ad41cdc",
+      "after_sha256": "3edb389348e332ee0c2010e2866054cbea4b5b7370f6d6286340c504b3c37381"
+    },
+    {
+      "file": "inserts/23-machine-checked-canon.md",
+      "before_sha256": "c5cd375650cf4ee58b25913f93cbf2f1c4c044f5885002d523bed7afd11739d3",
+      "after_sha256": "54253e9e2a3c3f9c712419f2a89c2ebaf8e53b5303a1e31893f7ac0c50e1a5a8"
+    },
+    {
+      "file": "README.md",
+      "before_sha256": "b131e2d1201a562a6fe82401d8b382c50042d5f03aaaa03463d817af0f293cbc",
+      "after_sha256": "145b6bf7981d5d586aa534b5ce0b4a7b257d3561c4e62989698f2ff1e010d7e0"
+    },
+    {
+      "file": "REPAIR-STATUS.md",
+      "before_sha256": "1a01f1601bb1f792f56aa886843d631cd5d7d8caa61e323f4a0dc24de8e42736",
+      "after_sha256": "f91155d4519913bd53ae13b83d2b07d716bc833903fb2640e6d82f7a7d7af359"
+    },
+    {
+      "file": "PUBLICATION-CHECKLIST.md",
+      "before_sha256": "cec79278769239d56fe84d6a1ea89a00f686d9065517797fb8f1c2c01c106e6b",
+      "after_sha256": "d0ece64529f2c3542b2e7bda1f97d28fdb6f44851778734cfe69f411e2ee244d"
+    },
+    {
+      "file": "CITATION.cff",
+      "before_sha256": "f09bad45f69372db8dc5a1c52db30bf15cea9c2c0cb587baf81d39ef11f801ed",
+      "after_sha256": "969fcce8aeb009a15f41a43ce843f94f4c19a69272322e9f5d764bd211953c7d"
+    }
+  ],
+  "before_images": "snapshots/codex-before-prose-08"
+}

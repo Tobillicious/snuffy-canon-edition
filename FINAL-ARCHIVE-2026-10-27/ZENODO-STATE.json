@@ -1,0 +1,23 @@
+{
+  "parent_id": 23631881,
+  "draft_id": 23674632,
+  "conceptrecid": "23608442",
+  "parent_content_before": {
+    "version": "4.1",
+    "doi": "10.5281/zenodo.23631881",
+    "files": {
+      "Snuffy-Canon-Edition-4.1.epub": {
+        "md5": "7fd761aaa50054ceee4cf1fbf05c08d5",
+        "bytes": 94907
+      },
+      "Snuffy-Canon-Edition-4.1.pdf": {
+        "md5": "081af074c9bcb6c657a57bc7d3d4adbb",
+        "bytes": 296203
+      },
+      "Snuffy-Canon-Edition-4.1-Deposit.zip": {
+        "md5": "716f4b6ce0885a84800060cb66fe0226",
+        "bytes": 953790
+      }
+    }
+  }
+}

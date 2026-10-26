@@ -1,0 +1,9 @@
+{
+  "module": "HistoryPolymer",
+  "source_sha256": "3913b471688ee8fe3c36f8a07d3ee5ff94f819d9dc9638ca82158877da8521b4",
+  "dependency_reuse": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-09-warmstart-walk9/objects/Snuffy",
+  "scope": "targeted compilation and kernel check; not full canon verification",
+  "compile_exit": 1,
+  "compiler_output_bytes": 884,
+  "pass": false
+}

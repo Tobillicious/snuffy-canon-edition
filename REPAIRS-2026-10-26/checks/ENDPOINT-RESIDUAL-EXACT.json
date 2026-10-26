@@ -1,0 +1,28 @@
+{
+  "scope": "Exact finite residual, record, reset-cap and stage-allocation checks; no installed kernel, all-level proof or Lean compilation.",
+  "joint_kernel": {
+    "shared_cause_law_local_stochastic": true,
+    "product_marginal_substitution_error_l1": "1/4096",
+    "joint_cause_inverse_exact": true,
+    "suffix_contracts_residual": true,
+    "data_only_comparison_misses_record_error": "2"
+  },
+  "gross_reset": {
+    "capped_paths_enumerated": 36,
+    "reset_and_activation_caps_checked": true,
+    "cap_requires_upward_jump": true,
+    "gross_heat_bound_all_capped_paths": "3 E",
+    "zero_net_unbounded_recrossing_witnesses": 32,
+    "exact_uniformisation_initial_states": 3,
+    "exact_uniformisation_steps_per_state": 16
+  },
+  "allocation_and_translation": {
+    "age_allocations_checked": 65,
+    "eight_terms_equal_original_ceiling": true,
+    "residual_TV_allocation_has_factor_two": true,
+    "translation_necessary_occupation_cases": 1296,
+    "fixed_translation_prefactor_verified": true
+  },
+  "all_exact_checks_pass": true,
+  "source_sha256": "63766b566ab67525f63fb6ac29bf7d0237ed40ab9d9af870e9ad8f047bd41399"
+}

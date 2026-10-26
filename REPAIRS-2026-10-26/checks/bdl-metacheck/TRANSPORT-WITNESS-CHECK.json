@@ -1,0 +1,130 @@
+{
+  "scope": "one explicit globally valid Dec counterexample",
+  "syndrome": {
+    "indices": [
+      21,
+      22,
+      68,
+      101
+    ],
+    "cells": [
+      "('q', ('Q', ('h', 0, 1)), ('L', frozenset({('Q', ('h', 0, 1)), ('Z', (0, 0))}), 1))",
+      "('q', ('Q', ('v', 1, 0)), ('L', frozenset({('Z', (0, 0)), ('Q', ('v', 1, 0))}), 1))",
+      "('x', ('X', (1, 1)), ('C', frozenset({('Z', (0, 0)), ('Q', ('v', 1, 0))})))",
+      "('x', ('X', (1, 1)), ('C', frozenset({('Z', (0, 1)), ('Q', ('h', 0, 1))})))"
+    ]
+  },
+  "coarse_support": [
+    "('Z', (0, 0))",
+    "('Z', (0, 1))"
+  ],
+  "fine_weight": 4,
+  "qubit_error_preimage": {
+    "indices": [
+      22,
+      38,
+      47
+    ],
+    "cells": [
+      "('x', ('X', (1, 1)), ('C', ('Q', ('h', 0, 1))))",
+      "('x', ('X', (1, 1)), ('L', frozenset({('Q', ('h', 0, 1)), ('Z', (0, 0))}), 1))",
+      "('x', ('X', (1, 1)), ('L', frozenset({('Z', (0, 0)), ('Q', ('v', 1, 0))}), 1))"
+    ]
+  },
+  "all_two_cell_subsets": [
+    {
+      "indices": [
+        21,
+        22
+      ],
+      "valid": false
+    },
+    {
+      "indices": [
+        21,
+        68
+      ],
+      "valid": false
+    },
+    {
+      "indices": [
+        21,
+        101
+      ],
+      "valid": false
+    },
+    {
+      "indices": [
+        22,
+        68
+      ],
+      "valid": false
+    },
+    {
+      "indices": [
+        22,
+        101
+      ],
+      "valid": false
+    },
+    {
+      "indices": [
+        68,
+        101
+      ],
+      "valid": false
+    }
+  ],
+  "F_translations": [
+    {
+      "toggle": "('Z', (0, 0))",
+      "coarse_support": [
+        "('Z', (0, 1))"
+      ],
+      "fine_weight": 6
+    },
+    {
+      "toggle": "('Z', (0, 1))",
+      "coarse_support": [
+        "('Z', (0, 0))"
+      ],
+      "fine_weight": 6
+    },
+    {
+      "toggle": "('Z', (1, 0))",
+      "coarse_support": [
+        "('Z', (0, 0))",
+        "('Z', (0, 1))",
+        "('Z', (1, 0))"
+      ],
+      "fine_weight": 6
+    },
+    {
+      "toggle": "('Z', (1, 1))",
+      "coarse_support": [
+        "('Z', (0, 0))",
+        "('Z', (0, 1))",
+        "('Z', (1, 1))"
+      ],
+      "fine_weight": 6
+    },
+    {
+      "toggle": "('Z', (2, 0))",
+      "coarse_support": [
+        "('Z', (0, 0))",
+        "('Z', (0, 1))",
+        "('Z', (2, 0))"
+      ],
+      "fine_weight": 6
+    },
+    {
+      "toggle": "('Z', (2, 1))",
+      "coarse_support": [
+        "('Z', (0, 0))",
+        "('Z', (0, 1))",
+        "('Z', (2, 1))"
+      ],
+      "fine_weight": 6
+    }
+  ]
+}

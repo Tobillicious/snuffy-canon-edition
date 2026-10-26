@@ -1,0 +1,16 @@
+{
+  "scope": "finite source-correspondence check: opposite CSS sector of the same code",
+  "variables": 3330,
+  "finest_checks": 3240,
+  "intermediate_checks": 84,
+  "seed_checks": 6,
+  "constraint_scopes": 433,
+  "max_scope": 161,
+  "max_degree": 443,
+  "T1_square_pairs_with_more_than_two_shared_qubits": 0,
+  "valid_histories_checked": 500,
+  "standalone_components_checked": 1847,
+  "max_observed_history_to_finest_weight": 1.054054054054054,
+  "all_assertions_pass": true,
+  "source_sha256": "e59e409f4900275a939ba59d186a137dd98c371cb23637b64adc8f5ee7367f60"
+}

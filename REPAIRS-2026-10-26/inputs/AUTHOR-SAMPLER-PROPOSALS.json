@@ -1,0 +1,41 @@
+{
+  "purpose": "Preserve supplied mathematical proposals verbatim; they are inputs, not verification receipts. The withdrawn resource paste is excluded.",
+  "messages": [
+    {
+      "file": "AUTHOR-SAMPLER-PROPOSAL-01.txt",
+      "sha256": "57aab2990d3cd14cf6d80faa83b02b7bbecd201cebbb7a635e3f5abe9a810231",
+      "source": "current chat user message",
+      "timestamp": "2026-10-26T01:26:56.770Z"
+    },
+    {
+      "file": "AUTHOR-SAMPLER-PROPOSAL-02.txt",
+      "sha256": "b7d19572d0c0950f00ab15d5288ebc88eaca3f4741e436134d664430003201dd",
+      "source": "current chat user message",
+      "timestamp": "2026-10-26T01:29:10.158Z"
+    },
+    {
+      "file": "AUTHOR-SAMPLER-PROPOSAL-03.txt",
+      "sha256": "6539014c6e2a109b401093bae01a3c2b192454b56f88c70cbbeccbd17f61446f",
+      "source": "current chat user message",
+      "timestamp": "2026-10-26T01:31:20.308Z"
+    },
+    {
+      "file": "AUTHOR-SAMPLER-PROPOSAL-04.txt",
+      "sha256": "2671c97aa5d06c6b0836a17274f965b184a1b453beb5e40b6f3c6b7e7f5b8609",
+      "source": "current chat user message",
+      "timestamp": "2026-10-26T01:47:32.217Z"
+    },
+    {
+      "file": "AUTHOR-SAMPLER-PROPOSAL-05.txt",
+      "sha256": "a1968209bd293c973effffb64d521b54d982547ba057f9cf997aecab9f61a545",
+      "source": "current chat user message",
+      "timestamp": "2026-10-26T01:53:10.730Z"
+    },
+    {
+      "file": "AUTHOR-SAMPLER-PROPOSAL-06.txt",
+      "sha256": "f95d72bd55d92d8541f1ba8d095f5a40dd78da86bad803ecd6d8cf8cc36ab186",
+      "source": "current chat user message",
+      "timestamp": "2026-10-26T02:21:00.824Z"
+    }
+  ]
+}

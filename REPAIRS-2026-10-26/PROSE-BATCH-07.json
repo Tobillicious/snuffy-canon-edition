@@ -1,0 +1,31 @@
+{
+  "status": "local working draft for author review; final expanded audit in progress",
+  "changes": [
+    {
+      "file": "SNUFFY-CANON-EDITION-4.2-MASTER.md",
+      "before_sha256": "e58d0633f7115da8ff9fd9c6b6a9658089d871783b06839c080e42873bc99a13",
+      "after_sha256": "184c2ad2d60fd51c091b0d8cf9c4901710e4b480e0d8994a81c374cbfb3e4b6a"
+    },
+    {
+      "file": "inserts/25-boundary-work-history.md",
+      "before_sha256": "bfc1d4c488f55a8afb57646439e14faecbffcb8c3eb44c703da1a86d4232a574",
+      "after_sha256": "efb2b7ddf17e60658acd64918294e25155c6bfd4cd9c21afae28c0c19ad41cdc"
+    },
+    {
+      "file": "README.md",
+      "before_sha256": "bfba5b5a94f0316e1a01801a824360abbf2727678c70432e6930396a5a65d07b",
+      "after_sha256": "b131e2d1201a562a6fe82401d8b382c50042d5f03aaaa03463d817af0f293cbc"
+    },
+    {
+      "file": "REPAIR-STATUS.md",
+      "before_sha256": "7d63bf344fd35959fba175f36152e54093d3288b63dde86310e098817860a7e0",
+      "after_sha256": "1a01f1601bb1f792f56aa886843d631cd5d7d8caa61e323f4a0dc24de8e42736"
+    },
+    {
+      "file": "PUBLICATION-CHECKLIST.md",
+      "before_sha256": "1b73e075ebad051f732b8479e39ac5c86da3acc0d0f54cccefb1c3cfc0247ec8",
+      "after_sha256": "cec79278769239d56fe84d6a1ea89a00f686d9065517797fb8f1c2c01c106e6b"
+    }
+  ],
+  "before_images": "snapshots/codex-before-prose-07"
+}

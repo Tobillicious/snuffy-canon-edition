@@ -344,3 +344,85 @@ expansion: a multiscale analogue of Helmuth–Perkins–Regts with Jerrum–Vali
 reaching a warm start with C = poly(n).
 
 Research-level; open.
+
+---
+
+## Multiscale and "BCRD bridge" submissions (four, 26 October): not closed; foothold is BDL Theorem 4.7
+
+**Why these submissions fail.**
+* The renormalization contraction ε_{j+1} ≤ Cε_j^α e^{−βΔc₀ℓ^j} is asserted. BDL eq. (6) is a
+  polynomial expansion bound.
+* The top-down sampler's per-level error is undercounted. Each conditional law
+  P(s^{(j)}|s^{(j+1)}) is over Θ(n_j) variables, so pointwise-accurate sampling of it is the original
+  problem at size n_j.
+* The "relational tree" changes the metric, not the measure. The polymer activity e^{−β|Γ|_rel}
+  omits the entropy of the violated checks inside each block, which holds up to ℓ^{3j} checks. The
+  computed partner requirement at distance ℓ^j is unchanged.
+* Exact splitting over F₂ holds for any short exact sequence of vector spaces but gives no locality;
+  local splitting is the question. Operator norms over F₂ are not meaningful.
+* These submissions do not address the substantive BCRD question: whether entanglement-type relations
+  are identity-constituting under P2 and P3.
+
+**Foothold (read directly).** BDL Theorem 4.7, for R_X; §4 gives the R_Z analogue. For every level-i
+syndrome σ there is a locally computable coarse-graining σ ↦ (σ′, f) with σ = δf + F(σ′) and
+|σ′| ≤ |σ|/2. Every valid syndrome is therefore a locally valid part δf plus the embedded image of a
+coarser syndrome of at most half the weight. This is metacheck soundness in multiscale form.
+
+**Pātai 2⁷ (the sharpened target).** Build a sampler that inverts this decomposition: sample σ′ at
+level i − 1 recursively, then the local f, then set σ = δf + F(σ′). Bound its pointwise ratio to the
+thermal law π_i level by level, by counting the fibres {(σ′, f) ↦ σ} and their Boltzmann weights. BDL's
+lifetime analysis (§4–5) controls these coarse-graining steps under the Gibbs measure and is the base
+to build on.
+
+---
+
+## Fibre-counting submissions (three, 26 October): wrong direction; the renormalised measure is assumed
+
+**Why these submissions fail.**
+* **The inequality runs the wrong way.** A warm start needs μ̃ ≤ Cπ, that is, sup μ̃/π. All three
+  bound π/μ̃ instead. One displayed bound, exp(−(β/2 − c₀/n^γ)|σ| + ΔZ), decays with |σ|, which
+  would put π far below μ̃ on heavy syndromes — the opposite of a warm start.
+* **The key step is assumed.** Sampling σ′ ∼ π_{i−1} and then f from a local rule reproduces π_i
+  only if two things hold:
+  - the push-forward of π_i under BDL's coarse-graining map equals π_{i−1}, or is controllably close;
+  - P(f|σ′) is π_i's conditional.
+  Neither is shown, and the first is generally false. A renormalised measure is not the coarser Gibbs
+  law, since |σ| = |δf + F(σ′)| is not a function of σ′ alone. The fibre bound
+  log|𝓕_σ| ≤ c₀|σ|/n^γ and the "Bayes" factorisation both presuppose it.
+* **The remainder does not touch the gap.**
+  - Dobrushin total-variation contraction gives no pointwise ratio.
+  - The tail-sum algebra is correct only given the per-level errors δ_i, which are not derived.
+  - Azuma concentration for local observables is unrelated to pointwise domination.
+
+**Pātai 2⁸ (sharpened).** Compute the renormalised measure: the push-forward of π_i under the
+Theorem 4.7 coarse-graining map (and its R_Z analogue), as a Gibbs-like law on level-(i − 1)
+syndromes with explicit effective weights. Then bound sup_σ μ̃_i(σ)/π_i(σ) for the reverse sampler,
+level by level.
+
+---
+
+## Renormalised-measure submissions (two, 26 October): correct object, crux asserted; corrected design (pātai 2⁹)
+
+**What is correct.** The renormalised law π_i^coarse(σ′) with effective Hamiltonian
+H_eff(σ′) = |F(σ′)| − β⁻¹ log 𝒵_fiber(σ′) is the right object.
+
+**Why these submissions fail.**
+* Step 4 asserts Z_i/(Z_{i−1}𝒵_fiber) = 1 + O(e^{−cn^γ}). But 𝒵_fiber depends on σ′, and its
+  variation is H_eff. A sampler drawing σ′ ∼ π_{i−1}, with energy |σ′|, is off from π_i^coarse by
+  e^{β(H_eff(σ′) − |σ′|)} pointwise. That factor is extensive, not 1 + small.
+* The bounds on F (|F(σ′)| ≤ |σ′|, "norm ≤ 1") are unsupported. F lifts by thickening or doubling.
+* Wasserstein-1 contraction does not give pointwise domination.
+
+**Pātai 2⁹ (corrected design).**
+1. Sample each coarse level from the renormalised law π_i^coarse itself, so that the recursion samples
+   a flow of effective models.
+2. **Fine step.** Given σ′, the conditional law of the local correction f is a local, bounded-degree
+   Markov random field; f are free local cochains with no metachecks. Helmuth–Perkins–Regts counting
+   with Jerrum–Valiant–Vazirani sampling then gives pointwise accuracy 1 ± ε/n_i. To verify against
+   Theorem 4.7's local rule: that the constraint "lies in the image of the coarse-graining map" is
+   local.
+3. **RG stability (the open content).** Show that the effective potentials stay finite-range and small
+   at every level, by a recursive cluster expansion in the manner of arXiv:2610.22548, so that each
+   level's model stays in the class handled by step 2.
+
+Given steps 2 and 3, the reverse sampler is pointwise accurate, with C = O(1).

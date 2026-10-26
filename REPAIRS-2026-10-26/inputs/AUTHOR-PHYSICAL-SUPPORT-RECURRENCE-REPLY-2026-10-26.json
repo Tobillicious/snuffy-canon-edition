@@ -1,0 +1,10 @@
+{
+  "source_session": "/Users/admin/.codex/sessions/2026/10/26/rollout-2026-10-26T13-54-36-01a175b3-bfdb-71c1-afa3-108ed94c2b24.jsonl",
+  "source_line": 2866,
+  "timestamp": "2026-10-26T07:45:17.016Z",
+  "questionItemId": "[\"request_user_input_async\",\"call_2f0c09f7601e46bbb0f288c3661a9bc6\",0]",
+  "question": "Pātai for the direct-history route: can you supply the actual transport bound taking the initial joint syndrome-occupation estimate through Φ_s, or directly prove I_a(T)=∫₀ᵀTr(P_bad Φ_s(E_a(I/2)))ds ≤ K T exp(−c n^η)? Deterministic decoder halving controls support at a fixed physical time; it does not give probability 2^(−cm) or preserve the initial law over time. A killed semigroup also needs its exit contribution restored. No spectral-gap claim is required. This is the remaining physical support for arbitrary-reference holding at the original ε/2^(a+2) budget; the corrected complete pathwise ledger is already assembled. Exact setup and sufficient alternatives: /Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/REPAIRS-2026-10-26/PATAI-NEUTRAL-EXCURSION-CERTIFICATE-2026-10-26.md.",
+  "answer_file": "REPAIRS-2026-10-26/inputs/AUTHOR-PHYSICAL-SUPPORT-RECURRENCE-REPLY-2026-10-26.txt",
+  "answer_sha256": "0b1b35f12d50ddf3f52cada846c6908facafbf84045353f86c14605ffa76bec3",
+  "scope": "Candidate direct-time recurrence and excursion probability; neither physical premise is derived by the reply."
+}

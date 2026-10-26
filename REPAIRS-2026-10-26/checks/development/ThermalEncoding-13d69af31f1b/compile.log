@@ -1,0 +1,40 @@
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/REPAIRS-2026-10-26/claude-candidates/lean/Snuffy/ThermalEncoding.lean:57:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?m.56, ?m.55 i • ?m.57
+in the target expression
+  (∑ x, ∑ x_1, if x = x_1 then q x_1 • ρ else 0) = ρ
+
+S : Type u_1
+N : Type u_2
+M : Type u_3
+inst✝⁴ : Fintype S
+inst✝³ : Fintype N
+inst✝² : Fintype M
+inst✝¹ : DecidableEq S
+inst✝ : DecidableEq M
+E : S → Matrix N M ℂ
+hE : ∀ (s t : S), (E s)ᴴ * E t = if s = t then 1 else 0
+q : S → ℂ
+hq : ∑ s, q s = 1
+ρ : Matrix M M ℂ
+⊢ (∑ x, ∑ x_1, if x = x_1 then q x_1 • ρ else 0) = ρ
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/REPAIRS-2026-10-26/claude-candidates/lean/Snuffy/ThermalEncoding.lean:56:34: warning: This simp argument is unused:
+  Finset.sum_ite_eq'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_ite, smul_zero, Finset.mem_univ, ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/REPAIRS-2026-10-26/claude-candidates/lean/Snuffy/ThermalEncoding.lean:56:54: warning: This simp argument is unused:
+  Finset.mem_univ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_ite, smul_zero, Finset.sum_ite_eq', ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/REPAIRS-2026-10-26/claude-candidates/lean/Snuffy/ThermalEncoding.lean:56:71: warning: This simp argument is unused:
+  ite_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_ite, smul_zero, Finset.sum_ite_eq', Finset.mem_univ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

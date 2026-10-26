@@ -1,0 +1,22 @@
+{
+  "scope": "Candidate arguments, preserved as inputs; their completion claims are not verification receipts.",
+  "inputs": [
+    {
+      "source": "/Users/admin/.codex/attachments/e9e73a50-38f8-452e-ba38-7b9a7b0fcbb8/Pasted text.txt",
+      "preserved": "REPAIRS-2026-10-26/inputs/AUTHOR-KILLED-RESOLVENT-ATTACHMENT-2026-10-26.txt",
+      "sha256": "585d7f094606d33956b4b99b017bd2a318adac5570b3630427255249245e05ea"
+    },
+    {
+      "source": "/Users/admin/.codex/attachments/9c5bd8cb-1a54-44cd-8d16-1a8958720839/Pasted text.txt",
+      "preserved": "REPAIRS-2026-10-26/inputs/AUTHOR-FEYNMAN-KAC-ATTACHMENT-2026-10-26.txt",
+      "sha256": "3a1daadeaa39b8e0e88a7a3a17c4e168f473ca8fbbc52be9ea5d8efcb5198874"
+    },
+    {
+      "source_session": "/Users/admin/.codex/sessions/2026/10/26/rollout-2026-10-26T13-54-36-01a175b3-bfdb-71c1-afa3-108ed94c2b24.jsonl",
+      "source_line": 2365,
+      "timestamp": "2026-10-26T06:47:20.242Z",
+      "preserved": "REPAIRS-2026-10-26/inputs/AUTHOR-KILLED-RESOLVENT-MESSAGE-2026-10-26.txt",
+      "sha256": "220d3f7830d19e41fe84bacfc4d9e7cd788de071c6e524f99080af9fe26d4ea2"
+    }
+  ]
+}

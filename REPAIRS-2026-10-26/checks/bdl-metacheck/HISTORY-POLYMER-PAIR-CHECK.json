@@ -1,0 +1,19 @@
+{
+  "scope": "finite source-correspondence check: one R_X / R_Z pair",
+  "variables": 2398,
+  "finest_checks": 2256,
+  "intermediate_checks": 136,
+  "seed_checks": 6,
+  "constraint_scopes": 162,
+  "max_scope": 72,
+  "max_degree": 141,
+  "T1_square_pairs_with_more_than_two_shared_qubits": 0,
+  "valid_histories_checked": 500,
+  "standalone_components_checked": 5832,
+  "max_observed_history_to_finest_weight": 2.0,
+  "old_Dec_witnesses_checked": 4,
+  "arbitrary_assignments_checked": 500,
+  "arbitrary_invalid_rejected": 455,
+  "all_assertions_pass": true,
+  "source_sha256": "78fdfd350127d1b20a697cc7c3dedb678486459ea100baa7a7cc372638ea7ffc"
+}

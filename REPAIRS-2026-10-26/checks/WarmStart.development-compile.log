@@ -1,0 +1,78 @@
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:80:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.instDivInvMonoid', which is 'noncomputable'
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:87:0: warning: automatically included section variable(s) unused in theorem `Snuffy.WarmStart.fibre_mass_pos`:
+  [Fintype T]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype T] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:104:34: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:104:2: error: unsolved goals
+S : Type u_1
+inst✝² : Fintype S
+T : Type u_2
+inst✝¹ : Fintype T
+inst✝ : DecidableEq T
+r : S → T
+π : S → ℝ
+hπ : ∀ (x : S), 0 < π x
+x : S
+hn : fibre_mass r π (r x) ≠ 0
+⊢ (fibre_mass r π (r x) * if True then π x / fibre_mass r π (r x) else 0) = π x
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:104:34: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fibre_conditional]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:143:10: error(lean.unknownIdentifier): Unknown identifier `sum_div`
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:142:72: error: unsolved goals
+S : Type u_1
+inst✝² : Fintype S
+T : Type u_2
+inst✝¹ : Fintype T
+inst✝ : DecidableEq T
+r : S → T
+π : S → ℝ
+hπ : ∀ (x : S), 0 < π x
+x : S
+⊢ ∑ y, fibre_conditional r π (r x) y = (∑ y, if r y = r x then π y else 0) / fibre_mass r π (r x)
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:157:39: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:157:4: error: unsolved goals
+case pos
+S : Type u_1
+inst✝² : Fintype S
+T : Type u_2
+inst✝¹ : Fintype T
+inst✝ : DecidableEq T
+r : S → T
+π : S → ℝ
+hπ : ∀ (x : S), 0 < π x
+x y : S
+h : r x = r y
+⊢ (π x * if True then π y * (fibre_mass r π (r y))⁻¹ else 0) = π y * if True then π x * (fibre_mass r π (r y))⁻¹ else 0
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:157:39: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fibre_conditional, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:172:0: warning: automatically included section variable(s) unused in theorem `Snuffy.WarmStart.pointwise_from_absolute`:
+  [Fintype S]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype S] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

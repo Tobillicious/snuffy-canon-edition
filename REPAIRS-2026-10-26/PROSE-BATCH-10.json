@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-27",
+  "timezone": "Pacific/Auckland",
+  "status": "Local integration complete; installation joint-kernel residual not certified.",
+  "scope": "Prose and finite-check integration; no canonical Lean modification or new full compilation.",
+  "canonical_modules": 192,
+  "canonical_public_names": 1158,
+  "canonical_lean_modified": false,
+  "before_images": "snapshots/before-endpoint-final-10",
+  "review_baseline": "Preserved index matching the exact Batch 09 postimage hashes.",
+  "changes": [
+    {
+      "file": "CANON-EDITION-V4.2-WORKING/SNUFFY-CANON-EDITION-4.2-MASTER.md",
+      "working_before_sha256": "763999452c1db873fff99872ae90fe3666c90ee328c7c13c6be1b8851dc3be91",
+      "after_sha256": "83b62bd9ece8d35ba6ab221c6edd286b753f4a4093c8e322eb1f836cd8e6f933",
+      "batch09_index_sha256": "86c4977f8f0f90e3a8541467af36bb7037e9b6fa54ede24e5f1eb75580ed5157"
+    },
+    {
+      "file": "CANON-EDITION-V4.2-WORKING/inserts/25-boundary-work-history.md",
+      "working_before_sha256": "394c0ae5aac721e721aaf75d2e7decb3c2df7b1979c67d6fcf6c186383b14202",
+      "after_sha256": "f6c45299c807c5a2806ebb1eca9c643d2ea5119f2d7e448962c7782662881f40",
+      "batch09_index_sha256": "12e2b855aef1d5cae99f925c916d4bafe8d912cc9574213370c7d16430b18a80"
+    },
+    {
+      "file": "CANON-EDITION-V4.2-WORKING/REPAIR-STATUS.md",
+      "working_before_sha256": "7744c3ef630b422a47e608a5f31f4309535ce8180329d8391627abdc8efd1881",
+      "after_sha256": "8d9cfc36bff4f5ffe4985d65c242e18df1072224cc43eb2f5a45c4b9ec00044d",
+      "batch09_index_sha256": "7744c3ef630b422a47e608a5f31f4309535ce8180329d8391627abdc8efd1881"
+    },
+    {
+      "file": "00-HANDOFF-CURRENT-2026-10-26.md",
+      "working_before_sha256": "a0f8d6d0ff91e3668478d8fcffdcd6f28ba20d111eab994548214dcdee8e8f51",
+      "after_sha256": "4576e5f1d168482ff70b7ffd6bb66f6a826d7f231983fd61de87b6452f6a21b2",
+      "batch09_index_sha256": "a0f8d6d0ff91e3668478d8fcffdcd6f28ba20d111eab994548214dcdee8e8f51"
+    },
+    {
+      "file": "REPAIRS-2026-10-26/G21-ENDPOINT-INSERT-2026-10-27.md",
+      "working_before_sha256": "35d409c2351e4ed7efd3ccd0460fe2fe8966bc73dec3860d986523f4503137e3",
+      "after_sha256": "6e95f9b4e17db2dfa529893667a7e0da0e4b89c8421d10c743a3f29d52b647e1",
+      "batch09_index_sha256": "620fb79739de15f8e08d34418dd291590ef9f22cdbbdee23db2e384363bdb79e"
+    },
+    {
+      "file": "REPAIRS-2026-10-26/ENDPOINT-FAULT-MODEL-AND-CONTROLLER-COSTS-2026-10-27.md",
+      "working_before_sha256": "21855d7632c277d6f3ccf4cc35be64a2ef39671b31b378e2c90b25cdafa22e9c",
+      "after_sha256": "5d5a1bd09ef2651744ae5f32de3cf0ec4e24fc15c6bcd6ef07e3d4818506c211",
+      "batch09_index_sha256": "21855d7632c277d6f3ccf4cc35be64a2ef39671b31b378e2c90b25cdafa22e9c"
+    },
+    {
+      "file": "REPAIRS-2026-10-26/BOUNDED-PAULI-JUMP-ENDPOINT-2026-10-27.md",
+      "working_before_sha256": "90edd5f8e3e47646926c184be9d0affd8d9f7c93ac14c7e1d6aab082dc9a883b",
+      "after_sha256": "687a2c706ad06620ef99843da0d8e67f04b6e0b8342ddb43a9af149a4bc5984c"
+    },
+    {
+      "file": "REPAIRS-2026-10-26/MICROSCOPIC-PRIVATE-ENDPOINT-2026-10-27.md",
+      "working_before_sha256": "7b3388fbf582ad83546573c6b2d07f5be6c6214eca50be34f0aa5701af82523a",
+      "after_sha256": "399824311a62eb47de8539354804e17ed853123b2f1362598f988a94beb4248f"
+    },
+    {
+      "file": "REPAIRS-2026-10-26/checks/microscopic-endpoint.py",
+      "working_before_sha256": "12d1e1e5894947f7b60fb3e1ce5ecd5bfa1f485e5f109c02a2332b064f388a07",
+      "after_sha256": "7cdb1f39de7ecaf8d2fa134b43cbfcf63a4f1123c5eede2d840cab117afdf9ec"
+    }
+  ],
+  "new_derivation": "JOINT-ENDPOINT-KERNEL-CONSTRAINT-2026-10-27.md",
+  "new_derivation_sha256": "4b737d102426d02a4ae7ba38227a72bbcab347788220614905b0c13a52dedcd0",
+  "review_diff": "MANUSCRIPT-REVIEW-FINAL.diff",
+  "review_diff_sha256": "2a88863452826b0bcd3a215a264a7ed82c33af7f316785295554d685e82d8e1c",
+  "review_markdown": "MANUSCRIPT-BEFORE-AFTER-BATCH-10.md",
+  "review_markdown_sha256": "a9de6dfe4698e11500edd51170d0d55c68134fc87d80c1fc2ed4e7ef500465e0",
+  "controller_degree": "3 K_c + 5",
+  "K_c": "max(2g kappa+nu+4,3g+nu,3g+4nu+1)",
+  "residual_allocation": "delta_joint <= epsilon/2^(a+5)",
+  "original_stage_ceiling": "epsilon/2^(a+2)",
+  "joint_kernel_identified_for_installation": false,
+  "installation_residual_value_certified": false,
+  "maximal_target_unchanged": true,
+  "full_history_retained": true,
+  "global_physical_completion_claimed": false,
+  "merge_push_publication_performed": false,
+  "review_builder_sha256": "56d1ed3eb6ea8fc5956d8f92cdb2284a07fecf1cf38883b7a65921b834f1ab03"
+}

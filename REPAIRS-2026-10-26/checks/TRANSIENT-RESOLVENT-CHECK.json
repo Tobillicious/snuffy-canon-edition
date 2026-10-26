@@ -1,0 +1,10 @@
+{
+  "scope": "exact finite counterchecks of proposed analytical steps; not a UPT no-go or a BDL holding certificate",
+  "dissipator_factor_two_required": true,
+  "unkilled_stationary_zero_mode": true,
+  "nonnormal_gap_perturbation_counterexample": true,
+  "boundary_killing_is_not_uniform_spectral_shift": true,
+  "full_generator_reconstructed_as_killed_plus_exit_flux": true,
+  "all_assertions_pass": true,
+  "source_sha256": "5d536ef9db6a15988cf8f3b328b1f451faf8d15ae05b225945fc13ac2b61b271"
+}

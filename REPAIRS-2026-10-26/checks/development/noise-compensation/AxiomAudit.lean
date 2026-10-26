@@ -1,0 +1,7 @@
+import NoiseCompensation
+#print axioms NoiseCompensationPrototype.pauli_noise_inverse
+#print axioms NoiseCompensationPrototype.pauli_noise_sum
+#print axioms NoiseCompensationPrototype.pauli_inverse_sum
+#print axioms NoiseCompensationPrototype.pauli_noise_upper
+#print axioms NoiseCompensationPrototype.compensated_output
+#print axioms NoiseCompensationPrototype.swap_target_rate

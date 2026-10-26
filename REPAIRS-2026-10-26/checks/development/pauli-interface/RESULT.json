@@ -1,0 +1,23 @@
+{
+  "scope": "Development candidate only; not part of the canonical checkpoint 12 receipt.",
+  "source": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/REPAIRS-2026-10-26/candidates/PauliInterface.lean",
+  "source_sha256": "6aef97e670b61ba0eef2000a4053ba17eb4bb1b321ed90e7798a8dddfa2d75f4",
+  "statements": [
+    "fourier_inverse_coefficients",
+    "weighted_pauli_compose",
+    "weighted_pauli_inverse",
+    "weighted_pauli_sum",
+    "weighted_pauli_upper",
+    "anisotropic_compensated_output"
+  ],
+  "statement_count": 6,
+  "compile_exit": 0,
+  "compiler_output_bytes": 0,
+  "kernel_exit": 0,
+  "kernel_output_bytes": 0,
+  "axiom_audit_exit": 0,
+  "axioms_audited": 6,
+  "standard_axioms_only": true,
+  "source_unchanged": true,
+  "pass": true
+}

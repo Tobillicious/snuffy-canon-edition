@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-27",
+  "status": "local author-review draft; endpoint/controller derivations integrated; actual joint physical endpoint kernel not yet identified",
+  "canonical_modules": 192,
+  "canonical_public_names": 1158,
+  "canonical_lean_modified": false,
+  "before_images": "snapshots/codex-before-prose-09",
+  "changes": [
+    {
+      "file": "SNUFFY-CANON-EDITION-4.2-MASTER.md",
+      "before_sha256": "f6d47facf3a54e9d688a25cc80a5087f722362966171ee1b59ab8fa9e4ba737e",
+      "after_sha256": "86c4977f8f0f90e3a8541467af36bb7037e9b6fa54ede24e5f1eb75580ed5157"
+    },
+    {
+      "file": "inserts/25-boundary-work-history.md",
+      "before_sha256": "3edb389348e332ee0c2010e2866054cbea4b5b7370f6d6286340c504b3c37381",
+      "after_sha256": "12e2b855aef1d5cae99f925c916d4bafe8d912cc9574213370c7d16430b18a80"
+    },
+    {
+      "file": "REPAIR-STATUS.md",
+      "before_sha256": "f91155d4519913bd53ae13b83d2b07d716bc833903fb2640e6d82f7a7d7af359",
+      "after_sha256": "7744c3ef630b422a47e608a5f31f4309535ce8180329d8391627abdc8efd1881"
+    }
+  ],
+  "new_input": "G21-ENDPOINT-INSERT-2026-10-27.md",
+  "new_derivation": "ENDPOINT-FAULT-MODEL-AND-CONTROLLER-COSTS-2026-10-27.md",
+  "finite_checks": "checks/ENDPOINT-CONTROLLER-EXACT.json",
+  "global_physical_completion_claimed": false,
+  "merge_push_publication_performed": false,
+  "controller_degree": "3 K_c + 5",
+  "K_c": "max(2g kappa + nu + 4, 3g + nu, 3g + 4nu + 1)"
+}

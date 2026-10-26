@@ -1,0 +1,62 @@
+{
+  "one_sweep_dimer": {
+    "Dobrushin_row_sum": "1/2",
+    "one_pair_max_density": "3/2",
+    "independent_products": [
+      {
+        "sites": 2,
+        "max_density_after_one_sweep": "3/2"
+      },
+      {
+        "sites": 16,
+        "max_density_after_one_sweep": "6561/256"
+      },
+      {
+        "sites": 64,
+        "max_density_after_one_sweep": "1853020188851841/4294967296"
+      },
+      {
+        "sites": 128,
+        "max_density_after_one_sweep": "3433683820292512484657849089281/18446744073709551616"
+      }
+    ]
+  },
+  "TV_does_not_imply_pointwise_without_floor": [
+    {
+      "bits": 8,
+      "TV": "255/16384",
+      "TV_ceiling": "1/64",
+      "max_density": "319/64"
+    },
+    {
+      "bits": 16,
+      "TV": "65535/16777216",
+      "TV_ceiling": "1/256",
+      "max_density": "65791/256"
+    },
+    {
+      "bits": 32,
+      "TV": "4294967295/4398046511104",
+      "TV_ceiling": "1/1024",
+      "max_density": "4294968319/1024"
+    },
+    {
+      "bits": 64,
+      "TV": "18446744073709551615/75557863725914323419136",
+      "TV_ceiling": "1/4096",
+      "max_density": "18446744073709555711/4096"
+    }
+  ],
+  "BDL_one_qubit_error_cochain_kernel": {
+    "seed": [
+      3,
+      2
+    ],
+    "beta": "log(3)",
+    "selected_qubit": "('x', ('X', (1, 0)), ('L', frozenset({('X', (1, 0)), ('Q', ('v', 1, 0))}), 0))",
+    "incident_checks": 2,
+    "influence_row_lower_bound": "12/5",
+    "changed_outside_qubits": 6,
+    "scope": "this explicit one-qubit kernel; a different block cover needs its own certificate"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-27",
+  "timezone": "Pacific/Auckland",
+  "scope": "Fresh targeted finite endpoint tests plus prose/source/hash audit; no new full Lean run or installed-kernel certificate.",
+  "targeted_verification_pass": true,
+  "canonical_checkpoint12": {
+    "modules": 192,
+    "public_names": 1158,
+    "all_module_source_hashes_match": true,
+    "entire_checkpoint_snapshot_unchanged_files": 791,
+    "all_canonical_lean_source_files_unchanged": 194,
+    "batch09_artifacts_unchanged": true,
+    "fresh_lean_compilation_in_this_run": false
+  },
+  "manuscript": {
+    "master_author_G21_identical": true,
+    "endpoint_source_insert_identical": true,
+    "master_outside_G21_unchanged_from_batch09": true,
+    "review_diff_sha256": "2a88863452826b0bcd3a215a264a7ed82c33af7f316785295554d685e82d8e1c",
+    "review_markdown_sha256": "a9de6dfe4698e11500edd51170d0d55c68134fc87d80c1fc2ed4e7ef500465e0",
+    "physical_joint_kernel_identified": false,
+    "actual_residual_value_certified": false,
+    "residual_allocation": "delta_joint <= epsilon/2^(a+5)"
+  },
+  "freshly_executed_checks": [
+    {
+      "script": "REPAIRS-2026-10-26/checks/endpoint-controller-exact.py",
+      "source_sha256": "d22ae895eec6f0e8fbef45c0f7746ce9b6667bcf7574caa132399fa1e91059b9",
+      "receipt": "REPAIRS-2026-10-26/checks/ENDPOINT-CONTROLLER-EXACT.json",
+      "receipt_sha256": "92453047344a82c557e48d159d389e978fbee20429148c5d7f3c3b9e520c779a",
+      "log": "REPAIRS-2026-10-26/checks/endpoint-final-integration/endpoint-controller-exact.log",
+      "log_sha256": "92453047344a82c557e48d159d389e978fbee20429148c5d7f3c3b9e520c779a",
+      "exit": 0,
+      "freshly_executed": true,
+      "scope": "Exact finite endpoint algebra and connected-support coefficient checks; no full physical model or canonical Lean audit."
+    },
+    {
+      "script": "REPAIRS-2026-10-26/checks/noise-compensation-exact.py",
+      "source_sha256": "5700d235619fe94425f9a8be4802ff150073350e60a8c76840d2a96bc093e6de",
+      "receipt": "REPAIRS-2026-10-26/checks/NOISE-COMPENSATION-EXACT.json",
+      "receipt_sha256": "335880ef802885cb51feae02b68b9383a23734eccb4459106549f92e12799421",
+      "log": "REPAIRS-2026-10-26/checks/endpoint-final-integration/noise-compensation-exact.log",
+      "log_sha256": "21cd9a215141fcc272df98d2eda3a6bce5f2848b00670dcdc5e860efbfc8ff7b",
+      "exit": 0,
+      "freshly_executed": true,
+      "scope": "Exact finite checks for a specified independent local Pauli output channel; not full circuit identification or all-level verification."
+    },
+    {
+      "script": "REPAIRS-2026-10-26/checks/pauli-interface-exact.py",
+      "source_sha256": "16db4d01c4b013266718b9bf597e503af3c9e153ad4b625ce36ed955b257d09f",
+      "receipt": "REPAIRS-2026-10-26/checks/PAULI-INTERFACE-EXACT.json",
+      "receipt_sha256": "ff7dc97c0b6f35730d654cd4f3864d9df4a655a5597e87a0a9b0ad0636838940",
+      "log": "REPAIRS-2026-10-26/checks/endpoint-final-integration/pauli-interface-exact.log",
+      "log_sha256": "ff7dc97c0b6f35730d654cd4f3864d9df4a655a5597e87a0a9b0ad0636838940",
+      "exit": 0,
+      "freshly_executed": true,
+      "scope": "Exact finite algebra and syndrome-law tests, not a physical FT application or lifetime certificate."
+    },
+    {
+      "script": "REPAIRS-2026-10-26/checks/microscopic-endpoint.py",
+      "source_sha256": "7cdb1f39de7ecaf8d2fa134b43cbfcf63a4f1123c5eede2d840cab117afdf9ec",
+      "receipt": "REPAIRS-2026-10-26/checks/MICROSCOPIC-ENDPOINT.json",
+      "receipt_sha256": "f93493678e27c380fafb5a95c2a0a1ff72ac7614588b84177a1f94312b96766a",
+      "log": "REPAIRS-2026-10-26/checks/endpoint-final-integration/microscopic-endpoint.log",
+      "log_sha256": "f93493678e27c380fafb5a95c2a0a1ff72ac7614588b84177a1f94312b96766a",
+      "exit": 0,
+      "freshly_executed": true,
+      "scope": "Finite numerical generator identities only; not a physical isolation certificate or Lean theorem."
+    },
+    {
+      "script": "REPAIRS-2026-10-26/checks/correlated-pauli-jump.py",
+      "source_sha256": "f36d3418c0a47e00b6ab4183ec5d58d6dc98930d69818f72141ccd4f5a80e8b2",
+      "receipt": "REPAIRS-2026-10-26/checks/CORRELATED-PAULI-JUMP.json",
+      "receipt_sha256": "840199573e395401f6072c7d2c7624632a5f9991ba8ae487faada9061bbdad80",
+      "log": "REPAIRS-2026-10-26/checks/endpoint-final-integration/correlated-pauli-jump.log",
+      "log_sha256": "840199573e395401f6072c7d2c7624632a5f9991ba8ae487faada9061bbdad80",
+      "exit": 0,
+      "freshly_executed": true,
+      "scope": "Finite joint Pauli-jump generator and exact BDL seed inverse; no arbitrary correlated-fault reduction."
+    },
+    {
+      "script": "REPAIRS-2026-10-26/checks/endpoint-residual-exact.py",
+      "source_sha256": "63766b566ab67525f63fb6ac29bf7d0237ed40ab9d9af870e9ad8f047bd41399",
+      "receipt": "REPAIRS-2026-10-26/checks/ENDPOINT-RESIDUAL-EXACT.json",
+      "receipt_sha256": "10108c3e09e8b15f4df1b13ab8eff49ea14361967a14915a4c06e0f9b3d73215",
+      "log": "REPAIRS-2026-10-26/checks/endpoint-final-integration/endpoint-residual-exact.log",
+      "log_sha256": "10108c3e09e8b15f4df1b13ab8eff49ea14361967a14915a4c06e0f9b3d73215",
+      "exit": 0,
+      "freshly_executed": true,
+      "scope": "Exact finite residual, record, reset-cap and stage-allocation checks; no installed kernel, all-level proof or Lean compilation."
+    }
+  ],
+  "reused_development_kernel_receipts": [
+    {
+      "receipt": "REPAIRS-2026-10-26/checks/development/noise-compensation/RESULT.json",
+      "receipt_sha256": "c2a18842660849539783621a930edbee1d570bce513edca075f69c4dc67cacf8",
+      "statements": 6,
+      "source_hash_matches": true,
+      "freshly_recompiled": false
+    },
+    {
+      "receipt": "REPAIRS-2026-10-26/checks/development/pauli-interface/RESULT.json",
+      "receipt_sha256": "1b4bf5c71ebc8308f30920b68e5ca044554d3285cc796e22a129a616b6a416eb",
+      "statements": 6,
+      "source_hash_matches": true,
+      "freshly_recompiled": false
+    }
+  ],
+  "controller_degree": "3 K_c + 5",
+  "original_stage_ceiling": "epsilon/2^(a+2)",
+  "joint_residual_allocation": "epsilon/2^(a+5)",
+  "generic_unidentified_channel_residual_bound": 2,
+  "installation_joint_residual_value_certified": false,
+  "maximal_target_unchanged": true,
+  "full_history_retained": true,
+  "arbitrary_reference_tests_retained": true,
+  "global_physical_completion_claimed": false,
+  "merge_push_publication_performed": false,
+  "prose_batch_sha256": "ce2ad7c2ac5851c0885cf5e353feabd7d1252a683c459f108f2bdae9a5a80dff",
+  "verification_script_sha256": "7cc4590a63cf5f039019f61965952722c06e4be35037dba327a577add18377ed"
+}

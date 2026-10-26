@@ -1,0 +1,699 @@
+# Manuscript before/after batch 10
+
+27 October 2026, Pacific/Auckland. Local author review. The before images are the hash-matched staged Batch 09 postimages; the separate working-entry snapshot preserves the incoming partial sub-agent integration as well. Batches 07–09 and canonical Checkpoint 12 remain unchanged.
+
+This batch integrates bounded Pauli common causes, the gross reset/export invoice and the full-instrument residual constraint. The controller stage degree remains 3 K_c+5. The residual allocation is epsilon/2^(a+5) inside the original epsilon/2^(a+2) stage ceiling. Its actual installation value is still unverified; no global completion or publication is asserted.
+
+## CANON-EDITION-V4.2-WORKING/SNUFFY-CANON-EDITION-4.2-MASTER.md
+
+```diff
+--- batch09/CANON-EDITION-V4.2-WORKING/SNUFFY-CANON-EDITION-4.2-MASTER.md
++++ final/CANON-EDITION-V4.2-WORKING/SNUFFY-CANON-EDITION-4.2-MASTER.md
+@@ -3926,6 +3926,62 @@
+ noiseless classical-control convention is not a free physical controller:
+ the realised controller and its faults must occupy the charged accounts.
+ 
++
++#### Explicit reset/feedback generator and bounded correlated jump causes
++
++Initial correlations of finite private noise-label registers can be removed
++without resetting the unknown data. For target tau_j=diag(t_j), the jumps
++L_(j,u,v)=sqrt(nu_j t_(j,u))|u><v| give exactly
++G_j(rho)=nu_j[tau_j Tr(rho)-rho]. Since the replacer R_j is idempotent,
++exp(tG_j)=exp(-nu_j t)id+(1-exp(-nu_j t))R_j. The product reset differs
++from complete replacement by at most 2sum_j exp(-nu_j t) in diamond norm,
++even from initially correlated registers and references. A fixed reset
++time nu_min^(-1)ln(2m/delta_reset)=O(s) suffices. The reset invoice above
++covers it. This removes initial correlations; it does not remove new
++shared faults occurring after reset.
++
++For a concrete feedback slot choose H_(X,b)=b pi X/(2tau) and jump
++sqrt(gamma_X)X. These commute, at zero Bohr frequency, for both X and idle.
++The actual slot is its requested Pauli followed by X noise of probability
++(1-exp(-2gamma_X tau))/2<=gamma_X tau. The analogous Z slot yields a fixed
++anisotropic Pauli residual, independent of the requested Bell outcome.
++It therefore composes with the exact twirl of even a coherent private
++decoder. All couplings and durations are specified local parameters.
++
++Output-qubit independence can also be relaxed. For bounded Pauli causes
++P_e and generator L_e(t)=gamma_e(t)(Ad(P_e)-id), conjugation superoperators
++commute even when the underlying Paulis anticommute. Each is an involution,
++so exponentiating its two eigenspaces gives the exact joint channel
++
++    N=product_e[(1-p_e)id+p_e Ad(P_e)],
++    p_e=(1-exp(-2 integral gamma_e(t)dt))/2 <= integral gamma_e(t)dt.
++
++This factors over the specified physical jump causes, retaining correlations
++between output qubits. Each inverse is
++[(1-p_e)id-p_e Ad(P_e)]/(1-2p_e), with relative activity p_e/(1-p_e).
++One inverse vertex and one forward vertex per cause suffice. Bounded
++physical support, syndrome footprint w and incidence keep the augmented
++history graph's degree fixed. Include both CSS sectors in this graph when
++a cause flips both; their independence is not asserted. The existing KP,
++counting and O(1/n)-precision bounds therefore apply to this joint cause
++model with its enlarged fixed graph constants.
++
++For a k-qubit cause, its at most k single-qubit factors are used only in
++the initial logical-error proof. A partial factorisation translates the
++syndrome by a vector v of fixed weight at most w_split. Occupation of A
++after that translation requires occupation of A outside supp(v) before it.
++Thus Pr[A occupied after translation]<=C_split R_0^|A|, with
++C_split=R_0^(-w_split). The endpoint witness/union bound gains only the
++fixed factor k C_split. No global energy or probability ratio is used.
++
++The pulse formula requires the active Pauli causes to commute with the
++control Hamiltonian, or their actual propagated interaction-frame axes to
++remain fixed. Other causes retain their time-ordered channel and the
++residual bound in subsection 12. A common fluctuating rate retains its
++joint conditioning; replacing it by its mean would change the channel.
++This is a sufficient microscopic construction with bounded common causes,
++not a deduction that every admitted local-stochastic law has this form.
++
+ ### 10. Endpoint logical error and retained-record holding
+ 
+ The signed gas supplies a joint-occupation bound for every partial endpoint
+@@ -3952,8 +4008,14 @@
+ B_n<=poly(n)exp(-c n^eta_mem), uniformly over partial preparation layers
+ and both sectors. This estimate concerns the preparation layer, not an
+ unproved long-time transport of a sparse law. Stable-syndrome Pauli paths
+-act as logical identity. Thus m endpoint locations give e_out<=8m B_n.
+-The old block's bounded input-interface layer is covered by the earlier
++act as logical identity. For m single-qubit endpoint locations and m_c
++additional k-qubit causes, the explicit bound is
++
++    e_out<=8(m+k m_c C_split) B_n.
++
++Here C_split is the fixed translation factor derived above; it is one for
++the original single-qubit estimate. The old block's bounded input-interface
++layer is covered by the earlier
+ thermal-plus-fault occupation estimate, giving the corresponding e_in.
+ 
+ Keep all sampler/teleportation records H in the actual map E:L->Q tensor H
+@@ -3973,8 +4035,9 @@
+ discard H to obtain a Gibbs product inequality. H's own storage faults and
+ work remain in the classical-record account. A coherent private-channel
+ version can insert stable projectors only in a comparison process. The
+-gentle projection/telescoping bound gives the conservative endpoint error
+-16m sqrt(B_n), preserving the stretched-exponential suppression.
++gentle projection/telescoping bound gives the conservative private-decoder
++error 16m sqrt(B_n). Add the bounded Pauli-cause error above; both retain
++stretched-exponential suppression.
+ 
+ Add e_in,e_out, the FT diamond error, calibration/controller failure and
+ the dynamical term inside the original epsilon/2^(a+2) stage allowance.
+@@ -4044,17 +4107,64 @@
+ has a Hamiltonian logarithm of norm at most pi in gate-time units, so
+ switching it on/off has a fixed finite drive invoice.
+ 
+-For reset, raise undesired levels by E and use their downwards reset jumps.
+-The wrong-state probability obeys dp_bad/dt<=-nu_0 p_bad+2nu_0 exp(-beta E),
+-and hence p_bad(t)<=exp(-nu_0 t)+2exp(-beta E). Taking B,E and the capped
+-reset duration O(s) meets the union allocation for polynomially many
+-controller operations. Ramps cost O(B+E), and the bounded-spectrum first
+-law bounds net reset heat/export by control work plus O(B+E). Power-capped
+-controller/export actuators have an O(s) realised invoice. Admitted extra
+-circuit faults remain in the FT account, not omitted from this thermal
+-estimate. Landauer supplies the lower floor, not this upper bound.
+-
+-Reset duration and the linear per-primitive invoice add two conservative
++A gross reset invoice needs a physical cap: bounded energy and the first
++law bound net heat, while thermal recrossings can make gross heat arbitrarily
++large on a finite-time trajectory. Use a three-state reset star with ground
++0 and two undesired levels of energy E. During the reset, switch off the
++bridge bath and use jumps i->0 of rate nu_0 and 0->i of rate
++nu_0 exp(-beta E). The uncapped wrong-state probability is at most
++exp(-nu_0 tau)+2exp(-beta E).
++
++Make this a finite jump-budgeted primitive. Append a four-state counter
++c=0,1,2,3, and replace every reset jump L by
++L tensor |c+1><c| for c<3. At c=3 the reset coupling is off and a cap flag
++is retained. The clock still ends the attempt after the fixed tau. Every
++path of this instrument, including a capped failure, has at most three
++bath jumps, so its gross heat exchange is at most 3E. This is an actual
++finite generator specification, not a declaration that a noisy software
++flag can shut down an otherwise uncapped bath.
++
++Reaching three jumps requires an upward jump: without one there is at most
++the initial downward jump. The upward intensity is at most
++2nu_0 exp(-beta E), uniformly in the input and reference. Thus
++
++    Pr[cap reached]<=2nu_0 tau exp(-beta E),
++    ||Reset_cap-Reset_uncapped||_diamond<=4nu_0 tau exp(-beta E).
++
++The two trajectory instruments agree until the cap; the remaining channels
++have trace-norm difference at most two. Both the ordinary reset error and
++this extra cap contribution fit the existing controller allocation with
++E,tau=O(s), since log(polynomial operation count)=O(log s). The counter is
++constant-dimensional. Apply the same finite jump cap to activation-bath
++exposures whose gross throughput enters the invoice: without an upward
++jump there is again at most one downward jump, and the cap probability is
++bounded by 2nu_0 t exp(-beta B). A fixed constant safety shift in the
++existing journal barrier pays this allowance even for t=2^a. Thus uncapped activation recrossings are not hidden
++elsewhere in the primitive. Counter initialisation, flags, export and any
++additional faults remain in the charged controller/source model. A transition that
++bypasses this cap must enter the actual joint kernel or its residual.
++
++For the full-rank private-label replacer, a single-use latch avoids a
++recrossing bill altogether. With flag initially 0, use jumps
++sqrt(nu_j t_(j,u))|u,1><v,0| and make flag 1 absorbing. Summing over u,v
++makes the no-jump hazard exactly nu_j. Tracing the retained flag gives
++exp(-nu_j tau)id+(1-exp(-nu_j tau))R_j exactly, including every reference.
++There is at most one jump; the label energy span is O(s), also when a
++positive probability floor is used. This is an engineered reset instrument;
++the latch and its preparation are paid, rather than inferred from detailed
++balance of the uncapped reduced generator.
++
++Finally debit the gross drive and export work separately. Hamiltonian ramps
++cost at most their total variation O(B+E+1), and an exporter with bounded
++nonnegative power P_exp over its fixed duration costs at most P_exp tau.
++The capped reset contributes at most 3E of bath throughput; the single-use
++label reset contributes at most its energy span. With the constant-size
++latches/counters, this gives a complete O(s) primitive invoice in the
++specified device model on successful and failed attempts. It uses no net
++heat cancellation, expected jump count or Landauer upper bound. The actual
++cap, exporter and their faults must be bound to this same installation.
++
++Reset duration and this gross linear primitive invoice add two conservative
+ degrees. Consequently the complete stage implementation in this device
+ model satisfies
+ 
+@@ -4068,28 +4178,136 @@
+ logical input. These degree/invoice derivations are prose; the canonical
+ Checkpoint 12 source count is unchanged.
+ 
++### 12. Exact joint kernel constraint and bounded residual
++
++#### Exact finite joint law
++
++The comparison preparation must specify the complete joint fault-path law,
++including input interfaces, private decoders, Bell outcomes, both feedback
++slots and idles, classical commands, reset flags and retained records.
++Independent qubit marginals alone do not specify this law. A sufficient
++output law includes the local Pauli channels already derived, composed
++with the following bounded common causes:
++
++    N_0 = product_e [(1-p_e) id + p_e Ad(P_e)],
++    p_e = (1-exp(-2 integral gamma_e(t) dt))/2 < 1/2.
++
++Every P_e has fixed bounded physical support, syndrome footprint at most w,
++and bounded incidence per check. The Pauli axes are fixed in the actual
++control interaction frame. This follows exactly from the specified
++generator sum_e gamma_e(t)(Ad(P_e)-id), since all its conjugations commute.
++During pulses, commutation with the control Hamiltonian suffices. Otherwise
++the actual time-ordered channel must be propagated or charged below.
++Common random rates must retain their shared conditioning or be integrated
++into the joint kernel; substituting their means is not this identity.
++
++Its cause inverse is [(1-p_e)id-p_e Ad(P_e)]/(1-2p_e). Require the existing
++KP and witness inequalities on the augmented graph containing both CSS
++sectors and all inverse/forward cause vertices. In particular,
++
++    max_e p_e/(1-p_e) <= b z^w,
++    z^(1/K_0) <= b,  b <= [8eB(D_A+2)]^(-1),
++    theta(2Be b) <= 1/2.
++
++Any additional local four-Pauli factors retain their existing inverse and
++forward activity bounds. The same weighted-norm estimate permits total
++probability-vector rate error sum_e epsilon_e=O(1), hence O(1/n) per cause
++when their number is O(n). No independence between the two syndrome sectors
++is assumed for a cause that flips both.
++
++For a k-qubit cause, split it into at most k single-qubit Paulis only to
++bound initial logical error. A partial split translates the syndrome by a
++fixed v of weight at most w_split. The existing occupation estimate gives
++
++    Pr[A subset supp(sigma+v)] <= R_0^(-w_split) R_0^|A|.
++
++Indeed occupation of A outside supp(v) is necessary. Thus the extra factor
++C_split=R_0^(-w_split) is independent of n. The witness bound and endpoint
++union bound keep their stretched-exponential suppression, with a factor
++at most k C_split. No full-system Gibbs energy ratio is introduced.
++
++#### Residual bound with the records and reference retained
++
++Let E_0 and E_act be the nominal and actual preparation instruments with
++the same retained-record output H. Include any source noise memory in the
++input/dilation when it can be correlated with the protected state. Require
++a bound uniform on the admitted joint inputs, rather than a data-only
++marginal comparison. Put delta_ep=||E_act-E_0||_diamond. For any subsequent
++CPTP holding/decoder F and any reference,
++
++    ||(F E_act tensor id)(rho)-(F E_0 tensor id)(rho)||_1 <= delta_ep.
++
++There is no factor 2^a for a discrepancy confined to preparation. Two
++useful, explicit certificates for delta_ep are as follows.
++
++* If both maps use the same branch channels V_lambda and input-independent
++  joint probabilities K_act(lambda),K_0(lambda), including all correlations,
++  then delta_ep <= sum_lambda |K_act(lambda)-K_0(lambda)| = 2 TV(K_act,K_0).
++  This follows by the triangle inequality and ||V_lambda||_diamond=1.
++  State-dependent outcome laws require the full instrument norm instead.
++* If the joint nominal and actual generators on the same space generate
++  CPTP propagators and differ by V(t), their Duhamel identity is
++
++      U_act(t,0)-U_0(t,0)
++        = integral_0^t U_act(t,u) V(u) U_0(u,0) du.
++
++  Complete trace-norm contraction therefore gives delta_ep <= integral
++  ||V(u)||_diamond du. An omitted Hamiltonian contributes at most
++  2 integral ||H_cross(u)||/hbar du; an omitted dissipator gamma D_L
++  contributes at most 2 integral gamma(u)||L(u)||^2 du. A shared memory
++  is retained in this joint generator, not replaced by independent baths.
++
++Add bounds over disjoint residual segments only; do not double-charge
++faults already covered by the FT comparison or named failure accounts.
++Cap the sum at two. If a residual coupling remains during holding, its
++integral runs through that holding interval of length 2^a as well. The
++preparation-only contraction argument does not remove that interval.
++
++#### Unchanged stage budget
++
++Write B_a=epsilon/2^(a+2). A concrete sufficient allocation is
++
++    e_in + e_out + e_dyn + delta_FT + delta_reset
++      + 2 delta_cal + 2 delta_ctrl,record + delta_joint <= B_a,
++
++with each of the eight displayed terms at most B_a/8. The counter-cap
++comparison in the gross reset construction belongs to delta_ctrl,record
++at its stated diamond/probability conversion, not to a free extra budget.
++Incoming logical error is added separately and is never assumed to shrink.
++All previously retained history and arbitrary reference tests remain in
++these instruments. The existing size schedule supplies the represented
++model terms; it does not establish the residual joint-kernel bound.
++
++For example, an unmodelled generator bounded by v_a over a total short
++exposure tau_a has residual at most tau_a v_a. The allocated condition is
++tau_a v_a <= epsilon/2^(a+5). For a finite stochastic endpoint kernel it
++is enough that TV(K_act,K_0) <= epsilon/2^(a+6). These requirements apply
++to the unrepresented residual, not to the fixed represented Pauli rates.
++
++No installation values for K_act or V have been supplied by the finite
++checks. Without a source bound the universal residual bound is two; the
++positive excess max(0,e_model+delta_joint-B_a) may therefore remain.
++The exact remaining support is now quantitative: identify the complete
++joint cause/instrument model, or prove its residual fits the displayed
++unused allowance, and bind the capped controller/export device to the
++same execution. This does not narrow the original fault domain.
+ 
+ ### Exact remaining physical correspondence
+ 
+-The compensation and controller construction above close the specified
+-private Pauli-interface application once the actual joint endpoint kernel
+-has the displayed microscopic factorisation, including its input layer,
+-classical-control faults and final feedback. That factorisation must be
+-identified with the installation's guarded operation. It is not implied
+-by the original local-stochastic inequality: two endpoint faults can share
+-a cause while every required faulty set still has probability at most
+-p^|S|. Their product of marginals would be the wrong physical channel.
+-No general correlated-fault certificate is declared from that substitution.
+-
+-A retained joint-kernel compensation/holding construction can alternatively
+-discharge this correspondence. The earlier integrated-bad-weight route
+-also remains sufficient; static decoder halving alone does not supply its
+-physical-time transport. These are routes to the same full quantum,
+-arbitrary-reference, full-history target and original stage allowance.
+-The stage arithmetic, controller operation degree and retained-prefix G3
+-join need not be requested again. The installation's final kernel
+-identification remains unfinished; no global completion verdict, weakened
+-noise-domain replacement, merge or publication is issued.
++The sufficient joint cause model and the permitted residual are now explicit.
++The installation must supply its full retained-record instrument, including
++common causes, input interfaces, final feedback and the capped controller/
++export mechanism, with delta_joint at most epsilon/2^(a+5) in the displayed
++allocation. A finite joint kernel or the integrated generator bound supplies
++a checkable certificate; output marginals and local-stochastic inequalities
++alone do not. No installation value for this residual has been established
++by the finite checks, so the physical source correspondence remains open.
++
++The original quantum, arbitrary-reference, full-history target and stage
++allowance are unchanged. The integrated-bad-weight route remains another
++sufficient construction. Canonical Checkpoint 12 remains 192 modules /
++1,158 names; the new identities and invoice are prose and finite checks.
++This integration issues no global completion verdict or publication.
+ 
+ 
+ ---
+```
+
+## CANON-EDITION-V4.2-WORKING/inserts/25-boundary-work-history.md
+
+```diff
+--- batch09/CANON-EDITION-V4.2-WORKING/inserts/25-boundary-work-history.md
++++ final/CANON-EDITION-V4.2-WORKING/inserts/25-boundary-work-history.md
+@@ -589,6 +589,62 @@
+ noiseless classical-control convention is not a free physical controller:
+ the realised controller and its faults must occupy the charged accounts.
+ 
++
++#### Explicit reset/feedback generator and bounded correlated jump causes
++
++Initial correlations of finite private noise-label registers can be removed
++without resetting the unknown data. For target tau_j=diag(t_j), the jumps
++L_(j,u,v)=sqrt(nu_j t_(j,u))|u><v| give exactly
++G_j(rho)=nu_j[tau_j Tr(rho)-rho]. Since the replacer R_j is idempotent,
++exp(tG_j)=exp(-nu_j t)id+(1-exp(-nu_j t))R_j. The product reset differs
++from complete replacement by at most 2sum_j exp(-nu_j t) in diamond norm,
++even from initially correlated registers and references. A fixed reset
++time nu_min^(-1)ln(2m/delta_reset)=O(s) suffices. The reset invoice above
++covers it. This removes initial correlations; it does not remove new
++shared faults occurring after reset.
++
++For a concrete feedback slot choose H_(X,b)=b pi X/(2tau) and jump
++sqrt(gamma_X)X. These commute, at zero Bohr frequency, for both X and idle.
++The actual slot is its requested Pauli followed by X noise of probability
++(1-exp(-2gamma_X tau))/2<=gamma_X tau. The analogous Z slot yields a fixed
++anisotropic Pauli residual, independent of the requested Bell outcome.
++It therefore composes with the exact twirl of even a coherent private
++decoder. All couplings and durations are specified local parameters.
++
++Output-qubit independence can also be relaxed. For bounded Pauli causes
++P_e and generator L_e(t)=gamma_e(t)(Ad(P_e)-id), conjugation superoperators
++commute even when the underlying Paulis anticommute. Each is an involution,
++so exponentiating its two eigenspaces gives the exact joint channel
++
++    N=product_e[(1-p_e)id+p_e Ad(P_e)],
++    p_e=(1-exp(-2 integral gamma_e(t)dt))/2 <= integral gamma_e(t)dt.
++
++This factors over the specified physical jump causes, retaining correlations
++between output qubits. Each inverse is
++[(1-p_e)id-p_e Ad(P_e)]/(1-2p_e), with relative activity p_e/(1-p_e).
++One inverse vertex and one forward vertex per cause suffice. Bounded
++physical support, syndrome footprint w and incidence keep the augmented
++history graph's degree fixed. Include both CSS sectors in this graph when
++a cause flips both; their independence is not asserted. The existing KP,
++counting and O(1/n)-precision bounds therefore apply to this joint cause
++model with its enlarged fixed graph constants.
++
++For a k-qubit cause, its at most k single-qubit factors are used only in
++the initial logical-error proof. A partial factorisation translates the
++syndrome by a vector v of fixed weight at most w_split. Occupation of A
++after that translation requires occupation of A outside supp(v) before it.
++Thus Pr[A occupied after translation]<=C_split R_0^|A|, with
++C_split=R_0^(-w_split). The endpoint witness/union bound gains only the
++fixed factor k C_split. No global energy or probability ratio is used.
++
++The pulse formula requires the active Pauli causes to commute with the
++control Hamiltonian, or their actual propagated interaction-frame axes to
++remain fixed. Other causes retain their time-ordered channel and the
++residual bound in subsection 12. A common fluctuating rate retains its
++joint conditioning; replacing it by its mean would change the channel.
++This is a sufficient microscopic construction with bounded common causes,
++not a deduction that every admitted local-stochastic law has this form.
++
+ ### 10. Endpoint logical error and retained-record holding
+ 
+ The signed gas supplies a joint-occupation bound for every partial endpoint
+@@ -615,8 +671,14 @@
+ B_n<=poly(n)exp(-c n^eta_mem), uniformly over partial preparation layers
+ and both sectors. This estimate concerns the preparation layer, not an
+ unproved long-time transport of a sparse law. Stable-syndrome Pauli paths
+-act as logical identity. Thus m endpoint locations give e_out<=8m B_n.
+-The old block's bounded input-interface layer is covered by the earlier
++act as logical identity. For m single-qubit endpoint locations and m_c
++additional k-qubit causes, the explicit bound is
++
++    e_out<=8(m+k m_c C_split) B_n.
++
++Here C_split is the fixed translation factor derived above; it is one for
++the original single-qubit estimate. The old block's bounded input-interface
++layer is covered by the earlier
+ thermal-plus-fault occupation estimate, giving the corresponding e_in.
+ 
+ Keep all sampler/teleportation records H in the actual map E:L->Q tensor H
+@@ -636,8 +698,9 @@
+ discard H to obtain a Gibbs product inequality. H's own storage faults and
+ work remain in the classical-record account. A coherent private-channel
+ version can insert stable projectors only in a comparison process. The
+-gentle projection/telescoping bound gives the conservative endpoint error
+-16m sqrt(B_n), preserving the stretched-exponential suppression.
++gentle projection/telescoping bound gives the conservative private-decoder
++error 16m sqrt(B_n). Add the bounded Pauli-cause error above; both retain
++stretched-exponential suppression.
+ 
+ Add e_in,e_out, the FT diamond error, calibration/controller failure and
+ the dynamical term inside the original epsilon/2^(a+2) stage allowance.
+@@ -707,17 +770,64 @@
+ has a Hamiltonian logarithm of norm at most pi in gate-time units, so
+ switching it on/off has a fixed finite drive invoice.
+ 
+-For reset, raise undesired levels by E and use their downwards reset jumps.
+-The wrong-state probability obeys dp_bad/dt<=-nu_0 p_bad+2nu_0 exp(-beta E),
+-and hence p_bad(t)<=exp(-nu_0 t)+2exp(-beta E). Taking B,E and the capped
+-reset duration O(s) meets the union allocation for polynomially many
+-controller operations. Ramps cost O(B+E), and the bounded-spectrum first
+-law bounds net reset heat/export by control work plus O(B+E). Power-capped
+-controller/export actuators have an O(s) realised invoice. Admitted extra
+-circuit faults remain in the FT account, not omitted from this thermal
+-estimate. Landauer supplies the lower floor, not this upper bound.
+-
+-Reset duration and the linear per-primitive invoice add two conservative
++A gross reset invoice needs a physical cap: bounded energy and the first
++law bound net heat, while thermal recrossings can make gross heat arbitrarily
++large on a finite-time trajectory. Use a three-state reset star with ground
++0 and two undesired levels of energy E. During the reset, switch off the
++bridge bath and use jumps i->0 of rate nu_0 and 0->i of rate
++nu_0 exp(-beta E). The uncapped wrong-state probability is at most
++exp(-nu_0 tau)+2exp(-beta E).
++
++Make this a finite jump-budgeted primitive. Append a four-state counter
++c=0,1,2,3, and replace every reset jump L by
++L tensor |c+1><c| for c<3. At c=3 the reset coupling is off and a cap flag
++is retained. The clock still ends the attempt after the fixed tau. Every
++path of this instrument, including a capped failure, has at most three
++bath jumps, so its gross heat exchange is at most 3E. This is an actual
++finite generator specification, not a declaration that a noisy software
++flag can shut down an otherwise uncapped bath.
++
++Reaching three jumps requires an upward jump: without one there is at most
++the initial downward jump. The upward intensity is at most
++2nu_0 exp(-beta E), uniformly in the input and reference. Thus
++
++    Pr[cap reached]<=2nu_0 tau exp(-beta E),
++    ||Reset_cap-Reset_uncapped||_diamond<=4nu_0 tau exp(-beta E).
++
++The two trajectory instruments agree until the cap; the remaining channels
++have trace-norm difference at most two. Both the ordinary reset error and
++this extra cap contribution fit the existing controller allocation with
++E,tau=O(s), since log(polynomial operation count)=O(log s). The counter is
++constant-dimensional. Apply the same finite jump cap to activation-bath
++exposures whose gross throughput enters the invoice: without an upward
++jump there is again at most one downward jump, and the cap probability is
++bounded by 2nu_0 t exp(-beta B). A fixed constant safety shift in the
++existing journal barrier pays this allowance even for t=2^a. Thus uncapped activation recrossings are not hidden
++elsewhere in the primitive. Counter initialisation, flags, export and any
++additional faults remain in the charged controller/source model. A transition that
++bypasses this cap must enter the actual joint kernel or its residual.
++
++For the full-rank private-label replacer, a single-use latch avoids a
++recrossing bill altogether. With flag initially 0, use jumps
++sqrt(nu_j t_(j,u))|u,1><v,0| and make flag 1 absorbing. Summing over u,v
++makes the no-jump hazard exactly nu_j. Tracing the retained flag gives
++exp(-nu_j tau)id+(1-exp(-nu_j tau))R_j exactly, including every reference.
++There is at most one jump; the label energy span is O(s), also when a
++positive probability floor is used. This is an engineered reset instrument;
++the latch and its preparation are paid, rather than inferred from detailed
++balance of the uncapped reduced generator.
++
++Finally debit the gross drive and export work separately. Hamiltonian ramps
++cost at most their total variation O(B+E+1), and an exporter with bounded
++nonnegative power P_exp over its fixed duration costs at most P_exp tau.
++The capped reset contributes at most 3E of bath throughput; the single-use
++label reset contributes at most its energy span. With the constant-size
++latches/counters, this gives a complete O(s) primitive invoice in the
++specified device model on successful and failed attempts. It uses no net
++heat cancellation, expected jump count or Landauer upper bound. The actual
++cap, exporter and their faults must be bound to this same installation.
++
++Reset duration and this gross linear primitive invoice add two conservative
+ degrees. Consequently the complete stage implementation in this device
+ model satisfies
+ 
+@@ -731,25 +841,133 @@
+ logical input. These degree/invoice derivations are prose; the canonical
+ Checkpoint 12 source count is unchanged.
+ 
++### 12. Exact joint kernel constraint and bounded residual
++
++#### Exact finite joint law
++
++The comparison preparation must specify the complete joint fault-path law,
++including input interfaces, private decoders, Bell outcomes, both feedback
++slots and idles, classical commands, reset flags and retained records.
++Independent qubit marginals alone do not specify this law. A sufficient
++output law includes the local Pauli channels already derived, composed
++with the following bounded common causes:
++
++    N_0 = product_e [(1-p_e) id + p_e Ad(P_e)],
++    p_e = (1-exp(-2 integral gamma_e(t) dt))/2 < 1/2.
++
++Every P_e has fixed bounded physical support, syndrome footprint at most w,
++and bounded incidence per check. The Pauli axes are fixed in the actual
++control interaction frame. This follows exactly from the specified
++generator sum_e gamma_e(t)(Ad(P_e)-id), since all its conjugations commute.
++During pulses, commutation with the control Hamiltonian suffices. Otherwise
++the actual time-ordered channel must be propagated or charged below.
++Common random rates must retain their shared conditioning or be integrated
++into the joint kernel; substituting their means is not this identity.
++
++Its cause inverse is [(1-p_e)id-p_e Ad(P_e)]/(1-2p_e). Require the existing
++KP and witness inequalities on the augmented graph containing both CSS
++sectors and all inverse/forward cause vertices. In particular,
++
++    max_e p_e/(1-p_e) <= b z^w,
++    z^(1/K_0) <= b,  b <= [8eB(D_A+2)]^(-1),
++    theta(2Be b) <= 1/2.
++
++Any additional local four-Pauli factors retain their existing inverse and
++forward activity bounds. The same weighted-norm estimate permits total
++probability-vector rate error sum_e epsilon_e=O(1), hence O(1/n) per cause
++when their number is O(n). No independence between the two syndrome sectors
++is assumed for a cause that flips both.
++
++For a k-qubit cause, split it into at most k single-qubit Paulis only to
++bound initial logical error. A partial split translates the syndrome by a
++fixed v of weight at most w_split. The existing occupation estimate gives
++
++    Pr[A subset supp(sigma+v)] <= R_0^(-w_split) R_0^|A|.
++
++Indeed occupation of A outside supp(v) is necessary. Thus the extra factor
++C_split=R_0^(-w_split) is independent of n. The witness bound and endpoint
++union bound keep their stretched-exponential suppression, with a factor
++at most k C_split. No full-system Gibbs energy ratio is introduced.
++
++#### Residual bound with the records and reference retained
++
++Let E_0 and E_act be the nominal and actual preparation instruments with
++the same retained-record output H. Include any source noise memory in the
++input/dilation when it can be correlated with the protected state. Require
++a bound uniform on the admitted joint inputs, rather than a data-only
++marginal comparison. Put delta_ep=||E_act-E_0||_diamond. For any subsequent
++CPTP holding/decoder F and any reference,
++
++    ||(F E_act tensor id)(rho)-(F E_0 tensor id)(rho)||_1 <= delta_ep.
++
++There is no factor 2^a for a discrepancy confined to preparation. Two
++useful, explicit certificates for delta_ep are as follows.
++
++* If both maps use the same branch channels V_lambda and input-independent
++  joint probabilities K_act(lambda),K_0(lambda), including all correlations,
++  then delta_ep <= sum_lambda |K_act(lambda)-K_0(lambda)| = 2 TV(K_act,K_0).
++  This follows by the triangle inequality and ||V_lambda||_diamond=1.
++  State-dependent outcome laws require the full instrument norm instead.
++* If the joint nominal and actual generators on the same space generate
++  CPTP propagators and differ by V(t), their Duhamel identity is
++
++      U_act(t,0)-U_0(t,0)
++        = integral_0^t U_act(t,u) V(u) U_0(u,0) du.
++
++  Complete trace-norm contraction therefore gives delta_ep <= integral
++  ||V(u)||_diamond du. An omitted Hamiltonian contributes at most
++  2 integral ||H_cross(u)||/hbar du; an omitted dissipator gamma D_L
++  contributes at most 2 integral gamma(u)||L(u)||^2 du. A shared memory
++  is retained in this joint generator, not replaced by independent baths.
++
++Add bounds over disjoint residual segments only; do not double-charge
++faults already covered by the FT comparison or named failure accounts.
++Cap the sum at two. If a residual coupling remains during holding, its
++integral runs through that holding interval of length 2^a as well. The
++preparation-only contraction argument does not remove that interval.
++
++#### Unchanged stage budget
++
++Write B_a=epsilon/2^(a+2). A concrete sufficient allocation is
++
++    e_in + e_out + e_dyn + delta_FT + delta_reset
++      + 2 delta_cal + 2 delta_ctrl,record + delta_joint <= B_a,
++
++with each of the eight displayed terms at most B_a/8. The counter-cap
++comparison in the gross reset construction belongs to delta_ctrl,record
++at its stated diamond/probability conversion, not to a free extra budget.
++Incoming logical error is added separately and is never assumed to shrink.
++All previously retained history and arbitrary reference tests remain in
++these instruments. The existing size schedule supplies the represented
++model terms; it does not establish the residual joint-kernel bound.
++
++For example, an unmodelled generator bounded by v_a over a total short
++exposure tau_a has residual at most tau_a v_a. The allocated condition is
++tau_a v_a <= epsilon/2^(a+5). For a finite stochastic endpoint kernel it
++is enough that TV(K_act,K_0) <= epsilon/2^(a+6). These requirements apply
++to the unrepresented residual, not to the fixed represented Pauli rates.
++
++No installation values for K_act or V have been supplied by the finite
++checks. Without a source bound the universal residual bound is two; the
++positive excess max(0,e_model+delta_joint-B_a) may therefore remain.
++The exact remaining support is now quantitative: identify the complete
++joint cause/instrument model, or prove its residual fits the displayed
++unused allowance, and bind the capped controller/export device to the
++same execution. This does not narrow the original fault domain.
+ 
+ ### Exact remaining physical correspondence
+ 
+-The compensation and controller construction above close the specified
+-private Pauli-interface application once the actual joint endpoint kernel
+-has the displayed microscopic factorisation, including its input layer,
+-classical-control faults and final feedback. That factorisation must be
+-identified with the installation's guarded operation. It is not implied
+-by the original local-stochastic inequality: two endpoint faults can share
+-a cause while every required faulty set still has probability at most
+-p^|S|. Their product of marginals would be the wrong physical channel.
+-No general correlated-fault certificate is declared from that substitution.
+-
+-A retained joint-kernel compensation/holding construction can alternatively
+-discharge this correspondence. The earlier integrated-bad-weight route
+-also remains sufficient; static decoder halving alone does not supply its
+-physical-time transport. These are routes to the same full quantum,
+-arbitrary-reference, full-history target and original stage allowance.
+-The stage arithmetic, controller operation degree and retained-prefix G3
+-join need not be requested again. The installation's final kernel
+-identification remains unfinished; no global completion verdict, weakened
+-noise-domain replacement, merge or publication is issued.
++The sufficient joint cause model and the permitted residual are now explicit.
++The installation must supply its full retained-record instrument, including
++common causes, input interfaces, final feedback and the capped controller/
++export mechanism, with delta_joint at most epsilon/2^(a+5) in the displayed
++allocation. A finite joint kernel or the integrated generator bound supplies
++a checkable certificate; output marginals and local-stochastic inequalities
++alone do not. No installation value for this residual has been established
++by the finite checks, so the physical source correspondence remains open.
++
++The original quantum, arbitrary-reference, full-history target and stage
++allowance are unchanged. The integrated-bad-weight route remains another
++sufficient construction. Canonical Checkpoint 12 remains 192 modules /
++1,158 names; the new identities and invoice are prose and finite checks.
++This integration issues no global completion verdict or publication.
+```
+
+## CANON-EDITION-V4.2-WORKING/REPAIR-STATUS.md
+
+```diff
+--- batch09/CANON-EDITION-V4.2-WORKING/REPAIR-STATUS.md
++++ final/CANON-EDITION-V4.2-WORKING/REPAIR-STATUS.md
+@@ -23,11 +23,15 @@
+ The ideal sampler source application has now been audited in prose, and the
+ complete-attempt bill and retained-prefix summations are derived. Initial
+ syndrome sparsity and the integrated bad-weight/reference-norm connection
+-are also derived in prose. G.21 now includes the compensated endpoint law, anisotropic feedback,
+-tracked-record holding conversion and explicit controller-degree/invoice
+-derivations. The installation's joint endpoint-kernel correspondence remains
+-unproved; local-stochastic marginals do not establish the required product
+-law. The earlier excursion route remains an alternative.
++are also derived in prose. G.21 now integrates bounded common Pauli jump
++causes, the retained-record endpoint constraint, and an explicit residual
++allowance inside epsilon/2^(a+2). The reset invoice bounds gross work and
++bath throughput using finite jump caps and a single-use label-reset latch.
++It no longer infers a gross upper bound from net heat. The installation
++must identify its complete joint instrument or prove the residual at most
++epsilon/2^(a+5) under the displayed allocation. No source value for this
++residual has been established. The earlier excursion route remains an
++alternative; local-stochastic marginals do not settle the joint kernel.
+ 
+ Remaining: the actual noisy preparation/handoff certificate at the original
+ reference-fidelity and failure budgets, joined to the complete pathwise G3
+@@ -37,4 +41,4 @@
+ The full build, generic support lemmas and proposed source application have
+ separate evidence. The inherited rendered PDF/HTML/EPUB and SHA256SUMS predate
+ this draft and must be regenerated after the final text is approved.
+-See the current continuation receipt and before/after batch 09, with batches 07 and 08 preserved.
++See the current continuation receipt and before/after batch 10 and its targeted verification receipt, with batches 07–09 preserved.
+```
+

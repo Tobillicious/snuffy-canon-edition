@@ -1,0 +1,39 @@
+{
+  "public_parent": {
+    "id": 23631881,
+    "conceptrecid": "23608442",
+    "submitted": true,
+    "state": "done",
+    "version": "4.1",
+    "doi": "10.5281/zenodo.23631881",
+    "links": {
+      "latest": "https://zenodo.org/api/records/23631881/versions/latest",
+      "latest_html": "https://zenodo.org/records/23631881/latest"
+    },
+    "files": [
+      "Snuffy-Canon-Edition-4.1.epub",
+      "Snuffy-Canon-Edition-4.1.pdf",
+      "Snuffy-Canon-Edition-4.1-Deposit.zip"
+    ]
+  },
+  "owned_parent": {
+    "id": 23631881,
+    "conceptrecid": "23608442",
+    "submitted": true,
+    "state": "done",
+    "version": "4.1",
+    "doi": "10.5281/zenodo.23631881",
+    "links": {
+      "html": "https://zenodo.org/records/23631881",
+      "latest_draft": "https://zenodo.org/api/deposit/depositions/23631881",
+      "newversion": "https://zenodo.org/api/deposit/depositions/23631881/actions/newversion",
+      "latest": "https://zenodo.org/api/records/23631881/versions/latest",
+      "latest_html": "https://zenodo.org/records/23631881/latest"
+    },
+    "files": [
+      "Snuffy-Canon-Edition-4.1.epub",
+      "Snuffy-Canon-Edition-4.1.pdf",
+      "Snuffy-Canon-Edition-4.1-Deposit.zip"
+    ]
+  }
+}

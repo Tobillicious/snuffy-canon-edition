@@ -1,0 +1,24 @@
+{
+  "scope": "exact arithmetic checks of candidate G3 draft; not a physical completion verdict",
+  "d1_active_sum_counterexample": {
+    "actual": 20,
+    "proposed_bound": 12
+  },
+  "realised_reset_vs_expectation": {
+    "realised": "7",
+    "expected": "7/4"
+  },
+  "integral_only_series_bound_counterexample": {
+    "dimension": 4,
+    "lambda": "ln 2",
+    "exact_series": "26",
+    "ln2_strict_rational_lower_bound": "4297606/6200145",
+    "six_over_lower_bound_fourth_is_less_than_26": true
+  },
+  "box_and_boundary_distinguished": {
+    "box": 125,
+    "boundary": 98
+  },
+  "all_assertions_pass": true,
+  "source_sha256": "2e5ee40456b4a58dc55331d62b5d8bb003159f4b4f20656ed9570159f114e3f0"
+}
