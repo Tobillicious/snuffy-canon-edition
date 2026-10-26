@@ -376,3 +376,50 @@ conditional (Liggett–Schonmann–Stacey) form, stated for history coordinates 
 t = 0 for the faulted thermal state with q of order (e^{−β} + p e^{βw})^{1/4}. The open content is
 its preservation by the physical dynamics. Points 3 (time union with explicit constants) and 5
 (thermal generation) then follow by bookkeeping.
+
+## Point 3 done: the time union (Lemma T) — proved, given the core lemma
+
+**Setting.** Uniformise the holding dynamics: every site has total jump rate at most R, so the
+process is a discrete chain X_0, X_1, … run at the times of a Poisson clock of rate Rn. Let A_L be
+the event that some history polymer of size at least L is present. Suppose the core lemma holds for
+the uniformised chain at every step k ≤ K, with q < 1/B. By the G.21 counting this gives
+
+    P(A_L at step k) ≤ ε_L := M (Bq)^L / (1 − Bq).
+
+**Lemma T.** For any T > 0, take K = ⌈2RnT⌉. Then
+
+    P(A_L at some time t ≤ T) ≤ K ε_L + P(Poisson(RnT) > K) ≤ K ε_L + e^{−RnT/3}.
+
+*Proof.* A_L can hold during [0, T] only at a step reached before T. Apply the union bound over
+the first K steps, and the Poisson tail bound P(Poisson(λ) ≥ 2λ) ≤ e^{−λ/3}. ∎
+
+**Choice of constants.** For a target δ, it suffices that
+
+    L ≥ [log(2RnTM/δ) + log(1/(1 − Bq))] / log(1/(Bq)).
+
+With T = e^{c n^{η′}} this is L ≈ (c n^{η′} + O(log n)) / log(1/(Bq)). The bound is useful if L
+stays below the smallest polymer size L* that can cause a logical error, of order n^{η} by BDL's
+decoder argument. This holds when η′ < η, or when η′ = η and c < c* log(1/(Bq)). The doubling
+schedule chooses n_j with 2^j ≤ T(n_j), so this is a choice of stage sizes, not a new hypothesis.
+
+**Disposition of the pasted Step 3.** Its union-bound arithmetic is the right shape and is
+superseded by Lemma T. Its other claims are not adopted:
+- τ_mix = O(log n) "independent mixing epochs": no such mixing time is established, and BDL warn
+  of bottlenecks;
+- the Azuma–Hoeffding step: X_m is not a bounded-difference martingale in any stated sense;
+- "c₂ > c": asserted without derivation.
+
+**Disposition of the pasted 5-step plan.** It agrees with this note's corrected target. Two notes:
+- Step 1, the monotone envelope for pairs: grouping defects into pairs does not restore
+  monotonicity, because pair annihilation is still non-attractive.
+- Step 4, the preservation of the conditional bound q(t) < 1/B for all t ≤ T, is the core lemma.
+  It is stated there as a task, not proved.
+
+## Status of the five points
+
+- 1 and 2: replaced by the conditional core lemma.
+- 3: done (Lemma T).
+- 4: done (bad event = history polymer, G.21 counting).
+- 5: done (thermal generation during holding; the gate faults enter only at t = 0, via N2).
+
+Open: the core lemma's preservation under the physical dynamics.
