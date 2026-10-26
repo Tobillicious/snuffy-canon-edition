@@ -214,3 +214,57 @@ The paste claims ‖ρ_R^prep − ρ_R^thermal‖₁ ≤ C K^{|∂R|} f(p). It i
    bound ν_t|_R ≤ K^{|R|} π|_R, preserved for all t ≤ e^{c n^{η′}}. At t = 0 it holds with
    K = 1 + p(e^{βw} − 1). The open content is its preservation in time, which the paste does not
    address.
+
+## The stuck residue is free-hopping point defects (computed 26 October, evening)
+
+`checks/bdl-metacheck/stuck_barrier.py` is run on the level-2 code at β = 8 and p = 0.02, for 100
+sweeps and 3 seeds (`STUCK-BARRIER-LEVEL2.jsonl`). Every residual cluster is a single violated
+Z-check. None has a downhill single flip, and none can be annihilated by any path of at most 4
+flips in its neighbourhood. Each has 3–5 zero-energy single flips that move it.
+
+`hop_orbits.py` computes the components of the zero-energy hop graph: Z-checks, with an edge for
+every qubit of syndrome weight 2 (`HOP-ORBITS.jsonl`).
+
+| Level | Z-checks | Components | Largest component | Sink-free components | Checks in sink-free components |
+|---|---|---|---|---|---|
+| 1 | 136 | 90 | 4 | 62 | 100 |
+| 2 | 2,256 | 90 | 72 | 62 | 1,656 |
+
+The number of components stays fixed while their size grows about 18-fold per level. A lone fine
+defect therefore wanders for free over a region that grows with the code. It disappears only on
+meeting another defect, or by reaching a sink (a weight-1 qubit) where its component has one.
+Paths inside a component differ by zero-syndrome cycles. The energy barrier BDL prove forces those
+cycles to be stabilizers, so free wandering inside a component by itself causes no logical error.
+
+### Disposition: pasted "Spacetime Polymer Cluster Expansion" proof
+
+It is not adopted.
+
+1. **The activity bound fails on exactly this residue.** The paste assigns every spacetime site of
+   a polymer the factor e^{−βΔE}. A free-hopping defect's worldline pays its energy once, at
+   creation, and then has weight Θ(1) per unit time. So the activity per spacetime volume is not
+   small, and the Kotecký–Preiss sum over worldline lengths diverges with the holding time.
+2. **Wrong time scale.** T = O(log n) is not the holding time. Each stage must hold for times up to
+   e^{c n^{η′}}.
+3. **The trajectory law is not a product over disjoint spacetime supports.** Transition rates depend
+   on neighbouring configurations. The rigorous object is a graphical construction with
+   disagreement percolation, not an abstract polymer gas.
+4. **Gate faults do not occur during passive holding.** The fault factor (p/(1−p))^{|γ|} belongs
+   only to the initial time slice.
+5. **The threshold is inverted.** Its own convergence condition μ e^{−βΔE+a} p/(1−p) < 1 does not
+   give p_c = (1 + μ e^{βΔE})^{−1}.
+
+### What this means for (R)
+
+A correct spacetime argument has to treat the faulted state's leftovers as diffusing charges inside
+macroscopic hop components. The precise sub-questions are now these.
+
+- **(R1)** Pairwise annihilation inside a component never produces a logical error. Inside a single
+  component this is the stabilizer property of its cycles. Across components it is the coarse-level
+  statement.
+- **(R2)** The defects that cannot pair inside their component (odd parity) stay at bounded density
+  and cannot assemble the large history polymer of the bad event within e^{c n^{η′}}. Their
+  motion between components needs uphill moves, which is where the hierarchical barrier enters.
+
+Neither BDL nor BGL proves (R1) or (R2) for the physical dynamics. This sharpens (R) into these two
+statements.

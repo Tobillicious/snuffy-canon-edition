@@ -1,0 +1,2 @@
+{"seed": [3, 2], "level": 1, "qubits": 206, "zchecks": 136, "components": 90, "largest": [4, 4, 4, 4, 2, 2, 2, 2], "sink_free_components": 62, "largest_sink_free": [4, 4, 4, 4, 2, 2, 2, 2], "checks_in_sink_free": 100}
+{"seed": [3, 2], "level": 2, "qubits": 5116, "zchecks": 2256, "components": 90, "largest": [72, 72, 72, 72, 36, 36, 36, 36], "sink_free_components": 62, "largest_sink_free": [72, 72, 72, 72, 36, 36, 36, 36], "checks_in_sink_free": 1656}
