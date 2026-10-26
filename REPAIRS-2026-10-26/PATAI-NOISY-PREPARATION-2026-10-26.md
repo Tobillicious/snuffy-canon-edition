@@ -423,3 +423,28 @@ superseded by Lemma T. Its other claims are not adopted:
 - 5: done (thermal generation during holding; the gate faults enter only at t = 0, via N2).
 
 Open: the core lemma's preservation under the physical dynamics.
+
+## Disposition: pasted "Lemma P (Preservation of the Conditional LSS Bound)"
+
+This is the first proposal aimed at the core lemma itself. It is not adopted, for three reasons;
+the first two are each fatal.
+
+1. **Its conclusion does not give the lemma.** It bounds Z_t(q) = Σ_Γ q^{|Γ|} P_t(Γ | ext) by 1.
+   Since q < 1, this yields only P_t(Γ | ext) ≤ q^{−|Γ|}, which is vacuous. The per-polymer bound
+   P_t(Γ | ext) ≤ q^{|Γ|} needs control of Σ_Γ q^{−|Γ|} P_t(Γ | ext), the weights growing with
+   size. Z_0(q) ≤ 1 is also not established: the sum runs over all polymers.
+2. **"Free hops do not inflate polymers" is false on the code.** `checks/bdl-metacheck/free_hop_merge.py`
+   (`FREE-HOP-MERGE.json`) runs the full-history representation on the 3 × 2 seed. Of 13,810
+   zero-energy single flips applied to random valid syndromes, 725 increase the largest history
+   polymer, 576 of them by merging components. One move takes the largest polymer from 14 to 28
+   with no energy paid. Zero-energy motion therefore assembles polymers. This is exactly the
+   mechanism the core lemma must control, so it cannot be dropped as "≤ 0".
+3. **The calculus does not apply.** d/dt P_t(Γ | ext) is not Σ L P_t(Γ | ext): conditioning on the
+   exterior does not commute with the dynamics, because the exterior also evolves. The
+   μ_dissip ln(1/q) term is introduced without derivation.
+
+**What this sharpens.** Any proof of preservation must bound merging by free motion. One candidate
+quantity is the rate at which zero-energy hops join two polymers, weighted by their sizes. Bounding
+it requires that the encounter rate of free-wandering defects with other polymers be small, which
+depends on defect density inside the macroscopic hop components. That density is the residual
+fault density, not e^{−β}. This interplay is the precise mathematical content still open.
