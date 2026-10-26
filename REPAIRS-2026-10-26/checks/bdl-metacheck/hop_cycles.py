@@ -11,7 +11,7 @@ the least energy change of a single flip that moves it out of its hop component
 import sys, json
 from collections import defaultdict, deque
 sys.path.insert(0, __file__.rsplit('/', 1)[0])
-import bdl, healing_probe as hp
+import bdl, fastbuild as hp
 
 def main(a, b, level):
     (D0, D1), n = hp.build(a, b, level)

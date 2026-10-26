@@ -9,7 +9,7 @@ weight-1 qubit has a sink. Reports component sizes, sinks, and the largest sink-
 import sys, json
 from collections import defaultdict
 sys.path.insert(0, __file__.rsplit('/', 1)[0])
-import bdl, healing_probe as hp
+import bdl, fastbuild as hp
 
 def main(a, b, level):
     (D0, D1), n = hp.build(a, b, level)

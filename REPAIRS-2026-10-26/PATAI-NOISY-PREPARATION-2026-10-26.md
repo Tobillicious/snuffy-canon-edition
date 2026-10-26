@@ -567,3 +567,55 @@ the entropy of zero-energy bridges, about 18^k per level, against what suppresse
 bridges, suppression cannot come from energy. It must come from the rarity of the defects that do
 the bridging: the residual fault density inside a region, and its decay by pair annihilation. This
 is the same mechanism as before, now isolated.
+
+## CORRECTION (26 October, late): free-movement regions are bounded; their number grows
+
+The level-3 computation, run with `checks/bdl-metacheck/fastbuild.py` (verified identical to bdl.py
+at level 2), gives:
+
+| Level | Step | Z-checks | Components | Largest component | Sink-free components |
+|---|---|---|---|---|---|
+| 1 | R_X | 136 | 90 | 4 | 62 |
+| 2 | R_Z | 2,256 | 90 | 72 | 62 |
+| 3 | R_X | 94,560 | 56,552 | 4 | 55,032 |
+
+The earlier statements in this note that the regions "grow about 18-fold per level" and are
+"macroscopic" are **wrong**. Levels 1 and 2 were read as consecutive growth, but they are an R_X
+level followed by an R_Z level.
+- R_Z merges each R_X component into a block. The largest component goes from 4 to 72, while the
+  number of components is unchanged.
+- The next R_X breaks the code back into components of size at most 4.
+
+So components are bounded uniformly in level for this seed: at most 4 at R_X levels and at most 72
+at R_Z levels, the latter predicted for level 4, which is not computed. Their number K_n grows
+linearly with n.
+
+Consequences, replacing the affected statements above:
+- **Constraint 1** of the hard-constraint list is withdrawn. Regions are bounded (about 72), not
+  growing. The pasted Lemma 2 and Step 2 claims of a uniform intra-region gap are therefore right in
+  their conclusion: each region is a finite reversible chain of bounded size, so it has a gap
+  bounded below independently of n, depending on β. Their stated proofs still contained the other
+  errors recorded.
+- **Free merging is local.** A zero-energy bridge lies inside one bounded region, so the 14 → 28
+  merge has bounded range. The bridge entropy is bounded per region, not 18^k.
+- **The pattern route's step 1 fails.** The factor 2^{K_n} is exponential in n.
+- **The (R1) and Lemma D results are unaffected.**
+
+## Revised picture and route (a candidate, not a proof)
+
+1. **Fine level.** Free motion is confined to regions of bounded size; each region is a finite
+   reversible chain with an n-independent gap. Leftover charges, one per odd region, are trapped
+   in bounded regions. They leave only by flips of weight ≥ 3: uphill at rate about e^{−β}, or
+   downhill when neighbouring regions are occupied.
+2. **Local relaxation.** With bounded ranges and rates, the fine-level excess relaxes on an
+   n-independent time scale. Global total-variation closeness ε then needs time O(log(n/ε)),
+   provided spatial correlations decay. This is the BGL-type within-sector statement at the fine
+   level.
+3. **Coarse levels.** A fault layer of density p creates level-i coarse excitations at density
+   about (c p)^{2^i}, while the thermal law has about e^{−β 2^i}. If c p < e^{−β}, a *fixed*
+   device inequality, the faulted state is colder than thermal at every coarse level. No coarse
+   relaxation, which is where the energetic bottlenecks lie, is then needed.
+4. **The remaining core.** Being colder at coarse levels does not imply safety, because the
+   dynamics lacks monotonicity. This is exactly BGL's open "ground-state stability" question, now
+   for BDL with bounded fine regions. That bounded-region structure is new and is the handle a
+   proof can use.
