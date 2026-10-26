@@ -518,3 +518,30 @@ Not adopted. The paste reads "K small" as "regions bounded"; the opposite is the
   remainder at most the stage budget ε/2^{j+2}.
 
 The plan's steps 2 and 3 therefore remain open, exactly as stated above.
+
+## Disposition: pasted Lemma 2 (finite-time thermalisation) and Lemma 3 (parity hypercube)
+
+Neither is adopted. Both contradict facts already computed on the code.
+
+- **Lemma 2.**
+  - Not every in-region move has ΔH = 0. A weight-2 flip on two empty checks creates a pair (+2),
+    and one on two occupied checks annihilates a pair (−2).
+  - π_k(· | p_k) weights configurations by e^{−β|s|}; it is not uniform.
+  - No non-trivial finite Markov chain reaches its stationary law exactly at a finite time.
+  - Path independence concerns the logical class, not mixing.
+  - D_k grows with the region: the largest region has 4 checks at level 1 and 72 at level 2.
+- **Lemma 3.**
+  - It repeats λ_jump = O(e^{−β} + p) and τ_intra = O(1), both refuted above: downhill
+    cross-region flips occur at rate Θ(1) on 1,648 of 2,256 level-2 checks, and regions grow.
+  - The parity vector alone is not a Markov chain: its jump rates depend on the fine configuration.
+
+**Hard constraints for any further attempt** (all computed; see HOP-ORBITS, HOP-CYCLES and
+FREE-HOP-MERGE):
+
+1. Regions are few (62 sink-free at levels 1 and 2) but grow about 18-fold per level.
+2. Cross-region downhill flips occur at rate Θ(1).
+3. In-region dynamics includes pair creation (+2) and annihilation (−2). The target law is
+   e^{−β|s|} with fixed parity.
+4. The required output is closeness to C·π, with a remainder at most the stage budget
+   ε/2^{j+2}.
+5. Free hops merge history polymers: one move took the largest polymer from 14 to 28.
