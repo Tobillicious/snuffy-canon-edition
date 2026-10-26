@@ -98,3 +98,81 @@ We will read every reference before using it.
 - A numerical test of (★) for |A| = 1, 2, 3 on the level-2 and level-3 codes, comparing u_A(t)
   with (Cρ*)^{|A|} over time, from N(ρ_β). These are `healing_probe.py`-style simulations.
 - A term-by-term check of any generator computation against the actual qubit columns.
+
+## Round 1 answer (Gemini, Pātai 1 a–c): disposition, and the exact generator terms
+
+None of the three parts is adopted.
+
+### 1(a): the generator is not the heat-bath generator, and the maximum principle does not close
+
+The paste writes a one-site creation/annihilation form λ₊(1−σ_x) − λ₋σ_x. In the real dynamics a
+qubit flip toggles 1–4 checks at once, at a heat-bath rate that depends on those checks. Here is
+the exact computation for a **weight-2 qubit q = (x, y)** with x ∈ A and y ∉ A, done by Claude.
+Write u_A = P_t(A ⊆ σ_t), and r(σ_x, σ_y) for the heat-bath flip rate:
+- r(1,0) = r(0,1) = r₀ for a free hop;
+- r(0,0) = r₊ for pair creation, of order e^{−2β};
+- r(1,1) = r₋ for pair annihilation, with r₋ > r₀.
+
+Then q's contribution to d/dt u_A is
+
+    gain − loss ≤ r₀ (u_{A−x+y} − u_A) + r₊ u_{A∖x} + (r₀ − r₋) u_{A+y}.
+
+- The hop term is ≤ 0 at a maximum over sets of size |A|. This is fine.
+- The annihilation term is ≤ 0. But it is proportional to u_{A+y}, the *larger* set, not to u_A.
+- The creation term r₊ u_{A∖x} is positive, and **no sink proportional to u_A** balances it at
+  the maximum.
+
+So the paste's "first exit" argument, which needs a sink of size κ₂|A|²(Cρ*)^{|A|}, has no such
+sink. Annihilation enters only through (|A|+1)-point functions, and bounding it from below would
+need positive correlation, the opposite of what is wanted. **This is the precise obstruction to
+tool (a).** The paste also asserts its sink without deriving it.
+
+### 1(b): sign error and a rejected input
+
+FKG-type inequalities give *positive* correlation of increasing functions, not negative. No
+reflection positivity is established for this dynamics. "Lemma C's boundary projection operator"
+misnames two things: Lemma C is the per-time reduction, and the projection bound is the rejected
+BCRD lemma (‖P‖ ∈ {0, 1}).
+
+### 1(c): mean field and the rejected factor
+
+1(c) uses the rejected α_boundary = e^{−2β}/18 and a mean-field density inequality, which
+constraint 6 excludes.
+
+## Refined core: the trapped-charge gas (Claude; derived reduction, partly heuristic)
+
+The obstruction above lives inside regions: pair creation is balanced by annihilation, which is a
+higher-order term. Lemma G handles exactly this: each bounded region relaxes internally at a rate
+λ₀(β) independent of n. This suggests moving the n-point bound to **region level**.
+- A region with even parity relaxes to empty-plus-thermal-pairs in O(1) time; its occupation is a
+  sink with rate λ₀.
+- A region with odd parity holds a trapped charge that cannot leave internally.
+
+The charges live on the region graph and react through the qubits of weight 3 and 4 that cross
+regions. A weight-3 qubit touching regions R₁, R₂, R₃ flips all three parities. Its effective rates
+are:
+
+| Reaction | Energy change | Effective rate |
+|---|---|---|
+| (1,1,0) → (0,0,1) | −1 | about 1/|R|² |
+| (0,0,1) → (1,1,0) | +1 | about e^{−β}/|R| |
+| (1,1,1) → (0,0,0) | −3 | — |
+| (0,0,0) → (1,1,1) | +3 | about e^{−3β} |
+
+This is a reversible Z₂ charge-reaction network of bounded degree with detailed balance. It has
+no free hops left, because they are averaged inside regions.
+
+**Pātai 1′ (the refined core).** For this charge network, started from a law with odd-region
+density at most c p |R|, prove
+
+    P_t(R₁, …, R_k all odd) ≤ (C ρ_c)^k   for all t ≤ T, with ρ_c = c′(p |R| + e^{−β}).
+
+Then prove that the averaging step is legitimate: intra-region relaxation at about λ₀ against
+cross-region reactions at about 1/|R|². The separation of these time scales is not established, so
+the averaging is heuristic and must be proved or replaced by a joint argument.
+Region-level (★) implies fine-level (★), because a fine set A meets at most |A| regions, each odd
+or occupied by a transient pair. That last step needs its own bound from Lemma G.
+
+The weight-2 obstruction does not recur at region level. A creation event inside an empty region
+is followed by internal annihilation at rate about λ₀, so the sink is proportional to the event
+itself.
