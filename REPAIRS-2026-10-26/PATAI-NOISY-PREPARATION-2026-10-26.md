@@ -640,3 +640,41 @@ step 4, the open core, asks that this does not lead to logical failure despite n
 reuse. It now keys by object identity. Under PYTHONHASHSEED = 0 it gives exactly the hashes of
 bdl.py at levels 1 and 2; the level-3 comparison is running. The level-3 component counts were
 recomputed with the fixed builder and are unchanged.
+
+## Lemma G (uniform gap of an isolated region) — proved; adopted from the pasted Step 1, corrected
+
+Freeze every check outside a hop component R, and allow only the weight-2 flips inside R. These are
+free hops, pair creation (+2) and pair annihilation (−2), with heat-bath rates. The resulting chain
+on R's defect configurations of fixed parity is irreducible: the edges of a connected graph
+generate every even change of its vertex set. It is reversible with respect to π_R(· | parity),
+with π_R ∝ e^{−β|s|} (not e^{−2β·pairs}, as the paste had it).
+
+The components have bounded size (at most 72) and bounded degree, so there are finitely many
+isomorphism types. Hence its spectral gap λ_R ≥ λ₀(β) > 0, uniformly in n and level. The constant
+may be as small as e^{−O(72β)}, but it does not depend on n. ∎
+
+What Lemma G does not give: the real dynamics also contains flips of weight 3 and 4 between regions,
+some downhill at rate Θ(1). A product-of-regions quasi-stationary picture is therefore not implied.
+Any error term of the form t·e^{−2β} per region is extensive, about K_n·t·e^{−2β} in total.
+
+## Disposition of the rest of this batch
+
+- **Firebreak and contour proposals.** Domination by Bernoulli variables at the coarse density is
+  asserted, not derived. A later paste in the same batch correctly notes that contour sums ignore
+  free bridges.
+- **Trapped-charge Step 2.** "ΔH_barrier ≥ 2 for escape" contradicts the computed escape costs:
+  +1 for 1,520 of 2,256 level-2 checks, and downhill cross-region flips at rate Θ(1). Its
+  quasi-stationary error is extensive.
+- **"Kinetic starvation".** This is the mean-field rate equation again (dispositions above).
+- **BCRD boundary-projection lemma.** Not adopted, for three reasons.
+  1. The holding dynamics is a classical Markov chain on syndromes, the Davies Pauli dynamics.
+     The lemma's Hilbert-space factorisation H_bulk ⊗ H_∂ and "relational low-pass filter" are not
+     properties of that chain, and nothing in the UPT's BCRD axioms implies them for BDL's code.
+  2. The bound ‖O_∂ χ‖ ≤ (|∂R|/|R|) e^{−βΔH} ‖χ‖ has no meaning as stated. A restriction or
+     projection has operator norm 0 or 1, and a Boltzmann factor is not part of an operator norm.
+  3. It uses ΔH_boundary ≥ 2, contradicted as above. It also conflates R_X-level region size (at
+     most 4) with the boundary of R_Z-level regions.
+
+BCRD's legitimate role, raised by the author earlier, concerns *which relations constitute a
+particular's identity*. That bears on the target, not on the proof of (R). Changing the target
+on that basis is the author's decision under the standing rules, and nothing here does so.
