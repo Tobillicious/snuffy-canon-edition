@@ -17,6 +17,18 @@ This repair checkpoint keeps the full Universal Protection Theory target. The qu
 | `CITATION.cff`, `zenodo.json`, `LICENSE` | Citation metadata, deposit metadata and the CC-BY-4.0 licence. |
 | `SHA256SUMS` | Checksums of every file above. |
 
+**Final archive and release.** The 27 October 2026 archive preserves the Batch 10
+master and author insert byte-for-byte, the complete Checkpoint 12 source
+and verification evidence, and the residual proof/checker. The final handoff
+and manifest are in the accompanying FINAL-ARCHIVE-2026-10-27 record. Physical
+installation validation must establish the actual joint instrument, including
+common causes and retained memory, and the values needed for K_act and v_a.
+The manuscript retains its other stated physical source/device application
+correspondences. The local archive closes the document/verification work;
+it does not rename these physical obligations completed. REPAIR-STATUS.md and
+the earlier continuation handoffs are preserved historical checkpoint notes;
+the accompanying final handoff is authoritative for the release status.
+
 **Reproduce.**
 
 ```bash

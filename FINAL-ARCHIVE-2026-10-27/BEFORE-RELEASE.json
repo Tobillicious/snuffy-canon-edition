@@ -1,0 +1,18 @@
+{
+  "README.md": "145b6bf7981d5d586aa534b5ce0b4a7b257d3561c4e62989698f2ff1e010d7e0",
+  "CITATION.cff": "969fcce8aeb009a15f41a43ce843f94f4c19a69272322e9f5d764bd211953c7d",
+  "PUBLICATION-CHECKLIST.md": "d0ece64529f2c3542b2e7bda1f97d28fdb6f44851778734cfe69f411e2ee244d",
+  "zenodo.json": "21328357942575a0a53c985ab897452fa9409f5ad202a3fe2f9bc04125ecaa01",
+  "SHA256SUMS": "96a852ec75231693175d87593475b81343ee4756e9235f7438032fcf78ee1dbc",
+  "checks/render.sh": "89407043ffe645c4643fc0831c6d370a4b3c0d1cee5067c073810787bd505244",
+  "checks/render-header.tex": "06110a9e6aaa069e40a64965a67fbcf81a50d8cddb0c83cd6763eb59d1d7e6ec",
+  "checks/verify_render.py": "25746abedb7f630448900c20633b39ea51b4959b8abf21f4ffb019e002af9f32",
+  "render/Snuffy-Canon-Edition-4.2.pdf": "c907539238ea9936f88208bf57759a87237369d7b225cd90c57f87e396b57c4d",
+  "render/Snuffy-Canon-Edition-4.2.tex": "d2c3b76369f7587e2758f7d93e4fff4fa165852d5f13ac667098d022db1056a5",
+  "render/Snuffy-Canon-Edition-4.2.epub": "0d9abad267a2662c6dd091555f2f71345ff6032f4393c51f9a5a4695597ddcc4",
+  "render/RENDER-VERIFY.json": "0b18a3992b97294b5950072aa08f12f69c7bb9520eab608d6846e34ce3ff0299",
+  "render/xelatex.log": "2f0b0e282836e57c02984a4c733ca9b0e422d4dbca0ed9aaf815789cdcb5f3b4",
+  "render/Snuffy-Canon-Edition-4.2.log": "f29b704af5e6309b81ce2b3f74db5ac146a8bcbfa42887ee0169673a954d12b5",
+  "render/Snuffy-Canon-Edition-4.2.html": "a600fd65cd6c6bd918083c2926aec3174b603aee27506a2a3bf15f0443d77256",
+  "checks/breakable-code.lua": "8b854f790169f080a2fb9cb36925cc871ac5cf1ec2aa31bdcba094ac702654bf"
+}

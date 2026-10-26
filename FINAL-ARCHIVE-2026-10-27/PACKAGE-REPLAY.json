@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-27",
+  "replay_pass": true,
+  "package_sha256": "1ae7402347a093a30124d26a586e00271908f141eaaac62a20451b5100f73608",
+  "method": "Fresh extraction into a separate temporary directory; executed the packaged residual checker against the packaged sources and immutable Checkpoint 12 files.",
+  "result": {
+    "all_assertions_pass": true,
+    "stage_values": 259,
+    "epsilon_values": 7,
+    "certificate_decisions": 18130,
+    "checkpoint12_unchanged": true,
+    "actual_installation_residual_certified": false,
+    "receipt": "REPAIRS-2026-10-26/checks/DELTA-JOINT-VERIFICATION-2026-10-27.json"
+  },
+  "temporary_extract": "/private/tmp/snuffy-4.2-replay-hilkhvgf/Snuffy-Canon-Edition-4.2",
+  "actual_installation_residual_certified": false
+}

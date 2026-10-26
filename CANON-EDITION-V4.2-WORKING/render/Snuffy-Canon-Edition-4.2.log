@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.9.14)  26 OCT 2026 13:46
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.9.14)  27 OCT 2026 08:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1360,51 +1360,57 @@ LaTeX Font Info:    Font shape `TU/STIXTwoMath(3)/m/n' will be
 (Font)              scaled to size 5.23203pt on input line 3.
  [1
 
-] [2])
+] [2] [3])
 \tf@toc=\write3
 \openout3 = `Snuffy-Canon-Edition-4.2.toc'.
 
- [3]
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 178.
+(Font)              scaled to size 12.0pt on input line 179.
  [4]
 LaTeX Font Info:    Font shape `TU/STIXGeneral(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 227.
+(Font)              scaled to size 10.0pt on input line 228.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 227.
+(Font)              scaled to size 7.0pt on input line 228.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(1)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 227.
+(Font)              scaled to size 5.5pt on input line 228.
 LaTeX Font Info:    Font shape `TU/Menlo(0)/m/n' will be
-(Font)              scaled to size 8.25943pt on input line 259.
+(Font)              scaled to size 8.25943pt on input line 260.
  [5] [6] [7] [8]
 LaTeX Font Info:    Font shape `TU/Menlo(0)/m/n' will be
-(Font)              scaled to size 5.7816pt on input line 655.
+(Font)              scaled to size 5.7816pt on input line 659.
 LaTeX Font Info:    Font shape `TU/Menlo(0)/m/n' will be
-(Font)              scaled to size 4.54268pt on input line 655.
+(Font)              scaled to size 4.54268pt on input line 659.
  [9] [10]
 [11]
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 903.
+(Font)              scaled to size 7.0pt on input line 910.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 903.
- [12] [13] [14]
+(Font)              scaled to size 5.5pt on input line 910.
+
+ignored: Infinite glue shrinkage found in box being split [12] [13] [14]
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 1242.
+(Font)              scaled to size 10.0pt on input line 1250.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/b/it' will be
-(Font)              scaled to size 10.0pt on input line 1246.
+(Font)              scaled to size 10.0pt on input line 1254.
+ [15]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]
-Underfull \hbox (badness 2057) in paragraph at lines 2271--2282
+ [16] [17] [18] [19] [20]
+LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 1788.
+LaTeX Font Info:    Font shape `TU/Menlo(0)/m/n' will be
+(Font)              scaled to size 7.43349pt on input line 1788.
+ [21] [22] [23] [24] [25]
+Underfull \hbox (badness 2057) in paragraph at lines 2291--2302
 []\TU/STIXGeneral(0)/b/n/10 Machine-checked counterpart (Section 23). \TU/STIXG
 eneral(0)/m/n/10 Compiled counterparts: \TU/Menlo(0)/m/n/10 E9SelfHealing.robus
 t_between_ho
  []
 
 
-Underfull \hbox (badness 3746) in paragraph at lines 2271--2282
+Underfull \hbox (badness 3746) in paragraph at lines 2291--2302
 \TU/Menlo(0)/m/n/10 nest\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 exists_
 robust\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 no_false_alarm\TU/STIXGen
 eral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 no_masking\TU/STIXGeneral(0)/m/n/10 , \TU/
@@ -1412,38 +1418,33 @@ Menlo(0)/m/n/10 syndrome_detects \TU/STIXGeneral(0)/m/n/10 (Branch B), \TU/Menl
 o(0)/m/n/10 wave_race_margin\TU/STIXGeneral(0)/m/n/10 ,
  []
 
-[26]
+[26] [27]
 LaTeX Font Info:    Font shape `TU/Menlo(0)/b/n' will be
-(Font)              scaled to size 8.25943pt on input line 2394.
- [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37]
-ignored: Infinite glue shrinkage 
-found in box being split [38] [39] [40]
-LaTeX Font Info:    Font shape `TU/Menlo(0)/m/it' will be
-(Font)              scaled to size 8.25943pt on input line 3722.
-
-ignored: Infinite glue shrinkage found in box being split
+(Font)              scaled to size 8.25943pt on input line 2414.
+ [28] [29] [30] [31] [32] [33] [34] [35] [36] [37]
+ignored: Infinite glue shrinkage found
+ in box being split [38] [39] [40]
 [41]
 ignored: Infinite glue shrinkage found in box being split [42]
 ignored: Infinite glue shrinkag
 e found in box being split [43]
 ignored: Infinite glue shrinkage found in box being split
- [44]
-ignored: Infinite glue shrinkage found in box being split [45]
-ignored: Infinite glue shrinka
-ge found in box being split [46] [47]
-ignored: Infinite glue shrinkage found in box being
- split [48] [49]
-ignored: Infinite glue shrinkage found in box being split [50]
-ignored: Infinite g
-lue shrinkage found in box being split [51]
-ignored: Infinite glue shrinkage found in box
- being split [52]
-ignored: Infinite glue shrinkage found in box being split [53]
-ignored: Infinite 
-glue shrinkage found in box being split [54]
-ignored: Infinite glue shrinkage found in bo
-x being split [55]
-ignored: Infinite glue shrinkage found in box being split
+ [44] [45]
+ignored: Infinite glue shrinkage found in box being split [46]
+ignored: Infinite glue sh
+rinkage found in box being split [47] [48] [49]
+ignored: Infinite glue shrinkage found in
+ box being split [50]
+ignored: Infinite glue shrinkage found in box being split [51]
+ignored: Infin
+ite glue shrinkage found in box being split [52]
+ignored: Infinite glue shrinkage found i
+n box being split [53]
+ignored: Infinite glue shrinkage found in box being split [54]
+ignored: Infi
+nite glue shrinkage found in box being split [55]
+ignored: Infinite glue shrinkage found 
+in box being split
 [56]
 ignored: Infinite glue shrinkage found in box being split [57]
 ignored: Infinite glue shrinkag
@@ -1457,59 +1458,55 @@ ignored: Infinite glue shrinkage found in box being spli
 t [62]
 ignored: Infinite glue shrinkage found in box being split [63]
 ignored: Infinite glue shrink
-age found in box being split [64] [65] [66] [67] [68] [69] [70]
+age found in box being split [64]
+ignored: Infinite glue shrinkage found in box being spl
+it [65] [66] [67] [68] [69] [70]
 [71] [72] [73]
-Underfull \hbox (badness 3068) in paragraph at lines 6538--6548
+Underfull \hbox (badness 3068) in paragraph at lines 6623--6634
 []\TU/Menlo(0)/m/n/10 powers_intertwine\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)
 /m/n/10 exponential_intertwines \TU/STIXGeneral(0)/m/n/10 and \TU/Menlo(0)/m/n/
 10 work_shifted_flow_on_code \TU/STIXGeneral(0)/m/n/10 prove this transport for
 
  []
 
-[74] [75] [76] [77] [78] [79] [80]
+[74] [75] [76] [77] [78] [79] [80] [81]
 LaTeX Font Info:    Font shape `TU/STIXGeneral(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 7317.
+(Font)              scaled to size 12.0pt on input line 7408.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 7317.
+(Font)              scaled to size 8.0pt on input line 7408.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 7317.
- [81] [82]
-Underfull \hbox (badness 4479) in paragraph at lines 7485--7496
+(Font)              scaled to size 6.0pt on input line 7408.
+ [82]
+Underfull \hbox (badness 4479) in paragraph at lines 7576--7587
 \TU/Menlo(0)/m/n/10 implementedProgram \TU/STIXGeneral(0)/m/n/10 and \TU/Menlo(
 0)/m/n/10 implemented_program_computes \TU/STIXGeneral(0)/m/n/10 identify the i
 mplemented administration, clean
  []
 
-[83] [84] [85] [86] [87] [88] [89]
-Underfull \hbox (badness 1107) in paragraph at lines 8280--8286
-[]\TU/STIXGeneral(0)/m/n/10 T. Croydon-McRae, \TU/STIXGeneral(0)/m/it/10 A Latt
-ice Preservation Calculus: Exact Holding Laws, Deadline Certificates, and
+[83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93]
+Underfull \hbox (badness 2359) in paragraph at lines 8706--8720
+[]\TU/STIXGeneral(0)/m/n/10 where Lambda(n)=max_i ||L-dagger A_i||. The element
+ary dissipator bound ||D_V$[]$2||A|| gives
  []
 
-
-Underfull \hbox (badness 3954) in paragraph at lines 8280--8286
-\TU/STIXGeneral(0)/m/it/10 Thermodynamic Information Bounds for Relational Prot
-ection Architectures\TU/STIXGeneral(0)/m/n/10 , Zenodo preprint (2026).
- []
-
-[90]
+[94] [95] [96] [97] [98] [99] [100] [101] [102]
 
 Package caption Warning: Unused \captionsetup[table] on input line 46.
 See the caption package documentation for explanation.
 
-[91] (./Snuffy-Canon-Edition-4.2.aux)
+[103] (./Snuffy-Canon-Edition-4.2.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 20896 strings out of 469709
- 388803 string characters out of 5466023
- 1438890 words of memory out of 5000000
- 49241 multiletter control sequences out of 15000+600000
- 634526 words of font info for 130 fonts, out of 8000000 for 9000
+ 20939 strings out of 469709
+ 390072 string characters out of 5466023
+ 1452655 words of memory out of 5000000
+ 49283 multiletter control sequences out of 15000+600000
+ 634534 words of font info for 131 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 90i,13n,116p,1136b,565s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,13n,116p,2110b,522s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Snuffy-Canon-Edition-4.2.pdf (91 pages).
+Output written on Snuffy-Canon-Edition-4.2.pdf (103 pages).

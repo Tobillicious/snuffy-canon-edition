@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-27",
+  "visual_review_pass": true,
+  "pdf_sha256": "a9d8e6d0e1dca35462f94b6e98f145eb96e5bef2d012225701b1943f9e746399",
+  "pages": 103,
+  "inspected_latest_raster_pages": [
+    91,
+    97,
+    100
+  ],
+  "cover_and_controller_page_reviewed": true,
+  "word_boxes_outside_page": [],
+  "missing_glyphs": 0,
+  "overfull_lines": 0,
+  "method": "Poppler page bounds for every page; direct inspection of rasterized title, G.21, feedback, invoice and residual-certificate pages. Literal threshold stars preserved."
+}

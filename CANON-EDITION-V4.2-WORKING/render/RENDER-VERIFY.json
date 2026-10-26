@@ -1,38 +1,54 @@
 {
   "all_pass": true,
   "epub": {
-    "bytes": 184212,
+    "bounded_common_causes": true,
+    "bytes": 208248,
     "canon_sentence": true,
     "chain_head_charged": true,
     "chain_head_quarantine": true,
     "chain_head_solvent": true,
     "doi_canon_edition": true,
     "doi_core": true,
+    "gross_reset_cap": true,
+    "joint_kernel_certificate": true,
     "module_count": true,
     "no_door_content": true
   },
   "html": {
-    "bytes": 890713,
+    "bounded_common_causes": true,
+    "bytes": 965516,
     "canon_sentence": true,
     "chain_head_charged": true,
     "chain_head_quarantine": true,
     "chain_head_solvent": true,
     "doi_canon_edition": true,
     "doi_core": true,
+    "gross_reset_cap": true,
+    "joint_kernel_certificate": true,
     "module_count": true,
     "no_door_content": true
   },
-  "method_note": "needle matching after removing whitespace; the PDF is verified on its extracted text (pdftotext)",
+  "master_sha256": "83b62bd9ece8d35ba6ab221c6edd286b753f4a4093c8e322eb1f836cd8e6f933",
+  "method_note": "Unicode and whitespace normalization; markup stripped only for HTML/EPUB, never from PDF inequality text",
   "pdf": {
-    "bytes": 504315,
+    "bounded_common_causes": true,
+    "bytes": 567101,
     "canon_sentence": true,
     "chain_head_charged": true,
     "chain_head_quarantine": true,
     "chain_head_solvent": true,
     "doi_canon_edition": true,
     "doi_core": true,
+    "gross_reset_cap": true,
+    "joint_kernel_certificate": true,
     "module_count": true,
     "no_door_content": true,
-    "pages": 90
+    "pages": 103
+  },
+  "render_sha256": {
+    "epub": "e9ef1caf1ee7090db5f04588196dee22e1bc37bd199d84213384400fd5222c03",
+    "html": "ac06b92d2c446ed8388c5eb7edf1d8033e84d22b71e9f7a392c1e5e40c8f071f",
+    "pdf": "a9d8e6d0e1dca35462f94b6e98f145eb96e5bef2d012225701b1943f9e746399",
+    "tex": "a5f2212eff83cda9959b4a79fdc9f9a0773dcc676071b164b07e1b74fb438dce"
   }
 }
