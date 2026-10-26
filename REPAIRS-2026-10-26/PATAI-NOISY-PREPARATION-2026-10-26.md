@@ -312,3 +312,29 @@ The correct (R2) is collective: with within-component class fixed (above), the r
 inter-component transport. That transport must stay subcritical, in the sense that the
 odd-parity charges and the uphill crossings do not assemble the large history polymer of the bad
 event. This is the remaining open statement.
+
+## Disposition: pasted "Kinetic Steady-State Dilution" proof
+
+It is not adopted. Its qualitative picture (a diffusing, annihilating dilute gas) matches the
+probes, but the load-bearing step is asserted.
+
+1. **The rate equation is mean-field, not a theorem.** dρ/dt = G − kρ² describes the expected
+   density only, by mass action. It ignores the correlations that the bad event is about.
+   Annihilating random walks in low dimension depart from mean-field kinetics.
+2. **Mean density does not give cluster tails.** "ρ below the percolation threshold ⇒ clusters of
+   size O(log n)" holds for *independent* site percolation. The dynamic law is correlated, and a
+   low mean density does not imply exponential cluster tails. Proving such tails uniformly in time
+   is the local warm-start lemma, i.e. (R) itself.
+3. **The union over time is missing.** Even granting a tail c₁e^{−c₂s} at each time, the maximum
+   over n sites and T ≈ e^{c n^{η′}} times is about (log n + c n^{η′})/c₂ = Θ(n^{η′}), not
+   O(log n). That is the same order as the danger scale, so the constants c, c₂, η′ and η would
+   have to be compared explicitly.
+4. **The wrong bad event.** Logical failure in BDL needs a large *history polymer* across levels,
+   not a geometric cluster of fine defects. Defects far apart at the fine level combine at coarse
+   levels.
+5. **G = O(p) conflates gate faults with holding.** During passive holding, defect generation is
+   thermal, at rate about e^{−β}.
+
+The remaining (R) is unchanged: the dynamic law must keep history-polymer tails of the thermal
+type uniformly over the stage time. Point 3 shows the constants then matter, and that the stage
+time exponent can be chosen against them in the doubling schedule.
