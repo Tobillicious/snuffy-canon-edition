@@ -321,6 +321,13 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `ExRecBound` | `exrec_pair_bound`, `circuit_level_rate`, `surface_code_rate` |
 | `EdgeLaw` | `prob_push`, `push_localStochastic` |
 | `MatchingWitness` | `card_symmDiff`, `half_faulty`, `matching_witness` |
+| `SparseFailure` | `disjoint_windows`, `many_failures` |
+| `ToleranceSweep` | `frozen_after`, `wrong_has_cause`, `wrong_le_of_eroder`, `wrong_subset_bad`, `sweep_density`, `pathwise_bill`, `recovery_tail` |
+| `PassiveReference` | `stages_cover`, `total_failure_le`, `total_rewrite_cost` |
+| `RedundantRecord` | `majority_decodes`, `tolerant_outer_decoder` |
+| `BennettBatch` | `batched_window`, `premise5_batched` |
+| `WeightedEdgeLaw` | `push_weighted`, `push_uniform`, `rate_iff`, `tightened_threshold`, `walk_bound`, `threshold_value` |
+| `StageSchedule` | `total_with_transfers`, `stage_cost_le` |
 <!-- END THEOREM INDEX -->
 
 ---

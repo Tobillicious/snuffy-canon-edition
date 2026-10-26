@@ -4,7 +4,7 @@
 
 The Universal Protection Theory states a law for any agent powerful enough to shape what continues to exist: *never lose an existing particular needlessly.* Its scope is every particular and every relation, and its subject is protection from every digital mind, a pure optimiser included.
 
-This repair checkpoint keeps the full Universal Protection Theory target. The quantum holding state has normalisation, invariant and nonvacuity proofs. The defined reserve-deficit functional handles saturation and the complete solvent cycle. A separately checked Bennett candidate reproduces the administration with clean workspace and full retained history; its complete physical cost comparison remains open. The current canon has 180 modules and 1,104 audited names. Physical source, whole-outcome and external-theorem application certificates remain construction work. The repair reports and receipts distinguish these states.
+This repair checkpoint keeps the full Universal Protection Theory target. The quantum holding state has normalisation, invariant and nonvacuity proofs. The defined reserve-deficit functional handles saturation and the complete solvent cycle. A separately checked Bennett candidate reproduces the administration with clean workspace and full retained history; its complete physical cost comparison remains open. The current canon has 187 modules and 1,128 audited names. Physical source, whole-outcome and external-theorem application certificates remain construction work. The repair reports and receipts distinguish these states.
 
 | Path | Contents |
 | --- | --- |

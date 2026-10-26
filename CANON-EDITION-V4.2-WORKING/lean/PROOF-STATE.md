@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 180. Corpus module names: 95. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 990. Build/audit manifest errors: 0.
+Canon modules: 187. Corpus module names: 102. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1551. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 180. Audit imports: 180.
+Build modules: 187. Audit imports: 187.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -989,6 +989,567 @@ Build modules: 180. Audit imports: 180.
 - `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/WorkIntegration.lean`
 - `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/Snuffy/Workload.lean`
 - `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-05-objection-7-supports/lean/SummitsAudit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/CanonVonNeumannAudit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/AdaptiveConsensus.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/AffordableReciprocity.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/AgeReliability.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/AnalyticBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/AreaBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/BandwidthReflection.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Bennett.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/BennettCounterpart.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/BennettExact.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Bridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/BridgeD1.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/BridgeE9.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/BridgeH6.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/BridgeH7.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/BridgeH8.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/CanonVonNeumann.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/CascadeCore.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ChannelCP.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ChannelExtension.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ClosedCohold.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Composition.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Concatenated.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ConcatenatedDecoding.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ConsensusRate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ConservedRouting.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ControllerCertificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ControllerFence.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ControllerFinality.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/CorrelatedCeiling.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/CorrelatedStress.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/CutEquivalence.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/CyclicProjections.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/DataProcessing.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/DeadlineDemand.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/DecisionAndScale.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/DecisionPermit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/DecoderRetraction.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/DeductionBoundary.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/E9Routes.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/E9SelfHealing.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/EdgeLaw.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ErrorBudget.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ExRecBound.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/FIFOAdmission.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/FIFOInstance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/FIFOWorkload.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Fano.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/FaultCover.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/FinalClosure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/FiniteInformation.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G1Certificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G1Complete.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G1E9.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G1Executable.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G1FullDomain.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G1Held.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G1Refinement.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G2Freedom.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G2Held.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G2Outcome.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G2Physical.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G2Singleton.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G2Splice.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G2WholeOutcome.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G3ArchiveStock.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G3CompleteBill.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G3GoodEvent.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G3PatchDecode.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G3Sweep.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/G3WorkBill.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/GateSupport.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/GaussianChannel.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/GaussianChannelGen.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/GaussianKL.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/GaussianTail.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/GaussianVector.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/GenerativeClosure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/GoldenFormula.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Greatestness.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/GuardFactorization.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/GuardOperator.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/GuardSignature.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/H5Closure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/H8Bound.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/HalperinDecay.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/HamiltonianDecomposition.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Htopkeeps.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Instruments.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/IntegrationCertificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Irreplaceability.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/KLAdditivity.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/KnillLaflamme.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Landauer.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/LatticeLaplacian.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Law.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/LogDet.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/MatchingWitness.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/MathlibAnalyticBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/MeanErgodic.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/MeanErgodicDeep.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/MeetAlgebra.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/MeetHilbert.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/MetricShadow.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ObservationWinning.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/OpialBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/OriginalD1.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/OriginalE9AndH5.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/OriginalH6.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/OriginalH7.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/OriginalH8.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/P2P3.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/PassiveReference.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/PhysicalGuard.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/PremiseFloor.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/PureStateDistance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/PureStateTraceNorm.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/QuantumLandauer.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/QueueDeadline.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/R14Boundary.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/R14Rivals.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/R15CausalGluing.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/R16Cut.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/R16Feedback.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/R16R14.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/R16Screened.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/R16TwoPhase.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/R17AQueueFinality.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/R17FIFOR17A.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/R17Funding.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/R17WorkConcrete.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/RGFixedPoint.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/RankAndCoalition.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ReadoutBounds.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ReadoutJoint.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ReasonsCompiled.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ReasonsEnsemble.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ReasonsRoute.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ReceivedCutR14Repaired.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ReceivedCutRepaired.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ReciprocityCeiling.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ReciprocityDistance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/RecoveryWork.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ReflectionCertificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ReflectionContraction.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ReflectionFuel.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/RegionBoundary.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/RelationalBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/RestrictedModels.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/RiskBounds.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Rotation.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/SafeGenesis.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/SemanticMap.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/SensorTail.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/SmearingIntegral.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/SnuffyLocal.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/SolventReciprocity.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/SparseFailure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/SpeedLimit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/StrokeBookkeeping.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/TIWAGuard.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/TIWARecovery.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/TIWASource.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/TIWAWork.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/TemporalSafety.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/TheoremEightLyapunov.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ThermalBalance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ThermoLedger.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Threshold.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/TimelyCare.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/ToleranceSweep.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/TopRealisability.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/TransportLaw.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Trotter.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/TwoLevel.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/UPTFence.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/UPTLawLife.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/UPTR12A.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/UnionClosure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/UniversalProtection.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Whitening.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/WorkBilling.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/WorkIntegration.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/Snuffy/Workload.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-06-item5-holding/lean/SummitsAudit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/CanonVonNeumannAudit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/AdaptiveConsensus.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/AffordableReciprocity.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/AgeReliability.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/AnalyticBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/AreaBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/BandwidthReflection.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Bennett.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/BennettBatch.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/BennettCounterpart.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/BennettExact.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Bridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/BridgeD1.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/BridgeE9.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/BridgeH6.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/BridgeH7.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/BridgeH8.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/CanonVonNeumann.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/CascadeCore.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ChannelCP.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ChannelExtension.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ClosedCohold.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Composition.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Concatenated.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ConcatenatedDecoding.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ConsensusRate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ConservedRouting.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ControllerCertificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ControllerFence.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ControllerFinality.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/CorrelatedCeiling.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/CorrelatedStress.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/CutEquivalence.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/CyclicProjections.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/DataProcessing.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/DeadlineDemand.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/DecisionAndScale.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/DecisionPermit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/DecoderRetraction.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/DeductionBoundary.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/E9Routes.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/E9SelfHealing.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/EdgeLaw.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ErrorBudget.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ExRecBound.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/FIFOAdmission.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/FIFOInstance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/FIFOWorkload.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Fano.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/FaultCover.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/FinalClosure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/FiniteInformation.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G1Certificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G1Complete.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G1E9.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G1Executable.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G1FullDomain.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G1Held.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G1Refinement.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G2Freedom.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G2Held.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G2Outcome.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G2Physical.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G2Singleton.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G2Splice.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G2WholeOutcome.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G3ArchiveStock.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G3CompleteBill.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G3GoodEvent.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G3PatchDecode.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G3Sweep.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/G3WorkBill.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/GateSupport.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/GaussianChannel.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/GaussianChannelGen.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/GaussianKL.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/GaussianTail.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/GaussianVector.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/GenerativeClosure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/GoldenFormula.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Greatestness.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/GuardFactorization.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/GuardOperator.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/GuardSignature.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/H5Closure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/H8Bound.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/HalperinDecay.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/HamiltonianDecomposition.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Htopkeeps.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Instruments.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/IntegrationCertificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Irreplaceability.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/KLAdditivity.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/KnillLaflamme.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Landauer.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/LatticeLaplacian.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Law.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/LogDet.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/MatchingWitness.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/MathlibAnalyticBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/MeanErgodic.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/MeanErgodicDeep.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/MeetAlgebra.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/MeetHilbert.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/MetricShadow.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ObservationWinning.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/OpialBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/OriginalD1.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/OriginalE9AndH5.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/OriginalH6.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/OriginalH7.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/OriginalH8.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/P2P3.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/PassiveReference.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/PhysicalGuard.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/PremiseFloor.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/PureStateDistance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/PureStateTraceNorm.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/QuantumLandauer.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/QueueDeadline.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/R14Boundary.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/R14Rivals.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/R15CausalGluing.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/R16Cut.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/R16Feedback.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/R16R14.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/R16Screened.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/R16TwoPhase.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/R17AQueueFinality.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/R17FIFOR17A.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/R17Funding.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/R17WorkConcrete.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/RGFixedPoint.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/RankAndCoalition.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ReadoutBounds.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ReadoutJoint.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ReasonsCompiled.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ReasonsEnsemble.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ReasonsRoute.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ReceivedCutR14Repaired.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ReceivedCutRepaired.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ReciprocityCeiling.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ReciprocityDistance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/RecoveryWork.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/RedundantRecord.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ReflectionCertificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ReflectionContraction.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ReflectionFuel.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/RegionBoundary.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/RelationalBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/RestrictedModels.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/RiskBounds.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Rotation.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/SafeGenesis.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/SemanticMap.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/SensorTail.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/SmearingIntegral.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/SnuffyLocal.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/SolventReciprocity.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/SparseFailure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/SpeedLimit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/StrokeBookkeeping.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/TIWAGuard.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/TIWARecovery.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/TIWASource.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/TIWAWork.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/TemporalSafety.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/TheoremEightLyapunov.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ThermalBalance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ThermoLedger.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Threshold.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/TimelyCare.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/ToleranceSweep.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/TopRealisability.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/TransportLaw.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Trotter.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/TwoLevel.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/UPTFence.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/UPTLawLife.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/UPTR12A.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/UnionClosure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/UniversalProtection.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Whitening.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/WorkBilling.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/WorkIntegration.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/Snuffy/Workload.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-07-redundancy-bennett-batch/lean/SummitsAudit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/CanonVonNeumannAudit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/AdaptiveConsensus.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/AffordableReciprocity.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/AgeReliability.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/AnalyticBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/AreaBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/BandwidthReflection.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Bennett.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/BennettBatch.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/BennettCounterpart.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/BennettExact.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Bridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/BridgeD1.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/BridgeE9.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/BridgeH6.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/BridgeH7.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/BridgeH8.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/CanonVonNeumann.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/CascadeCore.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ChannelCP.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ChannelExtension.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ClosedCohold.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Composition.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Concatenated.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ConcatenatedDecoding.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ConsensusRate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ConservedRouting.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ControllerCertificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ControllerFence.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ControllerFinality.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/CorrelatedCeiling.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/CorrelatedStress.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/CutEquivalence.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/CyclicProjections.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/DataProcessing.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/DeadlineDemand.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/DecisionAndScale.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/DecisionPermit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/DecoderRetraction.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/DeductionBoundary.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/E9Routes.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/E9SelfHealing.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/EdgeLaw.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ErrorBudget.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ExRecBound.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/FIFOAdmission.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/FIFOInstance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/FIFOWorkload.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Fano.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/FaultCover.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/FinalClosure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/FiniteInformation.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G1Certificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G1Complete.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G1E9.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G1Executable.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G1FullDomain.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G1Held.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G1Refinement.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G2Freedom.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G2Held.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G2Outcome.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G2Physical.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G2Singleton.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G2Splice.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G2WholeOutcome.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G3ArchiveStock.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G3CompleteBill.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G3GoodEvent.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G3PatchDecode.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G3Sweep.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/G3WorkBill.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/GateSupport.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/GaussianChannel.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/GaussianChannelGen.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/GaussianKL.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/GaussianTail.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/GaussianVector.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/GenerativeClosure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/GoldenFormula.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Greatestness.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/GuardFactorization.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/GuardOperator.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/GuardSignature.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/H5Closure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/H8Bound.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/HalperinDecay.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/HamiltonianDecomposition.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Htopkeeps.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Instruments.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/IntegrationCertificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Irreplaceability.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/KLAdditivity.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/KnillLaflamme.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Landauer.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/LatticeLaplacian.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Law.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/LogDet.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/MatchingWitness.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/MathlibAnalyticBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/MeanErgodic.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/MeanErgodicDeep.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/MeetAlgebra.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/MeetHilbert.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/MetricShadow.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ObservationWinning.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/OpialBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/OriginalD1.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/OriginalE9AndH5.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/OriginalH6.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/OriginalH7.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/OriginalH8.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/P2P3.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/PassiveReference.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/PhysicalGuard.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/PremiseFloor.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/PureStateDistance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/PureStateTraceNorm.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/QuantumLandauer.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/QueueDeadline.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/R14Boundary.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/R14Rivals.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/R15CausalGluing.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/R16Cut.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/R16Feedback.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/R16R14.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/R16Screened.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/R16TwoPhase.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/R17AQueueFinality.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/R17FIFOR17A.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/R17Funding.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/R17WorkConcrete.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/RGFixedPoint.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/RankAndCoalition.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ReadoutBounds.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ReadoutJoint.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ReasonsCompiled.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ReasonsEnsemble.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ReasonsRoute.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ReceivedCutR14Repaired.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ReceivedCutRepaired.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ReciprocityCeiling.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ReciprocityDistance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/RecoveryWork.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/RedundantRecord.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ReflectionCertificate.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ReflectionContraction.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ReflectionFuel.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/RegionBoundary.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/RelationalBridge.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/RestrictedModels.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/RiskBounds.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Rotation.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/SafeGenesis.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/SemanticMap.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/SensorTail.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/SmearingIntegral.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/SnuffyLocal.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/SolventReciprocity.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/SparseFailure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/SpeedLimit.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/StageSchedule.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/StrokeBookkeeping.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/TIWAGuard.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/TIWARecovery.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/TIWASource.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/TIWAWork.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/TemporalSafety.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/TheoremEightLyapunov.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ThermalBalance.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ThermoLedger.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Threshold.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/TimelyCare.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/ToleranceSweep.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/TopRealisability.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/TransportLaw.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Trotter.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/TwoLevel.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/UPTFence.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/UPTLawLife.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/UPTR12A.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/UnionClosure.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/UniversalProtection.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/WeightedEdgeLaw.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Whitening.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/WorkBilling.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/WorkIntegration.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/Snuffy/Workload.lean`
+- `2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-08-threshold-stages/lean/SummitsAudit.lean`
 - `2026-10-26-4.2-join-repairs/checks/snapshots/response/Snuffy/HoldingSpectralCriterion.lean`
 - `2026-10-26-4.2-join-repairs/snapshots/before-checkpoint-04/BennettCounterpart.lean`
 - `2026-10-26-4.2-join-repairs/snapshots/before-checkpoint-04/SummitsAudit.lean`
@@ -1010,6 +1571,7 @@ Build modules: 180. Audit imports: 180.
 | `AreaBridge` | yes | `(canon only)` |
 | `BandwidthReflection` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/BandwidthReflection.lean` |
 | `Bennett` | yes | `(canon only)` |
+| `BennettBatch` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/BennettBatch.lean` |
 | `BennettCounterpart` | yes | `2026-10-25-historical-handoff-source/bennett-counterpart/lean/Snuffy/BennettCounterpart.lean` |
 | `BennettExact` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/BennettExact.lean` |
 | `Bridge` | yes | `(canon only)` |
@@ -1114,6 +1676,7 @@ Build modules: 180. Audit imports: 180.
 | `OriginalH7` | yes | `2026-10-23-gemini-original-derivations/lean/OriginalH7.lean` |
 | `OriginalH8` | yes | `2026-10-23-gemini-original-derivations/lean/OriginalH8.lean` |
 | `P2P3` | yes | `2026-10-24-glm-phase-a/lean/P2P3.lean` |
+| `PassiveReference` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/PassiveReference.lean` |
 | `PhysicalGuard` | yes | `(canon only)` |
 | `PremiseFloor` | yes | `(canon only)` |
 | `PureStateDistance` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/PureStateDistance.lean` |
@@ -1144,6 +1707,7 @@ Build modules: 180. Audit imports: 180.
 | `ReciprocityCeiling` | yes | `(canon only)` |
 | `ReciprocityDistance` | yes | `2026-10-25-historical-handoff-source/reciprocity-distance/lean/Snuffy/ReciprocityDistance.lean` |
 | `RecoveryWork` | yes | `(canon only)` |
+| `RedundantRecord` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/RedundantRecord.lean` |
 | `ReflectionCertificate` | yes | `(canon only)` |
 | `ReflectionContraction` | yes | `2026-10-23-adoption-contracts/lean/ReflectionContraction.lean` |
 | `ReflectionFuel` | yes | `2026-10-23-adoption-contracts/lean/ReflectionFuel.lean` |
@@ -1158,7 +1722,9 @@ Build modules: 180. Audit imports: 180.
 | `SmearingIntegral` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/SmearingIntegral.lean` |
 | `SnuffyLocal` | yes | `(canon only)` |
 | `SolventReciprocity` | yes | `2026-10-25-solvent-reciprocity/SolventReciprocity.lean` |
+| `SparseFailure` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/SparseFailure.lean` |
 | `SpeedLimit` | yes | `(canon only)` |
+| `StageSchedule` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/StageSchedule.lean` |
 | `StrokeBookkeeping` | yes | `(canon only)` |
 | `TIWAGuard` | yes | `(canon only)` |
 | `TIWARecovery` | yes | `(canon only)` |
@@ -1170,6 +1736,7 @@ Build modules: 180. Audit imports: 180.
 | `ThermoLedger` | yes | `(canon only)` |
 | `Threshold` | yes | `(canon only)` |
 | `TimelyCare` | yes | `2026-10-25-historical-handoff-source/recovered-r17-sources/lean/Snuffy/TimelyCare.lean` |
+| `ToleranceSweep` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/ToleranceSweep.lean` |
 | `TopRealisability` | yes | `(canon only)` |
 | `TransportLaw` | yes | `2026-10-24-glm-phase-a/lean/TransportLaw.lean` |
 | `Trotter` | yes | `(canon only)` |
@@ -1179,6 +1746,7 @@ Build modules: 180. Audit imports: 180.
 | `UPTR12A` | yes | `(canon only)` |
 | `UnionClosure` | yes | `(canon only)` |
 | `UniversalProtection` | yes | `(canon only)` |
+| `WeightedEdgeLaw` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/WeightedEdgeLaw.lean` |
 | `Whitening` | yes | `(canon only)` |
 | `WorkBilling` | yes | `2026-10-25-historical-handoff-source/working/lean/Snuffy/WorkBilling.lean` |
 | `WorkIntegration` | yes | `(canon only)` |

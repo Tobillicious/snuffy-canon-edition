@@ -1,4 +1,4 @@
-# v4.2 modules — build receipt (2026-10-25T17:03Z)
+# v4.2 modules — build receipt (2026-10-25T23:43Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -180,6 +180,13 @@
 ## ExRecBound: exit=0 compiler-output-bytes=0
 ## EdgeLaw: exit=0 compiler-output-bytes=0
 ## MatchingWitness: exit=0 compiler-output-bytes=0
+## SparseFailure: exit=0 compiler-output-bytes=0
+## ToleranceSweep: exit=0 compiler-output-bytes=0
+## PassiveReference: exit=0 compiler-output-bytes=0
+## RedundantRecord: exit=0 compiler-output-bytes=0
+## BennettBatch: exit=0 compiler-output-bytes=0
+## WeightedEdgeLaw: exit=0 compiler-output-bytes=0
+## StageSchedule: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -360,6 +367,13 @@
 ## leanchecker Snuffy.ExRecBound: exit=0
 ## leanchecker Snuffy.EdgeLaw: exit=0
 ## leanchecker Snuffy.MatchingWitness: exit=0
+## leanchecker Snuffy.SparseFailure: exit=0
+## leanchecker Snuffy.ToleranceSweep: exit=0
+## leanchecker Snuffy.PassiveReference: exit=0
+## leanchecker Snuffy.RedundantRecord: exit=0
+## leanchecker Snuffy.BennettBatch: exit=0
+## leanchecker Snuffy.WeightedEdgeLaw: exit=0
+## leanchecker Snuffy.StageSchedule: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.AnalyticBridge.starProjection_fixed_iff_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1496,13 +1510,37 @@
 ##   'Snuffy.MatchingWitness.card_symmDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.MatchingWitness.half_faulty' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.MatchingWitness.matching_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SparseFailure.disjoint_windows' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.SparseFailure.many_failures' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.frozen_after' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.wrong_has_cause' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.wrong_le_of_eroder' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.wrong_subset_bad' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.sweep_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.pathwise_bill' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ToleranceSweep.recovery_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PassiveReference.stages_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PassiveReference.total_failure_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PassiveReference.total_rewrite_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RedundantRecord.majority_decodes' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.RedundantRecord.tolerant_outer_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettBatch.batched_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.BennettBatch.premise5_batched' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WeightedEdgeLaw.push_weighted' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WeightedEdgeLaw.push_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WeightedEdgeLaw.rate_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WeightedEdgeLaw.tightened_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WeightedEdgeLaw.walk_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.WeightedEdgeLaw.threshold_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StageSchedule.total_with_transfers' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StageSchedule.stage_cost_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## axiom audit exit=0
-## theorems audited: 1104; non-standard axiom dependencies: none
-## expected audited statements: 1104
+## theorems audited: 1128; non-standard axiom dependencies: none
+## expected audited statements: 1128
 ## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):
-##   ## completeness: canon 180, corpus names 95, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 990
-##   ## build/audit coverage: canon 180, build 180, audit 180, errors 0
-##   ## claims: audited theorems 1104, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
+##   ## completeness: canon 187, corpus names 102, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 1551
+##   ## build/audit coverage: canon 187, build 187, audit 187, errors 0
+##   ## claims: audited theorems 1128, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
 ## source sha256:
 ##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
 ##   4b416646e1fc8f74f524e0f9a680384e35e06adacd69f91bb30dcec70b921b7e  Snuffy/AffordableReciprocity.lean
@@ -1511,6 +1549,7 @@
 ##   f69c4a382be9c0144463ccaacea960d01fb400b2ef1775e150c5edee429bcd38  Snuffy/AreaBridge.lean
 ##   bdd3a90a36128370bba77aefe7ae87852ae5873fd3262cff9361a8e6af5e1bf5  Snuffy/BandwidthReflection.lean
 ##   9b8b6aa47ff4fc77866694d73757f736d8beef2cbf8efa3d63e9fcb182fbe34f  Snuffy/Bennett.lean
+##   681c9ae4d7560d22e57e062cce561cdfe3aaa55ae3293790f1cffed21731755a  Snuffy/BennettBatch.lean
 ##   26e561156ad7756056f8bf1af3a40ce61d54386244264ece501363e840431d97  Snuffy/BennettCounterpart.lean
 ##   e88fee9687904d04ed4f04dda7110f9ff18cace95ca9b0c5780a86fc64277b00  Snuffy/BennettExact.lean
 ##   7c1c2d43f9d37d0ecf717fec37966d0f73805ba17a07d3f1c32b9f35794cd195  Snuffy/Bridge.lean
@@ -1615,6 +1654,7 @@
 ##   f1ebedbfa20f13988c787609559bf6e8b5de72348b32bda8b6f258b1c1e0851b  Snuffy/OriginalH7.lean
 ##   b546f090c342bf4a4d85a5c4bf72f57f5e3bf63ce99aaad883c3ae5970eeeebb  Snuffy/OriginalH8.lean
 ##   87476d6351da978a583f7c6b69bb6b20b27ae253afd6118337782fe6053daa51  Snuffy/P2P3.lean
+##   02dbb95a922bc17657314757900578d45bd1d2f13d0ad3012569cb7eccedc92f  Snuffy/PassiveReference.lean
 ##   c2f5e45956371b46a7dec2ff38b117aa4ad9d0f3c52f8141362b3a8cd4064571  Snuffy/PhysicalGuard.lean
 ##   5c6e13296b1dd2ed9dfbc5008369ded813a2830a4d10dc3988f5dadb2492a93d  Snuffy/PremiseFloor.lean
 ##   d120f4c73096a49eeb9cbd4042f55f44ddec2084e89535475ea85331b01f9c5a  Snuffy/PureStateDistance.lean
@@ -1645,6 +1685,7 @@
 ##   352b83df636a2e16165c4cd78c7a784ca689353a59a2e27eae58d6da4fc096f2  Snuffy/ReciprocityCeiling.lean
 ##   b6533e046988c94d76a6eafd08e63649d027207bea6ec9c55a72602bd2ab520d  Snuffy/ReciprocityDistance.lean
 ##   ae54c335b663b2e9167e972a2f70df8dcdedc1236a4b107b1ae11862b04018bc  Snuffy/RecoveryWork.lean
+##   2bdceb04cbafa13d15501972ed1e3756163ac0d9c7a7190fd912477939aa3487  Snuffy/RedundantRecord.lean
 ##   87983d7ce3f9af2d1f3790e45e91fdb450eb346e75068542077eb755ba7ac7b0  Snuffy/ReflectionCertificate.lean
 ##   db2de0ba7d76b9eed147a5384b6b862a1b82c6299d7ab76bfcc6427ef148157d  Snuffy/ReflectionContraction.lean
 ##   384f72d55b6742a2042859eadff537d1c9c3ad6d84f11b7204520ba0d65b9801  Snuffy/ReflectionFuel.lean
@@ -1659,7 +1700,9 @@
 ##   ef4ee84cdbdb99bada98fd609b03d5adc1ab58fb3e6922778ddaac6d0934ce39  Snuffy/SmearingIntegral.lean
 ##   383e3c786d7ec50ce2557d10a10cce49c6a7c99c59c4b0a821a5719503ead9e9  Snuffy/SnuffyLocal.lean
 ##   47572c51ec0936496697e6858aa46465b00fb18c5fba10255ec9f6c2293188f3  Snuffy/SolventReciprocity.lean
+##   b08368e3b7f9da798cf875d01ae6c8b1fedb4f1dce596167c8ce4b32a6f647f9  Snuffy/SparseFailure.lean
 ##   355c12f48ab339d34d57c02f9e3a9d556d27009aecb26335b9113c9e327d11b6  Snuffy/SpeedLimit.lean
+##   81d70a1e34679512595cd47ce53da9c1ca57c61641bc9ae82718d02c424129e5  Snuffy/StageSchedule.lean
 ##   40d4899d038811565a8ed51c027fc0e8f30c0c53fd9c3915a13a725ffe619dc3  Snuffy/StrokeBookkeeping.lean
 ##   97b05c1eab08f2c15fe8d0e3dff67038df7f25b9ee394f19f0ff0e49c4997dbb  Snuffy/TIWAGuard.lean
 ##   333d45b711ad6a1879c73adc9e736fbbd6c9f227bc17a65753e5892c97a4c6e9  Snuffy/TIWARecovery.lean
@@ -1671,6 +1714,7 @@
 ##   ed3ddcaa31db92a8bbdd45ee9593cefd442c61e79701e9bd1b43b5be2ca0c035  Snuffy/ThermoLedger.lean
 ##   2a32b8f01e8967eb10dcbb0435e507ad7daa4fb08081f6ba13faf92cf0542ddc  Snuffy/Threshold.lean
 ##   3a04ade37df22268e40f83df4509c8a88949b7e45fe4ed83a1f4336e5541722d  Snuffy/TimelyCare.lean
+##   06a2a53df179629945a973f9445f4ac8e816dc8ff60f3aa3f3e931e889a3eb1d  Snuffy/ToleranceSweep.lean
 ##   0dda349042a5f2d2adf24f213e812c09aafb834d19fbe48723ff36eccb2eff02  Snuffy/TopRealisability.lean
 ##   50c825e0012825c3aa4fdc0791d6a10c845162cd2281fc42fd31771efe9ea03d  Snuffy/TransportLaw.lean
 ##   e2eb62081f7753a5ee4cc594c6d45f6be93da2d54e654f5613a0761677bc920d  Snuffy/Trotter.lean
@@ -1680,9 +1724,10 @@
 ##   23dd889faff2debe9d8cf589c2708a80520df6283af077ded96785f3114a2594  Snuffy/UPTR12A.lean
 ##   7216f2e6d50a96bbc3b07ec8103e7e333d1d54a1f0793d81807590b0f2d520f4  Snuffy/UnionClosure.lean
 ##   ad24d8ed2d5536a55273d39a088387b1bbce1245c27a5b918acafbacdc206cb1  Snuffy/UniversalProtection.lean
+##   00f60201a04245f6065f2f73ff1a24b5acf76a0cf0a29c6e2d8d7ab54e618aa6  Snuffy/WeightedEdgeLaw.lean
 ##   97796ec3be890378195fa42cfd4ae9e12494235f556e4d4679beea1dea75e7fc  Snuffy/Whitening.lean
 ##   fcfcf42fc99f43b196b65cb4f51d12e52d69d05bc0c7cdd90e2d03a6514a3e15  Snuffy/WorkBilling.lean
 ##   a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1  Snuffy/WorkIntegration.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   ac29b0d01b159827cff3e592d05eb53726951b132289898de0237b5c300d4ab2  SummitsAudit.lean
+##   37f37081372f31700412b8094cf970a4978a2a8c7db2303806c030e2bd3f06e4  SummitsAudit.lean
 ## overall: PASS

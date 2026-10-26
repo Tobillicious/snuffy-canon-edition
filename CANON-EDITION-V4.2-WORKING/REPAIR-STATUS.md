@@ -1,8 +1,8 @@
 # Repair status — unpublished working checkpoint
 
-The full UPT target is unchanged. Current sources/index: 180 modules / 1,104
-names. Checkpoint 05 (26 October) PASSED: all 180 modules freshly compiled
-with zero output and kernel-checked, the 1,104-name standard-axiom audit and
+The full UPT target is unchanged. Current sources/index: 187 modules / 1,128
+names. Checkpoint 08 (26 October) PASSED: all 187 modules freshly compiled
+with zero output and kernel-checked, the 1,128-name standard-axiom audit and
 the strict completeness, coverage and claims gates; source hashes unchanged.
 
 Added since checkpoint 02: `G1Refinement`, `G2Physical`, `G2Freedom`,
@@ -19,3 +19,10 @@ tolerance of the sweep. Three existing sentences on Bennett's status
 Before/after batches 01 and 02 are preserved and were shown to the author.
 Physical source, whole-outcome, device-cost and external-theorem applications
 remain construction work. No push, PR, merge or Zenodo publication yet.
+
+Checkpoints 06–08 add `SparseFailure`, `ToleranceSweep`, `PassiveReference`,
+`RedundantRecord`, `BennettBatch`, `WeightedEdgeLaw` and `StageSchedule` (G.19).
+Prose batches 03 (Bennett status) and 04 (`CITATION.cff` abstract) applied on the
+author's word. Open: the initialisation problem for the 3D passive quantum memory
+(quantum branch, conditional), measured device parameters, and prose batch 05
+(README Bennett sentence, awaiting the author's OK).

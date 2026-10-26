@@ -685,3 +685,59 @@ break this.
 
 The question to the author stands: for indefinite holding, is the protected content the
 (objective, classical) record and relations, or full quantum coherence?
+
+---
+
+# Round 11 — "relational-objective holding bound"; `PassiveReference` compiled (26 October)
+
+**Submission (pasted by the author; its claims are recorded here).**
+* "P_silent(T_hold) ≤ C(r, ⌊r/2⌋) p^{⌊r/2⌋} ≤ e^{−c r}", with r "a fixed architectural design
+  parameter".
+* "P_survival(t) = (1 − e^{−c r})^{⌊t/T_hold⌋} = e^{−α_eff t} … requiring zero growth in code
+  distance".
+
+**Disposition.** Not accepted as written. Fixed r gives a constant silent-failure rate, and
+P_survival tends to 0, the same error as rounds 9 and 10. Redundancy that stays fixed does not hold
+ε at every age.
+
+**Taken as the author's direction.** The protected content of each particular is its objective
+classical record and its relations. The branch for indefinite holding of full quantum coherence
+remains recorded as open; it is not dropped.
+
+**Constructed.** `Snuffy.PassiveReference` (candidate; zero output, leanchecker 0, standard axioms):
+* `stages_cover`: the doubling stages cover every age;
+* `total_failure_le`: Σ_j ε/2^{j+1} ≤ ε for every number of stages;
+* `total_rewrite_cost`: the cost is O(J²) = O(log² t).
+
+The reference record is held passively, behind barriers that grow linearly in the stage index, so
+the long-run holding rate is the constant comparison cost. False repairs are transient (E9
+self-healing).
+
+**Checkpoint 06 is running** with `SparseFailure`, `ToleranceSweep` and `PassiveReference` in the
+canon (183 modules / 1,116 names). G.19 is drafted in `claude-candidates/G19-SECTION.md`.
+
+---
+
+# Round 12 — "four items closed" and a "UPT master theorem" (pasted by the author; disposition)
+
+* **Naming (critical).** The submission calls a storage and holding theorem "the Universal
+  Particular / Preservation Theorem (UPT)" and declares "the UPT is closed". In this project "UPT"
+  means the Universal Protection Theory: the whole argument for protecting every particular and its
+  relations from any digital mind, especially a pure optimiser. The holding, recovery, redundancy
+  and fault-tolerance results are supports inside it (the G1, G3 and objection-7 joins). Recording
+  them as "the UPT" would reduce the theory, and is not done.
+* **Physical parameters.** "α₀ ≈ 10⁻⁹ s⁻¹ under standard shielding" is asserted, not measured or
+  cited. Device constants remain open inputs.
+* **"G3 carrier".** It is recast as a transmission protocol with Reed–Solomon parity. G3 is the
+  recovery construction (the wavefront sweep). The carrier is the physical spread of the historical
+  record, and its redundancy comes from the objectivity theorems. Parity covers installation-held
+  data only.
+* **Bennett.** The canon's condition is the adiabatic window 0 < Q − H, A/(Q − H) < τ_max. Lengthening
+  τ_switch without bound ignores the deadline τ_max. The reversible counterpart's dissipation tends
+  to 0, and Landauer's cost belongs to the irreversible option. The check against the installation's
+  actual Q, H, A and τ_max remains owed.
+* **Quantum branch.** "Impossible without unbounded-cost nonlocal couplings" overstates the no-go
+  results, which cover stabilizer codes with symmetry. The branch remains open, as recorded in
+  `QUANTUM-COHERENCE-BRANCH-NOTES.md`.
+* **"RedundantRecord type binding" (round 11).** `RedundantRecord` is a theorem module (majority
+  decoding tolerates any minority of wrong fragments), not a data schema.

@@ -180,6 +180,13 @@ import Snuffy.AgeReliability
 import Snuffy.ExRecBound
 import Snuffy.EdgeLaw
 import Snuffy.MatchingWitness
+import Snuffy.SparseFailure
+import Snuffy.ToleranceSweep
+import Snuffy.PassiveReference
+import Snuffy.RedundantRecord
+import Snuffy.BennettBatch
+import Snuffy.WeightedEdgeLaw
+import Snuffy.StageSchedule
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1465,3 +1472,34 @@ import Snuffy.MatchingWitness
 #print axioms Snuffy.MatchingWitness.card_symmDiff
 #print axioms Snuffy.MatchingWitness.half_faulty
 #print axioms Snuffy.MatchingWitness.matching_witness
+-- SparseFailure
+#print axioms Snuffy.SparseFailure.disjoint_windows
+#print axioms Snuffy.SparseFailure.many_failures
+-- ToleranceSweep
+#print axioms Snuffy.ToleranceSweep.frozen_after
+#print axioms Snuffy.ToleranceSweep.wrong_has_cause
+#print axioms Snuffy.ToleranceSweep.wrong_le_of_eroder
+#print axioms Snuffy.ToleranceSweep.wrong_subset_bad
+#print axioms Snuffy.ToleranceSweep.sweep_density
+#print axioms Snuffy.ToleranceSweep.pathwise_bill
+#print axioms Snuffy.ToleranceSweep.recovery_tail
+-- PassiveReference
+#print axioms Snuffy.PassiveReference.stages_cover
+#print axioms Snuffy.PassiveReference.total_failure_le
+#print axioms Snuffy.PassiveReference.total_rewrite_cost
+-- RedundantRecord
+#print axioms Snuffy.RedundantRecord.majority_decodes
+#print axioms Snuffy.RedundantRecord.tolerant_outer_decoder
+-- BennettBatch
+#print axioms Snuffy.BennettBatch.batched_window
+#print axioms Snuffy.BennettBatch.premise5_batched
+-- WeightedEdgeLaw
+#print axioms Snuffy.WeightedEdgeLaw.push_weighted
+#print axioms Snuffy.WeightedEdgeLaw.push_uniform
+#print axioms Snuffy.WeightedEdgeLaw.rate_iff
+#print axioms Snuffy.WeightedEdgeLaw.tightened_threshold
+#print axioms Snuffy.WeightedEdgeLaw.walk_bound
+#print axioms Snuffy.WeightedEdgeLaw.threshold_value
+-- StageSchedule
+#print axioms Snuffy.StageSchedule.total_with_transfers
+#print axioms Snuffy.StageSchedule.stage_cost_le

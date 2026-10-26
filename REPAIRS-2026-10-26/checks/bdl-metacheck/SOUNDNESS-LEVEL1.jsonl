@@ -1,0 +1,10 @@
+{"level": 1, "family": "Zchecks", "radius": 2, "deps": 15, "deps_local": 8, "all_locally_generated": false, "smallest_dangerous": 1, "example": [6]}
+{"level": 1, "family": "Zchecks", "radius": 3, "deps": 15, "deps_local": 13, "all_locally_generated": false, "smallest_dangerous": 1, "example": [8]}
+{"level": 1, "family": "Zchecks", "radius": 4, "deps": 15, "deps_local": 15, "all_locally_generated": true}
+{"level": 1, "family": "Zchecks", "radius": 5, "deps": 15, "deps_local": 15, "all_locally_generated": true}
+{"level": 1, "family": "Zchecks", "radius": 6, "deps": 15, "deps_local": 15, "all_locally_generated": true}
+{"level": 1, "family": "Xchecks", "radius": 2, "deps": 0, "deps_local": 0, "all_locally_generated": true}
+{"level": 1, "family": "Xchecks", "radius": 3, "deps": 0, "deps_local": 0, "all_locally_generated": true}
+{"level": 1, "family": "Xchecks", "radius": 4, "deps": 0, "deps_local": 0, "all_locally_generated": true}
+{"level": 1, "family": "Xchecks", "radius": 5, "deps": 0, "deps_local": 0, "all_locally_generated": true}
+{"level": 1, "family": "Xchecks", "radius": 6, "deps": 0, "deps_local": 0, "all_locally_generated": true}

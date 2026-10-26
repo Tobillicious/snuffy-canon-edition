@@ -150,9 +150,9 @@ whole-outcome, device-cost and external-theorem application
 correspondences remain explicit construction work; the component
 theorems do not by themselves declare the maximal argument complete.
 
-The current Lean tree contains 180 modules and 1104 audited public
-theorem/lemma names. All 180 modules were freshly compiled and
-kernel-checked in one run, and the full axiom audit over all 1104 names
+The current Lean tree contains 187 modules and 1128 audited public
+theorem/lemma names. All 187 modules were freshly compiled and
+kernel-checked in one run, and the full axiom audit over all 1128 names
 and the completeness and claims gates were freshly run, overall PASS.
 The earlier receipts, including the 924-name combined receipt that
 reused Beam's 136 results, are preserved with their banks. Seven
@@ -263,10 +263,16 @@ Section 23):
   Premise 4 is derived from P1/P4.
 \item
   The full premise-5 target remains reversible administration. The canon
-  proves the heat-only option-model result; its physical counterpart
-  needs the actual lifecycle and deadline comparison
-  (\texttt{B\allowbreak{}e\allowbreak{}n\allowbreak{}n\allowbreak{}e\allowbreak{}t\allowbreak{}t\allowbreak{}C\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}p\allowbreak{}a\allowbreak{}r\allowbreak{}t\allowbreak{}.\allowbreak{}p\allowbreak{}r\allowbreak{}e\allowbreak{}m\allowbreak{}i\allowbreak{}s\allowbreak{}e\allowbreak{}5\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}n\allowbreak{}s\allowbreak{}t\allowbreak{}r\allowbreak{}u\allowbreak{}c\allowbreak{}t\allowbreak{}e\allowbreak{}d};
-  \texttt{P\allowbreak{}r\allowbreak{}e\allowbreak{}m\allowbreak{}i\allowbreak{}s\allowbreak{}e\allowbreak{}F\allowbreak{}l\allowbreak{}o\allowbreak{}o\allowbreak{}r\allowbreak{}.\allowbreak{}r\allowbreak{}e\allowbreak{}v\allowbreak{}e\allowbreak{}r\allowbreak{}s\allowbreak{}i\allowbreak{}b\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}a\allowbreak{}d\allowbreak{}m\allowbreak{}i\allowbreak{}n\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}\_\allowbreak{}f\allowbreak{}o\allowbreak{}r\allowbreak{}c\allowbreak{}e\allowbreak{}d}).
+  proves the heat-only option-model result and, for the implemented
+  Bennett program with its complete lifecycle cost, the exact condition:
+  reversible administration is forced inside the adiabatic window
+  \(0<Q-H\), \(A/(Q-H)<\tau_{\max}\), and outside that window the
+  counterpart is not cheaper
+  (\texttt{B\allowbreak{}e\allowbreak{}n\allowbreak{}n\allowbreak{}e\allowbreak{}t\allowbreak{}t\allowbreak{}E\allowbreak{}x\allowbreak{}a\allowbreak{}c\allowbreak{}t\allowbreak{}.\allowbreak{}p\allowbreak{}r\allowbreak{}e\allowbreak{}m\allowbreak{}i\allowbreak{}s\allowbreak{}e\allowbreak{}5\allowbreak{}\_\allowbreak{}e\allowbreak{}x\allowbreak{}a\allowbreak{}c\allowbreak{}t},
+  \texttt{window\_exact};
+  \texttt{P\allowbreak{}r\allowbreak{}e\allowbreak{}m\allowbreak{}i\allowbreak{}s\allowbreak{}e\allowbreak{}F\allowbreak{}l\allowbreak{}o\allowbreak{}o\allowbreak{}r\allowbreak{}.\allowbreak{}r\allowbreak{}e\allowbreak{}v\allowbreak{}e\allowbreak{}r\allowbreak{}s\allowbreak{}i\allowbreak{}b\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}a\allowbreak{}d\allowbreak{}m\allowbreak{}i\allowbreak{}n\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}\_\allowbreak{}f\allowbreak{}o\allowbreak{}r\allowbreak{}c\allowbreak{}e\allowbreak{}d};
+  G.17). The remaining physical step is to show that the installation's
+  actual heat, lifecycle charges and deadline lie inside the window.
 \item
   The income ledger has a necessary-for-relevance resource split
   (\texttt{P\allowbreak{}r\allowbreak{}e\allowbreak{}m\allowbreak{}i\allowbreak{}s\allowbreak{}e\allowbreak{}F\allowbreak{}l\allowbreak{}o\allowbreak{}o\allowbreak{}r\allowbreak{}.\allowbreak{}i\allowbreak{}n\allowbreak{}c\allowbreak{}o\allowbreak{}m\allowbreak{}e\allowbreak{}\_\allowbreak{}o\allowbreak{}r\allowbreak{}\_\allowbreak{}i\allowbreak{}r\allowbreak{}r\allowbreak{}e\allowbreak{}l\allowbreak{}e\allowbreak{}v\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e}).
@@ -3707,7 +3713,7 @@ values, not compiled theorems.
 canon}\label{section-23-the-machine-checked-canon}
 
 \emph{This section maps the edition's compiled results and their actual
-hypotheses. The current source contains 180 modules and 1104 audited
+hypotheses. The current source contains 187 modules and 1128 audited
 public theorem/lemma names. The receipt records a fresh compilation and
 kernel check of every module, a fresh full axiom audit with only
 \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, and
@@ -4163,13 +4169,16 @@ Income-or-irrelevance; forced breach; breach strictly dominated &
 \texttt{i\allowbreak{}n\allowbreak{}c\allowbreak{}o\allowbreak{}m\allowbreak{}e\allowbreak{}\_\allowbreak{}o\allowbreak{}r\allowbreak{}\_\allowbreak{}i\allowbreak{}r\allowbreak{}r\allowbreak{}e\allowbreak{}l\allowbreak{}e\allowbreak{}v\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e},
 \texttt{forced\_breach},
 \texttt{b\allowbreak{}r\allowbreak{}e\allowbreak{}a\allowbreak{}c\allowbreak{}h\allowbreak{}\_\allowbreak{}s\allowbreak{}t\allowbreak{}r\allowbreak{}i\allowbreak{}c\allowbreak{}t\allowbreak{}l\allowbreak{}y\allowbreak{}\_\allowbreak{}b\allowbreak{}e\allowbreak{}l\allowbreak{}o\allowbreak{}w} \\
-Premise 5 in the heat-only model; the actual counterpart still needs a
-complete physical cost and deadline comparison & \texttt{PremiseFloor},
-\texttt{B\allowbreak{}e\allowbreak{}n\allowbreak{}n\allowbreak{}e\allowbreak{}t\allowbreak{}t\allowbreak{}C\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}p\allowbreak{}a\allowbreak{}r\allowbreak{}t}
-&
+Premise 5 in the heat-only model, and exactly inside the adiabatic
+window for the implemented program with complete lifecycle cost; the
+installation's physical parameters must still be shown inside the window
+& \texttt{PremiseFloor},
+\texttt{B\allowbreak{}e\allowbreak{}n\allowbreak{}n\allowbreak{}e\allowbreak{}t\allowbreak{}t\allowbreak{}C\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}p\allowbreak{}a\allowbreak{}r\allowbreak{}t},
+\texttt{BennettExact} &
 \texttt{r\allowbreak{}e\allowbreak{}v\allowbreak{}e\allowbreak{}r\allowbreak{}s\allowbreak{}i\allowbreak{}b\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}a\allowbreak{}d\allowbreak{}m\allowbreak{}i\allowbreak{}n\allowbreak{}i\allowbreak{}s\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}\_\allowbreak{}f\allowbreak{}o\allowbreak{}r\allowbreak{}c\allowbreak{}e\allowbreak{}d}
 (no axioms),
-\texttt{p\allowbreak{}r\allowbreak{}e\allowbreak{}m\allowbreak{}i\allowbreak{}s\allowbreak{}e\allowbreak{}5\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}n\allowbreak{}s\allowbreak{}t\allowbreak{}r\allowbreak{}u\allowbreak{}c\allowbreak{}t\allowbreak{}e\allowbreak{}d} \\
+\texttt{p\allowbreak{}r\allowbreak{}e\allowbreak{}m\allowbreak{}i\allowbreak{}s\allowbreak{}e\allowbreak{}5\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}n\allowbreak{}s\allowbreak{}t\allowbreak{}r\allowbreak{}u\allowbreak{}c\allowbreak{}t\allowbreak{}e\allowbreak{}d},
+\texttt{premise5\_exact}, \texttt{window\_exact} \\
 Premise 2 reduced: Lie--Trotter product formula with explicit error;
 Lloyd's simulation theorem & \texttt{Trotter} & \texttt{trotter\_bound},
 \texttt{trotter\_tendsto}, \texttt{lloyd\_simulation} \\
@@ -4513,9 +4522,10 @@ including any reference, trace preservation, positivity (G.1; G.13) \\
 & Pure-state infidelity is bounded by the squared state-vector distance
 (§23.3; G.13) \\
 \texttt{B\allowbreak{}e\allowbreak{}n\allowbreak{}n\allowbreak{}e\allowbreak{}t\allowbreak{}t\allowbreak{}C\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}p\allowbreak{}a\allowbreak{}r\allowbreak{}t}
-& Heat-only option model; specific implementation/history candidate
-checked separately; complete physical cost and deadline comparison
-remains open (G.14) \\
+& Heat-only option model; the implemented program with clean workspace
+and retained history, its run refinement and unitary quantum lift, and
+the twelve-account lifecycle charge; the exact premise-5 condition is in
+\texttt{BennettExact} (G.14; G.17) \\
 \texttt{RegionBoundary} & Volume and boundary homology: for every region
 other than the whole,
 \(\operatorname{Vol}(U)>0\Leftrightarrow H_0(\partial U)\ne0\); the
@@ -4578,6 +4588,24 @@ bound \(|M_2|p^2+\binom{|L|}{3}p^3\) (G.18) \\
 \texttt{AgeReliability} & A logarithmic distance schedule holds global
 failure below \(\varepsilon\) at every age; a logarithmic overhead is
 not absorbed into an age-independent constant (G.18) \\
+\texttt{SparseFailure}, \texttt{ToleranceSweep} & Patches with disjoint
+windows fail jointly with probability at most the product bound; many
+failures are exponentially unlikely at every age; on the actual sweep
+every wrong vertex is bad, the wrong count obeys the same tail, the bill
+is pathwise and a tolerant outer decoder recovers the record (G.19) \\
+\texttt{PassiveReference}, \texttt{StageSchedule} & Indefinite holding
+at fixed ε: doubling-schedule stages cover every age, total failure at
+most ε, rewrite cost O(log² t); with transfers, holding and transfer
+failures sum to at most ε at polylog cost (G.19) \\
+\texttt{RedundantRecord} & Majority decoding of a redundant record
+tolerates any minority of wrong fragments, supplying the tolerance
+hypothesis of \texttt{recovery\_tail} (G.19) \\
+\texttt{BennettBatch} & Premise 5 is forced for every large enough batch
+once the per-bit reversible overhead is below the irreversible heat
+(G.19) \\
+\texttt{WeightedEdgeLaw} & Weighted fault rates push forward to edge
+rates; with the enumerated edge rate 94/15·p and walk bound 9.87, the
+explicit threshold exceeds 4×10⁻⁴ (G.19) \\
 \end{longtable}
 }
 
@@ -5697,6 +5725,27 @@ Theorems
 \texttt{p\allowbreak{}u\allowbreak{}s\allowbreak{}h\allowbreak{}\_\allowbreak{}l\allowbreak{}o\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}S\allowbreak{}t\allowbreak{}o\allowbreak{}c\allowbreak{}h\allowbreak{}a\allowbreak{}s\allowbreak{}t\allowbreak{}i\allowbreak{}c} \\
 \texttt{MatchingWitness} & \texttt{card\_symmDiff},
 \texttt{half\_faulty}, \texttt{matching\_witness} \\
+\texttt{SparseFailure} & \texttt{disjoint\_windows},
+\texttt{many\_failures} \\
+\texttt{ToleranceSweep} & \texttt{frozen\_after},
+\texttt{wrong\_has\_cause},
+\texttt{w\allowbreak{}r\allowbreak{}o\allowbreak{}n\allowbreak{}g\allowbreak{}\_\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}o\allowbreak{}f\allowbreak{}\_\allowbreak{}e\allowbreak{}r\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}r},
+\texttt{wrong\_subset\_bad}, \texttt{sweep\_density},
+\texttt{pathwise\_bill}, \texttt{recovery\_tail} \\
+\texttt{PassiveReference} & \texttt{stages\_cover},
+\texttt{total\_failure\_le},
+\texttt{t\allowbreak{}o\allowbreak{}t\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}r\allowbreak{}e\allowbreak{}w\allowbreak{}r\allowbreak{}i\allowbreak{}t\allowbreak{}e\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}s\allowbreak{}t} \\
+\texttt{RedundantRecord} & \texttt{majority\_decodes},
+\texttt{t\allowbreak{}o\allowbreak{}l\allowbreak{}e\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}t\allowbreak{}\_\allowbreak{}o\allowbreak{}u\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}\_\allowbreak{}d\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}r} \\
+\texttt{BennettBatch} & \texttt{batched\_window},
+\texttt{premise5\_batched} \\
+\texttt{WeightedEdgeLaw} & \texttt{push\_weighted},
+\texttt{push\_uniform}, \texttt{rate\_iff},
+\texttt{t\allowbreak{}i\allowbreak{}g\allowbreak{}h\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}t\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d},
+\texttt{walk\_bound}, \texttt{threshold\_value} \\
+\texttt{StageSchedule} &
+\texttt{t\allowbreak{}o\allowbreak{}t\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}w\allowbreak{}i\allowbreak{}t\allowbreak{}h\allowbreak{}\_\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}s\allowbreak{}f\allowbreak{}e\allowbreak{}r\allowbreak{}s},
+\texttt{stage\_cost\_le} \\
 \end{longtable}
 }
 
@@ -7891,6 +7940,213 @@ construction.
   This removes the reliability logarithm.
 \end{itemize}
 
+\subsection{G.19 Circuit distance for every d, sparse failure at every
+age, and indefinite holding of the
+record}\label{g.19-circuit-distance-for-every-d-sparse-failure-at-every-age-and-indefinite-holding-of-the-record}
+
+This section continues review objection 7 and the holding item. The
+targets are unchanged: the full fault ceiling, decoding error at most
+\(\varepsilon\) on the historical record, and the complete bill at most
+\(Ct^{d_G}\) with \(C\) independent of age.
+
+\textbf{An exact cut certificate for the circuit distance.} For any set
+\(S\) of detectors, the fault set
+\(K_S=\{f:\mathrm{obs}(f)\oplus|\mathrm{sig}(f)\cap S|\ \text{odd}\}\)
+is crossed an odd number of times by every fault set with zero syndrome
+and odd observable. Over \(GF(2)\), the parity of \(|F\cap K_S|\) is
+\(\mathrm{obs}(F)\) plus the syndrome summed over \(S\), which is
+\(1+0\). So \(D\) sets whose fault sets are pairwise disjoint certify
+that every logical error has at least \(D\) faults.
+
+The cuts are given by explicit potentials:
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{memory}: \(\varphi\) is the crossing face coordinate plus one,
+  and \(D=d\);
+\item
+  \emph{lattice-surgery merge}: \(\varphi=\max(\tau(r),\sigma(j))\), and
+  \(D=\min(d,T)\). Here \(\tau(r)=\max(1,r)\) is the time part. The
+  space part \(\sigma(j)\) is \(1\) on the two seam face columns,
+  \(d-1-j\) to their left and \(j-d\) to their right.
+\end{itemize}
+
+For the rotated surface code with the standard CNOT schedule, an
+exhaustive single-fault enumeration shows every fault lies in at most
+one cut. The cases are \(d=3,5,7,9\), the memory in both bases, and the
+merge at \(T=d-2,d,d+2\): 19 of 19 cases, up to 120,544 faults. The
+merge therefore keeps distance \(d\) exactly when it runs at least \(d\)
+rounds. With the swapped schedule, hooks run parallel to the logical and
+the distance falls to \(\lceil d/2\rceil\).
+
+A fault's multiplicity is fixed by three things: its observable bit, the
+values of \(\varphi\) at its at most two detectors, and \(D\). The
+potentials are translation-covariant formulas, so the condition is local
+to each fault type, and every type occurs at the enumerated sizes. That
+locality step is what carries the certificate to every \(d\).
+
+\textbf{The installation's repeated maps need no approximate
+compilation.}
+
+\begin{itemize}
+\tightlist
+\item
+  Holding correction, patch decoding, merge and split, the padding
+  boundary encoder and its decoder, the charged handoff and the guard
+  are exact circuits over reset, Hadamard, CNOT, idle and measurement,
+  with classical control.
+\item
+  The modular flow is not a runtime map. The finite-basis route
+  \(\alpha(A)=EAE^\dagger\) with \(D=E^\dagger\) gives the same boundary
+  representative exactly.
+\item
+  The Bennett administration is exact reversible logic.
+\end{itemize}
+
+So no precision grows with age, and only reliability remains.
+
+\textbf{Sparse failure at every age} (\texttt{SparseFailure},
+\texttt{ToleranceSweep}). Each patch's failure is decided by the faults
+in a bounded window. Patches whose windows are pairwise disjoint all
+fail with probability at most \(\prod_v\binom{|W_v|}{k}p^{k|U|}\)
+(\texttt{disjoint\_windows}). With a \(K\)-colouring in which
+same-coloured windows are disjoint, at least \(Kn\) of \(N\) patches
+fail with probability at most \(K\binom{N}{n}(\binom{w}{k}p^k)^n\)
+(\texttt{many\_failures}). This falls exponentially in \(N\) once
+\(\binom{w}{k}p^k<\theta/(eK)\), uniformly in age.
+
+On the actual wavefront sweep, a vertex keeps its value after its wave
+(\texttt{frozen\_after}). With interface-tolerant correction, every
+wrong vertex is bad (\texttt{wrong\_subset\_bad}). Interface tolerance
+means a good window decodes correctly whatever the inner commit, because
+a wrong commit reaches it only as a bounded interface error, which is
+the overlapping-recovery analysis of DKLP. The sweep's wrong-vertex
+count obeys the same tail (\texttt{sweep\_density}). The realised bill
+on that event is at most
+\(\mathrm{base}\cdot N+\mathrm{repair}\cdot Kn\)
+(\texttt{pathwise\_bill}). An outer decoder that tolerates fewer than
+\(Kn\) wrong patches returns the record except with that probability
+(\texttt{recovery\_tail}). Failures do occur, at constant density; the
+theorems bound their number, and recovery tolerates them.
+
+\textbf{Redundancy of the record.} The recovery tolerates a constant
+fraction of silent local errors exactly when the record is spread
+redundantly across its carrier. For an objective classical record this
+is a theorem of quantum Darwinism: classical information emerges
+redundantly and generically across environment fragments (Brandão, Piani
+and Horodecki, 2015), and objectivity implies a spectrum-broadcast
+structure (Horodecki, Korbicz and Horodecki, 2015). For a record with no
+redundancy, every location matters, and no protocol of noisy gates
+avoids a logarithmic factor (Dobrushin--Ortyukov; Pippenger).
+
+\textbf{Indefinite holding at fixed \(\varepsilon\)}
+(\texttt{PassiveReference}). A constant per-step failure rate gives a
+total failure that grows linearly with age, so periodic renewal at fixed
+size does not hold \(\varepsilon\) indefinitely. The protector's
+reference record is therefore held passively on a doubling schedule:
+
+\begin{itemize}
+\tightlist
+\item
+  the reference is rewritten at ages \(2^j\);
+\item
+  stage \(j\) has a barrier \(k_BT(2j\ln2+\ln(1/\varepsilon))\) above
+  the attempt scale, so it fails with probability at most
+  \(\varepsilon/2^{j+1}\).
+\end{itemize}
+
+Every age is covered by \(\log_2t+1\) stages (\texttt{stages\_cover}).
+The total failure is at most \(\varepsilon\) for every number of stages
+(\texttt{total\_failure\_le}). The rewrite cost is \(O(\log^2t)\)
+(\texttt{t\allowbreak{}o\allowbreak{}t\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}r\allowbreak{}e\allowbreak{}w\allowbreak{}r\allowbreak{}i\allowbreak{}t\allowbreak{}e\allowbreak{}\_\allowbreak{}c\allowbreak{}o\allowbreak{}s\allowbreak{}t}),
+so the long-run holding rate is the constant per-step comparison of each
+particular with its reference. A faulty comparison or false repair is
+transient: the intact reference corrects it at the next comparison (E9
+self-healing).
+
+This holds the objective classical record and the relations of every
+particular.
+
+\textbf{The record's redundancy is decoded by majority}
+(\texttt{RedundantRecord}). Each fragment reads a record value from the
+recovered state, and an intact fragment reads the record. The
+strict-majority decoder then returns the record whenever fewer than half
+of the fragments are wrong (\texttt{majority\_decodes}). This supplies
+the tolerance hypothesis of \texttt{recovery\_tail}
+(\texttt{t\allowbreak{}o\allowbreak{}l\allowbreak{}e\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}t\allowbreak{}\_\allowbreak{}o\allowbreak{}u\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}\_\allowbreak{}d\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}r}).
+For an objective record, the redundancy theorems cited above supply the
+intact-fragment hypothesis, so the carrier application rests on them.
+The interface hypothesis of the windowed sweep rests on DKLP's
+overlapping recovery, in the same way the witness lemma does.
+
+\textbf{Premise 5 for batched administration} (\texttt{BennettBatch}).
+Administer \(b\) merges in one batch. The irreversible heat is at least
+\(qb\), with \(q\ge k_BT\ln2\) per merged bit. The implemented
+counterpart's complete non-heat lifecycle charge is at most \(\eta b\),
+and its drive constant is bounded. If \(\eta<q\), every large enough
+batch lies inside the adiabatic window for every deadline
+(\texttt{batched\_window}), so no aligned option administers
+irreversibly (\texttt{premise5\_batched}). The single remaining physical
+input is \(\eta<q\). Adiabatic logic below \(k_BT\ln2\) per operation
+meets it.
+
+\textbf{The explicit threshold, tightened} (\texttt{WeightedEdgeLaw}).
+Under circuit-level depolarizing noise, each fault carries its own rate:
+\(p/15\) for each two-qubit Pauli, \(p/3\) for each single-qubit Pauli,
+and \(p\) for a measurement flip. Pushed to the detector graph, the edge
+rates are the weighted sums of their faults (\texttt{push\_weighted}),
+and the largest edge rate is at most \(\tfrac{94}{15}p\)
+(\texttt{push\_uniform}, enumerated).
+
+Self-avoiding walk counts on the detector graph are submultiplicative.
+The exact maximum over all interior vertices at length 8 is
+\(c_8=89{,}270{,}654\le9.87^8\) (\texttt{walk\_bound}), so walks of
+every length are at most \(c_8\,9.87^L\). The ratio of
+\texttt{f\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}\_\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}g\allowbreak{}e\allowbreak{}o\allowbreak{}m\allowbreak{}e\allowbreak{}t\allowbreak{}r\allowbreak{}i\allowbreak{}c}
+is therefore below one exactly when
+\(p<1/(4\cdot9.87^2\cdot\tfrac{94}{15})\)
+(\texttt{t\allowbreak{}i\allowbreak{}g\allowbreak{}h\allowbreak{}t\allowbreak{}e\allowbreak{}n\allowbreak{}e\allowbreak{}d\allowbreak{}\_\allowbreak{}t\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d}),
+which exceeds \(4\times10^{-4}\) (\texttt{threshold\_value}). The bound
+at length 9, \(c_9=763{,}504{,}745\), gives about \(4.2\times10^{-4}\).
+This is a requirement on the installation's devices, of the same kind as
+\(\eta<q\).
+
+\textbf{Indefinite holding of quantum coherence.} Balasubramanian,
+Davydova and Lin (arXiv:2605.10943, 2026) construct a passive memory in
+\(\mathbb R^3\): 3D-local CSS stabilizer Hamiltonians on
+\(n_k=e^{\Theta(k)}\) qubits, with \(O(1)\)-range terms and bounded
+density. Below \(T_c\), the thermal encoding satisfies
+\(\|\Phi_t\circ\mathrm{Enc}_k(\rho)-\mathrm{Enc}_k(\rho)\|_1\le t\,e^{-\Theta(n_k^\eta)}\).
+
+Held on a doubling schedule, each stage needs a code size \(n_j\) with
+\(c\,n_j^\eta\ge(2j+2)\ln2+\ln(1/\varepsilon)\), and each stage ends
+with a transfer into the next code. If each stage's holding failure and
+each transfer's failure are at most \(\varepsilon/2^{j+2}\), the total
+failure is at most \(\varepsilon\) at every age
+(\texttt{S\allowbreak{}t\allowbreak{}a\allowbreak{}g\allowbreak{}e\allowbreak{}S\allowbreak{}c\allowbreak{}h\allowbreak{}e\allowbreak{}d\allowbreak{}u\allowbreak{}l\allowbreak{}e\allowbreak{}.\allowbreak{}t\allowbreak{}o\allowbreak{}t\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}w\allowbreak{}i\allowbreak{}t\allowbreak{}h\allowbreak{}\_\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}s\allowbreak{}f\allowbreak{}e\allowbreak{}r\allowbreak{}s}).
+A cost polynomial in each stage's code size sums to a polylogarithm of
+age (\texttt{stage\_cost\_le}). The transfer lands the qubit in the next
+code's codespace, so its hypothesis is that a codespace-initialised
+state obeys the same lifetime bound, or that its syndrome sector
+thermalises within polynomial time without logical error. This is the
+open initialisation problem those authors identify. The quantum branch
+is proved conditional on it, with the hypothesis stated explicitly. The
+classical record and its relations are held unconditionally by
+\texttt{PassiveReference}.
+
+\textbf{Remaining.}
+
+\begin{itemize}
+\tightlist
+\item
+  The initialisation problem above.
+\item
+  Measured device parameters: the fault rate \(p\), the coupling bound
+  \(W\), the per-bit overhead \(\eta\), and the barrier materials and
+  temperature.
+\end{itemize}
+
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \section{Part IV --- References and
@@ -7998,8 +8254,8 @@ maps, with the premises it lists. Elsewhere, prose remains prose.
 edition}\label{appendix-verification-provenance-of-this-edition}
 
 The original published baseline contains 115 modules and 831 audited
-names. The current tree contains 180 modules and 1104 audited public
-theorem/lemma names. All 180 modules were freshly compiled and
+names. The current tree contains 187 modules and 1128 audited public
+theorem/lemma names. All 187 modules were freshly compiled and
 kernel-checked in one run, and the full axiom, completeness and claims
 gates were freshly run, overall PASS. The earlier receipts, including
 the 924-name combined receipt that reused Beam's 136 results, are
