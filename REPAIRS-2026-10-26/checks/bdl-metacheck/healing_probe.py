@@ -9,7 +9,7 @@ a nontrivial logical (failure).
 """
 import sys, json, math, random
 sys.path.insert(0, __file__.rsplit('/', 1)[0])
-import bdl
+import bdl, fastbuild
 
 def build(a, b, level):
     T = bdl.seed_planar(a, b)
@@ -22,7 +22,7 @@ def build(a, b, level):
     return bdl.code_of(T), len(T.VQ)
 
 def main(a, b, level, p, beta, sweeps, trials):
-    (D0, D1), n = build(a, b, level)
+    (D0, D1), n = fastbuild.build(a, b, level)
     checks_of = [[] for _ in range(n)]
     for k, r in enumerate(D1):
         x = r

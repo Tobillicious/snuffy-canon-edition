@@ -21,15 +21,13 @@ def code_of(T):
 
 def patch_star_scan():
     """bdl.cells_of_star_x scans every square for each x; index squares by x once per complex."""
-    cache = {}
-    orig = bdl.cells_of_star_x
+    cache = {'T': None, 'by': None}
     def fast(T, x):
-        key = id(T)
-        if key not in cache:
+        if cache['T'] is not T:          # identity of the live object, never a reused id
             by = defaultdict(list)
             for s in T.squares: by[s[0]].append(s)
-            cache.clear(); cache[key] = by
-        by = cache[key]
+            cache['T'], cache['by'] = T, by
+        by = cache['by']
         verts, edges, faces = set(), set(), []
         for s in by[x]:
             xx, q, z, q2 = s

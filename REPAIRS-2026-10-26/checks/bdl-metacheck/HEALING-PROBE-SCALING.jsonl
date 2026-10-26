@@ -1,0 +1,2 @@
+{"seed": [3, 2], "level": 2, "qubits": 5116, "p": 0.02, "beta": 8.0, "sweeps": 40, "results": [{"trial": 0, "initial_syndrome": 212, "final_syndrome": 18, "first_zero_sweep": null, "logical_error_at_end": null, "trace_every_10": [212, 40, 28, 22, 18]}]}
+{"seed": [3, 2], "level": 3, "qubits": 144760, "p": 0.02, "beta": 8.0, "sweeps": 40, "results": [{"trial": 0, "initial_syndrome": 7588, "final_syndrome": 96, "first_zero_sweep": null, "logical_error_at_end": null, "trace_every_10": [7588, 184, 99, 96, 96]}]}

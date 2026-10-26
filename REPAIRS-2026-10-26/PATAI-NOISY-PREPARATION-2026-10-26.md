@@ -619,3 +619,24 @@ Consequences, replacing the affected statements above:
    dynamics lacks monotonicity. This is exactly BGL's open "ground-state stability" question, now
    for BDL with bounded fine regions. That bounded-region structure is new and is the handle a
    proof can use.
+
+### Scaling probe, levels 2 and 3 (not a proof)
+
+Run with `HEALING-PROBE-SCALING.jsonl` at β = 8, p = 0.02 and PYTHONHASHSEED = 0, starting from a
+fault layer. Excitations per 1,000 checks every 10 sweeps:
+
+| Level | Qubits | 0 | 10 | 20 | 30 | 40 |
+|---|---|---|---|---|---|---|
+| 2 (R_Z, regions ≤ 72) | 5,116 | 94.0 | 17.7 | 12.4 | 9.8 | 8.0 |
+| 3 (R_X, regions ≤ 4) | 144,760 | 80.3 | 1.95 | 1.05 | 1.02 | 1.02 |
+
+The larger code relaxes faster, because its regions are smaller. This is consistent with local,
+n-independent relaxation (route step 2). The level-3 plateau of about 1 per 1,000 is the trapped
+odd-parity residue in bounded regions; it can leave only by activated flips (rate about e^{−β} per
+attempt). Route step 3 asks that this residue's coarse content be colder than thermal, and route
+step 4, the open core, asks that this does not lead to logical failure despite non-monotonicity.
+
+`fastbuild.py` note: an early version keyed its square-index cache by `id(T)`, which Python can
+reuse. It now keys by object identity. Under PYTHONHASHSEED = 0 it gives exactly the hashes of
+bdl.py at levels 1 and 2; the level-3 comparison is running. The level-3 component counts were
+recomputed with the fixed builder and are unchanged.
