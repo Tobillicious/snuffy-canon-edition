@@ -1,0 +1,136 @@
+{
+  "scope": "Read-only source/dependency inspection against the completed checkpoint12; no new compilation or physical holding certificate.",
+  "checkpoint_result": {
+    "label": "12-complete-transfer-bill",
+    "process_exit": 0,
+    "overall_pass": true,
+    "working_sources_unchanged": true,
+    "receipt": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/REPAIRS-2026-10-26/checks/snapshots/checkpoint-12-complete-transfer-bill/lean/RECEIPT.txt"
+  },
+  "all_192_current_sources_match": true,
+  "modules": {
+    "Bridge": {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/Bridge.lean",
+      "source_sha256": "7c1c2d43f9d37d0ecf717fec37966d0f73805ba17a07d3f1c32b9f35794cd195",
+      "direct_snuffy_imports": [
+        "Law",
+        "SpeedLimit",
+        "Composition",
+        "E9SelfHealing"
+      ],
+      "selected_transitive_snuffy_imports": []
+    },
+    "G1Held": {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/G1Held.lean",
+      "source_sha256": "6d915552e41a578a04621af254fc53107f383ee77234495945c391082751c16f",
+      "direct_snuffy_imports": [
+        "Bridge"
+      ],
+      "selected_transitive_snuffy_imports": [
+        "Bridge"
+      ]
+    },
+    "G1E9": {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/G1E9.lean",
+      "source_sha256": "a027c38adf36721c181dac0de478212732ded8e17e133c2a84f8eae3dac666d7",
+      "direct_snuffy_imports": [
+        "G1Held",
+        "E9SelfHealing"
+      ],
+      "selected_transitive_snuffy_imports": [
+        "Bridge",
+        "G1Held"
+      ]
+    },
+    "G1Refinement": {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/G1Refinement.lean",
+      "source_sha256": "3f0eb24d42b02a0fa90eba8d7088acff9a4122f668596f187c02f4f7c6dfa748",
+      "direct_snuffy_imports": [
+        "G1Held",
+        "G1FullDomain"
+      ],
+      "selected_transitive_snuffy_imports": [
+        "Bridge",
+        "G1Held"
+      ]
+    },
+    "ConcatenatedDecoding": {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/ConcatenatedDecoding.lean",
+      "source_sha256": "89f4eb6cd0f8099260c4796a302448679bd1219b24eb6e796286c29eac00cfaf",
+      "direct_snuffy_imports": [
+        "Concatenated"
+      ],
+      "selected_transitive_snuffy_imports": [
+        "Bridge"
+      ]
+    },
+    "CorrelatedCeiling": {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/CorrelatedCeiling.lean",
+      "source_sha256": "dad8822f00f28aa83bce2fc5b4941c2df4e8aa5cc79d4841e5836061c0d85b6f",
+      "direct_snuffy_imports": [
+        "CorrelatedStress"
+      ],
+      "selected_transitive_snuffy_imports": []
+    },
+    "RecoveryWork": {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/RecoveryWork.lean",
+      "source_sha256": "ae54c335b663b2e9167e972a2f70df8dcdedc1236a4b107b1ae11862b04018bc",
+      "direct_snuffy_imports": [],
+      "selected_transitive_snuffy_imports": []
+    },
+    "StageSchedule": {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/StageSchedule.lean",
+      "source_sha256": "81d70a1e34679512595cd47ce53da9c1ca57c61641bc9ae82718d02c424129e5",
+      "direct_snuffy_imports": [
+        "PassiveReference"
+      ],
+      "selected_transitive_snuffy_imports": []
+    },
+    "G3CompleteBill": {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/G3CompleteBill.lean",
+      "source_sha256": "653ec5e2fd542eb51cd174d0cd7d6fb647e1bea99a469448624f068a7bdee38b",
+      "direct_snuffy_imports": [],
+      "selected_transitive_snuffy_imports": []
+    },
+    "G3ArchiveStock": {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/G3ArchiveStock.lean",
+      "source_sha256": "0fd27c463a1179606dd0a7c8632e17d9cf27f8752fb26498de5035b878f082ff",
+      "direct_snuffy_imports": [
+        "G3GoodEvent"
+      ],
+      "selected_transitive_snuffy_imports": [
+        "Bridge",
+        "G1Held",
+        "G3CompleteBill"
+      ]
+    },
+    "TransferRate": {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/TransferRate.lean",
+      "source_sha256": "5a89fa881b5c0eb24d338824d81fc6936a47f4b73cbb963b633ce225440b8cf6",
+      "direct_snuffy_imports": [
+        "StageSchedule",
+        "WorkBilling"
+      ],
+      "selected_transitive_snuffy_imports": [
+        "RecoveryWork",
+        "StageSchedule"
+      ]
+    },
+    "HistoryPolymer": {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/HistoryPolymer.lean",
+      "source_sha256": "c8b28f84038370f90bd286b92b7ffaa3788df4d3798f0347eb1f4c6412818e03",
+      "direct_snuffy_imports": [
+        "WarmStart"
+      ],
+      "selected_transitive_snuffy_imports": []
+    },
+    "ThermalEncoding": {
+      "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/ThermalEncoding.lean",
+      "source_sha256": "17a170db0267143d54c8a4a98c04c20a78f3652431dfa0024db9df1a343c76c3",
+      "direct_snuffy_imports": [
+        "ChannelExtension"
+      ],
+      "selected_transitive_snuffy_imports": []
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "Source inspection and hash comparison against the existing checkpoint 12 PASS; no new compilation.",
+  "source_checkpoint": "checkpoint-12-complete-transfer-bill",
+  "canonical_sources_checked": 192,
+  "all_match": true,
+  "inspected_sources": {
+    "HamiltonianDecomposition.lean": "50d896d0f65492a4ee12f9dbde9fe8477598eb9d7067bd5394050bc439c3435f",
+    "GuardFactorization.lean": "cf60d764670e729bf00a7182121f1924fa609dcafde9fe666ccb471f216d50c5",
+    "ClosedCohold.lean": "c33c38aa705a5b3b61a47d22fe227c8f1062f299550f3fdd0a68138c51ea94b5",
+    "DecoderRetraction.lean": "4275cfc98e301674eddb2316861fa6f6d85f21e72e0b0000262ca1c9b2c15d07",
+    "Bridge.lean": "7c1c2d43f9d37d0ecf717fec37966d0f73805ba17a07d3f1c32b9f35794cd195",
+    "G1Held.lean": "6d915552e41a578a04621af254fc53107f383ee77234495945c391082751c16f",
+    "G1Refinement.lean": "3f0eb24d42b02a0fa90eba8d7088acff9a4122f668596f187c02f4f7c6dfa748",
+    "TransferRate.lean": "5a89fa881b5c0eb24d338824d81fc6936a47f4b73cbb963b633ce225440b8cf6"
+  },
+  "algebraic_history_preservation_already_checked": true,
+  "actual_noisy_G21_identification_established_by_this_review": false,
+  "canonical_sources_modified": false,
+  "merge_push_publish_performed": false
+}

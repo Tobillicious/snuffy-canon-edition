@@ -1,0 +1,32 @@
+{
+  "scope": "exact finite initial-law cross-check; not a dynamics or logical-recovery certificate",
+  "ambient_dimensions": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "subspace_counts": {
+    "0": 1,
+    "1": 2,
+    "2": 5,
+    "3": 16,
+    "4": 67,
+    "5": 374
+  },
+  "subspaces_checked": 465,
+  "coset_maximum_checks": 65965,
+  "joint_occupation_checks": 65965,
+  "correlated_fault_footprint_convolution_checks": 8,
+  "fugacities": [
+    "0",
+    "1/16",
+    "1/4",
+    "1/2",
+    "1"
+  ],
+  "all_assertions_pass": true,
+  "source_sha256": "bf905a6e7ee2bfcb17e5e20b64254a0312e92d2368eb38be2171486f2d78206f"
+}

@@ -1,6 +1,12 @@
 ## Section 23 — The machine-checked canon
 
-*This section records which results of the edition are compiled theorems, by module and theorem name, and what each compiled statement rests on. One hundred and fifteen Lean modules in `lean/Snuffy/` compile against Mathlib rev `56a005855ea1` (Lean 4.35.0) with exit 0 and zero compiler output, pass `leanchecker`, contain no `sorry`, and depend only on Lean's standard axioms (`propext`, `Classical.choice`, `Quot.sound`; several on fewer or none). The accompanying `lean/RECEIPT.txt` preserves the existing completed audit, source hashes and overall PASS; it is not a new audit of this manuscript. The unchanged audit tools accompany the copied source. The curated tables below map the results the edition's argument rests on; the complete canon — every compiled module, including the bridges, the verified bank modules and the original derivations folded in on 25 October — is indexed in §23.A, and the repository README's module table describes each curated module's content.*
+*This section records the compiled results and their actual hypotheses. The current canon
+has 192 Lean modules and 1,158 public theorem/lemma names. Checkpoint 12 freshly compiled
+and kernel-checked all modules with zero output and passed the full standard-axiom,
+strict completeness and claims audits. The current source hashes match its PASS receipt.
+Checkpoint 11 was already complete for the 191-module / 1,150-name tree. The eight new
+TransferRate results certify retained-prefix and complete-attempt cost summation. These
+component receipts do not certify the remaining noisy physical holding application.*
 
 *Evidence convention (unchanged from the edition header): a compiled theorem is cited by its name; a statement carried as a hypothesis of a compiled theorem is named as such; a prose derivation keeps its stated premises. A prose proof does not acquire a compiler certificate by association.*
 
@@ -332,6 +338,7 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `WalkBound9` | `walk_bound_9`, `threshold_9`, `threshold_9_value` |
 | `HistoryPolymer` | `halving_prefix`, `paired_history_bound`, `component_valid`, `truncation_bound`, `sampled_truncation_bound`, `branch_path_bound` |
 | `ThermalEncoding` | `branch_compression`, `recovers`, `kron_orthogonal`, `recovers_reference` |
+| `TransferRate` | `poly_le_two_pow`, `transfer_bill_le`, `transfer_bill_linear_in_age`, `retained_prefix_bound`, `attempt_stage_bound`, `polynomial_stage_bill`, `complete_attempt_bill`, `join_complete_bill` |
 <!-- END THEOREM INDEX -->
 
 ---

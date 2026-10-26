@@ -1,0 +1,50 @@
+{
+  "scope": "Exact finite endpoint algebra and connected-support coefficient checks; no full physical model or canonical Lean audit.",
+  "feedback": {
+    "fault_patterns_checked": 1024,
+    "endpoint_I_X_Z_Y": [
+      "29010014036447801880715141/29014219670751100192948224",
+      "553366927792197136453/14507109835375550096474112",
+      "1438767367375602098281/29014219670751100192948224",
+      "207516635042289482737/3626777458843887524118528"
+    ],
+    "exact_feedback_formula": true,
+    "union_rate_bound": true,
+    "threshold_inverse_and_forward_bounds": true,
+    "shared_cause_local_stochastic_does_not_factor": true
+  },
+  "counting": [
+    {
+      "vertices": 2,
+      "Taylor_order": 2,
+      "exact_Mobius_terms": 12,
+      "log_coefficients_match": true
+    },
+    {
+      "vertices": 3,
+      "Taylor_order": 3,
+      "exact_Mobius_terms": 42,
+      "log_coefficients_match": true
+    },
+    {
+      "vertices": 4,
+      "Taylor_order": 4,
+      "exact_Mobius_terms": 116,
+      "log_coefficients_match": true
+    },
+    {
+      "vertices": 5,
+      "Taylor_order": 5,
+      "exact_Mobius_terms": 282,
+      "log_coefficients_match": true
+    },
+    {
+      "vertices": 6,
+      "Taylor_order": 6,
+      "exact_Mobius_terms": 636,
+      "log_coefficients_match": true
+    }
+  ],
+  "all_assertions_pass": true,
+  "source_sha256": "d22ae895eec6f0e8fbef45c0f7746ce9b6667bcf7574caa132399fa1e91059b9"
+}

@@ -1,0 +1,37 @@
+{
+  "scope": "Finite numerical generator identities only; not a physical isolation certificate or Lean theorem.",
+  "commuting_feedback_cases": [
+    {
+      "axis": "X",
+      "request": 0,
+      "all_matrix_units_max_error": 1.4573702187348686e-16,
+      "rate_times_duration_bound": true
+    },
+    {
+      "axis": "X",
+      "request": 1,
+      "all_matrix_units_max_error": 1.3504700626073143e-15,
+      "rate_times_duration_bound": true
+    },
+    {
+      "axis": "Z",
+      "request": 0,
+      "all_matrix_units_max_error": 0.0,
+      "rate_times_duration_bound": true
+    },
+    {
+      "axis": "Z",
+      "request": 1,
+      "all_matrix_units_max_error": 1.0732081945855608e-16,
+      "rate_times_duration_bound": true
+    }
+  ],
+  "reset_Lindblad_identity_error": 5.551115123125783e-17,
+  "reset_semigroup_identity_error": 1.1102230246251565e-16,
+  "single_use_latch_matrix_units": 4,
+  "single_use_latch_reduced_channel_error": 1.1102230246251565e-16,
+  "single_use_latch_full_flag_channel_error": 1.1102230246251565e-16,
+  "latch_absorbing_after_one_jump": true,
+  "all_assertions_pass": true,
+  "source_sha256": "7cdb1f39de7ecaf8d2fa134b43cbfcf63a4f1123c5eede2d840cab117afdf9ec"
+}

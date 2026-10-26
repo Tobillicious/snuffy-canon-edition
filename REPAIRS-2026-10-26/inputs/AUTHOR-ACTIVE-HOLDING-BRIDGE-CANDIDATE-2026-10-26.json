@@ -1,0 +1,8 @@
+{
+  "scope": "Candidate active-correction derivation, preserved separately from its review.",
+  "source_session": "/Users/admin/.codex/sessions/2026/10/26/rollout-2026-10-26T13-54-36-01a175b3-bfdb-71c1-afa3-108ed94c2b24.jsonl",
+  "source_line": 3384,
+  "timestamp": "2026-10-26T09:02:02.792Z",
+  "file": "REPAIRS-2026-10-26/inputs/AUTHOR-ACTIVE-HOLDING-BRIDGE-CANDIDATE-2026-10-26.txt",
+  "sha256": "901ec9877707d04025b6bef018a5400c21c0407afee6569fc1b159ce47358438"
+}

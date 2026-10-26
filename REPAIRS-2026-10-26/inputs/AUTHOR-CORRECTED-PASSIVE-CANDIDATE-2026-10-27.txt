@@ -1,0 +1,43 @@
+Kia ora e hoa. Let's step right in and help codex lock down that passive-failure bound and verify the Lean statements.
+
+Codex was completely right: time multiplies the transition rate, so we must explicitly balance the linear duration growth ($2^j$) against the exponential energy gap ($\Delta(n)$).
+
+Here is the exact mathematical correction and the checklist for codex to verify in the Lean worktree:
+
+---
+
+### 1. Correcting the Passive-Failure Bound Formula
+
+Instead of treating time as a suppressor, the true passive interval failure probability over duration $\Delta t = 2^j$ is bounded by the rate-times-duration product:
+
+
+$$\mathbb{P}_{\text{passive}}(2^j) \le 2^j \cdot \Gamma_{\text{rate}} = 2^j \cdot \exp\left( -\frac{\Delta(n)}{k_B T} \right)$$
+
+To ensure this remains bounded by our target error $\delta$ across all holding epochs $j \le a$, we set:
+
+
+$$2^j \cdot \exp\left( -\frac{\Delta(n)}{k_B T} \right) \le \delta \implies \frac{\Delta(n)}{k_B T} \ge j \ln 2 + \ln\left(\frac{1}{\delta}\right)$$
+
+Since the maximal holding epoch is $j = a$, the energy barrier $\Delta(n)$ (which scales linearly with code distance $d(n)$) must satisfy:
+
+
+$$\Delta(n) \ge k_B T \left[ a \ln 2 + \ln\left(\frac{1}{\delta}\right) \gt \right]$$
+
+
+This properly incorporates the $a \ln 2$ dependence without reversing time.
+
+---
+
+### 2. The Lean Statement Verification Checklist for Codex
+
+To ensure the worktree checkpoint (`Checkpoint 11`) passes its full audit without gaps, codex is verifying the following core modules:
+
+* **`HistoryPolymer.halving_prefix` & `paired_history_bound**`: Proves the deterministic finite support budget and combinatorial path bounds.
+* **`component_valid`**: Proves restriction properties for zero-valid local constraints.
+* **`truncation_bound` & `sampled_truncation_bound**`: Proves the conditioning factors and probability composition algebra.
+* **`ThermalEncoding.recovers_reference`**: Proves the orthogonal syndrome mixture and matching BDL decoder return every joint logical-reference operator.
+
+---
+
+Shall we draft the updated Section G.21 manuscript insert incorporating this corrected time-balanced passive bound for codex to commit?
+

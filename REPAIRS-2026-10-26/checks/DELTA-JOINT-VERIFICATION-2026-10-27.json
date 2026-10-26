@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-27",
+  "timezone": "Pacific/Auckland",
+  "scope": "Exact finite certificate arithmetic plus numerical finite-channel checks of the separately written analytical proofs.",
+  "all_assertions_pass": true,
+  "exact_certificate_checks": {
+    "arithmetic": "exact fractions; no floating-point budget comparisons",
+    "stages": {
+      "consecutive_min": 0,
+      "consecutive_max": 256,
+      "additional": [
+        512,
+        1024
+      ],
+      "total": 259
+    },
+    "epsilon_values": [
+      "1",
+      "1/2",
+      "1/1000000",
+      "1/1000000000000",
+      "1/1000000000000000000000000000000",
+      "1/1267650600228229401496703205376",
+      "1/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    ],
+    "relative_threshold_values": [
+      "0",
+      "1/2",
+      "1",
+      "1048577/1048576",
+      "2"
+    ],
+    "decisions": {
+      "discrete_accept": 5439,
+      "discrete_reject": 3626,
+      "continuous_accept": 5439,
+      "continuous_reject": 3626
+    },
+    "short_exposure_cases": 1813,
+    "invalid_inputs_rejected": 11,
+    "full_holding_equivalence_verified": true,
+    "equality_at_threshold_accepted": true,
+    "exceeded_certificate_bounds_rejected": true
+  },
+  "numerical_discrete_checks": {
+    "scope": "Finite recorded CPTP mixtures on entangled inputs; no general diamond-norm optimisation.",
+    "joint_reference_record_cases": 6,
+    "TV_diamond_upper_bound": "1/5",
+    "max_sampled_bound_violation": 0.0,
+    "orthogonal_record_saturation_max_error": 5.551115123125783e-17,
+    "all_numerical_checks_pass": true
+  },
+  "numerical_continuous_checks": {
+    "scope": "Floating-point complete matrix-unit Duhamel identities and specified reference-state bounds; general norm theorem is the separate analytical proof.",
+    "single_interval_durations": [
+      0.0,
+      0.125,
+      0.5,
+      1.5
+    ],
+    "noncommuting_nominal_and_perturbation": true,
+    "matrix_units_per_channel": 4,
+    "Duhamel_integral_max_entry_error": 8.830193233503871e-14,
+    "Simpson_subintervals": 128,
+    "piecewise_telescoping_max_entry_error": 1.9689111452347053e-16,
+    "reference_state_bound_cases": 15,
+    "all_numerical_checks_pass": true
+  },
+  "preservation": {
+    "canonical_modules": 192,
+    "canonical_public_names": 1158,
+    "checkpoint12_snapshot_files_unchanged": 791,
+    "canonical_lean_source_files_unchanged": 194,
+    "all_192_module_hashes_match_checkpoint12": true,
+    "batch09_and_batch10_preserved": true,
+    "previous_endpoint_receipt_preserved_sha256": "b52030d181f63c0104ac2ee3b66a494e24d639d589809321998f5861cf38efcb",
+    "preserved_file_set_sha256": "1db66e72a817605c58f5d63ce9b3a867a09f748ca95545a35bf672f632996e6e"
+  },
+  "proof": "REPAIRS-2026-10-26/DELTA-JOINT-CERTIFICATES-PROOF-2026-10-27.md",
+  "proof_sha256": "0f7e0751bd68b2ab8cb43e05c08b5a981ac7b1fcfc5fc700f9094913963d6e46",
+  "author_input": "REPAIRS-2026-10-26/inputs/AUTHOR-DELTA-JOINT-PROOF-2026-10-27.md",
+  "author_input_sha256": "5cfe9824cb01656383d5756ce3abee74cef812970d181c5a85332a8ff64a236e",
+  "script": "REPAIRS-2026-10-26/checks/verify-delta-joint.py",
+  "script_sha256": "0bd731c8b7092de301a0c8d21a4cf7853c31e780833a0d00eeec053bfee8fc40",
+  "full_holding_rate_requirement": "v_a <= epsilon/2^(2a+5) when tau_a=2^a",
+  "general_exposure_requirement": "tau_a*v_a <= epsilon/2^(a+5)",
+  "discrete_requirement": "2*TV(K_act,K_0) <= epsilon/2^(a+5)",
+  "canonical_lean_modified": false,
+  "fresh_lean_compilation": false,
+  "analytical_proofs_kernel_formalized": false,
+  "actual_installation_residual_certified": false,
+  "maximal_target_unchanged": true,
+  "full_history_retained": true,
+  "merge_push_publication_performed": false
+}

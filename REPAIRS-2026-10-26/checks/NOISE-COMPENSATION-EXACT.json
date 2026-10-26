@@ -1,0 +1,142 @@
+{
+  "scope": "Exact finite checks for a specified independent local Pauli output channel; not full circuit identification or all-level verification.",
+  "cases": [
+    {
+      "label": "five-qubit seed",
+      "seed": [
+        2,
+        1
+      ],
+      "construction_level": 0,
+      "physical_qubits": 5,
+      "joint_valid_CSS_syndromes": 16,
+      "fugacity": "1/8",
+      "depolarizing_rate": "1/262144",
+      "inverse_mass_exactly_one": true,
+      "inverse_nonnegative": true,
+      "exact_noise_inverse_identity": true,
+      "negative_entries": 0,
+      "conditioned_input_mass_at_least_half": true,
+      "one_sided_factor_two_survives_physical_noise": true,
+      "logical_reference_check": {
+        "logical_Pauli_weights": [
+          "30399026902794239/30399297484750848",
+          "115963527169/30399297484750848",
+          "115963527169/30399297484750848",
+          "38654902271/30399297484750848"
+        ],
+        "initial_logical_error_probability": "270581956609/30399297484750848",
+        "bad_transition_union_bound": "5/262144",
+        "logical_error_bounded_by_actual_intermediate_bad_weights": true,
+        "Bell_reference_trace_distance": "270581956609/15199648742375424",
+        "thermal_syndrome_does_not_alone_make_initial_logical_error_zero": true
+      }
+    },
+    {
+      "label": "thirteen-qubit seed",
+      "seed": [
+        3,
+        2
+      ],
+      "construction_level": 0,
+      "physical_qubits": 13,
+      "joint_valid_CSS_syndromes": 4096,
+      "fugacity": "1/8",
+      "depolarizing_rate": "1/262144",
+      "inverse_mass_exactly_one": true,
+      "inverse_nonnegative": true,
+      "exact_noise_inverse_identity": true,
+      "negative_entries": 0,
+      "conditioned_input_mass_at_least_half": true,
+      "one_sided_factor_two_survives_physical_noise": true
+    },
+    {
+      "label": "very small fugacity and noise",
+      "seed": [
+        2,
+        1
+      ],
+      "construction_level": 0,
+      "physical_qubits": 5,
+      "joint_valid_CSS_syndromes": 16,
+      "fugacity": "1/340282366920938463463374607431768211456",
+      "depolarizing_rate": "1/179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216",
+      "inverse_mass_exactly_one": true,
+      "inverse_nonnegative": true,
+      "exact_noise_inverse_identity": true,
+      "negative_entries": 0,
+      "conditioned_input_mass_at_least_half": true,
+      "one_sided_factor_two_survives_physical_noise": true
+    },
+    {
+      "label": "inverse positivity must be proved, not assumed",
+      "seed": [
+        2,
+        1
+      ],
+      "construction_level": 0,
+      "physical_qubits": 5,
+      "joint_valid_CSS_syndromes": 16,
+      "fugacity": "1/8",
+      "depolarizing_rate": "1/4",
+      "inverse_mass_exactly_one": true,
+      "inverse_nonnegative": false,
+      "exact_noise_inverse_identity": true,
+      "negative_entries": 11
+    }
+  ],
+  "all_assertions_pass": true,
+  "actual_three_CNOT_handoff_channel": {
+    "circuit": "CNOT(0,1), CNOT(1,0), CNOT(0,1)",
+    "noise": "independent two-qubit Pauli depolarization after each CNOT",
+    "fault_patterns_enumerated": 4096,
+    "fault_weight_counts_by_target_Pauli": [
+      [
+        1,
+        9,
+        171,
+        843
+      ],
+      [
+        0,
+        12,
+        168,
+        844
+      ],
+      [
+        0,
+        12,
+        168,
+        844
+      ],
+      [
+        0,
+        12,
+        168,
+        844
+      ]
+    ],
+    "per_CNOT_nonidentity_rate": "1/262144",
+    "target_output_Pauli_probabilities": [
+      "19791028106772479/19791209299968000",
+      "181193195521/59373627899904000",
+      "181193195521/59373627899904000",
+      "181193195521/59373627899904000"
+    ],
+    "effective_single_qubit_rate": "181193195521/19791209299968000",
+    "effective_rate_formula": "(3/4)*(1-(1-16*p/15)^3)",
+    "exact_formula_verified": true
+  },
+  "global_constraint_control": {
+    "scope": "Eight-check even-parity syndrome control, not a BDL lifetime test.",
+    "valid_syndromes": 128,
+    "global_parity_constraint_preserved": true,
+    "inverse_nonnegative": true,
+    "exact_noise_inverse_identity": true
+  },
+  "source_sha256": {
+    "noise-compensation-exact.py": "5700d235619fe94425f9a8be4802ff150073350e60a8c76840d2a96bc093e6de",
+    "bdl-metacheck/bdl.py": "ab051dddd99c344026c42bc9767b78c5dcb9645d693734fc6957187ec6cc7419",
+    "bdl-metacheck/fastbuild.py": "9f40971a039e369e2dcd45a0a1c09082ec01803ab88ea35d940770204ab1eff4"
+  }
+}

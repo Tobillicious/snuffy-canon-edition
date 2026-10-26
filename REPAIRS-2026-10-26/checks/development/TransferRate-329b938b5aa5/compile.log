@@ -1,0 +1,15 @@
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/REPAIRS-2026-10-26/claude-candidates/lean/Snuffy/TransferRate.lean:99:41: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  f - g ≥ 1
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c + d - e ≥ 0
+where
+ c := ↑a
+ d := ↑(b + 1) * ↑j
+ e := ↑j
+ f := ↑(B ^ κ) * ↑B
+ g := ↑B * ↑(B ^ κ)

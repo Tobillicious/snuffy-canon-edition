@@ -1,0 +1,8 @@
+{
+  "scope": "Author source pointer and candidate derivation; preservation is not a verification verdict.",
+  "source_session": "/Users/admin/.codex/sessions/2026/10/26/rollout-2026-10-26T13-54-36-01a175b3-bfdb-71c1-afa3-108ed94c2b24.jsonl",
+  "source_line": 3205,
+  "timestamp": "2026-10-26T08:45:44.560Z",
+  "file": "REPAIRS-2026-10-26/inputs/AUTHOR-BCRD-BRIDGE-CANDIDATE-2026-10-26.txt",
+  "sha256": "d452aafbcf59b45a7e5a7828e6ffd86ba3c4c344d5e9431b9f5571fb4a98a694"
+}

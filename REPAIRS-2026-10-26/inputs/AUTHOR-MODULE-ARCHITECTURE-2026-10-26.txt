@@ -1,0 +1,16 @@
+The formal proof that the noisy output remains within the allocated fidelity budget throughout a $2^a$ holding interval—while preserving arbitrary reference correlations and polynomial pathwise preparation work—relies on the **Universal Protection (UPT) theorem architecture** and its constituent verification modules:
+
+
+
+1. **The Quantum Holding Theorem (**`Bridge.universal_protection_held`**&#x20;/&#x20;**`G1Held`**):** Guarantees that active maintenance and error suppression preserve the state within the target code subspace over extended temporal horizons.
+
+2. **Concatenated Error Decoding and Fault-Tolerance Thresholds (**`ConcatenatedDecoding`**&#x20;&&#x20;**`CorrelatedCeiling`**):** Ensures that local stochastic noise ($p < p\_{\text{threshold}}$) and bounded correlated stress bursts are exponentially suppressed at each decimation level.
+
+3. **The Layered Error Budget (**`Bridge`**&#x20;fidelity scaling):** Allocates failure and noise tolerances hierarchically across depth index $a$ such that the cumulative deviation over a $2^a$ interval scales safely within the strict $\epsilon / 2^{a+2}$ bound without exponential entropic degradation.
+
+4. **Pathwise Preparation and Bounded Work (**`RecoveryWork`**&#x20;& G3 Ledger):** Proves that the preparation distribution $\mu\_{\text{prep}}$ and recovery operations execute with polynomial pathwise work ($\mathcal{Q}(t) \le C \cdot t^{d_G}$) rather than incurring unmanaged asymptotic divergence.
+
+   \
+
+
+Would you like to examine the exact Lean module dependencies that tie these components together in the verified canon?

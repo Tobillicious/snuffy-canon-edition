@@ -1,0 +1,259 @@
+{
+  "date": "2026-10-26",
+  "timezone": "Pacific/Auckland",
+  "branch": "codex/upt-warmstart-bridge",
+  "worktree": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE",
+  "checkpoint11": {
+    "label": "11-history-polymer-reference",
+    "process_exit": 0,
+    "overall_pass": true,
+    "working_sources_unchanged": true,
+    "receipt": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/REPAIRS-2026-10-26/checks/snapshots/checkpoint-11-history-polymer-reference/lean/RECEIPT.txt"
+  },
+  "checkpoint12": {
+    "label": "12-complete-transfer-bill",
+    "process_exit": 0,
+    "overall_pass": true,
+    "working_sources_unchanged": true,
+    "receipt": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/REPAIRS-2026-10-26/checks/snapshots/checkpoint-12-complete-transfer-bill/lean/RECEIPT.txt"
+  },
+  "canonical_modules": 192,
+  "public_theorem_lemma_names": 1158,
+  "covered_checkpoint11_sources_unchanged": true,
+  "current_sources_match_checkpoint12": true,
+  "new_canonical_sources": [
+    "TransferRate.lean"
+  ],
+  "formal_scope": "Complete-cost arithmetic; the actual physical noisy holding estimate is not newly formalized.",
+  "prose_review_batch": "MANUSCRIPT-BEFORE-AFTER-BATCH-09.md",
+  "physical_support_pending": "Complete physical correspondence for the new compensated/private-output transfer: admitted endpoint fault law, final corrections, routed controller and full physical invoice. Direct time-evolved transport remains an alternative, not the only route.",
+  "proposals_reviewed": "All author inputs preserved separately from their mathematical dispositions.",
+  "render_and_seal_status": "Older; no release seal of this draft.",
+  "merge_push_publish_performed": false,
+  "exact_check_results": {
+    "NOISY-JOIN-ARITHMETIC.json": {
+      "recurrence_submission": {
+        "first_failing_level": 2,
+        "actual_error": "1/4",
+        "claimed_bound": "1/8",
+        "exact_solution": "e_j = j epsilon / 2^(j+1)"
+      },
+      "conditional_repaired_budget": "K<=1/4 and delta_j<=epsilon/2^(j+3) preserve the claimed bound; physical estimates still required",
+      "geometric_work_examples": [
+        {
+          "n": 16,
+          "depth": 4,
+          "work": 98,
+          "work_per_fine_node": "49/8"
+        },
+        {
+          "n": 256,
+          "depth": 8,
+          "work": 3586,
+          "work_per_fine_node": "1793/128"
+        },
+        {
+          "n": 65536,
+          "depth": 16,
+          "work": 1966082,
+          "work_per_fine_node": "983041/32768"
+        }
+      ],
+      "known_product_noise_example": {
+        "noise_p": "1/16",
+        "target_q": "1/4",
+        "input_r": "3/14",
+        "output_q": "1/4",
+        "density_factor": "1 for every product size"
+      },
+      "fault_footprint_example": {
+        "footprint": 3,
+        "probability_all_occupied": "498501549/50000000000",
+        "naive_rate_to_footprint_power": "1331/1000000000"
+      },
+      "all_exact_checks_pass": true,
+      "scope": "finite arithmetic and examples; no physical BDL closure claimed"
+    },
+    "INITIAL-SYNDROME-SPARSITY.json": {
+      "scope": "exact finite initial-law cross-check; not a dynamics or logical-recovery certificate",
+      "ambient_dimensions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "subspace_counts": {
+        "0": 1,
+        "1": 2,
+        "2": 5,
+        "3": 16,
+        "4": 67,
+        "5": 374
+      },
+      "subspaces_checked": 465,
+      "coset_maximum_checks": 65965,
+      "joint_occupation_checks": 65965,
+      "correlated_fault_footprint_convolution_checks": 8,
+      "fugacities": [
+        "0",
+        "1/16",
+        "1/4",
+        "1/2",
+        "1"
+      ],
+      "all_assertions_pass": true,
+      "source_sha256": "bf905a6e7ee2bfcb17e5e20b64254a0312e92d2368eb38be2171486f2d78206f"
+    },
+    "TRANSIENT-RESOLVENT-CHECK.json": {
+      "scope": "exact finite counterchecks of proposed analytical steps; not a UPT no-go or a BDL holding certificate",
+      "dissipator_factor_two_required": true,
+      "unkilled_stationary_zero_mode": true,
+      "nonnormal_gap_perturbation_counterexample": true,
+      "boundary_killing_is_not_uniform_spectral_shift": true,
+      "full_generator_reconstructed_as_killed_plus_exit_flux": true,
+      "all_assertions_pass": true,
+      "source_sha256": "5d536ef9db6a15988cf8f3b328b1f451faf8d15ae05b225945fc13ac2b61b271"
+    },
+    "G3-HOSTILE-ARITHMETIC.json": {
+      "scope": "exact arithmetic checks of candidate G3 draft; not a physical completion verdict",
+      "d1_active_sum_counterexample": {
+        "actual": 20,
+        "proposed_bound": 12
+      },
+      "realised_reset_vs_expectation": {
+        "realised": "7",
+        "expected": "7/4"
+      },
+      "integral_only_series_bound_counterexample": {
+        "dimension": 4,
+        "lambda": "ln 2",
+        "exact_series": "26",
+        "ln2_strict_rational_lower_bound": "4297606/6200145",
+        "six_over_lower_bound_fourth_is_less_than_26": true
+      },
+      "box_and_boundary_distinguished": {
+        "box": 125,
+        "boundary": 98
+      },
+      "all_assertions_pass": true,
+      "source_sha256": "2e5ee40456b4a58dc55331d62b5d8bb003159f4b4f20656ed9570159f114e3f0"
+    },
+    "bdl-metacheck/NEUTRAL-REGION-WITNESS.json": {
+      "scope": "finite algebraic BDL model at existing test subdivision; a counterexample to confinement in single-defect hop components, not a logical-failure or lifetime witness",
+      "seed": [
+        3,
+        2
+      ],
+      "level": 1,
+      "hash_seed": "0",
+      "qubits": 206,
+      "checks": 136,
+      "jump_qubit": 14,
+      "jump_syndrome": [
+        5,
+        6,
+        78,
+        105
+      ],
+      "four_distinct_one_defect_regions": [
+        7,
+        6,
+        78,
+        105
+      ],
+      "before_preimage_qubits": [
+        6,
+        4
+      ],
+      "after_preimage_qubits": [
+        4,
+        6,
+        14
+      ],
+      "before_syndrome": [
+        5,
+        6,
+        76,
+        102
+      ],
+      "after_syndrome": [
+        76,
+        78,
+        102,
+        105
+      ],
+      "before_weight": 4,
+      "after_weight": 4,
+      "energy_change": 0,
+      "both_syndromes_valid_by_explicit_preimage": true,
+      "region_parity_changed_at_all_four_regions": true,
+      "source_sha256": {
+        "bdl.py": "ab051dddd99c344026c42bc9767b78c5dcb9645d693734fc6957187ec6cc7419",
+        "fastbuild.py": "9f40971a039e369e2dcd45a0a1c09082ec01803ab88ea35d940770204ab1eff4",
+        "neutral_region_witness.py": "d18ceed9e3f710ca5070b837c6643e8f26097c3bfcd2cc29d2a2e38daea5576c"
+      }
+    }
+  },
+  "bcrd_source_review": {
+    "note": "BCRD-HISTORY-BRIDGE-SOURCE-REVIEW.md",
+    "existing_result": "HamiltonianDecomposition.guarded_history_reduced_state and syndrome_exchange_preserves_history",
+    "scope": "Existing arbitrary-reference history preservation recovered; actual noisy G.21 channel identification still requested.",
+    "canonical_sources_still_match_checkpoint12": true,
+    "new_compilation": false
+  },
+  "active_holding_candidate_review": {
+    "note": "ACTIVE-HOLDING-BRIDGE-CANDIDATE-REVIEW.md",
+    "existing_support": "Threshold.fail_le_geometric, MatchingWitness, EdgeLaw/WeightedEdgeLaw, AgeReliability",
+    "retained_result": "Conditional logarithmic circuit-distance schedule for the original stage trace-norm error.",
+    "application_pending": "Actual noisy circuit and branch-correctness/fault-witness correspondence; complete bill including every active holding cycle.",
+    "canonical_sources_still_match_checkpoint12": true,
+    "new_compilation": false
+  },
+  "sparse_epoch_candidate_review": {
+    "note": "ACTIVE-HOLDING-BRIDGE-CANDIDATE-REVIEW.md",
+    "valid_component": "Finite geometric work sum conditional on complete epoch charges.",
+    "remaining": "Physical noisy quantum holding between sparse recovery epochs; actual channel stationarity/domination or direct reference-preserving fault certificate.",
+    "correction": "Correctable errors need not commute with stabilizers; Knill-Laflamme is already available.",
+    "new_compilation": false
+  },
+  "two_phase_davies_review": {
+    "note": "DAVIES-KMS-AND-TWO-PHASE-REVIEW.md",
+    "proved_prose_component": "Gibbs stationarity for the explicitly paired Davies Bohr jumps and KMS rates.",
+    "not_established": "Global gap/preparation certificate; actual spacetime fault and recovery correspondence; complete sparse-epoch physical holding join.",
+    "distance_correction": "Displayed Phase 2 distance only implies epsilon/4; original stage budget requires another a ln(2) in the exponent.",
+    "canonical_lean_modified": false,
+    "new_compilation": false
+  },
+  "latest_update": "2026-10-27, Pacific/Auckland",
+  "constructive_development": {
+    "receipt": "checks/CONSTRUCTIVE-BRIDGE-CHECKPOINT-2026-10-27.json",
+    "receipt_sha256": "85e777181f156f2fe0bccff70310e1a30837a891c30389c55dddbb8a43f6a0f7",
+    "canonical_sources_unchanged": true,
+    "separate_development_statements": 12,
+    "notes": [
+      "NOISE-COMPENSATED-PREPARATION-2026-10-27.md",
+      "BDL-REFINEMENT-CIRCUIT-2026-10-27.md",
+      "FT-PRIVATE-OUTPUT-BRIDGE-2026-10-27.md"
+    ],
+    "scope": "Source/hash audit of executed development receipts; no new full canonical audit or global physical completion.",
+    "full_history_and_arbitrary_references_retained": true,
+    "global_physical_completion_claimed": false
+  },
+  "endpoint_controller_join": {
+    "note": "ENDPOINT-FAULT-MODEL-AND-CONTROLLER-COSTS-2026-10-27.md",
+    "batch": "PROSE-BATCH-09.json",
+    "exact_check": "checks/ENDPOINT-CONTROLLER-EXACT.json",
+    "derived": [
+      "anisotropic label-dependent physical feedback formula",
+      "explicit endpoint small-rate threshold",
+      "Taylor/Mobius controller degree",
+      "bounded thermal controller reset and pathwise invoice"
+    ],
+    "controller_degree": "3 K_c + 5",
+    "pending": "Actual joint endpoint-kernel correspondence; local-stochastic marginals are insufficient for product factorisation.",
+    "canonical_lean_modified": false,
+    "global_completion_claimed": false
+  }
+}

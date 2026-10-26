@@ -1,0 +1,66 @@
+{
+  "source_session": "/Users/admin/.codex/sessions/2026/10/26/rollout-2026-10-26T13-54-36-01a175b3-bfdb-71c1-afa3-108ed94c2b24.jsonl",
+  "scope": "Candidate prose and requested hostile review; embedded completion/kernel-verification assertions are not verification receipts.",
+  "inputs": [
+    {
+      "source_line": 2692,
+      "timestamp": "2026-10-26T07:21:21.743Z",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-DIRECT-HISTORY-CANDIDATE-2026-10-26.txt",
+      "sha256": "2dcb1eda233fb0b6b9ad5082daf4d38ae6e03308861a47b4595ec7a8bc4cb1bd"
+    },
+    {
+      "source_line": 2715,
+      "timestamp": "2026-10-26T07:24:00.629Z",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-G3-THREE-STREAM-DRAFT-2026-10-26.txt",
+      "sha256": "f7d77eac8e13de4f96665328f5f9228b68fd3d34f63e875cc52747130ce39778"
+    },
+    {
+      "source_line": 2720,
+      "timestamp": "2026-10-26T07:24:28.963Z",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-G3-BOUNDARY-CAPACITY-DRAFT-2026-10-26.txt",
+      "sha256": "101793a89e8a1df0cc72d03c827b6fd592d84e8a6cf51b3f565f83e9181fc23f"
+    },
+    {
+      "source_line": 2724,
+      "timestamp": "2026-10-26T07:24:54.289Z",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-G3-RESET-DEBT-DRAFT-2026-10-26.txt",
+      "sha256": "28eaf42d92f18672132b23700fe11a8c519966b8a22fbe25b5545cfbd36cce92"
+    },
+    {
+      "source_line": 2728,
+      "timestamp": "2026-10-26T07:25:05.955Z",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-G3-HOSTILE-DEFENSES-DRAFT-2026-10-26.txt",
+      "sha256": "96b90ac7880b4e7495a73db7ca342cb32fd17ae90f24564b6bf45ccf7145a220"
+    },
+    {
+      "source_line": 2740,
+      "timestamp": "2026-10-26T07:26:40.249Z",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-G3-MASTER-SYNTHESIS-DRAFT-2026-10-26.txt",
+      "sha256": "37ec4550e7d8251e495e640d13f39dd9b74f6858a5e4f274fbc5ea719db49602"
+    },
+    {
+      "source_line": 2742,
+      "timestamp": "2026-10-26T07:26:45.500Z",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-G3-THERMODYNAMIC-CLOSURE-DRAFT-2026-10-26.txt",
+      "sha256": "751b5669c1bddf52ba4bc3508684ab1c8c23f59a9f65c9d6752b2f2636852085"
+    },
+    {
+      "source_line": 2746,
+      "timestamp": "2026-10-26T07:26:54.188Z",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-G3-BOOTSTRAP-DRAFT-2026-10-26.txt",
+      "sha256": "958e810603017ae4bea81d66d52c884160e2a6d8821920a1ab95e21c58e7b311"
+    },
+    {
+      "source_line": 2748,
+      "timestamp": "2026-10-26T07:27:29.296Z",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-G3-CORRELATED-LEAKAGE-DRAFT-2026-10-26.txt",
+      "sha256": "62bc850f629a995fd04a11381615f76d1c158bdd4cfc6c71ca6500690d4d4d74"
+    },
+    {
+      "source_line": 2752,
+      "timestamp": "2026-10-26T07:27:42.969Z",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-G3-CONSTANT-TRACKING-DRAFT-2026-10-26.txt",
+      "sha256": "3710f0120484428d02632e8a102569db9546526b24e549cd07fa6440c8772968"
+    }
+  ]
+}

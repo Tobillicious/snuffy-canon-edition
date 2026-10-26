@@ -1,0 +1,4 @@
+{"case": "five-qubit seed", "states": 16, "nonnegative": true, "exact_Nq_equals_target": true}
+{"case": "thirteen-qubit seed", "states": 4096, "nonnegative": true, "exact_Nq_equals_target": true}
+{"case": "very small fugacity and noise", "states": 16, "nonnegative": true, "exact_Nq_equals_target": true}
+{"case": "inverse positivity must be proved, not assumed", "states": 16, "nonnegative": false, "exact_Nq_equals_target": true}

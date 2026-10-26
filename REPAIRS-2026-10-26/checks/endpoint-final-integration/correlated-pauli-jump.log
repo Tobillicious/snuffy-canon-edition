@@ -1,0 +1,13 @@
+{
+  "scope": "Finite joint Pauli-jump generator and exact BDL seed inverse; no arbitrary correlated-fault reduction.",
+  "noncommuting_underlying_Paulis_included": true,
+  "commuting_conjugation_generator_max_error": 6.661338147750939e-16,
+  "physical_output_qubits": 5,
+  "joint_cause_count": 13,
+  "multiqubit_correlated_causes": 3,
+  "valid_joint_syndromes": 16,
+  "exact_positive_inverse": true,
+  "exact_Nq_equals_pi": true,
+  "all_assertions_pass": true,
+  "source_sha256": "f36d3418c0a47e00b6ab4183ec5d58d6dc98930d69818f72141ccd4f5a80e8b2"
+}

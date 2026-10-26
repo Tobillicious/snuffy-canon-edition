@@ -1,0 +1,173 @@
+{
+  "scope": "Explicit finite one-step refinement circuits and fault supports; not full noisy thermal preparation or all-level kernel verification.",
+  "cases": [
+    {
+      "qubits": 60,
+      "coarse_qubits": 5,
+      "x_cell_colours": 2,
+      "x_cell_max_CNOTs": 76,
+      "q_cell_max_CNOTs": 5,
+      "depth_upper_bound": 157,
+      "exact_coarse_stabilizer_spans": true,
+      "seed": [
+        2,
+        1
+      ],
+      "replacement": "R_X",
+      "plus_ancilla_count": 22,
+      "zero_ancilla_count": 33,
+      "circuit_file": "refinement-circuits/2x1-RX.json",
+      "full_stabilizer_replay_verified": true,
+      "gate_list_sha256": "749e902f6a72582283d6c1acdc8ab5374a9c42c9328fa0457e57e801f5f07950",
+      "noise_support": {
+        "CNOT_fault_channels": 165,
+        "Pauli_patterns_per_channel": 15,
+        "max_output_Pauli_weight": 22,
+        "max_output_joint_syndrome_weight": 8,
+        "max_check_to_CNOT_fault_channel_incidence": 104,
+        "scope": "Independent Pauli faults after CNOTs in this one-step encoder; placement, resets, idles and full transfer are separate."
+      }
+    },
+    {
+      "qubits": 60,
+      "coarse_qubits": 5,
+      "x_cell_colours": 2,
+      "x_cell_max_CNOTs": 81,
+      "q_cell_max_CNOTs": 5,
+      "depth_upper_bound": 167,
+      "exact_coarse_stabilizer_spans": true,
+      "seed": [
+        2,
+        1
+      ],
+      "replacement": "R_Z",
+      "plus_ancilla_count": 33,
+      "zero_ancilla_count": 22,
+      "circuit_file": "refinement-circuits/2x1-RZ.json",
+      "full_stabilizer_replay_verified": true,
+      "gate_list_sha256": "5c494d149677eb2d4caa938db3bb1cba4b3b347e346649a4586a82a1b2ff4dff",
+      "noise_support": {
+        "CNOT_fault_channels": 164,
+        "Pauli_patterns_per_channel": 15,
+        "max_output_Pauli_weight": 22,
+        "max_output_joint_syndrome_weight": 10,
+        "max_check_to_CNOT_fault_channel_incidence": 95,
+        "scope": "Independent Pauli faults after CNOTs in this one-step encoder; placement, resets, idles and full transfer are separate."
+      }
+    },
+    {
+      "qubits": 206,
+      "coarse_qubits": 13,
+      "x_cell_colours": 2,
+      "x_cell_max_CNOTs": 152,
+      "q_cell_max_CNOTs": 5,
+      "depth_upper_bound": 309,
+      "exact_coarse_stabilizer_spans": true,
+      "seed": [
+        3,
+        2
+      ],
+      "replacement": "R_X",
+      "plus_ancilla_count": 78,
+      "zero_ancilla_count": 115,
+      "circuit_file": "refinement-circuits/3x2-RX.json",
+      "full_stabilizer_replay_verified": true,
+      "gate_list_sha256": "33a74f9f6b38e840eff7082e897e7a88d720c8c6f6daba3ba9ca0f7bb86f056f",
+      "noise_support": {
+        "CNOT_fault_channels": 604,
+        "Pauli_patterns_per_channel": 15,
+        "max_output_Pauli_weight": 41,
+        "max_output_joint_syndrome_weight": 12,
+        "max_check_to_CNOT_fault_channel_incidence": 132,
+        "scope": "Independent Pauli faults after CNOTs in this one-step encoder; placement, resets, idles and full transfer are separate."
+      }
+    },
+    {
+      "qubits": 206,
+      "coarse_qubits": 13,
+      "x_cell_colours": 2,
+      "x_cell_max_CNOTs": 138,
+      "q_cell_max_CNOTs": 5,
+      "depth_upper_bound": 281,
+      "exact_coarse_stabilizer_spans": true,
+      "seed": [
+        3,
+        2
+      ],
+      "replacement": "R_Z",
+      "plus_ancilla_count": 115,
+      "zero_ancilla_count": 78,
+      "circuit_file": "refinement-circuits/3x2-RZ.json",
+      "full_stabilizer_replay_verified": true,
+      "gate_list_sha256": "ea68c63b504e3eeb9da9c01e20bce713be3a948fa4d9090c4e0addf96ca682a4",
+      "noise_support": {
+        "CNOT_fault_channels": 599,
+        "Pauli_patterns_per_channel": 15,
+        "max_output_Pauli_weight": 28,
+        "max_output_joint_syndrome_weight": 14,
+        "max_check_to_CNOT_fault_channel_incidence": 118,
+        "scope": "Independent Pauli faults after CNOTs in this one-step encoder; placement, resets, idles and full transfer are separate."
+      }
+    },
+    {
+      "qubits": 300,
+      "coarse_qubits": 18,
+      "x_cell_colours": 2,
+      "x_cell_max_CNOTs": 152,
+      "q_cell_max_CNOTs": 5,
+      "depth_upper_bound": 309,
+      "exact_coarse_stabilizer_spans": true,
+      "seed": [
+        3,
+        3
+      ],
+      "replacement": "R_X",
+      "plus_ancilla_count": 112,
+      "zero_ancilla_count": 170,
+      "circuit_file": "refinement-circuits/3x3-RX.json",
+      "full_stabilizer_replay_verified": true,
+      "gate_list_sha256": "5adddae57bcf716a426dcc357b664d2b132ac12af59a494e20889dd508f7da70",
+      "noise_support": {
+        "CNOT_fault_channels": 882,
+        "Pauli_patterns_per_channel": 15,
+        "max_output_Pauli_weight": 41,
+        "max_output_joint_syndrome_weight": 16,
+        "max_check_to_CNOT_fault_channel_incidence": 132,
+        "scope": "Independent Pauli faults after CNOTs in this one-step encoder; placement, resets, idles and full transfer are separate."
+      }
+    },
+    {
+      "qubits": 302,
+      "coarse_qubits": 18,
+      "x_cell_colours": 2,
+      "x_cell_max_CNOTs": 138,
+      "q_cell_max_CNOTs": 5,
+      "depth_upper_bound": 281,
+      "exact_coarse_stabilizer_spans": true,
+      "seed": [
+        3,
+        3
+      ],
+      "replacement": "R_Z",
+      "plus_ancilla_count": 167,
+      "zero_ancilla_count": 117,
+      "circuit_file": "refinement-circuits/3x3-RZ.json",
+      "full_stabilizer_replay_verified": true,
+      "gate_list_sha256": "e733296d0e08f3a17f7842e56e39686636580688a820067f47c7b153152c1c24",
+      "noise_support": {
+        "CNOT_fault_channels": 861,
+        "Pauli_patterns_per_channel": 15,
+        "max_output_Pauli_weight": 28,
+        "max_output_joint_syndrome_weight": 14,
+        "max_check_to_CNOT_fault_channel_incidence": 118,
+        "scope": "Independent Pauli faults after CNOTs in this one-step encoder; placement, resets, idles and full transfer are separate."
+      }
+    }
+  ],
+  "all_assertions_pass": true,
+  "source_sha256": {
+    "refinement_circuit.py": "5835432cf5c5e92a14279098589ffc1a88599c3a2cb86fc5d5b8ae6732ded479",
+    "bdl.py": "ab051dddd99c344026c42bc9767b78c5dcb9645d693734fc6957187ec6cc7419",
+    "fastbuild.py": "9f40971a039e369e2dcd45a0a1c09082ec01803ab88ea35d940770204ab1eff4"
+  }
+}

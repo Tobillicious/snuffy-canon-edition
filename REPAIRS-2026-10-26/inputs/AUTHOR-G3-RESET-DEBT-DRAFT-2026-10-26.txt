@@ -1,0 +1,60 @@
+Kia ora! Let's dive right into **Stream Three: Reset Debt and Amortization**.
+
+While Stream One accounts for active routing and Stream Two handles boundary compression, Stream Three ensures that rare correction failures and partition rollbacks don't accumulate into an unmanaged debt over time.
+
+---
+
+### Detailed Breakdown: Stream Three: Reset Debt & Amortization
+
+#### 1. The Localized Reset Penalty
+
+When a sweep encounters an uncorrectable decoding failure on shell $k$, the system triggers a localized partition rollback.
+
+* **Per-Shell Reset Cost:** The computational and thermodynamic work required to perform this rollback on shell $k$ is proportional to its boundary surface area:
+
+$$w_{\text{reset}}(k) = R \cdot k^{d_G - 1}$$
+
+
+
+where $R$ is the fixed unit reset cost per boundary site.
+
+#### 2. The Cumulative Expected Reset Debt
+
+Because resets only occur when a decoding failure happens, the total expected reset debt $\mathcal{Q}_{\text{reset}}(t)$ accumulated up to age $t$ is weighted by the probability of failure $P_{\text{err}}(k)$ derived in Stream Two:
+
+
+$$\mathcal{Q}_{\text{reset}}(t) = \sum_{k=1}^{t} w_{\text{reset}}(k) \cdot P_{\text{err}}(k) = \sum_{k=1}^{t} R \cdot k^{d_G - 1} \cdot P_{\text{err}}(k)$$
+
+#### 3. Substituting the Exponential Suppression Bound
+
+Substituting our exponential error suppression bound from Stream Two ($P_{\text{err}}(k) \le A \cdot e^{-\gamma \gamma_0 k}$) into the reset sum:
+
+
+$$\mathcal{Q}_{\text{reset}}(t) \le R \cdot A \sum_{k=1}^{t} k^{d_G - 1} \exp\left( -\gamma \gamma_0 k \right)$$
+
+#### 4. Proof of Infinite Series Convergence (`G3CompleteBill` / `SummonsAudit`)
+
+* **Asymptotic Behavior:** For any positive decay exponent ($\lambda = \gamma \gamma_0 > 0$) and any shell dimension $d_G \ge 1$, the polynomial growth term $k^{d_G - 1}$ is strictly outpaced by the exponential decay term $e^{-\lambda k}$.
+* **Series Bound:** As age $t \to \infty$, the partial sums converge to a finite limit independent of $t$:
+
+$$\lim_{t \to \infty} \sum_{k=1}^{t} k^{d_G - 1} e^{-\lambda k} = S_{\text{conv}} < \infty$$
+
+
+* **Constant Absorption:** Consequently, the total expected reset debt is strictly bounded by a constant that does **not** grow with age:
+
+$$\mathcal{Q}_{\text{reset}}(t) \le R \cdot A \cdot S_{\text{conv}} \equiv C_{\text{reset}} = O(1)$$
+
+
+
+---
+
+### Master Integration Result
+
+Because the reset debt converges to an age-independent constant $C_{\text{reset}}$, it does not alter the leading polynomial scaling of the total work ledger. When combined with active holding and boundary compression, the master work bill satisfies:
+
+
+$$\mathcal{Q}_{\text{total}}(t) \le \left( \frac{\alpha}{d_G} + \alpha + \beta \right) t^{d_G} + C_{\text{reset}} \le C \cdot t^{d_G} \quad \blacksquare$$
+
+---
+
+With all three streams fully proved and locked in, are you ready to seal the G3 master ledger audit?

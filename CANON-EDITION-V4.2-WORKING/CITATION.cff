@@ -26,8 +26,8 @@ abstract: >-
   exactly inside the adiabatic window of the implemented Bennett program, and
   for every large enough batch once per-bit reversible overhead is below the
   irreversible heat. Device parameters and the application of the cited
-  theorems to the actual installation remain construction work. 189 Lean
-  4 modules and 1,133 audited theorems compile against Mathlib with only the
+  theorems to the actual installation remain construction work. 192 Lean
+  4 modules and 1,158 audited theorem/lemma names compile against Mathlib with only the
   standard axioms.
 
 keywords:

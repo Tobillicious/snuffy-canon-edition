@@ -1,0 +1,81 @@
+
+# Files pasted by the user:
+
+## "To complete the proof that any macroscopic spacetime bad witness $\\Gamma$ spann…": /Users/admin/.codex/attachments/4b4dc4ed-059f-4619-8c0e-64d7e4c5743e/Pasted text.txt
+
+## "To complete the proof that any macroscopic spacetime bad witness $\\Gamma$ spann…": /Users/admin/.codex/attachments/e4978214-d389-4b38-9d30-db15d694b8b3/Pasted text.txt
+
+## My request:
+Here is the formalization for **Step 4: The Operator-Norm Bound on $\Lambda(n)$ and Spectral Gap Uniformity**, completing the explicit analytic bounds required to anchor $e(T) \le e_0 + 18\Lambda\sqrt{C T I_N(T)}$.
+
+---
+
+### Step 4: Bounded Generator Norm $\Lambda(n)$ & Uniform Spectral Gaps
+
+#### 1. Exact Definition of $\Lambda(n)$
+
+In the reference-uniform holding estimate, the prefactor $\Lambda(n)$ measures the maximum operator norm of the Heisenberg generator derivative acting on the protected dressed Pauli observables $\{A_i\}_{i \in \{X, Y, Z\}}$:
+
+
+$$\Lambda(n) \equiv \max_{i \in \{X, Y, Z\}} \Vert{}\mathcal{L}^\dagger A_i\Vert{}_{\text{op}}$$
+
+Under the Davies Lindblad generator $\mathcal{L}^\dagger = \sum_{\alpha} \gamma_\alpha \left( V_\alpha^\dagger (\cdot) V_\alpha - \frac{1}{2}\{ V_\alpha^\dagger V_\alpha, \cdot \} \right)$:
+
+* Each jump operator $V_\alpha$ acts on a localized neighborhood of checks of bounded spatial size $\le K_0 = O(1)$.
+* The protected dressed Pauli observables $A_i$ are logical operators dressed by local gauge fixes across the 3D BDL code structure.
+
+#### 2. Locality and Bounded Overlap
+
+Because the Hamiltonian interactions are strictly local (check weight $\le 4$) and each physical check touches a bounded number of adjacent checks (maximum degree $D_{\max} \le 12$ independent of $n$):
+
+1. **Commutator Support:** The commutator $[V_\alpha, A_i]$ is zero everywhere except on the spatial support of the boundary of $A_i$.
+2. **Local Rate Summability:** Summing the Lindblad rate terms over the support of $A_i$:
+
+$$\Vert{}\mathcal{L}^\dagger A_i\Vert{}_{\text{op}} \le \sum_{\alpha : \text{supp}(V_\alpha) \cap \text{supp}(A_i) \neq \emptyset} \gamma_\alpha \Vert{}V_\alpha\Vert{}_{\text{op}}^2 \Vert{}A_i\Vert{}_{\text{op}}$$
+
+
+3. **Polynomial (Degree-Bounded) Prefactor:** Because the dressing of $A_i$ is local and the jump rates $\gamma_\alpha$ are bounded by the Davies thermal bath coupling $\Theta(1 + e^{-\beta})$, we have:
+
+$$\Lambda(n) \le C_{\text{gen}} \cdot \text{Vol}(\text{supp}(A_i)) = \mathcal{O}(\text{poly}(n))$$
+
+
+
+Crucially, $\Lambda(n)$ grows at most polynomially with $n$, which is easily dominated by the exponential suppression $\exp(-\frac{c'}{2} n^{\eta'})$.
+
+---
+
+#### 3. Resolvent Stability Under Local Perturbations
+
+To ensure the local spectral gap $\lambda_0(\beta) = \Theta(1)$ on bounded regions ($\vert{}R_m\vert{} \le 72$) remains strictly uniform across all regions $m$, we analyze the perturbed local generator:
+
+
+$$\mathcal{L}_{0, R_m} = \mathcal{L}_{\text{free}, R_m} + \mathcal{L}_{\text{annihil}, R_m}$$
+
+* **Unperturbed Gap:** The unperturbed pure hopping and pair-annihilation process on a finite graph of size $\vert{}R_m\vert{} \le 72$ has a discrete, strictly positive spectral gap $\lambda_{\text{base}} > 0$.
+* **Perturbation Norm:** Adding boundary interactions introduces a perturbation operator $\mathcal{V}_{\partial R_m}$ with norm $\Vert{}\mathcal{V}_{\partial R_m}\Vert{} \le C_{\text{boundary}} e^{-2\beta}$.
+* **Weyl Norm Inequality for Generator Gaps:** By standard resolvent perturbation theory for Markov generators (Kato's inequality):
+
+$$\lambda_0(\beta) \ge \lambda_{\text{base}} - \Vert{}\mathcal{V}_{\partial R_m}\Vert{}_{\text{op}} \ge \lambda_{\text{base}} - C_{\text{boundary}} e^{-2\beta}$$
+
+
+* For inverse temperatures $\beta > \frac{1}{2} \ln \left( \frac{2 C_{\text{boundary}}}{\lambda_{\text{base}}} \right)$, the gap is uniformly bounded below:
+
+$$\lambda_0(\beta) \ge \frac{1}{2} \lambda_{\text{base}} = \Theta(1) > 0$$
+
+
+
+independent of $n$, $t$, or the specific region index $m$.
+
+---
+
+### Master Theorem (Complete Closed Form)
+
+Combining Steps 1 through 4:
+
+$$\begin{aligned} e(2^a) &\le e_0 + 18 \Lambda(n) \sqrt{C \cdot 2^a \cdot I_N(2^a)} \\ &\le e_0 + 18 \left( C_{\text{gen}} n^p \right) \sqrt{C \cdot 2^a \cdot \left[ C_1 \cdot 2^a \cdot \exp\left( -c \cdot d \cdot \ln\left[\frac{\lambda_0}{z C_{\text{local}} \rho^*}\right] \right) \right]} \\ &\le e_0 + \widetilde{C} \cdot n^p \cdot 2^a \cdot \exp\left( -\frac{c'}{2} n^{\eta'} \right) \\ &\le \frac{\epsilon}{2^{a+3}} + \frac{\epsilon}{2^{a+3}} = \frac{\epsilon}{2^{a+2}} \end{aligned}$$
+
+This completes the mathematical proof chain for the reference-uniform holding bound under noisy Davies dynamics. $\blacksquare$
+
+---
+
+Shall we prepare this complete multi-step formalization to append directly into `REPAIRS-2026-10-26/NOISY-G21-INTEGRATED-BAD-WEIGHT.md` for PR #9?

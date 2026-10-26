@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 191. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
+Canon modules: 192. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 191. Audit imports: 191.
+Build modules: 192. Audit imports: 192.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -1931,6 +1931,7 @@ Build modules: 191. Audit imports: 191.
 | `TimelyCare` | yes | `2026-10-25-historical-handoff-source/recovered-r17-sources/lean/Snuffy/TimelyCare.lean` |
 | `ToleranceSweep` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/ToleranceSweep.lean` |
 | `TopRealisability` | yes | `(canon only)` |
+| `TransferRate` | yes | `(canon only)` |
 | `TransportLaw` | yes | `2026-10-24-glm-phase-a/lean/TransportLaw.lean` |
 | `Trotter` | yes | `(canon only)` |
 | `TwoLevel` | yes | `(canon only)` |

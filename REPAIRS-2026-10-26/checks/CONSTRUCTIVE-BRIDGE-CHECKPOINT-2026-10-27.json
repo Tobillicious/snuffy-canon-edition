@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-27",
+  "timezone": "Pacific/Auckland",
+  "scope": "Source/hash audit of executed development receipts; no new full canonical audit or global physical completion.",
+  "canonical_checkpoint12": {
+    "modules": 192,
+    "public_names": 1158,
+    "all_192_source_hashes_unchanged": true,
+    "fresh_full_compile_in_this_audit": false
+  },
+  "development_kernel_receipts": [
+    {
+      "receipt": "REPAIRS-2026-10-26/checks/development/noise-compensation/RESULT.json",
+      "receipt_sha256": "c2a18842660849539783621a930edbee1d570bce513edca075f69c4dc67cacf8",
+      "statements": 6,
+      "source_hash_matches": true,
+      "scope": "Previously executed targeted development check; not recompiled by this receipt audit."
+    },
+    {
+      "receipt": "REPAIRS-2026-10-26/checks/development/pauli-interface/RESULT.json",
+      "receipt_sha256": "1b4bf5c71ebc8308f30920b68e5ca044554d3285cc796e22a129a616b6a416eb",
+      "statements": 6,
+      "source_hash_matches": true,
+      "scope": "Previously executed targeted development check; not recompiled by this receipt audit."
+    }
+  ],
+  "development_statement_total_separate_from_canon": 12,
+  "executed_computational_receipts": [
+    {
+      "receipt": "REPAIRS-2026-10-26/checks/NOISE-COMPENSATION-EXACT.json",
+      "receipt_sha256": "335880ef802885cb51feae02b68b9383a23734eccb4459106549f92e12799421",
+      "source_hashes_match": true,
+      "original_scope": "Exact finite checks for a specified independent local Pauli output channel; not full circuit identification or all-level verification."
+    },
+    {
+      "receipt": "REPAIRS-2026-10-26/checks/PAULI-INTERFACE-EXACT.json",
+      "receipt_sha256": "ff7dc97c0b6f35730d654cd4f3864d9df4a655a5597e87a0a9b0ad0636838940",
+      "source_hashes_match": true,
+      "original_scope": "Exact finite algebra and syndrome-law tests, not a physical FT application or lifetime certificate."
+    },
+    {
+      "receipt": "REPAIRS-2026-10-26/checks/TELEPORTATION-GAUGE-REFRESH.json",
+      "receipt_sha256": "b1c1a4332acd80ad0b2eda3e708eb4900ee6bbf4c5224b9e03777503db92d9d8",
+      "source_hashes_match": true,
+      "original_scope": "Finite complete-channel validation; not the physical FT compiler, a general noise-model reduction, or a Lean receipt."
+    },
+    {
+      "receipt": "REPAIRS-2026-10-26/checks/bdl-metacheck/REFINEMENT-CIRCUIT.json",
+      "receipt_sha256": "387e89268350158d2d084451f42ca09f347e27d06e3d1cca3162f15908dc340b",
+      "source_hashes_match": true,
+      "original_scope": "Explicit finite one-step refinement circuits and fault supports; not full noisy thermal preparation or all-level kernel verification."
+    },
+    {
+      "receipt": "REPAIRS-2026-10-26/checks/bdl-metacheck/REFINEMENT-SECOND-STEP.json",
+      "receipt_sha256": "e568b94e011d8671476b08e901d397d7141e56823ec9f9dfdecef90c3a9d51d1",
+      "source_hashes_match": true,
+      "original_scope": "Exact finite second replacement replay; no all-level or full noisy-preparation claim."
+    }
+  ],
+  "prose_derivations": {
+    "NOISE-COMPENSATED-PREPARATION-2026-10-27.md": "b36bcde2eeafb8ba74e08e09180d9886076ae3832e70ff13b3140ba829a49663",
+    "BDL-REFINEMENT-CIRCUIT-2026-10-27.md": "8aa5dc3b1b58e0e3939f8fc349939ceeff0acea91efcbfd69efd0c269a3e8882",
+    "FT-PRIVATE-OUTPUT-BRIDGE-2026-10-27.md": "72f0fb7aff770400c2cdbe91625ea0c9e8d700a9692f080f0812595da28aa339"
+  },
+  "remaining_physical_join": [
+    "Admitted correlated-fault model at the private endpoints, or a proved reduction to the constructed channel model.",
+    "Actual final correction noise and the full routed, reset, clock and classical-controller implementation.",
+    "Known effective rates or calibrated rates with drift/readout controlled; O(1/n) per-location precision suffices mathematically.",
+    "Complete physical invoice for that implementation under the existing all-d stage/G3 theorem."
+  ],
+  "maximal_target_unchanged": true,
+  "full_history_retained": true,
+  "original_stage_error_budget_unchanged": true,
+  "merge_push_publication_performed": false,
+  "global_physical_completion_claimed": false,
+  "receipt_correspondence_pass": true,
+  "audit_script_sha256": "35d92a3c1d65e8a5c3ea502fa367a3fd4db059a457036c522581e9551127687f"
+}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-27",
+  "scope": "Targeted endpoint/controller development and manuscript integration; no new full Lean run.",
+  "prose_batch": "PROSE-BATCH-09.json",
+  "feedback_fault_patterns": 1024,
+  "exact_feedback_and_rate_checks_pass": true,
+  "exact_connected_support_Taylor_checks_pass": true,
+  "controller_degree": "3 K_c + 5",
+  "K_c": "max(2g kappa+nu+4,3g+nu,3g+4nu+1)",
+  "canonical_modules": 192,
+  "canonical_public_names": 1158,
+  "canonical_192_source_hashes_match_checkpoint12": true,
+  "master_insert_identical": true,
+  "physical_joint_kernel_identified": false,
+  "global_completion_claimed": false,
+  "remaining_support": "Actual joint private-endpoint fault kernel or a derived guarded-generator factorisation retaining every admitted common cause.",
+  "sources": {
+    "ENDPOINT-FAULT-MODEL-AND-CONTROLLER-COSTS-2026-10-27.md": "21855d7632c277d6f3ccf4cc35be64a2ef39671b31b378e2c90b25cdafa22e9c",
+    "G21-ENDPOINT-INSERT-2026-10-27.md": "620fb79739de15f8e08d34418dd291590ef9f22cdbbdee23db2e384363bdb79e",
+    "checks/endpoint-controller-exact.py": "d22ae895eec6f0e8fbef45c0f7746ce9b6667bcf7574caa132399fa1e91059b9",
+    "checks/ENDPOINT-CONTROLLER-EXACT.json": "92453047344a82c557e48d159d389e978fbee20429148c5d7f3c3b9e520c779a"
+  }
+}

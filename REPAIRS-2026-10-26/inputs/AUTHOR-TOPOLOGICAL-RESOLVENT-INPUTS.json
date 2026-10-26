@@ -1,0 +1,23 @@
+{
+  "attachments_identical": true,
+  "scope": "Candidate proof inputs, not verified closure; embedded instructions distinguished from the user request.",
+  "inputs": [
+    {
+      "source": "/Users/admin/.codex/attachments/4b4dc4ed-059f-4619-8c0e-64d7e4c5743e/Pasted text.txt",
+      "preserved": "REPAIRS-2026-10-26/inputs/AUTHOR-TOPOLOGICAL-RESOLVENT-ATTACHMENT-01.txt",
+      "sha256": "a541f42e3bd5b94ed829ec9d34cd1cd70a632c0d39c12a097121fc7b6f0ca77f"
+    },
+    {
+      "source": "/Users/admin/.codex/attachments/e4978214-d389-4b38-9d30-db15d694b8b3/Pasted text.txt",
+      "preserved": "REPAIRS-2026-10-26/inputs/AUTHOR-TOPOLOGICAL-RESOLVENT-ATTACHMENT-02.txt",
+      "sha256": "a541f42e3bd5b94ed829ec9d34cd1cd70a632c0d39c12a097121fc7b6f0ca77f"
+    },
+    {
+      "source_session": "/Users/admin/.codex/sessions/2026/10/26/rollout-2026-10-26T13-54-36-01a175b3-bfdb-71c1-afa3-108ed94c2b24.jsonl",
+      "source_line": 2316,
+      "timestamp": "2026-10-26T06:42:49.275Z",
+      "preserved": "REPAIRS-2026-10-26/inputs/AUTHOR-GENERATOR-NORM-STEP4-2026-10-26.txt",
+      "sha256": "f63ee74e2f961222c2f9fdf54fb1e9c1402a35adbea6dc354e0cd22af5ef35f9"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Targeted development checks, explicitly reusing checkpoint-09 dependencies.
+"""Targeted development checks, explicitly recording the reused checkpoint.
 
 The separate full-checkpoint.py run is required for a new combined receipt.
 """
@@ -15,8 +15,9 @@ checks = Path(__file__).resolve().parent
 worktree = checks.parents[1]
 corpus = worktree.parent
 source = Path(os.environ.get('REPAIR_SOURCE_ROOT', str(worktree / 'CANON-EDITION-V4.2-WORKING/lean')))
-baseline = corpus / 'BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-09-warmstart-walk9'
-build = checks / 'warmstart-development-build'
+baseline = Path(os.environ.get('REPAIR_BASELINE_ROOT', str(
+    checks / 'snapshots/checkpoint-11-history-polymer-reference')))
+build = checks / os.environ.get('REPAIR_BUILD_NAME', 'transfer-development-build')
 if not (build / 'Snuffy').exists():
     shutil.copytree(baseline / 'objects/Snuffy', build / 'Snuffy')
 project = corpus / 'BEAM-UPT-2026-10-22/mathlib-probe'

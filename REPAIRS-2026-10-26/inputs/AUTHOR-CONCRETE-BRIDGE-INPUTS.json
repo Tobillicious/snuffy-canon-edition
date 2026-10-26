@@ -1,0 +1,17 @@
+{
+  "scope": "Candidate proof material; embedded completion and insertion suggestions are distinguished from verified results.",
+  "inputs": [
+    {
+      "source": "/Users/admin/.codex/attachments/191671d2-220e-479e-8c99-a01abf6f1988/Pasted text.txt",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-POLYMER-FIBRE-SAMPLER-CANDIDATE-2026-10-26.txt",
+      "sha256": "6eeb3dae36d49aad71fefd511b541543984383444b4c1fa4a190210033ed6476"
+    },
+    {
+      "source_session": "/Users/admin/.codex/sessions/2026/10/26/rollout-2026-10-26T13-54-36-01a175b3-bfdb-71c1-afa3-108ed94c2b24.jsonl",
+      "source_line": 3059,
+      "timestamp": "2026-10-26T08:19:27.661Z",
+      "file": "REPAIRS-2026-10-26/inputs/AUTHOR-CONCRETE-STAGE-BRIDGE-CANDIDATE-2026-10-26.txt",
+      "sha256": "728650cfaba944a462b74f71f537f6b8931999e85f0382e5de60b1cc731d37ef"
+    }
+  ]
+}

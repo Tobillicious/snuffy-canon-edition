@@ -1,0 +1,10 @@
+{
+  "source_session": "/Users/admin/.codex/sessions/2026/10/26/rollout-2026-10-26T13-54-36-01a175b3-bfdb-71c1-afa3-108ed94c2b24.jsonl",
+  "source_line": 2544,
+  "timestamp": "2026-10-26T07:07:31.491Z",
+  "questionItemId": "[\"request_user_input_async\",\"call_1d0e72142d1a40e6bacb3ded876f132d\",0]",
+  "question": "Pātai: can you supply a replacement BDL bad-witness/excursion bound that allows neutral multi-defect junctions, or another actual noisy holding construction with the same full guarantee? I verified a valid zero-energy move in the existing finite BDL implementation: syndrome {5,6,76,102} → {76,78,102,105} by qubit 14, crossing four single-defect hopping regions; both error preimages are recorded. This defeats the proposed confinement argument, while leaving the maximal target unchanged. The exact witness, sources already followed, needed integrated bound and completed conversions are in /Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/REPAIRS-2026-10-26/PATAI-NEUTRAL-EXCURSION-CERTIFICATE-2026-10-26.md. The remaining proof must retain the actual exit flux and initial defect weights; the norm, integration and stage-cost arithmetic are already available.",
+  "answer_file": "REPAIRS-2026-10-26/inputs/AUTHOR-ENTROPY-WEIGHTED-EXCURSION-REPLY-2026-10-26.txt",
+  "answer_sha256": "afa864a4457ae57273bfa07ee7bfb322782f1e3f1566fced4bfd949c67054b38",
+  "scope": "Replacement candidate; its assumed return-kernel decay inequality is not a verified certificate."
+}

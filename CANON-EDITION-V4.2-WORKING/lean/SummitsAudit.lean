@@ -191,6 +191,7 @@ import Snuffy.WarmStart
 import Snuffy.WalkBound9
 import Snuffy.HistoryPolymer
 import Snuffy.ThermalEncoding
+import Snuffy.TransferRate
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1533,3 +1534,12 @@ import Snuffy.ThermalEncoding
 #print axioms Snuffy.ThermalEncoding.recovers
 #print axioms Snuffy.ThermalEncoding.kron_orthogonal
 #print axioms Snuffy.ThermalEncoding.recovers_reference
+-- TransferRate
+#print axioms Snuffy.TransferRate.poly_le_two_pow
+#print axioms Snuffy.TransferRate.transfer_bill_le
+#print axioms Snuffy.TransferRate.transfer_bill_linear_in_age
+#print axioms Snuffy.TransferRate.retained_prefix_bound
+#print axioms Snuffy.TransferRate.attempt_stage_bound
+#print axioms Snuffy.TransferRate.polynomial_stage_bill
+#print axioms Snuffy.TransferRate.complete_attempt_bill
+#print axioms Snuffy.TransferRate.join_complete_bill

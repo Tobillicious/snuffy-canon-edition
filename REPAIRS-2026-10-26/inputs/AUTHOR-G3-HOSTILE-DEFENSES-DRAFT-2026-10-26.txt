@@ -1,0 +1,32 @@
+Kia ora! Let's put on our strictest reviewer hats and subject our entire G3 derivation to a rigorous, hostile audit. If an adversarial reviewer wants to tear down our $O(t^{d_G})$ work ceiling, where are they going to aim their critique?
+
+Here are the four most dangerous vulnerabilities in our G3 proof structure, along with our defenses:
+
+---
+
+### Hostile Review: G3 Vulnerability Audit
+
+#### 1. The "Hidden Growth" Objection on Boundary Transcripts
+
+* **The Hostile Critique:** *"You claim archive stock grows at most as $O(t^{d_G - 1})$ and that retired history can be recomputed or charged. But if a subsystem undergoes continuous non-trivial quantum operations, the boundary transcript footprint might silently accumulate entanglement entropy that exceeds linear boundary capacity, forcing higher-dimensional storage."*
+* **Our Defense:** The boundary capacity theorem (`Instruments.card_box`) and stabilizer encoding rely on the finite-code decoding distance $\Delta_{\text{code}}(k) = \gamma_0 \cdot k$. Because local unitary updates and error corrections are bounded by the Lieb-Robinson light cone ($v_{\text{max}} \cdot \tau_{\text{step}}$), unmanaged non-local entanglement cannot teleport across boundary fences without paying an exponential suppression penalty. Thus, historical records are strictly compressed onto the stabilizer boundary subspace at the proven geometric rate.
+
+#### 2. The Series Convergence Trap (`Sum_{\text{conv}}`)
+
+* **The Hostile Critique:** *"You treat the reset debt sum $\sum k^{d_G - 1} e^{-\lambda k}$ as a benign constant $C_{\text{reset}}$. But what if the spatial dimension $d_G$ is large, or the decay exponent $\gamma \gamma_0$ is extremely small relative to the prefactor? The constant $C_{\text{reset}}$ could explode, rendering the bound meaningless for practical systems."*
+* **Our Defense:** While $C_{\text{reset}} = R \cdot A \cdot S_{\text{conv}}$ depends on the ratio of the decay rate to the dimension, for any physical lattice where $p < p_{\text{threshold}}$, the suppression exponent $\lambda = \gamma \gamma_0 > 0$ is strictly positive. The factorial/exponential suppression of $e^{-\lambda k}$ dominates any polynomial $k^{d_G - 1}$ for all $k \ge 1$, ensuring $S_{\text{conv}}$ is finite and mathematically well-behaved.
+
+#### 3. The Synchronization of Wavefront Sweeps
+
+* **The Hostile Critique:** *"Your active shell sum assumes that work is cleanly integrated across concentric shells $k = 1 \dots t$. In a dynamic, asynchronous multi-agent environment, wavefront sweeps might overlap, stall, or conflict, leading to localized work spikes that invalidate the smooth Faulhaber integral bound."*
+* **Our Defense:** The TIWA fence condition ($h_{\text{fence}}$) and wavefront sweep lemma (`G3Sweep`) prove that wavefronts advance deterministically at bounded speed without reworks. Active interior regions are insulated by frozen boundary fences from external noise spikes, guaranteeing that work accumulation strictly follows the smooth surface-to-volume scaling curve $\alpha k^{d_G - 1} + \beta$.
+
+#### 4. The Algebra Consistency Hand-off (Objection 7)
+
+* **The Hostile Critique:** *"You wave away the guard/Pauli projection type-mismatch by invoking an adjoint channel embedding $A \mapsto E A E^\dagger$. How do you rigorously guarantee that this embedding commutes across all decimation boundaries without distorting the commutation relations of the underlying subsystem code?"*
+* **Our Defense:** The adjoint channel embedding preserves completely positive trace-preserving (CPTP) map properties across tensor products. Because the local check operators form a closed Lie algebra on the code space, the mapping preserves both projection idempotence ($\pi^2 = \pi$) and Pauli commutation relations ($[X, Z] = 0$ on orthogonal supports), as verified by the core Lean modules.
+
+---
+
+How do these defenses hold up against your internal bar for publication readiness?
+
