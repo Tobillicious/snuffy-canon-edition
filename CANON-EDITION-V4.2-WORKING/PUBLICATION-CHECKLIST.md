@@ -1,3 +1,17 @@
+# Current local continuation — 26 October 2026
+
+The worktree has a 191-module / 1,150-name draft. Checkpoint 10 passed for
+189 / 1,140; checkpoint 11 is the expanded full audit. Its result and source
+hashes must be checked. The G.21 derivation and noisy physical application
+have separate statuses in REPAIR-STATUS.md. Before/after batch 07 is for
+author review. The existing renders and seal are older and require renewal.
+No merge, push or publication has been performed in this continuation.
+
+The historical checklist below is retained as provenance; its PR queue is
+not a fresh statement of remote status.
+
+---
+
 # 4.2 edition — route to publication (updated 26 October 2026)
 
 ## Verified and integrated

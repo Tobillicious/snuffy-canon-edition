@@ -1,0 +1,11 @@
+{
+  "module": "WarmStart",
+  "source_sha256": "96af94462e03fe656c4b9faf5b6a0384ef7b904f0b0282fb439f845745da15f3",
+  "dependency_reuse": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-09-warmstart-walk9/objects/Snuffy",
+  "scope": "targeted compilation and kernel check; not full canon verification",
+  "compile_exit": 0,
+  "compiler_output_bytes": 0,
+  "kernel_exit": 0,
+  "kernel_output_bytes": 0,
+  "pass": true
+}

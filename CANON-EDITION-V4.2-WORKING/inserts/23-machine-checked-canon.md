@@ -328,6 +328,10 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `BennettBatch` | `batched_window`, `premise5_batched` |
 | `WeightedEdgeLaw` | `push_weighted`, `push_uniform`, `rate_iff`, `tightened_threshold`, `walk_bound`, `threshold_value` |
 | `StageSchedule` | `total_with_transfers`, `stage_cost_le` |
+| `WarmStart` | `warm_start`, `warm_start_event`, `fibre_mass_pos`, `fibre_reassembly`, `reverse_sampler_bound`, `heat_bath_normalized`, `heat_bath_stationary`, `pointwise_from_absolute`, `warm_start_from_mixing` |
+| `WalkBound9` | `walk_bound_9`, `threshold_9`, `threshold_9_value` |
+| `HistoryPolymer` | `halving_prefix`, `paired_history_bound`, `component_valid`, `truncation_bound`, `sampled_truncation_bound`, `branch_path_bound` |
+| `ThermalEncoding` | `branch_compression`, `recovers`, `kron_orthogonal`, `recovers_reference` |
 <!-- END THEOREM INDEX -->
 
 ---

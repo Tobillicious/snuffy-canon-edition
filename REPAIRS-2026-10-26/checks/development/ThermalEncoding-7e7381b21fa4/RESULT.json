@@ -1,0 +1,9 @@
+{
+  "module": "ThermalEncoding",
+  "source_sha256": "7e7381b21fa4a4f0f578facd4148462da2be1b280cce38bc6a5d868da63146c2",
+  "dependency_reuse": "/Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/snapshots/checkpoint-09-warmstart-walk9/objects/Snuffy",
+  "scope": "targeted compilation and kernel check; not full canon verification",
+  "compile_exit": 1,
+  "compiler_output_bytes": 870,
+  "pass": false
+}

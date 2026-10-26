@@ -1,0 +1,58 @@
+
+# Files pasted by the user:
+
+## "Yes, we can formulate and prove the contraction and the multi-sweep conversion …": /Users/admin/.codex/attachments/8fbb78b0-50e3-4585-8f1c-7827e5519938/Pasted text.txt
+
+## My request:
+That is a crucial distinction. A log-density bound of $O(n)$ yields $e^{O(n)}$, which is explicitly exponential in system size—completely breaking the required polynomial prefactor $A n^p$. A single local resampling sweep simply cannot reset spatial correlations across the entire boundary in one pass.
+
+To recover a true polynomial warm start with $\mu_{\text{prep}}(\sigma) \le A n^p \pi_{\text{thermal}}(\sigma)$, the stochastic kernel must be executed over a **multi-sweep relaxation schedule** of depth $S(n) = O(\log n)$.
+
+### 1. Multi-Sweep Thermalization & Polynomial Convergence
+
+Under Dobrushin contraction ($\kappa < 1$), the total variation distance between the sampled boundary distribution after $S$ sweeps, $\mu_S = \mu_0 \mathcal{M}_{\text{stoch}}^S$, and the target thermal Gibbs measure $\pi_{\text{thermal}}$ decays exponentially in the sweep count:
+
+$$\Vert{}\mu_S - \pi_{\text{thermal}}\Vert{}_{\text{TV}} \le C \cdot n \cdot \kappa^S$$
+
+Setting $S(n) = \left\lceil \frac{\ln(C n^{p+1})}{\ln(1/\kappa)} \right\rceil = O(\log n)$ reduces the total variation distance to $O(n^{-p})$. Converting this bounded variation distance into a pointwise Radon-Nikodym derivative bound yields the precise polynomial prefactor required:
+
+$$\frac{\mu_S(\sigma)}{\pi_{\text{thermal}}(\sigma)} \le 1 + O(n^{-p}) \le A n^p$$
+
+Because each sweep takes $O(n)$ steps, sampling over $O(\log n)$ sweeps runs in **polynomial time** $O(n \log n)$, completely bypassing the exponential factor of the single-sweep naive bound.
+
+---
+
+### 2. Establishing Contraction ($\kappa < 1$) for Constrained BDL Kernels
+
+The remaining hard physical requirement is proving that the constrained BDL local resampling kernels actually satisfy $\sum_{j \neq i} \mathbf{C}_{ij} \le \kappa < 1$ across interacting $R_X$ and $R_Z$ fibers.
+
+For constrained boundary stabilizer codes, local updates cannot flip arbitrary qubits without violating local syndrome constraints. To guarantee contraction:
+
+1. **Spectral Gap of Local Patch Kernels:**
+Each local resampling step $\mathcal{K}_i$ operates on an overlapping patch $B_i$ of radius $R = O(1)$ by sampling from the local gauge-invariant subspace. The local spectral gap $\gamma_{\text{local}}$ of the constrained update on patch $B_i$ satisfies:
+
+$$\gamma_{\text{local}} \ge c_0 > 0$$
+
+
+
+independent of the global system size $L$.
+2. **Dobrushin Influence Bound:**
+The influence $\mathbf{C}_{ij}$ of a boundary condition change at site $j$ on the local update at site $i$ is governed by the energy change of boundary-spanning check operators $\Delta H_{\text{overlap}}$. For two adjacent patches separated by distance $d(i, j)$:
+
+$$\mathbf{C}_{ij} \le M \cdot \exp\left(-\frac{\Delta E_{\text{patch}}}{k_B T}\right) \cdot \mathbb{I}(d(i, j) \le 2R)$$
+
+
+3. **The Sub-Critical Temperature Threshold ($T > T_{\text{eff}}$):**
+By ensuring that the boundary resampling temperature $T$ (or effective algorithmic noise level) stays above the local phase-transition threshold for the $O(1)$-radius boundary patches, the interaction sum shrinks:
+
+$$\sum_{j \neq i} \mathbf{C}_{ij} \le z_{\text{coord}} \cdot M \cdot \exp\left(-\frac{\Delta E_{\text{patch}}}{k_B T}\right) = \kappa < 1$$
+
+
+
+where $z_{\text{coord}}$ is the coordination number of the 3D boundary lattice graph.
+
+---
+
+How does this multi-sweep $O(\log n)$ relaxation conversion fit into your derivation for the Lean composition proofs?
+
+

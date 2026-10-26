@@ -1,28 +1,31 @@
-# Repair status — unpublished working checkpoint
+# Repair status — local author-review worktree
 
-The full UPT target is unchanged. Current sources/index: 187 modules / 1,128
-names. Checkpoint 08 (26 October) PASSED: all 187 modules freshly compiled
-with zero output and kernel-checked, the 1,128-name standard-axiom audit and
-the strict completeness, coverage and claims gates; source hashes unchanged.
+The maximal UPT target is unchanged. No merge or publication is authorized.
+The branch is codex/upt-warmstart-bridge in UPT-WARMSTART-WORKTREE.
 
-Added since checkpoint 02: `G1Refinement`, `G2Physical`, `G2Freedom`,
-`G3GoodEvent`, `G3ArchiveStock`, `BennettExact`, and the implemented Bennett
-program in `BennettCounterpart` (superset of the earlier module). The manuscript
-carries them in the appended G.16 and G.17 and the §23.9 rows.
+Current draft: 191 modules / 1,150 public theorem and lemma names.
+Checkpoint 09 (189 / 1,133) was inherited and preserved by source hash.
+Checkpoint 10 (189 / 1,140) freshly compiled and kernel-checked every module,
+with zero compiler output and PASS on the full standard-axiom, completeness
+and claims audits. HistoryPolymer and ThermalEncoding add ten names and each
+passed targeted compilation and kernel checking with zero output.
+Checkpoint 11 is a fresh full audit of the 191-module draft; inspect its
+RESULT.json and current source hashes before reporting its outcome.
 
-Checkpoint 05 adds the objection-7 supports `KnillLaflamme`, `MatchingWitness`,
-`EdgeLaw`, `ExRecBound` and `AgeReliability` (G.18), with the detector-graph and
-merge enumerations in the repairs bank. Open in objection 7: the all-d merge
-potential, the Clifford check of the installation's own maps, and sparse-failure
-tolerance of the sweep. Three existing sentences on Bennett's status
-(master lines 48, 1546, 1624) await the author's before/after review.
-Before/after batches 01 and 02 are preserved and were shown to the author.
-Physical source, whole-outcome, device-cost and external-theorem applications
-remain construction work. No push, PR, merge or Zenodo publication yet.
+The resumed deletion test has 103 counterexamples among adjacent-defect
+zero-excess fibres on the stated finite seed. The proposed replacement uses
+the complete deterministic decoding history, local constraint components,
+the derived four-times support bound and a published polymer-counting
+algorithm. G.21 contains the working derivation for author review. Tests
+cover both syndrome sectors of one iteration pair and the published seed;
+they are finite checks, not an all-level compilation of the BDL maps.
 
-Checkpoints 06–08 add `SparseFailure`, `ToleranceSweep`, `PassiveReference`,
-`RedundantRecord`, `BennettBatch`, `WeightedEdgeLaw` and `StageSchedule` (G.19).
-Prose batches 03 (Bennett status) and 04 (`CITATION.cff` abstract) applied on the
-author's word. Open: the initialisation problem for the 3D passive quantum memory
-(quantum branch, conditional), measured device parameters, and prose batch 05
-(README Bennett sentence, awaiting the author's OK).
+Remaining: the actual noisy preparation/handoff certificate at the original
+reference-fidelity and failure budgets, joined to the complete pathwise G3
+bill. The ideal sampler and the branch recovery lemmas do not by themselves
+certify that physical implementation. No global completion verdict is made.
+
+The full build, generic support lemmas and proposed source application have
+separate evidence. The inherited rendered PDF/HTML/EPUB and SHA256SUMS predate
+this draft and must be regenerated after the final text is approved.
+See 00-HANDOFF-CLAUDE-2026-10-26.md and the before/after batch 07.

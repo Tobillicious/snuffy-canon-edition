@@ -1,0 +1,32 @@
+[
+  {
+    "sector": "X sector",
+    "seed": "[[5,1,2]] surface-code seed (2 x 1)",
+    "variables": 628,
+    "finest_checks": 588,
+    "intermediate_checks": 38,
+    "seed_checks": 2,
+    "constraint_scopes": 48,
+    "max_scope": 31,
+    "max_degree": 57,
+    "T1_square_pairs_with_more_than_two_shared_qubits": 0,
+    "valid_histories_checked": 200,
+    "standalone_components_checked": 817,
+    "all_assertions_pass": true
+  },
+  {
+    "sector": "Z sector",
+    "seed": "[[5,1,2]] surface-code seed (2 x 1)",
+    "variables": 866,
+    "finest_checks": 840,
+    "intermediate_checks": 24,
+    "seed_checks": 2,
+    "constraint_scopes": 125,
+    "max_scope": 134,
+    "max_degree": 349,
+    "T1_square_pairs_with_more_than_two_shared_qubits": 0,
+    "valid_histories_checked": 200,
+    "standalone_components_checked": 375,
+    "all_assertions_pass": true
+  }
+]

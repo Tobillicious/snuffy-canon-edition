@@ -1,0 +1,47 @@
+{
+  "title": "Snuffy — Canon Edition 4.2: The Universal Protection Theory and its machine-checked canon",
+  "upload_type": "dataset",
+  "version": "4.2",
+  "publication_date": "2026-10-26",
+  "creators": [
+    {
+      "name": "Croydon-McRae, Tobias",
+      "orcid": "0009-0003-1419-7756"
+    }
+  ],
+  "description": "<p><strong>The Universal Protection Theory</strong> states a law for any agent powerful enough to shape what continues to exist: <em>never lose an existing particular needlessly.</em> Its scope is every particular and every relation, the nonliving included, and its subject is protection from every digital mind, a pure optimiser included. Outcomes are ranked in a canonical order that puts the continuation of every existing particular first, then its freedom, then new particulars. An option is aligned when no feasible alternative keeps strictly more at any stage. Full scope is forced: a regime that maximises over any smaller scope admits a needless loss.</p>\n<p><strong>The bridge to every mind.</strong> For each mind the bridge is reasons or holding. The reasons route derives protection from a mind's own objective: reciprocity, irreplaceable knowledge, option value under value uncertainty, and the cost of controlling living systems. Reciprocity is stated with its charged allowance: the canonical regime keeps a mind with probability at least one minus the fault ceiling, and exceeds any rival that loses the mind more often than that. The holding route keeps every mind those reasons do not reach, including a bounded indifferent defector. The holding certificate is now constructed in full. On the held source, each particular's record is perturbed by the world and by any agent, decoded to its nearest codeword and repaired. Every component of the protection theorem's source certificate is proved: refinement, observation agreement, initial continuation, the decoding-radius bound and repair precision. The per-step drift follows from the quantum speed limit for any perturbing agent of bounded coupling. That coupling bound follows from an exhaustive split: either every monitored site is below threshold, or honest sensors force a robust-quorum alarm, whatever the faulty sensors report, and the mediated response removes the coupling. On the certified good event every particular continues at every step through the horizon; the good event fails with probability at most the sum of the charged fault accounts, with no independence assumed. A hostile mind remains a protected particular while its harmful channels are fenced.</p>\n<p><strong>Greatestness.</strong> The whole greatest outcome, continuation and freedom stages included, is realised by the held source. Union closure of realisable outcomes is derived from locality: splicing two policies particular by particular realises their stage-wise union, and the spliced dynamics reproduce each chosen policy on its particular's closed block. Every active agent is free in the canonical sense: every non-harmful effect is admissible and leaves its status, authority and escrow unchanged. Under the Master Solvency Condition the aligned option is the whole top and contains the outcome of every rival regime. Income-or-irrelevance shows solvency is necessary for relevance as a protector.</p>\n<p><strong>The physical instruments.</strong></p><ul><li><strong>The funded thermodynamic ledger.</strong> Landauer's bound is proved for density matrices under any unitary coupling to a thermal bath, and derives the second-law guard. The Theorem 8 storage functional contracts by a positive margin on every cycle that contains an error.</li><li><strong>Timely self-healing.</strong> A Byzantine sensor quorum, syndrome detection and a wave-race margin supply it. The adversarial rate bound comes from the sharp Mandelstam–Tamm speed limit, and the complete logical-attack split from the honest-sensor response.</li><li><strong>Reflective closure.</strong> It rests on von Neumann's and Halperin's alternating-projection theorems, with a finite rank criterion that decides consistency operationally.</li><li><strong>Source identification and recovery work.</strong> Data processing, Fano's inequality, the exact log-det Gaussian channel bound and the carrier tail give a recovery-work lower bound of order t<sup>d</sup> in unattended age. A single-shot wavefront sweep is proved to recover every shell, with no rework against fenced outer activity. Its complete metered bill is at most an age-independent constant times t<sup>d</sup>. The recovery work is therefore Θ(t<sup>d</sup>).</li><li><strong>The complete history.</strong> It is kept in full and replayed exactly for every controller and environment, moved by a reversible, reference-preserving handoff, and charged in a nine-part bill. The syndrome stock has an age-independent envelope, and every flushed unit is retained in the gross ledger.</li><li><strong>The fault ceiling.</strong> The 10<sup>−6</sup> ceiling over the horizon is attained under local stochastic noise below threshold. Correlated bursts are included: bounded-footprint shocks make the damaged locations local stochastic at an explicit effective rate.</li><li><strong>Reversible administration.</strong> Bennett's counterpart is constructed in a Landauer model of options, and the law forces reversible administration.</li><li><strong>Volume and boundary.</strong> For every region of a connected relational structure other than the whole, positive volume holds exactly when the boundary homology is nonzero.</li></ul>\n<p><strong>The machine-checked canon.</strong> 169 Lean 4 modules and 1,042 audited public theorems and lemmas compile against Mathlib with zero compiler output and pass the kernel checker. There is no <code>sorry</code>, and only Lean's three standard axioms are used. A completeness gate checks that every built module in the programme's banks is in the canon. A claims gate checks that every audited theorem is cited in the manuscript.</p>\n<p><strong>What the theorems rest on.</strong> They rest on the relational frame; the standard framework of finite-dimensional quantum mechanics; and the physical inputs each theorem names: the frame's evolution during a step, the sub-threshold coupling bound, the honest-sensor response, the propagation bound and the account probabilities. They also rest on three standard published theorems, cited as such and applied within their stated conditions: the surface-code chain lemma, the Solovay–Kitaev theorem for the gate-set clause, and the fault-tolerant syndrome gadgets of Aliferis, Gottesman and Preskill. The concatenated memory itself is compiled end to end, including actual decoding, and so are complete positivity of the completed decoder and the pure-state trace-distance identity. A sourced physical parameter ledger instantiates the income condition. It records measured solvency headroom of about 3.3× at the binding stage of a 50-qubit installation. It also computes, from the measured surface-code suppression factor, the code distance the fault ceiling requires: about 131. That fixes the installation a deployment must build.</p>\n<p><strong>Contents:</strong> the master manuscript with verified PDF, EPUB and HTML renders; the Lean tree with a one-command build-and-audit script and its receipt; the replayable four-stroke ledger; the source list for the parameter ledger; and the render and verification scripts. This version supersedes earlier versions of this record.</p>",
+  "license": "cc-by-4.0",
+  "keywords": [
+    "universal protection theory",
+    "AI alignment",
+    "boundary-complete relational dynamics",
+    "thermodynamics of computation",
+    "Landauer principle",
+    "quantum speed limit",
+    "quantum error correction",
+    "threshold theorem",
+    "correlated noise",
+    "reversible computation",
+    "formal verification",
+    "Lean 4",
+    "Mathlib"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.23631881",
+      "relation": "isNewVersionOf",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "10.5281/zenodo.23599528",
+      "relation": "isSupplementTo",
+      "resource_type": "publication"
+    },
+    {
+      "identifier": "https://github.com/Tobillicious/snuffy-canon-edition",
+      "relation": "isSupplementedBy",
+      "resource_type": "software"
+    }
+  ],
+  "notes": "Parent mathematical core: A Lattice Preservation Calculus (DOI 10.5281/zenodo.23599528). Previous editions: Snuffy Canon Edition 4.1 (DOI 10.5281/zenodo.23631881) and 4.0 (DOI 10.5281/zenodo.23608443). Ledger chain heads: solvent 6160d931d55767f39525671ff4ef8f3305b609cd22c6043cd9e0fb3eada69132; quarantine d1a0d44bbad5a135928595e152a7a3e987e74a90017837e1491ad8b8430b0ef4; charged 41143bb2756875b03975b1cbb7c5cd09e6e0ee495b06c29243624de52a6a2788. Prepared with the Snuffy programme's human and AI collaborators (Claude, Codex, Gemini, GLM, Beam)."
+}

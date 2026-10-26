@@ -1,0 +1,79 @@
+cat > /Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/bdl-metacheck/transport.py <<'EOF'
+#!/usr/bin/env python3
+"""Transport conditions for adjacent coarse defects (Step 3, Lemma 3.2 hypotheses (Dec) and (Ext)).
+
+For each pair of coarse defects y, y₂ at level-0 distance 1, Z0(y,y₂) is the set of valid level-1
+syndromes of weight 4 with coarse = e_y + e_{y₂}, enumerated exhaustively inside a window (the
+2-cells of every block of D_y ∪ D_{y₂} and their 2-cell neighbours; 2-cells are neighbours when they
+share a qubit). Then:
+  (Dec) every σ₁ ∈ Z0(y,y₂) contains a 2-cell set B with σ₁ ⊕ B ∈ D_{y₂}, and one with σ₁ ⊕ B ∈ D_y;
+  (Ext) every B₂ ∈ D_{y₂} lies inside some σ₁ ∈ Z0(y,y₂), and likewise every B ∈ D_y.
+Exact product structure is the stronger statement Z0(y,y₂) = D_y ⊔ D_{y₂} (disjoint unions).
+"""
+import sys, json, itertools
+from collections import defaultdict, deque
+sys.path.insert(0, __file__.rsplit('/', 1)[0])
+import bdl, coarse as C
+
+def main(a, b):
+    T = bdl.seed_planar(a, b)
+    L = C.Level1(T)
+    n2 = len(L.idx2)
+    deps = bdl.left_kernel(L.D1)
+    sig = [0] * n2
+    for t, d in enumerate(deps):
+        for k in C.bits(d): sig[k] |= 1 << t
+    D = defaultdict(set)
+    for S in itertools.combinations(range(n2), 2):
+        if sig[S[0]] ^ sig[S[1]]: continue
+        s = (1 << S[0]) | (1 << S[1])
+        sp, _ = L.coarse(s)
+        supp = [z for z, v in sp.items() if v]
+        if len(supp) == 1: D[supp[0]].add(s)
+    rowq = {k: r for k, r in enumerate(L.D1)}
+    nb2 = defaultdict(set)
+    byq = defaultdict(set)
+    for k, r in rowq.items():
+        for j in C.bits(r): byq[j].add(k)
+    for k, r in rowq.items():
+        for j in C.bits(r): nb2[k] |= byq[j]
+    zadj = defaultdict(set)
+    for q in T.VQ:
+        for u in T.adjQZ[q]:
+            for w in T.adjQZ[q]:
+                if u != w: zadj[u].add(w)
+    out = {'pairs': 0, 'Z0_total': 0, 'dec_fail': 0, 'ext_fail': 0, 'non_product': 0, 'max_window': 0}
+    for y, y2 in itertools.combinations(sorted(L.pair, key=str), 2):
+        if y2 not in zadj[y]: continue
+        cells = set()
+        for B in D[y] | D[y2]: cells |= set(C.bits(B))
+        win = sorted(set().union(*(nb2[k] for k in cells)) | cells)
+        out['max_window'] = max(out['max_window'], len(win))
+        bysig = defaultdict(list)
+        for P in itertools.combinations(win, 2):
+            bysig[sig[P[0]] ^ sig[P[1]]].append((1 << P[0]) | (1 << P[1]))
+        Z0 = set()
+        for lst in bysig.values():
+            for P, Q in itertools.combinations(lst, 2):
+                if P & Q: continue
+                s = P | Q
+                if s in Z0: continue
+                sp, _ = L.coarse(s)
+                if {z for z, v in sp.items() if v} == {y, y2}: Z0.add(s)
+        out['pairs'] += 1; out['Z0_total'] += len(Z0)
+        prod = {B1 | B2 for B1 in D[y] for B2 in D[y2] if not B1 & B2}
+        out['non_product'] += len(Z0 ^ prod)
+        for s in Z0:
+            pairs_in = [(1 << u) | (1 << v) for u, v in itertools.combinations(C.bits(s), 2)]
+            okA = any((s ^ B) in D[y2] for B in pairs_in)
+            okB = any((s ^ B) in D[y] for B in pairs_in)
+            if not (okA and okB): out['dec_fail'] += 1
+        for blocks in (D[y], D[y2]):
+            for B in blocks:
+                if not any(B & s == B for s in Z0): out['ext_fail'] += 1
+    print(json.dumps({'seed': [a, b], **out}))
+
+if __name__ == '__main__':
+    main(*map(int, sys.argv[1:3]))
+EOF
+cd /Users/admin/Documents/2026/Snuffy-Book/BANKS/2026-10-26-4.2-join-repairs/checks/bdl-metacheck && time python3 transport.py 3 2 && time python3 transport.py 5 4

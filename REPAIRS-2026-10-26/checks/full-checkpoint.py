@@ -10,7 +10,8 @@ import subprocess
 import sys
 
 root = Path(__file__).resolve().parents[3]
-working = root / 'SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25'
+working = Path(os.environ.get('REPAIR_WORKING_ROOT',
+                            str(root / 'SNUFFY-CANON-EDITION-4.2-WORKING-2026-10-25')))
 checks = Path(__file__).resolve().parent
 label = sys.argv[1]
 snapshot = checks / 'snapshots' / ('checkpoint-' + label)

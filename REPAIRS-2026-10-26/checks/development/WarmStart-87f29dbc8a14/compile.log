@@ -1,0 +1,5 @@
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:86:73: error: unexpected token 'omit'; expected 'lemma'
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:138:39: error: unexpected token 'omit'; expected 'lemma'
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:148:20: error: `simp` made no progress
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:152:71: error: unexpected token 'omit'; expected 'lemma'
+/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/CANON-EDITION-V4.2-WORKING/lean/Snuffy/WarmStart.lean:174:44: error: unexpected token 'omit'; expected 'lemma'

@@ -150,9 +150,9 @@ whole-outcome, device-cost and external-theorem application
 correspondences remain explicit construction work; the component
 theorems do not by themselves declare the maximal argument complete.
 
-The current Lean tree contains 187 modules and 1128 audited public
-theorem/lemma names. All 187 modules were freshly compiled and
-kernel-checked in one run, and the full axiom audit over all 1128 names
+The current Lean tree contains 189 modules and 1133 audited public
+theorem/lemma names. All 189 modules were freshly compiled and
+kernel-checked in one run, and the full axiom audit over all 1133 names
 and the completeness and claims gates were freshly run, overall PASS.
 The earlier receipts, including the 924-name combined receipt that
 reused Beam's 136 results, are preserved with their banks. Seven
@@ -3713,7 +3713,7 @@ values, not compiled theorems.
 canon}\label{section-23-the-machine-checked-canon}
 
 \emph{This section maps the edition's compiled results and their actual
-hypotheses. The current source contains 187 modules and 1128 audited
+hypotheses. The current source contains 189 modules and 1133 audited
 public theorem/lemma names. The receipt records a fresh compilation and
 kernel check of every module, a fresh full axiom audit with only
 \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, and
@@ -4606,6 +4606,11 @@ once the per-bit reversible overhead is below the irreversible heat
 \texttt{WeightedEdgeLaw} & Weighted fault rates push forward to edge
 rates; with the enumerated edge rate 94/15·p and walk bound 9.87, the
 explicit threshold exceeds 4×10⁻⁴ (G.19) \\
+\texttt{WarmStart} & A warm start, a prepared syndrome law at most C
+times the thermal law pointwise, stays dominated at every time, so every
+event keeps the stationary bound up to C (G.20) \\
+\texttt{WalkBound9} & The length-9 walk bound c₉ = 763,504,745 ≤ 9.71⁹
+gives an explicit threshold above 4.2×10⁻⁴ (G.20) \\
 \end{longtable}
 }
 
@@ -5746,6 +5751,10 @@ Theorems
 \texttt{StageSchedule} &
 \texttt{t\allowbreak{}o\allowbreak{}t\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}w\allowbreak{}i\allowbreak{}t\allowbreak{}h\allowbreak{}\_\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}s\allowbreak{}f\allowbreak{}e\allowbreak{}r\allowbreak{}s},
 \texttt{stage\_cost\_le} \\
+\texttt{WarmStart} & \texttt{warm\_start},
+\texttt{warm\_start\_event} \\
+\texttt{WalkBound9} & \texttt{walk\_bound\_9}, \texttt{threshold\_9},
+\texttt{t\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d\allowbreak{}\_\allowbreak{}9\allowbreak{}\_\allowbreak{}v\allowbreak{}a\allowbreak{}l\allowbreak{}u\allowbreak{}e} \\
 \end{longtable}
 }
 
@@ -8147,6 +8156,118 @@ classical record and its relations are held unconditionally by
   temperature.
 \end{itemize}
 
+\subsection{G.20 Device requirements, and the open initialisation
+problem}\label{g.20-device-requirements-and-the-open-initialisation-problem}
+
+The constructions of G.16--G.19 hold for any installation whose devices
+meet the inequalities below. Each is a hypothesis of a compiled theorem,
+stated explicitly; none is assumed silently. They are requirements on
+the protector's devices, of the kind a capable agent can meet by
+acquiring better hardware. The targets are unchanged.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Requirement
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Inequality
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Theorem that takes it
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Circuit fault rate & Weighted local stochastic noise with
+\(p<1/(4\cdot9.71^2\cdot\tfrac{94}{15})\), above \(4.2\times10^{-4}\),
+for the rotated surface code with the standard schedule &
+\texttt{W\allowbreak{}a\allowbreak{}l\allowbreak{}k\allowbreak{}B\allowbreak{}o\allowbreak{}u\allowbreak{}n\allowbreak{}d\allowbreak{}9\allowbreak{}.\allowbreak{}t\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d\allowbreak{}\_\allowbreak{}9},
+\texttt{t\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d\allowbreak{}\_\allowbreak{}9\allowbreak{}\_\allowbreak{}v\allowbreak{}a\allowbreak{}l\allowbreak{}u\allowbreak{}e}
+(with \texttt{WeightedEdgeLaw}, \texttt{EdgeLaw},
+\texttt{T\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d\allowbreak{}.\allowbreak{}f\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}\_\allowbreak{}l\allowbreak{}e\allowbreak{}\_\allowbreak{}g\allowbreak{}e\allowbreak{}o\allowbreak{}m\allowbreak{}e\allowbreak{}t\allowbreak{}r\allowbreak{}i\allowbreak{}c}) \\
+Coupling bound & Every agent couples to a record frame with strength at
+most \(W\); correction interval \(\Delta\le\hbar(t-\varepsilon)/W\) &
+\texttt{G\allowbreak{}1\allowbreak{}R\allowbreak{}e\allowbreak{}f\allowbreak{}i\allowbreak{}n\allowbreak{}e\allowbreak{}m\allowbreak{}e\allowbreak{}n\allowbreak{}t\allowbreak{}.\allowbreak{}p\allowbreak{}h\allowbreak{}y\allowbreak{}s\allowbreak{}i\allowbreak{}c\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}p\allowbreak{}r\allowbreak{}o\allowbreak{}t\allowbreak{}e\allowbreak{}c\allowbreak{}t\allowbreak{}i\allowbreak{}o\allowbreak{}n\allowbreak{}\_\allowbreak{}q\allowbreak{}s\allowbreak{}l} \\
+Reversible overhead & Per-bit non-heat lifecycle cost \(\eta\) below the
+irreversible heat per bit \(q\ge k_BT\ln2\) &
+\texttt{B\allowbreak{}e\allowbreak{}n\allowbreak{}n\allowbreak{}e\allowbreak{}t\allowbreak{}t\allowbreak{}B\allowbreak{}a\allowbreak{}t\allowbreak{}c\allowbreak{}h\allowbreak{}.\allowbreak{}p\allowbreak{}r\allowbreak{}e\allowbreak{}m\allowbreak{}i\allowbreak{}s\allowbreak{}e\allowbreak{}5\allowbreak{}\_\allowbreak{}b\allowbreak{}a\allowbreak{}t\allowbreak{}c\allowbreak{}h\allowbreak{}e\allowbreak{}d} \\
+Passive reference barrier & Stage \(j\) barrier at least
+\(k_BT(2j\ln2+\ln(1/\varepsilon))\) above the attempt scale &
+\texttt{P\allowbreak{}a\allowbreak{}s\allowbreak{}s\allowbreak{}i\allowbreak{}v\allowbreak{}e\allowbreak{}R\allowbreak{}e\allowbreak{}f\allowbreak{}e\allowbreak{}r\allowbreak{}e\allowbreak{}n\allowbreak{}c\allowbreak{}e\allowbreak{}.\allowbreak{}t\allowbreak{}o\allowbreak{}t\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}f\allowbreak{}a\allowbreak{}i\allowbreak{}l\allowbreak{}u\allowbreak{}r\allowbreak{}e\allowbreak{}\_\allowbreak{}l\allowbreak{}e} \\
+Windowed decoding & A wrong inner commit costs the next window at most a
+bounded part of its fault budget &
+\texttt{T\allowbreak{}o\allowbreak{}l\allowbreak{}e\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}c\allowbreak{}e\allowbreak{}S\allowbreak{}w\allowbreak{}e\allowbreak{}e\allowbreak{}p\allowbreak{}.\allowbreak{}w\allowbreak{}r\allowbreak{}o\allowbreak{}n\allowbreak{}g\allowbreak{}\_\allowbreak{}s\allowbreak{}u\allowbreak{}b\allowbreak{}s\allowbreak{}e\allowbreak{}t\allowbreak{}\_\allowbreak{}b\allowbreak{}a\allowbreak{}d},
+\texttt{sweep\_density} (DKLP overlapping recovery) \\
+Record redundancy & An intact fragment of the objective record reads the
+record &
+\texttt{R\allowbreak{}e\allowbreak{}d\allowbreak{}u\allowbreak{}n\allowbreak{}d\allowbreak{}a\allowbreak{}n\allowbreak{}t\allowbreak{}R\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}r\allowbreak{}d\allowbreak{}.\allowbreak{}t\allowbreak{}o\allowbreak{}l\allowbreak{}e\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}t\allowbreak{}\_\allowbreak{}o\allowbreak{}u\allowbreak{}t\allowbreak{}e\allowbreak{}r\allowbreak{}\_\allowbreak{}d\allowbreak{}e\allowbreak{}c\allowbreak{}o\allowbreak{}d\allowbreak{}e\allowbreak{}r}
+(quantum Darwinism and spectrum-broadcast theorems) \\
+\end{longtable}
+}
+
+\textbf{Barrier heights in numbers.} For an age of
+\(10^{18}\,\mathrm s\), an attempt time of \(10^{-12}\,\mathrm s\), a
+base stage of \(1\,\mathrm s\) and \(\varepsilon=10^{-9}\), the largest
+barrier needed is about \(132\,k_BT\), roughly \(3.4\,\mathrm{eV}\) at
+\(300\,\mathrm K\). The barrier grows only logarithmically with age and
+lies within the barriers of atomic defects in solids.
+
+\textbf{The tightened threshold} (\texttt{WalkBound9}). The exact
+maximum self-avoiding walk count at length 9 over all interior vertices
+is \(c_9=763{,}504{,}745\le9.71^9\) (\texttt{walk\_bound\_9}). This
+raises the explicit threshold of G.19 above \(4.2\times10^{-4}\)
+(\texttt{threshold\_9},
+\texttt{t\allowbreak{}h\allowbreak{}r\allowbreak{}e\allowbreak{}s\allowbreak{}h\allowbreak{}o\allowbreak{}l\allowbreak{}d\allowbreak{}\_\allowbreak{}9\allowbreak{}\_\allowbreak{}v\allowbreak{}a\allowbreak{}l\allowbreak{}u\allowbreak{}e}).
+
+\textbf{The quantum-coherence branch: the warm start and the open
+problem} (\texttt{WarmStart}). Balasubramanian, Davydova and Lin prove a
+passive memory in \(\mathbb R^3\) for the thermal encoding
+(arXiv:2605.10943, Theorems 1.1 and 2.6, via Chesi, Loss, Bravyi and
+Terhal, New J. Phys. 12, 025013, 2010). The open step is preparing an
+initial state the theorem covers.
+
+Call a prepared syndrome law \(\mu\) a warm start when \(\mu\le C\pi\)
+pointwise, with \(\pi\) the thermal syndrome law. A warm start stays
+dominated at every time: \(\mu K^t\le C\pi\) (\texttt{warm\_start}), and
+every event has probability at most \(C\,\pi(A)\)
+(\texttt{warm\_start\_event}). Tracking the protected logical
+observables then gives a drift of the decoded qubit of at most
+\(t\cdot\mathrm{poly}(n)\cdot\sqrt{C\,\mathrm{Tr}(P^\perp\rho_\beta)}\).
+Chesi et al.'s hypotheses make \(P\mathcal L^\dagger(\tilde X)P=0\), so
+only leakage from \(P\) moves \(\langle\tilde X\rangle\). A warm start
+with \(C=\mathrm{poly}(n)\) therefore preserves the exponential
+lifetime, with its exponent halved. This derivation is recorded with its
+sources and is not compiled.
+
+The empty syndrome is not a warm start: its constant is
+\(1/\pi(\emptyset)=e^{\Theta(n)}\).
+
+An exhaustive computation on the construction itself shows that a
+fixed-range polymer route cannot supply the warm start. The construction
+is built algebraically from the paper's §3.2.2, and the build verifies
+\(\delta^1\delta^0=0\) and one logical qubit at every level computed.
+The metachecks of level \(i\) are stretched by the scale factor \(\ell\)
+at each later level. In the computed cases, all dependencies are
+generated within radius 4 at level 1 and within radius 12 at level 2,
+with \(\ell=3\). Hence for every fixed range a single violated check
+passes all local metachecks yet is invalid.
+
+The remaining problem is a multiscale, recursive cluster expansion of
+the code's syndrome Gibbs law that treats level-\(j\) metachecks at
+scale \(\ell^j\), together with a sampler built from it, yielding a warm
+start with polynomial constant. This is the technique Balasubramanian,
+Davydova, Lin and Thorngren apply to the classical two-dimensional model
+(arXiv:2610.22548). Given it, the quantum branch closes through
+\texttt{S\allowbreak{}t\allowbreak{}a\allowbreak{}g\allowbreak{}e\allowbreak{}S\allowbreak{}c\allowbreak{}h\allowbreak{}e\allowbreak{}d\allowbreak{}u\allowbreak{}l\allowbreak{}e\allowbreak{}.\allowbreak{}t\allowbreak{}o\allowbreak{}t\allowbreak{}a\allowbreak{}l\allowbreak{}\_\allowbreak{}w\allowbreak{}i\allowbreak{}t\allowbreak{}h\allowbreak{}\_\allowbreak{}t\allowbreak{}r\allowbreak{}a\allowbreak{}n\allowbreak{}s\allowbreak{}f\allowbreak{}e\allowbreak{}r\allowbreak{}s}.
+Until then, indefinite holding of full quantum coherence is proved
+conditional on this one stated problem, while the objective classical
+record and its relations are held unconditionally
+(\texttt{PassiveReference}).
+
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \section{Part IV --- References and
@@ -8254,8 +8375,8 @@ maps, with the premises it lists. Elsewhere, prose remains prose.
 edition}\label{appendix-verification-provenance-of-this-edition}
 
 The original published baseline contains 115 modules and 831 audited
-names. The current tree contains 187 modules and 1128 audited public
-theorem/lemma names. All 187 modules were freshly compiled and
+names. The current tree contains 189 modules and 1133 audited public
+theorem/lemma names. All 189 modules were freshly compiled and
 kernel-checked in one run, and the full axiom, completeness and claims
 gates were freshly run, overall PASS. The earlier receipts, including
 the 924-name combined receipt that reused Beam's 136 results, are

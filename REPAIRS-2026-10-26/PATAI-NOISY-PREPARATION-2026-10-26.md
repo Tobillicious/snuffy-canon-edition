@@ -1,0 +1,181 @@
+# Item 2 of the Codex handoff: the noisy preparation join (Claude, 26 October 2026)
+
+Target unchanged: the full quantum holding branch at the original stage error budget, with
+arbitrary references, polynomial pathwise work, and the complete G3 bill. This note sharpens what
+the G.21 ideal sampler does and does not supply once the preparation gates are noisy.
+
+## Proposition N1 (a pointwise warm start does not survive a constant-rate final layer) — proved
+
+Let the last physical layer of the preparation apply, independently on every qubit q of a packing
+set Q (the δq pairwise disjoint and non-adjacent, |Q| ≥ n/K), a Pauli flip with probability
+p ∈ (0, 1/2). Here δq is the flip's syndrome pattern, of weight at least w. Let ν = μ ⊛ N be the
+prepared syndrome law, for any ideal law μ whatsoever.
+
+1. *Smoothness.* ν(s ⊕ δq) ≥ (p/(1−p)) ν(s) for every s and q ∈ Q, because
+   N(e ⊕ q) ≥ (p/(1−p)) N(e) termwise.
+2. *Comparison.* For s with δq ∩ s = ∅ on a set Q′ ⊆ Q of size k,
+   π(s ⊕ δQ′)/π(s) = e^{−βwk}, while ν(s ⊕ δQ′) ≥ (p/(1−p))^k ν(s).
+3. *Choice of s.* If p·w ≤ 1/(4KK′), the low-weight set {|s| ≤ n/(2KK′)} has ν-mass and π-mass at
+   least 1/2 each, so it contains s* with ν(s*) ≥ π(s*)/2. Here K′ bounds how many δq meet a
+   syndrome bit. Then k ≥ n/(2K) qubits of Q are free at s*.
+
+Hence sup_s ν(s)/π(s) ≥ ½ (p e^{βw}/(1−p))^{n/(2K)}. This is exponential in n as soon as
+p e^{βw} > 2(1−p). At the G.21 sampler temperature (z₀ = e^{−β} < δ = [4eB(Δ+2)]^{−4}), this holds
+for every realistic device fault rate. No choice of ideal law μ and no hotter comparison
+temperature repairs it, because pointwise domination with a polynomial constant forces the two
+laws to agree on every local pattern's activity.
+
+So the G.21 sampler cannot by itself make the *physical* prepared state a warm start. This is a
+fact about the comparison, not a defect of the sampler.
+
+## Proposition N2 (domination survives the fault layer) — proved
+
+If μ ≤ Cπ, then ν = μ ⊛ N ≤ C (π ⊛ N), since convolution with a positive kernel preserves
+pointwise order. In operator form, with the reference retained as in G.21:
+
+    ρ_prep,LR ≤ 4C · (N ⊗ id_R)(ρ_β ⊗ ρ_R).
+
+This holds for any CPTP fault channel N, local stochastic or not, applied after the ideal branch
+preparation.
+
+Faults interleaved with the preparation are commuted to the end as Pauli faults in the usual way,
+because the branch preparation is the codespace encoder followed by a Pauli O_s. The encoder's own
+faults need the ExRec treatment, see item (b) below.
+
+## The precise remaining statement
+
+By N2 and the G.21 holding derivation (positive order, CP of Φ_t, the protected dressed Paulis), the
+quantum branch closes once the following holds for the one universal state N(ρ_β), which is
+independent of the sampler and of the logical input:
+
+**(R) Robust bad-weight bound.** For the BDL family below the stated temperature and every local
+stochastic fault channel N of rate p ≤ p₀, there are c, η′ > 0 with
+
+    Tr(P^⊥ Φ_t(N(ρ_β))) ≤ poly(n) e^{−c n^{η′}}   for all t ≤ e^{c n^{η′}}.
+
+Given (R), the G.21 estimate goes through with b replaced by this bound. Each stage's code size is
+chosen from c n_j^{η′} as in G.19, and StageSchedule.total_with_transfers sums the stages.
+
+The same statement, with N also acting during holding (non-thermal noise alongside the Davies
+bath), is what a physical installation needs anyway. BDL Theorem 1.1 is proved for the Davies
+semigroup alone. (R) is therefore not a new kind of requirement introduced by preparation; it is
+the robustness of the passive memory to the non-thermal part of the device noise.
+
+## What (R) needs, and the routes
+
+(a) **Stationarity is unavailable for N(ρ_β)**, so the proof must use locality: a sparse fault
+layer creates history polymers with activity at most (B′p)^{|Γ|/c}, which is subcritical below a
+threshold. The bad event requires a large polymer, at scale ≥ n^{η}, in the history representation.
+A route is a disagreement-coupling of the Davies dynamics from N(ρ_β) and from ρ_β under the same
+graphical randomness, showing the disagreement set stays subcritical: an isolated fault is undone
+by a downhill flip at rate Θ(1) and spreads only through excitation moves. Its control is the
+missing estimate.
+
+(b) **Encoder faults.** Faults inside the codespace encoder are not a final Pauli layer in general.
+They are handled by the existing ExRec / KnillLaflamme chain only if the encoder is built from
+fault-tolerant gadgets, in which case they reduce to a local stochastic Pauli layer plus a logical
+failure of probability at most the stage budget. This identification is to be written against
+`ExRecBound` and the G1 sources.
+
+(c) **Literature to read first.** Before asking the author, check:
+- the BDL paper's own discussion of perturbations;
+- Alicki–Fannes–Horodecki on 4D toric thermal stability;
+- stability of self-correcting memories under non-thermal noise.
+
+Statement (R) is the precise question if no source supplies it.
+
+## Literature check (done 26 October)
+
+- **BDL, §1.3 item 2 and footnote 4.** BDL leave initialisation open: "energetic bottlenecks might
+  be an obstruction for rapid mixing". They point to Bergamaschi–Gheissari–Liu (their [25]) and note
+  that BGL's results need an LDPC metacheck matrix, "which is not the case in our code". This agrees
+  with our computation in `checks/bdl-metacheck` that the metachecks stretch by ℓ per level.
+- **Bergamaschi, Gheissari and Liu, arXiv:2507.10976 (SODA 2026), Theorem 1.7.** Under the
+  connectedness criterion (Properties 5.12: LDPC checks and metachecks, an energy barrier, locally
+  erasable small clusters), a polylog(n)-local Lindbladian started from a ground state satisfies
+  ‖e^{tL}[ψ] − ρ_β^ψ‖₁ ≤ c₁ n e^{−c₂t} + t n e^{−(β−β_M) log^{c₃} n}. The proof is path coupling
+  within a high-measure set of geometrically well-behaved configurations ("cluster-distance
+  contraction"), with a memory lemma keeping the chain in that set. It does not treat non-thermal
+  noise, and the chain is a designed sampler, not the physical bath.
+
+- **BGL, introduction, on the state of the art.** In BGL's words: "in the absence of monotonicity,
+  even proving the ground state stability for the 4D toric code is still an open problem: current
+  techniques are insufficient to rigorously rule out the possibility that running Glauber dynamics
+  from the ground state quickly loses the logical information." Statement (R) asks for stability
+  under the physical Glauber/Davies dynamics from a *faulted* state, on BDL's code (non-LDPC
+  metachecks). It is therefore at least as hard as a stability question the field records as open.
+  It is a research step, not a retrieval or integration gap.
+- **Why the obvious escapes fail.**
+  - The ground state is a warm start with C = Z = e^{O(n e^{−β})}. That beats b = e^{−c n^η} only if
+    β grows like (1−η) log n.
+  - Even then, the final-layer faults restore an exponential factor unless the bare fault rate falls
+    like n^{−w(1−η)}, which is not a fixed device inequality.
+  - Relative entropy and Hölder interpolation lose a factor linear in n against the n^η exponent.
+  - A local (per-site) domination ν_t|_R ≤ K^{|R|} π|_R would suffice, because history polymers have
+    thermal probability exponential in their size. However, Davies dynamics is not known to
+    preserve such a bound; positivity plus stationarity preserve only the global one.
+
+## Two consequences
+
+1. **Trace distance suffices for the holding bound.** Once a state σ is within ε′ in trace
+   distance of the thermal encoding Enc_β(ρ_LR), contraction of trace distance under CPTP maps gives
+   ‖(Dec Φ_t ⊗ id)(σ) − ρ_LR‖₁ ≤ ε′ + (the BDL/G.21 bound). A within-sector mixing theorem that
+   starts from N(ψ) therefore closes (R) without any pointwise domination. Here N(ψ) is a
+   ground state hit by the sparse fault layer. Such a state lies in BGL's well-behaved set with high
+   probability below threshold.
+2. **The history lift supplies the LDPC structure BDL lack.** In the G.21 history representation,
+   every constraint has bounded scope and bounded incidence, uniformly in level. A single-qubit flip
+   changes O(1) history coordinates per level, so O(log n) coordinates in all, a polylog locality
+   matching BGL's block dynamics. The proposed route is therefore to verify Properties 5.6 and 5.10
+   for the history factor graph (energy barrier and local erasability, with components measured in
+   the primal graph G). Then BGL's path coupling would be run on histories, started from the noisy
+   ground state.
+
+   Two joins remain.
+   - The block updates must themselves be implemented by the installation, and their faults
+     re-enter as a sparse layer. The memory lemma must therefore be proved with that layer, which
+     needs a contraction margin. Path coupling's contraction is exactly where such a margin lives.
+   - The passive-holding statement (R′) is (R) with non-thermal noise during holding.
+
+## What the BGL route transfers, and what it cannot avoid
+
+- **Domain SSM transfers.** BGL's spatial-mixing input (their Theorem 1.6) holds for the history
+  polymer gas. G.21 proves Kotecký–Preiss convergence with explicit constants on the
+  bounded-degree history graph, and boundary conditions are polymer deletions, which preserve the
+  criterion (G.21 §4). The standard cluster-expansion argument then gives exponential decay of
+  boundary influence uniformly in level. This is derived, not compiled.
+- **Local erasability transfers.** Every history component has its correction inside a bounded
+  neighbourhood at each level, by BDL Theorems 4.6 and 4.7, Remarks 4.4–4.5 and the componentwise
+  coarse-graining of their §5.2.
+- **The fault layer cannot be avoided by contraction.** A path-coupling contraction of rate κ, with
+  noisy block updates each perturbing O(pn) coordinates, keeps the chain within O(pn/κ) of its
+  target in Hamming/Wasserstein distance, not in trace distance. Every physically prepared state is
+  therefore "thermal encoding plus a sparse fault layer", and (R) is the unavoidable remaining
+  statement. Its content is that the physical holding dynamics heals sparse disagreements, starting
+  from N(ρ_β). Below threshold, an isolated flip is undone downhill at rate Θ(1), and uphill moves
+  cost e^{−βΔ}. The missing estimate is that disagreements spread subcritically under the energy
+  non-increasing moves.
+
+## Numerical probe (not a proof): `checks/bdl-metacheck/healing_probe.py`
+
+The probe runs on the level-2 code (5,116 qubits, 2,256 Z-checks), from the 3 × 2 seed. It starts
+from a random fault layer of density p and runs single-site heat-bath dynamics with energy equal to
+the number of violated Z-checks. Results are in `HEALING-PROBE-LEVEL2.jsonl`, 3 trials per row.
+
+- β = 6:
+  - p = 0: the excitation count fluctuates at 0–4;
+  - p = 0.005: about 60 excitations fall to 2–11 after 100 sweeps;
+  - p = 0.02: about 220 fall to 7–13.
+- β = 8:
+  - p = 0: the count stays at 0;
+  - p = 0.005: about 58 fall to 0–5, with one trial reaching syndrome zero with no logical error;
+  - p = 0.02: about 220 fall to 6–11.
+
+Most of the fault layer heals within about 10 sweeps. A sparse residue of stuck excitations then
+decays slowly, consistent with BDL's warning about energetic bottlenecks. The logical question
+cannot be resolved at this size. The probe suggests stating (R) for the actual dynamics as "the
+residual excitation set stays sparse and isolated, and so cannot assemble the large history
+polymer that the bad event needs", rather than as complete healing.
+
+Status: N1 and N2 are proved above, in elementary form. (R) is open; its literature status is
+recorded, and the history-lift route is the next construction. The target is unchanged.
