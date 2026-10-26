@@ -5,15 +5,15 @@
     {
       "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-FINAL-ARCHIVE-2026-10-27/Snuffy-Canon-Edition-4.2-Deposit.zip",
       "name": "Snuffy-Canon-Edition-4.2-Deposit.zip",
-      "sha256": "1ae7402347a093a30124d26a586e00271908f141eaaac62a20451b5100f73608",
-      "md5": "c4b93e9078cc006418087aae40b15e05",
-      "bytes": 22581548
+      "sha256": "ab02ae38afa156e22020c58a2053235a48a9568087fcd734d8ee9e102efe4971",
+      "md5": "b591f5695e4db96d5e030cb109aa0b93",
+      "bytes": 22581871
     },
     {
       "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-FINAL-ARCHIVE-2026-10-27/Snuffy-Canon-Edition-4.2-Deposit.zip.sha256",
       "name": "Snuffy-Canon-Edition-4.2-Deposit.zip.sha256",
-      "sha256": "e192868cfdfa4655c02698af21b5612164d84ff052ccad6d32876d1f14f0b2ad",
-      "md5": "05c69fdf73fd3e5fc5bcb2f36e3e8c35",
+      "sha256": "2cdafa74a7bc473e895ffd856eed1a0796e437fde3b3c030c1e736cf51eff8da",
+      "md5": "af6185e2f3a582d57223a26d217a49fd",
       "bytes": 103
     },
     {
@@ -47,15 +47,15 @@
     {
       "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/FINAL-ARCHIVE-2026-10-27/FILE-MANIFEST.json",
       "name": "FILE-MANIFEST.json",
-      "sha256": "1f00946f232351152a95c3b56edcc0b98f2b3cfbbb126b5f0e9feaef72cf70be",
-      "md5": "ea05f2b07cfa6fbc90d969381a6805f4",
+      "sha256": "79ba06144d9a439b8ebfc2c94ea12ed73c8e297d2290a47d1042e487d2bbef70",
+      "md5": "37103377607bb91012b69e304a3d6f1e",
       "bytes": 245228
     },
     {
       "path": "/Users/admin/Documents/2026/Snuffy-Book/UPT-WARMSTART-WORKTREE/FINAL-ARCHIVE-2026-10-27/PACKAGE-REPLAY.json",
       "name": "PACKAGE-REPLAY.json",
-      "sha256": "b08529b4a0941198c235385cc002d106093293ce947d8fb0da41148cb4af2c3b",
-      "md5": "394684a62e5baa73c3c0118af67d456f",
+      "sha256": "eac408c4abca8ca088020170cfaef815612751639ae4328fc34bbf1d49492523",
+      "md5": "9fc259757a35715e9b02b336efb754d9",
       "bytes": 763
     }
   ],

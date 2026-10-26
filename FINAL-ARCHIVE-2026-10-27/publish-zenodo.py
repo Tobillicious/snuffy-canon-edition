@@ -27,6 +27,18 @@ def sha(path):
 
 def request(method, url, payload=None, raw=None):
     assert url.startswith('https://zenodo.org/api/'), 'Unexpected publication host'
+    if raw is not None:
+        # Stream large files through curl. Pass the credential through
+        # stdin configuration, never in process arguments or a log file.
+        assert method == 'PUT' and isinstance(raw, Path)
+        config = 'header = '+json.dumps('Authorization: Bearer '+token)+'\n'
+        cp = subprocess.run(['curl', '--silent', '--show-error', '--fail-with-body',
+                             '--config', '-', '--connect-timeout', '30', '--max-time', '900',
+                             '--retry', '2', '--retry-delay', '2', '--upload-file', str(raw), url],
+                            input=config.encode(), capture_output=True)
+        if cp.returncode:
+            raise RuntimeError('Streaming upload failed: '+cp.stderr.decode(errors='replace'))
+        return json.loads(cp.stdout)
     headers = {'Authorization': 'Bearer '+token,
                'User-Agent': 'Snuffy-Canon-Edition/4.2 (verified publication)',
                'Accept': 'application/json'}
@@ -99,7 +111,8 @@ def main():
         for entry in manifest['files']:
             if current.get(entry['name']) == expected[entry['name']]:
                 continue
-            response = request('PUT', draft['links']['bucket']+'/'+entry['name'], raw=Path(entry['path']).read_bytes())
+            print(json.dumps({'uploading': entry['name'], 'bytes': entry['bytes']}), flush=True)
+            response = request('PUT', draft['links']['bucket']+'/'+entry['name'], raw=Path(entry['path']))
             assert response['checksum'].removeprefix('md5:') == entry['md5'], entry['name']
             print(json.dumps({'uploaded': entry['name'], 'bytes': entry['bytes'], 'remote_md5_matches': True}), flush=True)
         draft = request('GET', base)
