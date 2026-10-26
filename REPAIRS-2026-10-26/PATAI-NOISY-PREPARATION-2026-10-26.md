@@ -42,6 +42,23 @@ Faults interleaved with the preparation are commuted to the end as Pauli faults 
 because the branch preparation is the codespace encoder followed by a Pauli O_s. The encoder's own
 faults need the ExRec treatment, see item (b) below.
 
+## Heuristic N3 (why "close to thermal up to ε" also fails) — derived, not proved
+
+Write both laws as polymer gases with activities a_ν(Γ) (fault layer on top of the ideal law) and
+a_π(Γ) (thermal). On ν-typical configurations, the cluster expansion gives
+
+    log ν/π ≈ N · Σ_Γ a_ν(Γ) φ(a_π(Γ)/a_ν(Γ)),   with φ(x) = x − 1 − log x ≥ 0,
+
+which vanishes only if a_ν = a_π for every local pattern. A fault layer at a fixed rate p, unknown
+beyond its local stochastic bound, cannot match every thermal activity. So ν and π are
+asymptotically singular, and domination on a set of ν-probability 1 − ε fails as well as pointwise
+domination. Exact deconvolution μ = π ⊛ N⁻¹ would need the fault channel known exactly, and the
+divided kernel to stay positive under (1 − 2p)^{−|χ|} amplification.
+
+Hence no argument of the form "the prepared law is close to π" (pointwise, up to ε, or in trace
+distance) survives physical gates. The holding dynamics itself must carry the faulted state. This
+is (R). Any proof that concludes μ_prep ≤ A n^p π for a noisy preparation contradicts N1.
+
 ## The precise remaining statement
 
 By N2 and the G.21 holding derivation (positive order, CP of Φ_t, the protected dressed Paulis), the
