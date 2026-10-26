@@ -338,3 +338,41 @@ probes, but the load-bearing step is asserted.
 The remaining (R) is unchanged: the dynamic law must keep history-polymer tails of the thermal
 type uniformly over the stage time. Point 3 shows the constants then matter, and that the stage
 time exponent can be chosen against them in the doubling schedule.
+
+## Disposition: pasted Steps 1–2 (particle-system domination; Dobrushin and cluster tails)
+
+These pastes take points 1 and 2 above as steps. They are not adopted, for the reasons below, but
+they identify the right shape of the remaining lemma.
+
+**Step 1 (domination by a linear-death process) fails on the computed code.**
+- The comparison process kills every defect at rate μ > 0. But a lone defect in a sink-free hop
+  component has *no* death channel: there is no downhill flip and no annihilation path of at most
+  4 flips (STUCK-BARRIER, HOP-ORBITS). It disappears only by meeting another defect.
+- The paste's own proviso μ ≤ kρ_min therefore forces μ = 0, because ρ_min = 0 for an isolated
+  defect, and then ρ_max = λ/(μ − z v_max) is meaningless.
+- A pathwise Harris coupling η_t ≤ ξ_t also requires a monotone (attractive) system. Annihilation
+  A + A → 0 is not monotone: adding a particle can remove another.
+- The model also ignores the real move structure:
+  - within-component hops are free (rate Θ(1)), and only inter-component moves cost +1 or +2;
+  - flips of weight 3 or 4 create several defects at once;
+  - defects are constrained by syndrome validity.
+- The −z v_max term has no derivation: hopping conserves particle number.
+
+**Step 2 (Dobrushin, then disagreement percolation, then lattice-animal tails) does not follow.**
+- Dobrushin's condition concerns a Gibbs specification. The time-t law of a non-equilibrium
+  process has no controlled conditional specification.
+- A low *mean* density does not imply domination by a product measure. Liggett–Schonmann–Stacey
+  domination needs a *conditional* bound: P(η(x) = 1 | the configuration outside a fixed
+  neighbourhood of x) ≤ q, uniformly.
+- The max over e^{c n^{η′}} times (point 3) is deferred.
+
+**The corrected target, the remaining core lemma.** Uniformly in t ≤ T, and for every history
+polymer Γ:
+
+    P_t(Γ present | the history outside a fixed neighbourhood of Γ) ≤ q^{|Γ|}
+
+with q < 1/B, so that the G.21 counting applies. This is the local warm-start lemma in its usable,
+conditional (Liggett–Schonmann–Stacey) form, stated for history coordinates (point 4). It holds at
+t = 0 for the faulted thermal state with q of order (e^{−β} + p e^{βw})^{1/4}. The open content is
+its preservation by the physical dynamics. Points 3 (time union with explicit constants) and 5
+(thermal generation) then follow by bookkeeping.
