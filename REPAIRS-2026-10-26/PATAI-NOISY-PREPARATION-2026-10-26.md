@@ -268,3 +268,47 @@ macroscopic hop components. The precise sub-questions are now these.
 
 Neither BDL nor BGL proves (R1) or (R2) for the physical dynamics. This sharpens (R) into these two
 statements.
+
+## (R1) inside a component: verified at levels 1–2; derived for all levels
+
+`checks/bdl-metacheck/hop_cycles.py` (`HOP-CYCLES.jsonl`) tests every fundamental cycle of the
+zero-energy hop graph for membership in the X-stabilizer row space:
+
+| Level | Fundamental cycles | Cycles that are not stabilizers |
+|---|---|---|
+| 1 | 4 | 0 |
+| 2 | 2,062 | 0 |
+
+**Lemma (proved, elementary).** In any graph, two edge sets with the same boundary differ by an
+element of the cycle space. So if every hop cycle is a stabilizer, *every* way the dynamics
+wanders and pairs defects inside a component yields the same logical class. That class is fixed by
+the fault set alone. Free wandering is then logically harmless, whatever the trajectories.
+
+**All levels (derived, not compiled).** A logical hop cycle would be a logical operator reachable at
+energy at most 2: create a pair, move one defect around the cycle at zero cost, annihilate. Under
+the Davies dynamics it would occur at rate at least e^{−2β}/poly(n), which contradicts BDL
+Theorem 1.1's lifetime t·e^{−Θ(n^η)} for large n. The derivation needs the completion
+probability of the walk around the cycle to be at least 1/poly(n). BDL state no energy-barrier
+theorem for their own code; the barrier is used only through this lifetime contradiction.
+
+The pasted (R1) proof is not needed for this result and is not adopted. It assumes the regions are
+small, with diameter much less than L, but the computed components are macroscopic: 90
+components cover the code at every level computed.
+
+## (R2) as pasted is false: escape costs O(1)
+
+From the same run, the least single-flip energy cost for a lone defect to leave its hop component
+at level 2 is:
+- +1 for 1,520 checks;
+- +2 for 128 checks;
+- no single-flip exit for 608 checks.
+
+The pasted premise ΔE_hier = Θ(n^{η′}) at a component's boundary is false. Defects leave
+components at rate about e^{−β}, which happens constantly over e^{c n^{η′}}, so the union bound
+N·T/τ_escape exceeds 1. The thermal state itself has such crossings, so confinement is the wrong
+mechanism.
+
+The correct (R2) is collective: with within-component class fixed (above), the remaining danger is
+inter-component transport. That transport must stay subcritical, in the sense that the
+odd-parity charges and the uphill crossings do not assemble the large history polymer of the bad
+event. This is the remaining open statement.
