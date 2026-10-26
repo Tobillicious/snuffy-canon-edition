@@ -678,3 +678,52 @@ Any error term of the form t·e^{−2β} per region is extensive, about K_n·t·
 BCRD's legitimate role, raised by the author earlier, concerns *which relations constitute a
 particular's identity*. That bears on the target, not on the proof of (R). Changing the target
 on that basis is the author's decision under the standing rules, and nothing here does so.
+
+## MAIN ROUTE (Claude, 26 October, late): hierarchical relaxation to logarithmic depth
+
+This route uses the results above: N2, G.21, Lemmas C, D, G and T, the bounded regions and the
+history-level halving. It reduces (R) to a single dynamical scaling statement, H.
+
+**Setting.** Prepare the ideal G.21 history sample, μ ≤ 16π. The final gate layer adds a local
+stochastic fault layer of rate p. Hold in contact with the bath at fixed β.
+
+**Step 1 — coarse excess is small above logarithmic depth (derived).** Under the history map, a
+fault layer of rate p creates level-i coarse excitations only through history polymers with at
+least 2^{⌊i/2⌋} fine faults (halving at every R_X step). So their density is at most
+(c p)^{2^{⌊i/2⌋}}. The thermal coarse activity at level i is about e^{−β 2^{⌊i/2⌋}}.
+
+With x := c p e^{β} < 1, a fixed device inequality, the pointwise excess factor contributed by
+level i is at most exp(n_i x^{2^{⌊i/2⌋}}), where n_i ≈ n/18^{⌊i/2⌋} is the number of level-i
+sites. Let i* be the least level with n_{i*} x^{2^{⌊i*/2⌋}} ≤ 1. Then
+
+    2^{⌊i*/2⌋} ≈ log n / log(1/x),
+
+and the levels above i* contribute a factor O(1) in total. This bounds a factor; it is not a
+claim of pointwise domination for the fine levels.
+
+**Step 2 — hierarchical relaxation (statement H, open, testable).** H says the dynamics relaxes
+the level-i conditional law, given the levels above i, within time
+
+    τ_i ≤ poly(n_i) · e^{c β 2^{⌊i/2⌋}}.
+
+At level 0 this is Lemma G (bounded regions). Relaxing levels 0, …, i* then takes
+
+    Σ_{i ≤ i*} τ_i ≤ poly(n) · e^{c β log n / log(1/x)} = poly(n) · n^{cβ/log(1/x)},
+
+which is polynomial.
+
+**Step 3 — warm start, then stationarity.** After that time the state is within ε (total
+variation) of a law at most C·π, with C = O(1) from Step 1 and ε from the relaxation. Lemma C and
+the G.21/Chesi bound with stationarity then hold for the whole exponential stage time.
+- The ε-remainder enters linearly, by trace-norm contraction.
+- During the polynomial relaxation window, the large-polymer probability is bounded by Lemma T
+  together with the per-time bound from the initial cold coarse structure.
+
+**What is proved, derived, and open.**
+- Proved or compiled: N2, the G.21 sampler core, and Lemmas C, D, G and T.
+- Derived: Step 1, and the polynomial-time arithmetic of Step 2.
+- Open: statement H for i ≥ 1, and the conditional relaxation's compatibility with the
+  combination in Step 3.
+
+H is now the only open statement. It is a scaling law that can be tested on the constructed codes:
+`RESIDUE-DECAY-LEVEL3.jsonl` measures the level-1 case (trapped-charge decay against β).
