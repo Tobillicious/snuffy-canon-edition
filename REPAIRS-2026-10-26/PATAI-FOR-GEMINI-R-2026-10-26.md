@@ -176,3 +176,54 @@ or occupied by a transient pair. That last step needs its own bound from Lemma G
 The weight-2 obstruction does not recur at region level. A creation event inside an empty region
 is followed by internal annihilation at rate about λ₀, so the sink is proportional to the event
 itself.
+
+## Provenance check (26 October, evening)
+
+The earlier sessions were searched for this problem:
+- this session's pre-compaction transcript and its 13:48 export;
+- `codex 26 Oct.txt`;
+- `Codex _ 25 Oct.txt`;
+- `# Review UPT publication readiness _ Codex 25th Oct.md`.
+
+None treats preparation with noisy gates or the fault layer. The morning session reduced
+initialisation to the warm start; it named as alternatives a codespace-start lifetime theorem or
+fault-tolerant code switching to the thermal encoding. The morning's "multiscale grooming"
+submission was not adopted (asserted inequality; `PATAI-QUANTUM-TRANSFER-2026-10-26.md` line 173).
+Codex's 26 October chat records the noisy handoff as unfinished. N1 was first identified on
+26 October.
+
+## Round 2 answer (Gemini, Pātai 1′): disposition
+
+It is not adopted. It has the right architecture: region-level parities, averaging, then a bridge to
+fine checks. But each load-bearing step is asserted or misapplied.
+
+1. **The region-level n-point bound.**
+   - Dobrushin uniqueness and polymer expansion are statements about a *Gibbs* measure's
+     conditional specification. P_t is a time-dependent, non-equilibrium law, and nothing transfers
+     them to it.
+   - The coefficient C_{R,R′} = (γ_u + γ_d)/λ₀ is a ratio of rates, not a Dobrushin influence
+     coefficient.
+   - The single-region bound z(R) ≤ ρ_c for all t is asserted. It is pātai 2, still open.
+   - The creation rate ν includes p, a gate fault rate, during holding. Constraint 6 and N2 exclude
+     this: faults enter only at t = 0.
+2. **Averaging.**
+   - Kurtz-type averaging gives limits over bounded time windows as a scale parameter tends to
+     zero. It does not give error bounds uniform over t ≤ e^{c n^{η′}} for K_n regions, whose errors
+     add.
+   - The claimed error O((1/|R|²)/λ₀) is "small" only if λ₀ ≫ 1/|R|². Lemma G gives only
+     λ₀(β) > 0, possibly e^{−O(72β)}, so the separation is unproved and may be reversed.
+   - λ₀ = Θ(1) is asserted.
+3. **The bridge to fine checks.**
+   - P(A ⊆ σ) ≤ Σ_η P(η) Π_x P(x | η_{R(x)}) assumes that fine occupations are conditionally
+     independent given the parities. That is not established for the dynamics.
+   - Lemma G is a spectral gap, not a pair-density bound, so ρ_pair = e^{−2β}/μ is not derived
+     from it.
+
+**What would make this a proof.**
+- (i) Pātai 2 at region level: a time-uniform bound on P_t(R odd).
+- (ii) A genuine n-point inequality for the non-equilibrium charge network. One route is a
+  generator-hierarchy computation like the weight-2 one above, at region level, where the sink is
+  proportional to the event (internal relaxation).
+- (iii) An actual estimate of λ₀ for the region types: numerically for the ≤ 72-check regions,
+  then a bound.
+- (iv) A conditional-independence or decoupling bound for fine occupations given region parities.
