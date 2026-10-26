@@ -493,3 +493,28 @@ C π with C = e^{O(K_n)}. That is a warm start, and (R) follows through N2, G.21
 
 Open in this plan: the growth of K_n with level, the mixing time in step 2, and the coupling in
 step 3. All three are concrete and can be tested on the constructed code.
+
+## Disposition: pasted Steps 2–3 (intra-region spectral gap; Duhamel coupling)
+
+Not adopted. The paste reads "K small" as "regions bounded"; the opposite is the case.
+
+**Step 2: "region size bounded ⇒ gap uniformly positive" is false.**
+- K, the number of regions, is small. The regions themselves grow with the code: the largest has
+  4 checks at level 1 and 72 at level 2, about 18-fold per level.
+- The finite-chain spectral gap is therefore not uniform in n.
+- Its TV prefactor √(max π_k / min π_k) is exponential in the region size.
+- What step 2 actually needs is a mixing-time bound polynomial in the region size, for a region
+  chain with free hops, downhill pair annihilation and uphill pair creation at about e^{−2β}.
+  That is unproved.
+
+**Step 3: the coupling is not small, and the bound is not usable.**
+- Coupling across regions is not O(e^{−β} + p). Flips of weight 3 and 4 include downhill moves at
+  rate Θ(1): 1,648 of the 2,256 level-2 checks lie on such a qubit (HOP-CYCLES escape histogram).
+- p plays no part during holding.
+- The Duhamel error term is extensive: summed over all n sites, the perturbation's total mass is
+  of order εMn, so εMn/λ ≫ 1.
+- Π = ⊗π_k is not the stationary law of the coupled dynamics.
+- Even O(ε/λ) total-variation closeness would be far too coarse. The holding bound needs a
+  remainder at most the stage budget ε/2^{j+2}.
+
+The plan's steps 2 and 3 therefore remain open, exactly as stated above.
