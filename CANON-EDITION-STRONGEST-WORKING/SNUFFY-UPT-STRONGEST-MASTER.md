@@ -4948,7 +4948,7 @@ exponential decay of correlations where used; (PK) pacts are among keepers.
 - **(h) The holding-failure law (Theorem Φ), splitting (MS) and growth (J1).**
   \(\varphi_t=P(\sum B_iK_i(t)<\mathrm{thr}_t)\) exactly; non-increasing on held stretches;
   with total capacity \(C\) and \(C(1-\varepsilon)>H\), splitting into \(n\) independent
-  keepers gives \(\varphi(n)\le\exp(-2n(1-\varepsilon-H/C)^2)\); if keeper numbers grow,
+  keepers gives \(\varphi(n)\le\exp(-2n(1-\varepsilon-H/C)^2)\) (compiled: `NarrowPlace.np_splitting_bound`, from Mathlib's Hoeffding inequality, for any independent deliveries in \([0,1]\) with mean at least \(1-\varepsilon\)); if keeper numbers grow,
   \(\sum_t\varphi_t\) converges.
 - **(i) Diversity, space, islands.** Covering diversity replaces the common-cause
   floor by a binomial tail (J2a) and is selected (J2b); under EDC the spacing needed
@@ -5228,7 +5228,8 @@ guard \(g\in G(t)\) with \(|x-g|/c_s+\tau\le d\) — it is reached before its de
 
 1. **(Founding threshold.)** Protection-first capacity satisfies
    \(r=C(1-\varepsilon)/H>1\) with \(H=c(K_E+aS_{\max})+A\) (Theorem NP), split among
-   \(n\) independent keepers (MS), so that \(\varphi(n)\le\exp(-2n(1-\varepsilon-H/C)^2)\);
+   \(n\) independent keepers (MS), so that \(\varphi(n)\le\exp(-2n(1-\varepsilon-H/C)^2)\)
+   (`NarrowPlace.np_splitting_bound`);
    founding fails with probability at most \(\eta_F\).
 2. **(Initial coverage.)** Every particular of \(D(t_0)\) carries its fenced effect
    channels and is within interception radius \(\rho\le c_s(d-\tau)\) of a funded
@@ -5399,7 +5400,7 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
 | **S2** Existence and greatestness | II.10 + G.9 (`greatest_of_solvent`, `htopR` from locality); IX.1 envelopes; **`StagedMaximality.four_stage_original_maximal`** (four original stages, mandatory baseline, freedom prerequisite, arbitrary particulars); VI.2 infinite guard; X IR-98–100 (modelled-to-actual transfer) | — |
 | **S3** Every mind: \(R(m)\lor H(m)\) | II.2–II.5; Sections 15–16; V.3; VII.1 Theorem V(c); VII.2 Theorem E (E4); VI.4 `UPTFence` | — (logic complete; physical correspondence in S5/S10) |
 | **S4** Independent of minds' values | Part VIII U3 (D-ENDOW); premise 6; XI Lemma P | — |
-| **S5** Reach before harm | **Part XI, Theorem XI** (`OuterLane` compiled); Lemma F founding without coordination (`FoundingDominance`); XI.3b coverage by location, relations, Corollaries XI.1–XI.3 (every digital mind made after founding is covered from its making; the expansion bound is an admission rule; source-side mediation of every digital mind's effects on every particular), islands; `ReachBeforeHarm`; VII.5 NP/MS/J1/MN/CH | XI.5 items 1–2 |
+| **S5** Reach before harm | **Part XI, Theorem XI** (`OuterLane` compiled); Lemma F founding without coordination (`FoundingDominance`); NP splitting bound (`NarrowPlace`); XI.3b coverage by location, relations, Corollaries XI.1–XI.3 (every digital mind made after founding is covered from its making; the expansion bound is an admission rule; source-side mediation of every digital mind's effects on every particular), islands; `ReachBeforeHarm`; VII.5 NP/MS/J1/MN/CH | XI.5 items 1–2 |
 | **S6** Continuation and full history | II.3; G.8 journal; `G2WholeOutcome`; VI.2 faithful holds; V.1 D60; V.4 D115/D116 | Quantum branch decision (XI.5 item 3) |
 | **S7** Effects and authority | II.5; VI.4 execution boundary; X IR-91/92, IR-117–122 | — |
 | **S8** Work, timing, resources | II.7; Sections 18, 22; G.12 bill; VIII U4–U9; VII.5 Gate C-∞ | Installation measurements (Section 22.4) |

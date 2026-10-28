@@ -586,7 +586,7 @@ exponential decay of correlations where used; (PK) pacts are among keepers.
 - **(h) The holding-failure law (Theorem Φ), splitting (MS) and growth (J1).**
   \(\varphi_t=P(\sum B_iK_i(t)<\mathrm{thr}_t)\) exactly; non-increasing on held stretches;
   with total capacity \(C\) and \(C(1-\varepsilon)>H\), splitting into \(n\) independent
-  keepers gives \(\varphi(n)\le\exp(-2n(1-\varepsilon-H/C)^2)\); if keeper numbers grow,
+  keepers gives \(\varphi(n)\le\exp(-2n(1-\varepsilon-H/C)^2)\) (compiled: `NarrowPlace.np_splitting_bound`, from Mathlib's Hoeffding inequality, for any independent deliveries in \([0,1]\) with mean at least \(1-\varepsilon\)); if keeper numbers grow,
   \(\sum_t\varphi_t\) converges.
 - **(i) Diversity, space, islands.** Covering diversity replaces the common-cause
   floor by a binomial tail (J2a) and is selected (J2b); under EDC the spacing needed
