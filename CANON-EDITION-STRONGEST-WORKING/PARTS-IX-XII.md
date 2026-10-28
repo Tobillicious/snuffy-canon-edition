@@ -71,7 +71,12 @@ Parts II.10, IX.1 and X, and (6) by Sections 18 and 22, G.12 and Part VIII.
 # Part X — Infinite families, one common policy, source-level mediation (IR track)
 
 The IR track of the linked repository (`evidence/physical-bridges/`, main at
-`740abbb`; draft PRs #170–#172) proves the following in Lean 4. Each is cited by
+`740abbb`; draft PRs #170–#172) proves the following in Lean 4. The modules on `main`
+behind the results below — their full dependency closure, 75 modules plus Paper
+12's `ContextualObservation` — are compiled in this edition's canon under their
+own names (`Snuffy.<Module>`, namespaces `PhysicalBridges.*` kept), with imports
+redirected to the canon and the source hash recorded in each header. IR-134/135
+remain in draft PR #172 of that repository. Each is cited by
 module and theorem. Its role in the proof is stated beside it.
 
 | Result | Module · theorem | Statement | Role |
