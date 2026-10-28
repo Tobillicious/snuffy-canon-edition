@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 192. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
+Canon modules: 198. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 192. Audit imports: 192.
+Build modules: 198. Audit imports: 198.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -1806,6 +1806,7 @@ Build modules: 192. Audit imports: 192.
 | `FaultCover` | yes | `(canon only)` |
 | `FinalClosure` | yes | `(canon only)` |
 | `FiniteInformation` | yes | `(canon only)` |
+| `FoundingDominance` | yes | `(canon only)` |
 | `G1Certificate` | yes | `(canon only)` |
 | `G1Complete` | yes | `(canon only)` |
 | `G1E9` | yes | `2026-10-25-historical-handoff-source/g1-e9/lean/Snuffy/G1E9.lean` |
@@ -1843,6 +1844,7 @@ Build modules: 192. Audit imports: 192.
 | `HalperinDecay` | yes | `(canon only)` |
 | `HamiltonianDecomposition` | yes | `2026-10-25-historical-handoff-source/working/lean/Snuffy/HamiltonianDecomposition.lean` |
 | `HistoryPolymer` | yes | `(canon only)` |
+| `HoldCommonAction` | yes | `(canon only)` |
 | `Htopkeeps` | yes | `(canon only)` |
 | `Instruments` | yes | `(canon only)` |
 | `IntegrationCertificate` | yes | `2026-10-24-glm-phase-a/lean/IntegrationCertificate.lean` |
@@ -1860,6 +1862,7 @@ Build modules: 192. Audit imports: 192.
 | `MeetAlgebra` | yes | `(canon only)` |
 | `MeetHilbert` | yes | `(canon only)` |
 | `MetricShadow` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/MetricShadow.lean` |
+| `NarrowPlace` | yes | `(canon only)` |
 | `ObservationWinning` | yes | `2026-10-25-historical-handoff-source/recovered-r17-sources/lean/Snuffy/ObservationWinning.lean` |
 | `OpialBridge` | yes | `(canon only)` |
 | `OriginalD1` | yes | `2026-10-23-gemini-original-derivations/lean/OriginalD1.lean` |
@@ -1867,6 +1870,7 @@ Build modules: 192. Audit imports: 192.
 | `OriginalH6` | yes | `2026-10-23-gemini-original-derivations/lean/OriginalH6.lean` |
 | `OriginalH7` | yes | `2026-10-23-gemini-original-derivations/lean/OriginalH7.lean` |
 | `OriginalH8` | yes | `2026-10-23-gemini-original-derivations/lean/OriginalH8.lean` |
+| `OuterLane` | yes | `(canon only)` |
 | `P2P3` | yes | `2026-10-24-glm-phase-a/lean/P2P3.lean` |
 | `PassiveReference` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/PassiveReference.lean` |
 | `PhysicalGuard` | yes | `(canon only)` |
@@ -1889,6 +1893,7 @@ Build modules: 192. Audit imports: 192.
 | `R17WorkConcrete` | yes | `2026-10-23-r17-fifo-verification/lean/R17WorkConcrete.lean` |
 | `RGFixedPoint` | yes | `(canon only)` |
 | `RankAndCoalition` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/RankAndCoalition.lean` |
+| `ReachBeforeHarm` | yes | `(canon only)` |
 | `ReadoutBounds` | yes | `2026-10-23-next-work-and-corrections/checks/ReadoutBounds.lean` |
 | `ReadoutJoint` | yes | `2026-10-23-readout-joint-floor/lean/ReadoutJoint.lean` |
 | `ReasonsCompiled` | yes | `(canon only)` |
@@ -1917,6 +1922,7 @@ Build modules: 192. Audit imports: 192.
 | `SparseFailure` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/SparseFailure.lean` |
 | `SpeedLimit` | yes | `(canon only)` |
 | `StageSchedule` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/StageSchedule.lean` |
+| `StagedMaximality` | yes | `(canon only)` |
 | `StrokeBookkeeping` | yes | `(canon only)` |
 | `TIWAGuard` | yes | `(canon only)` |
 | `TIWARecovery` | yes | `(canon only)` |

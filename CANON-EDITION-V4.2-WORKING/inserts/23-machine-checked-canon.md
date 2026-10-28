@@ -340,6 +340,11 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `ThermalEncoding` | `branch_compression`, `recovers`, `kron_orthogonal`, `recovers_reference` |
 | `TransferRate` | `poly_le_two_pow`, `transfer_bill_le`, `transfer_bill_linear_in_age`, `retained_prefix_bound`, `attempt_stage_bound`, `polynomial_stage_bill`, `complete_attempt_bill`, `join_complete_bill` |
 | `OuterLane` | `wavefront_coverage`, `interception_in_time`, `pool_strictly_dominant`, `outer_lane_risk` |
+| `StagedMaximality` | `finset_subset_of_chain`, `stage_step`, `exists_stagemax_upto`, `exists_lex_maximal`, `freedomPre_earlier`, `four_stage_original_maximal` |
+| `FoundingDominance` | `contribution_advantage_pos`, `contribution_strictly_dominant`, `no_abstention_equilibrium` |
+| `ReachBeforeHarm` | `reach_before_harm` |
+| `NarrowPlace` | `np_splitting_bound` |
+| `HoldCommonAction` | `hold_is_common_viable_action`, `common_policy_from_hold`, `act_or_hold_policy`, `no_effect_action_safe_in_both`, `two_world_resolved` |
 <!-- END THEOREM INDEX -->
 
 ---

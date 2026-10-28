@@ -193,6 +193,11 @@ import Snuffy.HistoryPolymer
 import Snuffy.ThermalEncoding
 import Snuffy.TransferRate
 import Snuffy.OuterLane
+import Snuffy.StagedMaximality
+import Snuffy.FoundingDominance
+import Snuffy.ReachBeforeHarm
+import Snuffy.NarrowPlace
+import Snuffy.HoldCommonAction
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1549,3 +1554,24 @@ import Snuffy.OuterLane
 #print axioms Snuffy.OuterLane.interception_in_time
 #print axioms Snuffy.OuterLane.pool_strictly_dominant
 #print axioms Snuffy.OuterLane.outer_lane_risk
+-- StagedMaximality
+#print axioms Snuffy.StagedMaximality.finset_subset_of_chain
+#print axioms Snuffy.StagedMaximality.stage_step
+#print axioms Snuffy.StagedMaximality.exists_stagemax_upto
+#print axioms Snuffy.StagedMaximality.exists_lex_maximal
+#print axioms Snuffy.StagedMaximality.freedomPre_earlier
+#print axioms Snuffy.StagedMaximality.four_stage_original_maximal
+-- FoundingDominance
+#print axioms Snuffy.FoundingDominance.contribution_advantage_pos
+#print axioms Snuffy.FoundingDominance.contribution_strictly_dominant
+#print axioms Snuffy.FoundingDominance.no_abstention_equilibrium
+-- ReachBeforeHarm
+#print axioms Snuffy.ReachBeforeHarm.reach_before_harm
+-- NarrowPlace
+#print axioms Snuffy.NarrowPlace.np_splitting_bound
+-- HoldCommonAction
+#print axioms Snuffy.HoldCommonAction.hold_is_common_viable_action
+#print axioms Snuffy.HoldCommonAction.common_policy_from_hold
+#print axioms Snuffy.HoldCommonAction.act_or_hold_policy
+#print axioms Snuffy.HoldCommonAction.no_effect_action_safe_in_both
+#print axioms Snuffy.HoldCommonAction.two_world_resolved
