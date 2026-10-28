@@ -82,6 +82,25 @@ Receipts:
 4. The hold-interval bound \(\varepsilon+(W/\hbar)\Delta\le r_{\rm dec}\) per installation (Lemma H).
 5. The measured Section 22 parameters; per-loss checks if a tragedy arises.
 
+## If the session ended before the final receipt (29 Oct, ~12:45 NZDT)
+
+A watcher (`tools/finalize.sh`) was running. It waits for the 198-module run, then:
+
+- moves the 101 staged modules into `lean/Snuffy/` and registers them;
+- runs the gates and the final full build;
+- writes `RECEIPT-198-RUN2.txt` and `RECEIPT-FINAL.txt` here.
+
+Next session:
+
+1. If `RECEIPT-FINAL.txt` exists and ends `## overall: PASS`:
+   - commit it with `lean/Snuffy/*`, `build-and-audit.sh`, `SummitsAudit.lean` and
+     `inserts/23-machine-checked-canon.md`;
+   - write `LEAN-COUNT.txt` (front-matter change 3, citing the receipt's counts) and run `assemble.py`;
+   - sync the mirror and push both.
+2. Otherwise, re-run `zsh tools/finalize.sh` (`ir_order.txt` is in `tools/`). The staged modules are
+   still in `staging-lean/Snuffy/`, or have already been moved. If the job temp folder is gone, fix
+   the script's paths first.
+
 ## Next commands
 
 1. After the 198-module run passes: move the staged modules into
