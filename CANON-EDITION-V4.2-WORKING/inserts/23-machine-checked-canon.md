@@ -339,6 +339,7 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `HistoryPolymer` | `halving_prefix`, `paired_history_bound`, `component_valid`, `truncation_bound`, `sampled_truncation_bound`, `branch_path_bound` |
 | `ThermalEncoding` | `branch_compression`, `recovers`, `kron_orthogonal`, `recovers_reference` |
 | `TransferRate` | `poly_le_two_pow`, `transfer_bill_le`, `transfer_bill_linear_in_age`, `retained_prefix_bound`, `attempt_stage_bound`, `polynomial_stage_bill`, `complete_attempt_bill`, `join_complete_bill` |
+| `OuterLane` | `wavefront_coverage`, `interception_in_time`, `pool_strictly_dominant`, `outer_lane_risk` |
 <!-- END THEOREM INDEX -->
 
 ---

@@ -192,6 +192,7 @@ import Snuffy.WalkBound9
 import Snuffy.HistoryPolymer
 import Snuffy.ThermalEncoding
 import Snuffy.TransferRate
+import Snuffy.OuterLane
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1543,3 +1544,8 @@ import Snuffy.TransferRate
 #print axioms Snuffy.TransferRate.polynomial_stage_bill
 #print axioms Snuffy.TransferRate.complete_attempt_bill
 #print axioms Snuffy.TransferRate.join_complete_bill
+-- OuterLane
+#print axioms Snuffy.OuterLane.wavefront_coverage
+#print axioms Snuffy.OuterLane.interception_in_time
+#print axioms Snuffy.OuterLane.pool_strictly_dominant
+#print axioms Snuffy.OuterLane.outer_lane_risk
