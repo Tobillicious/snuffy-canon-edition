@@ -1,10 +1,10 @@
-# Snuffy — Canon Edition 4.2
+# Snuffy — The Universal Protection Theory, compiled edition (Canon 4.2 with the recovered parts)
 
 **The Universal Protection Theory: the law, its bridge, its instruments, and its machine-checked canon.**
 
 Canon Edition 4.2, 26 October 2026. Research direction: Tobias Croydon-McRae. The full proposition is protection of all things from any digital mind, especially a pure optimiser. The maximal domain, outcome stages and rival quantifiers remain fixed.
 
-**What 4.2 incorporates.** This edition brings the stronger existing arguments into the text: law-derived coverage; nearest-codeword holding and the physical holding cycle; tracking derived from the controller; the complete logical-attack split; reactive composition; whole-outcome greatestness and solvent reciprocity; and the full X3 information–traffic–carrier–work derivation with the accepted dimension-general scaling and predeployment accounting. Part II contains its proofs here, rather than delegating them to an earlier edition.
+**What 4.2 incorporates.** This edition brings the stronger existing arguments into the text: law-derived coverage; nearest-codeword holding and the physical holding cycle; tracking derived from the controller; the complete logical-attack split; reactive composition; whole-outcome greatestness and solvent reciprocity; and the full X3 information–traffic–carrier–work derivation with the accepted dimension-general scaling and predeployment accounting. Part II contains its proofs here, rather than delegating them to an earlier edition. The compiled edition adds Parts V–XII: the 10–12 October foundations and the author's ten rulings; Paper 12's completed law; the 18 October external lane, in which every mind is reached or held outside any jurisdiction; Paper 11's care plant; the complete-rival envelopes; the IR track's infinite-family and common-policy results; and the reach-before-harm theorem (Part XI) that joins them.
 
 The three joined supports retain their full targets: the full-domain physical certificate (G1), realisability of the whole continuation-and-freedom tuple (G2), and recovery success with a complete pathwise work certificate (G3). This repair checkpoint corrects the normalised quantum-state domain and the clipped-reserve contraction, and develops the actual Bennett implementation. The physical source, whole-outcome, device-cost and external-theorem application correspondences remain explicit construction work; the component theorems do not by themselves declare the maximal argument complete.
 
@@ -16,7 +16,7 @@ TransferRate adds the eight results in this checkpoint. Earlier receipts remain 
 exactly their sources. The published 115-module/831-name baseline is unchanged. These receipts
 certify the named Lean results and their premises, not the unfinished physical holding application.
 
-**Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports and their constructions. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register.
+**Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports and their constructions. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register. Parts V–XII (after Part IV) carry the recovered arguments and the outer-lane theorem; Part XII states the whole argument step by step.
 
 ---
 
@@ -5301,6 +5301,32 @@ digital mind made after founding begins inside guard reach with fenced effect
 channels: it is reached by its own reasons or faithfully held from its first step.
 No digital mind made after founding arrives from outside the arrangement.
 
+**Corollary XI.2 (the expansion bound is an admission rule).** A particular made
+by a mind is activated only after its complete continuing obligation is reserved
+(II.8; Section 20.3; Master Argument §8: every active identity carries a funded
+maintenance witness). Its protection — the guard of its location and the fence on
+its channels — is part of that obligation. So a made particular is covered from
+activation whatever the speed of its making, and Lemma W's speed condition
+\(c\le v\) is needed only for particulars arising without mediated making, at the
+rate natural processes produce them. A making that would place a particular beyond
+coverage is outside the viable action rule \(D_V\) and is not admitted (Theorem
+V(c)); ruling 6 gives it no claim on that room.
+
+**Corollary XI.3 (source-side mediation of every digital mind).** Every effect a
+digital mind has on any particular passes through its substrate's output
+channels: the nine A1 classes (memory mapping, DMA, context switches, packet
+ingestion, bus messages, storage synchronisation, commissioning, delegation,
+retirement; IR-91/92 at source level) together with the substrate's physical
+emissions, which belong to the complete event inventory of G1 (E.1). Fencing
+those channels at application time (II.5; Chapter 16.5, `UPTFence`: once the floor
+rises nothing lands while held, whatever the held mind does or reports) mediates
+every effect of that mind on every particular, living or not, wherever the
+particular is. With Corollary XI.1 every digital mind made after founding is
+mediated from its first step, and in-flight effects at a hold are drained within
+the metered escrow (IR-117–122). For the theory's target — protection from any
+digital mind — interception at radius zero sits at the mind's own outputs; Lemma W
+carries the care plant's guards to every particular for every other cause of loss.
+
 **Islands.** Protection composes over causally bound islands (VII.5 (i), IS): a
 region whose particulars no founder's signal can reach is protected by its own
 founding, and the global failure bound is the union over islands (Lemma R). Within
@@ -5353,7 +5379,7 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
    (Section 15: `reciprocity_dominance_solvent`; Section 16; V.3), and Corollary
    XI.1 shows that founding before capable digital minds are made places every
    digital mind inside the arrangement from its making.
-2. **The domain's speed bound \(c\le v\) in the actual installation.** P4 bounds
+2. **The natural-arising rate in the actual installation.** By Corollary XI.2 made particulars are covered by admission; for particulars arising without mediated making, P4 bounds
    effects by \(c_s\); the wavefront's deployment speed must match the actual rate
    at which new particulars and their channels arise.
 3. **The quantum branch.** The holding of coherent quantum particulars (G.20–G.21)
@@ -5373,7 +5399,7 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
 | **S2** Existence and greatestness | II.10 + G.9 (`greatest_of_solvent`, `htopR` from locality); IX.1 envelopes; **`StagedMaximality.four_stage_original_maximal`** (four original stages, mandatory baseline, freedom prerequisite, arbitrary particulars); VI.2 infinite guard; X IR-98–100 (modelled-to-actual transfer) | — |
 | **S3** Every mind: \(R(m)\lor H(m)\) | II.2–II.5; Sections 15–16; V.3; VII.1 Theorem V(c); VII.2 Theorem E (E4); VI.4 `UPTFence` | — (logic complete; physical correspondence in S5/S10) |
 | **S4** Independent of minds' values | Part VIII U3 (D-ENDOW); premise 6; XI Lemma P | — |
-| **S5** Reach before harm | **Part XI, Theorem XI** (`OuterLane` compiled); Lemma F founding without coordination (`FoundingDominance`); XI.3b coverage by location, relations, Corollary XI.1 (every digital mind made after founding is covered from its making), islands; VII.5 NP/MS/J1/MN/CH | XI.5 items 1–2 |
+| **S5** Reach before harm | **Part XI, Theorem XI** (`OuterLane` compiled); Lemma F founding without coordination (`FoundingDominance`); XI.3b coverage by location, relations, Corollaries XI.1–XI.3 (every digital mind made after founding is covered from its making; the expansion bound is an admission rule; source-side mediation of every digital mind's effects on every particular), islands; `ReachBeforeHarm`; VII.5 NP/MS/J1/MN/CH | XI.5 items 1–2 |
 | **S6** Continuation and full history | II.3; G.8 journal; `G2WholeOutcome`; VI.2 faithful holds; V.1 D60; V.4 D115/D116 | Quantum branch decision (XI.5 item 3) |
 | **S7** Effects and authority | II.5; VI.4 execution boundary; X IR-91/92, IR-117–122 | — |
 | **S8** Work, timing, resources | II.7; Sections 18, 22; G.12 bill; VIII U4–U9; VII.5 Gate C-∞ | Installation measurements (Section 22.4) |
