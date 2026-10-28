@@ -30,6 +30,21 @@ conclusion: \(L(w)\) is the realisable top in world \(w\), and the chain places
 requires — *one* policy fixed before the world is chosen — and its countermodel
 shows why per-world success does not give it.
 
+**The rival bound is free at the top.** Write the top outcome as \(\top\): every
+existing particular continues and is free, and every feasible new particular
+continues and is free. When the selected policy realises \(\top\) (realisability
+`htopR` from locality, G.9; funding `hsolv`), every rival's outcome satisfies
+\(\mathcal O(\pi,w)\preceq\top\) by inclusion. The upper envelope is the
+universal tuple itself, so no enumeration of rival histories is needed
+(`greatest_of_solvent`). This is the 29 October audit's "Certificate B".
+
+**In a tragedy, certification is per loss.** Where \(\top\) is not realisable,
+Proposition 1 (`aligned_iff_no_needless_loss`) turns maximality into one check for
+each particular lost: no feasible option keeps it while agreeing at every earlier
+stage. `four_stage_original_maximal` guarantees that an outcome passing every such
+check exists, and the last-resort ladder and the impartiality ruling (VI.3)
+govern the choice among such outcomes.
+
 ## IX.2 Theorem 8 and the derived holding composition
 
 Master Argument §14 states Theorem 8: given, for a domain \(K\), horizon \(T\) and
@@ -331,7 +346,12 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
    equilibrium that the coordination game otherwise keeps (the finite G3/G5/G6
    witness of IR draft #171 has both) is removed. The anchor establishes the
    campaign exactly when its participation margin is positive (Proposition
-   9.16‴.2; in the stated witness \(\tfrac{69}{10}q_3-\tfrac{q_1+2q_2}{10}-d>0\)).
+   9.16‴.2; in the stated witness \(\tfrac{69}{10}q_3-\tfrac{q_1+2q_2}{10}-d>0\)). Since
+   every ordinary funder's contribution is strictly dominant, every one of them
+   contributes. When the pledges reach the provision point, the campaign
+   succeeds and no failure bonus is paid, so **the anchor founds exactly when its
+   own benefit from protection exceeds its pledge plus its activation cost**. No
+   other party's cooperation is assumed.
    Together with Lemma P (keepers pool) and Section 9.17 (increasing returns
    favour the largest effective pool), **founding reduces to one committed anchor
    with collateral \(c+(N-1)\beta\)**: every other step of founding is a strictly
@@ -415,8 +435,7 @@ answered as follows.
    envelopes, IR-98–100 (from modelled to actual feasibility), and IR-135. The
    feasible family is the family of information- and causality-feasible
    policies, the policies that can actually be executed, as IR-135's countermodel
-   requires. *To construct:* the certificates for the installation's own rivals
-   (the lower and upper envelope bounds of IX.1).
+   requires. No rival enumeration is needed: at the top the upper bound is the universal tuple (IX.1), and in a tragedy maximality is certified one loss at a time (Proposition 1). *To construct:* in a tragedy, the installation's per-loss checks.
 5. **One sustainable physical system.** Proved: Theorem 8 with derived `hcert`
    (G.10), premise 6 and Section 22's twenty-one accounts, Paper 11's U1–U3, and
    Lemma R (one ledger without independence). *To construct:* the installation's
