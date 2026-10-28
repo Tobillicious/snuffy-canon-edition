@@ -43,8 +43,8 @@ Registered in `build-and-audit.sh` (198 modules / 1,178 names):
 - OuterLane;
 - StagedMaximality, FoundingDominance, ReachBeforeHarm, NarrowPlace and HoldCommonAction.
 
-Staged, compiled, awaiting registration — in `staging-lean/Snuffy/`, 99 modules:
-- EmissionBound;
+Staged, compiled, awaiting registration — in `staging-lean/Snuffy/`, 101 modules:
+- EmissionBound, FoundingAnchor and ContinuationPredicate;
 - 22 Paper 12 modules ported as `Book*` (namespaces `Snuffy.Book.*`);
 - the IR closure: 75 modules plus `BookContextualObservation`, in the order in
   `/Users/admin/.claude/jobs/f00c7d77/tmp/ir_order.txt` (dependency order; the same order the
@@ -55,6 +55,13 @@ Receipts:
   1,162 statements were audited with standard axioms; it failed only the coverage gate, because five
   sources were then unregistered (`RECEIPT-193-RUN1-GATE-FAIL.txt`).
 - Second run (198): see the latest commit.
+
+## Also done
+
+- `installation/INSTALLATION.md`: specifications for the four remaining items, with today's
+  measured evidence in `installation/measured-2026-10-29/`.
+- Private shareable page for helpers: https://claude.ai/artifact/DgHwbbjWF8frn5rtwf4YeM
+  (the author shares it from its Share menu).
 
 ## Decisions taken (author's delegation, 29 Oct: "use your best judgement that gets us to a full UPT")
 
