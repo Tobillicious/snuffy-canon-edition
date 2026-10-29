@@ -1,4 +1,4 @@
-# v4.2 modules — build receipt (2026-10-29T03:56Z)
+# v4.2 modules — build receipt (2026-10-29T04:41Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -306,6 +306,16 @@
 ## NoisyPooling: exit=0 compiler-output-bytes=0
 ## StageBridge: exit=0 compiler-output-bytes=0
 ## HoldFromCycle: exit=0 compiler-output-bytes=0
+## FiniteCharacter: exit=0 compiler-output-bytes=0
+## StagedAlternatives: exit=0 compiler-output-bytes=0
+## ExclusionRadius: exit=0 compiler-output-bytes=0
+## CommonPolicyMaximal: exit=0 compiler-output-bytes=0
+## CommonPolicyTop: exit=0 compiler-output-bytes=0
+## FoundingCover: exit=0 compiler-output-bytes=0
+## CountablePooling: exit=0 compiler-output-bytes=0
+## ExpandingWavefront: exit=0 compiler-output-bytes=0
+## ItemisedRisk: exit=0 compiler-output-bytes=0
+## ChannelMeter: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -612,6 +622,16 @@
 ## leanchecker Snuffy.NoisyPooling: exit=0
 ## leanchecker Snuffy.StageBridge: exit=0
 ## leanchecker Snuffy.HoldFromCycle: exit=0
+## leanchecker Snuffy.FiniteCharacter: exit=0
+## leanchecker Snuffy.StagedAlternatives: exit=0
+## leanchecker Snuffy.ExclusionRadius: exit=0
+## leanchecker Snuffy.CommonPolicyMaximal: exit=0
+## leanchecker Snuffy.CommonPolicyTop: exit=0
+## leanchecker Snuffy.FoundingCover: exit=0
+## leanchecker Snuffy.CountablePooling: exit=0
+## leanchecker Snuffy.ExpandingWavefront: exit=0
+## leanchecker Snuffy.ItemisedRisk: exit=0
+## leanchecker Snuffy.ChannelMeter: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.AnalyticBridge.starProjection_fixed_iff_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2766,13 +2786,36 @@
 ##   'Snuffy.HoldFromCycle.classViable_iff_IR113' does not depend on any axioms
 ##   'Snuffy.HoldFromCycle.hold_common_action_of_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.HoldFromCycle.one_policy_from_holding_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FiniteCharacter.realisable_iff_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FiniteCharacter.realisable_finitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FiniteCharacter.four_stage_maximal_of_compact' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StagedAlternatives.stage_step_alt' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StagedAlternatives.exists_stagemax_upto_alt' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StagedAlternatives.exists_lex_maximal_alt' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ExclusionRadius.exclusion_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ExclusionRadius.received_effect_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CommonPolicyMaximal.common_policy_maximal' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CommonPolicyTop.top_policy_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CommonPolicyTop.top_policy_greatest' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FoundingCover.founding_cover_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FoundingCover.founded_reach' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CountablePooling.pool_strictly_dominant_ennreal' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CountablePooling.countable_keepers_pool' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CountablePooling.countable_keepers_noisy_pool' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ExpandingWavefront.expanding_coverage' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ExpandingWavefront.expanding_round_trip' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ItemisedRisk.account_le_of_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ItemisedRisk.itemised_risk' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ChannelMeter.channel_le_meter' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ChannelMeter.every_channel_excluded' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ChannelMeter.every_channel_bits_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## axiom audit exit=0
-## theorems audited: 1918; non-standard axiom dependencies: none
-## expected audited statements: 1918
+## theorems audited: 1941; non-standard axiom dependencies: none
+## expected audited statements: 1941
 ## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):
-##   ## completeness: canon 306, corpus names 104, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 1742
-##   ## build/audit coverage: canon 306, build 306, audit 306, errors 0
-##   ## claims: audited theorems 1918, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
+##   ## completeness: canon 316, corpus names 104, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 1742
+##   ## build/audit coverage: canon 316, build 316, audit 316, errors 0
+##   ## claims: audited theorems 1941, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
 ## source sha256:
 ##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
 ##   4b416646e1fc8f74f524e0f9a680384e35e06adacd69f91bb30dcec70b921b7e  Snuffy/AffordableReciprocity.lean
@@ -2817,7 +2860,10 @@
 ##   81f805ae276d44122f4f1dab4455502371e7250fe7a56afb204a12e76c59a5c9  Snuffy/CascadeCore.lean
 ##   3cd5e3ba33ece3d49702ff3d5fe8cf9fa5d2b30f67aa2633ae26634a0bfba2a0  Snuffy/ChannelCP.lean
 ##   7e6c4e740f0c62d68e7a56c37b0513bdcde6f9032c357e652a2b313d210e8017  Snuffy/ChannelExtension.lean
+##   e959b4720b25812157b78583e963c80845946264db343cfc3750ba2419d88cf0  Snuffy/ChannelMeter.lean
 ##   c33c38aa705a5b3b61a47d22fe227c8f1062f299550f3fdd0a68138c51ea94b5  Snuffy/ClosedCohold.lean
+##   b8f3f62264f903e53f2aeac7aa9426d94db1e94673853b4b4338752bbf3ae452  Snuffy/CommonPolicyMaximal.lean
+##   ad8ece04578ca68bb7800b24d1a0a6aaf60949a7009932614209b153bce7f3e3  Snuffy/CommonPolicyTop.lean
 ##   2524e8c846408e622bb8a31e89a8888ab07cade9f99f56aa700be3970c870bd5  Snuffy/Composition.lean
 ##   ead9ece1b170bcfba9bf202fc290d4600e716bb75f7ac6fec0fd483cce5d256e  Snuffy/Concatenated.lean
 ##   89f4eb6cd0f8099260c4796a302448679bd1219b24eb6e796286c29eac00cfaf  Snuffy/ConcatenatedDecoding.lean
@@ -2830,6 +2876,7 @@
 ##   e5cfdacff59c22ff7c9447c308faa09e3822d5ad7531f2e8435e535c4432dca7  Snuffy/ControllerFinality.lean
 ##   dad8822f00f28aa83bce2fc5b4941c2df4e8aa5cc79d4841e5836061c0d85b6f  Snuffy/CorrelatedCeiling.lean
 ##   beb05c3273ac414cea47d28c9ce8e0f6f0160a7a2ed1cff43f0d0da0ced52ea3  Snuffy/CorrelatedStress.lean
+##   9b0ef460496f42e0ea3b20d2c0907985242c5ff1b61938b1cf0e891ad8c4d6ec  Snuffy/CountablePooling.lean
 ##   0d1c1d0875fbee992b5d5a069e1b32e0f123446755277aaf90fb4c819eccc225  Snuffy/CutEquivalence.lean
 ##   aa67f92c0cd71d1d246576d47dda71e819e6bec52e3ec3633ce9de1b54d87414  Snuffy/CyclicProjections.lean
 ##   c59d5eac1b24cca21a2581f64fbb37c74d6517c5a91d03b7866469d6c6c19172  Snuffy/DataProcessing.lean
@@ -2844,14 +2891,18 @@
 ##   61cf6907e0f92220bf5df8f3733afdfb3782b9afb63c0cce2698794ab1386c0f  Snuffy/EmissionBound.lean
 ##   a29747a66e158b7562139d480013f0e79fa22227182293528f0159c129dc9555  Snuffy/ErrorBudget.lean
 ##   c8c695569efb76cfcbcb96eda30302db4b15297d27d42f9545627f7fce2eb97c  Snuffy/ExRecBound.lean
+##   044e81964c80ada101c8d6121f58cdcca81db7850c043650f3e766fb2db77ae1  Snuffy/ExclusionRadius.lean
+##   3a625186ca0c6d2bd46af79924bb303ef0e5c76b24867c82233bf9dc13f4ab29  Snuffy/ExpandingWavefront.lean
 ##   6af02f49d62a9de0839ab2e63aa831d903a740204f6ac2aa00a9491981f79b64  Snuffy/FIFOAdmission.lean
 ##   f5e6b9dae8621949167ad77add96f9de5a4338b4cafa69cc10579ee4b1fe5f7f  Snuffy/FIFOInstance.lean
 ##   bac2795fa7729999e21e077eef5c8f7b5274d2c011b67bf8382c7c086f64460d  Snuffy/FIFOWorkload.lean
 ##   0a8889d629d81e4aa27b4d627b4fe009d3c1901d27a7b9b86e4a45e3ee560bc1  Snuffy/Fano.lean
 ##   13db39413f14e9b3f08bcbde01216113db5a267ff0d838ed4ea8a30d599c4951  Snuffy/FaultCover.lean
 ##   f48e31cc9614cdbe9673d9affde6809fbc9b4da1c1aba716d97c5a5d2f42b836  Snuffy/FinalClosure.lean
+##   40f6ede784538d4072513dd4577c3e3734b343c064d1192403d739ee985c8638  Snuffy/FiniteCharacter.lean
 ##   2a7120678dfd22e9eaa9420621bab301099b9022ba59b20dbe5eeba4b7e70f87  Snuffy/FiniteInformation.lean
 ##   e09a9eae840aca9d1991338e0247ee47e7d9ef725411205cb6d4b3b3fa8a235b  Snuffy/FoundingAnchor.lean
+##   c465126d0f8e6246ade2aba0955d4c46055cd37a4bd8a2464618487b1c365072  Snuffy/FoundingCover.lean
 ##   1fb0cdf2e8662cf21ac128ce5d59f07ab03adf4759a38b676d1131ba927a60ff  Snuffy/FoundingDominance.lean
 ##   ccc9161719a7f6ca9ee9215f7d9185c07202f34751b5a33c0c1115698822048a  Snuffy/FoundingPivotal.lean
 ##   4fe05fcbc6235481ecdb46a20ef1ab020e690181cbb8b5d048262bd8ced5409d  Snuffy/G1Certificate.lean
@@ -2973,6 +3024,7 @@
 ##   55751cd8393856b86b937090231718dc7225386f21ebc04152fbd2a27ca9995a  Snuffy/Instruments.lean
 ##   47079cf63add2d1665f109bbfdd98b3a339e84c753d754ae07ea4c1613c01edd  Snuffy/IntegrationCertificate.lean
 ##   b0922dbbf603d6f62ff3e9a00d9d29644531767b8538f5bb184e33deb5fbea6e  Snuffy/Irreplaceability.lean
+##   d833ebbe4236c2c7a5873029c1091254d5d174277ae2c51ff3a4e46064dc375c  Snuffy/ItemisedRisk.lean
 ##   1e700a2d627206ab9896d3a883e1d6b2714e1c5eff2d5f8391dc1e07d2b8268d  Snuffy/KLAdditivity.lean
 ##   a4e037dd498ba6a2deb3a22d5944940116286d7d7c51c0892804425c8ff26eca  Snuffy/KnillLaflamme.lean
 ##   2c298142b31e208998236815da2640efb1ca04264ac6aa2fe2e67e359e7d8e6e  Snuffy/Landauer.lean
@@ -3049,6 +3101,7 @@
 ##   355c12f48ab339d34d57c02f9e3a9d556d27009aecb26335b9113c9e327d11b6  Snuffy/SpeedLimit.lean
 ##   93adaf63ea0142b2d9b26863983bff8f58c2ed6f3e73e1ef2381b21dee94afa6  Snuffy/StageBridge.lean
 ##   81d70a1e34679512595cd47ce53da9c1ca57c61641bc9ae82718d02c424129e5  Snuffy/StageSchedule.lean
+##   6009e8dd4a04dcd695bf504d787fafd59284ccb2f01bf33244169bed2c3ad397  Snuffy/StagedAlternatives.lean
 ##   ecdb86c5dd871082d8cefb3d4945611a7f2e8d169336502f23920ec123ab0707  Snuffy/StagedMaximality.lean
 ##   40d4899d038811565a8ed51c027fc0e8f30c0c53fd9c3915a13a725ffe619dc3  Snuffy/StrokeBookkeeping.lean
 ##   97b05c1eab08f2c15fe8d0e3dff67038df7f25b9ee394f19f0ff0e49c4997dbb  Snuffy/TIWAGuard.lean
@@ -3080,5 +3133,5 @@
 ##   fcfcf42fc99f43b196b65cb4f51d12e52d69d05bc0c7cdd90e2d03a6514a3e15  Snuffy/WorkBilling.lean
 ##   a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1  Snuffy/WorkIntegration.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   2e999e18e568eb0da425bf258e0df525c94cbeba9b0a9486410f1fd157bbd4d5  SummitsAudit.lean
+##   48c34432bf66f417e39ddd25ea1abb48ca41e1e31fe5e7095e4d63cb3868a52f  SummitsAudit.lean
 ## overall: PASS

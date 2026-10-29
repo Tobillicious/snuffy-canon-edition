@@ -8,10 +8,10 @@ Canon Edition 4.2, 26 October 2026. Research direction: Tobias Croydon-McRae. Th
 
 The three joined supports retain their full targets: the full-domain physical certificate (G1), realisability of the whole continuation-and-freedom tuple (G2), and recovery success with a complete pathwise work certificate (G3). This repair checkpoint corrects the normalised quantum-state domain and the clipped-reserve contraction, and develops the actual Bennett implementation. The physical source, whole-outcome, device-cost and external-theorem application correspondences remain explicit construction work; the component theorems do not by themselves declare the maximal argument complete.
 
-The compiled edition's Lean canon contains 306 modules and 1,918 public theorem/lemma names
-in build run 5 of 29 October 2026, which freshly compiled and kernel-checked every module with
-zero compiler output and passed the full 1,918-name standard-axiom audit, strict completeness
-and claims gates (RECEIPT-306-RUN5.txt). Its source hashes match the tree at that run. Checkpoint 11 was already complete for 191 modules / 1150 names;
+The compiled edition's Lean canon contains 316 modules and 1,941 public theorem/lemma names
+in build run 6 of 29 October 2026, which freshly compiled and kernel-checked every module with
+zero compiler output and passed the full 1,941-name standard-axiom audit, strict completeness
+and claims gates (RECEIPT-316-RUN6.txt). Its source hashes match the tree at that run. Checkpoint 11 was already complete for 191 modules / 1150 names;
 TransferRate adds the eight results in this checkpoint. Earlier receipts remain preserved for
 exactly their sources. The published 115-module/831-name baseline is unchanged. These receipts
 certify the named Lean results and their premises, not the unfinished physical holding application.
