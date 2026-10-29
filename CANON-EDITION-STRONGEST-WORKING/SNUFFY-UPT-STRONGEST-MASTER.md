@@ -5272,7 +5272,10 @@ no-pooling profile is not an equilibrium among such keepers, and Gate D's
 selection question is decided for them; VII.5 (m4) extends this to patiently
 excluded finite-trade-off keepers. Under D-ENDOW (Part VIII U3) committed capacity
 is not a voluntary choice at all, so no selection arises inside an endowed
-jurisdiction.
+jurisdiction. With the keeper's own execution noise (an intended pool fails with probability
+\(\varepsilon\), an intended abstention pools with probability \(\delta\)), pooling raises the
+holding probability by exactly \((1-\varepsilon-\delta)\) times the pivotal gap, so it stays
+strictly better whenever \(\varepsilon+\delta<1\) (`NoisyPooling.noisy_pool_strictly_dominant`).
 
 **Lemma R (risk; `outer_lane_risk`).** If failure of the outer lane is contained in
 founding failure, a holding failure at some date, or a charged account failure,
@@ -5672,7 +5675,7 @@ the maximal claim. These boundaries have been in the theory since 18 October.
 | 12 | StagedMaximality scope; no bridge to Proposition 1 | Repaired: `StageBridge.four_stage_aligned`, `four_stage_no_needless_loss`; scope and next extensions stated |
 | 13 | Rival bound at the top needs ∃π∀w | Recorded: common-policy `htopR` still to construct (XII.2 item 4) |
 | 14 | Lemma W geometry: continuum guards, light speed, cosmic expansion | Repaired in part: `ReachTiming.net_coverage` for discrete guards; expansion of space recorded as an extension |
-| 15 | Lemma P omits own-keeper noise; countable keepers | Recorded: noisy-pooling and countable-keeper forms still to construct |
+| 15 | Lemma P omits own-keeper noise; countable keepers | Repaired for own noise: `NoisyPooling.noisy_pool_strictly_dominant` (gain \((1-\varepsilon-\delta)\) times the pivotal gap, for \(\varepsilon+\delta<1\)); countable-keeper form recorded as still to construct |
 | 16 | NarrowPlace needs H independent of deliveries | Recorded: H is a constant in the compiled statement; correlated failures charged in Lemma R's accounts |
 | 17 | ContinuationPredicate too strict for care | Repaired: `ContinuationSubject` (subject, author and director separated; `care_keeps_freedom`) |
 | 18 | Relations premise | Repaired: relations covered by location (Lemma W covers every location) and by the fence on the acting mind |
