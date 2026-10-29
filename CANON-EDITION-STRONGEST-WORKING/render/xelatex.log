@@ -97,12 +97,12 @@ r.sty)))
 (./Snuffy-UPT-Compiled-Edition.toc [1] [2] [3]) [4] [5] [6] [7] [8] [9]
 [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24]
 [25] [26]
-Underfull \hbox (badness 2057) in paragraph at lines 2300--2311
+Underfull \hbox (badness 2057) in paragraph at lines 2299--2310
 []\TU/STIXGeneral(0)/b/n/10 Machine-checked counterpart (Section 23). \TU/STIXG
 eneral(0)/m/n/10 Compiled counterparts: \TU/Menlo(0)/m/n/10 E9SelfHealing.robus
 t_between_ho
 
-Underfull \hbox (badness 3746) in paragraph at lines 2300--2311
+Underfull \hbox (badness 3746) in paragraph at lines 2299--2310
 \TU/Menlo(0)/m/n/10 nest\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 exists_
 robust\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 no_false_alarm\TU/STIXGen
 eral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 no_masking\TU/STIXGeneral(0)/m/n/10 , \TU/
@@ -112,36 +112,90 @@ o(0)/m/n/10 wave_race_margin\TU/STIXGeneral(0)/m/n/10 ,
 [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56]
 [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71]
 [72] [73] [74]
-Underfull \hbox (badness 3068) in paragraph at lines 6632--6643
+Underfull \hbox (badness 3068) in paragraph at lines 6631--6642
 []\TU/Menlo(0)/m/n/10 powers_intertwine\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)
 /m/n/10 exponential_intertwines \TU/STIXGeneral(0)/m/n/10 and \TU/Menlo(0)/m/n/
 10 work_shifted_flow_on_code \TU/STIXGeneral(0)/m/n/10 prove this transport for
 
 [75] [76] [77] [78] [79] [80] [81] [82] [83]
-Underfull \hbox (badness 4479) in paragraph at lines 7585--7596
+Underfull \hbox (badness 4479) in paragraph at lines 7584--7595
 \TU/Menlo(0)/m/n/10 implementedProgram \TU/STIXGeneral(0)/m/n/10 and \TU/Menlo(
 0)/m/n/10 implemented_program_computes \TU/STIXGeneral(0)/m/n/10 identify the i
 mplemented administration, clean
 [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94]
-Underfull \hbox (badness 2359) in paragraph at lines 8715--8729
+Underfull \hbox (badness 2359) in paragraph at lines 8714--8728
 []\TU/STIXGeneral(0)/m/n/10 where Lambda(n)=max_i ||L-dagger A_i||. The element
 ary dissipator bound ||D_V$[]$2||A|| gives
 [95] [96] [97] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107]
-[108] [109] [110] [111] [112] [113]
-Overfull \hbox (35.22pt too wide) in paragraph at lines 10598--10607
-[]\TU/STIXGeneral(0)/b/n/10 (a) Protection to the horizon, priced by margins. $
-[][][][][][] []
-[114] [115] [116] [117] [118] [119] [120] [121] [122] [123] [124]
-Overfull \hbox (12.08469pt too wide) in paragraph at lines 11566--11573
-[]\TU/STIXGeneral(0)/b/n/10 One viable common policy. \TU/STIXGeneral(0)/m/n/10
- Proved: Lemma H derives the common safe action from the hold (\TU/Menlo(0)/m/n
-/10 HoldCommonAction\TU/STIXGeneral(0)/m/n/10 ),
-[125]
+[108] [109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119]
+[120] [121] [122] [123] [124] [125] [126] [127] [128] [129] [130] [131]
+[132]
+Underfull \hbox (badness 5726) in paragraph at lines 12256--12260
+[]\TU/Menlo(0)/m/n/10 Snuffy.MeetHilbert.hilbert_anchor_preserved\TU/STIXGenera
+l(0)/m/n/10 , \TU/Menlo(0)/m/n/10 Snuffy.MeetHilbert.hilbert_contradiction_coll
+apse\TU/STIXGeneral(0)/m/n/10 ,
+[133] [134] [135] [136] [137] [138]
+Underfull \hbox (badness 10000) in paragraph at lines 12914--12922
+[]\TU/Menlo(0)/m/n/10 UPT.Sub.refl\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/
+10 UPT.Sub.trans\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 UPT.U1\TU/STIXG
+eneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 UPT.SSub.trans_sub\TU/STIXGeneral(0)/m/n
+/10 , \TU/Menlo(0)/m/n/10 UPT.Sub.trans_ssub\TU/STIXGeneral(0)/m/n/10 , \TU/Men
+lo(0)/m/n/10 UPT.lex_irrefl\TU/STIXGeneral(0)/m/n/10 ,
+
+Underfull \hbox (badness 4416) in paragraph at lines 12914--12922
+\TU/Menlo(0)/m/n/10 UPT.lex_trans\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/1
+0 UPT.lex_U1\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 UPT.freedom_first_U
+1_legacy\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 UPT.guard_first_stage\T
+U/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 UPT.canonical_l
+[139] [140] [141] [142] [143]
+Underfull \hbox (badness 5726) in paragraph at lines 13386--13412
+\TU/Menlo(0)/m/n/10 y.DecoderRetraction.boundary_observable_commutator\TU/STIXG
+eneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 Snuffy.DecoderRetraction.powers_intertwi
+ne\TU/STIXGeneral(0)/m/n/10 ,
+
+Underfull \hbox (badness 5726) in paragraph at lines 13386--13412
+\TU/Menlo(0)/m/n/10 traction.boundary_capacity_necessary\TU/STIXGeneral(0)/m/n/
+10 , \TU/Menlo(0)/m/n/10 Snuffy.DecoderRetraction.handoff_moves_reference_paylo
+ad\TU/STIXGeneral(0)/m/n/10 ,
+[144] [145] [146] [147] [148] [149]
+Underfull \hbox (badness 5726) in paragraph at lines 13986--13994
+\TU/Menlo(0)/m/n/10 ffy.Book.UPTLawRepair.progressive_retention\TU/STIXGeneral(
+0)/m/n/10 , \TU/Menlo(0)/m/n/10 Snuffy.Book.UPTLawRepair.switch_without_retenti
+on\TU/STIXGeneral(0)/m/n/10 ,
+[150] [151] [152] [153]
+Underfull \hbox (badness 5726) in paragraph at lines 14270--14278
+\TU/Menlo(0)/m/n/10 bust_safe_history\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m
+/n/10 PhysicalBridges.IRInfiniteHistoryCompactness.countdown_finite_budget_viab
+le\TU/STIXGeneral(0)/m/n/10 ,
+[154] [155]
+Underfull \hbox (badness 5726) in paragraph at lines 14437--14447
+\TU/Menlo(0)/m/n/10 enance\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 Physi
+calBridges.IRA1HostMediation.any_finite_host_sequence_preserves_privilege_ceili
+ng\TU/STIXGeneral(0)/m/n/10 ,
+[156] [157]
+Underfull \hbox (badness 10000) in paragraph at lines 14525--14531
+[]\TU/Menlo(0)/m/n/10 PhysicalBridges.IRA1CommissionEscrow.commissioning_for_wi
+ndow_implies_every_earlier_tick_funde
+[158] [159] [160]
+Underfull \hbox (badness 5726) in paragraph at lines 14786--14792
+\TU/Menlo(0)/m/n/10 ed_all_channel_effects\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo
+(0)/m/n/10 PhysicalBridges.IRChannelInventory.incomplete_inventory_counterexamp
+le\TU/STIXGeneral(0)/m/n/10 ,
+[161]
+Underfull \hbox (badness 5726) in paragraph at lines 14846--14853
+\TU/Menlo(0)/m/n/10 .ContinuationSubject.care_keeps_freedom\TU/STIXGeneral(0)/m
+/n/10 , \TU/Menlo(0)/m/n/10 Snuffy.ContinuationSubject.directed_by_other_not_fr
+ee\TU/STIXGeneral(0)/m/n/10 ,
+[162] [163]
+Underfull \hbox (badness 5726) in paragraph at lines 14996--15001
+[]\TU/Menlo(0)/m/n/10 Snuffy.Book.ObservedHold.not_forbidden_iff_safe\TU/STIXGe
+neral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 Snuffy.Book.ObservedHold.clean_iff_safe_t
+race\TU/STIXGeneral(0)/m/n/10 ,
 
 Package caption Warning: Unused \captionsetup[table] on input line 46.
 See the caption package documentation for explanation.
 
-[126] (./Snuffy-UPT-Compiled-Edition.aux) )
+[164] (./Snuffy-UPT-Compiled-Edition.aux) )
 (see the transcript file for additional information)
-Output written on Snuffy-UPT-Compiled-Edition.pdf (126 pages).
+Output written on Snuffy-UPT-Compiled-Edition.pdf (164 pages).
 Transcript written on Snuffy-UPT-Compiled-Edition.log.

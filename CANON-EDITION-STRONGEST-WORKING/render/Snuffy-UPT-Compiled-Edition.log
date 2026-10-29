@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.9.14)  29 OCT 2026 16:22
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.9.14)  29 OCT 2026 22:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1205,31 +1205,31 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
 \BKM@id=\count342
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 103.
+Package hyperref Info: Option `colorlinks' set `true' on input line 105.
 
 (./Snuffy-UPT-Compiled-Edition.aux)
 \openout1 = `Snuffy-UPT-Compiled-Edition.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1266,16 +1266,16 @@ LaTeX Font Info:    ... okay on input line 116.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 116.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 118.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/b/n on input line 116.
-LaTeX Info: Redefining \microtypecontext on input line 116.
-Package microtype Info: Applying patch `item' on input line 116.
-Package microtype Info: Applying patch `toc' on input line 116.
-Package microtype Info: Applying patch `eqnum' on input line 116.
-Package microtype Info: Applying patch `footnote' on input line 116.
-Package microtype Info: Applying patch `verbatim' on input line 116.
-LaTeX Info: Redefining \microtypesetup on input line 116.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/b/n on input line 118.
+LaTeX Info: Redefining \microtypecontext on input line 118.
+Package microtype Info: Applying patch `item' on input line 118.
+Package microtype Info: Applying patch `toc' on input line 118.
+Package microtype Info: Applying patch `eqnum' on input line 118.
+Package microtype Info: Applying patch `footnote' on input line 118.
+Package microtype Info: Applying patch `verbatim' on input line 118.
+LaTeX Info: Redefining \microtypesetup on input line 118.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -1288,35 +1288,35 @@ Package microtype Info: Loading generic protrusion settings for font family
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 116.
+Package hyperref Info: Link coloring ON on input line 118.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/m/n' will be
-(Font)              scaled to size 17.28pt on input line 118.
+(Font)              scaled to size 17.28pt on input line 120.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 118.
+(Font)              scaled to size 12.0pt on input line 120.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath(1)/m/n' will be
-(Font)              scaled to size 11.41644pt on input line 118.
+(Font)              scaled to size 11.41644pt on input line 120.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath(1)/m/n' will be
-(Font)              scaled to size 7.61096pt on input line 118.
+(Font)              scaled to size 7.61096pt on input line 120.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath(1)/m/n' will be
-(Font)              scaled to size 5.70822pt on input line 118.
+(Font)              scaled to size 5.70822pt on input line 120.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-18.
+20.
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/STIXTwoMath(2)/m/n' will be
-(Font)              scaled to size 11.41754pt on input line 118.
+(Font)              scaled to size 11.41754pt on input line 120.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath(2)/m/n' will be
-(Font)              scaled to size 7.6117pt on input line 118.
+(Font)              scaled to size 7.6117pt on input line 120.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath(2)/m/n' will be
-(Font)              scaled to size 5.70877pt on input line 118.
+(Font)              scaled to size 5.70877pt on input line 120.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath(3)/m/n' will be
-(Font)              scaled to size 11.41534pt on input line 118.
+(Font)              scaled to size 11.41534pt on input line 120.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath(3)/m/n' will be
-(Font)              scaled to size 7.61023pt on input line 118.
+(Font)              scaled to size 7.61023pt on input line 120.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath(3)/m/n' will be
-(Font)              scaled to size 5.70767pt on input line 118.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 118
+(Font)              scaled to size 5.70767pt on input line 120.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 120
 .
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1325,7 +1325,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 118
+LaTeX Font Info:    Trying to load font information for U+msb on input line 120
 .
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1335,9 +1335,9 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 121.
+(Font)              scaled to size 14.4pt on input line 123.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 121.
+(Font)              scaled to size 14.4pt on input line 123.
 
 (./Snuffy-UPT-Compiled-Edition.toc
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/b/n' will be
@@ -1369,30 +1369,30 @@ LaTeX Font Info:    Font shape `TU/Menlo(0)/m/n' will be
 
  [4]
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 188.
+(Font)              scaled to size 12.0pt on input line 187.
  [5]
 LaTeX Font Info:    Font shape `TU/STIXGeneral(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 237.
+(Font)              scaled to size 10.0pt on input line 236.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 237.
+(Font)              scaled to size 7.0pt on input line 236.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(1)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 237.
+(Font)              scaled to size 5.5pt on input line 236.
  [6] [7] [8] [9]
 LaTeX Font Info:    Font shape `TU/Menlo(0)/m/n' will be
-(Font)              scaled to size 5.7816pt on input line 668.
+(Font)              scaled to size 5.7816pt on input line 667.
 LaTeX Font Info:    Font shape `TU/Menlo(0)/m/n' will be
-(Font)              scaled to size 4.54268pt on input line 668.
+(Font)              scaled to size 4.54268pt on input line 667.
 
 [10] [11] [12]
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 919.
+(Font)              scaled to size 7.0pt on input line 918.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 919.
+(Font)              scaled to size 5.5pt on input line 918.
  [13] [14] [15]
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 1259.
+(Font)              scaled to size 10.0pt on input line 1258.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/b/it' will be
-(Font)              scaled to size 10.0pt on input line 1263.
+(Font)              scaled to size 10.0pt on input line 1262.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
@@ -1400,19 +1400,19 @@ Package microtype Info: Loading generic protrusion settings for font family
  [16] [17] [18] [19]
 ignored: Infinite glue shrinkage found in box being split [20] [21]
 LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 1797.
+(Font)              scaled to size 9.0pt on input line 1796.
 LaTeX Font Info:    Font shape `TU/Menlo(0)/m/n' will be
-(Font)              scaled to size 7.43349pt on input line 1797.
+(Font)              scaled to size 7.43349pt on input line 1796.
  [22] [23] [24]
 [25] [26]
-Underfull \hbox (badness 2057) in paragraph at lines 2300--2311
+Underfull \hbox (badness 2057) in paragraph at lines 2299--2310
 []\TU/STIXGeneral(0)/b/n/10 Machine-checked counterpart (Section 23). \TU/STIXG
 eneral(0)/m/n/10 Compiled counterparts: \TU/Menlo(0)/m/n/10 E9SelfHealing.robus
 t_between_ho
  []
 
 
-Underfull \hbox (badness 3746) in paragraph at lines 2300--2311
+Underfull \hbox (badness 3746) in paragraph at lines 2299--2310
 \TU/Menlo(0)/m/n/10 nest\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 exists_
 robust\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 no_false_alarm\TU/STIXGen
 eral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 no_masking\TU/STIXGeneral(0)/m/n/10 , \TU/
@@ -1422,7 +1422,7 @@ o(0)/m/n/10 wave_race_margin\TU/STIXGeneral(0)/m/n/10 ,
 
 [27] [28]
 LaTeX Font Info:    Font shape `TU/Menlo(0)/b/n' will be
-(Font)              scaled to size 8.25943pt on input line 2423.
+(Font)              scaled to size 8.25943pt on input line 2422.
  [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
 ignored: Infinite glue shrinkage found
  in box being split [39] [40] [41]
@@ -1464,7 +1464,7 @@ age found in box being split [65]
 ignored: Infinite glue shrinkage found in box being spl
 it [66] [67] [68] [69] [70] [71]
 [72] [73] [74]
-Underfull \hbox (badness 3068) in paragraph at lines 6632--6643
+Underfull \hbox (badness 3068) in paragraph at lines 6631--6642
 []\TU/Menlo(0)/m/n/10 powers_intertwine\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)
 /m/n/10 exponential_intertwines \TU/STIXGeneral(0)/m/n/10 and \TU/Menlo(0)/m/n/
 10 work_shifted_flow_on_code \TU/STIXGeneral(0)/m/n/10 prove this transport for
@@ -1473,20 +1473,20 @@ Underfull \hbox (badness 3068) in paragraph at lines 6632--6643
 
 [75] [76] [77] [78] [79] [80] [81] [82]
 LaTeX Font Info:    Font shape `TU/STIXGeneral(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 7417.
+(Font)              scaled to size 12.0pt on input line 7416.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 7417.
+(Font)              scaled to size 8.0pt on input line 7416.
 LaTeX Font Info:    Font shape `TU/STIXGeneral(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 7417.
+(Font)              scaled to size 6.0pt on input line 7416.
  [83]
-Underfull \hbox (badness 4479) in paragraph at lines 7585--7596
+Underfull \hbox (badness 4479) in paragraph at lines 7584--7595
 \TU/Menlo(0)/m/n/10 implementedProgram \TU/STIXGeneral(0)/m/n/10 and \TU/Menlo(
 0)/m/n/10 implemented_program_computes \TU/STIXGeneral(0)/m/n/10 identify the i
 mplemented administration, clean
  []
 
 [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94]
-Underfull \hbox (badness 2359) in paragraph at lines 8715--8729
+Underfull \hbox (badness 2359) in paragraph at lines 8714--8728
 []\TU/STIXGeneral(0)/m/n/10 where Lambda(n)=max_i ||L-dagger A_i||. The element
 ary dissipator bound ||D_V$[]$2||A|| gives
  []
@@ -1495,47 +1495,129 @@ ary dissipator bound ||D_V$[]$2||A|| gives
 ignored: Infinit
 e glue shrinkage found in box being split
 [108]
-ignored: Infinite glue shrinkage found in box being split [109] [110] [111] [112] [
-113]
-Overfull \hbox (35.22pt too wide) in paragraph at lines 10598--10607
-[]\TU/STIXGeneral(0)/b/n/10 (a) Protection to the horizon, priced by margins. $
-[][][][][][] []
- []
-
-[114] [115] [116]
-ignored: Infinite glue shrinkage found in box being split [117]
-ignored: Infinite
- glue shrinkage found in box being split [118]
-ignored: Infinite glue shrinkage found in 
-box being split [119]
+ignored: Infinite glue shrinkage found in box being split [109]
+ignored: Infinite glue shrink
+age found in box being split [110] [111] [112] [113] [114] [115] [116] [117]
+ignored: Inf
+inite glue shrinkage found in box being split [118]
+ignored: Infinite glue shrinkage foun
+d in box being split [119]
+[120]
 LaTeX Font Info:    Font shape `TU/Menlo(0)/b/n' will be
-(Font)              scaled to size 9.91132pt on input line 11104.
- [120] [121] [122] [123]
-ignored: Infinite glue shrinkage found in box being split [124]
-Overfull \hbox (12.08469pt too wide) in paragraph at lines 11566--11573
-[]\TU/STIXGeneral(0)/b/n/10 One viable common policy. \TU/STIXGeneral(0)/m/n/10
- Proved: Lemma H derives the common safe action from the hold (\TU/Menlo(0)/m/n
-/10 HoldCommonAction\TU/STIXGeneral(0)/m/n/10 ),
+(Font)              scaled to size 9.91132pt on input line 11132.
+LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/b/n' will be
+(Font)              scaled to size 7.0pt on input line 11157.
+LaTeX Font Info:    Font shape `TU/STIXGeneral(0)/b/n' will be
+(Font)              scaled to size 5.5pt on input line 11157.
+ [121] [122] [123] [124]
+ignored: Infinite glue shrinkage found in box being split [125] 
+[126] [127] [128]
+ignored: Infinite glue shrinkage found in box being split [129]
+ignored: Infinite
+ glue shrinkage found in box being split [130] [131]
+[132]
+Underfull \hbox (badness 5726) in paragraph at lines 12256--12260
+[]\TU/Menlo(0)/m/n/10 Snuffy.MeetHilbert.hilbert_anchor_preserved\TU/STIXGenera
+l(0)/m/n/10 , \TU/Menlo(0)/m/n/10 Snuffy.MeetHilbert.hilbert_contradiction_coll
+apse\TU/STIXGeneral(0)/m/n/10 ,
  []
 
-[125]
+[133] [134] [135] [136] [137] [138]
+Underfull \hbox (badness 10000) in paragraph at lines 12914--12922
+[]\TU/Menlo(0)/m/n/10 UPT.Sub.refl\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/
+10 UPT.Sub.trans\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 UPT.U1\TU/STIXG
+eneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 UPT.SSub.trans_sub\TU/STIXGeneral(0)/m/n
+/10 , \TU/Menlo(0)/m/n/10 UPT.Sub.trans_ssub\TU/STIXGeneral(0)/m/n/10 , \TU/Men
+lo(0)/m/n/10 UPT.lex_irrefl\TU/STIXGeneral(0)/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 4416) in paragraph at lines 12914--12922
+\TU/Menlo(0)/m/n/10 UPT.lex_trans\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/1
+0 UPT.lex_U1\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 UPT.freedom_first_U
+1_legacy\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 UPT.guard_first_stage\T
+U/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 UPT.canonical_l
+ []
+
+[139] [140] [141] [142] [143]
+Underfull \hbox (badness 5726) in paragraph at lines 13386--13412
+\TU/Menlo(0)/m/n/10 y.DecoderRetraction.boundary_observable_commutator\TU/STIXG
+eneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 Snuffy.DecoderRetraction.powers_intertwi
+ne\TU/STIXGeneral(0)/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 5726) in paragraph at lines 13386--13412
+\TU/Menlo(0)/m/n/10 traction.boundary_capacity_necessary\TU/STIXGeneral(0)/m/n/
+10 , \TU/Menlo(0)/m/n/10 Snuffy.DecoderRetraction.handoff_moves_reference_paylo
+ad\TU/STIXGeneral(0)/m/n/10 ,
+ []
+
+[144] [145] [146] [147] [148] [149]
+Underfull \hbox (badness 5726) in paragraph at lines 13986--13994
+\TU/Menlo(0)/m/n/10 ffy.Book.UPTLawRepair.progressive_retention\TU/STIXGeneral(
+0)/m/n/10 , \TU/Menlo(0)/m/n/10 Snuffy.Book.UPTLawRepair.switch_without_retenti
+on\TU/STIXGeneral(0)/m/n/10 ,
+ []
+
+[150] [151] [152] [153]
+Underfull \hbox (badness 5726) in paragraph at lines 14270--14278
+\TU/Menlo(0)/m/n/10 bust_safe_history\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m
+/n/10 PhysicalBridges.IRInfiniteHistoryCompactness.countdown_finite_budget_viab
+le\TU/STIXGeneral(0)/m/n/10 ,
+ []
+
+[154] [155]
+Underfull \hbox (badness 5726) in paragraph at lines 14437--14447
+\TU/Menlo(0)/m/n/10 enance\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 Physi
+calBridges.IRA1HostMediation.any_finite_host_sequence_preserves_privilege_ceili
+ng\TU/STIXGeneral(0)/m/n/10 ,
+ []
+
+[156] [157]
+Underfull \hbox (badness 10000) in paragraph at lines 14525--14531
+[]\TU/Menlo(0)/m/n/10 PhysicalBridges.IRA1CommissionEscrow.commissioning_for_wi
+ndow_implies_every_earlier_tick_funde
+ []
+
+[158] [159] [160]
+Underfull \hbox (badness 5726) in paragraph at lines 14786--14792
+\TU/Menlo(0)/m/n/10 ed_all_channel_effects\TU/STIXGeneral(0)/m/n/10 , \TU/Menlo
+(0)/m/n/10 PhysicalBridges.IRChannelInventory.incomplete_inventory_counterexamp
+le\TU/STIXGeneral(0)/m/n/10 ,
+ []
+
+[161]
+Underfull \hbox (badness 5726) in paragraph at lines 14846--14853
+\TU/Menlo(0)/m/n/10 .ContinuationSubject.care_keeps_freedom\TU/STIXGeneral(0)/m
+/n/10 , \TU/Menlo(0)/m/n/10 Snuffy.ContinuationSubject.directed_by_other_not_fr
+ee\TU/STIXGeneral(0)/m/n/10 ,
+ []
+
+[162] [163]
+Underfull \hbox (badness 5726) in paragraph at lines 14996--15001
+[]\TU/Menlo(0)/m/n/10 Snuffy.Book.ObservedHold.not_forbidden_iff_safe\TU/STIXGe
+neral(0)/m/n/10 , \TU/Menlo(0)/m/n/10 Snuffy.Book.ObservedHold.clean_iff_safe_t
+race\TU/STIXGeneral(0)/m/n/10 ,
+ []
+
 
 Package caption Warning: Unused \captionsetup[table] on input line 46.
 See the caption package documentation for explanation.
 
-[126] (./Snuffy-UPT-Compiled-Edition.aux)
+[164] (./Snuffy-UPT-Compiled-Edition.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 21015 strings out of 469709
- 392346 string characters out of 5466023
- 1455774 words of memory out of 5000000
- 49358 multiletter control sequences out of 15000+600000
- 634542 words of font info for 132 fonts, out of 8000000 for 9000
+ 21026 strings out of 469709
+ 392690 string characters out of 5466023
+ 1454963 words of memory out of 5000000
+ 49367 multiletter control sequences out of 15000+600000
+ 634558 words of font info for 134 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  90i,13n,116p,2113b,522s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Snuffy-UPT-Compiled-Edition.pdf (126 pages).
+Output written on Snuffy-UPT-Compiled-Edition.pdf (164 pages).
