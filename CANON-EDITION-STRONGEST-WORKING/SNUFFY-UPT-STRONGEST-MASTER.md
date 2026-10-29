@@ -5411,7 +5411,8 @@ Theorem V(d)), or preserves almost surely under bounded noise (Θ1, Theorem
 V(c), Theorem E (E4)), whatever its rewards. Lemma P
 makes the protecting coalition the outcome among protection-first keepers;
 hypothesis 1 with NP/MS bounds the holding failure at each date and J1 bounds its
-sum; hypothesis 4 funds the guards and their expansion, including G.12's complete bill, holding, controller export and endpoints; IR-113/IR-135 give the common policy.
+sum; hypothesis 4 funds the guards and their expansion (G.12's bill is the
+integral of premise 6's boundary term); IR-113/IR-135 give the common policy.
 Every failure of the conclusion lies in one of the accounts itemised in
 hypothesis 5, and Lemma R bounds the probability. ∎
 
@@ -5682,7 +5683,7 @@ answered as follows.
    the union of all policies' outcomes and is the greatest in every world at once
    (`CommonPolicyTop.top_policy_greatest`). Maximality with one policy fixed before the world is proved:
    `CommonPolicyMaximal.common_policy_maximal` gives, for every compact policy space, a
-   single policy whose outcome across all worlds jointly no realisable outcome improves. This joint statement is not worldwise maximality. The original worldwise target uses the stronger top-policy construction or an independently executable worldwise selector, joined to the actual common observation, resources, deadlines and complete G2 outcome family. The pinned IR-135 source and the separate two-world IR-140 control retain that distinction.
+   single policy whose outcome across all worlds jointly no realisable outcome improves. This joint statement is not worldwise maximality. The original worldwise target uses the stronger top-policy construction (`CommonPolicyTop`, under union closure from locality, G.9) or an independently executable worldwise selector. The pinned IR-135 source and the separate two-world IR-140 control retain that distinction.
 5. **One sustainable physical system.** Proved: Theorem 8 with derived `hcert`
    (G.10), premise 6 and Section 22's twenty-one accounts, Paper 11's U1–U3, Lemma R,
    and the growing-bill endowment (`GrowingBill.endowment_suffices`,
@@ -5690,7 +5691,7 @@ answered as follows.
    (Section 22.4). Each is a field of `installation/PARAMS-TEMPLATE.json` with its pass condition,
    and the pilot fills those one machine can supply.
 
-**Commissioning (29 October 2026).** `installation/commission.py` evaluates numerical and observed-trial screens against the stated theorem inequalities. The procedure (`installation/COMMISSIONING.md`) also requires the actual source/instrument, continuation, whole-outcome, transfer-envelope, complete-cost and conditional-kernel certificates; successful arithmetic does not construct them. The harm-class table retains its sources and each application's scope. NOT MEASURED never counts as a pass. The original failure budget and full physical target remain unchanged.
+**Commissioning (29 October 2026).** `installation/commission.py` evaluates numerical and observed-trial screens against the stated theorem inequalities. The procedure (`installation/COMMISSIONING.md`) requires every input to be measured on the actual installation; declared values are labelled as such. The harm-class table retains its sources and each application's scope. NOT MEASURED never counts as a pass. The original failure budget and full physical target remain unchanged.
 
 A pilot on one Mac (`installation/pilot/`) now reports, of 22 screening requirements,
 9 PASS, 3 FAIL and 10 NOT MEASURED. The installation remains uncommissioned.
@@ -5762,7 +5763,7 @@ the maximal claim. These boundaries have been in the theory since 18 October.
 | 8 | Theorem V(c) and E4 almost-sure, vacuous under full-support noise | Repaired: Theorem XI uses Theorem V(d) and Θ2's per-step exit through Lemma R; almost-sure forms only under bounded noise |
 | 9 | Lemma R's containment assumed | Repaired: hypothesis 5 itemises the failure accounts; countably many accounts with pointwise-bounded conditional kernels compose without independence (`ItemisedRisk.itemised_risk`); each pointwise δᵢ still needs its actual conditional-kernel certificate; trial confidence intervals remain separately labelled |
 | 10 | Growing bill is not Gate C-∞ | Repaired: `GrowingBill.endowment_suffices`, `polynomial_bill_summable` |
-| 11 | "Universal reach: proved" overstated | Repaired: XII.2 item 1 lists the hypotheses still to discharge; the total meter supplies every indexed channel's energy bound (`ChannelMeter`); the actual transfer envelope, effect classes and full G1 source/instrument correspondence remain explicit |
+| 11 | "Universal reach: proved" overstated | Repaired: XII.2 item 1 lists the hypotheses still to discharge; the dependence on a complete G1 inventory is removed by the total meter (`ChannelMeter`); the transfer envelope and harm thresholds are installation inputs (`installation/HARM-CLASSES.json`) |
 | 12 | StagedMaximality scope; no bridge to Proposition 1; finite character not derived | Repaired: `StageBridge.four_stage_aligned`, `four_stage_no_needless_loss`; finite character derived from compactness (`FiniteCharacter`); disjunctive requirements (`StagedAlternatives`) |
 | 13 | Rival bound at the top needs ∃π∀w | Repaired: one policy realising the top in every world exists under union closure (G.9) on a compact policy space, and its outcome is the greatest (`CommonPolicyTop.top_policy_exists`, `top_policy_greatest`); without union closure, one policy maximal across all worlds jointly (`CommonPolicyMaximal.common_policy_maximal`) |
 | 14 | Lemma W geometry: continuum guards, light speed, cosmic expansion | Repaired: `ReachTiming.net_coverage` for discrete guards; light-speed particulars are the case v = c; expansion handled in comoving distance and conformal time (`ExpandingWavefront`) |
