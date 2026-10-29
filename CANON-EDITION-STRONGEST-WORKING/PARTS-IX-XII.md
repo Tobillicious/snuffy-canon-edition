@@ -233,7 +233,10 @@ the swept region give coverage at radius \(\rho+\rho_{\rm net}\).
 2. **(Founding coverage.)** At \(t_0\) every digital mind's substrate outputs are
    fenced (Corollary XI.3; the G1 inventory of those outputs is complete), and every
    location of \(D(t_0)\) is within \(\rho\le c_s(d-\tau)/2\) of a funded guard.
-   This is the founding certificate (XI.5 item 1); Theorem XI propagates it.
+   This is the founding certificate (XI.5 item 1); Theorem XI propagates it. Its
+   location half is a finite construction: a compact initial domain is covered at any
+   radius by finitely many guards (`FoundingCover.founding_cover_exists`), and founding
+   with them yields round-trip reach at every later time (`founded_reach`).
 3. **(Expansion at least as fast as the domain.)** The guarded region expands at
    speed \(v\ge c\): the wavefront of Section 21.7, whose sweep succeeds with an
    \(O(t^{d_G})\) cumulative bill (G.12).
@@ -508,8 +511,9 @@ answered as follows.
    holding success (`NarrowPlace.np_splitting_bound`), and the risk union
    (`outer_lane_risk`). Theorem XI propagates coverage from founding to every later
    time; Corollaries XI.1–XI.3 carry it to every digital mind made after founding and
-   to every effect at its outputs. *Hypotheses still to discharge:* founding coverage
-   at \(t_0\) (the founding certificate); completeness of the G1 inventory of
+   to every effect at its outputs. Founding coverage of every location needs only finitely many guards
+   (`FoundingCover`). *Hypotheses still to discharge:* commissioning those guards and
+   fencing every digital mind's outputs at \(t_0\) (the founding certificate); completeness of the G1 inventory of
    substrate outputs; the mediated emission sink and the harm-class lemma (Lemma E);
    and the itemised failure accounts of Theorem XI hypothesis 5 with their kernels.
 2. **One viable common policy.** Compiled: hold safety from the holding cycle and one
