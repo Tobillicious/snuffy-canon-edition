@@ -1,5 +1,5 @@
 #!/bin/zsh
-# After run 5 (306 modules) finishes: save its receipt, register the six gap-closing modules,
+# After run 5 (306 modules) finishes: save its receipt, register the ten gap-closing modules,
 # run the gates and the final full build (run 6).
 WT=/Users/admin/Documents/2026/snuffy-canon-edition/.claude/worktrees/upt-strongest-compile
 LEAN=$WT/CANON-EDITION-V4.2-WORKING/lean
@@ -9,7 +9,7 @@ TMP=/Users/admin/.claude/jobs/f00c7d77/tmp
 until grep -q '^## overall:' $LEAN/RECEIPT.txt 2>/dev/null && grep -q '^final:' $TMP/finalize2.log 2>/dev/null; do sleep 60; done
 cp $LEAN/RECEIPT.txt $OUT/RECEIPT-306-RUN5.txt
 echo "run5: $(grep -E '^## (overall|theorems audited)' $LEAN/RECEIPT.txt | tr '\n' ' ')" > $TMP/finalize3.log
-NEWMODS="FiniteCharacter StagedAlternatives ExclusionRadius CommonPolicyMaximal CommonPolicyTop FoundingCover"
+NEWMODS="FiniteCharacter StagedAlternatives ExclusionRadius CommonPolicyMaximal CommonPolicyTop FoundingCover CountablePooling ExpandingWavefront ItemisedRisk ChannelMeter"
 for m in ${=NEWMODS}; do mv $STAGE/$m.lean $LEAN/Snuffy/; done
 python3 - "$LEAN/build-and-audit.sh" "$NEWMODS" <<'EOF'
 import re, sys
