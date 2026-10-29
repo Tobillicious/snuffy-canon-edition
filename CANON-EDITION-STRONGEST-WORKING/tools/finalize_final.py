@@ -117,5 +117,18 @@ assert f'{M} Lean 4 modules' in d and 'hostile review' in d
 z['description'] = d
 (W / 'ZENODO-DRAFT.json').write_text(json.dumps(z, indent=1, ensure_ascii=False) + '\n')
 
+import importlib.util
+spec = importlib.util.spec_from_file_location('genindex', L / 'gen-index.py')
+gi = importlib.util.module_from_spec(spec); spec.loader.exec_module(gi)
+mods = gi.modules(); names = {m: gi.theorems(L / 'Snuffy' / f'{m}.lean') for m in mods}
+assert len(mods) == M and sum(map(len, names.values())) == N, 'index counts differ from the receipt'
+rows = ['# XII.4 The current machine-checked index', '',
+        f'This index lists all {M} modules of the canon and all {Nf} audited public theorems and lemmas, '
+        f'as compiled, kernel-checked and axiom-audited in the final full build (`{rec_name}`). '
+        'Section 23 above retains the historical 4.2 checkpoint index.', '']
+for m in mods:
+    rows += [f'**{m}**', '', ', '.join(f'`{n}`' for n in names[m]) or '(definitions only)', '']
+(W / 'CURRENT-THEOREM-INDEX.md').write_text('\n'.join(rows) + '\n')
+
 subprocess.run(['python3', 'assemble.py'], cwd=W, check=True)
 print(f'FINAL: {M} modules, {Nf} names, {rec_name}; gates and citations pass; files updated.')
