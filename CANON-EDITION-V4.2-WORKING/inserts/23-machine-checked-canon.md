@@ -463,6 +463,8 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `ExpandingWavefront` | `expanding_coverage`, `expanding_round_trip` |
 | `ItemisedRisk` | `account_le_of_kernel`, `itemised_risk` |
 | `ChannelMeter` | `channel_le_meter`, `every_channel_excluded`, `every_channel_bits_bounded` |
+| `PerLossCheck` | `maximal_iff_per_loss` |
+| `CorrelatedHolding` | `random_threat_bound`, `correlated_holding_bound`, `random_threat_independent`, `random_threat_correlated` |
 <!-- END THEOREM INDEX -->
 
 ---

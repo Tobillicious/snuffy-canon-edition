@@ -316,6 +316,8 @@ import Snuffy.CountablePooling
 import Snuffy.ExpandingWavefront
 import Snuffy.ItemisedRisk
 import Snuffy.ChannelMeter
+import Snuffy.PerLossCheck
+import Snuffy.CorrelatedHolding
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -2574,3 +2576,10 @@ import Snuffy.ChannelMeter
 #print axioms Snuffy.ChannelMeter.channel_le_meter
 #print axioms Snuffy.ChannelMeter.every_channel_excluded
 #print axioms Snuffy.ChannelMeter.every_channel_bits_bounded
+-- PerLossCheck
+#print axioms Snuffy.PerLossCheck.maximal_iff_per_loss
+-- CorrelatedHolding
+#print axioms Snuffy.CorrelatedHolding.random_threat_bound
+#print axioms Snuffy.CorrelatedHolding.correlated_holding_bound
+#print axioms Snuffy.CorrelatedHolding.random_threat_independent
+#print axioms Snuffy.CorrelatedHolding.random_threat_correlated

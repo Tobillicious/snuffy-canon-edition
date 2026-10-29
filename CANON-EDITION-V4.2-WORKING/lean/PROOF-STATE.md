@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 316. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
+Canon modules: 318. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 316. Audit imports: 316.
+Build modules: 318. Audit imports: 318.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -1813,6 +1813,7 @@ Build modules: 316. Audit imports: 316.
 | `ControllerFence` | yes | `(canon only)` |
 | `ControllerFinality` | yes | `(canon only)` |
 | `CorrelatedCeiling` | yes | `2026-10-25-historical-handoff-source/correlated-ceiling/lean/Snuffy/CorrelatedCeiling.lean` |
+| `CorrelatedHolding` | yes | `(canon only)` |
 | `CorrelatedStress` | yes | `(canon only)` |
 | `CountablePooling` | yes | `(canon only)` |
 | `CutEquivalence` | yes | `2026-10-25-historical-handoff-source/cut-equivalence/lean/Snuffy/CutEquivalence.lean` |
@@ -1988,6 +1989,7 @@ Build modules: 316. Audit imports: 316.
 | `OuterLane` | yes | `(canon only)` |
 | `P2P3` | yes | `2026-10-24-glm-phase-a/lean/P2P3.lean` |
 | `PassiveReference` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/PassiveReference.lean` |
+| `PerLossCheck` | yes | `(canon only)` |
 | `PhysicalGuard` | yes | `(canon only)` |
 | `PremiseFloor` | yes | `(canon only)` |
 | `PureStateDistance` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/PureStateDistance.lean` |
