@@ -5,6 +5,15 @@ relation, including the nonliving, from every digital mind, including a pure
 optimiser. The maximal domain, full history, arbitrary references, original
 fault allowance and gross pathwise work target remain unchanged.
 
+**Compiled edition (working, 29 October 2026):** the
+[compiled master](CANON-EDITION-STRONGEST-WORKING/SNUFFY-UPT-STRONGEST-MASTER.md) carries this
+4.2 text with the recovered parts V–XII. Those parts add the foundations and the ten rulings,
+Paper 12's completed law, the external lane in which every mind is reached or held, Paper 11's
+care plant, complete rivals, the infinite-family results, and the reach-before-harm theorem. The
+master is accompanied by its [handoff](CANON-EDITION-STRONGEST-WORKING/HANDOFF.md) and
+[installation specification](CANON-EDITION-STRONGEST-WORKING/installation/INSTALLATION.md).
+Not yet published.
+
 **Published 27 October 2026:** [Zenodo 4.2](https://zenodo.org/records/23674632)
 (DOI 10.5281/zenodo.23674632) · [GitHub release v4.2](https://github.com/Tobillicious/snuffy-canon-edition/releases/tag/v4.2).
 
