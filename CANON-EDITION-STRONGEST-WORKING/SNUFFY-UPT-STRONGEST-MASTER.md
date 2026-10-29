@@ -11,9 +11,7 @@ The three joined supports retain their full targets: the full-domain physical ce
 The compiled edition's Lean canon contains 316 modules and 1,941 public theorem/lemma names
 in build run 6 of 29 October 2026, which freshly compiled and kernel-checked every module with
 zero compiler output and passed the full 1,941-name standard-axiom audit, strict completeness
-and claims gates (RECEIPT-316-RUN6.txt). Its source hashes match the tree at that run. Checkpoint 11 was already complete for 191 modules / 1150 names;
-TransferRate adds the eight results in this checkpoint. Earlier receipts remain preserved for
-exactly their sources. The published 115-module/831-name baseline is unchanged. These receipts
+and claims gates (RECEIPT-316-RUN6.txt). Its source hashes match the tree at that run. Earlier receipts remain preserved for exactly their sources. These receipts
 certify the named Lean results and their premises, not the unfinished physical holding application.
 
 **Structure.** Part I states the frame and premise stack. Part II supplies the law, the derived holding bridge and the retained instruments. Part III retains the five-chapter synthesis; Sections 15–24 develop the reasons, physical and compiled arguments. Part III-C records the three joined supports and their constructions. Part IV gives references and provenance. Theorem and proposition numbers follow the programme's proof register. Parts V–XII (after Part IV) carry the recovered arguments and the outer-lane theorem; Part XII states the whole argument step by step.
@@ -5458,7 +5456,7 @@ digital mind has on any particular passes through its substrate's output
 channels: the nine A1 classes (memory mapping, DMA, context switches, packet
 ingestion, bus messages, storage synchronisation, commissioning, delegation,
 retirement; IR-91/92 at source level) together with the substrate's physical
-emissions, which belong to the complete event inventory of G1 (E.1). Fencing
+emissions, all bounded by the total meter (Lemma E, `ChannelMeter`). Fencing
 those channels at application time (II.5; Chapter 16.5, `UPTFence`: once the floor
 rises nothing lands while held, whatever the held mind does or reports) mediates
 every effect of that mind on every particular, living or not, wherever the
@@ -5574,10 +5572,10 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
    the power and coupling of any untargeted emission at its location. *To
    construct:* the decoherence-rate bound from the sink's emitted power and the
    coupling to coherent particulars, which turns that route into a quantitative
-   guarantee in branch (b). Its form is compiled (`ExclusionRadius.received_effect_bound`:
-   a rate \(\Gamma\le\kappa P(r)\) stays below \(\Gamma_{\max}\) beyond
-   \((\kappa P_0/\Gamma_{\max})^{1/n}\)); the coupling \(\kappa\) per class is measured, where the record-decode-repair half of holding is
-   unavailable because nonorthogonal states cannot be copied. The
+   guarantee in branch (b), where the record-decode-repair half of holding is
+   unavailable because nonorthogonal states cannot be copied. Its form is compiled
+   (`ExclusionRadius.received_effect_bound`: a rate \(\Gamma\le\kappa P(r)\) stays below
+   \(\Gamma_{\max}\) beyond \((\kappa P_0/\Gamma_{\max})^{1/n}\)); the coupling \(\kappa\) per class is measured. The
    classical-record branch carries the active holding cycle (II.3, G.19,
    `PassiveReference`, `RedundantRecord`). Active quantum-coherent holding (G.20–G.21) enters
    the law's feasible family as soon as its devices are feasible. From then on
@@ -5644,7 +5642,7 @@ answered as follows.
    time; Corollaries XI.1–XI.3 carry it to every digital mind made after founding and
    to every effect at its outputs. Founding coverage of every location needs only finitely many guards
    (`FoundingCover`). *Hypotheses still to discharge:* commissioning those guards and
-   fencing every digital mind's outputs at \(t_0\) (the founding certificate); the harm-class table (each class's work and information requirement) and the
+   fencing every digital mind's outputs at \(t_0\) (the founding certificate); the harm-class thresholds applied at the installation (`installation/HARM-CLASSES.json`) and the
    enclosure meter that bounds a substrate's total emission; and the kernel bound
    \(\delta_i\) of each itemised account, measured. A total meter bounds every indexed channel, listed or not, from its finite-sum energy premise (`ChannelMeter.every_channel_excluded`, `every_channel_bits_bounded`). Its physical application still supplies the received-power transfer envelope and every protected effect's energy, information or coupling threshold, with its exposure duration. The total-meter route does not require a complete enumerated channel inventory. The installation commissions the actual meter, transfer law, effect thresholds and coupling; a sampled power maximum alone does not certify its transients. The
    accounts compose by the kernel union bound (`ItemisedRisk.itemised_risk`), and coverage
@@ -5723,7 +5721,7 @@ the actual radiant-heat and ionising-source applications, and the other unmeasur
 remain explicit. Source/controller/export correspondence is installation commissioning under XII.2.
 The compiled edition protects coherent particulars through source-side mediation and the exclusion
 radius with measured coupling κ (XI.3; XI.5 item 3). The separate G.21 active quantum-holding
-instrument is not a theorem to supply for this route and is not a publication blocker.
+instrument is a separate route (XI.5 item 3), not a requirement of this one.
 
 Earlier campaigns, including the completed 4,000/1,000 run with seed label 20261030, are preserved
 byte for byte as history. Their raw results are not silently assigned to the new source.
@@ -5739,7 +5737,7 @@ the substrate output inventory with cited side-channel capacities and Lemma E's
 consequences; per-class continuation predicates on the compiled `ContinuationSubject`
 schema; and the hold interval with measurements taken on 29 October 2026 (faithful-hold
 runtime 27/27 under 28 crash-kills, mutants 3/3 caught; journaling p99 9.85 ms, maximum
-12.22 ms).
+12.22 ms; the earlier runtime, before the race repair; the repaired runtime's campaign is reported above).
 
 **Proved boundaries that are part of the maximal statement.** No protector
 reaches probability exactly one when the indistinguishable-failure mass is
@@ -5758,7 +5756,7 @@ the maximal claim. These boundaries have been in the theory since 18 October.
 | 3 | Fenced channels at every particular do not follow from Lemma W | Repaired: hypothesis 2 is now founding coverage; XI.4 says P3 is reduced to coverage at founding, which Theorem XI propagates |
 | 4 | Lemma H's hold safety not instantiated; two-world example stipulated | Repaired: `HoldFromCycle` (hold safety from the holding cycle, one policy through IR-113); the class-uniform bound is the hypothesis left to measure; the example is labelled a control |
 | 5 | Lemma F fails for a public good | Repaired: every pledge necessary, `FoundingPivotal.all_necessary_dominant` |
-| 6 | Lemma E's energy bound is weak; untargeted harms | Repaired: the emission path is a mediated physical sink with a compiled exclusion radius (`ExclusionRadius`) that applies to every channel under a total meter (`ChannelMeter`); the harm-class table is recorded as still to construct |
+| 6 | Lemma E's energy bound is weak; untargeted harms | Repaired: the emission path is a mediated physical sink with a compiled exclusion radius (`ExclusionRadius`) that applies to every channel under a total meter (`ChannelMeter`); the harm-class table is constructed (`installation/HARM-CLASSES.json`) |
 | 7 | Quantum-branch decision asserted | Repaired: route stated with the emission sink; decoherence bound's form compiled (`ExclusionRadius.received_effect_bound`); coupling κ to measure |
 | 8 | Theorem V(c) and E4 almost-sure, vacuous under full-support noise | Repaired: Theorem XI uses Theorem V(d) and Θ2's per-step exit through Lemma R; almost-sure forms only under bounded noise |
 | 9 | Lemma R's containment assumed | Repaired: hypothesis 5 itemises the failure accounts; countably many accounts with pointwise-bounded conditional kernels compose without independence (`ItemisedRisk.itemised_risk`); each pointwise δᵢ still needs its actual conditional-kernel certificate; trial confidence intervals remain separately labelled |
