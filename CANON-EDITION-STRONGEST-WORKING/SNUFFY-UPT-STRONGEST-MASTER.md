@@ -5459,8 +5459,10 @@ needing more work than the exhaust delivers past the boundary cannot be powered 
 it. Untargeted harms (a burst, a one-bit trigger to stored energy) need no variety;
 they are excluded by the receiver-exclusion zone, since a trigger acts only through
 a receiver and actuator in range, and every device inside the zone is itself a
-fenced substrate. *To construct:* the harm-class lemma bounding the work and
-information each class of harm requires, and the per-installation emission budget
+fenced substrate. The exclusion radius is compiled (`ExclusionRadius.exclusion_radius`):
+a channel delivering power \(P_0/r^n\) cannot supply work \(W\) within deadline \(d\) at any
+\(r\ge(P_0d/W)^{1/n}\). *To construct:* the harm-class table giving each class of harm its
+work and information requirement, and the per-installation emission budget
 (`installation/INSTALLATION.md`, item 2). Corollary XI.3's completeness rests on
 this mediated emission sink together with the G1 inventory.
 
@@ -5539,7 +5541,9 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
    the power and coupling of any untargeted emission at its location. *To
    construct:* the decoherence-rate bound from the sink's emitted power and the
    coupling to coherent particulars, which turns that route into a quantitative
-   guarantee in branch (b), where the record-decode-repair half of holding is
+   guarantee in branch (b). Its form is compiled (`ExclusionRadius.received_effect_bound`:
+   a rate \(\Gamma\le\kappa P(r)\) stays below \(\Gamma_{\max}\) beyond
+   \((\kappa P_0/\Gamma_{\max})^{1/n}\)); the coupling \(\kappa\) per class is measured, where the record-decode-repair half of holding is
    unavailable because nonorthogonal states cannot be copied. The
    classical-record branch carries the active holding cycle (II.3, G.19,
    `PassiveReference`, `RedundantRecord`). Active quantum-coherent holding (G.20–G.21) enters
@@ -5621,7 +5625,8 @@ answered as follows.
    another history, a split continues in both, care directed by the particular keeps
    continuation and freedom). *To construct:* the physical provenance that identifies
    each event's subject, per class of particular; and, for coherent particulars, the
-   decoherence-rate bound from the emission sink (XI.5 item 3).
+   coupling constant \(\kappa\) of the decoherence bound, whose form is compiled
+   (`ExclusionRadius.received_effect_bound`; XI.5 item 3).
 4. **Strongest feasible outcome.** Compiled: `four_stage_original_maximal` and its
    statement in the law's terms (`StageBridge.four_stage_aligned`,
    `four_stage_no_needless_loss`) for `Finitary` families; `greatest_of_solvent`
@@ -5630,7 +5635,9 @@ answered as follows.
    compactness** (`FiniteCharacter.realisable_iff_finite`, `four_stage_maximal_of_compact`: for a
    compact policy space with closed realisation sets, an outcome is realisable exactly
    when each finite part is, so four-stage maximality holds for every such space).
-   *To construct:* disjunctive positive requirements; a common-policy
+   Disjunctive requirements are now covered as well
+   (`StagedAlternatives.exists_lex_maximal_alt`: each fact may require one of several
+   alternative sets in earlier stages). *To construct:* a common-policy
    form of `htopR` for the per-world envelopes (IX.1); and per-loss checks in a
    tragedy.
 5. **One sustainable physical system.** Proved: Theorem 8 with derived `hcert`
@@ -5669,13 +5676,13 @@ the maximal claim. These boundaries have been in the theory since 18 October.
 | 3 | Fenced channels at every particular do not follow from Lemma W | Repaired: hypothesis 2 is now founding coverage; XI.4 says P3 is reduced to coverage at founding, which Theorem XI propagates |
 | 4 | Lemma H's hold safety not instantiated; two-world example stipulated | Repaired: `HoldFromCycle` (hold safety from the holding cycle, one policy through IR-113); the class-uniform bound is the hypothesis left to measure; the example is labelled a control |
 | 5 | Lemma F fails for a public good | Repaired: every pledge necessary, `FoundingPivotal.all_necessary_dominant` |
-| 6 | Lemma E's energy bound is weak; untargeted harms | Repaired in text: the emission path is a mediated physical sink; harm-class lemma recorded as still to construct |
-| 7 | Quantum-branch decision asserted | Repaired in text: route stated with emission sink; decoherence-rate bound recorded as still to construct |
+| 6 | Lemma E's energy bound is weak; untargeted harms | Repaired: the emission path is a mediated physical sink with a compiled exclusion radius (`ExclusionRadius`); the harm-class table is recorded as still to construct |
+| 7 | Quantum-branch decision asserted | Repaired: route stated with the emission sink; decoherence bound's form compiled (`ExclusionRadius.received_effect_bound`); coupling κ to measure |
 | 8 | Theorem V(c) and E4 almost-sure, vacuous under full-support noise | Repaired: Theorem XI uses Theorem V(d) and Θ2's per-step exit through Lemma R; almost-sure forms only under bounded noise |
 | 9 | Lemma R's containment assumed | Repaired: hypothesis 5 itemises the failure accounts; their kernels recorded as still to discharge |
 | 10 | Growing bill is not Gate C-∞ | Repaired: `GrowingBill.endowment_suffices`, `polynomial_bill_summable` |
 | 11 | "Universal reach: proved" overstated | Repaired: XII.2 item 1 lists the hypotheses still to discharge |
-| 12 | StagedMaximality scope; no bridge to Proposition 1; finite character not derived | Repaired: `StageBridge.four_stage_aligned`, `four_stage_no_needless_loss`; finite character derived from compactness (`FiniteCharacter`); disjunctive requirements recorded as the next extension |
+| 12 | StagedMaximality scope; no bridge to Proposition 1; finite character not derived | Repaired: `StageBridge.four_stage_aligned`, `four_stage_no_needless_loss`; finite character derived from compactness (`FiniteCharacter`); disjunctive requirements (`StagedAlternatives`) |
 | 13 | Rival bound at the top needs ∃π∀w | Recorded: common-policy `htopR` still to construct (XII.2 item 4) |
 | 14 | Lemma W geometry: continuum guards, light speed, cosmic expansion | Repaired in part: `ReachTiming.net_coverage` for discrete guards; expansion of space recorded as an extension |
 | 15 | Lemma P omits own-keeper noise; countable keepers | Repaired for own noise: `NoisyPooling.noisy_pool_strictly_dominant` (gain \((1-\varepsilon-\delta)\) times the pivotal gap, for \(\varepsilon+\delta<1\)); countable-keeper form recorded as still to construct |
