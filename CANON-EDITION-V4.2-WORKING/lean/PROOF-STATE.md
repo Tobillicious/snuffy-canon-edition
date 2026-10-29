@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 306. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
+Canon modules: 316. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 306. Audit imports: 306.
+Build modules: 316. Audit imports: 316.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -1798,7 +1798,10 @@ Build modules: 306. Audit imports: 306.
 | `CascadeCore` | yes | `2026-10-23-adoption-contracts/lean/CascadeCore.lean` |
 | `ChannelCP` | yes | `2026-10-25-historical-handoff-source/cited-small/lean/Snuffy/ChannelCP.lean` |
 | `ChannelExtension` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/ChannelExtension.lean` |
+| `ChannelMeter` | yes | `(canon only)` |
 | `ClosedCohold` | yes | `(canon only)` |
+| `CommonPolicyMaximal` | yes | `(canon only)` |
+| `CommonPolicyTop` | yes | `(canon only)` |
 | `Composition` | yes | `(canon only)` |
 | `Concatenated` | yes | `(canon only)` |
 | `ConcatenatedDecoding` | yes | `2026-10-25-historical-handoff-source/concatenated-decoding/lean/Snuffy/ConcatenatedDecoding.lean` |
@@ -1811,6 +1814,7 @@ Build modules: 306. Audit imports: 306.
 | `ControllerFinality` | yes | `(canon only)` |
 | `CorrelatedCeiling` | yes | `2026-10-25-historical-handoff-source/correlated-ceiling/lean/Snuffy/CorrelatedCeiling.lean` |
 | `CorrelatedStress` | yes | `(canon only)` |
+| `CountablePooling` | yes | `(canon only)` |
 | `CutEquivalence` | yes | `2026-10-25-historical-handoff-source/cut-equivalence/lean/Snuffy/CutEquivalence.lean` |
 | `CyclicProjections` | yes | `(canon only)` |
 | `DataProcessing` | yes | `(canon only)` |
@@ -1825,14 +1829,18 @@ Build modules: 306. Audit imports: 306.
 | `EmissionBound` | yes | `(canon only)` |
 | `ErrorBudget` | yes | `2026-10-25-error-budget/ErrorBudget.lean` |
 | `ExRecBound` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/ExRecBound.lean` |
+| `ExclusionRadius` | yes | `(canon only)` |
+| `ExpandingWavefront` | yes | `(canon only)` |
 | `FIFOAdmission` | yes | `2026-10-23-r17-fifo-verification/lean/FIFOAdmission.lean` |
 | `FIFOInstance` | yes | `2026-10-24-glm-phase-a/lean/FIFOInstance.lean` |
 | `FIFOWorkload` | yes | `2026-10-23-r17-fifo-verification/lean/FIFOWorkload.lean` |
 | `Fano` | yes | `(canon only)` |
 | `FaultCover` | yes | `(canon only)` |
 | `FinalClosure` | yes | `(canon only)` |
+| `FiniteCharacter` | yes | `(canon only)` |
 | `FiniteInformation` | yes | `(canon only)` |
 | `FoundingAnchor` | yes | `(canon only)` |
+| `FoundingCover` | yes | `(canon only)` |
 | `FoundingDominance` | yes | `(canon only)` |
 | `FoundingPivotal` | yes | `(canon only)` |
 | `G1Certificate` | yes | `(canon only)` |
@@ -1954,6 +1962,7 @@ Build modules: 306. Audit imports: 306.
 | `Instruments` | yes | `(canon only)` |
 | `IntegrationCertificate` | yes | `2026-10-24-glm-phase-a/lean/IntegrationCertificate.lean` |
 | `Irreplaceability` | yes | `(canon only)` |
+| `ItemisedRisk` | yes | `(canon only)` |
 | `KLAdditivity` | yes | `(canon only)` |
 | `KnillLaflamme` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/KnillLaflamme.lean` |
 | `Landauer` | yes | `(canon only)` |
@@ -2030,6 +2039,7 @@ Build modules: 306. Audit imports: 306.
 | `SpeedLimit` | yes | `(canon only)` |
 | `StageBridge` | yes | `(canon only)` |
 | `StageSchedule` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/StageSchedule.lean` |
+| `StagedAlternatives` | yes | `(canon only)` |
 | `StagedMaximality` | yes | `(canon only)` |
 | `StrokeBookkeeping` | yes | `(canon only)` |
 | `TIWAGuard` | yes | `(canon only)` |

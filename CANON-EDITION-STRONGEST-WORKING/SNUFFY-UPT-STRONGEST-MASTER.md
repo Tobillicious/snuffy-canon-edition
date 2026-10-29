@@ -8,10 +8,10 @@ Canon Edition 4.2, 26 October 2026. Research direction: Tobias Croydon-McRae. Th
 
 The three joined supports retain their full targets: the full-domain physical certificate (G1), realisability of the whole continuation-and-freedom tuple (G2), and recovery success with a complete pathwise work certificate (G3). This repair checkpoint corrects the normalised quantum-state domain and the clipped-reserve contraction, and develops the actual Bennett implementation. The physical source, whole-outcome, device-cost and external-theorem application correspondences remain explicit construction work; the component theorems do not by themselves declare the maximal argument complete.
 
-The compiled edition's Lean canon contains 299 modules and 1,889 public theorem/lemma names
-in build run 4 of 29 October 2026, which freshly compiled and kernel-checked every module with
-zero compiler output and passed the full 1,889-name standard-axiom audit, strict completeness
-and claims gates (RECEIPT-299-RUN4.txt). Its source hashes match the tree at that run. Checkpoint 11 was already complete for 191 modules / 1150 names;
+The compiled edition's Lean canon contains 306 modules and 1,918 public theorem/lemma names
+in build run 5 of 29 October 2026, which freshly compiled and kernel-checked every module with
+zero compiler output and passed the full 1,918-name standard-axiom audit, strict completeness
+and claims gates (RECEIPT-306-RUN5.txt). Its source hashes match the tree at that run. Checkpoint 11 was already complete for 191 modules / 1150 names;
 TransferRate adds the eight results in this checkpoint. Earlier receipts remain preserved for
 exactly their sources. The published 115-module/831-name baseline is unchanged. These receipts
 certify the named Lean results and their premises, not the unfinished physical holding application.
@@ -5152,7 +5152,10 @@ Proposition 1 (`aligned_iff_no_needless_loss`) turns maximality into one check f
 each particular lost: no feasible option keeps it while agreeing at every earlier
 stage. `four_stage_original_maximal` guarantees that an outcome passing every such
 check exists, and the last-resort ladder and the impartiality ruling (VI.3)
-govern the choice among such outcomes.
+govern the choice among such outcomes. The reduction is exact
+(`PerLossCheck.maximal_iff_per_loss`): no feasible outcome is better than \(m\) if and only
+if, for every fact \(m\) loses, no feasible outcome keeps it while agreeing with \(m\) at
+every earlier stage and keeping everything \(m\) keeps at that stage.
 
 ## IX.2 Theorem 8 and the derived holding composition
 
@@ -5658,8 +5661,8 @@ answered as follows.
    when each finite part is, so four-stage maximality holds for every such space).
    Disjunctive requirements are now covered as well
    (`StagedAlternatives.exists_lex_maximal_alt`: each fact may require one of several
-   alternative sets in earlier stages). *To construct:* per-loss checks in a
-   tragedy. The common-policy form of `htopR` is proved:
+   alternative sets in earlier stages). Per-loss certification in a tragedy is
+   exact (`PerLossCheck.maximal_iff_per_loss`). The common-policy form of `htopR` is proved:
    under union closure (G.9, from locality) on a compact policy space, one policy realises
    the union of all policies' outcomes and is the greatest in every world at once
    (`CommonPolicyTop.top_policy_greatest`). Maximality with one policy fixed before the world is proved:

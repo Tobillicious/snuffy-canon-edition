@@ -1,4 +1,4 @@
-# v4.2 modules — build receipt (2026-10-28T23:47Z)
+# v4.2 modules — build receipt (2026-10-29T03:56Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -299,6 +299,13 @@
 ## IRPhysicalAbstraction: exit=0 compiler-output-bytes=0
 ## IRResidualEscrow: exit=0 compiler-output-bytes=0
 ## IR121MeteredResidualEscrow: exit=0 compiler-output-bytes=0
+## ReachTiming: exit=0 compiler-output-bytes=0
+## FoundingPivotal: exit=0 compiler-output-bytes=0
+## GrowingBill: exit=0 compiler-output-bytes=0
+## ContinuationSubject: exit=0 compiler-output-bytes=0
+## NoisyPooling: exit=0 compiler-output-bytes=0
+## StageBridge: exit=0 compiler-output-bytes=0
+## HoldFromCycle: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -598,6 +605,13 @@
 ## leanchecker Snuffy.IRPhysicalAbstraction: exit=0
 ## leanchecker Snuffy.IRResidualEscrow: exit=0
 ## leanchecker Snuffy.IR121MeteredResidualEscrow: exit=0
+## leanchecker Snuffy.ReachTiming: exit=0
+## leanchecker Snuffy.FoundingPivotal: exit=0
+## leanchecker Snuffy.GrowingBill: exit=0
+## leanchecker Snuffy.ContinuationSubject: exit=0
+## leanchecker Snuffy.NoisyPooling: exit=0
+## leanchecker Snuffy.StageBridge: exit=0
+## leanchecker Snuffy.HoldFromCycle: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.AnalyticBridge.starProjection_fixed_iff_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2579,7 +2593,6 @@
 ##   'PhysicalBridges.IR110.robust_window_from_shared_readout' depends on axioms: [propext, Quot.sound]
 ##   'PhysicalBridges.IR112.robust_continuation_and_options' does not depend on any axioms
 ##   'PhysicalBridges.IR112.executable_option_not_maximal_freedom' does not depend on any axioms
-##   /Users/admin/Documents/2026/snuffy-canon-edition/.claude/worktrees/upt-strongest-compile/CANON-EDITION-V4.2-WORKING/lean/SummitsAudit.lean:2354:14: error(lean.unknownIdentifier): Unknown constant `must`
 ##   'PhysicalBridges.IR115.watchdog_contract_yields_common_protected_action' depends on axioms: [propext, Quot.sound]
 ##   'PhysicalBridges.IR115.certified_action_preserves_continuity_and_options' depends on axioms: [propext, Quot.sound]
 ##   'PhysicalBridges.IR115.enabled_nonblocking_certified_action' does not depend on any axioms
@@ -2724,13 +2737,42 @@
 ##    Quot.sound]
 ##   'PhysicalBridges.IR121.positive_metered_residual_is_possible' does not depend on any axioms
 ##   'PhysicalBridges.IR121.balanced_ledger_does_not_imply_physical_metering' does not depend on any axioms
-## axiom audit exit=1
-## theorems audited: 1889; non-standard axiom dependencies: none
-## expected audited statements: 1890
+##   'Snuffy.ReachTiming.round_trip_in_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReachTiming.reach_round_trip' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReachTiming.net_coverage' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ReachTiming.fence_in_time' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.FoundingPivotal.pivotal_contribution_dominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FoundingPivotal.others_short' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.FoundingPivotal.all_necessary_dominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GrowingBill.pv_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GrowingBill.endowment_suffices' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.GrowingBill.polynomial_bill_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.ContinuationSubject.laterStage_refl' depends on axioms: [propext]
+##   'Snuffy.ContinuationSubject.laterStage_trans' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.ContinuationSubject.copy_not_laterStage' depends on axioms: [propext]
+##   'Snuffy.ContinuationSubject.split_continues_both' depends on axioms: [propext]
+##   'Snuffy.ContinuationSubject.care_keeps_freedom' depends on axioms: [propext]
+##   'Snuffy.ContinuationSubject.directed_by_other_not_free' does not depend on any axioms
+##   'Snuffy.ContinuationSubject.faithful_hold_preserves' does not depend on any axioms
+##   'Snuffy.NoisyPooling.noisy_advantage' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.NoisyPooling.noisy_pool_strictly_dominant' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StageBridge.mem_slice_iff' depends on axioms: [propext]
+##   'Snuffy.StageBridge.slice_eq_of_tuple_eq' depends on axioms: [propext, Quot.sound]
+##   'Snuffy.StageBridge.slice_ssubset_of_tuple_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StageBridge.lexBetter_of_lexLt' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StageBridge.four_stage_aligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.StageBridge.four_stage_no_needless_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HoldFromCycle.hsafe_of_holding_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HoldFromCycle.classViable_iff_IR113' does not depend on any axioms
+##   'Snuffy.HoldFromCycle.hold_common_action_of_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.HoldFromCycle.one_policy_from_holding_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+## axiom audit exit=0
+## theorems audited: 1918; non-standard axiom dependencies: none
+## expected audited statements: 1918
 ## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):
-##   ## completeness: canon 299, corpus names 104, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 1742
-##   ## build/audit coverage: canon 299, build 299, audit 299, errors 0
-##   ## claims: audited theorems 1890, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
+##   ## completeness: canon 306, corpus names 104, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 1742
+##   ## build/audit coverage: canon 306, build 306, audit 306, errors 0
+##   ## claims: audited theorems 1918, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
 ## source sha256:
 ##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
 ##   4b416646e1fc8f74f524e0f9a680384e35e06adacd69f91bb30dcec70b921b7e  Snuffy/AffordableReciprocity.lean
@@ -2782,6 +2824,7 @@
 ##   fcd89bf81c2949641e6b3c8065e31e3886565c76659a189dd7ed26b87e13997c  Snuffy/ConsensusRate.lean
 ##   aeb5e586ee5d972b2c72a2fa7f3ea7c72855da3c23228ab6ab1e3a64124481a6  Snuffy/ConservedRouting.lean
 ##   8b96ffeb524fd26d068b1fd3415174b0ee684effe9ac5faabfb0e7d22e8dc36f  Snuffy/ContinuationPredicate.lean
+##   fce164bf6d195dd2f35ec11979ce650ffaad80ba2a87d29305f3ec252607c4d9  Snuffy/ContinuationSubject.lean
 ##   200b979928bfb647972dce49e5724872ed4a5f4d66d87e2776f3ac25c4ca1b4e  Snuffy/ControllerCertificate.lean
 ##   8f4d8faaf7ebc5e15997f0b5667ec988016bbea090ed487d27e5271ed6ccbd43  Snuffy/ControllerFence.lean
 ##   e5cfdacff59c22ff7c9447c308faa09e3822d5ad7531f2e8435e535c4432dca7  Snuffy/ControllerFinality.lean
@@ -2810,6 +2853,7 @@
 ##   2a7120678dfd22e9eaa9420621bab301099b9022ba59b20dbe5eeba4b7e70f87  Snuffy/FiniteInformation.lean
 ##   e09a9eae840aca9d1991338e0247ee47e7d9ef725411205cb6d4b3b3fa8a235b  Snuffy/FoundingAnchor.lean
 ##   1fb0cdf2e8662cf21ac128ce5d59f07ab03adf4759a38b676d1131ba927a60ff  Snuffy/FoundingDominance.lean
+##   ccc9161719a7f6ca9ee9215f7d9185c07202f34751b5a33c0c1115698822048a  Snuffy/FoundingPivotal.lean
 ##   4fe05fcbc6235481ecdb46a20ef1ab020e690181cbb8b5d048262bd8ced5409d  Snuffy/G1Certificate.lean
 ##   06f3e520893f9d7d5574030f9fed30bd8d5e90a8d93243ab58d23c1422f82a94  Snuffy/G1Complete.lean
 ##   a027c38adf36721c181dac0de478212732ded8e17e133c2a84f8eae3dac666d7  Snuffy/G1E9.lean
@@ -2839,6 +2883,7 @@
 ##   9020f99f13fafe8b9ec1e14904a7b260c31bb4515f6d78f38bb5debe6fd6ee9b  Snuffy/GenerativeClosure.lean
 ##   1dcb27d5a4fcc2da54355430b6f5d9cfda2ac1fa9680d21b4cf175db2f672525  Snuffy/GoldenFormula.lean
 ##   d21be5cb40a8a4d07e91bdaef149a7b61174ae7bc545c62562b3ce9c46f6613d  Snuffy/Greatestness.lean
+##   d21dfae0ef00dbdadd0849026aba7cf9e32ebb61677e7e933f6d609d47d97240  Snuffy/GrowingBill.lean
 ##   cf60d764670e729bf00a7182121f1924fa609dcafde9fe666ccb471f216d50c5  Snuffy/GuardFactorization.lean
 ##   db15ea3027dda06fa32620e2b7c5542dc68b7d2d31efcb2957011ced43077948  Snuffy/GuardOperator.lean
 ##   dd128c497f9ab78d4df360a25a762b8341084940c6659e37033f3c12ce5e9400  Snuffy/GuardSignature.lean
@@ -2848,6 +2893,7 @@
 ##   50d896d0f65492a4ee12f9dbde9fe8477598eb9d7067bd5394050bc439c3435f  Snuffy/HamiltonianDecomposition.lean
 ##   c8b28f84038370f90bd286b92b7ffaa3788df4d3798f0347eb1f4c6412818e03  Snuffy/HistoryPolymer.lean
 ##   f5a0844789dceaea4cc499265a4f427b969975ec531892d3ed249b19bcc9be81  Snuffy/HoldCommonAction.lean
+##   9336d05eec3775fcce4c8ccf602d303b599f9845ac0fd808361fff93ba8372d3  Snuffy/HoldFromCycle.lean
 ##   e559ec229b24e3af38d023a4eec5d29525e6b756cb7a0eb47ee68ab3948d6f43  Snuffy/Htopkeeps.lean
 ##   e3ba2cbc7b8c1e5185057d8430d5489e7fd6b8548e85178eaaea01b7d469ee5f  Snuffy/IR100PhysicalAccountingWitness.lean
 ##   762902ab493f25898f448f3bca8f8b88596dacc328c458f2de1bc682bf60e366  Snuffy/IR101ProtectedSector.lean
@@ -2859,7 +2905,7 @@
 ##   294440192d7b05ad6c7eef5abb595be9900df90f90917000d314e1824a1adc96  Snuffy/IR110WatchdogRobustObservation.lean
 ##   35bf34cf771b3c02ab0ccfa7a5835d61b29648ac53d22d0a0118c2b7a421fa5d  Snuffy/IR112RobustContinuityOptions.lean
 ##   adec2105ec3355b75db4bcebacff0e57e7493d52a995085d4db95b449027f858  Snuffy/IR113ObservationClassSelection.lean
-##   c2e00d79943f2470e8c6c16b43d81f544f964887e888d343afa01c20d38a7ecf  Snuffy/IR115WatchdogToAgency.lean
+##   0f759c63213e01ad67e9f5cdf136e508c38b544b68fe13230c951df516ce19c7  Snuffy/IR115WatchdogToAgency.lean
 ##   509e6e149c633dddbc5f9a0d12d272f76fe1f6b6a37ab81a42789892514be148  Snuffy/IR116CumulativeSubjectDuties.lean
 ##   e8f9e2b329b5bfc1049d4f7d345dd8b716acb23b4ef437fce8f704b182459d72  Snuffy/IR117SourceInstallationAdapter.lean
 ##   2e9c3eef4cbcdebeb694406ac3d2667ec22bdd347096d3f899472e11f055c879  Snuffy/IR118InFlightBacklogBudget.lean
@@ -2941,6 +2987,7 @@
 ##   62bf22d842fbd0c0cad2f3b87d0481089cbd5afa2c730f5bf3293fb9883581f8  Snuffy/MeetHilbert.lean
 ##   e1bad9fc57f51713b3ef18056dc61548f07cecbaf759d85c1186f8b315b8fecb  Snuffy/MetricShadow.lean
 ##   95bafc0219891baa77e4fdccbc04b2f4b45bd4803e3420cf9d120d4aae6bb1f8  Snuffy/NarrowPlace.lean
+##   5e598b9123982c0ee91abb4a9e8380aa9e794e8a77f555733894ecaa9f400dbb  Snuffy/NoisyPooling.lean
 ##   d93af125041fc4801e062bd01630c7745f83a41690e3c229f2a43aa05b9c2fd8  Snuffy/ObservationWinning.lean
 ##   b3c74eba3d40bcd9c2422c53309d7975335e33fccdf0a160ac4657eb4bbb7871  Snuffy/OpialBridge.lean
 ##   7f0e58cf3d426f2a321bfa50a7bdcc27db561c8099ac4bc12ebc71c6c77471ef  Snuffy/OriginalD1.lean
@@ -2972,6 +3019,7 @@
 ##   777ae7896b7df5664cb4e443a03a97413eaf6f1490c3943158cd57e57ded5006  Snuffy/RGFixedPoint.lean
 ##   5dd527ab44fa53c46b068fd8b5b7635632ed0275a284ad86285eda8eabaded72  Snuffy/RankAndCoalition.lean
 ##   86b332df3585358feae8b8451e882bca63cebe197a0a8f9fde8044a046bc9216  Snuffy/ReachBeforeHarm.lean
+##   eff591ce4a48ff9f7c02aeb3f1d94c8dabfef8ab297a8bdd7d1885847cd1eca6  Snuffy/ReachTiming.lean
 ##   c7a0929261f69172f184ae32ec7649399094ee172d801c69eb4f9d6d0bcafd99  Snuffy/ReadoutBounds.lean
 ##   1154e288cdf3f67032a3b794a6e8e7bc6d30b04744d834224754ec368f05d1a4  Snuffy/ReadoutJoint.lean
 ##   98488c652f4361d2ffc3ca5c2b8741f0ae54e8ae9bc0fa07d1280f23e544e31e  Snuffy/ReasonsCompiled.lean
@@ -2999,6 +3047,7 @@
 ##   47572c51ec0936496697e6858aa46465b00fb18c5fba10255ec9f6c2293188f3  Snuffy/SolventReciprocity.lean
 ##   b08368e3b7f9da798cf875d01ae6c8b1fedb4f1dce596167c8ce4b32a6f647f9  Snuffy/SparseFailure.lean
 ##   355c12f48ab339d34d57c02f9e3a9d556d27009aecb26335b9113c9e327d11b6  Snuffy/SpeedLimit.lean
+##   93adaf63ea0142b2d9b26863983bff8f58c2ed6f3e73e1ef2381b21dee94afa6  Snuffy/StageBridge.lean
 ##   81d70a1e34679512595cd47ce53da9c1ca57c61641bc9ae82718d02c424129e5  Snuffy/StageSchedule.lean
 ##   ecdb86c5dd871082d8cefb3d4945611a7f2e8d169336502f23920ec123ab0707  Snuffy/StagedMaximality.lean
 ##   40d4899d038811565a8ed51c027fc0e8f30c0c53fd9c3915a13a725ffe619dc3  Snuffy/StrokeBookkeeping.lean
@@ -3031,5 +3080,5 @@
 ##   fcfcf42fc99f43b196b65cb4f51d12e52d69d05bc0c7cdd90e2d03a6514a3e15  Snuffy/WorkBilling.lean
 ##   a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1  Snuffy/WorkIntegration.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   01a272e88ef2a389ccd6ea1b634f3bf462942ec6be5ca13cc6b5e0729aeda2ae  SummitsAudit.lean
-## overall: FAIL
+##   2e999e18e568eb0da425bf258e0df525c94cbeba9b0a9486410f1fd157bbd4d5  SummitsAudit.lean
+## overall: PASS

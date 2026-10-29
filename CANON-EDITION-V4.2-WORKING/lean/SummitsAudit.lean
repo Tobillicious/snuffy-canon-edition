@@ -306,6 +306,16 @@ import Snuffy.ContinuationSubject
 import Snuffy.NoisyPooling
 import Snuffy.StageBridge
 import Snuffy.HoldFromCycle
+import Snuffy.FiniteCharacter
+import Snuffy.StagedAlternatives
+import Snuffy.ExclusionRadius
+import Snuffy.CommonPolicyMaximal
+import Snuffy.CommonPolicyTop
+import Snuffy.FoundingCover
+import Snuffy.CountablePooling
+import Snuffy.ExpandingWavefront
+import Snuffy.ItemisedRisk
+import Snuffy.ChannelMeter
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -2531,3 +2541,36 @@ import Snuffy.HoldFromCycle
 #print axioms Snuffy.HoldFromCycle.classViable_iff_IR113
 #print axioms Snuffy.HoldFromCycle.hold_common_action_of_cycle
 #print axioms Snuffy.HoldFromCycle.one_policy_from_holding_cycle
+-- FiniteCharacter
+#print axioms Snuffy.FiniteCharacter.realisable_iff_finite
+#print axioms Snuffy.FiniteCharacter.realisable_finitary
+#print axioms Snuffy.FiniteCharacter.four_stage_maximal_of_compact
+-- StagedAlternatives
+#print axioms Snuffy.StagedAlternatives.stage_step_alt
+#print axioms Snuffy.StagedAlternatives.exists_stagemax_upto_alt
+#print axioms Snuffy.StagedAlternatives.exists_lex_maximal_alt
+-- ExclusionRadius
+#print axioms Snuffy.ExclusionRadius.exclusion_radius
+#print axioms Snuffy.ExclusionRadius.received_effect_bound
+-- CommonPolicyMaximal
+#print axioms Snuffy.CommonPolicyMaximal.common_policy_maximal
+-- CommonPolicyTop
+#print axioms Snuffy.CommonPolicyTop.top_policy_exists
+#print axioms Snuffy.CommonPolicyTop.top_policy_greatest
+-- FoundingCover
+#print axioms Snuffy.FoundingCover.founding_cover_exists
+#print axioms Snuffy.FoundingCover.founded_reach
+-- CountablePooling
+#print axioms Snuffy.CountablePooling.pool_strictly_dominant_ennreal
+#print axioms Snuffy.CountablePooling.countable_keepers_pool
+#print axioms Snuffy.CountablePooling.countable_keepers_noisy_pool
+-- ExpandingWavefront
+#print axioms Snuffy.ExpandingWavefront.expanding_coverage
+#print axioms Snuffy.ExpandingWavefront.expanding_round_trip
+-- ItemisedRisk
+#print axioms Snuffy.ItemisedRisk.account_le_of_kernel
+#print axioms Snuffy.ItemisedRisk.itemised_risk
+-- ChannelMeter
+#print axioms Snuffy.ChannelMeter.channel_le_meter
+#print axioms Snuffy.ChannelMeter.every_channel_excluded
+#print axioms Snuffy.ChannelMeter.every_channel_bits_bounded

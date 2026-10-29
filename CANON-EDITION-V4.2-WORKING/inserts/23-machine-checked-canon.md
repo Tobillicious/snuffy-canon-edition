@@ -453,6 +453,16 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `NoisyPooling` | `noisy_advantage`, `noisy_pool_strictly_dominant` |
 | `StageBridge` | `mem_slice_iff`, `slice_eq_of_tuple_eq`, `slice_ssubset_of_tuple_lt`, `lexBetter_of_lexLt`, `four_stage_aligned`, `four_stage_no_needless_loss` |
 | `HoldFromCycle` | `hsafe_of_holding_cycle`, `classViable_iff_IR113`, `hold_common_action_of_cycle`, `one_policy_from_holding_cycle` |
+| `FiniteCharacter` | `realisable_iff_finite`, `realisable_finitary`, `four_stage_maximal_of_compact` |
+| `StagedAlternatives` | `stage_step_alt`, `exists_stagemax_upto_alt`, `exists_lex_maximal_alt` |
+| `ExclusionRadius` | `exclusion_radius`, `received_effect_bound` |
+| `CommonPolicyMaximal` | `common_policy_maximal` |
+| `CommonPolicyTop` | `top_policy_exists`, `top_policy_greatest` |
+| `FoundingCover` | `founding_cover_exists`, `founded_reach` |
+| `CountablePooling` | `pool_strictly_dominant_ennreal`, `countable_keepers_pool`, `countable_keepers_noisy_pool` |
+| `ExpandingWavefront` | `expanding_coverage`, `expanding_round_trip` |
+| `ItemisedRisk` | `account_le_of_kernel`, `itemised_risk` |
+| `ChannelMeter` | `channel_le_meter`, `every_channel_excluded`, `every_channel_bits_bounded` |
 <!-- END THEOREM INDEX -->
 
 ---
