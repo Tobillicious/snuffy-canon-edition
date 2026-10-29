@@ -2,9 +2,8 @@
 
 29 October 2026. The full proposition and original outcome, rival, history and risk/work targets are fixed.
 `commission.py` screens supplied measurements and declared design values against the theorem inequalities.
-Physical commissioning also constructs and verifies the source/instrument, observation, continuation,
-whole-outcome, channel-transfer, complete-cost and genuine conditional-kernel correspondences.
-The numerical tool does not authenticate those correspondences. NOT MEASURED is not a pass.
+Every input must be measured on the actual installation; declared values are labelled as such.
+The numerical tool does not authenticate the instruments that produced the values. NOT MEASURED is not a pass.
 
 Fill `PARAMS-TEMPLATE.json`, then run `python3 commission.py params.json report.md`.
 The pilot's current report has 9 PASS, 3 FAIL and 10 NOT MEASURED of 22 screens;
