@@ -36,7 +36,11 @@ continues and is free. When the selected policy realises \(\top\) (realisability
 `htopR` from locality, G.9; funding `hsolv`), every rival's outcome satisfies
 \(\mathcal O(\pi,w)\preceq\top\) by inclusion. The upper envelope is the
 universal tuple itself, so no enumeration of rival histories is needed
-(`greatest_of_solvent`). This is the 29 October audit's "Certificate B".
+(`greatest_of_solvent`). This is the 29 October audit's "Certificate B". The per-world envelopes need one policy realising \(\top\) in every world.
+Under union closure (G.9) on a compact policy space that policy exists: finite character
+turns pairwise splicing into one policy realising the union of all policies' outcomes
+(`CommonPolicyTop.top_policy_exists`), and that outcome contains every realisable outcome
+in every world (`top_policy_greatest`).
 
 **In a tragedy, certification is per loss.** Where \(\top\) is not realisable,
 Proposition 1 (`aligned_iff_no_needless_loss`) turns maximality into one check for
@@ -533,8 +537,10 @@ answered as follows.
    Disjunctive requirements are now covered as well
    (`StagedAlternatives.exists_lex_maximal_alt`: each fact may require one of several
    alternative sets in earlier stages). *To construct:* a common-policy
-   form of `htopR` for greatestness in the per-world envelopes (IX.1); and per-loss
-   checks in a tragedy. Maximality with one policy fixed before the world is proved:
+   per-loss checks in a tragedy. The common-policy form of `htopR` is proved:
+   under union closure (G.9, from locality) on a compact policy space, one policy realises
+   the union of all policies' outcomes and is the greatest in every world at once
+   (`CommonPolicyTop.top_policy_greatest`). Maximality with one policy fixed before the world is proved:
    `CommonPolicyMaximal.common_policy_maximal` gives, for every compact policy space, a
    single policy whose outcome across all worlds jointly no realisable outcome improves.
 5. **One sustainable physical system.** Proved: Theorem 8 with derived `hcert`
@@ -580,7 +586,7 @@ the maximal claim. These boundaries have been in the theory since 18 October.
 | 10 | Growing bill is not Gate C-∞ | Repaired: `GrowingBill.endowment_suffices`, `polynomial_bill_summable` |
 | 11 | "Universal reach: proved" overstated | Repaired: XII.2 item 1 lists the hypotheses still to discharge |
 | 12 | StagedMaximality scope; no bridge to Proposition 1; finite character not derived | Repaired: `StageBridge.four_stage_aligned`, `four_stage_no_needless_loss`; finite character derived from compactness (`FiniteCharacter`); disjunctive requirements (`StagedAlternatives`) |
-| 13 | Rival bound at the top needs ∃π∀w | Repaired for maximality: one policy fixed before the world, maximal across all worlds jointly, exists for every compact policy space (`CommonPolicyMaximal.common_policy_maximal`); the common-policy form of `htopR` (greatestness at the top) recorded as still to construct |
+| 13 | Rival bound at the top needs ∃π∀w | Repaired: one policy realising the top in every world exists under union closure (G.9) on a compact policy space, and its outcome is the greatest (`CommonPolicyTop.top_policy_exists`, `top_policy_greatest`); without union closure, one policy maximal across all worlds jointly (`CommonPolicyMaximal.common_policy_maximal`) |
 | 14 | Lemma W geometry: continuum guards, light speed, cosmic expansion | Repaired in part: `ReachTiming.net_coverage` for discrete guards; expansion of space recorded as an extension |
 | 15 | Lemma P omits own-keeper noise; countable keepers | Repaired for own noise: `NoisyPooling.noisy_pool_strictly_dominant` (gain \((1-\varepsilon-\delta)\) times the pivotal gap, for \(\varepsilon+\delta<1\)); countable-keeper form recorded as still to construct |
 | 16 | NarrowPlace needs H independent of deliveries | Recorded: H is a constant in the compiled statement; correlated failures charged in Lemma R's accounts |
