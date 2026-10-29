@@ -1,5 +1,7 @@
 # Snuffy — Canon Edition 4.2
 
+> **Newest public archived edition (29 October 2026): [The Universal Protection Theory — compiled edition 4.3](https://doi.org/10.5281/zenodo.23760830).** This is the archived reference for the latest compiled text and accompanying reproducibility material. The checked-in working tree and 4.2 release notes below reflect their own earlier state; do not assume this repository's current default-branch master is byte-identical to the 4.3 Zenodo archive. Compare archived manifests and receipts before claiming source identity. The physical commissioning and source-to-world correspondence still require independent verification.
+
 The Universal Protection Theory concerns protection of every particular and
 relation, including the nonliving, from every digital mind, including a pure
 optimiser. The maximal domain, full history, arbitrary references, original
