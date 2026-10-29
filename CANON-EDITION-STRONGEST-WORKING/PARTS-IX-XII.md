@@ -533,8 +533,10 @@ answered as follows.
    Disjunctive requirements are now covered as well
    (`StagedAlternatives.exists_lex_maximal_alt`: each fact may require one of several
    alternative sets in earlier stages). *To construct:* a common-policy
-   form of `htopR` for the per-world envelopes (IX.1); and per-loss checks in a
-   tragedy.
+   form of `htopR` for greatestness in the per-world envelopes (IX.1); and per-loss
+   checks in a tragedy. Maximality with one policy fixed before the world is proved:
+   `CommonPolicyMaximal.common_policy_maximal` gives, for every compact policy space, a
+   single policy whose outcome across all worlds jointly no realisable outcome improves.
 5. **One sustainable physical system.** Proved: Theorem 8 with derived `hcert`
    (G.10), premise 6 and Section 22's twenty-one accounts, Paper 11's U1–U3, Lemma R,
    and the growing-bill endowment (`GrowingBill.endowment_suffices`,
@@ -578,7 +580,7 @@ the maximal claim. These boundaries have been in the theory since 18 October.
 | 10 | Growing bill is not Gate C-∞ | Repaired: `GrowingBill.endowment_suffices`, `polynomial_bill_summable` |
 | 11 | "Universal reach: proved" overstated | Repaired: XII.2 item 1 lists the hypotheses still to discharge |
 | 12 | StagedMaximality scope; no bridge to Proposition 1; finite character not derived | Repaired: `StageBridge.four_stage_aligned`, `four_stage_no_needless_loss`; finite character derived from compactness (`FiniteCharacter`); disjunctive requirements (`StagedAlternatives`) |
-| 13 | Rival bound at the top needs ∃π∀w | Recorded: common-policy `htopR` still to construct (XII.2 item 4) |
+| 13 | Rival bound at the top needs ∃π∀w | Repaired for maximality: one policy fixed before the world, maximal across all worlds jointly, exists for every compact policy space (`CommonPolicyMaximal.common_policy_maximal`); the common-policy form of `htopR` (greatestness at the top) recorded as still to construct |
 | 14 | Lemma W geometry: continuum guards, light speed, cosmic expansion | Repaired in part: `ReachTiming.net_coverage` for discrete guards; expansion of space recorded as an extension |
 | 15 | Lemma P omits own-keeper noise; countable keepers | Repaired for own noise: `NoisyPooling.noisy_pool_strictly_dominant` (gain \((1-\varepsilon-\delta)\) times the pivotal gap, for \(\varepsilon+\delta<1\)); countable-keeper form recorded as still to construct |
 | 16 | NarrowPlace needs H independent of deliveries | Recorded: H is a constant in the compiled statement; correlated failures charged in Lemma R's accounts |
