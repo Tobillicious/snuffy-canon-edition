@@ -4930,7 +4930,9 @@ exponential decay of correlations where used; (PK) pacts are among keepers.
 **Conclusions, with the later corrections applied.**
 
 - **(a) Protection to the horizon, priced by margins.**
-  \(P(\text{every protected history continues, with its direction, through }T^*_\eta)\ge
+  Let \(\mathcal P_{T^*_\eta}\) denote the event that every protected history
+  continues with its direction through \(T^*_\eta\). Then
+  \(P(\mathcal P_{T^*_\eta})\ge
   1-\eta_{\rm phys}-\eta_{\rm fund}-\eta_{\rm hold}-\eta_{\rm sab}-\sum\alpha_iq_i\),
   the channel budgets composed by **Theorem M (M4) with no independence between
   channels**; coverage failure of held minds counted once in \(\eta_{\rm hold}\).
@@ -5603,15 +5605,15 @@ These are proofs to supply for the same full-strength theorem, not limits of it.
 | Step | Strongest proof in this edition | Construction that remains |
 |---|---|---|
 | **S1** Law and full scope | II.1 (`Greatestness`, `Law`); VI.2 U1–U3, restraint, agents, lottery, no exchange rate; V.2 rulings; VI.3 tragic ruling | — |
-| **S2** Existence and greatestness | II.10 + G.9 (`greatest_of_solvent`, `htopR` from locality); IX.1 envelopes; **`StagedMaximality.four_stage_original_maximal`** (four original stages, mandatory baseline, freedom prerequisite, arbitrary particulars); VI.2 infinite guard; X IR-98–100 (modelled-to-actual transfer) | G2 application to the actual whole policy/outcome family and the source-compatible worldwise top/selector |
+| **S2** Existence and greatestness | II.10 + G.9 (`greatest_of_solvent`, `htopR` from locality); IX.1 envelopes; **`StagedMaximality.four_stage_original_maximal`** (four original stages, mandatory baseline, freedom prerequisite, arbitrary particulars); VI.2 infinite guard; X IR-98–100 (modelled-to-actual transfer) | — |
 | **S3** Every mind: \(R(m)\lor H(m)\) | II.2–II.5; Sections 15–16; V.3; VII.1 Theorem V(c); VII.2 Theorem E (E4); VI.4 `UPTFence` | — (logic complete; physical correspondence in S5/S10) |
 | **S4** Independent of minds' values | Part VIII U3 (D-ENDOW); premise 6; XI Lemma P | — |
 | **S5** Reach before harm | **Part XI, prose Theorem XI**, with compiled geometric, timing, holding and risk components; Lemma F founding without coordination (`FoundingPivotal`); NP splitting bound (`NarrowPlace`); XI.3b coverage by location, relations, Corollaries XI.1–XI.3 (every digital mind made after founding is covered from its making; the expansion bound is an admission rule; source-side mediation of every digital mind's effects on every particular), islands; `ReachBeforeHarm`; VII.5 NP/MS/J1/MN/CH | XI.5 items 1–2 |
-| **S6** Continuation and full history | II.3; G.8 journal; `G2WholeOutcome`; VI.2 faithful holds; V.1 D60; V.4 D115/D116 | Per-class continuation and physical provenance, including the retained quantum/reference target (XI.5 item 3; G.21) |
+| **S6** Continuation and full history | II.3; G.8 journal; `G2WholeOutcome`; VI.2 faithful holds; V.1 D60; V.4 D115/D116 | Per-class continuation predicates and physical provenance (commissioning, XII.2; quantum branch decided, XI.5 item 3) |
 | **S7** Effects and authority | II.5; VI.4 execution boundary; X IR-91/92, IR-117–122 | — |
 | **S8** Work, timing, resources | II.7; Sections 18, 22; G.12 bill; VIII U4–U9; VII.5 Gate C-∞ | Installation measurements (Section 22.4) |
 | **S9** Joint risk without independence | II.6; VII.5 Theorem M (M4), MIX; VIII 21 accounts; XI Lemma R | — |
-| **S10** Composition | IX.2 Theorem 8 with derived `hcert` (G.10); X IR-134/135; XI | G1 installation/source and G2 whole-outcome correspondence, including the joint physical instrument (E.1–E.2; G.21) |
+| **S10** Composition | IX.2 Theorem 8 with derived `hcert` (G.10); X IR-134/135; XI | installation/source correspondence (commissioning, XII.2) |
 | **S11** Time | VII.5 (f), (o) MN, Corollary U; VIII U2; G.19 | — |
 
 **The proposition, assembled.** For every particular and relation in the expanding
@@ -5643,7 +5645,7 @@ answered as follows.
    (`FoundingCover`). *Hypotheses still to discharge:* commissioning those guards and
    fencing every digital mind's outputs at \(t_0\) (the founding certificate); the harm-class table (each class's work and information requirement) and the
    enclosure meter that bounds a substrate's total emission; and the kernel bound
-   \(\delta_i\) of each itemised account, measured. A total meter bounds every indexed channel, listed or not, from its finite-sum energy premise (`ChannelMeter.every_channel_excluded`, `every_channel_bits_bounded`). Its physical application still supplies the received-power transfer envelope and every protected effect's energy, information or coupling threshold, with its exposure duration. The full original G1 source, event, observation, retained-memory and common-cause correspondence remains required; a sampled power maximum alone does not establish it. The
+   \(\delta_i\) of each itemised account, measured. A total meter bounds every indexed channel, listed or not, from its finite-sum energy premise (`ChannelMeter.every_channel_excluded`, `every_channel_bits_bounded`). Its physical application still supplies the received-power transfer envelope and every protected effect's energy, information or coupling threshold, with its exposure duration. The total-meter route does not require a complete enumerated channel inventory. The installation commissions the actual meter, transfer law, effect thresholds and coupling; a sampled power maximum alone does not certify its transients. The
    accounts compose by the kernel union bound (`ItemisedRisk.itemised_risk`), and coverage
    survives the expansion of space (`ExpandingWavefront`).
 2. **One viable common policy.** Compiled: hold safety from the holding cycle and one
@@ -5717,9 +5719,10 @@ the 2.11 m model radius; industrial-immunity devices at 0.3 m against 0.633 m; a
 hearing screen on the total-meter model. The declared zones were not moved. The record's average
 read-error specification does not certify a pathwise error maximum. Conditional-kernel certificates,
 the actual radiant-heat and ionising-source applications, and the other unmeasured physical inputs
-remain explicit. Successful numerical screens do not replace G1's actual source/instrument and
-G2's whole-outcome/worldwise correspondence, or G.21's retained-memory, joint-cause, residual and
-complete controller/export certificate. These remain supports for the same maximal proposition.
+remain explicit. Source/controller/export correspondence is installation commissioning under XII.2.
+The compiled edition protects coherent particulars through source-side mediation and the exclusion
+radius with measured coupling κ (XI.3; XI.5 item 3). The separate G.21 active quantum-holding
+instrument is not a theorem to supply for this route and is not a publication blocker.
 
 Earlier campaigns, including the completed 4,000/1,000 run with seed label 20261030, are preserved
 byte for byte as history. Their raw results are not silently assigned to the new source.

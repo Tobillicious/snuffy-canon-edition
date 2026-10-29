@@ -568,7 +568,9 @@ exponential decay of correlations where used; (PK) pacts are among keepers.
 **Conclusions, with the later corrections applied.**
 
 - **(a) Protection to the horizon, priced by margins.**
-  \(P(\text{every protected history continues, with its direction, through }T^*_\eta)\ge
+  Let \(\mathcal P_{T^*_\eta}\) denote the event that every protected history
+  continues with its direction through \(T^*_\eta\). Then
+  \(P(\mathcal P_{T^*_\eta})\ge
   1-\eta_{\rm phys}-\eta_{\rm fund}-\eta_{\rm hold}-\eta_{\rm sab}-\sum\alpha_iq_i\),
   the channel budgets composed by **Theorem M (M4) with no independence between
   channels**; coverage failure of held minds counted once in \(\eta_{\rm hold}\).

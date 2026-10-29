@@ -31,11 +31,12 @@ Run 8 supplies no accepted receipt. Run 9 is a separate fresh complete build of 
 source snapshot whose hashes must match every integrated canonical source before acceptance.
 
 The remaining publication work is recorded in the final verification and draft-upload receipts.
-No main branch, merged PR or published deposit is changed by this continuation. The strongest
-original physical proposition remains the goal; software and theorem receipts alone do not
-supply the actual full-history joint instrument, source/controller/export correspondence or
-whole-world feasible-family construction. Existing conditional derivations are retained in
-full rather than relabelled as an unconditional completion.
+No main branch, merged PR or published deposit is changed by this continuation. The full
+proposition is unchanged. Coherent particulars are protected by source-side mediation and the
+exclusion radius with measured κ (XI.3; XI.5 item 3). Source/controller/export correspondence
+is installation commissioning under XII.2. G.21 is a separate active quantum-holding route,
+not a theorem to supply for the compiled edition and not a publication blocker. The author's
+scope correction withdraws the premature missing-support question and restores the handoff queue.
 
 # Handoff — compiled strongest UPT edition (29 October 2026)
 
