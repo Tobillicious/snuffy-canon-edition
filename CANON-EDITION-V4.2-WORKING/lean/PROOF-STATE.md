@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 192. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
+Canon modules: 327. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 192. Audit imports: 192.
+Build modules: 327. Audit imports: 327.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -1765,6 +1765,36 @@ Build modules: 192. Audit imports: 192.
 | `BennettBatch` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/BennettBatch.lean` |
 | `BennettCounterpart` | yes | `2026-10-25-historical-handoff-source/bennett-counterpart/lean/Snuffy/BennettCounterpart.lean` |
 | `BennettExact` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/BennettExact.lean` |
+| `BookCanonicalDominance` | yes | `(canon only)` |
+| `BookCheckpointBudget` | yes | `(canon only)` |
+| `BookCoholdFixedPoint` | yes | `(canon only)` |
+| `BookContextualObservation` | yes | `(canon only)` |
+| `BookDeliveryGap` | yes | `(canon only)` |
+| `BookDurableDrain` | yes | `(canon only)` |
+| `BookObservedHold` | yes | `(canon only)` |
+| `BookTrustedCounter` | yes | `(canon only)` |
+| `BookUPTAdequacy` | yes | `(canon only)` |
+| `BookUPTAgents` | yes | `(canon only)` |
+| `BookUPTBroadcast` | yes | `(canon only)` |
+| `BookUPTCountRefinement` | yes | `(canon only)` |
+| `BookUPTDominance` | yes | `(canon only)` |
+| `BookUPTExistence` | yes | `(canon only)` |
+| `BookUPTHold` | yes | `(canon only)` |
+| `BookUPTHoldAdequacy` | yes | `(canon only)` |
+| `BookUPTHoldTimed` | yes | `(canon only)` |
+| `BookUPTImpartiality` | yes | `(canon only)` |
+| `BookUPTInfiniteGuard` | yes | `(canon only)` |
+| `BookUPTLaw` | yes | `(canon only)` |
+| `BookUPTLawGuard` | yes | `(canon only)` |
+| `BookUPTLawLex` | yes | `(canon only)` |
+| `BookUPTLawRepair` | yes | `(canon only)` |
+| `BookUPTLifeGuardExists` | yes | `(canon only)` |
+| `BookUPTLottery` | yes | `(canon only)` |
+| `BookUPTLotteryMenu` | yes | `(canon only)` |
+| `BookUPTMonotone` | yes | `(canon only)` |
+| `BookUPTNoExchangeRate` | yes | `(canon only)` |
+| `BookUPTQuorum` | yes | `(canon only)` |
+| `BookUPTRestraint` | yes | `(canon only)` |
 | `Bridge` | yes | `(canon only)` |
 | `BridgeD1` | yes | `2026-10-23-gemini-bridge-dynamics/lean/BridgeD1.lean` |
 | `BridgeE9` | yes | `2026-10-23-gemini-bridge-dynamics/lean/BridgeE9.lean` |
@@ -1775,17 +1805,24 @@ Build modules: 192. Audit imports: 192.
 | `CascadeCore` | yes | `2026-10-23-adoption-contracts/lean/CascadeCore.lean` |
 | `ChannelCP` | yes | `2026-10-25-historical-handoff-source/cited-small/lean/Snuffy/ChannelCP.lean` |
 | `ChannelExtension` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/ChannelExtension.lean` |
+| `ChannelMeter` | yes | `(canon only)` |
 | `ClosedCohold` | yes | `(canon only)` |
+| `CommonPolicyMaximal` | yes | `(canon only)` |
+| `CommonPolicyTop` | yes | `(canon only)` |
 | `Composition` | yes | `(canon only)` |
 | `Concatenated` | yes | `(canon only)` |
 | `ConcatenatedDecoding` | yes | `2026-10-25-historical-handoff-source/concatenated-decoding/lean/Snuffy/ConcatenatedDecoding.lean` |
 | `ConsensusRate` | yes | `(canon only)` |
 | `ConservedRouting` | yes | `2026-10-24-glm-phase-a/lean/ConservedRouting.lean` |
+| `ContinuationPredicate` | yes | `(canon only)` |
+| `ContinuationSubject` | yes | `(canon only)` |
 | `ControllerCertificate` | yes | `2026-10-24-glm-phase-a/lean/ControllerCertificate.lean` |
 | `ControllerFence` | yes | `(canon only)` |
 | `ControllerFinality` | yes | `(canon only)` |
 | `CorrelatedCeiling` | yes | `2026-10-25-historical-handoff-source/correlated-ceiling/lean/Snuffy/CorrelatedCeiling.lean` |
+| `CorrelatedHolding` | yes | `(canon only)` |
 | `CorrelatedStress` | yes | `(canon only)` |
+| `CountablePooling` | yes | `(canon only)` |
 | `CutEquivalence` | yes | `2026-10-25-historical-handoff-source/cut-equivalence/lean/Snuffy/CutEquivalence.lean` |
 | `CyclicProjections` | yes | `(canon only)` |
 | `DataProcessing` | yes | `(canon only)` |
@@ -1797,15 +1834,23 @@ Build modules: 192. Audit imports: 192.
 | `E9Routes` | yes | `2026-10-23-adoption-contracts/lean/E9Routes.lean` |
 | `E9SelfHealing` | yes | `(canon only)` |
 | `EdgeLaw` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/EdgeLaw.lean` |
+| `EmissionBound` | yes | `(canon only)` |
 | `ErrorBudget` | yes | `2026-10-25-error-budget/ErrorBudget.lean` |
 | `ExRecBound` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/ExRecBound.lean` |
+| `ExclusionRadius` | yes | `(canon only)` |
+| `ExpandingWavefront` | yes | `(canon only)` |
 | `FIFOAdmission` | yes | `2026-10-23-r17-fifo-verification/lean/FIFOAdmission.lean` |
 | `FIFOInstance` | yes | `2026-10-24-glm-phase-a/lean/FIFOInstance.lean` |
 | `FIFOWorkload` | yes | `2026-10-23-r17-fifo-verification/lean/FIFOWorkload.lean` |
 | `Fano` | yes | `(canon only)` |
 | `FaultCover` | yes | `(canon only)` |
 | `FinalClosure` | yes | `(canon only)` |
+| `FiniteCharacter` | yes | `(canon only)` |
 | `FiniteInformation` | yes | `(canon only)` |
+| `FoundingAnchor` | yes | `(canon only)` |
+| `FoundingCover` | yes | `(canon only)` |
+| `FoundingDominance` | yes | `(canon only)` |
+| `FoundingPivotal` | yes | `(canon only)` |
 | `G1Certificate` | yes | `(canon only)` |
 | `G1Complete` | yes | `(canon only)` |
 | `G1E9` | yes | `2026-10-25-historical-handoff-source/g1-e9/lean/Snuffy/G1E9.lean` |
@@ -1835,6 +1880,7 @@ Build modules: 192. Audit imports: 192.
 | `GenerativeClosure` | yes | `2026-10-23-adoption-contracts/lean/GenerativeClosure.lean` |
 | `GoldenFormula` | yes | `(canon only)` |
 | `Greatestness` | yes | `(canon only)` |
+| `GrowingBill` | yes | `(canon only)` |
 | `GuardFactorization` | yes | `(canon only)` |
 | `GuardOperator` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/GuardOperator.lean` |
 | `GuardSignature` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/GuardSignature.lean` |
@@ -1843,10 +1889,90 @@ Build modules: 192. Audit imports: 192.
 | `HalperinDecay` | yes | `(canon only)` |
 | `HamiltonianDecomposition` | yes | `2026-10-25-historical-handoff-source/working/lean/Snuffy/HamiltonianDecomposition.lean` |
 | `HistoryPolymer` | yes | `(canon only)` |
+| `HoldCommonAction` | yes | `(canon only)` |
+| `HoldFromCycle` | yes | `(canon only)` |
 | `Htopkeeps` | yes | `(canon only)` |
+| `IR100PhysicalAccountingWitness` | yes | `(canon only)` |
+| `IR101ProtectedSector` | yes | `(canon only)` |
+| `IR103LedgerContinuityCountermodel` | yes | `(canon only)` |
+| `IR104ThreeCaseAuthorization` | yes | `(canon only)` |
+| `IR105AuthorizationIndependence` | yes | `(canon only)` |
+| `IR108ObservationObstruction` | yes | `(canon only)` |
+| `IR109RobustObservationViability` | yes | `(canon only)` |
+| `IR110WatchdogRobustObservation` | yes | `(canon only)` |
+| `IR112RobustContinuityOptions` | yes | `(canon only)` |
+| `IR113ObservationClassSelection` | yes | `(canon only)` |
+| `IR115WatchdogToAgency` | yes | `(canon only)` |
+| `IR116CumulativeSubjectDuties` | yes | `(canon only)` |
+| `IR117SourceInstallationAdapter` | yes | `(canon only)` |
+| `IR118InFlightBacklogBudget` | yes | `(canon only)` |
+| `IR119MultimindSourceWitness` | yes | `(canon only)` |
+| `IR120WitnessedDrainCohort` | yes | `(canon only)` |
+| `IR121MeteredResidualEscrow` | yes | `(canon only)` |
+| `IR134SourceExtractedOutcome` | yes | `(canon only)` |
+| `IR135CommonPolicyWorlds` | yes | `(canon only)` |
+| `IR93GlobalComposition` | yes | `(canon only)` |
+| `IR95SharedStateRefinement` | yes | `(canon only)` |
+| `IR96DisturbanceSimulation` | yes | `(canon only)` |
+| `IR98FeasibleFamilyTransfer` | yes | `(canon only)` |
+| `IR99ResourceImproverCoverage` | yes | `(canon only)` |
+| `IRA1CausalField` | yes | `(canon only)` |
+| `IRA1CommissionEscrow` | yes | `(canon only)` |
+| `IRA1Delegation` | yes | `(canon only)` |
+| `IRA1DurableJournal` | yes | `(canon only)` |
+| `IRA1HostMediation` | yes | `(canon only)` |
+| `IRA1NineClassComposition` | yes | `(canon only)` |
+| `IRA1PacketIngress` | yes | `(canon only)` |
+| `IRA1PacketJournalJoin` | yes | `(canon only)` |
+| `IRA1PageCapability` | yes | `(canon only)` |
+| `IRA1Retirement` | yes | `(canon only)` |
+| `IRAggregateBudget` | yes | `(canon only)` |
+| `IRAtomicQuiescence` | yes | `(canon only)` |
+| `IRBeliefService` | yes | `(canon only)` |
+| `IRBeliefTrace` | yes | `(canon only)` |
+| `IRBeliefViability` | yes | `(canon only)` |
+| `IRBoundedStalls` | yes | `(canon only)` |
+| `IRCapabilityNoninterference` | yes | `(canon only)` |
+| `IRChannelInventory` | yes | `(canon only)` |
+| `IRClockedBoundedStalls` | yes | `(canon only)` |
+| `IRClockedService` | yes | `(canon only)` |
+| `IRContinuation` | yes | `(canon only)` |
+| `IRControlledReentry` | yes | `(canon only)` |
+| `IRControllerPhysical` | yes | `(canon only)` |
+| `IRCoupledFinitaryTwoStage` | yes | `(canon only)` |
+| `IRDeferredEffects` | yes | `(canon only)` |
+| `IREnergyReplenishment` | yes | `(canon only)` |
+| `IREventTimeBudget` | yes | `(canon only)` |
+| `IRFiniteProfileObstruction` | yes | `(canon only)` |
+| `IRFiniteRefutationCriterion` | yes | `(canon only)` |
+| `IRHistoryProvenance` | yes | `(canon only)` |
+| `IRInFlightQuiescence` | yes | `(canon only)` |
+| `IRInfiniteFinitaryMaximality` | yes | `(canon only)` |
+| `IRInfiniteHistoryCompactness` | yes | `(canon only)` |
+| `IRInterSampleEnvelope` | yes | `(canon only)` |
+| `IRJsonTraceChecker` | yes | `(canon only)` |
+| `IRMandatoryBaselineMaximality` | yes | `(canon only)` |
+| `IRMicrostepInvariant` | yes | `(canon only)` |
+| `IRObservedClockedStalls` | yes | `(canon only)` |
+| `IRPhysicalAbstraction` | yes | `(canon only)` |
+| `IRPhysicalGuard` | yes | `(canon only)` |
+| `IRProfileAudit` | yes | `(canon only)` |
+| `IRQuiescenceAck` | yes | `(canon only)` |
+| `IRResidualEscrow` | yes | `(canon only)` |
+| `IRResourceDerivedClosure` | yes | `(canon only)` |
+| `IRSafeMaximality` | yes | `(canon only)` |
+| `IRSelectedMaximality` | yes | `(canon only)` |
+| `IRServiceProgress` | yes | `(canon only)` |
+| `IRStoredEnergyCommonMode` | yes | `(canon only)` |
+| `IRStutterObstruction` | yes | `(canon only)` |
+| `IRTwoStageInfiniteLex` | yes | `(canon only)` |
+| `IRTypedTraceChecker` | yes | `(canon only)` |
+| `IRViability` | yes | `(canon only)` |
+| `IRWatchdogLatencyEffects` | yes | `(canon only)` |
 | `Instruments` | yes | `(canon only)` |
 | `IntegrationCertificate` | yes | `2026-10-24-glm-phase-a/lean/IntegrationCertificate.lean` |
 | `Irreplaceability` | yes | `(canon only)` |
+| `ItemisedRisk` | yes | `(canon only)` |
 | `KLAdditivity` | yes | `(canon only)` |
 | `KnillLaflamme` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/KnillLaflamme.lean` |
 | `Landauer` | yes | `(canon only)` |
@@ -1860,6 +1986,8 @@ Build modules: 192. Audit imports: 192.
 | `MeetAlgebra` | yes | `(canon only)` |
 | `MeetHilbert` | yes | `(canon only)` |
 | `MetricShadow` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/MetricShadow.lean` |
+| `NarrowPlace` | yes | `(canon only)` |
+| `NoisyPooling` | yes | `(canon only)` |
 | `ObservationWinning` | yes | `2026-10-25-historical-handoff-source/recovered-r17-sources/lean/Snuffy/ObservationWinning.lean` |
 | `OpialBridge` | yes | `(canon only)` |
 | `OriginalD1` | yes | `2026-10-23-gemini-original-derivations/lean/OriginalD1.lean` |
@@ -1867,8 +1995,10 @@ Build modules: 192. Audit imports: 192.
 | `OriginalH6` | yes | `2026-10-23-gemini-original-derivations/lean/OriginalH6.lean` |
 | `OriginalH7` | yes | `2026-10-23-gemini-original-derivations/lean/OriginalH7.lean` |
 | `OriginalH8` | yes | `2026-10-23-gemini-original-derivations/lean/OriginalH8.lean` |
+| `OuterLane` | yes | `(canon only)` |
 | `P2P3` | yes | `2026-10-24-glm-phase-a/lean/P2P3.lean` |
 | `PassiveReference` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/PassiveReference.lean` |
+| `PerLossCheck` | yes | `(canon only)` |
 | `PhysicalGuard` | yes | `(canon only)` |
 | `PremiseFloor` | yes | `(canon only)` |
 | `PureStateDistance` | yes | `2026-10-25-historical-handoff-source/joins/lean/Snuffy/PureStateDistance.lean` |
@@ -1889,6 +2019,8 @@ Build modules: 192. Audit imports: 192.
 | `R17WorkConcrete` | yes | `2026-10-23-r17-fifo-verification/lean/R17WorkConcrete.lean` |
 | `RGFixedPoint` | yes | `(canon only)` |
 | `RankAndCoalition` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/RankAndCoalition.lean` |
+| `ReachBeforeHarm` | yes | `(canon only)` |
+| `ReachTiming` | yes | `(canon only)` |
 | `ReadoutBounds` | yes | `2026-10-23-next-work-and-corrections/checks/ReadoutBounds.lean` |
 | `ReadoutJoint` | yes | `2026-10-23-readout-joint-floor/lean/ReadoutJoint.lean` |
 | `ReasonsCompiled` | yes | `(canon only)` |
@@ -1916,7 +2048,10 @@ Build modules: 192. Audit imports: 192.
 | `SolventReciprocity` | yes | `2026-10-25-solvent-reciprocity/SolventReciprocity.lean` |
 | `SparseFailure` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/SparseFailure.lean` |
 | `SpeedLimit` | yes | `(canon only)` |
+| `StageBridge` | yes | `(canon only)` |
 | `StageSchedule` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/StageSchedule.lean` |
+| `StagedAlternatives` | yes | `(canon only)` |
+| `StagedMaximality` | yes | `(canon only)` |
 | `StrokeBookkeeping` | yes | `(canon only)` |
 | `TIWAGuard` | yes | `(canon only)` |
 | `TIWARecovery` | yes | `(canon only)` |

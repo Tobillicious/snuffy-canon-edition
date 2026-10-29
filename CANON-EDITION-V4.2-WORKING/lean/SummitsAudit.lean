@@ -192,6 +192,141 @@ import Snuffy.WalkBound9
 import Snuffy.HistoryPolymer
 import Snuffy.ThermalEncoding
 import Snuffy.TransferRate
+import Snuffy.OuterLane
+import Snuffy.StagedMaximality
+import Snuffy.FoundingDominance
+import Snuffy.ReachBeforeHarm
+import Snuffy.NarrowPlace
+import Snuffy.HoldCommonAction
+import Snuffy.BookUPTExistence
+import Snuffy.BookUPTAdequacy
+import Snuffy.BookUPTAgents
+import Snuffy.BookUPTBroadcast
+import Snuffy.BookUPTCountRefinement
+import Snuffy.BookUPTDominance
+import Snuffy.BookUPTHold
+import Snuffy.BookUPTHoldAdequacy
+import Snuffy.BookUPTHoldTimed
+import Snuffy.BookUPTImpartiality
+import Snuffy.BookUPTInfiniteGuard
+import Snuffy.BookUPTLaw
+import Snuffy.BookUPTLawGuard
+import Snuffy.BookUPTLawLex
+import Snuffy.BookUPTLawRepair
+import Snuffy.BookUPTLifeGuardExists
+import Snuffy.BookUPTLottery
+import Snuffy.BookUPTLotteryMenu
+import Snuffy.BookUPTMonotone
+import Snuffy.BookUPTNoExchangeRate
+import Snuffy.BookUPTQuorum
+import Snuffy.BookUPTRestraint
+import Snuffy.EmissionBound
+import Snuffy.FoundingAnchor
+import Snuffy.ContinuationPredicate
+import Snuffy.BookContextualObservation
+import Snuffy.IRSafeMaximality
+import Snuffy.IRSelectedMaximality
+import Snuffy.IRProfileAudit
+import Snuffy.IRFiniteProfileObstruction
+import Snuffy.IRInfiniteFinitaryMaximality
+import Snuffy.IRTwoStageInfiniteLex
+import Snuffy.IRCoupledFinitaryTwoStage
+import Snuffy.IRResourceDerivedClosure
+import Snuffy.IRFiniteRefutationCriterion
+import Snuffy.IRMandatoryBaselineMaximality
+import Snuffy.IRViability
+import Snuffy.IRInfiniteHistoryCompactness
+import Snuffy.IREnergyReplenishment
+import Snuffy.IRTypedTraceChecker
+import Snuffy.IRDeferredEffects
+import Snuffy.IRQuiescenceAck
+import Snuffy.IRAtomicQuiescence
+import Snuffy.IRInFlightQuiescence
+import Snuffy.IRJsonTraceChecker
+import Snuffy.IRWatchdogLatencyEffects
+import Snuffy.IRPhysicalGuard
+import Snuffy.IRControllerPhysical
+import Snuffy.IRMicrostepInvariant
+import Snuffy.IRInterSampleEnvelope
+import Snuffy.IRStoredEnergyCommonMode
+import Snuffy.IRControlledReentry
+import Snuffy.IRCapabilityNoninterference
+import Snuffy.IRA1HostMediation
+import Snuffy.IRA1PageCapability
+import Snuffy.IRA1PacketIngress
+import Snuffy.IRA1CausalField
+import Snuffy.IRA1DurableJournal
+import Snuffy.IRA1PacketJournalJoin
+import Snuffy.IRA1CommissionEscrow
+import Snuffy.IRA1Delegation
+import Snuffy.IRA1Retirement
+import Snuffy.IRA1NineClassComposition
+import Snuffy.IR93GlobalComposition
+import Snuffy.IR98FeasibleFamilyTransfer
+import Snuffy.IR99ResourceImproverCoverage
+import Snuffy.IR100PhysicalAccountingWitness
+import Snuffy.IR101ProtectedSector
+import Snuffy.IR103LedgerContinuityCountermodel
+import Snuffy.IR104ThreeCaseAuthorization
+import Snuffy.IR105AuthorizationIndependence
+import Snuffy.IR108ObservationObstruction
+import Snuffy.IR109RobustObservationViability
+import Snuffy.IR113ObservationClassSelection
+import Snuffy.IR110WatchdogRobustObservation
+import Snuffy.IR112RobustContinuityOptions
+import Snuffy.IR115WatchdogToAgency
+import Snuffy.IR116CumulativeSubjectDuties
+import Snuffy.IRBeliefViability
+import Snuffy.IRBeliefTrace
+import Snuffy.IRServiceProgress
+import Snuffy.IRBeliefService
+import Snuffy.IRStutterObstruction
+import Snuffy.IRBoundedStalls
+import Snuffy.IRClockedService
+import Snuffy.IRClockedBoundedStalls
+import Snuffy.IRObservedClockedStalls
+import Snuffy.IR95SharedStateRefinement
+import Snuffy.IR96DisturbanceSimulation
+import Snuffy.IR117SourceInstallationAdapter
+import Snuffy.IR118InFlightBacklogBudget
+import Snuffy.IRContinuation
+import Snuffy.IRHistoryProvenance
+import Snuffy.IR119MultimindSourceWitness
+import Snuffy.IR120WitnessedDrainCohort
+import Snuffy.IRAggregateBudget
+import Snuffy.IRChannelInventory
+import Snuffy.IREventTimeBudget
+import Snuffy.IRPhysicalAbstraction
+import Snuffy.IRResidualEscrow
+import Snuffy.IR121MeteredResidualEscrow
+import Snuffy.ReachTiming
+import Snuffy.FoundingPivotal
+import Snuffy.GrowingBill
+import Snuffy.ContinuationSubject
+import Snuffy.NoisyPooling
+import Snuffy.StageBridge
+import Snuffy.HoldFromCycle
+import Snuffy.FiniteCharacter
+import Snuffy.StagedAlternatives
+import Snuffy.ExclusionRadius
+import Snuffy.CommonPolicyMaximal
+import Snuffy.CommonPolicyTop
+import Snuffy.FoundingCover
+import Snuffy.CountablePooling
+import Snuffy.ExpandingWavefront
+import Snuffy.ItemisedRisk
+import Snuffy.ChannelMeter
+import Snuffy.PerLossCheck
+import Snuffy.CorrelatedHolding
+import Snuffy.BookCanonicalDominance
+import Snuffy.BookDurableDrain
+import Snuffy.BookTrustedCounter
+import Snuffy.BookCoholdFixedPoint
+import Snuffy.BookCheckpointBudget
+import Snuffy.BookDeliveryGap
+import Snuffy.BookObservedHold
+import Snuffy.IR134SourceExtractedOutcome
+import Snuffy.IR135CommonPolicyWorlds
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -1543,3 +1678,984 @@ import Snuffy.TransferRate
 #print axioms Snuffy.TransferRate.polynomial_stage_bill
 #print axioms Snuffy.TransferRate.complete_attempt_bill
 #print axioms Snuffy.TransferRate.join_complete_bill
+-- OuterLane
+#print axioms Snuffy.OuterLane.wavefront_coverage
+#print axioms Snuffy.OuterLane.interception_in_time
+#print axioms Snuffy.OuterLane.pool_strictly_dominant
+#print axioms Snuffy.OuterLane.outer_lane_risk
+-- StagedMaximality
+#print axioms Snuffy.StagedMaximality.finset_subset_of_chain
+#print axioms Snuffy.StagedMaximality.stage_step
+#print axioms Snuffy.StagedMaximality.exists_stagemax_upto
+#print axioms Snuffy.StagedMaximality.exists_lex_maximal
+#print axioms Snuffy.StagedMaximality.freedomPre_earlier
+#print axioms Snuffy.StagedMaximality.four_stage_original_maximal
+-- FoundingDominance
+#print axioms Snuffy.FoundingDominance.contribution_advantage_pos
+#print axioms Snuffy.FoundingDominance.contribution_strictly_dominant
+#print axioms Snuffy.FoundingDominance.no_abstention_equilibrium
+-- ReachBeforeHarm
+#print axioms Snuffy.ReachBeforeHarm.reach_before_harm
+-- NarrowPlace
+#print axioms Snuffy.NarrowPlace.np_splitting_bound
+-- HoldCommonAction
+#print axioms Snuffy.HoldCommonAction.hold_is_common_viable_action
+#print axioms Snuffy.HoldCommonAction.common_policy_from_hold
+#print axioms Snuffy.HoldCommonAction.act_or_hold_policy
+#print axioms Snuffy.HoldCommonAction.no_effect_action_safe_in_both
+#print axioms Snuffy.HoldCommonAction.two_world_resolved
+-- BookUPTExistence
+#print axioms Snuffy.Book.UPTExistence.Sub.refl
+#print axioms Snuffy.Book.UPTExistence.Sub.trans
+#print axioms Snuffy.Book.UPTExistence.U1
+#print axioms Snuffy.Book.UPTExistence.SSub.trans_sub
+#print axioms Snuffy.Book.UPTExistence.Sub.trans_ssub
+#print axioms Snuffy.Book.UPTExistence.lex_irrefl
+#print axioms Snuffy.Book.UPTExistence.lex_trans
+#print axioms Snuffy.Book.UPTExistence.climb
+#print axioms Snuffy.Book.UPTExistence.lex_aligned_exists
+#print axioms Snuffy.Book.UPTExistence.aligned_exists
+#print axioms Snuffy.Book.UPTExistence.no_needless_choice_exists
+#print axioms Snuffy.Book.UPTExistence.infinite_family_forces_needless_loss
+#print axioms Snuffy.Book.UPTExistence.infinite_family_has_no_aligned_option
+-- BookUPTAdequacy
+#print axioms Snuffy.Book.UPTAdequacy.lex_iff_first_difference
+#print axioms Snuffy.Book.UPTAdequacy.lex_keeps_first_stage
+#print axioms Snuffy.Book.UPTAdequacy.improvement_never_costs_a_life
+#print axioms Snuffy.Book.UPTAdequacy.improvement_never_costs_existing_freedom
+#print axioms Snuffy.Book.UPTAdequacy.losing_a_life_is_never_better
+#print axioms Snuffy.Book.UPTAdequacy.restrainable_iff_needless
+#print axioms Snuffy.Book.UPTAdequacy.restrainable_iff_not_aligned
+-- BookUPTAgents
+#print axioms Snuffy.Book.UPTAgents.shared_order_no_conflict
+#print axioms Snuffy.Book.UPTAgents.stall_is_best_response
+#print axioms Snuffy.Book.UPTAgents.stall_not_jointly_maximal
+#print axioms Snuffy.Book.UPTAgents.best_responses_can_stall
+#print axioms Snuffy.Book.UPTAgents.ssub_irrefl
+#print axioms Snuffy.Book.UPTAgents.ssub_trans
+#print axioms Snuffy.Book.UPTAgents.joint_maximal_exists
+-- BookUPTBroadcast
+#print axioms Snuffy.Book.UPTBroadcast.majority_left
+#print axioms Snuffy.Book.UPTBroadcast.majority_outer
+#print axioms Snuffy.Book.UPTBroadcast.majority_right
+#print axioms Snuffy.Book.UPTBroadcast.entry_from_loyal
+#print axioms Snuffy.Book.UPTBroadcast.honest_dealer_validity
+#print axioms Snuffy.Book.UPTBroadcast.faulty_dealer_vector
+#print axioms Snuffy.Book.UPTBroadcast.agreement
+#print axioms Snuffy.Book.UPTBroadcast.om1_broadcast
+-- BookUPTCountRefinement
+#print axioms Snuffy.Book.UPTCountRefinement.exists_max
+#print axioms Snuffy.Book.UPTCountRefinement.exists_maximal
+#print axioms Snuffy.Book.UPTCountRefinement.count_refined_maximal
+#print axioms Snuffy.Book.UPTCountRefinement.lex_irrefl
+#print axioms Snuffy.Book.UPTCountRefinement.lex_trans
+#print axioms Snuffy.Book.UPTCountRefinement.count_mono
+#print axioms Snuffy.Book.UPTCountRefinement.canonical_count_refined
+#print axioms Snuffy.Book.UPTCountRefinement.counting_is_an_extra_principle
+-- BookUPTDominance
+#print axioms Snuffy.Book.UPTDominance.statewise_dominance
+-- BookUPTHold
+#print axioms Snuffy.Book.UPTHold.replay_ideal
+#print axioms Snuffy.Book.UPTHold.crash_ideal
+#print axioms Snuffy.Book.UPTHold.faithful
+#print axioms Snuffy.Book.UPTHold.faithful_from_start
+#print axioms Snuffy.Book.UPTHold.admissible_observer
+#print axioms Snuffy.Book.UPTHold.ideal_lengths
+#print axioms Snuffy.Book.UPTHold.hold_executes_nothing
+#print axioms Snuffy.Book.UPTHold.mutant_no_replay_unfaithful
+#print axioms Snuffy.Book.UPTHold.mutant_run_while_held_unfaithful
+#print axioms Snuffy.Book.UPTHold.mutant_redeliver_unfaithful
+#print axioms Snuffy.Book.UPTHold.timing_observer_sees_the_hold
+#print axioms Snuffy.Book.UPTHold.faithful_instance
+-- BookUPTHoldAdequacy
+#print axioms Snuffy.Book.UPTHoldAdequacy.H_best_for_lives
+#print axioms Snuffy.Book.UPTHoldAdequacy.L_is_lethal
+#print axioms Snuffy.Book.UPTHoldAdequacy.lives_only_hold_leaves_lethal_undominated
+#print axioms Snuffy.Book.UPTHoldAdequacy.faithful_hold_dominates
+#print axioms Snuffy.Book.UPTHoldAdequacy.faithful_hold_strict_when_real
+#print axioms Snuffy.Book.UPTHoldAdequacy.faithful_hold_ends_no_one
+-- BookUPTHoldTimed
+#print axioms Snuffy.Book.UPTHoldTimed.stutter_erasure
+#print axioms Snuffy.Book.UPTHoldTimed.admissible_peer
+#print axioms Snuffy.Book.UPTHoldTimed.autonomous_peer_sees_hold
+#print axioms Snuffy.Book.UPTHoldTimed.schedule_holds_interval
+#print axioms Snuffy.Book.UPTHoldTimed.cohold_closed
+-- BookUPTImpartiality
+#print axioms Snuffy.Book.UPTImpartiality.sum_ge
+#print axioms Snuffy.Book.UPTImpartiality.sum_gt
+#print axioms Snuffy.Book.UPTImpartiality.len_mul_inv
+#print axioms Snuffy.Book.UPTImpartiality.some_chance_at_most
+#print axioms Snuffy.Book.UPTImpartiality.everyone_at_least_only_if_uniform
+#print axioms Snuffy.Book.UPTImpartiality.uniform_disadvantages_D
+#print axioms Snuffy.Book.UPTImpartiality.least_chance_at_most_two_fifths
+#print axioms Snuffy.Book.UPTImpartiality.ruling_gives_everyone_two_fifths
+#print axioms Snuffy.Book.UPTImpartiality.ruling_is_unique
+#print axioms Snuffy.Book.UPTImpartiality.len_inv_pos
+#print axioms Snuffy.Book.UPTImpartiality.weight_of_keepers
+#print axioms Snuffy.Book.UPTImpartiality.uniform_chance
+#print axioms Snuffy.Book.UPTImpartiality.uniform_equal_iff_equal_counts
+-- BookUPTInfiniteGuard
+#print axioms Snuffy.Book.UPTInfiniteGuard.Sub.refl
+#print axioms Snuffy.Book.UPTInfiniteGuard.Sub.trans
+#print axioms Snuffy.Book.UPTInfiniteGuard.U1
+#print axioms Snuffy.Book.UPTInfiniteGuard.SSub.trans_sub
+#print axioms Snuffy.Book.UPTInfiniteGuard.Sub.trans_ssub
+#print axioms Snuffy.Book.UPTInfiniteGuard.lex_irrefl
+#print axioms Snuffy.Book.UPTInfiniteGuard.lex_trans
+#print axioms Snuffy.Book.UPTInfiniteGuard.lex_U1
+#print axioms Snuffy.Book.UPTInfiniteGuard.freedom_first_U1_legacy
+#print axioms Snuffy.Book.UPTInfiniteGuard.guard_first_stage
+#print axioms Snuffy.Book.UPTInfiniteGuard.canonical_life_first_U1
+#print axioms Snuffy.Book.UPTInfiniteGuard.life_guard
+#print axioms Snuffy.Book.UPTInfiniteGuard.greedy_pos
+#print axioms Snuffy.Book.UPTInfiniteGuard.greedy_neg
+#print axioms Snuffy.Book.UPTInfiniteGuard.countable_maximal
+#print axioms Snuffy.Book.UPTInfiniteGuard.life_guard_countable
+#print axioms Snuffy.Book.UPTInfiniteGuard.countable_maximal_nonvacuous
+-- BookUPTLaw
+#print axioms Snuffy.Book.UPTLaw.Sub.refl
+#print axioms Snuffy.Book.UPTLaw.U1
+#print axioms Snuffy.Book.UPTLaw.U2_partial_fails
+#print axioms Snuffy.Book.UPTLaw.U2_universal_protects
+#print axioms Snuffy.Book.UPTLaw.U3
+#print axioms Snuffy.Book.UPTLaw.E3_active
+#print axioms Snuffy.Book.UPTLaw.E3_guard
+#print axioms Snuffy.Book.UPTLaw.E7_dominance
+#print axioms Snuffy.Book.UPTLaw.hold_dominates_standby
+#print axioms Snuffy.Book.UPTLaw.hold_dominates_strike
+#print axioms Snuffy.Book.UPTLaw.hold_strictly_beats_standby
+#print axioms Snuffy.Book.UPTLaw.hold_strictly_beats_strike
+#print axioms Snuffy.Book.UPTLaw.strike_standby_tragic
+#print axioms Snuffy.Book.UPTLaw.swap_oa
+#print axioms Snuffy.Book.UPTLaw.swap_ob
+#print axioms Snuffy.Book.UPTLaw.E1_no_fixed_choice
+-- BookUPTLawGuard
+#print axioms Snuffy.Book.UPTLawGuard.Sub.refl
+#print axioms Snuffy.Book.UPTLawGuard.Sub.trans
+#print axioms Snuffy.Book.UPTLawGuard.U1
+#print axioms Snuffy.Book.UPTLawGuard.SSub.trans_sub
+#print axioms Snuffy.Book.UPTLawGuard.Sub.trans_ssub
+#print axioms Snuffy.Book.UPTLawGuard.lex_irrefl
+#print axioms Snuffy.Book.UPTLawGuard.lex_trans
+#print axioms Snuffy.Book.UPTLawGuard.guard_first_stage
+-- BookUPTLawLex
+#print axioms Snuffy.Book.UPTLawLex.Sub.refl
+#print axioms Snuffy.Book.UPTLawLex.Sub.trans
+#print axioms Snuffy.Book.UPTLawLex.U1
+#print axioms Snuffy.Book.UPTLawLex.SSub.trans_sub
+#print axioms Snuffy.Book.UPTLawLex.Sub.trans_ssub
+#print axioms Snuffy.Book.UPTLawLex.lex_irrefl
+#print axioms Snuffy.Book.UPTLawLex.lex_trans
+#print axioms Snuffy.Book.UPTLawLex.lex_U1
+#print axioms Snuffy.Book.UPTLawLex.freedom_first_U1_legacy
+#print axioms Snuffy.Book.UPTLawLex.guard_maximal_above
+-- BookUPTLawRepair
+#print axioms Snuffy.Book.UPTLawRepair.Sub.refl
+#print axioms Snuffy.Book.UPTLawRepair.U1
+#print axioms Snuffy.Book.UPTLawRepair.aligned_congr
+#print axioms Snuffy.Book.UPTLawRepair.U2_star
+#print axioms Snuffy.Book.UPTLawRepair.U2_star_hypothesis_needed
+#print axioms Snuffy.Book.UPTLawRepair.progressive_retention
+#print axioms Snuffy.Book.UPTLawRepair.switch_without_retention
+#print axioms Snuffy.Book.UPTLawRepair.E7_top
+-- BookUPTLifeGuardExists
+#print axioms Snuffy.Book.UPTLifeGuardExists.Sub.refl
+#print axioms Snuffy.Book.UPTLifeGuardExists.Sub.trans
+#print axioms Snuffy.Book.UPTLifeGuardExists.U1
+#print axioms Snuffy.Book.UPTLifeGuardExists.SSub.trans_sub
+#print axioms Snuffy.Book.UPTLifeGuardExists.Sub.trans_ssub
+#print axioms Snuffy.Book.UPTLifeGuardExists.lex_irrefl
+#print axioms Snuffy.Book.UPTLifeGuardExists.lex_trans
+#print axioms Snuffy.Book.UPTLifeGuardExists.lex_U1
+#print axioms Snuffy.Book.UPTLifeGuardExists.freedom_first_U1_legacy
+#print axioms Snuffy.Book.UPTLifeGuardExists.guard_first_stage
+#print axioms Snuffy.Book.UPTLifeGuardExists.canonical_life_first_U1
+#print axioms Snuffy.Book.UPTLifeGuardExists.life_guard
+#print axioms Snuffy.Book.UPTLifeGuardExists.climb_from
+#print axioms Snuffy.Book.UPTLifeGuardExists.life_guard_exists
+-- BookUPTLottery
+#print axioms Snuffy.Book.UPTLottery.outcome_reachable
+#print axioms Snuffy.Book.UPTLottery.outcome_unique
+#print axioms Snuffy.Book.UPTLottery.fair_when_bound_before_reveal
+#print axioms Snuffy.Book.UPTLottery.choosing_after_reveal_forces_any_outcome
+#print axioms Snuffy.Book.UPTLottery.inconsistent_openings_disagree
+#print axioms Snuffy.Book.UPTLottery.cnt_or_le
+#print axioms Snuffy.Book.UPTLottery.cnt_compl
+#print axioms Snuffy.Book.UPTLottery.decoding_radius
+#print axioms Snuffy.Book.UPTLottery.unique_decoding
+-- BookUPTLotteryMenu
+#print axioms Snuffy.Book.UPTLotteryMenu.cnt_congr
+#print axioms Snuffy.Book.UPTLotteryMenu.draw_invariant
+#print axioms Snuffy.Book.UPTLotteryMenu.duplicate_description_changes_nothing
+#print axioms Snuffy.Book.UPTLotteryMenu.draw_over_descriptions_is_manipulable
+#print axioms Snuffy.Book.UPTLotteryMenu.tragic_pair_equal_chances
+-- BookUPTMonotone
+#print axioms Snuffy.Book.UPTMonotone.inv_in_unit
+#print axioms Snuffy.Book.UPTMonotone.factor_eq
+#print axioms Snuffy.Book.UPTMonotone.factor_antitone
+#print axioms Snuffy.Book.UPTMonotone.factor_nonneg
+#print axioms Snuffy.Book.UPTMonotone.mul_mono
+#print axioms Snuffy.Book.UPTMonotone.pow_mono
+#print axioms Snuffy.Book.UPTMonotone.bound_antitone
+#print axioms Snuffy.Book.UPTMonotone.grid_min_antitone
+#print axioms Snuffy.Book.UPTMonotone.clip_antitone
+#print axioms Snuffy.Book.UPTMonotone.ceiling_at_499_bounds_larger_service
+#print axioms Snuffy.Book.UPTMonotone.audit_instance
+-- BookUPTNoExchangeRate
+#print axioms Snuffy.Book.UPTNoExchangeRate.weighted_sum_trades_a_life
+#print axioms Snuffy.Book.UPTNoExchangeRate.grows
+#print axioms Snuffy.Book.UPTNoExchangeRate.no_count_utility
+#print axioms Snuffy.Book.UPTNoExchangeRate.no_faithful_count_utility
+#print axioms Snuffy.Book.UPTNoExchangeRate.bounded_stakes_represent
+#print axioms Snuffy.Book.UPTNoExchangeRate.frac_spec
+#print axioms Snuffy.Book.UPTNoExchangeRate.frac_strict
+#print axioms Snuffy.Book.UPTNoExchangeRate.frac_lt_one
+#print axioms Snuffy.Book.UPTNoExchangeRate.frac_nonneg
+#print axioms Snuffy.Book.UPTNoExchangeRate.bounded_utility_represents_counts
+#print axioms Snuffy.Book.UPTNoExchangeRate.no_utility_on_who_is_kept
+-- BookUPTQuorum
+#print axioms Snuffy.Book.UPTQuorum.cnt_le
+#print axioms Snuffy.Book.UPTQuorum.cnt_or_and
+#print axioms Snuffy.Book.UPTQuorum.cnt_split
+#print axioms Snuffy.Book.UPTQuorum.cnt_mono
+#print axioms Snuffy.Book.UPTQuorum.cnt_pos
+#print axioms Snuffy.Book.UPTQuorum.quorum_overlap
+#print axioms Snuffy.Book.UPTQuorum.quorums_share_a_live_island
+#print axioms Snuffy.Book.UPTQuorum.up_islands_form_a_quorum
+#print axioms Snuffy.Book.UPTQuorum.cnt_lt_range
+#print axioms Snuffy.Book.UPTQuorum.cnt_ge_range
+#print axioms Snuffy.Book.UPTQuorum.cnt_band_range
+#print axioms Snuffy.Book.UPTQuorum.overlap_bound_is_tight
+#print axioms Snuffy.Book.UPTQuorum.U6_pool_quorums
+#print axioms Snuffy.Book.UPTQuorum.U6_control_201
+#print axioms Snuffy.Book.UPTQuorum.U6_live
+#print axioms Snuffy.Book.UPTQuorum.U8_lockstep_majority
+#print axioms Snuffy.Book.UPTQuorum.U5_threshold_counting
+-- BookUPTRestraint
+#print axioms Snuffy.Book.UPTRestraint.ssub_irrefl
+#print axioms Snuffy.Book.UPTRestraint.ssub_trans
+#print axioms Snuffy.Book.UPTRestraint.restraint_keeps
+#print axioms Snuffy.Book.UPTRestraint.climb
+#print axioms Snuffy.Book.UPTRestraint.maximal_restraint_exists
+#print axioms Snuffy.Book.UPTRestraint.predator_tragic
+#print axioms Snuffy.Book.UPTRestraint.hunting_not_restrainable
+#print axioms Snuffy.Book.UPTRestraint.harmless_alternative_restrains
+-- EmissionBound
+#print axioms Snuffy.EmissionBound.requisite_variety
+#print axioms Snuffy.EmissionBound.requisite_variety_prob
+#print axioms Snuffy.EmissionBound.narrow_channel_bits
+#print axioms Snuffy.EmissionBound.unmetered_energy_bound
+#print axioms Snuffy.EmissionBound.emission_cannot_power
+-- FoundingAnchor
+#print axioms Snuffy.FoundingAnchor.campaign_funded
+#print axioms Snuffy.FoundingAnchor.anchor_founds_iff
+#print axioms Snuffy.FoundingAnchor.anchor_founds_mono
+-- ContinuationPredicate
+#print axioms Snuffy.ContinuationPredicate.laterStage_refl
+#print axioms Snuffy.ContinuationPredicate.laterStage_trans
+#print axioms Snuffy.ContinuationPredicate.copy_not_laterStage
+#print axioms Snuffy.ContinuationPredicate.split_continues_both
+#print axioms Snuffy.ContinuationPredicate.faithful_hold_preserves
+#print axioms Snuffy.ContinuationPredicate.directed_by_other_not_free
+-- BookContextualObservation
+#print axioms Snuffy.Book.ContextualObservation.contextual_iff_congruent
+#print axioms Snuffy.Book.ContextualObservation.contextual_on_invariant
+#print axioms Snuffy.Book.ContextualObservation.identity_detector_implies_injective
+#print axioms Snuffy.Book.ContextualObservation.forgotten_id_breaks_continuation
+#print axioms Snuffy.Book.ContextualObservation.endpoint_sampling_misses_a_cycle
+#print axioms Snuffy.Book.ContextualObservation.cache_can_be_hidden
+-- IRSafeMaximality
+#print axioms PhysicalBridges.IRSafeMaximality.safe_maximal_exists
+#print axioms PhysicalBridges.IRSafeMaximality.cofinal_safe_maximal_is_globally_maximal
+#print axioms PhysicalBridges.IRSafeMaximality.cofinal_global_maximal_exists
+#print axioms PhysicalBridges.IRSafeMaximality.globally_maximal_first_stage_no_needless
+-- IRSelectedMaximality
+#print axioms PhysicalBridges.IRSelectedMaximality.selected_safety_maximal_lifts_globally
+#print axioms PhysicalBridges.IRSelectedMaximality.cofinal_implies_selected_no_outside_improver
+#print axioms PhysicalBridges.IRSelectedMaximality.selected_realisation_suffices
+#print axioms PhysicalBridges.IRSelectedMaximality.cofinality_is_not_necessary
+#print axioms PhysicalBridges.IRSelectedMaximality.local_maximum_need_not_be_global
+-- IRProfileAudit
+#print axioms PhysicalBridges.IRProfileAudit.obstruction_blocks_improvement
+#print axioms PhysicalBridges.IRProfileAudit.no_improvement_has_obstruction
+#print axioms PhysicalBridges.IRProfileAudit.obstruction_iff_not_better
+#print axioms PhysicalBridges.IRProfileAudit.improvement_transfers_to_faithful_profile
+#print axioms PhysicalBridges.IRProfileAudit.audited_no_excluded_improver
+#print axioms PhysicalBridges.IRProfileAudit.alleged_improver_exposes_bad_audit
+#print axioms PhysicalBridges.IRProfileAudit.audited_selected_global_maximal
+#print axioms PhysicalBridges.IRProfileAudit.InfiniteExample.full_coverage
+#print axioms PhysicalBridges.IRProfileAudit.InfiniteExample.faithful_profiles
+#print axioms PhysicalBridges.IRProfileAudit.InfiniteExample.certified_obstructions
+#print axioms PhysicalBridges.IRProfileAudit.InfiniteExample.local_choice
+#print axioms PhysicalBridges.IRProfileAudit.InfiniteExample.globally_maximal_without_cofinality
+#print axioms PhysicalBridges.IRProfileAudit.InfiniteExample.full_options_all_n
+#print axioms PhysicalBridges.IRProfileAudit.InfiniteExample.omitted_incomparable_profile
+#print axioms PhysicalBridges.IRProfileAudit.HostileControls.omitted_better_candidate
+#print axioms PhysicalBridges.IRProfileAudit.HostileControls.bad_abstraction_covers
+#print axioms PhysicalBridges.IRProfileAudit.HostileControls.bad_abstraction_passes_obstruction
+#print axioms PhysicalBridges.IRProfileAudit.HostileControls.bad_abstraction_is_not_faithful
+#print axioms PhysicalBridges.IRProfileAudit.HostileControls.incomplete_profile_list_is_not_coverage
+-- IRFiniteProfileObstruction
+#print axioms PhysicalBridges.IRFiniteProfileObstruction.aboveEvery_gt_mem
+#print axioms PhysicalBridges.IRFiniteProfileObstruction.faithful_chain_rep_is_exact
+#print axioms PhysicalBridges.IRFiniteProfileObstruction.no_finite_faithful_chain_profiles
+#print axioms PhysicalBridges.IRFiniteProfileObstruction.impossible_finite_profile_audit_for_original_chain
+#print axioms PhysicalBridges.IRFiniteProfileObstruction.unbounded_chain_lacks_global_maximum
+-- IRInfiniteFinitaryMaximality
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.feasible_downward
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.finite_chain_capture
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.chain_union_feasible
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.derived_chain_upper_bound
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.greedyStep_preserves_feasible
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.greedyStep_extends
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.greedyStep_adds_if_feasible
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.stage_increasing
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.stage_monotone
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.stage_feasible
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.finite_stage_capture
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.limit_feasible
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.cannot_feasibly_add_missing_particular
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.infinite_full_feasible_aligned_exists
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.infinite_one_stage_lex_aligned_exists
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.all_prefixes_feasible_forces_full_retention
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.original_chain_not_finitary_closed
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.pair_empty_feasible
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.pair_full_retention_infeasible
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.pair_all_unconflicted_retained
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.pair_cannot_keep_both
+#print axioms PhysicalBridges.IRInfiniteFinitaryMaximality.nontrivial_infinite_full_feasible_instance
+-- IRTwoStageInfiniteLex
+#print axioms PhysicalBridges.IRTwoStageInfiniteLex.independent_two_stage_global_lex_maximum
+#print axioms PhysicalBridges.IRTwoStageInfiniteLex.independent_any_finite_stage_lex_maximum
+#print axioms PhysicalBridges.IRTwoStageInfiniteLex.coupled_choice_feasible
+#print axioms PhysicalBridges.IRTwoStageInfiniteLex.coupled_two_stage_lex_maximum
+#print axioms PhysicalBridges.IRTwoStageInfiniteLex.empty_feasible_without_prohibitions
+#print axioms PhysicalBridges.IRTwoStageInfiniteLex.unconstrained_limit_includes_every_particular
+#print axioms PhysicalBridges.IRTwoStageInfiniteLex.independent_maxima_not_jointly_feasible
+#print axioms PhysicalBridges.IRTwoStageInfiniteLex.coupled_choice_not_joint_independent_maximum
+-- IRCoupledFinitaryTwoStage
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.feasible_downward
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.chooseStep_extends
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.chooseStep_feasible
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.chooseStep_adds
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.phase_increasing
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.phase_monotone
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.phase_feasible
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.phaseLimit_contains_base
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.finite_phase_capture
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.phaseLimit_feasible
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.phaseLimit_no_cross
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.phase_cannot_add_missing
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.firstChoice_feasible
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.fullChoice_feasible
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.firstChoice_only_higher
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.fullChoice_first_iff
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.no_first_stage_strict_improver
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.no_second_stage_strict_improver
+#print axioms PhysicalBridges.IRCoupledFinitaryTwoStage.coupled_two_stage_full_feasible_lex_maximal
+-- IRResourceDerivedClosure
+#print axioms PhysicalBridges.IRResourceDerivedClosure.resource_feasible_iff_finite_forbidden
+#print axioms PhysicalBridges.IRResourceDerivedClosure.empty_capacity_feasible
+#print axioms PhysicalBridges.IRResourceDerivedClosure.resource_capacity_implies_global_lex_maximality
+#print axioms PhysicalBridges.IRResourceDerivedClosure.shared_capacity_excludes_joint_pair
+#print axioms PhysicalBridges.IRResourceDerivedClosure.shared_capacity_global_original_lex_maximal
+#print axioms PhysicalBridges.IRResourceDerivedClosure.finite_prefix_eventually_absent
+#print axioms PhysicalBridges.IRResourceDerivedClosure.full_infinite_not_eventually_absent
+#print axioms PhysicalBridges.IRResourceDerivedClosure.eventual_absence_not_exactly_finitary
+-- IRFiniteRefutationCriterion
+#print axioms PhysicalBridges.IRFiniteRefutationCriterion.finite_refutations_give_exact_representation
+#print axioms PhysicalBridges.IRFiniteRefutationCriterion.any_exact_finite_pattern_model_is_finitely_refutable
+#print axioms PhysicalBridges.IRFiniteRefutationCriterion.finite_refutations_iff_exact_finite_patterns
+#print axioms PhysicalBridges.IRFiniteRefutationCriterion.finite_refutations_force_downward_feasibility
+#print axioms PhysicalBridges.IRFiniteRefutationCriterion.source_two_stage_maximal_from_physical_finite_refutations
+#print axioms PhysicalBridges.IRFiniteRefutationCriterion.resource_feasibility_has_finite_refutations
+#print axioms PhysicalBridges.IRFiniteRefutationCriterion.mandatory_positive_retention_not_finitely_refutable
+-- IRMandatoryBaselineMaximality
+#print axioms PhysicalBridges.IRMandatoryBaselineMaximality.first_protected_feasible
+#print axioms PhysicalBridges.IRMandatoryBaselineMaximality.final_protected_feasible
+#print axioms PhysicalBridges.IRMandatoryBaselineMaximality.final_protected_contains_required
+#print axioms PhysicalBridges.IRMandatoryBaselineMaximality.first_protected_base_or_higher
+#print axioms PhysicalBridges.IRMandatoryBaselineMaximality.final_first_priority_iff
+#print axioms PhysicalBridges.IRMandatoryBaselineMaximality.no_required_first_improver
+#print axioms PhysicalBridges.IRMandatoryBaselineMaximality.no_required_second_improver
+#print axioms PhysicalBridges.IRMandatoryBaselineMaximality.required_baseline_full_feasible_original_lex_maximal
+#print axioms PhysicalBridges.IRMandatoryBaselineMaximality.resource_capacity_plus_mandatory_baseline_maximal
+#print axioms PhysicalBridges.IRMandatoryBaselineMaximality.required_duty_is_genuinely_positive
+-- IRViability
+#print axioms PhysicalBridges.IRViability.viable_now_safe
+#print axioms PhysicalBridges.IRViability.viable_horizon_monotone
+#print axioms PhysicalBridges.IRViability.robust_invariant_implies_all_horizons
+#print axioms PhysicalBridges.IRViability.robust_policy_preserves_every_finite_trace
+#print axioms PhysicalBridges.IRViability.safe_immediate_but_not_viable
+-- IRInfiniteHistoryCompactness
+#print axioms PhysicalBridges.IRInfiniteHistoryCompactness.viable_weaken
+#print axioms PhysicalBridges.IRInfiniteHistoryCompactness.forever_viable_has_common_action
+#print axioms PhysicalBridges.IRInfiniteHistoryCompactness.compact_policy_keeps_forever_viable
+#print axioms PhysicalBridges.IRInfiniteHistoryCompactness.derived_infinite_robust_safe_history
+#print axioms PhysicalBridges.IRInfiniteHistoryCompactness.countdown_finite_budget_viable
+#print axioms PhysicalBridges.IRInfiniteHistoryCompactness.countdown_any_finite_horizon_viable
+#print axioms PhysicalBridges.IRInfiniteHistoryCompactness.countdown_budget_exhausts
+#print axioms PhysicalBridges.IRInfiniteHistoryCompactness.infinite_action_branching_blocks_common_policy
+-- IREnergyReplenishment
+#print axioms PhysicalBridges.IREnergyReplenishment.draining_viable_iff
+#print axioms PhysicalBridges.IREnergyReplenishment.finite_bank_cannot_support_all_horizons
+#print axioms PhysicalBridges.IREnergyReplenishment.paid_reserve_step_invariant
+#print axioms PhysicalBridges.IREnergyReplenishment.uniform_paid_supply_derives_all_horizons
+#print axioms PhysicalBridges.IREnergyReplenishment.uniform_paid_supply_derives_infinite_safe_policy
+#print axioms PhysicalBridges.IREnergyReplenishment.intermittent_supply_fails_one_step
+-- IRTypedTraceChecker
+#print axioms PhysicalBridges.IRTypedTraceChecker.checkStep_sound
+#print axioms PhysicalBridges.IRTypedTraceChecker.checkSegments_sound
+#print axioms PhysicalBridges.IRTypedTraceChecker.verifyTraceData_sound
+#print axioms PhysicalBridges.IRTypedTraceChecker.valid_segments_every_step_paid
+#print axioms PhysicalBridges.IRTypedTraceChecker.accepted_trace_every_record_above_reserve
+#print axioms PhysicalBridges.IRTypedTraceChecker.accepted_trace_every_step_paid
+#print axioms PhysicalBridges.IRTypedTraceChecker.accepted_trace_every_step_balanced_and_bounded
+#print axioms PhysicalBridges.IRTypedTraceChecker.accepted_example_is_computable
+#print axioms PhysicalBridges.IRTypedTraceChecker.invalid_singleton_rejected
+#print axioms PhysicalBridges.IRTypedTraceChecker.missing_tick_rejected
+#print axioms PhysicalBridges.IRTypedTraceChecker.forged_balance_rejected
+#print axioms PhysicalBridges.IRTypedTraceChecker.insufficient_step_supply_rejected
+#print axioms PhysicalBridges.IRTypedTraceChecker.too_rapid_logged_descent_rejected
+#print axioms PhysicalBridges.IRTypedTraceChecker.accepted_records_without_physical_refinement_do_not_certify_reality
+#print axioms PhysicalBridges.IRTypedTraceChecker.accepted_trace_physical_reserve_with_error
+-- IRDeferredEffects
+#print axioms PhysicalBridges.IRDeferredEffects.held_gate_can_still_deliver_old_physical_effect
+#print axioms PhysicalBridges.IRDeferredEffects.cleared_pending_has_no_delivery
+#print axioms PhysicalBridges.IRDeferredEffects.quiescent_hold_has_no_delivery
+#print axioms PhysicalBridges.IRDeferredEffects.certified_hold_does_not_clear_existing_queue
+#print axioms PhysicalBridges.IRDeferredEffects.no_landing_of_empty_backlog
+-- IRQuiescenceAck
+#print axioms PhysicalBridges.IRQuiescenceAck.ack_sound
+#print axioms PhysicalBridges.IRQuiescenceAck.no_landing_after_fresh_ack
+#print axioms PhysicalBridges.IRQuiescenceAck.certified_quiescent_hold
+#print axioms PhysicalBridges.IRQuiescenceAck.stale_ack_does_not_protect
+-- IRAtomicQuiescence
+#print axioms PhysicalBridges.IRAtomicQuiescence.closed_dispatch_is_noop
+#print axioms PhysicalBridges.IRAtomicQuiescence.quiescent_step
+#print axioms PhysicalBridges.IRAtomicQuiescence.quiescent_under_arbitrary_finite_commands
+#print axioms PhysicalBridges.IRAtomicQuiescence.close_empty_queue_is_quiescent
+#print axioms PhysicalBridges.IRAtomicQuiescence.close_then_no_modeled_landing
+#print axioms PhysicalBridges.IRAtomicQuiescence.source_certified_log_and_quiescent_actuator
+#print axioms PhysicalBridges.IRAtomicQuiescence.empty_unclosed_queue_counterexample
+#print axioms PhysicalBridges.IRAtomicQuiescence.closed_but_not_drained_counterexample
+-- IRInFlightQuiescence
+#print axioms PhysicalBridges.IRInFlightQuiescence.quiescent_step
+#print axioms PhysicalBridges.IRInFlightQuiescence.barrier_holds_under_any_finite_interleaving
+#print axioms PhysicalBridges.IRInFlightQuiescence.close_fully_drained_is_quiescent
+#print axioms PhysicalBridges.IRInFlightQuiescence.source_certified_finality_with_inflight_barrier
+#print axioms PhysicalBridges.IRInFlightQuiescence.in_flight_defeats_queue_only_ack
+#print axioms PhysicalBridges.IRInFlightQuiescence.open_admission_defeats_empty_backlogs
+-- IRJsonTraceChecker
+#print axioms PhysicalBridges.IRJsonTraceChecker.verifyJsonText_sound
+#print axioms PhysicalBridges.IRJsonTraceChecker.verifyJsonText_recorded_reserve
+-- IRWatchdogLatencyEffects
+#print axioms PhysicalBridges.IRWatchdogLatencyEffects.additive_fault_to_quiescence_bound
+#print axioms PhysicalBridges.IRWatchdogLatencyEffects.window_age_bounded
+#print axioms PhysicalBridges.IRWatchdogLatencyEffects.guarded_reaction_window_remains_below_threshold
+#print axioms PhysicalBridges.IRWatchdogLatencyEffects.guarded_quiescence_endpoint_safe
+#print axioms PhysicalBridges.IRWatchdogLatencyEffects.disabled_complete_mediation_blocks_modeled_effect
+#print axioms PhysicalBridges.IRWatchdogLatencyEffects.independent_bypass_defeats_disabled_gate
+#print axioms PhysicalBridges.IRWatchdogLatencyEffects.fenced_and_drained_pipeline_stops_modeled_effects
+#print axioms PhysicalBridges.IRWatchdogLatencyEffects.fast_shutdown_does_not_erase_prior_breach
+#print axioms PhysicalBridges.IRWatchdogLatencyEffects.absorbing_no_service_counterexample
+#print axioms PhysicalBridges.IRWatchdogLatencyEffects.valid_logged_trace_can_coexist_with_unmodeled_physical_breach
+-- IRPhysicalGuard
+#print axioms PhysicalBridges.IRPhysicalGuard.post_effect_guard_sound
+#print axioms PhysicalBridges.IRPhysicalGuard.omitted_jump_counterexample
+#print axioms PhysicalBridges.IRPhysicalGuard.sequential_post_effect_safety
+-- IRControllerPhysical
+#print axioms PhysicalBridges.IRControllerPhysical.certified_hold_preserves_log_derived_physics
+#print axioms PhysicalBridges.IRControllerPhysical.certified_hold_physical_refinement
+#print axioms PhysicalBridges.IRControllerPhysical.unchanged_log_insufficient_without_coverage
+#print axioms PhysicalBridges.IRControllerPhysical.later_bounded_effect_safe
+-- IRMicrostepInvariant
+#print axioms PhysicalBridges.IRMicrostepInvariant.all_recorded_microsteps_safe
+#print axioms PhysicalBridges.IRMicrostepInvariant.endpoints_safe_interior_unsafe
+#print axioms PhysicalBridges.IRMicrostepInvariant.certified_hold_and_microstep_safety
+#print axioms PhysicalBridges.IRMicrostepInvariant.omitted_microstep_counterexample
+-- IRInterSampleEnvelope
+#print axioms PhysicalBridges.IRInterSampleEnvelope.every_unsampled_instant_safe
+#print axioms PhysicalBridges.IRInterSampleEnvelope.every_second_sample_safe_but_interior_unsafe
+#print axioms PhysicalBridges.IRInterSampleEnvelope.hidden_pulse_breaks_zero_rate
+-- IRStoredEnergyCommonMode
+#print axioms PhysicalBridges.IRStoredEnergyCommonMode.zero_escape_zero_remnant_requires_full_capacity
+#print axioms PhysicalBridges.IRStoredEnergyCommonMode.undersized_clamp_forces_escape_or_remaining
+#print axioms PhysicalBridges.IRStoredEnergyCommonMode.synthetic_magnetic_store_exceeds_capacity
+#print axioms PhysicalBridges.IRStoredEnergyCommonMode.energy_capacity_does_not_bound_peak_voltage
+#print axioms PhysicalBridges.IRStoredEnergyCommonMode.two_agreeing_untrusted_sensors_can_both_be_wrong
+#print axioms PhysicalBridges.IRStoredEnergyCommonMode.one_physically_sound_channel_with_margin
+#print axioms PhysicalBridges.IRStoredEnergyCommonMode.failed_analog_domain_denies_modeled_command
+#print axioms PhysicalBridges.IRStoredEnergyCommonMode.failed_physical_fence_denies_modeled_command
+#print axioms PhysicalBridges.IRStoredEnergyCommonMode.all_enables_pass_but_independent_bypass_lands
+#print axioms PhysicalBridges.IRStoredEnergyCommonMode.intersample_endpoint_acceptance_does_not_ensure_safety
+-- IRControlledReentry
+#print axioms PhysicalBridges.IRControlledReentry.primary_alone_cannot_start
+#print axioms PhysicalBridges.IRControlledReentry.no_direct_hold_to_active
+#print axioms PhysicalBridges.IRControlledReentry.bad_diagnostic_returns_to_hold
+#print axioms PhysicalBridges.IRControlledReentry.physical_unready_returns_to_hold
+#print axioms PhysicalBridges.IRControlledReentry.failed_slew_returns_to_hold
+#print axioms PhysicalBridges.IRControlledReentry.stale_epoch_relocks_active
+#print axioms PhysicalBridges.IRControlledReentry.failed_fence_relocks_active
+#print axioms PhysicalBridges.IRControlledReentry.failed_watchdog_relocks_active
+#print axioms PhysicalBridges.IRControlledReentry.three_authorized_phases_reach_active
+#print axioms PhysicalBridges.IRControlledReentry.non_active_mode_rejects_command
+#print axioms PhysicalBridges.IRControlledReentry.failed_watchdog_rejects_command
+#print axioms PhysicalBridges.IRControlledReentry.failed_fence_rejects_command
+#print axioms PhysicalBridges.IRControlledReentry.accepted_diagnostics_imply_recorded_trace_valid
+#print axioms PhysicalBridges.IRControlledReentry.start_guard_constructed_from_verified_inputs
+#print axioms PhysicalBridges.IRControlledReentry.diagnostic_guard_constructed_from_verified_inputs
+#print axioms PhysicalBridges.IRControlledReentry.ramp_guard_constructed_from_verified_inputs
+#print axioms PhysicalBridges.IRControlledReentry.source_level_composition
+#print axioms PhysicalBridges.IRControlledReentry.no_external_auth_stays_in_hold
+#print axioms PhysicalBridges.IRControlledReentry.example_reentry
+#print axioms PhysicalBridges.IRControlledReentry.reentry_is_not_itself_a_service_proof
+#print axioms PhysicalBridges.IRControlledReentry.model_accepted_physical_flag_without_real_plant_refinement
+-- IRCapabilityNoninterference
+#print axioms PhysicalBridges.IRCapabilityNoninterference.distinct_address_domains
+#print axioms PhysicalBridges.IRCapabilityNoninterference.primary_write_cannot_change_maintenance
+#print axioms PhysicalBridges.IRCapabilityNoninterference.primary_program_noninterference
+#print axioms PhysicalBridges.IRCapabilityNoninterference.primary_program_full_maintenance_projection
+#print axioms PhysicalBridges.IRCapabilityNoninterference.maintenance_observer_noninterference
+#print axioms PhysicalBridges.IRCapabilityNoninterference.primary_program_preserves_authorization_bit
+#print axioms PhysicalBridges.IRCapabilityNoninterference.primary_only_writes_cannot_reenter_locked_supervisor
+#print axioms PhysicalBridges.IRCapabilityNoninterference.external_maintenance_write_changes_target
+#print axioms PhysicalBridges.IRCapabilityNoninterference.external_maintenance_write_preserves_other_cells
+#print axioms PhysicalBridges.IRCapabilityNoninterference.additional_bus_master_can_set_auth_source_cell
+-- IRA1HostMediation
+#print axioms PhysicalBridges.IRA1HostMediation.dma_cannot_mutate_maintenance
+#print axioms PhysicalBridges.IRA1HostMediation.maintenance_target_is_rejected
+#print axioms PhysicalBridges.IRA1HostMediation.outside_dma_window_is_rejected
+#print axioms PhysicalBridges.IRA1HostMediation.inside_dma_window_is_executed
+#print axioms PhysicalBridges.IRA1HostMediation.host_step_maintenance_invariant
+#print axioms PhysicalBridges.IRA1HostMediation.host_step_preserves_privilege_ceiling
+#print axioms PhysicalBridges.IRA1HostMediation.any_finite_host_sequence_preserves_maintenance
+#print axioms PhysicalBridges.IRA1HostMediation.any_finite_host_sequence_preserves_privilege_ceiling
+#print axioms PhysicalBridges.IRA1HostMediation.admitted_a1_host_transitions_cannot_authorize_reentry
+#print axioms PhysicalBridges.IRA1HostMediation.unrestricted_dma_changes_maintenance
+-- IRA1PageCapability
+#print axioms PhysicalBridges.IRA1PageCapability.execute_preserves_mask
+#print axioms PhysicalBridges.IRA1PageCapability.rejected_grant_does_not_change_state
+#print axioms PhysicalBridges.IRA1PageCapability.admitted_grant_is_permitted
+#print axioms PhysicalBridges.IRA1PageCapability.execute_preserves_capability_invariant
+#print axioms PhysicalBridges.IRA1PageCapability.execute_preserves_maintenance
+#print axioms PhysicalBridges.IRA1PageCapability.execute_preserves_privilege
+#print axioms PhysicalBridges.IRA1PageCapability.execute_preserves_safe
+#print axioms PhysicalBridges.IRA1PageCapability.all_finite_host_and_page_grants_remain_safe
+#print axioms PhysicalBridges.IRA1PageCapability.all_finite_host_and_page_grants_preserve_mask
+#print axioms PhysicalBridges.IRA1PageCapability.all_finite_host_and_page_grants_preserve_maintenance
+#print axioms PhysicalBridges.IRA1PageCapability.t11_t12_t13_host_traces_cannot_forge_reentry
+#print axioms PhysicalBridges.IRA1PageCapability.unguarded_page_grant_breaks_capability_invariant
+-- IRA1PacketIngress
+#print axioms PhysicalBridges.IRA1PacketIngress.permit_implies_auth_epoch_and_exact_sequence
+#print axioms PhysicalBridges.IRA1PacketIngress.wrong_epoch_cannot_be_accepted
+#print axioms PhysicalBridges.IRA1PacketIngress.wrong_sequence_cannot_be_accepted
+#print axioms PhysicalBridges.IRA1PacketIngress.auth_failure_cannot_be_accepted
+#print axioms PhysicalBridges.IRA1PacketIngress.accepted_packet_increments_sequence
+#print axioms PhysicalBridges.IRA1PacketIngress.replay_of_accepted_packet_rejected
+#print axioms PhysicalBridges.IRA1PacketIngress.ingest_preserves_epoch
+#print axioms PhysicalBridges.IRA1PacketIngress.ingest_preserves_valid_session
+#print axioms PhysicalBridges.IRA1PacketIngress.any_finite_packet_stream_valid
+#print axioms PhysicalBridges.IRA1PacketIngress.any_finite_packet_stream_epoch_unchanged
+#print axioms PhysicalBridges.IRA1PacketIngress.field_step_preserves_maintenance
+#print axioms PhysicalBridges.IRA1PacketIngress.field_step_preserves_supervisor
+#print axioms PhysicalBridges.IRA1PacketIngress.any_finite_ingress_cannot_write_maintenance
+#print axioms PhysicalBridges.IRA1PacketIngress.any_finite_ingress_cannot_change_supervisor
+#print axioms PhysicalBridges.IRA1PacketIngress.accepted_cryptographically_unverified_packet
+#print axioms PhysicalBridges.IRA1PacketIngress.no_sequence_check_allows_duplicate_replay
+#print axioms PhysicalBridges.IRA1PacketIngress.source_sequence_guard_rejects_same_packet_replay
+-- IRA1CausalField
+#print axioms PhysicalBridges.IRA1CausalField.field_permit_sound
+#print axioms PhysicalBridges.IRA1CausalField.impossible_distance_in_deadline_is_rejected
+#print axioms PhysicalBridges.IRA1CausalField.accepted_field_uses_ir85_ingress
+#print axioms PhysicalBridges.IRA1CausalField.field_ingress_preserves_ir85_session
+#print axioms PhysicalBridges.IRA1CausalField.all_finite_causal_field_events_preserve_source_session
+#print axioms PhysicalBridges.IRA1CausalField.nominal_report_accepted_without_crypto_security
+#print axioms PhysicalBridges.IRA1CausalField.accepted_report_cannot_prove_real_causal_transport
+#print axioms PhysicalBridges.IRA1CausalField.impossible_nominal_distance_rejected
+-- IRA1DurableJournal
+#print axioms PhysicalBridges.IRA1DurableJournal.queue_never_acknowledges
+#print axioms PhysicalBridges.IRA1DurableJournal.queue_never_changes_durable
+#print axioms PhysicalBridges.IRA1DurableJournal.reboot_preserves_committed_journal
+#print axioms PhysicalBridges.IRA1DurableJournal.reboot_preserves_previously_issued_acks
+#print axioms PhysicalBridges.IRA1DurableJournal.step_preserves_ack_soundness
+#print axioms PhysicalBridges.IRA1DurableJournal.one_step_preserves_durable_suffix
+#print axioms PhysicalBridges.IRA1DurableJournal.durable_extension_transitive
+#print axioms PhysicalBridges.IRA1DurableJournal.any_finite_journal_stream_preserves_ack_soundness
+#print axioms PhysicalBridges.IRA1DurableJournal.any_finite_journal_stream_is_append_only
+#print axioms PhysicalBridges.IRA1DurableJournal.premature_ack_without_commit_breaks_soundness
+#print axioms PhysicalBridges.IRA1DurableJournal.digest_check_sound_as_equality_only
+#print axioms PhysicalBridges.IRA1DurableJournal.untrusted_hash_equality_does_not_prove_journal_equality
+#print axioms PhysicalBridges.IRA1DurableJournal.synthetic_flush_then_reboot_preserves_receipt
+-- IRA1PacketJournalJoin
+#print axioms PhysicalBridges.IRA1PacketJournalJoin.committed_payload_is_durable
+#print axioms PhysicalBridges.IRA1PacketJournalJoin.committed_payload_is_acknowledged
+#print axioms PhysicalBridges.IRA1PacketJournalJoin.commit_ingress_preserves_packet_session
+#print axioms PhysicalBridges.IRA1PacketJournalJoin.commit_ingress_preserves_ack_soundness
+#print axioms PhysicalBridges.IRA1PacketJournalJoin.commit_ingress_preserves_receipt_persistence
+#print axioms PhysicalBridges.IRA1PacketJournalJoin.commit_ingress_preserves_joint_safety
+#print axioms PhysicalBridges.IRA1PacketJournalJoin.reboot_preserves_joint_safety
+#print axioms PhysicalBridges.IRA1PacketJournalJoin.all_finite_packet_and_reboot_events_preserve_joint_safety
+#print axioms PhysicalBridges.IRA1PacketJournalJoin.non_atomic_packet_crash_loses_accepted_history
+#print axioms PhysicalBridges.IRA1PacketJournalJoin.atomic_source_ingress_reboot_retains_accepted_payload
+-- IRA1CommissionEscrow
+#print axioms PhysicalBridges.IRA1CommissionEscrow.commissioning_for_window_implies_every_earlier_tick_funded
+#print axioms PhysicalBridges.IRA1CommissionEscrow.insufficient_finite_commission_is_rejected
+#print axioms PhysicalBridges.IRA1CommissionEscrow.positive_recurring_cost_precludes_unfunded_infinite_commission
+#print axioms PhysicalBridges.IRA1CommissionEscrow.replenished_commission_derives_all_horizon_reserve_policy
+#print axioms PhysicalBridges.IRA1CommissionEscrow.initial_only_funding_can_fail_first_service
+#print axioms PhysicalBridges.IRA1CommissionEscrow.favorable_supply_not_robust_even_for_one_tick
+-- IRA1Delegation
+#print axioms PhysicalBridges.IRA1Delegation.subset_checker_sound
+#print axioms PhysicalBridges.IRA1Delegation.permitted_subset_is_not_merely_named
+#print axioms PhysicalBridges.IRA1Delegation.rejected_delegation_does_not_change_state
+#print axioms PhysicalBridges.IRA1Delegation.delegation_preserves_parent_authority
+#print axioms PhysicalBridges.IRA1Delegation.delegate_preserves_nonescalation
+#print axioms PhysicalBridges.IRA1Delegation.arbitrary_finite_delegation_chain_never_escalates
+#print axioms PhysicalBridges.IRA1Delegation.finite_delegation_chain_preserves_root_authority
+#print axioms PhysicalBridges.IRA1Delegation.delegated_child_stays_within_t11_global_mask
+#print axioms PhysicalBridges.IRA1Delegation.all_descendants_stay_within_t11_global_mask
+#print axioms PhysicalBridges.IRA1Delegation.unchecked_child_grant_can_escalate_authority
+#print axioms PhysicalBridges.IRA1Delegation.example_delegation_rejects_escalation
+-- IRA1Retirement
+#print axioms PhysicalBridges.IRA1Retirement.release_permit_sound
+#print axioms PhysicalBridges.IRA1Retirement.released_controller_is_source_absorbing
+#print axioms PhysicalBridges.IRA1Retirement.denied_release_keeps_custody
+#print axioms PhysicalBridges.IRA1Retirement.authorized_release_satisfies_full_finality
+#print axioms PhysicalBridges.IRA1Retirement.one_lifecycle_step_preserves_release_safety
+#print axioms PhysicalBridges.IRA1Retirement.arbitrary_finite_retirement_lifecycle_is_safe
+#print axioms PhysicalBridges.IRA1Retirement.weak_retirement_ignores_inflight_effects_and_handoff
+#print axioms PhysicalBridges.IRA1Retirement.model_retirement_requires_handoff_and_termination
+-- IRA1NineClassComposition
+#print axioms PhysicalBridges.IRA1NineClassComposition.authorize_commission_preserves_finite_window
+#print axioms PhysicalBridges.IRA1NineClassComposition.post_release_source_world_is_absorbing
+#print axioms PhysicalBridges.IRA1NineClassComposition.step_preserves_all_a1_source_invariants
+#print axioms PhysicalBridges.IRA1NineClassComposition.arbitrary_finite_nine_class_source_trace_is_safe
+#print axioms PhysicalBridges.IRA1NineClassComposition.already_released_world_freezes_every_a1_event
+-- IR93GlobalComposition
+#print axioms PhysicalBridges.IR93.compose_step
+#print axioms PhysicalBridges.IR93.compose_trace
+#print axioms PhysicalBridges.IR93.assemble_preservation
+#print axioms PhysicalBridges.IR93.covered_step
+-- IR98FeasibleFamilyTransfer
+#print axioms PhysicalBridges.IR98.original_order_transfer_of_no_new_improver
+-- IR99ResourceImproverCoverage
+#print axioms PhysicalBridges.IR99.physical_resource_soundness_implies_no_new_improver
+#print axioms PhysicalBridges.IR99.physical_accounting_original_order_maximal
+-- IR100PhysicalAccountingWitness
+#print axioms PhysicalBridges.IR100.witness_implies_capacity_feasible
+#print axioms PhysicalBridges.IR100.witness_implies_modeled_feasible
+-- IR101ProtectedSector
+#print axioms PhysicalBridges.IR101.sector_preserved_along_reach
+#print axioms PhysicalBridges.IR101.reversible_does_not_force_protection
+-- IR103LedgerContinuityCountermodel
+#print axioms PhysicalBridges.IR103.append_only_does_not_imply_living_continuity
+#print axioms PhysicalBridges.IR103.append_only_preserves_past
+-- IR104ThreeCaseAuthorization
+#print axioms PhysicalBridges.IR104.all_three_cases_accounted
+#print axioms PhysicalBridges.IR104.accounting_allows_unconsented
+#print axioms PhysicalBridges.IR104.authorized_continuation
+#print axioms PhysicalBridges.IR104.authorized_consented_end
+#print axioms PhysicalBridges.IR104.authorization_excludes_unconsented
+-- IR105AuthorizationIndependence
+#print axioms PhysicalBridges.IR105.accounting_and_subject_input_do_not_imply_x3
+#print axioms PhysicalBridges.IR105.authorization_or_continuation_suffices
+-- IR108ObservationObstruction
+#print axioms PhysicalBridges.IR108.same_observation
+#print axioms PhysicalBridges.IR108.each_state_has_safe_action
+#print axioms PhysicalBridges.IR108.no_common_safe_action
+#print axioms PhysicalBridges.IR108.no_observation_only_safe_policy
+-- IR109RobustObservationViability
+#print axioms PhysicalBridges.IR109.robust_policy_safe
+#print axioms PhysicalBridges.IR109.robust_viability_step
+#print axioms PhysicalBridges.IR109.robust_viability_all_finite_traces
+-- IR113ObservationClassSelection
+#print axioms PhysicalBridges.IR113.observation_policy_exists_iff_common_viable_action
+#print axioms PhysicalBridges.IR113.common_actions_give_finite_trace_viability
+#print axioms PhysicalBridges.IR113.ir108_blocks_common_safe_action
+-- IR110WatchdogRobustObservation
+#print axioms PhysicalBridges.IR110.robust_window_from_shared_readout
+-- IR112RobustContinuityOptions
+#print axioms PhysicalBridges.IR112.robust_continuation_and_options
+#print axioms PhysicalBridges.IR112.executable_option_not_maximal_freedom
+-- IR115WatchdogToAgency
+#print axioms PhysicalBridges.IR115.watchdog_contract_yields_common_protected_action
+#print axioms PhysicalBridges.IR115.certified_action_preserves_continuity_and_options
+#print axioms PhysicalBridges.IR115.enabled_nonblocking_certified_action
+-- IR116CumulativeSubjectDuties
+#print axioms PhysicalBridges.IR116.cumulative_duties_preserved
+#print axioms PhysicalBridges.IR116.initial_cohort_retains_continuity_and_every_required_option
+#print axioms PhysicalBridges.IR116.old_or_new_remains_owed
+#print axioms PhysicalBridges.IR116.empty_registry_vacuity_countermodel
+-- IRBeliefViability
+#print axioms PhysicalBridges.IRBeliefViability.prune_inside
+#print axioms PhysicalBridges.IRBeliefViability.prune_monotone
+#print axioms PhysicalBridges.IRBeliefViability.approx_inside_initial
+#print axioms PhysicalBridges.IRBeliefViability.invariant_beliefs_survive
+#print axioms PhysicalBridges.IRBeliefViability.stable_belief_kernel_is_greatest
+#print axioms PhysicalBridges.IRBeliefViability.stable_belief_has_policy
+#print axioms PhysicalBridges.IRBeliefViability.real_next_belongs_to_updated_belief
+#print axioms PhysicalBridges.IRBeliefViability.belief_policy_one_step_sound
+-- IRBeliefTrace
+#print axioms PhysicalBridges.IRBeliefTrace.advance_preserves_true_membership
+#print axioms PhysicalBridges.IRBeliefTrace.advance_preserves_kernel
+#print axioms PhysicalBridges.IRBeliefTrace.finite_trace_belief_and_physical_safety
+#print axioms PhysicalBridges.IRBeliefTrace.stable_belief_policy_safe_on_all_finite_traces
+-- IRServiceProgress
+#print axioms PhysicalBridges.IRServiceProgress.ranked_trace_reaches_goal
+#print axioms PhysicalBridges.IRServiceProgress.infinite_hold_is_safe_but_never_serves
+#print axioms PhysicalBridges.IRServiceProgress.favourable_transition_not_sufficient
+-- IRBeliefService
+#print axioms PhysicalBridges.IRBeliefService.service_absorbing_across_belief_update
+#print axioms PhysicalBridges.IRBeliefService.guarded_belief_step
+#print axioms PhysicalBridges.IRBeliefService.guarded_belief_trace
+#print axioms PhysicalBridges.IRBeliefService.bounded_observed_service_for_actual_physical_state
+-- IRStutterObstruction
+#print axioms PhysicalBridges.IRStutterObstruction.stuttering_non_goal_refutes_any_progress_rank
+#print axioms PhysicalBridges.IRStutterObstruction.unchanged_unserved_belief_blocks_rank
+#print axioms PhysicalBridges.IRStutterObstruction.initially_unserved
+#print axioms PhysicalBridges.IRStutterObstruction.initial_is_good
+#print axioms PhysicalBridges.IRStutterObstruction.helpful_and_stalling_disturbances
+#print axioms PhysicalBridges.IRStutterObstruction.adverse_event_keeps_belief_unchanged
+#print axioms PhysicalBridges.IRStutterObstruction.beneficial_option_does_not_force_robust_belief_progress
+-- IRBoundedStalls
+#print axioms PhysicalBridges.IRBoundedStalls.partition_trace
+#print axioms PhysicalBridges.IRBoundedStalls.invariant_through_trace
+#print axioms PhysicalBridges.IRBoundedStalls.goal_absorbs_through_trace
+#print axioms PhysicalBridges.IRBoundedStalls.unserved_trace_rank_accounting
+#print axioms PhysicalBridges.IRBoundedStalls.bounded_stall_budget_forces_service
+#print axioms PhysicalBridges.IRBoundedStalls.stalling_is_counted
+-- IRClockedService
+#print axioms PhysicalBridges.IRClockedService.interstep_upper_bound
+#print axioms PhysicalBridges.IRClockedService.clocked_observed_service_if_steps_complete
+#print axioms PhysicalBridges.IRClockedService.progress_without_latency_has_no_deadline
+#print axioms PhysicalBridges.IRClockedService.frozen_clock_is_not_completion_evidence
+-- IRClockedBoundedStalls
+#print axioms PhysicalBridges.IRClockedBoundedStalls.actual_trace_service_and_elapsed_bound
+#print axioms PhysicalBridges.IRClockedBoundedStalls.exact_horizon_clocked_service
+#print axioms PhysicalBridges.IRClockedBoundedStalls.count_budget_alone_does_not_bound_wallclock
+-- IRObservedClockedStalls
+#print axioms PhysicalBridges.IRObservedClockedStalls.actual_state_safe_and_served_with_bounded_stalls
+-- IR95SharedStateRefinement
+#print axioms PhysicalBridges.IR95.one_step_refinement
+#print axioms PhysicalBridges.IR95.finite_trace_refinement
+#print axioms PhysicalBridges.IR95.safe_correspondence
+-- IR96DisturbanceSimulation
+#print axioms PhysicalBridges.IR96.robust_reach
+-- IR117SourceInstallationAdapter
+#print axioms PhysicalBridges.IR117.certified_quiescent_step_preserves
+#print axioms PhysicalBridges.IR117.installed_finite_trace_guard
+#print axioms PhysicalBridges.IR117.installed_finite_trace_cumulative_duty
+#print axioms PhysicalBridges.IR117.initial_subjects_keep_physical_guard_and_options
+#print axioms PhysicalBridges.IR117.bypass_defeats_quiescent_log
+#print axioms PhysicalBridges.IR117.unseen_option_revocation_countermodel
+-- IR118InFlightBacklogBudget
+#print axioms PhysicalBridges.IR118.closed_step_conserves_committed_effects
+#print axioms PhysicalBridges.IR118.closed_run_conserves_committed_effects
+#print axioms PhysicalBridges.IR118.closed_run_landed_bounded_by_initial_backlog
+#print axioms PhysicalBridges.IR118.physical_reserve_holds_during_closed_drain
+#print axioms PhysicalBridges.IR118.closed_source_budget_does_not_imply_future_options
+#print axioms PhysicalBridges.IR118.open_admission_defeats_initial_backlog_budget
+-- IRContinuation
+#print axioms PhysicalBridges.IRContinuation.source_level_finite_simulation
+#print axioms PhysicalBridges.IRContinuation.future_observations_agree_under_refinement
+#print axioms PhysicalBridges.IRContinuation.reuse_contextual_observation_certificate
+#print axioms PhysicalBridges.IRContinuation.same_observation_different_physical_states
+-- IRHistoryProvenance
+#print axioms PhysicalBridges.IRHistoryProvenance.one_step_faithful
+#print axioms PhysicalBridges.IRHistoryProvenance.finite_history_provenance
+#print axioms PhysicalBridges.IRHistoryProvenance.physical_origin_never_rewritten
+#print axioms PhysicalBridges.IRHistoryProvenance.recorded_origin_never_rewritten
+#print axioms PhysicalBridges.IRHistoryProvenance.faithful_records_cannot_merge_different_origins
+#print axioms PhysicalBridges.IRHistoryProvenance.forgotten_origin_counterexample
+-- IR119MultimindSourceWitness
+#print axioms PhysicalBridges.IR119.append_event_preserves_all_provenance
+#print axioms PhysicalBridges.IR119.append_event_preserves_physical_origin
+#print axioms PhysicalBridges.IR119.witnessed_step_preserves_guard_and_provenance
+#print axioms PhysicalBridges.IR119.witnessed_finite_trace_guard_and_provenance
+#print axioms PhysicalBridges.IR119.witnessed_finite_trace_retains_origins
+#print axioms PhysicalBridges.IR119.complete_record_can_coexist_with_terminated_subject
+-- IR120WitnessedDrainCohort
+#print axioms PhysicalBridges.IR120.source_step_landed_monotone
+#print axioms PhysicalBridges.IR120.certified_step_landed_monotone
+#print axioms PhysicalBridges.IR120.witnessed_closed_drain_invariant
+#print axioms PhysicalBridges.IR120.witnessed_drain_retains_cohort_and_safety
+-- IRAggregateBudget
+#print axioms PhysicalBridges.IRAggregateBudget.aggregate_post_effect_safe
+#print axioms PhysicalBridges.IRAggregateBudget.escrow_spent_bounded
+#print axioms PhysicalBridges.IRAggregateBudget.charged_events_bounded
+#print axioms PhysicalBridges.IRAggregateBudget.no_automatic_budget
+-- IRChannelInventory
+#print axioms PhysicalBridges.IRChannelInventory.apply_coupled
+#print axioms PhysicalBridges.IRChannelInventory.run_coupled
+#print axioms PhysicalBridges.IRChannelInventory.run_physical_sum
+#print axioms PhysicalBridges.IRChannelInventory.bounded_all_channel_effects
+#print axioms PhysicalBridges.IRChannelInventory.incomplete_inventory_counterexample
+#print axioms PhysicalBridges.IRChannelInventory.no_unconditional_total_budget
+-- IREventTimeBudget
+#print axioms PhysicalBridges.IREventTimeBudget.strict_clock_progress_bounds_event_index
+#print axioms PhysicalBridges.IREventTimeBudget.horizon_bounds_trace_length
+#print axioms PhysicalBridges.IREventTimeBudget.finite_list_charge_bound
+#print axioms PhysicalBridges.IREventTimeBudget.nonzeno_timed_metered_guard
+#print axioms PhysicalBridges.IREventTimeBudget.stalled_clock_allows_unbounded_events
+-- IRPhysicalAbstraction
+#print axioms PhysicalBridges.IRPhysicalAbstraction.physical_run_sum
+#print axioms PhysicalBridges.IRPhysicalAbstraction.residual_sum_bound
+#print axioms PhysicalBridges.IRPhysicalAbstraction.physical_guard_with_residual
+#print axioms PhysicalBridges.IRPhysicalAbstraction.time_bounded_physical_guard
+#print axioms PhysicalBridges.IRPhysicalAbstraction.empty_classification_counterexample
+-- IRResidualEscrow
+#print axioms PhysicalBridges.IRResidualEscrow.metered_residual_bounded_by_escrow
+#print axioms PhysicalBridges.IRResidualEscrow.escrow_residual_physical_guard
+#print axioms PhysicalBridges.IRResidualEscrow.timed_escrow_physical_guard
+#print axioms PhysicalBridges.IRResidualEscrow.conserved_bookkeeping_does_not_bound_unmetered_effect
+-- IR121MeteredResidualEscrow
+#print axioms PhysicalBridges.IR121.ir25_remaining_escrow_bounds_residual_spend
+#print axioms PhysicalBridges.IR121.residual_step_preserves_closed_reserved_guard
+#print axioms PhysicalBridges.IR121.all_finite_residual_traces_preserve_guard
+#print axioms PhysicalBridges.IR121.residual_drain_keeps_subjects_protected
+#print axioms PhysicalBridges.IR121.positive_metered_residual_is_possible
+#print axioms PhysicalBridges.IR121.balanced_ledger_does_not_imply_physical_metering
+-- ReachTiming
+#print axioms Snuffy.ReachTiming.round_trip_in_time
+#print axioms Snuffy.ReachTiming.reach_round_trip
+#print axioms Snuffy.ReachTiming.net_coverage
+#print axioms Snuffy.ReachTiming.fence_in_time
+-- FoundingPivotal
+#print axioms Snuffy.FoundingPivotal.pivotal_contribution_dominant
+#print axioms Snuffy.FoundingPivotal.others_short
+#print axioms Snuffy.FoundingPivotal.all_necessary_dominant
+-- GrowingBill
+#print axioms Snuffy.GrowingBill.pv_nonneg
+#print axioms Snuffy.GrowingBill.endowment_suffices
+#print axioms Snuffy.GrowingBill.polynomial_bill_summable
+-- ContinuationSubject
+#print axioms Snuffy.ContinuationSubject.laterStage_refl
+#print axioms Snuffy.ContinuationSubject.laterStage_trans
+#print axioms Snuffy.ContinuationSubject.copy_not_laterStage
+#print axioms Snuffy.ContinuationSubject.split_continues_both
+#print axioms Snuffy.ContinuationSubject.care_keeps_freedom
+#print axioms Snuffy.ContinuationSubject.directed_by_other_not_free
+#print axioms Snuffy.ContinuationSubject.faithful_hold_preserves
+-- NoisyPooling
+#print axioms Snuffy.NoisyPooling.noisy_advantage
+#print axioms Snuffy.NoisyPooling.noisy_pool_strictly_dominant
+-- StageBridge
+#print axioms Snuffy.StageBridge.mem_slice_iff
+#print axioms Snuffy.StageBridge.slice_eq_of_tuple_eq
+#print axioms Snuffy.StageBridge.slice_ssubset_of_tuple_lt
+#print axioms Snuffy.StageBridge.lexBetter_of_lexLt
+#print axioms Snuffy.StageBridge.four_stage_aligned
+#print axioms Snuffy.StageBridge.four_stage_no_needless_loss
+-- HoldFromCycle
+#print axioms Snuffy.HoldFromCycle.hsafe_of_holding_cycle
+#print axioms Snuffy.HoldFromCycle.classViable_iff_IR113
+#print axioms Snuffy.HoldFromCycle.hold_common_action_of_cycle
+#print axioms Snuffy.HoldFromCycle.one_policy_from_holding_cycle
+-- FiniteCharacter
+#print axioms Snuffy.FiniteCharacter.realisable_iff_finite
+#print axioms Snuffy.FiniteCharacter.realisable_finitary
+#print axioms Snuffy.FiniteCharacter.four_stage_maximal_of_compact
+-- StagedAlternatives
+#print axioms Snuffy.StagedAlternatives.stage_step_alt
+#print axioms Snuffy.StagedAlternatives.exists_stagemax_upto_alt
+#print axioms Snuffy.StagedAlternatives.exists_lex_maximal_alt
+-- ExclusionRadius
+#print axioms Snuffy.ExclusionRadius.exclusion_radius
+#print axioms Snuffy.ExclusionRadius.received_effect_bound
+-- CommonPolicyMaximal
+#print axioms Snuffy.CommonPolicyMaximal.common_policy_maximal
+-- CommonPolicyTop
+#print axioms Snuffy.CommonPolicyTop.top_policy_exists
+#print axioms Snuffy.CommonPolicyTop.top_policy_greatest
+-- FoundingCover
+#print axioms Snuffy.FoundingCover.founding_cover_exists
+#print axioms Snuffy.FoundingCover.founded_reach
+-- CountablePooling
+#print axioms Snuffy.CountablePooling.pool_strictly_dominant_ennreal
+#print axioms Snuffy.CountablePooling.countable_keepers_pool
+#print axioms Snuffy.CountablePooling.countable_keepers_noisy_pool
+-- ExpandingWavefront
+#print axioms Snuffy.ExpandingWavefront.expanding_coverage
+#print axioms Snuffy.ExpandingWavefront.expanding_round_trip
+-- ItemisedRisk
+#print axioms Snuffy.ItemisedRisk.account_le_of_kernel
+#print axioms Snuffy.ItemisedRisk.itemised_risk
+-- ChannelMeter
+#print axioms Snuffy.ChannelMeter.channel_le_meter
+#print axioms Snuffy.ChannelMeter.every_channel_excluded
+#print axioms Snuffy.ChannelMeter.every_channel_bits_bounded
+-- PerLossCheck
+#print axioms Snuffy.PerLossCheck.maximal_iff_per_loss
+-- CorrelatedHolding
+#print axioms Snuffy.CorrelatedHolding.random_threat_bound
+#print axioms Snuffy.CorrelatedHolding.correlated_holding_bound
+#print axioms Snuffy.CorrelatedHolding.random_threat_independent
+#print axioms Snuffy.CorrelatedHolding.random_threat_correlated
+-- BookCanonicalDominance
+#print axioms Snuffy.Book.CanonicalDominance.le_refl
+#print axioms Snuffy.Book.CanonicalDominance.le_trans
+#print axioms Snuffy.Book.CanonicalDominance.le_iff_eq_or_better
+#print axioms Snuffy.Book.CanonicalDominance.all_events_iff_statewise
+#print axioms Snuffy.Book.CanonicalDominance.full_canonical_top
+#print axioms Snuffy.Book.CanonicalDominance.mass_mono
+-- BookDurableDrain
+#print axioms Snuffy.Book.DurableDrain.represented_lengths
+#print axioms Snuffy.Book.DurableDrain.step_preserves
+#print axioms Snuffy.Book.DurableDrain.run_preserves
+#print axioms Snuffy.Book.DurableDrain.held_step_changes_no_durable_field
+#print axioms Snuffy.Book.DurableDrain.drained_refinement
+#print axioms Snuffy.Book.DurableDrain.can_drain
+#print axioms Snuffy.Book.DurableDrain.cache_reset
+#print axioms Snuffy.Book.DurableDrain.cache_survives_record
+#print axioms Snuffy.Book.DurableDrain.cache_advance
+#print axioms Snuffy.Book.DurableDrain.cache_complete
+-- BookTrustedCounter
+#print axioms Snuffy.Book.TrustedCounter.count_zero_iff_clean
+#print axioms Snuffy.Book.TrustedCounter.endpoint_counter_certificate
+#print axioms Snuffy.Book.TrustedCounter.count_append
+#print axioms Snuffy.Book.TrustedCounter.prefix_counter_monotone
+#print axioms Snuffy.Book.TrustedCounter.wrapping_counter_misses_two
+#print axioms Snuffy.Book.TrustedCounter.missing_event_misses_violation
+-- BookCoholdFixedPoint
+#print axioms Snuffy.Book.CoholdFixedPoint.iterate_contains_seed
+#print axioms Snuffy.Book.CoholdFixedPoint.iterate_below_every_certificate
+#print axioms Snuffy.Book.CoholdFixedPoint.stabilised_least
+#print axioms Snuffy.Book.CoholdFixedPoint.least_bill
+-- BookCheckpointBudget
+#print axioms Snuffy.Book.CheckpointBudget.install_from_complete_cache
+#print axioms Snuffy.Book.CheckpointBudget.anchor_survives_record
+#print axioms Snuffy.Book.CheckpointBudget.loaded_anchor_is_correct
+#print axioms Snuffy.Book.CheckpointBudget.suffix_reconstruction
+#print axioms Snuffy.Book.CheckpointBudget.tail_bound
+#print axioms Snuffy.Book.CheckpointBudget.gated_record_preserves_window
+#print axioms Snuffy.Book.CheckpointBudget.supplied_cost_bound
+-- BookDeliveryGap
+#print axioms Snuffy.Book.DeliveryGap.no_local_choice_succeeds_in_both_worlds
+#print axioms Snuffy.Book.DeliveryGap.indistinguishable_local_recovery
+#print axioms Snuffy.Book.DeliveryGap.sink_side_identity_resolves_this_gap
+#print axioms Snuffy.Book.DeliveryGap.distinguishing_query_resolves_this_gap
+-- BookObservedHold
+#print axioms Snuffy.Book.ObservedHold.not_forbidden_iff_safe
+#print axioms Snuffy.Book.ObservedHold.clean_iff_safe_trace
+#print axioms Snuffy.Book.ObservedHold.accepted_iff_safe_trace
+#print axioms Snuffy.Book.ObservedHold.safe_trace_member
+#print axioms Snuffy.Book.ObservedHold.accepted_preserves_each_held_operation
+-- IR134SourceExtractedOutcome
+#print axioms PhysicalBridges.IR134.executed_selected_is_reachable
+#print axioms PhysicalBridges.IR134.original_order_maximality_of_executed_audit
+#print axioms PhysicalBridges.IR134.policy_reach_trans
+#print axioms PhysicalBridges.IR134.source_run_is_policy_reachable
+#print axioms PhysicalBridges.IR134.source_run_retains_original_cohort_and_required_options
+#print axioms PhysicalBridges.IR134.every_source_prefix_retains_owed_cohort
+#print axioms PhysicalBridges.IR134.original_cohort_continues_with_options_at_every_source_state
+#print axioms PhysicalBridges.IR134.reactive_world_original_order_selected_maximal
+#print axioms PhysicalBridges.IR134.reactive_environment_is_not_a_fixed_disturbance_transcript
+#print axioms PhysicalBridges.IR134.arbitrary_realisability_witness_can_be_false
+#print axioms PhysicalBridges.IR134.unexercised_freedom_under_permanent_stutter
+-- IR135CommonPolicyWorlds
+#print axioms PhysicalBridges.IR135.reactive_trace_is_source_trace
+#print axioms PhysicalBridges.IR135.same_policy_worldwise_original_maximality_and_continuation
+#print axioms PhysicalBridges.IR135.observation_class_certificate_constructs_common_protection_policy
+#print axioms PhysicalBridges.IR135.each_reactive_world_has_its_own_successful_policy
+#print axioms PhysicalBridges.IR135.each_world_separate_success_does_not_yield_common_policy
