@@ -102,6 +102,21 @@ XII.2 now lists exactly the hypotheses still to discharge.
 modules (306 in all), runs the gates and the final full build, and writes
 `RECEIPT-299-RUN4.txt` and `RECEIPT-FINAL.txt`. If the session ends first, re-run it.
 
+## Gap-closing modules (29 Oct, evening)
+
+Compiled with zero output and staged in `staging-lean/Snuffy/`:
+- `FiniteCharacter`: finite character derived from compactness.
+- `StagedAlternatives`: disjunctive requirements.
+- `ExclusionRadius`: emission and decoherence radius.
+- `CommonPolicyMaximal`: one policy maximal across all worlds.
+- `CommonPolicyTop`: one policy realising the top in every world, under union closure.
+- `FoundingCover`: finitely many founding guards suffice.
+
+Run 4 PASSED (299 modules / 1,889 statements, `RECEIPT-299-RUN4.txt`). Run 5 (306) was
+running. `tools/finalize3.sh` waits for run 5, saves `RECEIPT-306-RUN5.txt`, registers these
+six (312 modules), and runs the final build into `RECEIPT-FINAL.txt`. Then update
+`LEAN-COUNT.txt`, run `assemble.py` and `render.sh`, sync the mirror and push.
+
 ## If the session ended before the final receipt (29 Oct, ~12:45 NZDT)
 
 A watcher (`tools/finalize.sh`) was running. It waits for the 198-module run, then:
