@@ -5343,9 +5343,15 @@ the swept region give coverage at radius \(\rho+\rho_{\rm net}\).
    \(r=C(1-\varepsilon)/H>1\) with \(H=c(K_E+aS_{\max})+A\) (Theorem NP), split among
    \(n\) independent keepers (MS), so that \(\varphi(n)\le\exp(-2n(1-\varepsilon-H/C)^2)\)
    (`NarrowPlace.np_splitting_bound`);
-   founding fails with probability at most \(\eta_F\).
+   founding fails with probability at most \(\eta_F\). Neither a fixed threat nor
+   independence is needed for a guarantee: a random threat correlated with the deliveries
+   adds only its cap's account \(\eta_H\) (`CorrelatedHolding.random_threat_independent`),
+   and under any joint law of the keepers, common-mode failures included, holding fails
+   with probability at most \(\eta_H+\varepsilon/(1-H_{\max}/C)\)
+   (`random_threat_correlated`, by Markov's inequality).
 2. **(Founding coverage.)** At \(t_0\) every digital mind's substrate outputs are
-   fenced (Corollary XI.3; the G1 inventory of those outputs is complete), and every
+   fenced (Corollary XI.3; a total meter bounds every output channel, listed or not,
+   `ChannelMeter`), and every
    location of \(D(t_0)\) is within \(\rho\le c_s(d-\tau)/2\) of a funded guard.
    This is the founding certificate (XI.5 item 1); Theorem XI propagates it. Its
    location half is a finite construction: a compact initial domain is covered at any
@@ -5714,7 +5720,7 @@ the maximal claim. These boundaries have been in the theory since 18 October.
 | 13 | Rival bound at the top needs ∃π∀w | Repaired: one policy realising the top in every world exists under union closure (G.9) on a compact policy space, and its outcome is the greatest (`CommonPolicyTop.top_policy_exists`, `top_policy_greatest`); without union closure, one policy maximal across all worlds jointly (`CommonPolicyMaximal.common_policy_maximal`) |
 | 14 | Lemma W geometry: continuum guards, light speed, cosmic expansion | Repaired: `ReachTiming.net_coverage` for discrete guards; light-speed particulars are the case v = c; expansion handled in comoving distance and conformal time (`ExpandingWavefront`) |
 | 15 | Lemma P omits own-keeper noise; countable keepers | Repaired for own noise: `NoisyPooling.noisy_pool_strictly_dominant` (gain \((1-\varepsilon-\delta)\) times the pivotal gap, for \(\varepsilon+\delta<1\)); countably many keepers with any joint law (`CountablePooling.countable_keepers_pool`, `countable_keepers_noisy_pool`) |
-| 16 | NarrowPlace needs H independent of deliveries | Recorded: H is a constant in the compiled statement; correlated failures charged in Lemma R's accounts |
+| 16 | NarrowPlace needs H independent of deliveries | Repaired: random threat correlated with the deliveries adds only its cap's account (`CorrelatedHolding.random_threat_independent`); correlated keepers, any joint law, bounded by Markov (`correlated_holding_bound`, `random_threat_correlated`) |
 | 17 | ContinuationPredicate too strict for care | Repaired: `ContinuationSubject` (subject, author and director separated; `care_keeps_freedom`) |
 | 18 | Relations premise | Repaired: relations covered by location (Lemma W covers every location) and by the fence on the acting mind |
 | 19 | Wording (R versus H mapping; IR-72 full-state; test count) | Repaired in text |
