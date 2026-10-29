@@ -1,50 +1,110 @@
-"""Check every Lean name cited in the recovered parts against the compiled canon.
+#!/usr/bin/env python3
+"""Resolve recovered-part citations against declarations, namespaces and modules.
 
-usage: python3 tools/check_citations.py  (from CANON-EDITION-STRONGEST-WORKING/)
+A resolved hypothesis identifier is reported as an identifier, not a proved
+theorem. Namespace suffixes and the optional Snuffy prefix are recognised.
+Source comments and strings supply no declarations or identifiers.
+"""
+import collections
+import re
+import sys
+from pathlib import Path
 
-A citation is a backticked `Module.name` or `Module` whose first segment is a Capitalised identifier.
-It resolves when lean/Snuffy/<Module>.lean exists and, for `Module.name`, declares that name (theorem,
-lemma, def, structure or abbrev, possibly inside a namespace). A backticked lowercase identifier is
-resolved by searching every module for a declaration of that name."""
-import glob, os, re, sys
+HERE = Path(__file__).resolve().parents[1]
+LEAN = HERE.parent / "CANON-EDITION-V4.2-WORKING/lean/Snuffy"
+if not LEAN.is_dir():
+    LEAN = HERE / "lean/Snuffy"  # self-contained mirror/deposit layout
+PARTS = ["PARTS-V-VIII.md", "PARTS-IX-XII.md"]
+IDENT = r"[A-Za-z_][\w']*"
+DECL = re.compile(r"^\s*(?:@\[[^\]]*\]\s*)?(?:(?:private|protected|noncomputable|unsafe)\s+)*(?:theorem|lemma|def|structure|abbrev|inductive|class|instance)\s+([^\s:({\[]+)")
 
-HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LEAN = os.path.join(HERE, '..', 'CANON-EDITION-V4.2-WORKING', 'lean', 'Snuffy')
-PARTS = ['PARTS-V-VIII.md', 'PARTS-IX-XII.md']
 
-decl = re.compile(r'^\s*(?:private\s+|protected\s+|noncomputable\s+)*(?:theorem|lemma|def|structure|abbrev|inductive|class|instance)\s+([^\s:({\[]+)', re.M)
-mods = {}
-for f in glob.glob(os.path.join(LEAN, '**', '*.lean'), recursive=True):
-    name = os.path.relpath(f, LEAN)[:-5].replace(os.sep, '.')
-    mods[name] = set(m.split('.')[-1] for m in decl.findall(open(f).read()))
-all_names = set().union(*mods.values())
+def code_only(text):
+    """Preserve newlines while masking nested Lean comments and quoted strings."""
+    out, i, depth = [], 0, 0
+    while i < len(text):
+        if depth:
+            if text.startswith("/-", i): depth += 1; out.extend("  "); i += 2
+            elif text.startswith("-/", i): depth -= 1; out.extend("  "); i += 2
+            else: out.append("\n" if text[i] == "\n" else " "); i += 1
+        elif text.startswith("/-", i): depth = 1; out.extend("  "); i += 2
+        elif text.startswith("--", i):
+            end = text.find("\n", i)
+            if end < 0: end = len(text)
+            out.extend(" " * (end - i)); i = end
+        elif text[i] == '"':
+            out.append(" "); i += 1
+            while i < len(text):
+                c = text[i]; out.append("\n" if c == "\n" else " "); i += 1
+                if c == "\\" and i < len(text): out.append(" "); i += 1
+                elif c == '"': break
+        else: out.append(text[i]); i += 1
+    return "".join(out)
 
-tick = re.compile(r'`([^`\s]+)`')
-missing, checked = [], 0
-for part in PARTS:
-    for ln, line in enumerate(open(os.path.join(HERE, part)), 1):
-        for tok in tick.findall(line):
-            tok = tok.strip('.,;:()')
-            if '/' in tok or tok.endswith(('.md', '.py', '.json', '.txt', '.lean', '.sh')) or not re.match(r'^[A-Za-z][\w.\']*$', tok):
-                continue
-            segs = tok.split('.')
-            if segs[0][0].isupper():
-                # find the longest module prefix
-                for k in range(len(segs), 0, -1):
-                    mod = '.'.join(segs[:k])
-                    if mod in mods: break
-                else:
-                    if len(segs) == 1 and tok not in all_names:
-                        continue   # a capitalised word in backticks that is not a module, e.g. a type name
-                    missing.append((part, ln, tok, 'no such module')); checked += 1; continue
-                checked += 1
-                rest = segs[k:]
-                if rest and rest[-1] not in mods[mod]:
-                    missing.append((part, ln, tok, f'{rest[-1]} not declared in {mod}'))
-            elif '_' in tok and tok.islower() or re.match(r'^[a-z]+[A-Z_]\w*$', tok):
-                checked += 1
-                if tok not in all_names:
-                    missing.append((part, ln, tok, 'not declared in any module'))
-print(f'modules {len(mods)}, citations checked {checked}, unresolved {len(missing)}')
-for m in missing: print('  %s:%d  `%s`  %s' % m)
-sys.exit(1 if missing else 0)
+
+def strip_snuffy(name):
+    return name.removeprefix("_root_.").removeprefix("Snuffy.")
+
+
+def inventory(root):
+    mods, qualified, namespaces, identifiers = {}, set(), set(), set()
+    for p in sorted(root.rglob("*.lean")):
+        mod = ".".join(p.relative_to(root).with_suffix("").parts)
+        code = code_only(p.read_text())
+        identifiers.update(re.findall(IDENT, code))
+        stack, names = [], set()
+        for line in code.splitlines():
+            ns = ".".join(x for kind, x in stack if kind == "ns")
+            if m := re.match(r"\s*namespace\s+(\S+)", line):
+                stack.append(("ns", m[1])); namespaces.add(strip_snuffy(".".join(x for k, x in stack if k == "ns")))
+            elif re.match(r"\s*(?:noncomputable\s+)?section(?:\s+\S+)?\s*$", line): stack.append(("section", ""))
+            elif re.match(r"\s*end(?:\s+\S+)?\s*$", line):
+                if stack: stack.pop()
+            elif m := DECL.match(line):
+                short = m[1]
+                if short == ":": continue  # anonymous instance
+                names.add(short.split(".")[-1])
+                qualified.add(strip_snuffy((ns + "." if ns else "") + short))
+        mods[mod] = names
+    return mods, qualified, namespaces, identifiers
+
+
+def resolve(token, inv):
+    mods, qualified, namespaces, identifiers = inv
+    token = strip_snuffy(token)
+    segs = token.split(".")
+    if token in mods: return "module"
+    if token in qualified or any(q.endswith("." + token) for q in qualified): return "declaration"
+    if token in namespaces or any(q.endswith("." + token) for q in namespaces): return "namespace"
+    for k in range(len(segs) - 1, 0, -1):
+        prefix = ".".join(segs[:k])
+        if prefix in mods:
+            return "declaration" if segs[-1] in mods[prefix] else None
+    if len(segs) == 1:
+        if any(token in ns for ns in mods.values()): return "declaration"
+        if token[0].islower() and token in identifiers: return "identifier"
+    return None
+
+
+def main():
+    inv = inventory(LEAN)
+    counts, missing = collections.Counter(), []
+    for part in PARTS:
+        for ln, line in enumerate((HERE / part).read_text().splitlines(), 1):
+            for token in re.findall(r"`([^`\s]+)`", line):
+                token = token.strip(".,;:()")
+                if not re.fullmatch(r"[A-Za-z][\w.']*", token): continue
+                if token.endswith((".md", ".py", ".json", ".txt", ".lean", ".sh")): continue
+                relevant = token[0].isupper() or "_" in token or re.match(r"^[a-z]+[A-Z]", token)
+                if not relevant: continue
+                category = resolve(token, inv)
+                if category: counts[category] += 1
+                else: missing.append((part, ln, token))
+    print(f"modules {len(inv[0])}, citations checked {sum(counts.values())+len(missing)}, unresolved {len(missing)}")
+    print("resolved " + ", ".join(f"{key} {val}" for key, val in sorted(counts.items())))
+    for part, ln, token in missing: print(f"  {part}:{ln} `{token}` unresolved")
+    return bool(missing)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

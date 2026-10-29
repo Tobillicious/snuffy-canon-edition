@@ -318,6 +318,15 @@ import Snuffy.ItemisedRisk
 import Snuffy.ChannelMeter
 import Snuffy.PerLossCheck
 import Snuffy.CorrelatedHolding
+import Snuffy.BookCanonicalDominance
+import Snuffy.BookDurableDrain
+import Snuffy.BookTrustedCounter
+import Snuffy.BookCoholdFixedPoint
+import Snuffy.BookCheckpointBudget
+import Snuffy.BookDeliveryGap
+import Snuffy.BookObservedHold
+import Snuffy.IR134SourceExtractedOutcome
+import Snuffy.IR135CommonPolicyWorlds
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -2583,3 +2592,70 @@ import Snuffy.CorrelatedHolding
 #print axioms Snuffy.CorrelatedHolding.correlated_holding_bound
 #print axioms Snuffy.CorrelatedHolding.random_threat_independent
 #print axioms Snuffy.CorrelatedHolding.random_threat_correlated
+-- BookCanonicalDominance
+#print axioms Snuffy.Book.CanonicalDominance.le_refl
+#print axioms Snuffy.Book.CanonicalDominance.le_trans
+#print axioms Snuffy.Book.CanonicalDominance.le_iff_eq_or_better
+#print axioms Snuffy.Book.CanonicalDominance.all_events_iff_statewise
+#print axioms Snuffy.Book.CanonicalDominance.full_canonical_top
+#print axioms Snuffy.Book.CanonicalDominance.mass_mono
+-- BookDurableDrain
+#print axioms Snuffy.Book.DurableDrain.represented_lengths
+#print axioms Snuffy.Book.DurableDrain.step_preserves
+#print axioms Snuffy.Book.DurableDrain.run_preserves
+#print axioms Snuffy.Book.DurableDrain.held_step_changes_no_durable_field
+#print axioms Snuffy.Book.DurableDrain.drained_refinement
+#print axioms Snuffy.Book.DurableDrain.can_drain
+#print axioms Snuffy.Book.DurableDrain.cache_reset
+#print axioms Snuffy.Book.DurableDrain.cache_survives_record
+#print axioms Snuffy.Book.DurableDrain.cache_advance
+#print axioms Snuffy.Book.DurableDrain.cache_complete
+-- BookTrustedCounter
+#print axioms Snuffy.Book.TrustedCounter.count_zero_iff_clean
+#print axioms Snuffy.Book.TrustedCounter.endpoint_counter_certificate
+#print axioms Snuffy.Book.TrustedCounter.count_append
+#print axioms Snuffy.Book.TrustedCounter.prefix_counter_monotone
+#print axioms Snuffy.Book.TrustedCounter.wrapping_counter_misses_two
+#print axioms Snuffy.Book.TrustedCounter.missing_event_misses_violation
+-- BookCoholdFixedPoint
+#print axioms Snuffy.Book.CoholdFixedPoint.iterate_contains_seed
+#print axioms Snuffy.Book.CoholdFixedPoint.iterate_below_every_certificate
+#print axioms Snuffy.Book.CoholdFixedPoint.stabilised_least
+#print axioms Snuffy.Book.CoholdFixedPoint.least_bill
+-- BookCheckpointBudget
+#print axioms Snuffy.Book.CheckpointBudget.install_from_complete_cache
+#print axioms Snuffy.Book.CheckpointBudget.anchor_survives_record
+#print axioms Snuffy.Book.CheckpointBudget.loaded_anchor_is_correct
+#print axioms Snuffy.Book.CheckpointBudget.suffix_reconstruction
+#print axioms Snuffy.Book.CheckpointBudget.tail_bound
+#print axioms Snuffy.Book.CheckpointBudget.gated_record_preserves_window
+#print axioms Snuffy.Book.CheckpointBudget.supplied_cost_bound
+-- BookDeliveryGap
+#print axioms Snuffy.Book.DeliveryGap.no_local_choice_succeeds_in_both_worlds
+#print axioms Snuffy.Book.DeliveryGap.indistinguishable_local_recovery
+#print axioms Snuffy.Book.DeliveryGap.sink_side_identity_resolves_this_gap
+#print axioms Snuffy.Book.DeliveryGap.distinguishing_query_resolves_this_gap
+-- BookObservedHold
+#print axioms Snuffy.Book.ObservedHold.not_forbidden_iff_safe
+#print axioms Snuffy.Book.ObservedHold.clean_iff_safe_trace
+#print axioms Snuffy.Book.ObservedHold.accepted_iff_safe_trace
+#print axioms Snuffy.Book.ObservedHold.safe_trace_member
+#print axioms Snuffy.Book.ObservedHold.accepted_preserves_each_held_operation
+-- IR134SourceExtractedOutcome
+#print axioms PhysicalBridges.IR134.executed_selected_is_reachable
+#print axioms PhysicalBridges.IR134.original_order_maximality_of_executed_audit
+#print axioms PhysicalBridges.IR134.policy_reach_trans
+#print axioms PhysicalBridges.IR134.source_run_is_policy_reachable
+#print axioms PhysicalBridges.IR134.source_run_retains_original_cohort_and_required_options
+#print axioms PhysicalBridges.IR134.every_source_prefix_retains_owed_cohort
+#print axioms PhysicalBridges.IR134.original_cohort_continues_with_options_at_every_source_state
+#print axioms PhysicalBridges.IR134.reactive_world_original_order_selected_maximal
+#print axioms PhysicalBridges.IR134.reactive_environment_is_not_a_fixed_disturbance_transcript
+#print axioms PhysicalBridges.IR134.arbitrary_realisability_witness_can_be_false
+#print axioms PhysicalBridges.IR134.unexercised_freedom_under_permanent_stutter
+-- IR135CommonPolicyWorlds
+#print axioms PhysicalBridges.IR135.reactive_trace_is_source_trace
+#print axioms PhysicalBridges.IR135.same_policy_worldwise_original_maximality_and_continuation
+#print axioms PhysicalBridges.IR135.observation_class_certificate_constructs_common_protection_policy
+#print axioms PhysicalBridges.IR135.each_reactive_world_has_its_own_successful_policy
+#print axioms PhysicalBridges.IR135.each_world_separate_success_does_not_yield_common_policy

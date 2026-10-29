@@ -4,13 +4,14 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 C=../CANON-EDITION-V4.2-WORKING/checks
+[[ -d "$C" ]] || C=checks
 M=SNUFFY-UPT-STRONGEST-MASTER.md
 mkdir -p render
 B=render/Snuffy-UPT-Compiled-Edition
 T="The Universal Protection Theory — compiled edition"
 F=markdown+tex_math_single_backslash+lists_without_preceding_blankline
 pandoc -f $F "$M" -s --toc -V geometry:margin=1in -V mainfont="STIXGeneral" -V mathfont="STIX Two Math" \
-  -V monofont="Menlo" -M title="The Universal Protection Theory" -M subtitle="Compiled edition: Canon 4.2 with the recovered parts" \
+  -V monofont="Menlo" -M title="The Universal Protection Theory" -M subtitle="The law, its bridge to every mind, and the complete argument" \
   -M author="Tobias Croydon-McRae" -M date="29 October 2026" -V colorlinks=true -V linkcolor=blue \
   -H $C/render-header.tex --lua-filter=$C/breakable-code.lua -M pagetitle="$T" -o "$B.tex"
 ( cd render && for i in 1 2 3; do xelatex -interaction=nonstopmode -halt-on-error "$(basename $B).tex" > xelatex.log 2>&1 || { tail -30 xelatex.log; exit 2; }; done )

@@ -1,4 +1,4 @@
-# v4.2 modules — build receipt (2026-10-29T04:41Z)
+# v4.2 modules — build receipt (2026-10-29T05:48Z)
 # Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release); Mathlib rev 56a005855ea17e0b0958f73ec801ae140b0a1679
 ## MathlibAnalyticBridge: exit=0 compiler-output-bytes=0
 ## HalperinDecay: exit=0 compiler-output-bytes=0
@@ -316,6 +316,8 @@
 ## ExpandingWavefront: exit=0 compiler-output-bytes=0
 ## ItemisedRisk: exit=0 compiler-output-bytes=0
 ## ChannelMeter: exit=0 compiler-output-bytes=0
+## PerLossCheck: exit=0 compiler-output-bytes=0
+## CorrelatedHolding: exit=0 compiler-output-bytes=0
 ## leanchecker Snuffy.MathlibAnalyticBridge: exit=0
 ## leanchecker Snuffy.HalperinDecay: exit=0
 ## leanchecker Snuffy.OpialBridge: exit=0
@@ -632,6 +634,8 @@
 ## leanchecker Snuffy.ExpandingWavefront: exit=0
 ## leanchecker Snuffy.ItemisedRisk: exit=0
 ## leanchecker Snuffy.ChannelMeter: exit=0
+## leanchecker Snuffy.PerLossCheck: exit=0
+## leanchecker Snuffy.CorrelatedHolding: exit=0
 ## sorry/admit/axiom uses in sources: none
 ## axiom audit (SummitsAudit.lean):
 ##   'Snuffy.AnalyticBridge.starProjection_fixed_iff_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2809,13 +2813,18 @@
 ##   'Snuffy.ChannelMeter.channel_le_meter' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.ChannelMeter.every_channel_excluded' depends on axioms: [propext, Classical.choice, Quot.sound]
 ##   'Snuffy.ChannelMeter.every_channel_bits_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.PerLossCheck.maximal_iff_per_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CorrelatedHolding.random_threat_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CorrelatedHolding.correlated_holding_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CorrelatedHolding.random_threat_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+##   'Snuffy.CorrelatedHolding.random_threat_correlated' depends on axioms: [propext, Classical.choice, Quot.sound]
 ## axiom audit exit=0
-## theorems audited: 1941; non-standard axiom dependencies: none
-## expected audited statements: 1941
+## theorems audited: 1946; non-standard axiom dependencies: none
+## expected audited statements: 1946
 ## gates (completeness: every built bank module is in the canon; claims: every audited theorem is cited in §23):
-##   ## completeness: canon 316, corpus names 104, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 1742
-##   ## build/audit coverage: canon 316, build 316, audit 316, errors 0
-##   ## claims: audited theorems 1941, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
+##   ## completeness: canon 318, corpus names 104, excluded 0, missing 0, phantom exclusions 0, skipped-by-policy 1742
+##   ## build/audit coverage: canon 318, build 318, audit 318, errors 0
+##   ## claims: audited theorems 1946, uncited in §23 0; ledger rows 27, ledger theorems not audited 0
 ## source sha256:
 ##   13a34509dd00bcf64fa3bad42bb1d84e45662c9ac014555b612bc26cdb608926  Snuffy/AdaptiveConsensus.lean
 ##   4b416646e1fc8f74f524e0f9a680384e35e06adacd69f91bb30dcec70b921b7e  Snuffy/AffordableReciprocity.lean
@@ -2875,6 +2884,7 @@
 ##   8f4d8faaf7ebc5e15997f0b5667ec988016bbea090ed487d27e5271ed6ccbd43  Snuffy/ControllerFence.lean
 ##   e5cfdacff59c22ff7c9447c308faa09e3822d5ad7531f2e8435e535c4432dca7  Snuffy/ControllerFinality.lean
 ##   dad8822f00f28aa83bce2fc5b4941c2df4e8aa5cc79d4841e5836061c0d85b6f  Snuffy/CorrelatedCeiling.lean
+##   986f733315945644f15a6b654f63604288733872475b81ef5336b2fc8fada7c9  Snuffy/CorrelatedHolding.lean
 ##   beb05c3273ac414cea47d28c9ce8e0f6f0160a7a2ed1cff43f0d0da0ced52ea3  Snuffy/CorrelatedStress.lean
 ##   9b0ef460496f42e0ea3b20d2c0907985242c5ff1b61938b1cf0e891ad8c4d6ec  Snuffy/CountablePooling.lean
 ##   0d1c1d0875fbee992b5d5a069e1b32e0f123446755277aaf90fb4c819eccc225  Snuffy/CutEquivalence.lean
@@ -3050,6 +3060,7 @@
 ##   557288d5d6ddfc467fa1aee469b3ebd2402d7d3e9a3476fcb11f17b37c95dd5c  Snuffy/OuterLane.lean
 ##   87476d6351da978a583f7c6b69bb6b20b27ae253afd6118337782fe6053daa51  Snuffy/P2P3.lean
 ##   02dbb95a922bc17657314757900578d45bd1d2f13d0ad3012569cb7eccedc92f  Snuffy/PassiveReference.lean
+##   cb61b1999124118764e9ffd8f5b475f0237c29188bc90ee210f63ac64ca7d431  Snuffy/PerLossCheck.lean
 ##   c2f5e45956371b46a7dec2ff38b117aa4ad9d0f3c52f8141362b3a8cd4064571  Snuffy/PhysicalGuard.lean
 ##   5c6e13296b1dd2ed9dfbc5008369ded813a2830a4d10dc3988f5dadb2492a93d  Snuffy/PremiseFloor.lean
 ##   d120f4c73096a49eeb9cbd4042f55f44ddec2084e89535475ea85331b01f9c5a  Snuffy/PureStateDistance.lean
@@ -3133,5 +3144,5 @@
 ##   fcfcf42fc99f43b196b65cb4f51d12e52d69d05bc0c7cdd90e2d03a6514a3e15  Snuffy/WorkBilling.lean
 ##   a9fa9a83449543a0eda20271eefb0ec853df01a105a28e800406de03131d38d1  Snuffy/WorkIntegration.lean
 ##   506bf978ba3bae5e1ecac1c013903c47fdcf7c49de797a138e76bc96b38da8db  Snuffy/Workload.lean
-##   48c34432bf66f417e39ddd25ea1abb48ca41e1e31fe5e7095e4d63cb3868a52f  SummitsAudit.lean
+##   47d18b5dc6adc68f9bfbd0b270cae0ce8da1f434156d2f03618464859509ea72  SummitsAudit.lean
 ## overall: PASS

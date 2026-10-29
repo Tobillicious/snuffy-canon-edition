@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 318. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
+Canon modules: 327. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 318. Audit imports: 318.
+Build modules: 327. Audit imports: 327.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -1765,7 +1765,14 @@ Build modules: 318. Audit imports: 318.
 | `BennettBatch` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/BennettBatch.lean` |
 | `BennettCounterpart` | yes | `2026-10-25-historical-handoff-source/bennett-counterpart/lean/Snuffy/BennettCounterpart.lean` |
 | `BennettExact` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/BennettExact.lean` |
+| `BookCanonicalDominance` | yes | `(canon only)` |
+| `BookCheckpointBudget` | yes | `(canon only)` |
+| `BookCoholdFixedPoint` | yes | `(canon only)` |
 | `BookContextualObservation` | yes | `(canon only)` |
+| `BookDeliveryGap` | yes | `(canon only)` |
+| `BookDurableDrain` | yes | `(canon only)` |
+| `BookObservedHold` | yes | `(canon only)` |
+| `BookTrustedCounter` | yes | `(canon only)` |
 | `BookUPTAdequacy` | yes | `(canon only)` |
 | `BookUPTAgents` | yes | `(canon only)` |
 | `BookUPTBroadcast` | yes | `(canon only)` |
@@ -1902,6 +1909,8 @@ Build modules: 318. Audit imports: 318.
 | `IR119MultimindSourceWitness` | yes | `(canon only)` |
 | `IR120WitnessedDrainCohort` | yes | `(canon only)` |
 | `IR121MeteredResidualEscrow` | yes | `(canon only)` |
+| `IR134SourceExtractedOutcome` | yes | `(canon only)` |
+| `IR135CommonPolicyWorlds` | yes | `(canon only)` |
 | `IR93GlobalComposition` | yes | `(canon only)` |
 | `IR95SharedStateRefinement` | yes | `(canon only)` |
 | `IR96DisturbanceSimulation` | yes | `(canon only)` |
