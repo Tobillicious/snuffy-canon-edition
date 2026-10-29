@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 198. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
+Canon modules: 299. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 198. Audit imports: 198.
+Build modules: 299. Audit imports: 299.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -1765,6 +1765,29 @@ Build modules: 198. Audit imports: 198.
 | `BennettBatch` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/BennettBatch.lean` |
 | `BennettCounterpart` | yes | `2026-10-25-historical-handoff-source/bennett-counterpart/lean/Snuffy/BennettCounterpart.lean` |
 | `BennettExact` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/BennettExact.lean` |
+| `BookContextualObservation` | yes | `(canon only)` |
+| `BookUPTAdequacy` | yes | `(canon only)` |
+| `BookUPTAgents` | yes | `(canon only)` |
+| `BookUPTBroadcast` | yes | `(canon only)` |
+| `BookUPTCountRefinement` | yes | `(canon only)` |
+| `BookUPTDominance` | yes | `(canon only)` |
+| `BookUPTExistence` | yes | `(canon only)` |
+| `BookUPTHold` | yes | `(canon only)` |
+| `BookUPTHoldAdequacy` | yes | `(canon only)` |
+| `BookUPTHoldTimed` | yes | `(canon only)` |
+| `BookUPTImpartiality` | yes | `(canon only)` |
+| `BookUPTInfiniteGuard` | yes | `(canon only)` |
+| `BookUPTLaw` | yes | `(canon only)` |
+| `BookUPTLawGuard` | yes | `(canon only)` |
+| `BookUPTLawLex` | yes | `(canon only)` |
+| `BookUPTLawRepair` | yes | `(canon only)` |
+| `BookUPTLifeGuardExists` | yes | `(canon only)` |
+| `BookUPTLottery` | yes | `(canon only)` |
+| `BookUPTLotteryMenu` | yes | `(canon only)` |
+| `BookUPTMonotone` | yes | `(canon only)` |
+| `BookUPTNoExchangeRate` | yes | `(canon only)` |
+| `BookUPTQuorum` | yes | `(canon only)` |
+| `BookUPTRestraint` | yes | `(canon only)` |
 | `Bridge` | yes | `(canon only)` |
 | `BridgeD1` | yes | `2026-10-23-gemini-bridge-dynamics/lean/BridgeD1.lean` |
 | `BridgeE9` | yes | `2026-10-23-gemini-bridge-dynamics/lean/BridgeE9.lean` |
@@ -1781,6 +1804,7 @@ Build modules: 198. Audit imports: 198.
 | `ConcatenatedDecoding` | yes | `2026-10-25-historical-handoff-source/concatenated-decoding/lean/Snuffy/ConcatenatedDecoding.lean` |
 | `ConsensusRate` | yes | `(canon only)` |
 | `ConservedRouting` | yes | `2026-10-24-glm-phase-a/lean/ConservedRouting.lean` |
+| `ContinuationPredicate` | yes | `(canon only)` |
 | `ControllerCertificate` | yes | `2026-10-24-glm-phase-a/lean/ControllerCertificate.lean` |
 | `ControllerFence` | yes | `(canon only)` |
 | `ControllerFinality` | yes | `(canon only)` |
@@ -1797,6 +1821,7 @@ Build modules: 198. Audit imports: 198.
 | `E9Routes` | yes | `2026-10-23-adoption-contracts/lean/E9Routes.lean` |
 | `E9SelfHealing` | yes | `(canon only)` |
 | `EdgeLaw` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/EdgeLaw.lean` |
+| `EmissionBound` | yes | `(canon only)` |
 | `ErrorBudget` | yes | `2026-10-25-error-budget/ErrorBudget.lean` |
 | `ExRecBound` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/ExRecBound.lean` |
 | `FIFOAdmission` | yes | `2026-10-23-r17-fifo-verification/lean/FIFOAdmission.lean` |
@@ -1806,6 +1831,7 @@ Build modules: 198. Audit imports: 198.
 | `FaultCover` | yes | `(canon only)` |
 | `FinalClosure` | yes | `(canon only)` |
 | `FiniteInformation` | yes | `(canon only)` |
+| `FoundingAnchor` | yes | `(canon only)` |
 | `FoundingDominance` | yes | `(canon only)` |
 | `G1Certificate` | yes | `(canon only)` |
 | `G1Complete` | yes | `(canon only)` |
@@ -1846,6 +1872,81 @@ Build modules: 198. Audit imports: 198.
 | `HistoryPolymer` | yes | `(canon only)` |
 | `HoldCommonAction` | yes | `(canon only)` |
 | `Htopkeeps` | yes | `(canon only)` |
+| `IR100PhysicalAccountingWitness` | yes | `(canon only)` |
+| `IR101ProtectedSector` | yes | `(canon only)` |
+| `IR103LedgerContinuityCountermodel` | yes | `(canon only)` |
+| `IR104ThreeCaseAuthorization` | yes | `(canon only)` |
+| `IR105AuthorizationIndependence` | yes | `(canon only)` |
+| `IR108ObservationObstruction` | yes | `(canon only)` |
+| `IR109RobustObservationViability` | yes | `(canon only)` |
+| `IR110WatchdogRobustObservation` | yes | `(canon only)` |
+| `IR112RobustContinuityOptions` | yes | `(canon only)` |
+| `IR113ObservationClassSelection` | yes | `(canon only)` |
+| `IR115WatchdogToAgency` | yes | `(canon only)` |
+| `IR116CumulativeSubjectDuties` | yes | `(canon only)` |
+| `IR117SourceInstallationAdapter` | yes | `(canon only)` |
+| `IR118InFlightBacklogBudget` | yes | `(canon only)` |
+| `IR119MultimindSourceWitness` | yes | `(canon only)` |
+| `IR120WitnessedDrainCohort` | yes | `(canon only)` |
+| `IR121MeteredResidualEscrow` | yes | `(canon only)` |
+| `IR93GlobalComposition` | yes | `(canon only)` |
+| `IR95SharedStateRefinement` | yes | `(canon only)` |
+| `IR96DisturbanceSimulation` | yes | `(canon only)` |
+| `IR98FeasibleFamilyTransfer` | yes | `(canon only)` |
+| `IR99ResourceImproverCoverage` | yes | `(canon only)` |
+| `IRA1CausalField` | yes | `(canon only)` |
+| `IRA1CommissionEscrow` | yes | `(canon only)` |
+| `IRA1Delegation` | yes | `(canon only)` |
+| `IRA1DurableJournal` | yes | `(canon only)` |
+| `IRA1HostMediation` | yes | `(canon only)` |
+| `IRA1NineClassComposition` | yes | `(canon only)` |
+| `IRA1PacketIngress` | yes | `(canon only)` |
+| `IRA1PacketJournalJoin` | yes | `(canon only)` |
+| `IRA1PageCapability` | yes | `(canon only)` |
+| `IRA1Retirement` | yes | `(canon only)` |
+| `IRAggregateBudget` | yes | `(canon only)` |
+| `IRAtomicQuiescence` | yes | `(canon only)` |
+| `IRBeliefService` | yes | `(canon only)` |
+| `IRBeliefTrace` | yes | `(canon only)` |
+| `IRBeliefViability` | yes | `(canon only)` |
+| `IRBoundedStalls` | yes | `(canon only)` |
+| `IRCapabilityNoninterference` | yes | `(canon only)` |
+| `IRChannelInventory` | yes | `(canon only)` |
+| `IRClockedBoundedStalls` | yes | `(canon only)` |
+| `IRClockedService` | yes | `(canon only)` |
+| `IRContinuation` | yes | `(canon only)` |
+| `IRControlledReentry` | yes | `(canon only)` |
+| `IRControllerPhysical` | yes | `(canon only)` |
+| `IRCoupledFinitaryTwoStage` | yes | `(canon only)` |
+| `IRDeferredEffects` | yes | `(canon only)` |
+| `IREnergyReplenishment` | yes | `(canon only)` |
+| `IREventTimeBudget` | yes | `(canon only)` |
+| `IRFiniteProfileObstruction` | yes | `(canon only)` |
+| `IRFiniteRefutationCriterion` | yes | `(canon only)` |
+| `IRHistoryProvenance` | yes | `(canon only)` |
+| `IRInFlightQuiescence` | yes | `(canon only)` |
+| `IRInfiniteFinitaryMaximality` | yes | `(canon only)` |
+| `IRInfiniteHistoryCompactness` | yes | `(canon only)` |
+| `IRInterSampleEnvelope` | yes | `(canon only)` |
+| `IRJsonTraceChecker` | yes | `(canon only)` |
+| `IRMandatoryBaselineMaximality` | yes | `(canon only)` |
+| `IRMicrostepInvariant` | yes | `(canon only)` |
+| `IRObservedClockedStalls` | yes | `(canon only)` |
+| `IRPhysicalAbstraction` | yes | `(canon only)` |
+| `IRPhysicalGuard` | yes | `(canon only)` |
+| `IRProfileAudit` | yes | `(canon only)` |
+| `IRQuiescenceAck` | yes | `(canon only)` |
+| `IRResidualEscrow` | yes | `(canon only)` |
+| `IRResourceDerivedClosure` | yes | `(canon only)` |
+| `IRSafeMaximality` | yes | `(canon only)` |
+| `IRSelectedMaximality` | yes | `(canon only)` |
+| `IRServiceProgress` | yes | `(canon only)` |
+| `IRStoredEnergyCommonMode` | yes | `(canon only)` |
+| `IRStutterObstruction` | yes | `(canon only)` |
+| `IRTwoStageInfiniteLex` | yes | `(canon only)` |
+| `IRTypedTraceChecker` | yes | `(canon only)` |
+| `IRViability` | yes | `(canon only)` |
+| `IRWatchdogLatencyEffects` | yes | `(canon only)` |
 | `Instruments` | yes | `(canon only)` |
 | `IntegrationCertificate` | yes | `2026-10-24-glm-phase-a/lean/IntegrationCertificate.lean` |
 | `Irreplaceability` | yes | `(canon only)` |

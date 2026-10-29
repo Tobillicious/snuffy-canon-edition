@@ -12,8 +12,8 @@ IR-115: physical watchdog reaction-window bounds to a robust
 continuing-subject action with an executable future option.
 
 The actual subject correspondence, physical actuator/effect semantics,
-and post-window executable option are INDEPENDENT obligations. The
-theorem must not be read as deriving them from the scalar threshold.
+and post-window executable option are INDEPENDENT obligations. The theorem
+must not be read as deriving them from the scalar threshold.
 It is a source-contract composition, not a universal X3 proof.
 -/
 namespace PhysicalBridges.IR115
