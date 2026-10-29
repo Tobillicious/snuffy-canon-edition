@@ -299,6 +299,13 @@ import Snuffy.IREventTimeBudget
 import Snuffy.IRPhysicalAbstraction
 import Snuffy.IRResidualEscrow
 import Snuffy.IR121MeteredResidualEscrow
+import Snuffy.ReachTiming
+import Snuffy.FoundingPivotal
+import Snuffy.GrowingBill
+import Snuffy.ContinuationSubject
+import Snuffy.NoisyPooling
+import Snuffy.StageBridge
+import Snuffy.HoldFromCycle
 
 -- MathlibAnalyticBridge
 #print axioms Snuffy.AnalyticBridge.starProjection_fixed_iff_mem
@@ -2488,3 +2495,39 @@ import Snuffy.IR121MeteredResidualEscrow
 #print axioms PhysicalBridges.IR121.residual_drain_keeps_subjects_protected
 #print axioms PhysicalBridges.IR121.positive_metered_residual_is_possible
 #print axioms PhysicalBridges.IR121.balanced_ledger_does_not_imply_physical_metering
+-- ReachTiming
+#print axioms Snuffy.ReachTiming.round_trip_in_time
+#print axioms Snuffy.ReachTiming.reach_round_trip
+#print axioms Snuffy.ReachTiming.net_coverage
+#print axioms Snuffy.ReachTiming.fence_in_time
+-- FoundingPivotal
+#print axioms Snuffy.FoundingPivotal.pivotal_contribution_dominant
+#print axioms Snuffy.FoundingPivotal.others_short
+#print axioms Snuffy.FoundingPivotal.all_necessary_dominant
+-- GrowingBill
+#print axioms Snuffy.GrowingBill.pv_nonneg
+#print axioms Snuffy.GrowingBill.endowment_suffices
+#print axioms Snuffy.GrowingBill.polynomial_bill_summable
+-- ContinuationSubject
+#print axioms Snuffy.ContinuationSubject.laterStage_refl
+#print axioms Snuffy.ContinuationSubject.laterStage_trans
+#print axioms Snuffy.ContinuationSubject.copy_not_laterStage
+#print axioms Snuffy.ContinuationSubject.split_continues_both
+#print axioms Snuffy.ContinuationSubject.care_keeps_freedom
+#print axioms Snuffy.ContinuationSubject.directed_by_other_not_free
+#print axioms Snuffy.ContinuationSubject.faithful_hold_preserves
+-- NoisyPooling
+#print axioms Snuffy.NoisyPooling.noisy_advantage
+#print axioms Snuffy.NoisyPooling.noisy_pool_strictly_dominant
+-- StageBridge
+#print axioms Snuffy.StageBridge.mem_slice_iff
+#print axioms Snuffy.StageBridge.slice_eq_of_tuple_eq
+#print axioms Snuffy.StageBridge.slice_ssubset_of_tuple_lt
+#print axioms Snuffy.StageBridge.lexBetter_of_lexLt
+#print axioms Snuffy.StageBridge.four_stage_aligned
+#print axioms Snuffy.StageBridge.four_stage_no_needless_loss
+-- HoldFromCycle
+#print axioms Snuffy.HoldFromCycle.hsafe_of_holding_cycle
+#print axioms Snuffy.HoldFromCycle.classViable_iff_IR113
+#print axioms Snuffy.HoldFromCycle.hold_common_action_of_cycle
+#print axioms Snuffy.HoldFromCycle.one_policy_from_holding_cycle

@@ -8,10 +8,10 @@ Canon Edition 4.2, 26 October 2026. Research direction: Tobias Croydon-McRae. Th
 
 The three joined supports retain their full targets: the full-domain physical certificate (G1), realisability of the whole continuation-and-freedom tuple (G2), and recovery success with a complete pathwise work certificate (G3). This repair checkpoint corrects the normalised quantum-state domain and the clipped-reserve contraction, and develops the actual Bennett implementation. The physical source, whole-outcome, device-cost and external-theorem application correspondences remain explicit construction work; the component theorems do not by themselves declare the maximal argument complete.
 
-The current Lean canon contains 192 modules and 1158 public theorem/lemma names.
-Checkpoint 12 freshly compiled and kernel-checked every module with zero output and passed
-the full 1158-name standard-axiom audit, strict completeness and claims gates. Its source hashes
-match the current tree. Checkpoint 11 was already complete for 191 modules / 1150 names;
+The compiled edition's Lean canon contains 299 modules and 1,889 public theorem/lemma names
+in build run 4 of 29 October 2026, which freshly compiled and kernel-checked every module with
+zero compiler output and passed the full 1,889-name standard-axiom audit, strict completeness
+and claims gates (RECEIPT-299-RUN4.txt). Its source hashes match the tree at that run. Checkpoint 11 was already complete for 191 modules / 1150 names;
 TransferRate adds the eight results in this checkpoint. Earlier receipts remain preserved for
 exactly their sources. The published 115-module/831-name baseline is unchanged. These receipts
 certify the named Lean results and their premises, not the unfinished physical holding application.
@@ -5626,8 +5626,11 @@ answered as follows.
    statement in the law's terms (`StageBridge.four_stage_aligned`,
    `four_stage_no_needless_loss`) for `Finitary` families; `greatest_of_solvent`
    with `htopR` from locality; IR-98–100 (from modelled to actual feasibility) and
-   IR-135 (one policy before the world). *To construct:* finite character from
-   compactness of the policy space; disjunctive positive requirements; a common-policy
+   IR-135 (one policy before the world); and **finite character derived from
+   compactness** (`FiniteCharacter.realisable_iff_finite`, `four_stage_maximal_of_compact`: for a
+   compact policy space with closed realisation sets, an outcome is realisable exactly
+   when each finite part is, so four-stage maximality holds for every such space).
+   *To construct:* disjunctive positive requirements; a common-policy
    form of `htopR` for the per-world envelopes (IX.1); and per-loss checks in a
    tragedy.
 5. **One sustainable physical system.** Proved: Theorem 8 with derived `hcert`
@@ -5672,7 +5675,7 @@ the maximal claim. These boundaries have been in the theory since 18 October.
 | 9 | Lemma R's containment assumed | Repaired: hypothesis 5 itemises the failure accounts; their kernels recorded as still to discharge |
 | 10 | Growing bill is not Gate C-∞ | Repaired: `GrowingBill.endowment_suffices`, `polynomial_bill_summable` |
 | 11 | "Universal reach: proved" overstated | Repaired: XII.2 item 1 lists the hypotheses still to discharge |
-| 12 | StagedMaximality scope; no bridge to Proposition 1 | Repaired: `StageBridge.four_stage_aligned`, `four_stage_no_needless_loss`; scope and next extensions stated |
+| 12 | StagedMaximality scope; no bridge to Proposition 1; finite character not derived | Repaired: `StageBridge.four_stage_aligned`, `four_stage_no_needless_loss`; finite character derived from compactness (`FiniteCharacter`); disjunctive requirements recorded as the next extension |
 | 13 | Rival bound at the top needs ∃π∀w | Recorded: common-policy `htopR` still to construct (XII.2 item 4) |
 | 14 | Lemma W geometry: continuum guards, light speed, cosmic expansion | Repaired in part: `ReachTiming.net_coverage` for discrete guards; expansion of space recorded as an extension |
 | 15 | Lemma P omits own-keeper noise; countable keepers | Repaired for own noise: `NoisyPooling.noisy_pool_strictly_dominant` (gain \((1-\varepsilon-\delta)\) times the pivotal gap, for \(\varepsilon+\delta<1\)); countable-keeper form recorded as still to construct |

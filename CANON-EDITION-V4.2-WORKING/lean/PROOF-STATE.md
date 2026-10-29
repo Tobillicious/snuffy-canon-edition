@@ -1,10 +1,10 @@
 # Proof state
 
-Canon modules: 299. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
+Canon modules: 306. Corpus module names: 104. Excluded with reason: 0. Missing: 0. Phantom exclusions: 0. Skipped by directory policy: 1742. Build/audit manifest errors: 0.
 
 ## Build and audit coverage
 
-Build modules: 299. Audit imports: 299.
+Build modules: 306. Audit imports: 306.
 
 ## Skipped by directory policy (visible, not checked — listed every audit)
 
@@ -1805,6 +1805,7 @@ Build modules: 299. Audit imports: 299.
 | `ConsensusRate` | yes | `(canon only)` |
 | `ConservedRouting` | yes | `2026-10-24-glm-phase-a/lean/ConservedRouting.lean` |
 | `ContinuationPredicate` | yes | `(canon only)` |
+| `ContinuationSubject` | yes | `(canon only)` |
 | `ControllerCertificate` | yes | `2026-10-24-glm-phase-a/lean/ControllerCertificate.lean` |
 | `ControllerFence` | yes | `(canon only)` |
 | `ControllerFinality` | yes | `(canon only)` |
@@ -1833,6 +1834,7 @@ Build modules: 299. Audit imports: 299.
 | `FiniteInformation` | yes | `(canon only)` |
 | `FoundingAnchor` | yes | `(canon only)` |
 | `FoundingDominance` | yes | `(canon only)` |
+| `FoundingPivotal` | yes | `(canon only)` |
 | `G1Certificate` | yes | `(canon only)` |
 | `G1Complete` | yes | `(canon only)` |
 | `G1E9` | yes | `2026-10-25-historical-handoff-source/g1-e9/lean/Snuffy/G1E9.lean` |
@@ -1862,6 +1864,7 @@ Build modules: 299. Audit imports: 299.
 | `GenerativeClosure` | yes | `2026-10-23-adoption-contracts/lean/GenerativeClosure.lean` |
 | `GoldenFormula` | yes | `(canon only)` |
 | `Greatestness` | yes | `(canon only)` |
+| `GrowingBill` | yes | `(canon only)` |
 | `GuardFactorization` | yes | `(canon only)` |
 | `GuardOperator` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/GuardOperator.lean` |
 | `GuardSignature` | yes | `2026-10-25-beam-late-eight-integration/before/lean/Snuffy/GuardSignature.lean` |
@@ -1871,6 +1874,7 @@ Build modules: 299. Audit imports: 299.
 | `HamiltonianDecomposition` | yes | `2026-10-25-historical-handoff-source/working/lean/Snuffy/HamiltonianDecomposition.lean` |
 | `HistoryPolymer` | yes | `(canon only)` |
 | `HoldCommonAction` | yes | `(canon only)` |
+| `HoldFromCycle` | yes | `(canon only)` |
 | `Htopkeeps` | yes | `(canon only)` |
 | `IR100PhysicalAccountingWitness` | yes | `(canon only)` |
 | `IR101ProtectedSector` | yes | `(canon only)` |
@@ -1964,6 +1968,7 @@ Build modules: 299. Audit imports: 299.
 | `MeetHilbert` | yes | `(canon only)` |
 | `MetricShadow` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/MetricShadow.lean` |
 | `NarrowPlace` | yes | `(canon only)` |
+| `NoisyPooling` | yes | `(canon only)` |
 | `ObservationWinning` | yes | `2026-10-25-historical-handoff-source/recovered-r17-sources/lean/Snuffy/ObservationWinning.lean` |
 | `OpialBridge` | yes | `(canon only)` |
 | `OriginalD1` | yes | `2026-10-23-gemini-original-derivations/lean/OriginalD1.lean` |
@@ -1995,6 +2000,7 @@ Build modules: 299. Audit imports: 299.
 | `RGFixedPoint` | yes | `(canon only)` |
 | `RankAndCoalition` | yes | `2026-10-23-gemini-thirteen-bridges 2/lean/RankAndCoalition.lean` |
 | `ReachBeforeHarm` | yes | `(canon only)` |
+| `ReachTiming` | yes | `(canon only)` |
 | `ReadoutBounds` | yes | `2026-10-23-next-work-and-corrections/checks/ReadoutBounds.lean` |
 | `ReadoutJoint` | yes | `2026-10-23-readout-joint-floor/lean/ReadoutJoint.lean` |
 | `ReasonsCompiled` | yes | `(canon only)` |
@@ -2022,6 +2028,7 @@ Build modules: 299. Audit imports: 299.
 | `SolventReciprocity` | yes | `2026-10-25-solvent-reciprocity/SolventReciprocity.lean` |
 | `SparseFailure` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/SparseFailure.lean` |
 | `SpeedLimit` | yes | `(canon only)` |
+| `StageBridge` | yes | `(canon only)` |
 | `StageSchedule` | yes | `2026-10-26-4.2-join-repairs/claude-candidates/lean/Snuffy/StageSchedule.lean` |
 | `StagedMaximality` | yes | `(canon only)` |
 | `StrokeBookkeeping` | yes | `(canon only)` |

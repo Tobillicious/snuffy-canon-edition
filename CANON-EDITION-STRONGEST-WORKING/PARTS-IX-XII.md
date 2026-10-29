@@ -521,8 +521,11 @@ answered as follows.
    statement in the law's terms (`StageBridge.four_stage_aligned`,
    `four_stage_no_needless_loss`) for `Finitary` families; `greatest_of_solvent`
    with `htopR` from locality; IR-98–100 (from modelled to actual feasibility) and
-   IR-135 (one policy before the world). *To construct:* finite character from
-   compactness of the policy space; disjunctive positive requirements; a common-policy
+   IR-135 (one policy before the world); and **finite character derived from
+   compactness** (`FiniteCharacter.realisable_iff_finite`, `four_stage_maximal_of_compact`: for a
+   compact policy space with closed realisation sets, an outcome is realisable exactly
+   when each finite part is, so four-stage maximality holds for every such space).
+   *To construct:* disjunctive positive requirements; a common-policy
    form of `htopR` for the per-world envelopes (IX.1); and per-loss checks in a
    tragedy.
 5. **One sustainable physical system.** Proved: Theorem 8 with derived `hcert`
@@ -567,7 +570,7 @@ the maximal claim. These boundaries have been in the theory since 18 October.
 | 9 | Lemma R's containment assumed | Repaired: hypothesis 5 itemises the failure accounts; their kernels recorded as still to discharge |
 | 10 | Growing bill is not Gate C-∞ | Repaired: `GrowingBill.endowment_suffices`, `polynomial_bill_summable` |
 | 11 | "Universal reach: proved" overstated | Repaired: XII.2 item 1 lists the hypotheses still to discharge |
-| 12 | StagedMaximality scope; no bridge to Proposition 1 | Repaired: `StageBridge.four_stage_aligned`, `four_stage_no_needless_loss`; scope and next extensions stated |
+| 12 | StagedMaximality scope; no bridge to Proposition 1; finite character not derived | Repaired: `StageBridge.four_stage_aligned`, `four_stage_no_needless_loss`; finite character derived from compactness (`FiniteCharacter`); disjunctive requirements recorded as the next extension |
 | 13 | Rival bound at the top needs ∃π∀w | Recorded: common-policy `htopR` still to construct (XII.2 item 4) |
 | 14 | Lemma W geometry: continuum guards, light speed, cosmic expansion | Repaired in part: `ReachTiming.net_coverage` for discrete guards; expansion of space recorded as an extension |
 | 15 | Lemma P omits own-keeper noise; countable keepers | Repaired for own noise: `NoisyPooling.noisy_pool_strictly_dominant` (gain \((1-\varepsilon-\delta)\) times the pivotal gap, for \(\varepsilon+\delta<1\)); countable-keeper form recorded as still to construct |

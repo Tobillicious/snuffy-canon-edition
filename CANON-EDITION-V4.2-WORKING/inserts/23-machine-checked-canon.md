@@ -446,6 +446,13 @@ Generated from the sources by `lean/gen-index.py`; every theorem listed here is 
 | `IRPhysicalAbstraction` | `physical_run_sum`, `residual_sum_bound`, `physical_guard_with_residual`, `time_bounded_physical_guard`, `empty_classification_counterexample` |
 | `IRResidualEscrow` | `metered_residual_bounded_by_escrow`, `escrow_residual_physical_guard`, `timed_escrow_physical_guard`, `conserved_bookkeeping_does_not_bound_unmetered_effect` |
 | `IR121MeteredResidualEscrow` | `ir25_remaining_escrow_bounds_residual_spend`, `residual_step_preserves_closed_reserved_guard`, `all_finite_residual_traces_preserve_guard`, `residual_drain_keeps_subjects_protected`, `positive_metered_residual_is_possible`, `balanced_ledger_does_not_imply_physical_metering` |
+| `ReachTiming` | `round_trip_in_time`, `reach_round_trip`, `net_coverage`, `fence_in_time` |
+| `FoundingPivotal` | `pivotal_contribution_dominant`, `others_short`, `all_necessary_dominant` |
+| `GrowingBill` | `pv_nonneg`, `endowment_suffices`, `polynomial_bill_summable` |
+| `ContinuationSubject` | `laterStage_refl`, `laterStage_trans`, `copy_not_laterStage`, `split_continues_both`, `care_keeps_freedom`, `directed_by_other_not_free`, `faithful_hold_preserves` |
+| `NoisyPooling` | `noisy_advantage`, `noisy_pool_strictly_dominant` |
+| `StageBridge` | `mem_slice_iff`, `slice_eq_of_tuple_eq`, `slice_ssubset_of_tuple_lt`, `lexBetter_of_lexLt`, `four_stage_aligned`, `four_stage_no_needless_loss` |
+| `HoldFromCycle` | `hsafe_of_holding_cycle`, `classViable_iff_IR113`, `hold_common_action_of_cycle`, `one_policy_from_holding_cycle` |
 <!-- END THEOREM INDEX -->
 
 ---
